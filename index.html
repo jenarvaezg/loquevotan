@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congreso Transparente - Votaciones del Congreso de los Diputados</title>
+    <meta name="description" content="Consulta qué vota cada diputado en el Congreso de España, con categorías comprensibles para ciudadanos.">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+    <header class="container">
+        <hgroup>
+            <h1>Congreso Transparente</h1>
+            <p>Qué vota cada diputado, explicado para ciudadanos</p>
+        </hgroup>
+    </header>
+
+    <main class="container">
+        <!-- Filters -->
+        <details open>
+            <summary role="button" class="secondary">Filtros</summary>
+            <div class="grid">
+                <div>
+                    <label for="search-diputado">Buscar diputado/a</label>
+                    <input type="search" id="search-diputado" placeholder="Apellidos, Nombre...">
+                </div>
+                <div>
+                    <label for="filter-categoria">Categoría</label>
+                    <select id="filter-categoria">
+                        <option value="">Todas las categorías</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="filter-grupo">Grupo parlamentario</label>
+                    <select id="filter-grupo">
+                        <option value="">Todos los grupos</option>
+                    </select>
+                </div>
+            </div>
+            <div class="grid">
+                <div>
+                    <label for="filter-voto">Sentido del voto</label>
+                    <select id="filter-voto">
+                        <option value="">Todos</option>
+                        <option value="A favor">A favor</option>
+                        <option value="En contra">En contra</option>
+                        <option value="Abstención">Abstención</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="filter-fecha-desde">Desde</label>
+                    <input type="date" id="filter-fecha-desde">
+                </div>
+                <div>
+                    <label for="filter-fecha-hasta">Hasta</label>
+                    <input type="date" id="filter-fecha-hasta">
+                </div>
+            </div>
+            <div class="grid">
+                <div>
+                    <label for="filter-etiqueta">Etiqueta temática</label>
+                    <input type="search" id="filter-etiqueta" list="etiquetas-list" placeholder="Ej: okupacion, pensiones...">
+                    <datalist id="etiquetas-list"></datalist>
+                </div>
+                <div>
+                    <label>Etiquetas activas</label>
+                    <div id="tags-activos"></div>
+                </div>
+                <div></div>
+            </div>
+            <button type="button" id="btn-reset" class="secondary outline">Limpiar filtros</button>
+        </details>
+
+        <!-- Stats -->
+        <p id="results-count" aria-live="polite"></p>
+
+        <!-- Loading -->
+        <div id="loading" aria-busy="true">
+            <p>Cargando datos del Congreso...</p>
+        </div>
+
+        <!-- Error -->
+        <p id="error" role="alert"></p>
+
+        <!-- Results table -->
+        <div class="overflow-auto">
+            <table role="grid">
+                <thead>
+                    <tr>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Diputado/a</th>
+                        <th scope="col">Grupo</th>
+                        <th scope="col">Asunto</th>
+                        <th scope="col">Categoría</th>
+                        <th scope="col">Etiquetas</th>
+                        <th scope="col">Voto</th>
+                    </tr>
+                </thead>
+                <tbody id="results-body"></tbody>
+            </table>
+        </div>
+
+        <!-- Pagination -->
+        <nav id="pagination" aria-label="Paginación"></nav>
+    </main>
+
+    <footer class="container">
+        <hr>
+        <small>
+            Datos oficiales del
+            <a href="https://www.congreso.es/es/opendata/votaciones" target="_blank" rel="noopener">
+                Congreso de los Diputados (Datos Abiertos)
+            </a>.
+            Categorización automática por IA. Proyecto de código abierto.
+        </small>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

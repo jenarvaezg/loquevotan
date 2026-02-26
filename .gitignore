@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.DS_Store
+data/raw/
+data/last_fetch_*.txt
+node_modules/
+.omc/
