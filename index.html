@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Congreso Transparente - Votaciones del Congreso de los Diputados</title>
+    <title>Lo Que Votan - Votaciones del Congreso de los Diputados</title>
     <meta name="description" content="Consulta qué vota cada diputado en el Congreso de España, con categorías comprensibles para ciudadanos.">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
     <link rel="stylesheet" href="css/custom.css">
@@ -11,70 +11,12 @@
 <body>
     <header class="container">
         <hgroup>
-            <h1>Congreso Transparente</h1>
+            <h1><a href="#" class="brand-link">Lo Que Votan</a></h1>
             <p>Qué vota cada diputado, explicado para ciudadanos</p>
         </hgroup>
     </header>
 
     <main class="container">
-        <!-- Filters -->
-        <details open>
-            <summary role="button" class="secondary">Filtros</summary>
-            <div class="grid">
-                <div>
-                    <label for="search-diputado">Buscar diputado/a</label>
-                    <input type="search" id="search-diputado" placeholder="Apellidos, Nombre...">
-                </div>
-                <div>
-                    <label for="filter-categoria">Categoría</label>
-                    <select id="filter-categoria">
-                        <option value="">Todas las categorías</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="filter-grupo">Grupo parlamentario</label>
-                    <select id="filter-grupo">
-                        <option value="">Todos los grupos</option>
-                    </select>
-                </div>
-            </div>
-            <div class="grid">
-                <div>
-                    <label for="filter-voto">Sentido del voto</label>
-                    <select id="filter-voto">
-                        <option value="">Todos</option>
-                        <option value="A favor">A favor</option>
-                        <option value="En contra">En contra</option>
-                        <option value="Abstención">Abstención</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="filter-fecha-desde">Desde</label>
-                    <input type="date" id="filter-fecha-desde">
-                </div>
-                <div>
-                    <label for="filter-fecha-hasta">Hasta</label>
-                    <input type="date" id="filter-fecha-hasta">
-                </div>
-            </div>
-            <div class="grid">
-                <div>
-                    <label for="filter-etiqueta">Etiqueta temática</label>
-                    <input type="search" id="filter-etiqueta" list="etiquetas-list" placeholder="Ej: okupacion, pensiones...">
-                    <datalist id="etiquetas-list"></datalist>
-                </div>
-                <div>
-                    <label>Etiquetas activas</label>
-                    <div id="tags-activos"></div>
-                </div>
-                <div></div>
-            </div>
-            <button type="button" id="btn-reset" class="secondary outline">Limpiar filtros</button>
-        </details>
-
-        <!-- Stats -->
-        <p id="results-count" aria-live="polite"></p>
-
         <!-- Loading -->
         <div id="loading" aria-busy="true">
             <p>Cargando datos del Congreso...</p>
@@ -83,26 +25,195 @@
         <!-- Error -->
         <p id="error" role="alert"></p>
 
-        <!-- Results table -->
-        <div class="overflow-auto">
-            <table role="grid">
-                <thead>
-                    <tr>
-                        <th scope="col">Fecha</th>
-                        <th scope="col">Diputado/a</th>
-                        <th scope="col">Grupo</th>
-                        <th scope="col">Asunto</th>
-                        <th scope="col">Categoría</th>
-                        <th scope="col">Etiquetas</th>
-                        <th scope="col">Voto</th>
-                    </tr>
-                </thead>
-                <tbody id="results-body"></tbody>
-            </table>
-        </div>
+        <!-- ═══ VIEW: List ═══ -->
+        <section id="view-list">
+            <!-- Filters -->
+            <details open>
+                <summary role="button" class="secondary">Filtros</summary>
+                <div class="grid">
+                    <div>
+                        <label for="search-diputado">Buscar diputado/a</label>
+                        <input type="search" id="search-diputado" placeholder="Apellidos, Nombre...">
+                    </div>
+                    <div>
+                        <label for="filter-categoria">Categoria</label>
+                        <select id="filter-categoria">
+                            <option value="">Todas las categorias</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="filter-grupo">Grupo parlamentario</label>
+                        <select id="filter-grupo">
+                            <option value="">Todos los grupos</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="grid">
+                    <div>
+                        <label for="filter-voto">Sentido del voto</label>
+                        <select id="filter-voto">
+                            <option value="">Todos</option>
+                            <option value="A favor">A favor</option>
+                            <option value="En contra">En contra</option>
+                            <option value="Abstencion">Abstencion</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="filter-fecha-desde">Desde</label>
+                        <input type="date" id="filter-fecha-desde">
+                    </div>
+                    <div>
+                        <label for="filter-fecha-hasta">Hasta</label>
+                        <input type="date" id="filter-fecha-hasta">
+                    </div>
+                </div>
+                <div class="grid">
+                    <div>
+                        <label for="filter-etiqueta">Etiqueta tematica</label>
+                        <input type="search" id="filter-etiqueta" list="etiquetas-list" placeholder="Ej: subir_pensiones, limitar_okupacion...">
+                        <datalist id="etiquetas-list"></datalist>
+                    </div>
+                    <div>
+                        <label>Etiquetas activas</label>
+                        <div id="tags-activos"></div>
+                    </div>
+                    <div></div>
+                </div>
+                <button type="button" id="btn-reset" class="secondary outline">Limpiar filtros</button>
+            </details>
 
-        <!-- Pagination -->
-        <nav id="pagination" aria-label="Paginación"></nav>
+            <p id="results-count" aria-live="polite"></p>
+
+            <div class="overflow-auto">
+                <table role="grid">
+                    <thead>
+                        <tr>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Diputado/a</th>
+                            <th scope="col">Grupo</th>
+                            <th scope="col">Asunto</th>
+                            <th scope="col">Categoria</th>
+                            <th scope="col">Etiquetas</th>
+                            <th scope="col">Voto</th>
+                        </tr>
+                    </thead>
+                    <tbody id="results-body"></tbody>
+                </table>
+            </div>
+
+            <nav id="pagination" aria-label="Paginacion"></nav>
+        </section>
+
+        <!-- ═══ VIEW: Votacion detail ═══ -->
+        <section id="view-votacion" class="detail-view" hidden>
+            <nav class="breadcrumb">
+                <a href="#">Inicio</a> / <span>Votacion</span>
+            </nav>
+            <article>
+                <header>
+                    <h2 id="vot-titulo"></h2>
+                    <p id="vot-resumen" class="resumen"></p>
+                </header>
+                <div class="grid detail-meta">
+                    <div>
+                        <strong>Fecha:</strong> <span id="vot-fecha"></span>
+                    </div>
+                    <div>
+                        <strong>Categoria:</strong> <span id="vot-categoria" class="badge cat"></span>
+                    </div>
+                    <div>
+                        <strong>Etiquetas:</strong> <span id="vot-etiquetas"></span>
+                    </div>
+                </div>
+
+                <h3>Resultado</h3>
+                <div class="vote-bars" id="vot-bars"></div>
+                <div class="vote-totals" id="vot-totals"></div>
+
+                <h3>Votos por grupo parlamentario</h3>
+                <div class="overflow-auto">
+                    <table role="grid">
+                        <thead>
+                            <tr>
+                                <th>Grupo</th>
+                                <th>A favor</th>
+                                <th>En contra</th>
+                                <th>Abstencion</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody id="vot-grupos-body"></tbody>
+                    </table>
+                </div>
+
+                <h3>Votos individuales</h3>
+                <div>
+                    <input type="search" id="vot-search-dip" placeholder="Buscar diputado/a...">
+                </div>
+                <div class="overflow-auto">
+                    <table role="grid">
+                        <thead>
+                            <tr>
+                                <th>Diputado/a</th>
+                                <th>Grupo</th>
+                                <th>Voto</th>
+                            </tr>
+                        </thead>
+                        <tbody id="vot-votos-body"></tbody>
+                    </table>
+                </div>
+            </article>
+        </section>
+
+        <!-- ═══ VIEW: Diputado detail ═══ -->
+        <section id="view-diputado" class="detail-view" hidden>
+            <nav class="breadcrumb">
+                <a href="#">Inicio</a> / <span>Diputado/a</span>
+            </nav>
+            <article>
+                <header>
+                    <h2 id="dip-nombre"></h2>
+                    <p id="dip-grupo" class="resumen"></p>
+                </header>
+
+                <h3>Resumen de votaciones</h3>
+                <div class="grid stats-grid" id="dip-stats"></div>
+                <div class="vote-bars" id="dip-bars"></div>
+
+                <h3>Temas mas votados</h3>
+                <div id="dip-top-tags"></div>
+
+                <h3>Historial de votos</h3>
+                <div class="grid">
+                    <div>
+                        <input type="search" id="dip-search-asunto" placeholder="Buscar asunto...">
+                    </div>
+                    <div>
+                        <select id="dip-filter-voto">
+                            <option value="">Todos</option>
+                            <option value="A favor">A favor</option>
+                            <option value="En contra">En contra</option>
+                            <option value="Abstencion">Abstencion</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="overflow-auto">
+                    <table role="grid">
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Asunto</th>
+                                <th>Categoria</th>
+                                <th>Etiquetas</th>
+                                <th>Voto</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dip-votos-body"></tbody>
+                    </table>
+                </div>
+                <nav id="dip-pagination" aria-label="Paginacion"></nav>
+            </article>
+        </section>
     </main>
 
     <footer class="container">
@@ -112,7 +223,7 @@
             <a href="https://www.congreso.es/es/opendata/votaciones" target="_blank" rel="noopener">
                 Congreso de los Diputados (Datos Abiertos)
             </a>.
-            Categorización automática por IA. Proyecto de código abierto.
+            Categorizacion automatica por IA. Proyecto de codigo abierto.
         </small>
     </footer>
 

@@ -3,5 +3,6 @@ __pycache__/
 .DS_Store
 data/raw/
 data/last_fetch_*.txt
+data/cache_*.json
 node_modules/
 .omc/

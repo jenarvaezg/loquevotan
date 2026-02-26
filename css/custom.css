@@ -1,4 +1,4 @@
-/* Congreso Transparente - Custom Styles */
+/* Lo Que Votan - Custom Styles */
 
 :root {
   --voto-favor: #2ecc71;
@@ -11,6 +11,115 @@ header hgroup > p {
   margin-top: 0;
   color: var(--pico-muted-color);
 }
+
+.brand-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+}
+
+/* Detail views */
+.detail-view article {
+  padding: 1.5rem;
+}
+
+.detail-view article header {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--pico-muted-border-color);
+}
+
+.detail-view h2 {
+  margin-bottom: 0.3rem;
+}
+
+.detail-view h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.resumen {
+  color: var(--pico-muted-color);
+  font-size: 1.05rem;
+  margin-bottom: 0;
+}
+
+.detail-meta {
+  margin-bottom: 1.5rem;
+}
+
+/* Vote bars */
+.bar-container {
+  display: flex;
+  height: 2rem;
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 0.75rem 0;
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  min-width: 2px;
+  transition: width 0.3s ease;
+}
+
+.bar-favor { background-color: var(--voto-favor); }
+.bar-contra { background-color: var(--voto-contra); }
+.bar-abstencion { background-color: var(--voto-abstencion); }
+
+.vote-totals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.total-count {
+  color: var(--pico-muted-color);
+  font-size: 0.9rem;
+}
+
+/* Stat cards */
+.stats-grid {
+  margin-bottom: 1rem;
+}
+
+.stat-card {
+  text-align: center;
+  padding: 1rem;
+  border-radius: 8px;
+  background: var(--pico-card-background-color);
+  border: 1px solid var(--pico-muted-border-color);
+}
+
+.stat-card strong {
+  display: block;
+  font-size: 1.8rem;
+  line-height: 1.2;
+}
+
+.stat-card small {
+  color: var(--pico-muted-color);
+}
+
+.stat-favor { border-left: 4px solid var(--voto-favor); }
+.stat-contra { border-left: 4px solid var(--voto-contra); }
+.stat-abstencion { border-left: 4px solid var(--voto-abstencion); }
 
 /* Badges */
 .badge {
@@ -38,17 +147,9 @@ header hgroup > p {
   white-space: nowrap;
 }
 
-.voto-favor {
-  background-color: var(--voto-favor);
-}
-
-.voto-contra {
-  background-color: var(--voto-contra);
-}
-
-.voto-abstencion {
-  background-color: var(--voto-abstencion);
-}
+.voto-favor { background-color: var(--voto-favor); }
+.voto-contra { background-color: var(--voto-contra); }
+.voto-abstencion { background-color: var(--voto-abstencion); }
 
 /* Table */
 .overflow-auto {
@@ -61,7 +162,8 @@ table th {
 }
 
 /* Pagination */
-#pagination {
+#pagination,
+#dip-pagination {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -133,6 +235,12 @@ table th {
   color: var(--pico-primary-inverse);
 }
 
+.tag-with-count {
+  font-size: 0.85em;
+  padding: 0.2em 0.5em;
+  margin: 0.15em;
+}
+
 /* Active tag filters */
 #tags-activos {
   display: flex;
@@ -187,5 +295,13 @@ table th {
     min-width: 2rem;
     padding: 0.3rem 0.4rem;
     font-size: 0.8rem;
+  }
+
+  .stat-card strong {
+    font-size: 1.4rem;
+  }
+
+  .bar-container {
+    height: 1.5rem;
   }
 }
