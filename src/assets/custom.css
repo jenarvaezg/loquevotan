@@ -384,6 +384,34 @@ input, select, button { font-family: inherit; font-size: inherit; }
 
 .dip-card { cursor: pointer; }
 
+.dip-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.dip-card-photo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.dip-card-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
 .dip-card-name {
   font-size: 1rem;
   font-weight: 600;
@@ -896,6 +924,28 @@ tbody tr:hover { background: var(--color-primary-lighter); }
 }
 
 .detail-header h1 { margin-bottom: 0.35rem; }
+
+.dip-detail-photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.dip-detail-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
 
 .detail-summary {
   font-size: 1rem;

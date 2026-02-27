@@ -2,7 +2,7 @@
 import { computed, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useData } from '../composables/useData'
-import { fmt, pct, debounce, VOTO_LABELS, VOTES_PER_PAGE, LEGISLATURAS } from '../utils'
+import { fmt, pct, debounce, dipPhotoUrl, avatarInitials, avatarStyle, VOTO_LABELS, VOTES_PER_PAGE, LEGISLATURAS } from '../utils'
 import VoteBar from '../components/VoteBar.vue'
 import ResultBadge from '../components/ResultBadge.vue'
 import ShareBar from '../components/ShareBar.vue'
@@ -11,7 +11,7 @@ import AccountabilityCard from '../components/AccountabilityCard.vue'
 
 const route = useRoute()
 const router = useRouter()
-const { diputados, grupos, dipStats, votos, votaciones, votResults, votosByDiputado, categorias } = useData()
+const { diputados, grupos, dipStats, dipFotos, votos, votaciones, votResults, votosByDiputado, categorias } = useData()
 
 const dipIdx = computed(() => diputados.value.indexOf(decodeURIComponent(route.params.name)))
 const name = computed(() => diputados.value[dipIdx.value])
@@ -19,6 +19,7 @@ const ds = computed(() => dipStats.value[dipIdx.value])
 const grupoName = computed(() =>
   ds.value?.mainGrupo >= 0 ? grupos.value[ds.value.mainGrupo] : 'Sin grupo'
 )
+const photoUrl = computed(() => dipPhotoUrl(dipFotos.value[dipIdx.value]))
 
 // History filters
 const histSearch = ref('')
@@ -150,13 +151,17 @@ watch(name, (n) => {
     <div class="container" style="padding-top:1.5rem">
       <router-link to="/diputados" class="back-link">&larr; Diputados</router-link>
 
-      <div class="detail-header">
-        <h1>{{ name }}</h1>
+      <div class="detail-header" style="display:flex;align-items:center;gap:1.25rem">
+        <img v-if="photoUrl" :src="photoUrl" :alt="name" class="dip-detail-photo">
+        <span v-else class="dip-detail-avatar" :style="avatarStyle(name)">{{ avatarInitials(name) }}</span>
+        <div>
+        <h1 style="margin:0">{{ name }}</h1>
         <div class="detail-meta" style="margin-top:0.5rem">
           <span class="badge badge--grupo">{{ grupoName }}</span>
           <span class="detail-meta-item">{{ ds.total }} votaciones</span>
           <span class="detail-meta-item">Lealtad al grupo: {{ pct(ds.loyalty) }}</span>
           <span v-for="l in ds.legislaturas" :key="l" class="badge badge--leg">{{ l }}</span>
+        </div>
         </div>
       </div>
 

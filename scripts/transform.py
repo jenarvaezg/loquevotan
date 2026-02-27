@@ -16,6 +16,7 @@ RAW_DIR = os.path.join(SCRIPT_DIR, "..", "data", "raw")
 OUTPUT_FILE = os.path.join(SCRIPT_DIR, "..", "public", "data", "votaciones.json")
 CACHE_FILE = os.path.join(SCRIPT_DIR, "..", "data", "cache_categorias.json")
 PROMPT_FILE = os.path.join(SCRIPT_DIR, "prompt_categorizacion.txt")
+FOTO_MAP_FILE = os.path.join(SCRIPT_DIR, "..", "data", "foto_map.json")
 
 VALID_CATEGORIES = frozenset([
     "Economia_y_Hacienda", "Sanidad", "Educacion", "Vivienda",
@@ -303,9 +304,7 @@ def main():
 
         if h not in cache:
             if skip_ai:
-                cat_data = _fallback_categorization()
-                cat_data["titulo_ciudadano"] = titulo_original[:60] if titulo_original else "Sin título"
-                cache[h] = cat_data
+                pass  # Don't pollute cache with fallback entries
             else:
                 # Deduplicate: only add each unique hash once
                 if not any(uh == h for uh, _ in uncached):
@@ -408,6 +407,30 @@ def main():
                 voto_code[v["voto"]],
             ])
 
+    # ── Load foto_map and build dipFotos ──
+    dip_fotos = [None] * len(diputados_set)
+    if os.path.exists(FOTO_MAP_FILE):
+        with open(FOTO_MAP_FILE, encoding="utf-8") as f:
+            foto_map = json.load(f)
+        # foto_map keys are "Nombre Apellidos" (congreso.es format)
+        # Our diputados are "Apellidos, Nombre"
+        # Build reverse lookup: lowercase "nombre apellidos" -> foto_map entry
+        foto_lookup = {}
+        for full_name, leg_map in foto_map.items():
+            foto_lookup[full_name.lower()] = leg_map
+
+        matched_fotos = 0
+        for i, dip_name in enumerate(diputados_set):
+            if ", " in dip_name:
+                apellidos, nombre = dip_name.split(", ", 1)
+                congreso_key = f"{nombre} {apellidos}".lower()
+                if congreso_key in foto_lookup:
+                    dip_fotos[i] = foto_lookup[congreso_key]
+                    matched_fotos += 1
+        print(f"  Fotos mapeadas: {matched_fotos}/{len(diputados_set)}")
+    else:
+        print("  (sin foto_map.json, ejecuta scrape_photos.py)")
+
     output = {
         "meta": {
             "generado": __import__("datetime").date.today().isoformat(),
@@ -419,6 +442,7 @@ def main():
         "categorias": categorias_set,
         "votaciones": votaciones_list,
         "votos": votos_list,
+        "dipFotos": dip_fotos,
     }
 
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
