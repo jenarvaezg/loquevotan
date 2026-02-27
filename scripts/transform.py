@@ -13,7 +13,7 @@ import sys
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 RAW_DIR = os.path.join(SCRIPT_DIR, "..", "data", "raw")
-OUTPUT_FILE = os.path.join(SCRIPT_DIR, "..", "data", "votaciones.json")
+OUTPUT_FILE = os.path.join(SCRIPT_DIR, "..", "public", "data", "votaciones.json")
 CACHE_FILE = os.path.join(SCRIPT_DIR, "..", "data", "cache_categorias.json")
 PROMPT_FILE = os.path.join(SCRIPT_DIR, "prompt_categorizacion.txt")
 

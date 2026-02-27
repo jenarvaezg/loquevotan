@@ -50,6 +50,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/votaciones.json data/cache_categorias.json
+          git add public/data/votaciones.json data/cache_categorias.json
           git diff --staged --quiet || git commit -m "chore: update voting data $(date +%Y-%m-%d)"
           git push
