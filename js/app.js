@@ -282,13 +282,19 @@
     }
 
     if (hash.startsWith("#diputado/")) {
-      const name = decodeURIComponent(hash.substring("#diputado/".length));
+      const raw = hash.substring("#diputado/".length);
+      const [dipPart, query] = raw.split("?");
+      const name = decodeURIComponent(dipPart);
+      const tagParam = query ? new URLSearchParams(query).get("tag") : null;
       const idx = diputados.indexOf(name);
       if (idx >= 0) {
         renderDiputadoDetail(idx);
         show("view-diputado");
         document.title = name + " | Lo Que Votan";
         scrollTop();
+        if (tagParam) {
+          renderAccountabilityCard(idx, tagParam);
+        }
         return;
       }
     }
@@ -1074,7 +1080,7 @@
       renderHistory();
     };
 
-    // Tag chips as quick-filters
+    // Tag chips as quick-filters + accountability card
     const tagsContainer = $("dip-tags");
     if (tagsContainer) {
       tagsContainer.onclick = (e) => {
@@ -1093,10 +1099,195 @@
         }
         dipHPage = 1;
         renderHistory();
+        renderAccountabilityCard(dipIdx, tag);
       };
     }
 
     renderHistory();
+  }
+
+  // ═══════════════════════════════════════════════════════════
+  // Accountability Card
+  // ═══════════════════════════════════════════════════════════
+
+  function avatarHTML(name) {
+    const parts = name.split(",");
+    const apellido = (parts[0] || "").trim();
+    const nombre = (parts[1] || "").trim();
+    const initials = (nombre[0] || "") + (apellido[0] || "");
+    const hue =
+      Math.abs(name.split("").reduce((a, c) => a + c.charCodeAt(0), 0)) % 360;
+    return (
+      '<div class="avatar" style="background:hsl(' +
+      hue +
+      ',55%,45%)">' +
+      esc(initials.toUpperCase()) +
+      "</div>"
+    );
+  }
+
+  function renderAccountabilityCard(dipIdx, tag) {
+    const name = diputados[dipIdx];
+    const ds = dipStats[dipIdx];
+    const grupoName = ds.mainGrupo >= 0 ? grupos[ds.mainGrupo] : "Sin grupo";
+
+    // Count votes for this tag
+    const dipVoteIndices = votosByDiputado[dipIdx] || [];
+    let favor = 0,
+      contra = 0,
+      abstencion = 0;
+    for (let j = 0; j < dipVoteIndices.length; j++) {
+      const v = votos[dipVoteIndices[j]];
+      const votIdx = v[0];
+      const code = v[3];
+      const tags = votaciones[votIdx].etiquetas || [];
+      if (!tags.includes(tag)) continue;
+      if (code === 1) favor++;
+      else if (code === 2) contra++;
+      else if (code === 3) abstencion++;
+    }
+    const total = favor + contra + abstencion;
+
+    const shareUrl =
+      location.origin +
+      location.pathname +
+      "#diputado/" +
+      encodeURIComponent(name) +
+      "?tag=" +
+      encodeURIComponent(tag);
+    const topicLabel = fmt(tag);
+
+    // Vote rows
+    function voteRow(label, count, color) {
+      const pctWidth = total > 0 ? Math.round((count / total) * 100) : 0;
+      const veces = count === 1 ? "1 vez" : count + " veces";
+      return (
+        '<div class="acc-vote-row">' +
+        '<span class="acc-vote-label">' +
+        esc(label) +
+        "</span>" +
+        '<div class="acc-vote-bar"><div class="acc-vote-bar-fill" style="width:' +
+        pctWidth +
+        "%;background:" +
+        color +
+        '"></div></div>' +
+        '<span class="acc-vote-count">' +
+        esc(veces) +
+        "</span>" +
+        "</div>"
+      );
+    }
+
+    const shareText =
+      esc(name) +
+      " (" +
+      esc(grupoName) +
+      ") ha votado " +
+      favor +
+      " veces A FAVOR de " +
+      topicLabel +
+      ". Compruebalo: " +
+      shareUrl;
+    const twitterUrl =
+      "https://twitter.com/intent/tweet?text=" +
+      encodeURIComponent(
+        name +
+          " (" +
+          grupoName +
+          ") ha votado " +
+          favor +
+          " veces A FAVOR de " +
+          topicLabel +
+          ". Compruebalo: " +
+          shareUrl,
+      );
+    const waUrl =
+      "whatsapp://send?text=" +
+      encodeURIComponent(
+        name +
+          " (" +
+          grupoName +
+          ") ha votado " +
+          favor +
+          " veces A FAVOR de " +
+          topicLabel +
+          ". Compruebalo: " +
+          shareUrl,
+      );
+
+    const html =
+      '<div class="acc-overlay" id="acc-overlay">' +
+      '<div class="acc-card">' +
+      '<button class="acc-close" id="acc-close" aria-label="Cerrar">\u00d7</button>' +
+      avatarHTML(name) +
+      '<div class="acc-name">' +
+      esc(name) +
+      "</div>" +
+      '<div class="acc-grupo">' +
+      esc(grupoName) +
+      "</div>" +
+      '<div class="acc-topic">' +
+      esc(topicLabel) +
+      "</div>" +
+      '<div class="acc-votes">' +
+      voteRow("A FAVOR", favor, "var(--color-favor)") +
+      voteRow("EN CONTRA", contra, "var(--color-contra)") +
+      voteRow("ABSTENCI\u00d3N", abstencion, "var(--color-abstencion)") +
+      "</div>" +
+      '<div class="acc-url">loquevotan.es</div>' +
+      '<div class="acc-share">' +
+      '<button class="acc-share-btn acc-share-btn--primary" id="acc-copy">Copiar enlace</button>' +
+      '<a class="acc-share-btn" href="' +
+      twitterUrl +
+      '" target="_blank" rel="noopener">X / Twitter</a>' +
+      '<a class="acc-share-btn" href="' +
+      waUrl +
+      '" target="_blank" rel="noopener">WhatsApp</a>' +
+      "</div>" +
+      "</div>" +
+      "</div>";
+
+    const overlay = document.createElement("div");
+    overlay.innerHTML = html;
+    const overlayEl = overlay.firstChild;
+    document.body.appendChild(overlayEl);
+
+    function closeCard() {
+      if (overlayEl.parentNode) overlayEl.parentNode.removeChild(overlayEl);
+      document.removeEventListener("keydown", onKey);
+    }
+
+    function onKey(e) {
+      if (e.key === "Escape") closeCard();
+    }
+
+    document.getElementById("acc-close").onclick = closeCard;
+    overlayEl.addEventListener("click", (e) => {
+      if (e.target === overlayEl) closeCard();
+    });
+    document.addEventListener("keydown", onKey);
+
+    document.getElementById("acc-copy").onclick = function () {
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(shareUrl).then(() => {
+          this.textContent = "Copiado!";
+          setTimeout(() => {
+            this.textContent = "Copiar enlace";
+          }, 2000);
+        });
+      } else {
+        const ta = document.createElement("textarea");
+        ta.value = shareUrl;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+        this.textContent = "Copiado!";
+        setTimeout(() => {
+          this.textContent = "Copiar enlace";
+        }, 2000);
+      }
+    };
   }
 
   // ═══════════════════════════════════════════════════════════
