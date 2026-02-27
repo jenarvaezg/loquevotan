@@ -384,6 +384,49 @@
       });
     }
 
+    // Rebels ranking
+    const rebelsEl = $("home-rebels");
+    if (rebelsEl && !rebelsEl.hasChildNodes()) {
+      const rebels = Array.from({ length: diputados.length }, (_, i) => i)
+        .filter((i) => dipStats[i].total > 50)
+        .sort((a, b) => dipStats[a].loyalty - dipStats[b].loyalty)
+        .slice(0, 10);
+      rebelsEl.innerHTML = rebels
+        .map((i) => {
+          const ds = dipStats[i];
+          const grp = ds.mainGrupo >= 0 ? grupos[ds.mainGrupo] : "Sin grupo";
+          const loyaltyPct = Math.round(ds.loyalty * 100);
+          return (
+            '<a class="ranking-card card-link" href="#diputado/' +
+            encodeURIComponent(diputados[i]) +
+            '">' +
+            avatarHTML(diputados[i]) +
+            '<div class="ranking-info">' +
+            '<span class="ranking-name">' +
+            esc(diputados[i]) +
+            "</span>" +
+            '<span class="ranking-detail">' +
+            esc(grp) +
+            "</span>" +
+            '<span class="ranking-stat">' +
+            loyaltyPct +
+            "% lealtad al grupo</span>" +
+            "</div></a>"
+          );
+        })
+        .join("");
+    }
+
+    // Tight votes
+    const tightEl = $("home-tight");
+    if (tightEl && !tightEl.hasChildNodes()) {
+      const tight = sortedVotIdxByDate
+        .filter((i) => votResults[i].total > 0)
+        .sort((a, b) => votResults[a].margin - votResults[b].margin)
+        .slice(0, 10);
+      tightEl.innerHTML = tight.map((i) => voteCardHTML(i)).join("");
+    }
+
     // Latest votaciones
     const latestEl = $("home-latest");
     if (!latestEl.hasChildNodes()) {
@@ -929,6 +972,62 @@
     const dipTopTags = Object.entries(dipTagCounts)
       .sort((a, b) => b[1] - a[1])
       .slice(0, 20);
+
+    // Category profile breakdown
+    const catBreakdown = {};
+    for (let j = 0; j < dipVoteIndices.length; j++) {
+      const v = votos[dipVoteIndices[j]];
+      const votIdx = v[0];
+      const code = v[3];
+      const cat = votaciones[votIdx].categoria;
+      if (!catBreakdown[cat])
+        catBreakdown[cat] = { 1: 0, 2: 0, 3: 0, total: 0 };
+      catBreakdown[cat][code]++;
+      catBreakdown[cat].total++;
+    }
+    const catEntries = Object.entries(catBreakdown)
+      .sort((a, b) => b[1].total - a[1].total)
+      .slice(0, 10);
+    if (catEntries.length > 0) {
+      html +=
+        '<div class="detail-section"><h2>Perfil tem\u00e1tico</h2><div class="cat-profile">';
+      catEntries.forEach(([catIdx, counts]) => {
+        const catName = categorias[catIdx] || catIdx;
+        const total = counts.total;
+        const favorPct = Math.round((counts[1] / total) * 100);
+        const contraPct = Math.round((counts[2] / total) * 100);
+        const abstPct = 100 - favorPct - contraPct;
+        html +=
+          '<div class="cat-profile-row">' +
+          '<span class="cat-profile-label" title="' +
+          esc(fmt(catName)) +
+          '">' +
+          esc(fmt(catName)) +
+          "</span>" +
+          '<div class="cat-profile-bar">' +
+          '<div class="cat-profile-seg" style="width:' +
+          favorPct +
+          '%;background:var(--color-favor)" title="' +
+          favorPct +
+          '% A favor"></div>' +
+          '<div class="cat-profile-seg" style="width:' +
+          contraPct +
+          '%;background:var(--color-contra)" title="' +
+          contraPct +
+          '% En contra"></div>' +
+          '<div class="cat-profile-seg" style="width:' +
+          abstPct +
+          '%;background:var(--color-abstencion)" title="' +
+          abstPct +
+          '% Abstenci\u00f3n"></div>' +
+          "</div>" +
+          '<span class="cat-profile-count">' +
+          total +
+          "</span>" +
+          "</div>";
+      });
+      html += "</div></div>";
+    }
 
     if (dipTopTags.length > 0) {
       html +=
@@ -1705,6 +1804,10 @@
       opt.textContent = l.nombre;
       gruposLegSelect.appendChild(opt);
     });
+    gruposLegSelect.value = "XV";
+
+    // Default votaciones legislatura filter to current (XV)
+    legSelect.value = "XV";
   }
 
   // ═══════════════════════════════════════════════════════════
