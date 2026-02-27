@@ -28,12 +28,14 @@ const allTags = computed(() => Object.keys(tagCounts.value).sort())
 onMounted(() => {
   if (route.query.tag) {
     selectedTags.value = [route.query.tag]
+    legFilter.value = ''
   }
 })
 
 watch(() => route.query.tag, (tag) => {
   if (tag && !selectedTags.value.includes(tag)) {
     selectedTags.value = [tag]
+    legFilter.value = ''
     page.value = 1
   }
 })
