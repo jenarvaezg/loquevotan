@@ -69,6 +69,7 @@
   let tagCounts = {}; // tag -> count
   let topTags = []; // [[tag, count], ...]
   let sortedVotIdxByDate = []; // votacion indices sorted by date desc
+  let groupAffinity = {}; // "gaIdx,gbIdx" -> {same: N, total: N}
 
   // ── View state ──
   let votsPage = 1;
@@ -233,6 +234,23 @@
     sortedVotIdxByDate.sort((a, b) =>
       votaciones[b].fecha.localeCompare(votaciones[a].fecha),
     );
+
+    // 5. Group affinity matrix
+    groupAffinity = {};
+    for (let vi = 0; vi < votaciones.length; vi++) {
+      const gm = groupMajority[vi];
+      const gKeys = Object.keys(gm).map(Number);
+      for (let a = 0; a < gKeys.length; a++) {
+        for (let b = a + 1; b < gKeys.length; b++) {
+          const ga = gKeys[a],
+            gb = gKeys[b];
+          const key = ga < gb ? ga + "," + gb : gb + "," + ga;
+          if (!groupAffinity[key]) groupAffinity[key] = { same: 0, total: 0 };
+          groupAffinity[key].total++;
+          if (gm[ga] === gm[gb]) groupAffinity[key].same++;
+        }
+      }
+    }
   }
 
   // ═══════════════════════════════════════════════════════════
@@ -291,6 +309,14 @@
       return;
     }
 
+    if (hash === "#grupos") {
+      renderGrupos();
+      show("view-grupos");
+      document.title = "Comparador de partidos | Lo Que Votan";
+      scrollTop();
+      return;
+    }
+
     // Default: homepage
     renderHome();
     show("view-home");
@@ -316,6 +342,14 @@
         statItem(diputados.length.toLocaleString("es-ES"), "diputados") +
         statItem(votaciones.length.toLocaleString("es-ES"), "votaciones") +
         statItem(votos.length.toLocaleString("es-ES"), "votos individuales");
+    }
+
+    // Grupos link card
+    const statsEl2 = $("home-stats");
+    if (statsEl2 && !statsEl2.querySelector(".grupos-link-card")) {
+      const gruposCard =
+        '<a href="#grupos" class="grupos-link-card btn btn--primary" style="margin-left:auto;display:inline-flex;align-items:center;gap:0.4rem;">&#128202; Compara partidos</a>';
+      statsEl2.insertAdjacentHTML("beforeend", gruposCard);
     }
 
     // Topics
@@ -360,6 +394,150 @@
       label +
       "</span></div>"
     );
+  }
+
+  // ═══════════════════════════════════════════════════════════
+  // Grupos — Affinity comparator
+  // ═══════════════════════════════════════════════════════════
+
+  function affinityColor(pct) {
+    if (pct >= 0.8) return "#16a34a"; // dark green
+    if (pct >= 0.6) return "#86efac"; // light green
+    if (pct >= 0.4) return "#fde047"; // yellow
+    if (pct >= 0.2) return "#fca5a5"; // light red
+    return "#dc2626"; // red
+  }
+
+  function renderGrupos() {
+    const leg = $("grupos-leg").value;
+
+    // Collect valid group indices (appear in data)
+    const grupoSet = new Set();
+    for (let vi = 0; vi < votaciones.length; vi++) {
+      if (leg && votaciones[vi].legislatura !== leg) continue;
+      const indices = votosByVotacion[vi] || [];
+      for (let j = 0; j < indices.length; j++) {
+        grupoSet.add(votos[indices[j]][2]);
+      }
+    }
+
+    // Recompute affinity filtered by legislatura
+    const aff = {}; // "ga,gb" -> {same, total}
+    for (let vi = 0; vi < votaciones.length; vi++) {
+      if (leg && votaciones[vi].legislatura !== leg) continue;
+      // compute group majority for this votacion
+      const indices = votosByVotacion[vi] || [];
+      const byGroup = {};
+      for (let j = 0; j < indices.length; j++) {
+        const v = votos[indices[j]];
+        const grp = v[2],
+          code = v[3];
+        if (!byGroup[grp]) byGroup[grp] = { 1: 0, 2: 0, 3: 0 };
+        byGroup[grp][code]++;
+      }
+      const gm = {};
+      for (const gIdx in byGroup) {
+        const c = byGroup[gIdx];
+        gm[gIdx] = c[1] >= c[2] && c[1] >= c[3] ? 1 : c[2] >= c[3] ? 2 : 3;
+      }
+      const gKeys = Object.keys(gm).map(Number);
+      for (let a = 0; a < gKeys.length; a++) {
+        for (let b = a + 1; b < gKeys.length; b++) {
+          const ga = gKeys[a],
+            gb = gKeys[b];
+          const key = ga < gb ? ga + "," + gb : gb + "," + ga;
+          if (!aff[key]) aff[key] = { same: 0, total: 0 };
+          aff[key].total++;
+          if (gm[ga] === gm[gb]) aff[key].same++;
+        }
+      }
+    }
+
+    // Count total votaciones per group
+    const groupTotals = {};
+    for (const key in aff) {
+      const parts = key.split(",");
+      const ga = Number(parts[0]),
+        gb = Number(parts[1]);
+      groupTotals[ga] = (groupTotals[ga] || 0) + aff[key].total;
+      groupTotals[gb] = (groupTotals[gb] || 0) + aff[key].total;
+    }
+
+    // Filter groups with >= 10 votaciones
+    const validGroups = Array.from(grupoSet)
+      .filter((g) => (groupTotals[g] || 0) >= 10)
+      .sort((a, b) => a - b);
+
+    if (validGroups.length === 0) {
+      $("grupos-body").innerHTML =
+        '<div class="empty-state"><div class="empty-state-icon">&#128202;</div>' +
+        '<p class="empty-state-text">No hay datos suficientes para esta legislatura.</p></div>';
+      return;
+    }
+
+    // Build header row
+    let html =
+      '<div class="affinity-table-wrap"><table class="affinity-table"><thead><tr><th></th>';
+    for (let i = 0; i < validGroups.length; i++) {
+      const gName = grupos[validGroups[i]] || "Grupo " + validGroups[i];
+      html +=
+        '<th class="affinity-th-col"><div class="affinity-th-label">' +
+        esc(gName) +
+        "</div></th>";
+    }
+    html += "</tr></thead><tbody>";
+
+    // Build rows
+    for (let r = 0; r < validGroups.length; r++) {
+      const ga = validGroups[r];
+      const gNameA = grupos[ga] || "Grupo " + ga;
+      html += '<tr><td class="affinity-row-label">' + esc(gNameA) + "</td>";
+      for (let c = 0; c < validGroups.length; c++) {
+        const gb = validGroups[c];
+        if (ga === gb) {
+          html +=
+            '<td class="affinity-cell affinity-cell--self" title="100%">100%</td>';
+        } else {
+          const key = ga < gb ? ga + "," + gb : gb + "," + ga;
+          const d = aff[key];
+          if (!d || d.total === 0) {
+            html +=
+              '<td class="affinity-cell" style="background:#e2e8f0" title="Sin datos">—</td>';
+          } else {
+            const pct = d.same / d.total;
+            const pctStr = Math.round(pct * 100) + "%";
+            const bg = affinityColor(pct);
+            html +=
+              '<td class="affinity-cell" style="background:' +
+              bg +
+              '" title="' +
+              esc(pctStr) +
+              " (" +
+              d.same +
+              "/" +
+              d.total +
+              " votaciones coinciden)" +
+              '">' +
+              pctStr +
+              "</td>";
+          }
+        }
+      }
+      html += "</tr>";
+    }
+    html += "</tbody></table></div>";
+
+    // Legend
+    html +=
+      '<div class="affinity-legend">' +
+      '<span class="affinity-legend-item"><span class="affinity-legend-swatch" style="background:#16a34a"></span>&gt;80% coincidencia</span>' +
+      '<span class="affinity-legend-item"><span class="affinity-legend-swatch" style="background:#86efac"></span>60-80%</span>' +
+      '<span class="affinity-legend-item"><span class="affinity-legend-swatch" style="background:#fde047"></span>40-60%</span>' +
+      '<span class="affinity-legend-item"><span class="affinity-legend-swatch" style="background:#fca5a5"></span>20-40%</span>' +
+      '<span class="affinity-legend-item"><span class="affinity-legend-swatch" style="background:#dc2626"></span>&lt;20%</span>' +
+      "</div>";
+
+    $("grupos-body").innerHTML = html;
   }
 
   // ═══════════════════════════════════════════════════════════
@@ -1327,6 +1505,15 @@
       opt.textContent = l.nombre;
       legSelect.appendChild(opt);
     });
+
+    // Legislaturas for grupos filter
+    const gruposLegSelect = $("grupos-leg");
+    LEGISLATURAS.forEach((l) => {
+      const opt = document.createElement("option");
+      opt.value = l.id;
+      opt.textContent = l.nombre;
+      gruposLegSelect.appendChild(opt);
+    });
   }
 
   // ═══════════════════════════════════════════════════════════
@@ -1379,6 +1566,9 @@
       $("dips-f-sort").value = "name";
       applyDipsFilters();
     });
+
+    // Grupos affinity filter
+    $("grupos-leg").addEventListener("change", renderGrupos);
   }
 
   // ═══════════════════════════════════════════════════════════

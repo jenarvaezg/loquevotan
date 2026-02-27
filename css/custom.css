@@ -1056,3 +1056,108 @@ tbody tr:hover { background: var(--color-primary-lighter); }
 
 /* ── Sort indicator ── */
 .sort-active { font-weight: 700; color: var(--color-primary); }
+
+/* ── Affinity table ── */
+.affinity-table-wrap {
+  overflow-x: auto;
+  margin: 0.75rem 0 1.5rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.affinity-table {
+  border-collapse: collapse;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.affinity-table thead th {
+  background: var(--color-surface);
+  border-bottom: 2px solid var(--color-border);
+  padding: 0;
+  vertical-align: bottom;
+  text-align: center;
+}
+
+.affinity-th-col {
+  height: 120px;
+  width: 48px;
+  min-width: 48px;
+  max-width: 48px;
+}
+
+.affinity-th-label {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  text-transform: none;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  letter-spacing: 0;
+  padding: 0.5rem 0.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 110px;
+}
+
+.affinity-row-label {
+  padding: 0.4rem 0.75rem 0.4rem 0;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-text);
+  white-space: nowrap;
+  border-bottom: 1px solid var(--color-border);
+  min-width: 140px;
+}
+
+.affinity-cell {
+  width: 48px;
+  min-width: 48px;
+  max-width: 48px;
+  height: 36px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #1e293b;
+  border: 1px solid rgba(255,255,255,0.4);
+  cursor: default;
+  transition: opacity 0.1s;
+}
+
+.affinity-cell:hover { opacity: 0.85; }
+
+.affinity-cell--self {
+  background: #e2e8f0 !important;
+  color: var(--color-muted);
+  font-weight: 400;
+}
+
+.affinity-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  margin-top: 0.5rem;
+}
+
+.affinity-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.affinity-legend-swatch {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .affinity-th-col { width: 40px; min-width: 40px; max-width: 40px; }
+  .affinity-cell { width: 40px; min-width: 40px; max-width: 40px; font-size: 0.65rem; }
+  .affinity-row-label { min-width: 100px; font-size: 0.75rem; }
+}
