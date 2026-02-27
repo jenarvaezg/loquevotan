@@ -5,6 +5,53 @@
   const VOTES_PER_PAGE = 20;
   const DIPS_PER_PAGE = 30;
 
+  const LEGISLATURAS = [
+    {
+      id: "X",
+      nombre: "X Legislatura",
+      desde: "2012-01-01",
+      hasta: "2015-10-27",
+    },
+    {
+      id: "XI",
+      nombre: "XI Legislatura",
+      desde: "2016-01-13",
+      hasta: "2016-05-03",
+    },
+    {
+      id: "XII",
+      nombre: "XII Legislatura",
+      desde: "2016-07-19",
+      hasta: "2019-02-13",
+    },
+    {
+      id: "XIII",
+      nombre: "XIII Legislatura",
+      desde: "2019-05-21",
+      hasta: "2019-09-24",
+    },
+    {
+      id: "XIV",
+      nombre: "XIV Legislatura",
+      desde: "2020-01-03",
+      hasta: "2023-05-29",
+    },
+    {
+      id: "XV",
+      nombre: "XV Legislatura",
+      desde: "2023-08-17",
+      hasta: "2099-12-31",
+    },
+  ];
+
+  function getLeg(fecha) {
+    for (let i = LEGISLATURAS.length - 1; i >= 0; i--) {
+      if (fecha >= LEGISLATURAS[i].desde && fecha <= LEGISLATURAS[i].hasta)
+        return LEGISLATURAS[i].id;
+    }
+    return "";
+  }
+
   // ── Raw data ──
   let diputados = [];
   let grupos = [];
@@ -17,10 +64,10 @@
   let votosByDiputado = {}; // diputado_idx -> [voto_index, ...]
 
   // ── Precomputed ──
-  let votResults = [];   // [idx] = {favor, contra, abstencion, total, result, margin}
-  let dipStats = [];     // [idx] = {favor, contra, abstencion, total, mainGrupo, loyalty}
-  let tagCounts = {};    // tag -> count
-  let topTags = [];      // [[tag, count], ...]
+  let votResults = []; // [idx] = {favor, contra, abstencion, total, result, margin}
+  let dipStats = []; // [idx] = {favor, contra, abstencion, total, mainGrupo, loyalty}
+  let tagCounts = {}; // tag -> count
+  let topTags = []; // [[tag, count], ...]
   let sortedVotIdxByDate = []; // votacion indices sorted by date desc
 
   // ── View state ──
@@ -106,7 +153,8 @@
         contra: contra,
         abstencion: t[3],
         total: total,
-        result: favor > contra ? "Aprobada" : contra > favor ? "Rechazada" : "Empate",
+        result:
+          favor > contra ? "Aprobada" : contra > favor ? "Rechazada" : "Empate",
         margin: Math.abs(favor - contra),
       };
 
@@ -117,6 +165,8 @@
         groupMajority[vi][gIdx] =
           c[1] >= c[2] && c[1] >= c[3] ? 1 : c[2] >= c[3] ? 2 : 3;
       }
+
+      votaciones[vi].legislatura = getLeg(votaciones[vi].fecha);
     }
 
     // 2. Diputado stats + loyalty
@@ -141,11 +191,18 @@
       const mainGrpKeys = Object.keys(grupoCount);
       let mainGrupo = -1;
       if (mainGrpKeys.length > 0) {
-        mainGrupo = Number(mainGrpKeys.reduce((a, b) =>
-          grupoCount[a] >= grupoCount[b] ? a : b
-        ));
+        mainGrupo = Number(
+          mainGrpKeys.reduce((a, b) =>
+            grupoCount[a] >= grupoCount[b] ? a : b,
+          ),
+        );
       }
 
+      const legSet = {};
+      for (let j = 0; j < indices.length; j++) {
+        const leg = votaciones[votos[indices[j]][0]].legislatura;
+        if (leg) legSet[leg] = true;
+      }
       dipStats[di] = {
         favor: t[1],
         contra: t[2],
@@ -153,6 +210,7 @@
         total: total,
         mainGrupo: mainGrupo,
         loyalty: total > 0 ? loyal / total : 0,
+        legislaturas: LEGISLATURAS.map((l) => l.id).filter((id) => legSet[id]),
       };
     }
 
@@ -173,7 +231,7 @@
     // 4. Sorted votacion indices by date desc
     sortedVotIdxByDate = Array.from({ length: votaciones.length }, (_, i) => i);
     sortedVotIdxByDate.sort((a, b) =>
-      votaciones[b].fecha.localeCompare(votaciones[a].fecha)
+      votaciones[b].fecha.localeCompare(votaciones[a].fecha),
     );
   }
 
@@ -185,7 +243,9 @@
     const hash = location.hash;
 
     // Hide all views
-    document.querySelectorAll(".view").forEach((v) => (v.classList.remove("active")));
+    document
+      .querySelectorAll(".view")
+      .forEach((v) => v.classList.remove("active"));
 
     // Update nav
     document.querySelectorAll("[data-nav]").forEach((a) => {
@@ -237,8 +297,12 @@
     document.title = "Lo Que Votan - Votaciones del Congreso de los Diputados";
   }
 
-  function show(id) { $(id).classList.add("active"); }
-  function scrollTop() { window.scrollTo({ top: 0 }); }
+  function show(id) {
+    $(id).classList.add("active");
+  }
+  function scrollTop() {
+    window.scrollTo({ top: 0 });
+  }
 
   // ═══════════════════════════════════════════════════════════
   // Homepage
@@ -266,7 +330,7 @@
             esc(fmt(tag)) +
             '</span><span class="topic-card-count">' +
             count +
-            "</span></a>"
+            "</span></a>",
         )
         .join("");
 
@@ -310,6 +374,7 @@
     const search = $("vots-f-search").value.toLowerCase().trim();
     const cat = $("vots-f-cat").value;
     const result = $("vots-f-result").value;
+    const leg = $("vots-leg").value;
     const sortMode = $("vots-f-sort").value;
 
     let indices = sortedVotIdxByDate;
@@ -320,6 +385,7 @@
         return false;
       if (cat && categorias[vot.categoria] !== cat) return false;
       if (result && votResults[i].result !== result) return false;
+      if (leg && vot.legislatura !== leg) return false;
       if (votsSelectedTags.length > 0) {
         const tags = vot.etiquetas || [];
         if (!votsSelectedTags.every((t) => tags.includes(t))) return false;
@@ -343,8 +409,7 @@
     const start = (votsPage - 1) * VOTES_PER_PAGE;
     const page = votsFiltered.slice(start, start + VOTES_PER_PAGE);
 
-    $("vots-count").textContent =
-      total.toLocaleString("es-ES") + " votaciones";
+    $("vots-count").textContent = total.toLocaleString("es-ES") + " votaciones";
 
     const listEl = $("vots-list");
     if (page.length === 0) {
@@ -356,16 +421,11 @@
 
     listEl.innerHTML = page.map((i) => voteCardHTML(i)).join("");
 
-    renderPagination(
-      $("vots-pagination"),
-      totalPages,
-      votsPage,
-      (p) => {
-        votsPage = p;
-        renderVotsPage();
-        $("vots-filters").scrollIntoView({ behavior: "smooth" });
-      }
-    );
+    renderPagination($("vots-pagination"), totalPages, votsPage, (p) => {
+      votsPage = p;
+      renderVotsPage();
+      $("vots-filters").scrollIntoView({ behavior: "smooth" });
+    });
   }
 
   function renderVotsActiveTags() {
@@ -442,8 +502,7 @@
     const start = (dipsPage - 1) * DIPS_PER_PAGE;
     const page = dipsFiltered.slice(start, start + DIPS_PER_PAGE);
 
-    $("dips-count").textContent =
-      total.toLocaleString("es-ES") + " diputados";
+    $("dips-count").textContent = total.toLocaleString("es-ES") + " diputados";
 
     const listEl = $("dips-list");
     if (page.length === 0) {
@@ -455,16 +514,11 @@
 
     listEl.innerHTML = page.map((i) => dipCardHTML(i)).join("");
 
-    renderPagination(
-      $("dips-pagination"),
-      totalPages,
-      dipsPage,
-      (p) => {
-        dipsPage = p;
-        renderDipsPage();
-        $("dips-filters").scrollIntoView({ behavior: "smooth" });
-      }
-    );
+    renderPagination($("dips-pagination"), totalPages, dipsPage, (p) => {
+      dipsPage = p;
+      renderDipsPage();
+      $("dips-filters").scrollIntoView({ behavior: "smooth" });
+    });
   }
 
   // ═══════════════════════════════════════════════════════════
@@ -477,27 +531,49 @@
     const voteIndices = votosByVotacion[idx] || [];
 
     // Header
-    const resultClass = r.result === "Aprobada" ? "aprobada" : r.result === "Rechazada" ? "rechazada" : "empate";
+    const resultClass =
+      r.result === "Aprobada"
+        ? "aprobada"
+        : r.result === "Rechazada"
+          ? "rechazada"
+          : "empate";
     $("vot-header").innerHTML =
-      '<h1>' + esc(vot.titulo_ciudadano) + '</h1>' +
-      (vot.resumen_sencillo ? '<p class="detail-summary">' + esc(vot.resumen_sencillo) + '</p>' : '') +
+      "<h1>" +
+      esc(vot.titulo_ciudadano) +
+      "</h1>" +
+      (vot.resumen_sencillo
+        ? '<p class="detail-summary">' + esc(vot.resumen_sencillo) + "</p>"
+        : "") +
       '<div class="detail-meta" style="margin-top:0.75rem">' +
-        '<span class="result-badge result-badge--' + resultClass + ' result-badge--lg">' + esc(r.result) + '</span>' +
-        '<span class="result-margin">' + resultMarginText(r) + '</span>' +
-        '<span class="detail-meta-item">' + esc(vot.fecha) + '</span>' +
-        '<span class="badge badge--cat">' + esc(fmt(categorias[vot.categoria])) + '</span>' +
-        tagsHTML(vot.etiquetas) +
-      '</div>';
+      '<span class="result-badge result-badge--' +
+      resultClass +
+      ' result-badge--lg">' +
+      esc(r.result) +
+      "</span>" +
+      '<span class="result-margin">' +
+      resultMarginText(r) +
+      "</span>" +
+      '<span class="detail-meta-item">' +
+      esc(vot.fecha) +
+      "</span>" +
+      (vot.legislatura
+        ? '<span class="badge badge--leg">' + esc(vot.legislatura) + "</span>"
+        : "") +
+      '<span class="badge badge--cat">' +
+      esc(fmt(categorias[vot.categoria])) +
+      "</span>" +
+      tagsHTML(vot.etiquetas) +
+      "</div>";
 
     // Body
-    let html = '';
+    let html = "";
 
     // Vote bar + totals
     html += '<div class="detail-section">';
-    html += '<h2>Resultado</h2>';
+    html += "<h2>Resultado</h2>";
     html += voteBarHTML(r.favor, r.contra, r.abstencion, r.total, false);
     html += voteTotalsHTML(r);
-    html += '</div>';
+    html += "</div>";
 
     // Group breakdown
     const byGroup = {};
@@ -510,31 +586,45 @@
     }
 
     html += '<div class="detail-section">';
-    html += '<h2>Votos por grupo parlamentario</h2>';
-    html += '<div class="table-wrap"><table><thead><tr>' +
-      '<th>Grupo</th><th>A favor</th><th>En contra</th><th>Abstenciones</th><th>Total</th>' +
-      '</tr></thead><tbody>';
+    html += "<h2>Votos por grupo parlamentario</h2>";
+    html +=
+      '<div class="table-wrap"><table><thead><tr>' +
+      "<th>Grupo</th><th>A favor</th><th>En contra</th><th>Abstenciones</th><th>Total</th>" +
+      "</tr></thead><tbody>";
 
     Object.keys(byGroup)
       .map(Number)
       .sort((a, b) => grupos[a].localeCompare(grupos[b]))
       .forEach((gIdx) => {
         const d = byGroup[gIdx];
-        html += '<tr><td><span class="badge badge--grupo">' + esc(grupos[gIdx]) + '</span></td>' +
-          '<td>' + d[1] + '</td><td>' + d[2] + '</td><td>' + d[3] + '</td><td>' + d.total + '</td></tr>';
+        html +=
+          '<tr><td><span class="badge badge--grupo">' +
+          esc(grupos[gIdx]) +
+          "</span></td>" +
+          "<td>" +
+          d[1] +
+          "</td><td>" +
+          d[2] +
+          "</td><td>" +
+          d[3] +
+          "</td><td>" +
+          d.total +
+          "</td></tr>";
       });
 
-    html += '</tbody></table></div>';
-    html += '</div>';
+    html += "</tbody></table></div>";
+    html += "</div>";
 
     // Individual votes
     html += '<div class="detail-section">';
-    html += '<h2>Votos individuales</h2>';
-    html += '<input type="search" class="filter-input" id="vot-search-dip" placeholder="Buscar diputado/a..." style="max-width:350px;margin-bottom:0.75rem">';
-    html += '<div class="table-wrap"><table><thead><tr>' +
-      '<th>Diputado/a</th><th>Grupo</th><th>Voto</th>' +
+    html += "<h2>Votos individuales</h2>";
+    html +=
+      '<input type="search" class="filter-input" id="vot-search-dip" placeholder="Buscar diputado/a..." style="max-width:350px;margin-bottom:0.75rem">';
+    html +=
+      '<div class="table-wrap"><table><thead><tr>' +
+      "<th>Diputado/a</th><th>Grupo</th><th>Voto</th>" +
       '</tr></thead><tbody id="vot-indiv-body"></tbody></table></div>';
-    html += '</div>';
+    html += "</div>";
 
     // Share
     html += shareBarHTML(vot.titulo_ciudadano, r.result);
@@ -543,7 +633,7 @@
 
     // Render individual votes
     const sortedVotes = [...voteIndices].sort((a, b) =>
-      diputados[votos[a][1]].localeCompare(diputados[votos[b][1]])
+      diputados[votos[a][1]].localeCompare(diputados[votos[b][1]]),
     );
 
     const renderIndiv = () => {
@@ -555,11 +645,21 @@
         const name = diputados[v[1]];
         if (q && !name.toLowerCase().includes(q)) continue;
         rows +=
-          '<tr><td><a href="#diputado/' + encodeURIComponent(name) + '">' + esc(name) + '</a></td>' +
-          '<td><span class="badge badge--grupo">' + esc(grupos[v[2]]) + '</span></td>' +
-          '<td>' + votoPillHTML(v[3]) + '</td></tr>';
+          '<tr><td><a href="#diputado/' +
+          encodeURIComponent(name) +
+          '">' +
+          esc(name) +
+          "</a></td>" +
+          '<td><span class="badge badge--grupo">' +
+          esc(grupos[v[2]]) +
+          "</span></td>" +
+          "<td>" +
+          votoPillHTML(v[3]) +
+          "</td></tr>";
       }
-      body.innerHTML = rows || '<tr><td colspan="3" class="text-center" style="padding:1.5rem;color:var(--color-muted)">Sin resultados</td></tr>';
+      body.innerHTML =
+        rows ||
+        '<tr><td colspan="3" class="text-center" style="padding:1.5rem;color:var(--color-muted)">Sin resultados</td></tr>';
     };
 
     $("vot-search-dip").oninput = debounce(renderIndiv, 200);
@@ -577,22 +677,50 @@
 
     // Header
     $("dip-header").innerHTML =
-      '<h1>' + esc(name) + '</h1>' +
+      "<h1>" +
+      esc(name) +
+      "</h1>" +
       '<div class="detail-meta" style="margin-top:0.5rem">' +
-        '<span class="badge badge--grupo">' + esc(grupoName) + '</span>' +
-        '<span class="detail-meta-item">' + ds.total + ' votaciones</span>' +
-        '<span class="detail-meta-item">Lealtad al grupo: ' + pct(ds.loyalty) + '</span>' +
-      '</div>';
+      '<span class="badge badge--grupo">' +
+      esc(grupoName) +
+      "</span>" +
+      '<span class="detail-meta-item">' +
+      ds.total +
+      " votaciones</span>" +
+      '<span class="detail-meta-item">Lealtad al grupo: ' +
+      pct(ds.loyalty) +
+      "</span>" +
+      (ds.legislaturas && ds.legislaturas.length > 0
+        ? ds.legislaturas
+            .map((l) => '<span class="badge badge--leg">' + esc(l) + "</span>")
+            .join(" ")
+        : "") +
+      "</div>";
 
-    let html = '';
+    let html = "";
 
     // Stat cards
-    html += '<div class="stat-cards">' +
-      '<div class="stat-card"><span class="stat-card-value">' + ds.total + '</span><span class="stat-card-label">Votaciones</span></div>' +
-      '<div class="stat-card stat-card--favor"><span class="stat-card-value">' + ds.favor + '</span><span class="stat-card-label">A favor (' + pct(ds.favor / ds.total) + ')</span></div>' +
-      '<div class="stat-card stat-card--contra"><span class="stat-card-value">' + ds.contra + '</span><span class="stat-card-label">En contra (' + pct(ds.contra / ds.total) + ')</span></div>' +
-      '<div class="stat-card stat-card--abstencion"><span class="stat-card-value">' + ds.abstencion + '</span><span class="stat-card-label">Abstenciones (' + pct(ds.abstencion / ds.total) + ')</span></div>' +
-      '</div>';
+    html +=
+      '<div class="stat-cards">' +
+      '<div class="stat-card"><span class="stat-card-value">' +
+      ds.total +
+      '</span><span class="stat-card-label">Votaciones</span></div>' +
+      '<div class="stat-card stat-card--favor"><span class="stat-card-value">' +
+      ds.favor +
+      '</span><span class="stat-card-label">A favor (' +
+      pct(ds.favor / ds.total) +
+      ")</span></div>" +
+      '<div class="stat-card stat-card--contra"><span class="stat-card-value">' +
+      ds.contra +
+      '</span><span class="stat-card-label">En contra (' +
+      pct(ds.contra / ds.total) +
+      ")</span></div>" +
+      '<div class="stat-card stat-card--abstencion"><span class="stat-card-value">' +
+      ds.abstencion +
+      '</span><span class="stat-card-label">Abstenciones (' +
+      pct(ds.abstencion / ds.total) +
+      ")</span></div>" +
+      "</div>";
 
     // Vote bar
     html += voteBarHTML(ds.favor, ds.contra, ds.abstencion, ds.total, false);
@@ -614,26 +742,43 @@
       .slice(0, 20);
 
     if (dipTopTags.length > 0) {
-      html += '<div class="detail-section"><h2>Temas mas votados</h2><div>';
+      html +=
+        '<div class="detail-section"><h2>Temas mas votados</h2><div id="dip-tags">';
       dipTopTags.forEach(([tag, count]) => {
-        html += '<span class="chip chip--lg">' + esc(fmt(tag)) + ' (' + count + ')</span> ';
+        html +=
+          '<span class="chip chip--lg chip--clickable" data-tag="' +
+          esc(tag) +
+          '">' +
+          esc(fmt(tag)) +
+          " (" +
+          count +
+          ")</span> ";
       });
-      html += '</div></div>';
+      html += "</div></div>";
     }
 
     // Vote history
+    const legOptions = (ds.legislaturas || [])
+      .map((l) => '<option value="' + esc(l) + '">' + esc(l) + "</option>")
+      .join("");
     html += '<div class="detail-section"><h2>Historial de votos</h2>';
-    html += '<div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.75rem">' +
+    html +=
+      '<div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.75rem">' +
       '<input type="search" class="filter-input" id="dip-h-search" placeholder="Buscar asunto..." style="flex:1;min-width:200px">' +
       '<select class="filter-select" id="dip-h-voto" style="width:auto;min-width:130px">' +
-        '<option value="">Todos los votos</option>' +
-        '<option value="1">A favor</option><option value="2">En contra</option><option value="3">Abstencion</option>' +
-      '</select></div>';
-    html += '<div class="table-wrap"><table><thead><tr>' +
-      '<th>Fecha</th><th>Asunto</th><th>Categoria</th><th>Resultado</th><th>Voto</th>' +
+      '<option value="">Todos los votos</option>' +
+      '<option value="1">A favor</option><option value="2">En contra</option><option value="3">Abstencion</option>' +
+      "</select>" +
+      '<select class="filter-select" id="dip-h-leg" style="width:auto;min-width:130px">' +
+      '<option value="">Todas las legislaturas</option>' +
+      legOptions +
+      "</select></div>";
+    html +=
+      '<div class="table-wrap"><table><thead><tr>' +
+      "<th>Fecha</th><th>Legislatura</th><th>Asunto</th><th>Categoria</th><th>Resultado</th><th>Voto</th>" +
       '</tr></thead><tbody id="dip-h-body"></tbody></table></div>';
     html += '<nav class="pagination" id="dip-h-pagination"></nav>';
-    html += '</div>';
+    html += "</div>";
 
     // Share
     html += shareBarHTML(name + " - " + grupoName, null);
@@ -646,22 +791,39 @@
         const v = votos[vi];
         return { votIdx: v[0], code: v[3] };
       })
-      .sort((a, b) => votaciones[b.votIdx].fecha.localeCompare(votaciones[a.votIdx].fecha));
+      .sort((a, b) =>
+        votaciones[b.votIdx].fecha.localeCompare(votaciones[a.votIdx].fecha),
+      );
 
     let dipHPage = 1;
+    let dipActiveTag = "";
 
     const renderHistory = () => {
       const q = $("dip-h-search").value.toLowerCase().trim();
       const votoFilter = $("dip-h-voto").value;
+      const legFilter = $("dip-h-leg").value;
 
       const filtered = dipRecords.filter((r) => {
-        if (q && !votaciones[r.votIdx].titulo_ciudadano.toLowerCase().includes(q))
+        if (
+          q &&
+          !votaciones[r.votIdx].titulo_ciudadano.toLowerCase().includes(q)
+        )
           return false;
         if (votoFilter && r.code !== Number(votoFilter)) return false;
+        if (legFilter && votaciones[r.votIdx].legislatura !== legFilter)
+          return false;
+        if (
+          dipActiveTag &&
+          !(votaciones[r.votIdx].etiquetas || []).includes(dipActiveTag)
+        )
+          return false;
         return true;
       });
 
-      const totalPages = Math.max(1, Math.ceil(filtered.length / VOTES_PER_PAGE));
+      const totalPages = Math.max(
+        1,
+        Math.ceil(filtered.length / VOTES_PER_PAGE),
+      );
       if (dipHPage > totalPages) dipHPage = 1;
       const start = (dipHPage - 1) * VOTES_PER_PAGE;
       const page = filtered.slice(start, start + VOTES_PER_PAGE);
@@ -672,15 +834,43 @@
         const r = page[j];
         const vot = votaciones[r.votIdx];
         const vr = votResults[r.votIdx];
-        const resultClass = vr.result === "Aprobada" ? "aprobada" : vr.result === "Rechazada" ? "rechazada" : "empate";
+        const resultClass =
+          vr.result === "Aprobada"
+            ? "aprobada"
+            : vr.result === "Rechazada"
+              ? "rechazada"
+              : "empate";
         rows +=
-          '<tr><td>' + esc(vot.fecha) + '</td>' +
-          '<td><a href="#votacion/' + r.votIdx + '">' + esc(vot.titulo_ciudadano) + '</a></td>' +
-          '<td><span class="badge badge--cat">' + esc(fmt(categorias[vot.categoria])) + '</span></td>' +
-          '<td><span class="result-badge result-badge--' + resultClass + '">' + esc(vr.result) + '</span></td>' +
-          '<td>' + votoPillHTML(r.code) + '</td></tr>';
+          "<tr><td>" +
+          esc(vot.fecha) +
+          "</td>" +
+          "<td>" +
+          (vot.legislatura
+            ? '<span class="badge badge--leg">' +
+              esc(vot.legislatura) +
+              "</span>"
+            : "") +
+          "</td>" +
+          '<td><a href="#votacion/' +
+          r.votIdx +
+          '">' +
+          esc(vot.titulo_ciudadano) +
+          "</a></td>" +
+          '<td><span class="badge badge--cat">' +
+          esc(fmt(categorias[vot.categoria])) +
+          "</span></td>" +
+          '<td><span class="result-badge result-badge--' +
+          resultClass +
+          '">' +
+          esc(vr.result) +
+          "</span></td>" +
+          "<td>" +
+          votoPillHTML(r.code) +
+          "</td></tr>";
       }
-      body.innerHTML = rows || '<tr><td colspan="5" class="text-center" style="padding:1.5rem;color:var(--color-muted)">Sin resultados</td></tr>';
+      body.innerHTML =
+        rows ||
+        '<tr><td colspan="6" class="text-center" style="padding:1.5rem;color:var(--color-muted)">Sin resultados</td></tr>';
 
       renderPagination($("dip-h-pagination"), totalPages, dipHPage, (p) => {
         dipHPage = p;
@@ -688,8 +878,41 @@
       });
     };
 
-    $("dip-h-search").oninput = debounce(() => { dipHPage = 1; renderHistory(); }, 250);
-    $("dip-h-voto").onchange = () => { dipHPage = 1; renderHistory(); };
+    $("dip-h-search").oninput = debounce(() => {
+      dipHPage = 1;
+      renderHistory();
+    }, 250);
+    $("dip-h-voto").onchange = () => {
+      dipHPage = 1;
+      renderHistory();
+    };
+    $("dip-h-leg").onchange = () => {
+      dipHPage = 1;
+      renderHistory();
+    };
+
+    // Tag chips as quick-filters
+    const tagsContainer = $("dip-tags");
+    if (tagsContainer) {
+      tagsContainer.onclick = (e) => {
+        const chip = e.target.closest("[data-tag]");
+        if (!chip) return;
+        const tag = chip.getAttribute("data-tag");
+        if (dipActiveTag === tag) {
+          dipActiveTag = "";
+          chip.classList.remove("chip--active");
+        } else {
+          dipActiveTag = tag;
+          tagsContainer
+            .querySelectorAll(".chip--active")
+            .forEach((c) => c.classList.remove("chip--active"));
+          chip.classList.add("chip--active");
+        }
+        dipHPage = 1;
+        renderHistory();
+      };
+    }
+
     renderHistory();
   }
 
@@ -700,28 +923,47 @@
   function voteCardHTML(idx) {
     const vot = votaciones[idx];
     const r = votResults[idx];
-    const resultClass = r.result === "Aprobada" ? "aprobada" : r.result === "Rechazada" ? "rechazada" : "empate";
+    const resultClass =
+      r.result === "Aprobada"
+        ? "aprobada"
+        : r.result === "Rechazada"
+          ? "rechazada"
+          : "empate";
 
     return (
-      '<a class="card vote-card card-link" href="#votacion/' + idx + '">' +
-        '<div class="vote-card-header">' +
-          '<span class="vote-card-title">' + esc(vot.titulo_ciudadano) + '</span>' +
-          '<span class="result-badge result-badge--' + resultClass + '">' + esc(r.result) + '</span>' +
-        '</div>' +
-        '<div class="vote-card-meta">' +
-          '<span>' + esc(vot.fecha) + '</span>' +
-          '<span class="badge badge--cat">' + esc(fmt(categorias[vot.categoria])) + '</span>' +
-        '</div>' +
-        voteBarHTML(r.favor, r.contra, r.abstencion, r.total, true) +
-        (vot.etiquetas && vot.etiquetas.length > 0
-          ? '<div class="vote-card-tags">' +
-            vot.etiquetas
-              .slice(0, 4)
-              .map((t) => '<span class="chip">' + esc(fmt(t)) + "</span>")
-              .join("") +
-            (vot.etiquetas.length > 4 ? '<span class="chip">+' + (vot.etiquetas.length - 4) + "</span>" : "") +
-            "</div>"
-          : "") +
+      '<a class="card vote-card card-link" href="#votacion/' +
+      idx +
+      '">' +
+      '<div class="vote-card-header">' +
+      '<span class="vote-card-title">' +
+      esc(vot.titulo_ciudadano) +
+      "</span>" +
+      '<span class="result-badge result-badge--' +
+      resultClass +
+      '">' +
+      esc(r.result) +
+      "</span>" +
+      "</div>" +
+      '<div class="vote-card-meta">' +
+      "<span>" +
+      esc(vot.fecha) +
+      "</span>" +
+      '<span class="badge badge--cat">' +
+      esc(fmt(categorias[vot.categoria])) +
+      "</span>" +
+      "</div>" +
+      voteBarHTML(r.favor, r.contra, r.abstencion, r.total, true) +
+      (vot.etiquetas && vot.etiquetas.length > 0
+        ? '<div class="vote-card-tags">' +
+          vot.etiquetas
+            .slice(0, 4)
+            .map((t) => '<span class="chip">' + esc(fmt(t)) + "</span>")
+            .join("") +
+          (vot.etiquetas.length > 4
+            ? '<span class="chip">+' + (vot.etiquetas.length - 4) + "</span>"
+            : "") +
+          "</div>"
+        : "") +
       "</a>"
     );
   }
@@ -732,15 +974,25 @@
     const grupoName = ds.mainGrupo >= 0 ? grupos[ds.mainGrupo] : "Sin grupo";
 
     return (
-      '<a class="card dip-card card-link" href="#diputado/' + encodeURIComponent(name) + '">' +
-        '<div class="dip-card-name">' + esc(name) + '</div>' +
-        '<span class="badge badge--grupo">' + esc(grupoName) + '</span>' +
-        '<div class="dip-card-stats">' +
-          '<span><strong>' + ds.total + '</strong> votos</span>' +
-          '<span>Lealtad: <strong>' + pct(ds.loyalty) + '</strong></span>' +
-        '</div>' +
-        voteBarHTML(ds.favor, ds.contra, ds.abstencion, ds.total, true) +
-      '</a>'
+      '<a class="card dip-card card-link" href="#diputado/' +
+      encodeURIComponent(name) +
+      '">' +
+      '<div class="dip-card-name">' +
+      esc(name) +
+      "</div>" +
+      '<span class="badge badge--grupo">' +
+      esc(grupoName) +
+      "</span>" +
+      '<div class="dip-card-stats">' +
+      "<span><strong>" +
+      ds.total +
+      "</strong> votos</span>" +
+      "<span>Lealtad: <strong>" +
+      pct(ds.loyalty) +
+      "</strong></span>" +
+      "</div>" +
+      voteBarHTML(ds.favor, ds.contra, ds.abstencion, ds.total, true) +
+      "</a>"
     );
   }
 
@@ -750,34 +1002,64 @@
 
   function voteBarHTML(favor, contra, abstencion, total, small) {
     if (total === 0) return "";
-    const pF = (favor / total * 100).toFixed(1);
-    const pC = (contra / total * 100).toFixed(1);
-    const pA = (abstencion / total * 100).toFixed(1);
+    const pF = ((favor / total) * 100).toFixed(1);
+    const pC = ((contra / total) * 100).toFixed(1);
+    const pA = ((abstencion / total) * 100).toFixed(1);
     const cls = small ? "vote-bar vote-bar--sm" : "vote-bar";
     return (
-      '<div class="' + cls + '">' +
-      '<div class="vote-bar-seg vote-bar-seg--favor" style="width:' + pF + '%" title="A favor: ' + pF + '%">' + (small ? "" : favor) + '</div>' +
-      '<div class="vote-bar-seg vote-bar-seg--contra" style="width:' + pC + '%" title="En contra: ' + pC + '%">' + (small ? "" : contra) + '</div>' +
-      '<div class="vote-bar-seg vote-bar-seg--abstencion" style="width:' + pA + '%" title="Abstenciones: ' + pA + '%">' + (small ? "" : abstencion) + '</div>' +
-      '</div>'
+      '<div class="' +
+      cls +
+      '">' +
+      '<div class="vote-bar-seg vote-bar-seg--favor" style="width:' +
+      pF +
+      '%" title="A favor: ' +
+      pF +
+      '%">' +
+      (small ? "" : favor) +
+      "</div>" +
+      '<div class="vote-bar-seg vote-bar-seg--contra" style="width:' +
+      pC +
+      '%" title="En contra: ' +
+      pC +
+      '%">' +
+      (small ? "" : contra) +
+      "</div>" +
+      '<div class="vote-bar-seg vote-bar-seg--abstencion" style="width:' +
+      pA +
+      '%" title="Abstenciones: ' +
+      pA +
+      '%">' +
+      (small ? "" : abstencion) +
+      "</div>" +
+      "</div>"
     );
   }
 
   function voteTotalsHTML(r) {
     return (
       '<div class="vote-totals">' +
-      '<span class="vote-total-item vote-total-item--favor">' + r.favor + ' a favor</span>' +
-      '<span class="vote-total-item vote-total-item--contra">' + r.contra + ' en contra</span>' +
-      '<span class="vote-total-item vote-total-item--abstencion">' + r.abstencion + ' abstenciones</span>' +
-      '<span class="vote-total-item vote-total-item--total">' + r.total + ' votos totales</span>' +
-      '</div>'
+      '<span class="vote-total-item vote-total-item--favor">' +
+      r.favor +
+      " a favor</span>" +
+      '<span class="vote-total-item vote-total-item--contra">' +
+      r.contra +
+      " en contra</span>" +
+      '<span class="vote-total-item vote-total-item--abstencion">' +
+      r.abstencion +
+      " abstenciones</span>" +
+      '<span class="vote-total-item vote-total-item--total">' +
+      r.total +
+      " votos totales</span>" +
+      "</div>"
     );
   }
 
   function votoPillHTML(code) {
     const label = VOTO_LABELS[code] || "?";
     const cls = code === 1 ? "favor" : code === 2 ? "contra" : "abstencion";
-    return '<span class="voto-pill voto-pill--' + cls + '">' + label + "</span>";
+    return (
+      '<span class="voto-pill voto-pill--' + cls + '">' + label + "</span>"
+    );
   }
 
   function tagsHTML(tags) {
@@ -800,13 +1082,17 @@
       : title + " — Lo Que Votan:";
     return (
       '<div class="share-bar">' +
-      '<button class="share-btn share-btn--copy" data-share-url="' + esc(url) + '" onclick="window._copyShare(this)">&#128279; Copiar enlace</button>' +
+      '<button class="share-btn share-btn--copy" data-share-url="' +
+      esc(url) +
+      '" onclick="window._copyShare(this)">&#128279; Copiar enlace</button>' +
       '<a class="share-btn share-btn--twitter" href="https://twitter.com/intent/tweet?text=' +
-        encodeURIComponent(text) + "&url=" + encodeURIComponent(url) +
-        '" target="_blank" rel="noopener">&#120143; Compartir</a>' +
+      encodeURIComponent(text) +
+      "&url=" +
+      encodeURIComponent(url) +
+      '" target="_blank" rel="noopener">&#120143; Compartir</a>' +
       '<a class="share-btn share-btn--whatsapp" href="https://api.whatsapp.com/send?text=' +
-        encodeURIComponent(text + " " + url) +
-        '" target="_blank" rel="noopener">&#128172; WhatsApp</a>' +
+      encodeURIComponent(text + " " + url) +
+      '" target="_blank" rel="noopener">&#128172; WhatsApp</a>' +
       "</div>"
     );
   }
@@ -817,7 +1103,9 @@
     if (navigator.clipboard) {
       navigator.clipboard.writeText(url).then(() => {
         btn.textContent = "Copiado!";
-        setTimeout(() => { btn.innerHTML = "&#128279; Copiar enlace"; }, 2000);
+        setTimeout(() => {
+          btn.innerHTML = "&#128279; Copiar enlace";
+        }, 2000);
       });
     }
   };
@@ -856,8 +1144,7 @@
   }
 
   function getPageRange(current, total) {
-    if (total <= 7)
-      return Array.from({ length: total }, (_, i) => i + 1);
+    if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1);
     const pages = [1];
     if (current > 3) pages.push("...");
     for (
@@ -905,9 +1192,13 @@
           (i) =>
             '<a class="autocomplete-item" href="#diputado/' +
             encodeURIComponent(diputados[i]) +
-            '"><span>' + esc(diputados[i]) + '</span><span class="ac-grupo">' +
-            esc(dipStats[i].mainGrupo >= 0 ? grupos[dipStats[i].mainGrupo] : "") +
-            "</span></a>"
+            '"><span>' +
+            esc(diputados[i]) +
+            '</span><span class="ac-grupo">' +
+            esc(
+              dipStats[i].mainGrupo >= 0 ? grupos[dipStats[i].mainGrupo] : "",
+            ) +
+            "</span></a>",
         )
         .join("");
 
@@ -915,7 +1206,10 @@
       dropdown.hidden = false;
     };
 
-    input.addEventListener("input", debounce(() => render(input.value.trim()), 150));
+    input.addEventListener(
+      "input",
+      debounce(() => render(input.value.trim()), 150),
+    );
 
     input.addEventListener("keydown", (e) => {
       if (dropdown.hidden) return;
@@ -938,7 +1232,7 @@
 
     function updateHighlight(items) {
       items.forEach((el, i) =>
-        el.classList.toggle("highlighted", i === highlightIdx)
+        el.classList.toggle("highlighted", i === highlightIdx),
       );
     }
 
@@ -976,7 +1270,10 @@
 
   function updateThemeIcon() {
     const btn = $("theme-toggle");
-    btn.textContent = document.documentElement.dataset.theme === "dark" ? "\u2600\uFE0F" : "\uD83C\uDF19";
+    btn.textContent =
+      document.documentElement.dataset.theme === "dark"
+        ? "\u2600\uFE0F"
+        : "\uD83C\uDF19";
   }
 
   // ═══════════════════════════════════════════════════════════
@@ -1016,6 +1313,15 @@
         opt.textContent = g;
         grpSelect.appendChild(opt);
       });
+
+    // Legislaturas for votaciones filter
+    const legSelect = $("vots-leg");
+    LEGISLATURAS.forEach((l) => {
+      const opt = document.createElement("option");
+      opt.value = l.id;
+      opt.textContent = l.nombre;
+      legSelect.appendChild(opt);
+    });
   }
 
   // ═══════════════════════════════════════════════════════════
@@ -1029,18 +1335,26 @@
     initAutocomplete();
 
     // Votaciones filters
-    $("vots-f-search").addEventListener("input", debounce(applyVotsFilters, 250));
+    $("vots-f-search").addEventListener(
+      "input",
+      debounce(applyVotsFilters, 250),
+    );
     $("vots-f-cat").addEventListener("change", applyVotsFilters);
     $("vots-f-result").addEventListener("change", applyVotsFilters);
+    $("vots-leg").addEventListener("change", applyVotsFilters);
     $("vots-f-sort").addEventListener("change", applyVotsFilters);
     $("vots-f-tag").addEventListener("keydown", (e) => {
-      if (e.key === "Enter") { e.preventDefault(); addVotsTag(); }
+      if (e.key === "Enter") {
+        e.preventDefault();
+        addVotsTag();
+      }
     });
     $("vots-f-tag").addEventListener("change", addVotsTag);
     $("vots-reset").addEventListener("click", () => {
       $("vots-f-search").value = "";
       $("vots-f-cat").value = "";
       $("vots-f-result").value = "";
+      $("vots-leg").value = "";
       $("vots-f-sort").value = "recent";
       $("vots-f-tag").value = "";
       votsSelectedTags = [];
@@ -1048,7 +1362,10 @@
     });
 
     // Diputados filters
-    $("dips-f-search").addEventListener("input", debounce(applyDipsFilters, 250));
+    $("dips-f-search").addEventListener(
+      "input",
+      debounce(applyDipsFilters, 250),
+    );
     $("dips-f-grupo").addEventListener("change", applyDipsFilters);
     $("dips-f-sort").addEventListener("change", applyDipsFilters);
     $("dips-reset").addEventListener("click", () => {
@@ -1063,14 +1380,22 @@
   // Helpers
   // ═══════════════════════════════════════════════════════════
 
-  function $(id) { return document.getElementById(id); }
+  function $(id) {
+    return document.getElementById(id);
+  }
 
   function esc(s) {
     if (!s) return "";
-    return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    return s
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
   }
 
-  function fmt(s) { return (s || "").replace(/_/g, " "); }
+  function fmt(s) {
+    return (s || "").replace(/_/g, " ");
+  }
 
   function pct(n) {
     return (n * 100).toFixed(1) + "%";

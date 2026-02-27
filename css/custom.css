@@ -447,6 +447,12 @@ input, select, button { font-family: inherit; font-size: inherit; }
   color: var(--color-primary);
 }
 
+.badge--leg {
+  background: #e8f4e8;
+  color: #2d6a2d;
+  font-weight: 600;
+}
+
 /* ── Result Badge ── */
 .result-badge {
   display: inline-flex;
@@ -548,9 +554,14 @@ input, select, button { font-family: inherit; font-size: inherit; }
   text-decoration: none;
 }
 
-.chip--active {
+.chip--active,
+.chip--active:hover {
   background: var(--color-primary);
   color: #fff;
+}
+
+.chip--clickable {
+  user-select: none;
 }
 
 .chip--lg {

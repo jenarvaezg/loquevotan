@@ -18,10 +18,99 @@ CACHE_FILE = os.path.join(SCRIPT_DIR, "..", "data", "cache_categorias.json")
 PROMPT_FILE = os.path.join(SCRIPT_DIR, "prompt_categorizacion.txt")
 
 VALID_CATEGORIES = frozenset([
-    "Economía_y_Hacienda", "Sanidad", "Educación", "Vivienda",
+    "Economia_y_Hacienda", "Sanidad", "Educacion", "Vivienda",
     "Trabajo_y_Pensiones", "Derechos_Sociales", "Justicia",
     "Interior_y_Seguridad", "Medio_Ambiente", "Infraestructuras",
-    "Politica_Territorial", "Asuntos_Exteriores", "Gobernanza", "Otros",
+    "Politica_Territorial", "Asuntos_Exteriores", "Gobernanza",
+    "Agricultura", "Cultura", "Otros",
+    # Legacy names with accents (accept but normalize)
+    "Economía_y_Hacienda", "Educación",
+])
+
+# Normalize accented category names to non-accented
+CATEGORY_NORMALIZE = {
+    "Economía_y_Hacienda": "Economia_y_Hacienda",
+    "Educación": "Educacion",
+}
+
+VALID_TAGS = frozenset([
+    # Procedimiento parlamentario
+    "procedimiento_parlamentario", "tramitar_ley_urgencia",
+    "crear_comision_investigacion", "reformar_reglamento_congreso",
+    "aprobar_acuerdo_internacional",
+    # Control al gobierno
+    "controlar_gobierno", "exigir_responsabilidades_gobierno",
+    "reprobar_gestion_gobierno",
+    # Presupuestos y finanzas
+    "aprobar_presupuestos", "controlar_gasto_publico",
+    "reducir_deficit", "limitar_deuda_publica",
+    # Impuestos
+    "subir_impuestos", "bajar_impuestos", "combatir_fraude_fiscal",
+    # Economia
+    "impulsar_crecimiento_economico", "apoyar_emprendedores",
+    "proteger_consumidores", "regular_sector_financiero",
+    # Empleo
+    "crear_empleo", "mejorar_condiciones_laborales",
+    "reducir_jornada_laboral", "proteger_trabajadores",
+    # Pensiones
+    "subir_pensiones", "reformar_pensiones", "garantizar_pensiones",
+    # Conciliacion y seguridad social
+    "impulsar_conciliacion", "reformar_seguridad_social",
+    # Sanidad
+    "proteger_sanidad_publica", "ampliar_sanidad_publica",
+    "mejorar_salud_mental", "proteger_enfermos", "legalizar_eutanasia",
+    # Educacion
+    "reformar_educacion", "proteger_educacion_publica",
+    "financiar_universidad", "impulsar_formacion_profesional",
+    "impulsar_ciencia",
+    # Vivienda
+    "facilitar_acceso_vivienda", "evitar_desahucios",
+    "proteger_inquilinos", "limitar_okupacion",
+    # Igualdad y genero
+    "combatir_violencia_machista", "impulsar_igualdad_genero",
+    "proteger_derechos_lgbti",
+    # Derechos sociales
+    "combatir_pobreza", "proteger_infancia", "proteger_familias",
+    "proteger_personas_discapacidad", "proteger_derechos_humanos",
+    "proteger_libertad_expresion",
+    # Inmigracion
+    "restringir_inmigracion", "regularizar_inmigrantes",
+    "proteger_refugiados",
+    # Justicia
+    "reformar_codigo_penal", "reformar_poder_judicial",
+    "reformar_tribunal_constitucional", "combatir_corrupcion",
+    "recuperar_memoria_historica",
+    # Seguridad
+    "aumentar_seguridad_ciudadana", "combatir_terrorismo",
+    "proteger_victimas_terrorismo", "mejorar_seguridad_vial",
+    # Medio ambiente
+    "combatir_cambio_climatico", "reducir_emisiones",
+    "proteger_medio_ambiente", "gestionar_recursos_hidricos",
+    "proteger_biodiversidad",
+    # Energia
+    "impulsar_energia_renovable", "garantizar_suministro_electrico",
+    "combatir_pobreza_energetica",
+    # Infraestructuras
+    "mejorar_red_ferroviaria", "mejorar_carreteras",
+    "fomentar_transporte_publico", "financiar_infraestructuras",
+    "impulsar_telecomunicaciones",
+    # Territorio
+    "financiar_autonomias", "financiar_ayuntamientos",
+    "combatir_despoblacion", "reformar_financiacion_autonomica",
+    # Asuntos exteriores
+    "adaptar_normativa_europea", "impulsar_cooperacion_internacional",
+    "aumentar_gasto_defensa", "reducir_gasto_defensa",
+    "apoyar_palestina",
+    # Agricultura
+    "proteger_sector_primario", "defender_agricultores",
+    # Gobernanza
+    "aumentar_transparencia", "regular_lobbies",
+    "reformar_ley_electoral", "apoyar_monarquia", "abolir_monarquia",
+    # Emergencias
+    "aprobar_ayudas_emergencia", "financiar_reconstruccion",
+    # Cultura
+    "impulsar_cultura", "reformar_medios_comunicacion",
+    "proteger_lenguas_cooficiales",
 ])
 
 VOTE_MAP = {
@@ -48,8 +137,8 @@ def text_hash(text):
     return hashlib.sha256(text.encode("utf-8")).hexdigest()[:16]
 
 
-def categorize_batch_with_gemini(texts_with_hashes):
-    """Categorize a batch of parliamentary texts in a single gemini call.
+def categorize_batch(texts_with_hashes):
+    """Categorize a batch of parliamentary texts using claude CLI.
 
     Args:
         texts_with_hashes: list of (hash, text_expediente) tuples
@@ -70,21 +159,27 @@ def categorize_batch_with_gemini(texts_with_hashes):
         f"{prompt_template}\n\n"
         f"Categoriza CADA uno de los siguientes {len(texts_with_hashes)} asuntos parlamentarios.\n"
         f"Devuelve un JSON array con un objeto por asunto, en el MISMO ORDEN.\n"
-        f"SOLO el JSON array, sin markdown ni explicación.\n\n"
+        f"SOLO el JSON array, sin markdown ni explicacion.\n\n"
         f"{items_block}"
     )
 
     try:
+        env = os.environ.copy()
+        env.pop("CLAUDECODE", None)
+
         result = subprocess.run(
-            ["gemini", "-p", full_prompt],
+            ["claude", "-p", "--model", "haiku", "--output-format", "text"],
+            input=full_prompt,
             capture_output=True,
             text=True,
-            timeout=180,
+            timeout=120,
+            env=env,
         )
+
         output = result.stdout.strip()
 
         if not output:
-            raise ValueError(f"Empty stdout (rc={result.returncode})")
+            raise ValueError(f"Empty output (rc={result.returncode}): {result.stderr[:200]}")
 
         # Extract JSON from possible markdown fences
         if "```json" in output:
@@ -108,8 +203,7 @@ def categorize_batch_with_gemini(texts_with_hashes):
         return result_map
 
     except Exception as e:
-        print(f"  Gemini batch error: {e}", file=sys.stderr)
-        # On failure, try items individually as fallback
+        print(f"  Batch error: {e}", file=sys.stderr)
         result_map = {}
         for h, text in texts_with_hashes:
             result_map[h] = _fallback_categorization()
@@ -121,19 +215,24 @@ def _validate_categorization(data):
     if not isinstance(data, dict):
         return _fallback_categorization()
 
-    if data.get("categoria_principal") not in VALID_CATEGORIES:
-        data["categoria_principal"] = "Otros"
+    cat = data.get("categoria_principal", "Otros")
+    cat = CATEGORY_NORMALIZE.get(cat, cat)
+    if cat not in VALID_CATEGORIES:
+        cat = "Otros"
+    data["categoria_principal"] = cat
 
     words = data.get("titulo_ciudadano", "").split()
-    if len(words) > 8:
-        data["titulo_ciudadano"] = " ".join(words[:8])
+    if len(words) > 12:
+        data["titulo_ciudadano"] = " ".join(words[:12])
 
     etiquetas = data.get("etiquetas", [])
     if not isinstance(etiquetas, list):
         etiquetas = []
-    data["etiquetas"] = etiquetas[:6]
+    # Filter to only valid tags from the constrained vocabulary
+    etiquetas = [t for t in etiquetas if t in VALID_TAGS]
+    data["etiquetas"] = etiquetas[:4]
 
-    if "resumen_sencillo" not in data:
+    if not data.get("resumen_sencillo"):
         data["resumen_sencillo"] = ""
 
     return data
@@ -218,7 +317,7 @@ def main():
             batch_num = batch_idx // BATCH_SIZE + 1
             print(f"  Lote {batch_num}/{total_batches} ({len(batch)} textos)...")
 
-            result_map = categorize_batch_with_gemini(batch)
+            result_map = categorize_batch(batch)
             for h, cat_data in result_map.items():
                 cache[h] = cat_data
                 new_categorizations += 1
