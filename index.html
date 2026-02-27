@@ -4,229 +4,171 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lo Que Votan - Votaciones del Congreso de los Diputados</title>
-    <meta name="description" content="Consulta qué vota cada diputado en el Congreso de España, con categorías comprensibles para ciudadanos.">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <meta name="description" content="Consulta que vota cada diputado en el Congreso de Espana, con categorias comprensibles para ciudadanos.">
+    <meta property="og:title" content="Lo Que Votan">
+    <meta property="og:description" content="Que vota cada diputado en el Congreso, explicado para ciudadanos.">
+    <meta property="og:type" content="website">
     <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
-    <header class="container">
-        <hgroup>
-            <h1><a href="#" class="brand-link">Lo Que Votan</a></h1>
-            <p>Qué vota cada diputado, explicado para ciudadanos</p>
-        </hgroup>
-    </header>
 
-    <main class="container">
-        <!-- Loading -->
-        <div id="loading" aria-busy="true">
-            <p>Cargando datos del Congreso...</p>
+<!-- Nav -->
+<nav class="nav-bar">
+    <div class="nav-inner">
+        <a href="#" class="nav-brand">Lo Que Votan</a>
+        <ul class="nav-links">
+            <li><a href="#votaciones" data-nav="votaciones">Votaciones</a></li>
+            <li><a href="#diputados" data-nav="diputados">Diputados</a></li>
+        </ul>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema" title="Cambiar tema"></button>
+    </div>
+</nav>
+
+<!-- Loading -->
+<div class="loading-wrap" id="loading">
+    <div class="loading-spinner"></div>
+    <p class="loading-text">Cargando datos del Congreso...</p>
+</div>
+
+<!-- Error -->
+<p class="error-msg" id="error" role="alert"></p>
+
+<!-- ═══ VIEW: Homepage ═══ -->
+<section id="view-home" class="view">
+    <div class="hero">
+        <h1>Lo Que Votan</h1>
+        <p class="hero-tagline">Que vota cada diputado en el Congreso, explicado para ciudadanos</p>
+        <div class="hero-search-wrap">
+            <span class="hero-search-icon">&#128269;</span>
+            <input type="search" class="hero-search" id="hero-search" placeholder="Busca tu diputado/a..." autocomplete="off">
+            <div class="autocomplete-dropdown" id="hero-dropdown" hidden></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="stats-banner" id="home-stats"></div>
+
+        <div class="section-header">
+            <h2>Temas populares</h2>
+        </div>
+        <div class="topic-grid" id="home-topics"></div>
+
+        <div class="section-header">
+            <h2>Ultimas votaciones</h2>
+            <a href="#votaciones">Ver todas &rarr;</a>
+        </div>
+        <div class="vote-cards-grid" id="home-latest"></div>
+    </div>
+</section>
+
+<!-- ═══ VIEW: Votaciones list ═══ -->
+<section id="view-votaciones" class="view">
+    <div class="container" style="padding-top:1.5rem">
+        <h1 class="mb-2">Votaciones</h1>
+
+        <div class="filter-bar" id="vots-filters">
+            <div class="filter-group">
+                <label for="vots-f-search">Buscar</label>
+                <input type="search" class="filter-input" id="vots-f-search" placeholder="Titulo...">
+            </div>
+            <div class="filter-group">
+                <label for="vots-f-cat">Categoria</label>
+                <select class="filter-select" id="vots-f-cat">
+                    <option value="">Todas</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="vots-f-result">Resultado</label>
+                <select class="filter-select" id="vots-f-result">
+                    <option value="">Todos</option>
+                    <option value="Aprobada">Aprobada</option>
+                    <option value="Rechazada">Rechazada</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="vots-f-tag">Etiqueta</label>
+                <input type="search" class="filter-input" id="vots-f-tag" placeholder="Ej: subir_pensiones" list="vots-tags-list">
+                <datalist id="vots-tags-list"></datalist>
+            </div>
+            <div class="filter-group">
+                <label for="vots-f-sort">Ordenar</label>
+                <select class="filter-select" id="vots-f-sort">
+                    <option value="recent">Mas recientes</option>
+                    <option value="closest">Mas ajustadas</option>
+                </select>
+            </div>
+            <div class="filter-actions">
+                <button class="btn btn--sm" id="vots-reset">Limpiar</button>
+            </div>
         </div>
 
-        <!-- Error -->
-        <p id="error" role="alert"></p>
+        <div class="active-tags" id="vots-active-tags"></div>
+        <p id="vots-count" style="font-size:0.85rem;color:var(--color-muted);margin-bottom:0.75rem"></p>
+        <div class="vote-cards-grid" id="vots-list"></div>
+        <nav class="pagination" id="vots-pagination"></nav>
+    </div>
+</section>
 
-        <!-- ═══ VIEW: List ═══ -->
-        <section id="view-list">
-            <!-- Filters -->
-            <details open>
-                <summary role="button" class="secondary">Filtros</summary>
-                <div class="grid">
-                    <div>
-                        <label for="search-diputado">Buscar diputado/a</label>
-                        <input type="search" id="search-diputado" placeholder="Apellidos, Nombre...">
-                    </div>
-                    <div>
-                        <label for="filter-categoria">Categoria</label>
-                        <select id="filter-categoria">
-                            <option value="">Todas las categorias</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="filter-grupo">Grupo parlamentario</label>
-                        <select id="filter-grupo">
-                            <option value="">Todos los grupos</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="grid">
-                    <div>
-                        <label for="filter-voto">Sentido del voto</label>
-                        <select id="filter-voto">
-                            <option value="">Todos</option>
-                            <option value="A favor">A favor</option>
-                            <option value="En contra">En contra</option>
-                            <option value="Abstencion">Abstencion</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="filter-fecha-desde">Desde</label>
-                        <input type="date" id="filter-fecha-desde">
-                    </div>
-                    <div>
-                        <label for="filter-fecha-hasta">Hasta</label>
-                        <input type="date" id="filter-fecha-hasta">
-                    </div>
-                </div>
-                <div class="grid">
-                    <div>
-                        <label for="filter-etiqueta">Etiqueta tematica</label>
-                        <input type="search" id="filter-etiqueta" list="etiquetas-list" placeholder="Ej: subir_pensiones, limitar_okupacion...">
-                        <datalist id="etiquetas-list"></datalist>
-                    </div>
-                    <div>
-                        <label>Etiquetas activas</label>
-                        <div id="tags-activos"></div>
-                    </div>
-                    <div></div>
-                </div>
-                <button type="button" id="btn-reset" class="secondary outline">Limpiar filtros</button>
-            </details>
+<!-- ═══ VIEW: Diputados list ═══ -->
+<section id="view-diputados" class="view">
+    <div class="container" style="padding-top:1.5rem">
+        <h1 class="mb-2">Diputados</h1>
 
-            <p id="results-count" aria-live="polite"></p>
-
-            <div class="overflow-auto">
-                <table role="grid">
-                    <thead>
-                        <tr>
-                            <th scope="col">Fecha</th>
-                            <th scope="col">Diputado/a</th>
-                            <th scope="col">Grupo</th>
-                            <th scope="col">Asunto</th>
-                            <th scope="col">Categoria</th>
-                            <th scope="col">Etiquetas</th>
-                            <th scope="col">Voto</th>
-                        </tr>
-                    </thead>
-                    <tbody id="results-body"></tbody>
-                </table>
+        <div class="filter-bar" id="dips-filters">
+            <div class="filter-group">
+                <label for="dips-f-search">Nombre</label>
+                <input type="search" class="filter-input" id="dips-f-search" placeholder="Apellidos, Nombre...">
             </div>
+            <div class="filter-group">
+                <label for="dips-f-grupo">Grupo</label>
+                <select class="filter-select" id="dips-f-grupo">
+                    <option value="">Todos</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="dips-f-sort">Ordenar</label>
+                <select class="filter-select" id="dips-f-sort">
+                    <option value="name">Nombre</option>
+                    <option value="active">Mas activo</option>
+                    <option value="loyalty-low">Menor lealtad</option>
+                </select>
+            </div>
+            <div class="filter-actions">
+                <button class="btn btn--sm" id="dips-reset">Limpiar</button>
+            </div>
+        </div>
 
-            <nav id="pagination" aria-label="Paginacion"></nav>
-        </section>
+        <p id="dips-count" style="font-size:0.85rem;color:var(--color-muted);margin-bottom:0.75rem"></p>
+        <div class="dip-cards-grid" id="dips-list"></div>
+        <nav class="pagination" id="dips-pagination"></nav>
+    </div>
+</section>
 
-        <!-- ═══ VIEW: Votacion detail ═══ -->
-        <section id="view-votacion" class="detail-view" hidden>
-            <nav class="breadcrumb">
-                <a href="#">Inicio</a> / <span>Votacion</span>
-            </nav>
-            <article>
-                <header>
-                    <h2 id="vot-titulo"></h2>
-                    <p id="vot-resumen" class="resumen"></p>
-                </header>
-                <div class="grid detail-meta">
-                    <div>
-                        <strong>Fecha:</strong> <span id="vot-fecha"></span>
-                    </div>
-                    <div>
-                        <strong>Categoria:</strong> <span id="vot-categoria" class="badge cat"></span>
-                    </div>
-                    <div>
-                        <strong>Etiquetas:</strong> <span id="vot-etiquetas"></span>
-                    </div>
-                </div>
+<!-- ═══ VIEW: Votacion detail ═══ -->
+<section id="view-votacion" class="view">
+    <div class="container" style="padding-top:1.5rem">
+        <a href="#votaciones" class="back-link">&larr; Votaciones</a>
+        <div class="detail-header" id="vot-header"></div>
+        <div id="vot-body"></div>
+    </div>
+</section>
 
-                <h3>Resultado</h3>
-                <div class="vote-bars" id="vot-bars"></div>
-                <div class="vote-totals" id="vot-totals"></div>
+<!-- ═══ VIEW: Diputado detail ═══ -->
+<section id="view-diputado" class="view">
+    <div class="container" style="padding-top:1.5rem">
+        <a href="#diputados" class="back-link">&larr; Diputados</a>
+        <div class="detail-header" id="dip-header"></div>
+        <div id="dip-body"></div>
+    </div>
+</section>
 
-                <h3>Votos por grupo parlamentario</h3>
-                <div class="overflow-auto">
-                    <table role="grid">
-                        <thead>
-                            <tr>
-                                <th>Grupo</th>
-                                <th>A favor</th>
-                                <th>En contra</th>
-                                <th>Abstencion</th>
-                                <th>Total</th>
-                            </tr>
-                        </thead>
-                        <tbody id="vot-grupos-body"></tbody>
-                    </table>
-                </div>
+<!-- Footer -->
+<footer class="site-footer">
+    Datos oficiales del
+    <a href="https://www.congreso.es/es/opendata/votaciones" target="_blank" rel="noopener">Congreso de los Diputados (Datos Abiertos)</a>.
+    Categorizacion automatica por IA. Proyecto de codigo abierto.
+</footer>
 
-                <h3>Votos individuales</h3>
-                <div>
-                    <input type="search" id="vot-search-dip" placeholder="Buscar diputado/a...">
-                </div>
-                <div class="overflow-auto">
-                    <table role="grid">
-                        <thead>
-                            <tr>
-                                <th>Diputado/a</th>
-                                <th>Grupo</th>
-                                <th>Voto</th>
-                            </tr>
-                        </thead>
-                        <tbody id="vot-votos-body"></tbody>
-                    </table>
-                </div>
-            </article>
-        </section>
-
-        <!-- ═══ VIEW: Diputado detail ═══ -->
-        <section id="view-diputado" class="detail-view" hidden>
-            <nav class="breadcrumb">
-                <a href="#">Inicio</a> / <span>Diputado/a</span>
-            </nav>
-            <article>
-                <header>
-                    <h2 id="dip-nombre"></h2>
-                    <p id="dip-grupo" class="resumen"></p>
-                </header>
-
-                <h3>Resumen de votaciones</h3>
-                <div class="grid stats-grid" id="dip-stats"></div>
-                <div class="vote-bars" id="dip-bars"></div>
-
-                <h3>Temas mas votados</h3>
-                <div id="dip-top-tags"></div>
-
-                <h3>Historial de votos</h3>
-                <div class="grid">
-                    <div>
-                        <input type="search" id="dip-search-asunto" placeholder="Buscar asunto...">
-                    </div>
-                    <div>
-                        <select id="dip-filter-voto">
-                            <option value="">Todos</option>
-                            <option value="A favor">A favor</option>
-                            <option value="En contra">En contra</option>
-                            <option value="Abstencion">Abstencion</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="overflow-auto">
-                    <table role="grid">
-                        <thead>
-                            <tr>
-                                <th>Fecha</th>
-                                <th>Asunto</th>
-                                <th>Categoria</th>
-                                <th>Etiquetas</th>
-                                <th>Voto</th>
-                            </tr>
-                        </thead>
-                        <tbody id="dip-votos-body"></tbody>
-                    </table>
-                </div>
-                <nav id="dip-pagination" aria-label="Paginacion"></nav>
-            </article>
-        </section>
-    </main>
-
-    <footer class="container">
-        <hr>
-        <small>
-            Datos oficiales del
-            <a href="https://www.congreso.es/es/opendata/votaciones" target="_blank" rel="noopener">
-                Congreso de los Diputados (Datos Abiertos)
-            </a>.
-            Categorizacion automatica por IA. Proyecto de codigo abierto.
-        </small>
-    </footer>
-
-    <script src="js/app.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>
