@@ -541,8 +541,8 @@
       "<h1>" +
       esc(vot.titulo_ciudadano) +
       "</h1>" +
-      (vot.resumen_sencillo
-        ? '<p class="detail-summary">' + esc(vot.resumen_sencillo) + "</p>"
+      (vot.resumen
+        ? '<p class="detail-summary">' + esc(vot.resumen) + "</p>"
         : "") +
       '<div class="detail-meta" style="margin-top:0.75rem">' +
       '<span class="result-badge result-badge--' +
@@ -558,6 +558,11 @@
       "</span>" +
       (vot.legislatura
         ? '<span class="badge badge--leg">' + esc(vot.legislatura) + "</span>"
+        : "") +
+      (vot.proponente
+        ? '<span class="badge badge--proponente">' +
+          esc(vot.proponente) +
+          "</span>"
         : "") +
       '<span class="badge badge--cat">' +
       esc(fmt(categorias[vot.categoria])) +

@@ -88,25 +88,27 @@ PASO 3: Genera un titulo ciudadano de maximo 12 palabras en lenguaje sencillo, s
 
 PASO 4: Genera un resumen de 1-2 frases para ciudadanos. OBLIGATORIO, nunca vacio. Debe explicar que significa votar "A favor" de esta propuesta en lenguaje llano.
 
+PASO 5: Identifica quien propone la iniciativa. Extrae el nombre corto del partido o grupo parlamentario que la propone. Ejemplos: "PP", "PSOE", "Ciudadanos", "Podemos", "Vox", "ERC", "PNV", "Bildu", "Junts", "IU", "BNG", "CC", "Gobierno", "Varios grupos". Si no se puede identificar, usa "Desconocido".
+
 Devuelve SOLO un JSON valido (sin markdown, sin explicacion):
-{"titulo_ciudadano": "max 12 palabras con direccion", "categoria_principal": "UNA de la lista", "etiquetas": ["etiqueta1", "etiqueta2"], "resumen_sencillo": "Votar a favor significa..."}
+{"titulo_ciudadano": "max 12 palabras con direccion", "categoria_principal": "UNA de la lista", "etiquetas": ["etiqueta1", "etiqueta2"], "resumen_sencillo": "Votar a favor significa...", "proponente": "nombre corto del partido"}
 
 Ejemplos:
 
 Asunto: "Proposicion no de Ley sobre medidas urgentes para garantizar el acceso a la vivienda."
-{"titulo_ciudadano": "Facilitar que los ciudadanos puedan acceder a vivienda asequible", "categoria_principal": "Vivienda", "etiquetas": ["facilitar_acceso_vivienda", "proteger_inquilinos"], "resumen_sencillo": "Votar a favor significa apoyar medidas para que mas ciudadanos puedan acceder a una vivienda a precios razonables."}
+{"titulo_ciudadano": "Facilitar que los ciudadanos puedan acceder a vivienda asequible", "categoria_principal": "Vivienda", "etiquetas": ["facilitar_acceso_vivienda", "proteger_inquilinos"], "resumen_sencillo": "Votar a favor significa apoyar medidas para que mas ciudadanos puedan acceder a una vivienda a precios razonables.", "proponente": "Desconocido"}
 
 Asunto: "Proposicion no de Ley relativa a la revalorizacion de las pensiones conforme al IPC."
-{"titulo_ciudadano": "Subir las pensiones segun el coste de vida", "categoria_principal": "Trabajo_y_Pensiones", "etiquetas": ["subir_pensiones", "garantizar_pensiones"], "resumen_sencillo": "Votar a favor significa apoyar que las pensiones suban automaticamente con la inflacion para que los jubilados no pierdan poder adquisitivo."}
+{"titulo_ciudadano": "Subir las pensiones segun el coste de vida", "categoria_principal": "Trabajo_y_Pensiones", "etiquetas": ["subir_pensiones", "garantizar_pensiones"], "resumen_sencillo": "Votar a favor significa apoyar que las pensiones suban automaticamente con la inflacion para que los jubilados no pierdan poder adquisitivo.", "proponente": "Desconocido"}
 
-Asunto: "Proposicion de Ley Organica de modificacion de la Ley de Enjuiciamiento Criminal para el fortalecimiento de la tutela judicial frente a la ocupacion ilegal de viviendas."
-{"titulo_ciudadano": "Endurecer leyes para desalojar okupas mas rapido", "categoria_principal": "Justicia", "etiquetas": ["limitar_okupacion", "reformar_codigo_penal"], "resumen_sencillo": "Votar a favor significa apoyar que los jueces puedan ordenar el desalojo de ocupantes ilegales de forma mas agil."}
+Asunto: "Proposicion de Ley Organica del Grupo Parlamentario Popular de modificacion de la Ley de Enjuiciamiento Criminal para el fortalecimiento de la tutela judicial frente a la ocupacion ilegal de viviendas."
+{"titulo_ciudadano": "Endurecer leyes para desalojar okupas mas rapido", "categoria_principal": "Justicia", "etiquetas": ["limitar_okupacion", "reformar_codigo_penal"], "resumen_sencillo": "Votar a favor significa apoyar que los jueces puedan ordenar el desalojo de ocupantes ilegales de forma mas agil.", "proponente": "PP"}
 
 Asunto: "Proyecto de Ley de Presupuestos Generales del Estado para el ano 2025. Seccion 15: Ministerio de Transportes."
-{"titulo_ciudadano": "Aprobar presupuesto de Transportes para 2025", "categoria_principal": "Economia_y_Hacienda", "etiquetas": ["aprobar_presupuestos", "financiar_infraestructuras"], "resumen_sencillo": "Votar a favor significa aprobar la partida de gasto del Ministerio de Transportes para el proximo ano."}
+{"titulo_ciudadano": "Aprobar presupuesto de Transportes para 2025", "categoria_principal": "Economia_y_Hacienda", "etiquetas": ["aprobar_presupuestos", "financiar_infraestructuras"], "resumen_sencillo": "Votar a favor significa aprobar la partida de gasto del Ministerio de Transportes para el proximo ano.", "proponente": "Gobierno"}
 
-Asunto: "Proposicion no de Ley relativa a la adopcion de medidas para hacer frente a la inmigracion irregular y la delincuencia asociada."
-{"titulo_ciudadano": "Restringir inmigracion irregular y combatir delincuencia asociada", "categoria_principal": "Interior_y_Seguridad", "etiquetas": ["restringir_inmigracion", "aumentar_seguridad_ciudadana"], "resumen_sencillo": "Votar a favor significa apoyar mas control de la inmigracion irregular y medidas contra la delincuencia vinculada."}
+Asunto: "Proposicion no de Ley del Grupo Parlamentario Vox relativa a la adopcion de medidas para hacer frente a la inmigracion irregular y la delincuencia asociada."
+{"titulo_ciudadano": "Restringir inmigracion irregular y combatir delincuencia asociada", "categoria_principal": "Interior_y_Seguridad", "etiquetas": ["restringir_inmigracion", "aumentar_seguridad_ciudadana"], "resumen_sencillo": "Votar a favor significa apoyar mas control de la inmigracion irregular y medidas contra la delincuencia vinculada.", "proponente": "Vox"}
 
 Asunto: "Comunicacion del Gobierno para el debate de politica general sobre el estado de la Nacion."
-{"titulo_ciudadano": "Debate sobre la situacion general del pais", "categoria_principal": "Gobernanza", "etiquetas": ["controlar_gobierno"], "resumen_sencillo": "Votar a favor significa respaldar la gestion general del Gobierno durante el debate del estado de la Nacion."}
+{"titulo_ciudadano": "Debate sobre la situacion general del pais", "categoria_principal": "Gobernanza", "etiquetas": ["controlar_gobierno"], "resumen_sencillo": "Votar a favor significa respaldar la gestion general del Gobierno durante el debate del estado de la Nacion.", "proponente": "Gobierno"}

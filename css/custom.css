@@ -453,6 +453,12 @@ input, select, button { font-family: inherit; font-size: inherit; }
   font-weight: 600;
 }
 
+.badge--proponente {
+  background: #fef3c7;
+  color: #92400e;
+  font-weight: 600;
+}
+
 /* ── Result Badge ── */
 .result-badge {
   display: inline-flex;

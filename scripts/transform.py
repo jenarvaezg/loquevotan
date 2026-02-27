@@ -235,6 +235,9 @@ def _validate_categorization(data):
     if not data.get("resumen_sencillo"):
         data["resumen_sencillo"] = ""
 
+    if not data.get("proponente"):
+        data["proponente"] = ""
+
     return data
 
 
@@ -244,6 +247,7 @@ def _fallback_categorization():
         "categoria_principal": "Otros",
         "etiquetas": [],
         "resumen_sencillo": "",
+        "proponente": "",
     }
 
 
@@ -332,6 +336,8 @@ def main():
         titulo_ciudadano = cat_data.get("titulo_ciudadano", "Sin título")
         categoria = cat_data.get("categoria_principal", "Otros")
         etiquetas = cat_data.get("etiquetas", [])
+        resumen = cat_data.get("resumen_sencillo", "")
+        proponente = cat_data.get("proponente", "")
 
         votes = []
         for voto_entry in data.get("votaciones", []):
@@ -354,6 +360,8 @@ def main():
                     "titulo_ciudadano": titulo_ciudadano,
                     "categoria_principal": categoria,
                     "etiquetas": etiquetas,
+                    "resumen": resumen,
+                    "proponente": proponente,
                 },
                 votes,
             ))
@@ -389,6 +397,8 @@ def main():
             "titulo_ciudadano": meta["titulo_ciudadano"],
             "categoria": cat_idx[meta["categoria_principal"]],
             "etiquetas": meta.get("etiquetas", []),
+            "resumen": meta.get("resumen", ""),
+            "proponente": meta.get("proponente", ""),
         })
         for v in votes:
             votos_list.append([
