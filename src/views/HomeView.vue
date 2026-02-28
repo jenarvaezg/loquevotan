@@ -1,22 +1,29 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { fmt, avatarStyle, avatarInitials } from '../utils'
+import { useData } from '../composables/useData'
 import VoteCard from '../components/VoteCard.vue'
 import HeroSearch from '../components/HeroSearch.vue'
 
+const { currentScopeId } = useData()
 const router = useRouter()
 const manifest = ref(null)
 
-onMounted(async () => {
+async function loadManifest() {
+  manifest.value = null
   try {
-    const url = import.meta.env.BASE_URL + 'data/manifest_home.json'
+    const scopePath = currentScopeId.value === 'nacional' ? '' : `${currentScopeId.value}/`
+    const url = `${import.meta.env.BASE_URL}data/${scopePath}manifest_home.json`
     const resp = await fetch(url)
     if (resp.ok) manifest.value = await resp.json()
   } catch (e) {
     console.error('Error loading manifest:', e)
   }
-})
+}
+
+onMounted(loadManifest)
+watch(currentScopeId, loadManifest)
 
 function goToTag(tag) {
   router.push({ path: '/votaciones', query: { tag } })
@@ -86,6 +93,17 @@ function goToTag(tag) {
           <span class="topic-card-label">{{ fmt(tag) }}</span>
           <span class="topic-card-count">{{ count }}</span>
         </a>
+      </div>
+
+      <!-- FEATURED VOTES -->
+      <div v-if="manifest.featuredVotes && manifest.featuredVotes.length > 0" class="featured-section">
+        <div class="section-header">
+          <h2>Votaciones destacadas</h2>
+          <span>Fiscaliza los temas clave</span>
+        </div>
+        <div class="vote-cards-grid featured-grid">
+          <VoteCard v-for="v in manifest.featuredVotes" :key="v.id" :votData="v" :votResult="v" class="featured-card" />
+        </div>
       </div>
 
       <div class="section-header">
@@ -327,6 +345,23 @@ function goToTag(tag) {
   font-size: 0.8rem;
   font-weight: 600;
   color: var(--color-contra);
+}
+
+.featured-section {
+  margin-bottom: 3rem;
+  background: var(--color-surface-muted);
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+}
+
+.featured-grid {
+  gap: 1.25rem;
+}
+
+.featured-card {
+  border-left: 4px solid var(--color-primary) !important;
+  box-shadow: var(--shadow-md) !important;
 }
 
 .vote-cards-grid {

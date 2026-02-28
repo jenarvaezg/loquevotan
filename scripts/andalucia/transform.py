@@ -13,6 +13,7 @@ AMBITO = "andalucia"
 RAW_DIR = f"data/{AMBITO}"
 OUTPUT_DIR = f"public/data/{AMBITO}"
 META_FILE = f"{OUTPUT_DIR}/votaciones_meta.json"
+MANIFEST_FILE = f"{OUTPUT_DIR}/manifest_home.json"
 AMBITOS_CONFIG = "public/data/ambitos.json"
 PROMPT_FILE = "scripts/prompt_categorizacion.txt"
 
@@ -281,6 +282,65 @@ def transform():
     with open(META_FILE, "w") as f:
         json.dump(meta, f, separators=(',', ':'))
         
+    # Generate manifest_home.json
+    FEATURED_FILE = "data/featured_votes.json"
+    featured_ids = []
+    if os.path.exists(FEATURED_FILE):
+        with open(FEATURED_FILE, "r") as f:
+            featured_ids = json.load(f).get("andalucia", [])
+
+    def get_manifest_vote(idx):
+        v_meta = votaciones_meta_list[idx]
+        v_res = vot_results[idx]
+        return {
+            "id": v_meta["id"],
+            "titulo_ciudadano": v_meta["titulo_ciudadano"],
+            "fecha": v_meta["fecha"],
+            "categoria": categorias_list[v_meta["categoria"]],
+            "etiquetas": v_meta["etiquetas"],
+            "subTipo": "", 
+            "proponente": "",
+            "result": v_res["result"],
+            "favor": v_res["favor"],
+            "contra": v_res["contra"],
+            "abstencion": v_res["abstencion"],
+            "total": v_res["total"],
+            "margin": v_res["margin"]
+        }
+
+    latest_indices = sorted(range(len(votaciones_meta_list)), key=lambda i: (votaciones_meta_list[i]["fecha"], i), reverse=True)[:10]
+    tight_indices = sorted([i for i in range(len(votaciones_meta_list)) if vot_results[i]["total"] > 100], 
+                          key=lambda i: vot_results[i]["margin"])[:10]
+    
+    featured_indices = []
+    for fid in featured_ids:
+        for i, v in enumerate(votaciones_meta_list):
+            if v["id"] == fid:
+                featured_indices.append(i)
+                break
+
+    manifest = {
+        "stats": {
+            "diputados": len(diputados_list),
+            "votaciones": len(votaciones_meta_list),
+            "votos": sum(len(v) for v in votos_by_leg.values())
+        },
+        "topTags": sorted(tag_counts.items(), key=lambda x: x[1], reverse=True)[:20],
+        "heroExamples": [
+            ["sanidad", "Sanidad pública"],
+            ["vivienda", "Acceso a vivienda"],
+            ["educacion", "Educación"],
+            ["medio_ambiente", "Doñana y medio ambiente"],
+            ["andalucia", "Todo Andalucía"]
+        ],
+        "latestVotes": [get_manifest_vote(i) for i in latest_indices],
+        "tightVotes": [get_manifest_vote(i) for i in tight_indices],
+        "featuredVotes": [get_manifest_vote(i) for i in featured_indices]
+    }
+
+    with open(MANIFEST_FILE, "w") as f:
+        json.dump(manifest, f, separators=(',', ':'))
+
     # 6. Generate votes files
     for leg in LEGISLATURAS:
         if not votos_by_leg[leg] and leg != "XII": continue

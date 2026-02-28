@@ -3,6 +3,7 @@ import json
 import os
 import sys
 import re
+import subprocess
 from google import genai
 from google.genai import types
 
@@ -67,7 +68,7 @@ VALID_TAGS = frozenset([
     "reformar_tribunal_constitucional", "combatir_corrupcion",
     "recuperar_memoria_historica",
     # Seguridad
-    "aumentar_security_ciudadana", "combatir_terrorismo",
+    "aumentar_seguridad_ciudadana", "combatir_terrorismo",
     "proteger_victimas_terrorismo", "mejorar_seguridad_vial",
     # Medio ambiente
     "combatir_cambio_climatico", "reducir_emisiones",
@@ -80,9 +81,15 @@ VALID_TAGS = frozenset([
     "mejorar_red_ferroviaria", "mejorar_carreteras",
     "fomentar_transporte_publico", "financiar_infraestructuras",
     "impulsar_telecomunicaciones",
-    # Territorio
+    # Territorio y CCAA
     "financiar_autonomias", "financiar_ayuntamientos",
     "combatir_despoblacion", "reformar_financiacion_autonomica",
+    "reformar_estatuto_autonomia", "reclamar_competencias",
+    "reclamar_financiacion_estatal", "impulsar_desarrollo_rural",
+    "combatir_despoblacion_local", "promover_turismo_regional",
+    "mejorar_atencion_dependencia", "gestionar_recursos_hidricos_locales",
+    "proteger_patrimonio_historico", "proteger_lengua_propia",
+    "promover_cultura_local",
     # Asuntos exteriores
     "adaptar_normativa_europea", "impulsar_cooperacion_internacional",
     "aumentar_gasto_defensa", "reducir_gasto_defensa",
@@ -97,6 +104,8 @@ VALID_TAGS = frozenset([
     # Cultura
     "impulsar_cultura", "reformar_medios_comunicacion",
     "proteger_lenguas_cooficiales",
+    # Instituciones
+    "nacional", "andalucia", "cyl", "madrid",
 ])
 
 def text_hash(text):
@@ -140,14 +149,14 @@ def categorize_batch(texts_with_ids, api_key, prompt_text):
     """
     texts_with_ids: list of (id, text)
     """
-    if not api_key:
-        return {tid: _fallback_categorization() for tid, _ in texts_with_ids}
+    if api_key:
+        return _categorize_batch_sdk(texts_with_ids, api_key, prompt_text)
+    else:
+        return _categorize_batch_cli(texts_with_ids, prompt_text)
 
+def _categorize_batch_sdk(texts_with_ids, api_key, prompt_text):
     client = genai.Client(api_key=api_key)
-    
-    # Prepare batch prompt
     batch_content = "\n---\n".join([f"ID: {tid}\nTEXTO: {text}" for tid, text in texts_with_ids])
-    
     full_prompt = f"{prompt_text}\n\nProcesa estos asuntos parlamentarios:\n\n{batch_content}"
     
     try:
@@ -179,12 +188,51 @@ def categorize_batch(texts_with_ids, api_key, prompt_text):
             ),
             contents=[full_prompt]
         )
+        return _parse_response_json(response.text, texts_with_ids)
+    except Exception as e:
+        print(f"SDK AI Error: {e}", file=sys.stderr)
+        return {tid: _fallback_categorization() for tid, _ in texts_with_ids}
+
+def _categorize_batch_cli(texts_with_ids, prompt_text):
+    print(f"  Usando gemini CLI (OAuth local) para {len(texts_with_ids)} textos...")
+    batch_content = "\n---\n".join([f"ID: {tid}\nTEXTO: {text}" for tid, text in texts_with_ids])
+    
+    cli_instruction = "\nResponde EXCLUSIVAMENTE con el objeto JSON solicitado, empezando por { y terminando por }. No incluyas explicaciones ni bloques de código markdown."
+    full_prompt = f"{prompt_text}\n\nProcesa estos asuntos parlamentarios y devuelve un objeto JSON con la clave 'resultados' que sea un array de objetos con: id, titulo_ciudadano, categoria_principal, etiquetas (array), resumen_sencillo, proponente:\n\n{batch_content}{cli_instruction}"
+    
+    try:
+        # Simple call without extra flags that trigger "thinking"
+        process = subprocess.Popen(
+            ["gemini", "-y", "-m", "gemini-2.0-flash", "-p", "Sigue las instrucciones enviadas por stdin para procesar los datos."],
+            stdin=subprocess.PIPE,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True
+        )
+        stdout, stderr = process.communicate(input=full_prompt)
         
-        raw_json = response.text
+        if process.returncode != 0:
+            print(f"CLI AI Error (Code {process.returncode}): {stderr}", file=sys.stderr)
+            return {tid: _fallback_categorization() for tid, _ in texts_with_ids}
+        
+        if not stdout.strip():
+            print(f"CLI AI Warning: Empty stdout. Stderr: {stderr}", file=sys.stderr)
+            
+        return _parse_response_json(stdout, texts_with_ids)
+    except Exception as e:
+        print(f"CLI Execution Error: {e}", file=sys.stderr)
+        return {tid: _fallback_categorization() for tid, _ in texts_with_ids}
+
+def _parse_response_json(raw_text, texts_with_ids):
+    try:
         # Clean markdown if present
-        raw_json = re.sub(r"```json\n|\n```", "", raw_json)
-        data = json.loads(raw_json)
-        
+        clean_json = re.sub(r"```json\n?|\n?```", "", raw_text).strip()
+        # Sometimes the CLI might output some ANSI or extra text, try to find the { ... }
+        json_match = re.search(r'(\{.*\})', clean_json, re.DOTALL)
+        if json_match:
+            clean_json = json_match.group(1)
+            
+        data = json.loads(clean_json)
         result_map = {}
         for item in data.get("resultados", []):
             tid = item.pop("id")
@@ -194,9 +242,7 @@ def categorize_batch(texts_with_ids, api_key, prompt_text):
         for tid, _ in texts_with_ids:
             if tid not in result_map:
                 result_map[tid] = _fallback_categorization()
-                
         return result_map
-
     except Exception as e:
-        print(f"AI Error: {e}", file=sys.stderr)
+        print(f"JSON Parsing Error: {e}", file=sys.stderr)
         return {tid: _fallback_categorization() for tid, _ in texts_with_ids}

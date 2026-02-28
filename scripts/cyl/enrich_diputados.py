@@ -23,16 +23,18 @@ def enrich_cyl_diputados():
             group_tag = soup.find('a', href=re.compile(r'CodigoGrupoParlamentario='))
             if group_tag:
                 d["grupo"] = group_tag.get_text().strip()
-            else:
-                # Try finding text with "Grupo"
-                text = soup.get_text()
-                m = re.search(r'Grupo Parlamentario (.*?)(?:\n|\r|$)', text)
-                if m:
-                    d["grupo"] = m.group(1).strip()
+            
+            # Find province
+            prov_tag = soup.find(string=re.compile(r'Provincia:'))
+            if prov_tag:
+                d["provincia"] = prov_tag.parent.parent.get_text().replace('Provincia:', '').strip()
             
             # Find photo if missing
             if not d.get("foto"):
-                img_tag = soup.find('img', src=re.compile(r'Fotos/'))
+                # Try specific selector for CyL profile
+                img_tag = soup.find('img', src=re.compile(r'/Content/img/procuradores/'))
+                if not img_tag:
+                    img_tag = soup.find('img', src=re.compile(r'Fotos/'))
                 if img_tag:
                     d["foto"] = urljoin(d["url"], img_tag.get('src'))
             

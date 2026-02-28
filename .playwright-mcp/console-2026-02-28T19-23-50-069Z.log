@@ -1,0 +1,2 @@
+[      61ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://www.parlamentodeandalucia.es/elparlamento/transparencia/opendata/iniciativas.do:0
+[     181ms] [WARNING] Unrecognized feature: 'speaker'. @ https://www--parlamentodeandalucia--es.insuit.net/i4tservice/insuit-app.js:0

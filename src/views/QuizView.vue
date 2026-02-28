@@ -14,6 +14,7 @@ const captureArea = ref(null)
 
 const currentStep = ref(-1) // -1: Intro, 0-N: Questions, N+1: Results
 const answers = ref({}) // qId -> 'si' | 'no' | 'abstencion'
+const PARTIAL_MATCH_FACTOR = 0.35
 
 const isResults = computed(() => quizData.value && currentStep.value >= quizData.value.questions.length)
 const currentQuestion = computed(() => {
@@ -64,16 +65,22 @@ const affinities = computed(() => {
   const scores = {}
   quizData.value.groups.forEach(g => { scores[g] = 0 })
   
-  const total = quizData.value.questions.length
+  const totalWeight = quizData.value.questions.reduce((acc, q) => {
+    const rawWeight = Number(q.weight)
+    return acc + (Number.isFinite(rawWeight) && rawWeight > 0 ? rawWeight : 1)
+  }, 0)
   
   quizData.value.questions.forEach(q => {
     const userVote = answers.value[q.id]
+    const rawWeight = Number(q.weight)
+    const weight = Number.isFinite(rawWeight) && rawWeight > 0 ? rawWeight : 1
+
     quizData.value.groups.forEach(g => {
       const groupVote = q.votes[g]
       if (groupVote === userVote) {
-        scores[g] += 1
+        scores[g] += weight
       } else if ((groupVote === 'abstencion' || userVote === 'abstencion') && groupVote !== userVote) {
-        scores[g] += 0.5 // partial match for abstention differences
+        scores[g] += weight * PARTIAL_MATCH_FACTOR
       }
     })
   })
@@ -81,7 +88,7 @@ const affinities = computed(() => {
   return Object.entries(scores)
     .map(([group, score]) => ({
       group,
-      pct: Math.round((score / total) * 100)
+      pct: Math.round((score / (totalWeight || 1)) * 100)
     }))
     .sort((a, b) => b.pct - a.pct)
 })
@@ -173,6 +180,7 @@ function resetQuiz() {
             <li>Te mostraremos <strong>{{ quizData.questions.length }} votaciones reales</strong> que tuvieron lugar en el parlamento.</li>
             <li>No te diremos quién propuso la ley para evitar sesgos.</li>
             <li>Al finalizar, calcularemos matemáticamente tu porcentaje de afinidad con los votos reales de cada partido.</li>
+            <li>Algunas preguntas tienen más peso porque ayudan a separar partidos con votos muy parecidos.</li>
           </ul>
         </div>
 
@@ -248,7 +256,7 @@ function resetQuiz() {
         </div>
 
         <div class="results-disclaimer">
-          <strong>Metodología:</strong> Estos resultados son puramente matemáticos basados en el sentido de voto (A favor, En contra, Abstención). Una coincidencia exacta suma 1 punto, una coincidencia parcial (uno se abstiene y el otro no) suma 0.5 puntos.
+          <strong>Metodología:</strong> Estos resultados son puramente matemáticos basados en el sentido de voto (A favor, En contra, Abstención). Una coincidencia exacta suma el peso completo de la pregunta; una coincidencia parcial (uno se abstiene y el otro no) suma el 35% de ese peso.
         </div>
       </div>
 

@@ -388,12 +388,64 @@ def main():
     with open(META_FILE, "w") as f:
         json.dump(meta, f, separators=(',', ':'))
 
-    for leg, v_list in votos_by_leg.items():
-        with open(os.path.join(SCRIPT_DIR, "..", "public", "data", f"votos_{leg}.json"), "w") as f:
-            json.dump({
-                "votos": v_list,
-                "detail": {k: {key: val for key, val in v.items() if key != "group_majority"} for k, v in vot_detail_by_leg[leg].items()}
-            }, f, separators=(',', ':'))
+    # Featured votes
+    FEATURED_FILE = os.path.join(SCRIPT_DIR, "..", "data", "featured_votes.json")
+    featured_ids = []
+    if os.path.exists(FEATURED_FILE):
+        with open(FEATURED_FILE, "r") as f:
+            featured_ids = json.load(f).get("nacional", [])
+
+    def get_manifest_vote(idx):
+        v_meta = vot_meta_list[idx]
+        v_res = vot_results_list[idx]
+        return {
+            "id": v_meta["id"],
+            "titulo_ciudadano": v_meta["titulo_ciudadano"],
+            "fecha": v_meta["fecha"],
+            "categoria": VALID_CAT_LIST[v_meta["categoria"]],
+            "etiquetas": v_meta["etiquetas"],
+            "subTipo": vot_detail_by_leg[v_meta["legislatura"]][idx].get("subgrupo", ""),
+            "proponente": v_res.get("proponente", ""),
+            "result": v_res["result"],
+            "favor": v_res["favor"],
+            "contra": v_res["contra"],
+            "abstencion": v_res["abstencion"],
+            "total": v_res["total"],
+            "margin": v_res["margin"]
+        }
+
+    latest_indices = sorted(range(len(vot_meta_list)), key=lambda i: (vot_meta_list[i]["fecha"], i), reverse=True)[:10]
+    tight_indices = sorted([i for i in range(len(vot_meta_list)) if vot_results_list[i]["total"] > 300], 
+                          key=lambda i: vot_results_list[i]["margin"])[:10]
+    
+    featured_indices = []
+    for fid in featured_ids:
+        for i, v in enumerate(vot_meta_list):
+            if v["id"] == fid:
+                featured_indices.append(i)
+                break
+
+    manifest = {
+        "stats": {
+            "diputados": len(sorted_dips),
+            "votaciones": len(vot_meta_list),
+            "votos": sum(len(v) for v in votos_by_leg.values())
+        },
+        "topTags": sorted(tag_counts.items(), key=lambda x: x[1], reverse=True)[:20],
+        "heroExamples": [
+            ["subir_pensiones", "Quien voto subir pensiones?"],
+            ["facilitar_acceso_vivienda", "Acceso a vivienda"],
+            ["combatir_cambio_climatico", "Cambio climatico"],
+            ["reformar_codigo_penal", "Reforma penal"],
+            ["proteger_sanidad_publica", "Sanidad publica"]
+        ],
+        "latestVotes": [get_manifest_vote(i) for i in latest_indices],
+        "tightVotes": [get_manifest_vote(i) for i in tight_indices],
+        "featuredVotes": [get_manifest_vote(i) for i in featured_indices]
+    }
+
+    with open(MANIFEST_FILE, "w") as f:
+        json.dump(manifest, f, separators=(',', ':'))
 
     print(f"Transformación completada: {len(vot_meta_list)} votaciones.")
 

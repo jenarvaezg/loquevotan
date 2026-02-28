@@ -1,37 +1,199 @@
 {
   "title": "¿Con quién coincides en el Congreso?",
-  "description": "Descubre qué partido del Congreso de los Diputados vota más parecido a ti en temas clave de la legislatura actual. ¡Vota a ciegas y descubre tu afinidad real!",
-  "groups": ["PSOE", "PP", "VOX", "SUMAR", "ERC", "JUNTS", "PNV"],
+  "description": "Descubre qué partido del Congreso vota más parecido a ti en temas clave. Hemos reforzado el test con preguntas de desempate para separar partidos con votos similares.",
+  "groups": ["PSOE", "PP", "VOX", "SUMAR", "PODEMOS", "ERC", "JUNTS", "PNV"],
   "questions": [
     {
       "id": "q1",
-      "topic": "Vivienda",
-      "text": "Ley por el Derecho a la Vivienda, estableciendo topes a los precios del alquiler en zonas tensionadas.",
-      "votes": { "PSOE": "si", "PP": "no", "VOX": "no", "SUMAR": "si", "ERC": "si", "JUNTS": "si", "PNV": "no" }
+      "topic": "Inmigración",
+      "text": "Cambiar la política migratoria del Gobierno.",
+      "weight": 1.35,
+      "votes": {
+        "PSOE": "no",
+        "PP": "abstencion",
+        "VOX": "si",
+        "SUMAR": "no",
+        "PODEMOS": "no",
+        "ERC": "no",
+        "JUNTS": "no",
+        "PNV": "no"
+      }
     },
     {
       "id": "q2",
-      "topic": "Trabajo",
-      "text": "Real Decreto-ley de medidas urgentes para la reforma laboral, priorizando los convenios sectoriales.",
-      "votes": { "PSOE": "si", "PP": "no", "VOX": "no", "SUMAR": "si", "ERC": "no", "JUNTS": "no", "PNV": "si" }
+      "topic": "Fiscalidad",
+      "text": "Aprobar los objetivos de estabilidad fiscal 2026-2028.",
+      "weight": 1.4,
+      "votes": {
+        "PSOE": "si",
+        "PP": "no",
+        "VOX": "no",
+        "SUMAR": "si",
+        "PODEMOS": "abstencion",
+        "ERC": "si",
+        "JUNTS": "no",
+        "PNV": "si"
+      }
     },
     {
       "id": "q3",
-      "topic": "Derechos",
-      "text": "Ley para la igualdad real y efectiva de las personas trans y para la garantía de los derechos LGTBI.",
-      "votes": { "PSOE": "si", "PP": "no", "VOX": "no", "SUMAR": "si", "ERC": "si", "JUNTS": "si", "PNV": "si" }
+      "topic": "Vivienda",
+      "text": "Regular alquileres temporales y de habitaciones.",
+      "weight": 1.45,
+      "votes": {
+        "PSOE": "si",
+        "PP": "si",
+        "VOX": "si",
+        "SUMAR": "si",
+        "PODEMOS": "no",
+        "ERC": "si",
+        "JUNTS": "si",
+        "PNV": "si"
+      }
     },
     {
       "id": "q4",
-      "topic": "Justicia",
-      "text": "Ley Orgánica de amnistía para la normalización institucional, política y social en Cataluña.",
-      "votes": { "PSOE": "si", "PP": "no", "VOX": "no", "SUMAR": "si", "ERC": "si", "JUNTS": "si", "PNV": "si" }
+      "topic": "Igualdad",
+      "text": "Proteger a las víctimas de violencia de género frente al negacionismo.",
+      "weight": 1.3,
+      "votes": {
+        "PSOE": "si",
+        "PP": "abstencion",
+        "VOX": "no",
+        "SUMAR": "si",
+        "PODEMOS": "si",
+        "ERC": "si",
+        "JUNTS": "no",
+        "PNV": "si"
+      }
     },
     {
       "id": "q5",
-      "topic": "Fiscalidad",
-      "text": "Establecimiento de un impuesto temporal y extraordinario a las grandes fortunas e instituciones de crédito.",
-      "votes": { "PSOE": "si", "PP": "no", "VOX": "no", "SUMAR": "si", "ERC": "si", "JUNTS": "abstencion", "PNV": "si" }
+      "topic": "Pensiones",
+      "text": "Subir pensiones y fortalecer la Seguridad Social.",
+      "weight": 1.25,
+      "votes": {
+        "PSOE": "si",
+        "PP": "si",
+        "VOX": "no",
+        "SUMAR": "si",
+        "PODEMOS": "si",
+        "ERC": "si",
+        "JUNTS": "si",
+        "PNV": "si"
+      }
+    },
+    {
+      "id": "q6",
+      "topic": "Movilidad",
+      "text": "Abaratar los abonos para usar transporte público.",
+      "weight": 1.2,
+      "votes": {
+        "PSOE": "si",
+        "PP": "abstencion",
+        "VOX": "no",
+        "SUMAR": "si",
+        "PODEMOS": "si",
+        "ERC": "si",
+        "JUNTS": "si",
+        "PNV": "si"
+      }
+    },
+    {
+      "id": "q7",
+      "topic": "Vivienda",
+      "text": "Facilitar el acceso a vivienda para jóvenes españoles.",
+      "weight": 1.3,
+      "votes": {
+        "PSOE": "no",
+        "PP": "abstencion",
+        "VOX": "si",
+        "SUMAR": "no",
+        "PODEMOS": "no",
+        "ERC": "no",
+        "JUNTS": "no",
+        "PNV": "no"
+      }
+    },
+    {
+      "id": "q8",
+      "topic": "Política Exterior",
+      "text": "Tramitar por urgencia un proyecto de apoyo a Palestina.",
+      "weight": 1.2,
+      "votes": {
+        "PSOE": "si",
+        "PP": "no",
+        "VOX": "si",
+        "SUMAR": "si",
+        "PODEMOS": "si",
+        "ERC": "si",
+        "JUNTS": "si",
+        "PNV": "si"
+      }
+    },
+    {
+      "id": "q9",
+      "topic": "Coste de Vida",
+      "text": "Frenar la subida de precios y proteger el poder adquisitivo.",
+      "weight": 1.4,
+      "votes": {
+        "PSOE": "no",
+        "PP": "si",
+        "VOX": "si",
+        "SUMAR": "no",
+        "PODEMOS": "abstencion",
+        "ERC": "no",
+        "JUNTS": "no",
+        "PNV": "si"
+      }
+    },
+    {
+      "id": "q10",
+      "topic": "Despoblación",
+      "text": "Reactivar proyectos estratégicos paralizados en León.",
+      "weight": 1.35,
+      "votes": {
+        "PSOE": "abstencion",
+        "PP": "si",
+        "VOX": "si",
+        "SUMAR": "abstencion",
+        "PODEMOS": "si",
+        "ERC": "no",
+        "JUNTS": "no",
+        "PNV": "abstencion"
+      }
+    },
+    {
+      "id": "q11",
+      "topic": "Sanidad",
+      "text": "Compensación económica para personas con celiaquía.",
+      "weight": 1.25,
+      "votes": {
+        "PSOE": "si",
+        "PP": "si",
+        "VOX": "si",
+        "SUMAR": "si",
+        "PODEMOS": "abstencion",
+        "ERC": "si",
+        "JUNTS": "si",
+        "PNV": "si"
+      }
+    },
+    {
+      "id": "q12",
+      "topic": "Modelo Territorial",
+      "text": "Mejorar la cooperación del Gobierno con las comunidades autónomas.",
+      "weight": 1.25,
+      "votes": {
+        "PSOE": "no",
+        "PP": "si",
+        "VOX": "no",
+        "SUMAR": "no",
+        "PODEMOS": "no",
+        "ERC": "no",
+        "JUNTS": "si",
+        "PNV": "no"
+      }
     }
   ]
 }

@@ -1,0 +1,38 @@
+[   27644ms] [WARNING] [Vue warn]: Unhandled error during execution of setup function 
+  at <DiputadoDetail onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< null > > 
+  at <RouterView> 
+  at <App> @ http://localhost:5199/loquevotan/node_modules/.vite/deps/chunk-IY6T36J6.js?v=43af90b6:2196
+[   27644ms] [WARNING] [Vue warn]: Unhandled error during execution of component update 
+  at <RouterView> 
+  at <App> @ http://localhost:5199/loquevotan/node_modules/.vite/deps/chunk-IY6T36J6.js?v=43af90b6:2196
+[   27645ms] [WARNING] [Vue Router warn]: uncaught error during route navigation: @ http://localhost:5199/loquevotan/node_modules/.vite/deps/vue-router.js?v=43af90b6:205
+[   27645ms] [ERROR] ReferenceError: Cannot access 'histLeg' before initialization
+    at setup (http://localhost:5199/loquevotan/src/views/DiputadoDetail.vue:50:7)
+    at callWithErrorHandling (http://localhost:5199/loquevotan/node_modules/.vite/deps/chunk-IY6T36J6.js?v=43af90b6:2344:19)
+    at setupStatefulComponent (http://localhost:5199/loquevotan/node_modules/.vite/deps/chunk-IY6T36J6.js?v=43af90b6:10233:25)
+    at setupComponent (http://localhost:5199/loquevotan/node_modules/.vite/deps/chunk-IY6T36J6.js?v=43af90b6:10195:36)
+    at mountComponent (http://localhost:5199/loquevotan/node_modules/.vite/deps/chunk-IY6T36J6.js?v=43af90b6:8138:7)
+    at processComponent (http://localhost:5199/loquevotan/node_modules/.vite/deps/chunk-IY6T36J6.js?v=43af90b6:8104:9)
+    at patch (http://localhost:5199/loquevotan/node_modules/.vite/deps/chunk-IY6T36J6.js?v=43af90b6:7608:11)
+    at ReactiveEffect.componentUpdateFn [as fn] (http://localhost:5199/loquevotan/node_modules/.vite/deps/chunk-IY6T36J6.js?v=43af90b6:8329:9)
+    at ReactiveEffect.run (http://localhost:5199/loquevotan/node_modules/.vite/deps/chunk-IY6T36J6.js?v=43af90b6:507:19)
+    at ReactiveEffect.runIfDirty (http://localhost:5199/loquevotan/node_modules/.vite/deps/chunk-IY6T36J6.js?v=43af90b6:545:12) @ http://localhost:5199/loquevotan/node_modules/.vite/deps/vue-router.js?v=43af90b6:2261
+[   27728ms] ReferenceError: Cannot access 'histLeg' before initialization
+    at setup (http://localhost:5199/loquevotan/src/views/DiputadoDetail.vue:50:7)
+    at callWithErrorHandling (http://localhost:5199/loquevotan/node_modules/.vite/deps/chunk-IY6T36J6.js?v=43af90b6:2344:19)
+    at setupStatefulComponent (http://localhost:5199/loquevotan/node_modules/.vite/deps/chunk-IY6T36J6.js?v=43af90b6:10233:25)
+    at setupComponent (http://localhost:5199/loquevotan/node_modules/.vite/deps/chunk-IY6T36J6.js?v=43af90b6:10195:36)
+    at mountComponent (http://localhost:5199/loquevotan/node_modules/.vite/deps/chunk-IY6T36J6.js?v=43af90b6:8138:7)
+    at processComponent (http://localhost:5199/loquevotan/node_modules/.vite/deps/chunk-IY6T36J6.js?v=43af90b6:8104:9)
+    at patch (http://localhost:5199/loquevotan/node_modules/.vite/deps/chunk-IY6T36J6.js?v=43af90b6:7608:11)
+    at ReactiveEffect.componentUpdateFn [as fn] (http://localhost:5199/loquevotan/node_modules/.vite/deps/chunk-IY6T36J6.js?v=43af90b6:8329:9)
+    at ReactiveEffect.run (http://localhost:5199/loquevotan/node_modules/.vite/deps/chunk-IY6T36J6.js?v=43af90b6:507:19)
+    at ReactiveEffect.runIfDirty (http://localhost:5199/loquevotan/node_modules/.vite/deps/chunk-IY6T36J6.js?v=43af90b6:545:12)
+[   71553ms] [WARNING] [Vue warn]: Unhandled error during execution of scheduler flush 
+  at <DiputadoDetail onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< null > > 
+  at <RouterView> 
+  at <App> @ http://localhost:5199/loquevotan/node_modules/.vite/deps/chunk-IY6T36J6.js?v=43af90b6:2196
+[   71556ms] TypeError: Cannot read properties of null (reading 'flags')
+    at http://localhost:5199/loquevotan/node_modules/.vite/deps/chunk-IY6T36J6.js?v=43af90b6:2673:28
+    at callWithErrorHandling (http://localhost:5199/loquevotan/node_modules/.vite/deps/chunk-IY6T36J6.js?v=43af90b6:2344:33)
+    at flushJobs (http://localhost:5199/loquevotan/node_modules/.vite/deps/chunk-IY6T36J6.js?v=43af90b6:2552:9)

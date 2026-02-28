@@ -1,0 +1,6 @@
+[     198ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ https://transparencia.parlamentodeandalucia.es/datosabiertos?q=diputados:0
+[   18137ms] TypeError: Cannot read properties of undefined (reading 'offsetWidth')
+    at c.slide (https://opendata.parlamentodeandalucia.es/fanstatic/vendor/:version:2019-10-29T17:56:16.68/:bundle:bootstrap/js/bootstrap.min.js;jed.min.js;moment-with-locales.js;select2/select2.min.js.pagespeed.jm.qyzMSvDpUX.js:1:6976)
+    at c.next (https://opendata.parlamentodeandalucia.es/fanstatic/vendor/:version:2019-10-29T17:56:16.68/:bundle:bootstrap/js/bootstrap.min.js;jed.min.js;moment-with-locales.js;select2/select2.min.js.pagespeed.jm.qyzMSvDpUX.js:1:6216)
+    at e (https://opendata.parlamentodeandalucia.es/fanstatic/vendor/:version:2019-10-29T17:56:16.68/jquery.min.js.pagespeed.jm.jVUA6G5NDa.js:1:3555)
+[   21531ms] [WARNING] Unrecognized feature: 'speaker'. @ https://www--parlamentodeandalucia--es.insuit.net/i4tservice/insuit-app.js:0

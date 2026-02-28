@@ -1,0 +1,155 @@
+{
+  "head": {
+    "vars": [
+      "deputy",
+      "deputyLabel",
+      "partyLabel",
+      "image",
+      "startDate"
+    ]
+  },
+  "results": {
+    "bindings": [
+      {
+        "deputy": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q135641799"
+        },
+        "deputyLabel": {
+          "xml:lang": "es",
+          "type": "literal",
+          "value": "Ana Millán"
+        },
+        "image": {
+          "type": "uri",
+          "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Ana%20Mill%C3%A1n%202024.jpg"
+        },
+        "startDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "2023-06-13T00:00:00Z"
+        }
+      },
+      {
+        "deputy": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q47512830"
+        },
+        "deputyLabel": {
+          "xml:lang": "es",
+          "type": "literal",
+          "value": "Emilio Delgado Orgaz"
+        },
+        "image": {
+          "type": "uri",
+          "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Emilio%20Delgado%202016%20%28cropped%29%20%28cropped%29.jpeg"
+        },
+        "startDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "2023-06-13T00:00:00Z"
+        },
+        "partyLabel": {
+          "xml:lang": "es",
+          "type": "literal",
+          "value": "Izquierda Unida"
+        }
+      },
+      {
+        "deputy": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q47512830"
+        },
+        "deputyLabel": {
+          "xml:lang": "es",
+          "type": "literal",
+          "value": "Emilio Delgado Orgaz"
+        },
+        "image": {
+          "type": "uri",
+          "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Emilio%20Delgado%202016%20%28cropped%29%20%28cropped%29.jpeg"
+        },
+        "startDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "2023-06-13T00:00:00Z"
+        },
+        "partyLabel": {
+          "xml:lang": "es",
+          "type": "literal",
+          "value": "Izquierda Castellana"
+        }
+      },
+      {
+        "deputy": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q47512830"
+        },
+        "deputyLabel": {
+          "xml:lang": "es",
+          "type": "literal",
+          "value": "Emilio Delgado Orgaz"
+        },
+        "image": {
+          "type": "uri",
+          "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Emilio%20Delgado%202016%20%28cropped%29%20%28cropped%29.jpeg"
+        },
+        "startDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "2023-06-13T00:00:00Z"
+        },
+        "partyLabel": {
+          "xml:lang": "es",
+          "type": "literal",
+          "value": "Podemos"
+        }
+      },
+      {
+        "deputy": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q47512830"
+        },
+        "deputyLabel": {
+          "xml:lang": "es",
+          "type": "literal",
+          "value": "Emilio Delgado Orgaz"
+        },
+        "image": {
+          "type": "uri",
+          "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Emilio%20Delgado%202016%20%28cropped%29%20%28cropped%29.jpeg"
+        },
+        "startDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "2023-06-13T00:00:00Z"
+        },
+        "partyLabel": {
+          "xml:lang": "es",
+          "type": "literal",
+          "value": "Más Madrid"
+        }
+      },
+      {
+        "deputy": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q135526173"
+        },
+        "deputyLabel": {
+          "xml:lang": "es",
+          "type": "literal",
+          "value": "Rafael Núñez Huesca"
+        },
+        "image": {
+          "type": "uri",
+          "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Rafael%20Nunez%20Huesca%202019%20%28cropped%29.jpg"
+        },
+        "startDate": {
+          "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type": "literal",
+          "value": "2023-06-13T00:00:00Z"
+        }
+      }
+    ]
+  }
+}

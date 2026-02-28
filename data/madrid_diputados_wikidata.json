@@ -1,0 +1,99 @@
+{
+  "head": {
+    "vars": [
+      "deputyLabel",
+      "partyLabel",
+      "image"
+    ]
+  },
+  "results": {
+    "bindings": [
+      {
+        "deputyLabel": {
+          "xml:lang": "es",
+          "type": "literal",
+          "value": "Ana Millán"
+        },
+        "image": {
+          "type": "uri",
+          "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Ana%20Mill%C3%A1n%202024.jpg"
+        }
+      },
+      {
+        "deputyLabel": {
+          "xml:lang": "es",
+          "type": "literal",
+          "value": "Emilio Delgado Orgaz"
+        },
+        "image": {
+          "type": "uri",
+          "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Emilio%20Delgado%202016%20%28cropped%29%20%28cropped%29.jpeg"
+        },
+        "partyLabel": {
+          "xml:lang": "es",
+          "type": "literal",
+          "value": "Izquierda Unida"
+        }
+      },
+      {
+        "deputyLabel": {
+          "xml:lang": "es",
+          "type": "literal",
+          "value": "Emilio Delgado Orgaz"
+        },
+        "image": {
+          "type": "uri",
+          "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Emilio%20Delgado%202016%20%28cropped%29%20%28cropped%29.jpeg"
+        },
+        "partyLabel": {
+          "xml:lang": "es",
+          "type": "literal",
+          "value": "Izquierda Castellana"
+        }
+      },
+      {
+        "deputyLabel": {
+          "xml:lang": "es",
+          "type": "literal",
+          "value": "Emilio Delgado Orgaz"
+        },
+        "image": {
+          "type": "uri",
+          "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Emilio%20Delgado%202016%20%28cropped%29%20%28cropped%29.jpeg"
+        },
+        "partyLabel": {
+          "xml:lang": "es",
+          "type": "literal",
+          "value": "Podemos"
+        }
+      },
+      {
+        "deputyLabel": {
+          "xml:lang": "es",
+          "type": "literal",
+          "value": "Emilio Delgado Orgaz"
+        },
+        "image": {
+          "type": "uri",
+          "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Emilio%20Delgado%202016%20%28cropped%29%20%28cropped%29.jpeg"
+        },
+        "partyLabel": {
+          "xml:lang": "es",
+          "type": "literal",
+          "value": "Más Madrid"
+        }
+      },
+      {
+        "deputyLabel": {
+          "xml:lang": "es",
+          "type": "literal",
+          "value": "Rafael Núñez Huesca"
+        },
+        "image": {
+          "type": "uri",
+          "value": "http://commons.wikimedia.org/wiki/Special:FilePath/Rafael%20Nunez%20Huesca%202019%20%28cropped%29.jpg"
+        }
+      }
+    ]
+  }
+}

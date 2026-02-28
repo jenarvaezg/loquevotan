@@ -1,50 +1,51 @@
 {
-  "PRESIDE LA VOTACIÓN: DURÁN SÁNCHEZ, JUAN PABLO": {
-    "categoria": "Otros",
-    "etiquetas": [
-      "andalucia"
-    ],
-    "resumen": "Votación en el Parlamento de Andalucía",
-    "titulo_ciudadano": "PRESIDE LA VOTACIÓN: DURÁN SÁNCHEZ, JUAN PABLO"
-  },
-  "---PAGE_BREAK---": {
-    "categoria": "Otros",
-    "etiquetas": [
-      "andalucia"
-    ],
-    "resumen": "Votación en el Parlamento de Andalucía",
-    "titulo_ciudadano": "---PAGE_BREAK---"
-  },
-  "MUJERES Y HOMBRES": {
-    "categoria": "Otros",
-    "etiquetas": [
-      "andalucia"
-    ],
-    "resumen": "Votación en el Parlamento de Andalucía",
-    "titulo_ciudadano": "MUJERES Y HOMBRES"
-  },
-  "PRESIDE LA VOTACIÓN: GRACIA NAVARRO, MANUEL": {
-    "categoria": "Otros",
-    "etiquetas": [
-      "andalucia"
-    ],
-    "resumen": "Votación en el Parlamento de Andalucía",
-    "titulo_ciudadano": "PRESIDE LA VOTACIÓN: GRACIA NAVARRO, MANUEL"
+  "PRESIDE LA VOTACIÓN: AGUIRRE MUÑOZ, JESÚS": {
+    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "categoria_principal": "Otros",
+    "etiquetas": [],
+    "resumen_sencillo": "",
+    "proponente": ""
   },
   "PRESIDE LA VOTACIÓN: BOSQUET AZNAR, MARTA": {
-    "categoria": "Otros",
-    "etiquetas": [
-      "andalucia"
-    ],
-    "resumen": "Votación en el Parlamento de Andalucía",
-    "titulo_ciudadano": "PRESIDE LA VOTACIÓN: BOSQUET AZNAR, MARTA"
+    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "categoria_principal": "Otros",
+    "etiquetas": [],
+    "resumen_sencillo": "",
+    "proponente": ""
   },
-  "PRESIDE LA VOTACIÓN: AGUIRRE MUÑOZ, JESÚS": {
-    "categoria": "Otros",
-    "etiquetas": [
-      "andalucia"
-    ],
-    "resumen": "Votación en el Parlamento de Andalucía",
-    "titulo_ciudadano": "PRESIDE LA VOTACIÓN: AGUIRRE MUÑOZ, JESÚS"
+  "PRESIDE LA VOTACIÓN: DURÁN SÁNCHEZ, JUAN PABLO": {
+    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "categoria_principal": "Otros",
+    "etiquetas": [],
+    "resumen_sencillo": "",
+    "proponente": ""
+  },
+  "MUJERES Y HOMBRES": {
+    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "categoria_principal": "Otros",
+    "etiquetas": [],
+    "resumen_sencillo": "",
+    "proponente": ""
+  },
+  "---PAGE_BREAK---": {
+    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "categoria_principal": "Otros",
+    "etiquetas": [],
+    "resumen_sencillo": "",
+    "proponente": ""
+  },
+  "PRESIDE LA VOTACIÓN: GRACIA NAVARRO, MANUEL": {
+    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "categoria_principal": "Otros",
+    "etiquetas": [],
+    "resumen_sencillo": "",
+    "proponente": ""
+  },
+  "10-17/PNLP-000021, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A DEFENSA DE LA IGUALDAD ENTRE MUJERES Y HOMBRES": {
+    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "categoria_principal": "Otros",
+    "etiquetas": [],
+    "resumen_sencillo": "",
+    "proponente": ""
   }
 }

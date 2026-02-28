@@ -1,37 +1,77 @@
 {
   "title": "¿A quién voto en Castilla y León?",
-  "description": "Descubre qué partido de las Cortes de Castilla y León vota más parecido a ti. Hemos seleccionado 5 votaciones clave de la última legislatura basadas en sus programas electorales. ¡Vota a ciegas y descubre tu afinidad!",
-  "groups": ["PP", "PSOE", "VOX", "UPL-SY", "CS"],
+  "description": "Compara tu posición con los partidos que compiten por gobernar CyL. Este test prioriza temas decisivos para las próximas elecciones: sanidad rural, despoblación, campo, fiscalidad e infraestructuras.",
+  "groups": ["PP", "PSOE", "VOX", "UPL-SY"],
   "questions": [
     {
       "id": "q1",
-      "topic": "Sanidad",
-      "text": "Proposición No de Ley para garantizar un máximo de 48 horas de espera en Atención Primaria y reabrir los consultorios locales cerrados.",
-      "votes": { "PP": "no", "PSOE": "si", "VOX": "no", "UPL-SY": "si", "CS": "abstencion" }
+      "topic": "Sanidad Rural",
+      "text": "Garantizar un máximo de 48 horas de espera en Atención Primaria y reabrir consultorios locales cerrados.",
+      "weight": 1.3,
+      "votes": { "PP": "no", "PSOE": "si", "VOX": "no", "UPL-SY": "si" }
     },
     {
       "id": "q2",
-      "topic": "Medio Ambiente",
-      "text": "Ley de declaración del Parque Nacional de la Sierra de la Culebra, limitando la instalación de macroparques eólicos.",
-      "votes": { "PP": "no", "PSOE": "si", "VOX": "no", "UPL-SY": "si", "CS": "no" }
+      "topic": "Fiscalidad",
+      "text": "Eliminar completamente el Impuesto de Sucesiones y Donaciones en la comunidad.",
+      "weight": 1.15,
+      "votes": { "PP": "si", "PSOE": "no", "VOX": "si", "UPL-SY": "abstencion" }
     },
     {
       "id": "q3",
-      "topic": "Fiscalidad",
-      "text": "Eliminación completa del Impuesto de Sucesiones y Donaciones en la comunidad autónoma.",
-      "votes": { "PP": "si", "PSOE": "no", "VOX": "si", "UPL-SY": "abstencion", "CS": "si" }
+      "topic": "Igualdad",
+      "text": "Blindar financiación estable para la red autonómica contra la violencia machista.",
+      "weight": 1.4,
+      "votes": { "PP": "si", "PSOE": "si", "VOX": "no", "UPL-SY": "si" }
     },
     {
       "id": "q4",
-      "topic": "Derechos Sociales",
-      "text": "Implementación de charlas obligatorias sobre violencia intrafamiliar en centros educativos sostenidos con fondos públicos.",
-      "votes": { "PP": "si", "PSOE": "no", "VOX": "si", "UPL-SY": "no", "CS": "no" }
+      "topic": "Medio Ambiente",
+      "text": "Declarar la Sierra de la Culebra como área de protección reforzada y limitar macroparques eólicos en zonas críticas.",
+      "weight": 1.2,
+      "votes": { "PP": "no", "PSOE": "si", "VOX": "no", "UPL-SY": "si" }
     },
     {
       "id": "q5",
-      "topic": "Infraestructuras",
-      "text": "Exigir al Gobierno Central el soterramiento inmediato de las vías del tren en Valladolid y León.",
-      "votes": { "PP": "si", "PSOE": "abstencion", "VOX": "si", "UPL-SY": "si", "CS": "si" }
+      "topic": "Reindustrialización",
+      "text": "Crear un fondo extraordinario para reindustrializar León y El Bierzo con prioridad a empleo local.",
+      "weight": 1.25,
+      "votes": { "PP": "abstencion", "PSOE": "si", "VOX": "no", "UPL-SY": "si" }
+    },
+    {
+      "id": "q6",
+      "topic": "Transporte",
+      "text": "Financiar una red de transporte comarcal a demanda para municipios de menos de 5.000 habitantes.",
+      "weight": 1.35,
+      "votes": { "PP": "si", "PSOE": "si", "VOX": "no", "UPL-SY": "si" }
+    },
+    {
+      "id": "q7",
+      "topic": "Educación",
+      "text": "Mantener unidades escolares en el medio rural incluso con ratios mínimas de alumnado.",
+      "weight": 1.2,
+      "votes": { "PP": "no", "PSOE": "si", "VOX": "no", "UPL-SY": "si" }
+    },
+    {
+      "id": "q8",
+      "topic": "Impuestos",
+      "text": "Bajar de forma general el tramo autonómico del IRPF para rentas medias y autónomos.",
+      "weight": 1.15,
+      "votes": { "PP": "si", "PSOE": "no", "VOX": "si", "UPL-SY": "abstencion" }
+    },
+    {
+      "id": "q9",
+      "topic": "Derechos Sociales",
+      "text": "Aprobar una ley autonómica de igualdad LGTBI con régimen de protección frente a discriminación.",
+      "weight": 1.35,
+      "votes": { "PP": "abstencion", "PSOE": "si", "VOX": "no", "UPL-SY": "si" }
+    },
+    {
+      "id": "q10",
+      "topic": "Modelo Territorial",
+      "text": "Crear una agencia específica contra la despoblación con sedes principales en León y Soria.",
+      "weight": 1.3,
+      "votes": { "PP": "no", "PSOE": "abstencion", "VOX": "no", "UPL-SY": "si" }
     }
   ]
 }
