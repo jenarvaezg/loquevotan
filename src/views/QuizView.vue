@@ -14,6 +14,46 @@ const captureArea = ref(null)
 const currentStep = ref(-1) // -1: Intro, 0-N: Questions, N+1: Results
 const answers = ref({}) // qId -> 'si' | 'no' | 'abstencion'
 const PARTIAL_MATCH_FACTOR = 0.35
+const SOCIAL_AXIS_THRESHOLD = 15
+const ECONOMIC_AXIS_THRESHOLD = 15
+const COMPASS_MIN_QUESTIONS_FOR_HIGH_CONFIDENCE = 14
+
+const PARTY_ANCHORS = {
+  PSOE: { economic: -28, social: -30, color: '#ef4444' },
+  PP: { economic: 60, social: 35, color: '#2563eb' },
+  VOX: { economic: 86, social: 84, color: '#16a34a' },
+  SUMAR: { economic: -78, social: -82, color: '#db2777' },
+  PODEMOS: { economic: -90, social: -88, color: '#7c3aed' },
+  ERC: { economic: -42, social: -58, color: '#f59e0b' },
+  JUNTS: { economic: 16, social: -8, color: '#0ea5e9' },
+  PNV: { economic: 22, social: -6, color: '#14b8a6' },
+
+  CS: { economic: 45, social: 16, color: '#f97316' },
+  'UPL-SY': { economic: -8, social: -12, color: '#a855f7' },
+  'POR ANDALUCÍA': { economic: -78, social: -80, color: '#ec4899' },
+  ADELANTE: { economic: -82, social: -72, color: '#8b5cf6' },
+
+  'PSOE DE ANDALUCÍA': { economic: -28, social: -30, color: '#ef4444' },
+  'POPULAR ANDALUZ': { economic: 60, social: 35, color: '#2563eb' },
+  'VOX EN ANDALUCÍA': { economic: 86, social: 84, color: '#16a34a' },
+  'UNIDAS PODEMOS POR ANDALUCÍA': { economic: -88, social: -84, color: '#7c3aed' },
+  'ADELANTE ANDALUCÍA': { economic: -82, social: -72, color: '#8b5cf6' },
+  'MIXTO-ADELANTE ANDALUCÍA': { economic: -82, social: -72, color: '#8b5cf6' },
+  CIUDADANOS: { economic: 45, social: 16, color: '#f97316' }
+}
+
+const PARTY_ALIAS = {
+  'PSOE DE ANDALUCIA': 'PSOE DE ANDALUCÍA',
+  'VOX EN ANDALUCIA': 'VOX EN ANDALUCÍA',
+  'UNIDAS PODEMOS POR ANDALUCIA': 'UNIDAS PODEMOS POR ANDALUCÍA',
+  'ADELANTE ANDALUCIA': 'ADELANTE ANDALUCÍA',
+  'MIXTO-ADELANTE ANDALUCIA': 'MIXTO-ADELANTE ANDALUCÍA',
+  'POR ANDALUCIA': 'POR ANDALUCÍA'
+}
+
+const NORMALIZED_PARTY_ANCHORS = Object.fromEntries(
+  Object.entries(PARTY_ANCHORS).map(([key, value]) => [normalizeGroupKey(key), value])
+)
 
 const hasAdvanced = computed(() => !!quizSets.value.advanced)
 const activeQuiz = computed(() => {
@@ -33,19 +73,142 @@ function getQuestionWeight(question) {
   return Number.isFinite(rawWeight) && rawWeight > 0 ? rawWeight : 1
 }
 
+function clamp(value, min, max) {
+  return Math.max(min, Math.min(max, value))
+}
+
 function voteToFactor(vote) {
   if (vote === 'si') return 1
   if (vote === 'no') return -1
   return 0
 }
 
-function clampCoordinate(value) {
-  return Math.max(-100, Math.min(100, value))
+function normalizeGroupKey(value) {
+  return String(value || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toUpperCase()
+}
+
+function getPartyAnchor(groupName) {
+  const rawKey = normalizeGroupKey(groupName)
+  const canonical = PARTY_ALIAS[rawKey] || rawKey
+  return NORMALIZED_PARTY_ANCHORS[normalizeGroupKey(canonical)] || null
+}
+
+function getPartyColor(groupName) {
+  const anchor = getPartyAnchor(groupName)
+  return anchor?.color || '#64748b'
+}
+
+function mean(values) {
+  if (!values.length) return 0
+  return values.reduce((acc, value) => acc + value, 0) / values.length
+}
+
+function standardDeviation(values) {
+  if (values.length < 2) return 0
+  const avg = mean(values)
+  const variance = mean(values.map((value) => (value - avg) ** 2))
+  return Math.sqrt(variance)
+}
+
+function pearsonCorrelation(xs, ys) {
+  if (!xs.length || xs.length !== ys.length) return 0
+  const avgX = mean(xs)
+  const avgY = mean(ys)
+  const stdX = standardDeviation(xs)
+  const stdY = standardDeviation(ys)
+  if (!stdX || !stdY) return 0
+
+  let covariance = 0
+  for (let i = 0; i < xs.length; i++) {
+    covariance += (xs[i] - avgX) * (ys[i] - avgY)
+  }
+  covariance /= xs.length
+  return clamp(covariance / (stdX * stdY), -1, 1)
 }
 
 function normalizeAxisScore(score, maxScore) {
   if (!maxScore) return 0
-  return clampCoordinate(Math.round((score / maxScore) * 100))
+  return clamp(Math.round((score / maxScore) * 100), -100, 100)
+}
+
+function classifyCompassConfidence(confidence, answeredQuestions) {
+  if (confidence >= 78 && answeredQuestions >= COMPASS_MIN_QUESTIONS_FOR_HIGH_CONFIDENCE) return 'alta'
+  if (confidence >= 58) return 'media'
+  return 'baja'
+}
+
+function calibrateQuestionForCompass(question, groups) {
+  const manualAxis = question?.axis || {}
+  const hasManualAxis =
+    Number.isFinite(Number(manualAxis.economic)) ||
+    Number.isFinite(Number(manualAxis.social))
+
+  const manualEconomic = Number.isFinite(Number(manualAxis.economic))
+    ? clamp(Number(manualAxis.economic), -1, 1)
+    : 0
+  const manualSocial = Number.isFinite(Number(manualAxis.social))
+    ? clamp(Number(manualAxis.social), -1, 1)
+    : 0
+
+  const samples = groups
+    .map((group) => {
+      const anchor = getPartyAnchor(group)
+      const vote = voteToFactor(question?.votes?.[group])
+      if (!anchor) return null
+      return {
+        vote,
+        economic: anchor.economic / 100,
+        social: anchor.social / 100
+      }
+    })
+    .filter(Boolean)
+
+  const votes = samples.map((sample) => sample.vote)
+  const economicAnchors = samples.map((sample) => sample.economic)
+  const socialAnchors = samples.map((sample) => sample.social)
+
+  const inferredEconomic = pearsonCorrelation(votes, economicAnchors)
+  const inferredSocial = pearsonCorrelation(votes, socialAnchors)
+  const inferredStrength = clamp((Math.abs(inferredEconomic) + Math.abs(inferredSocial)) / 1.6, 0, 1)
+  const coverage = groups.length ? clamp(samples.length / groups.length, 0, 1) : 0
+  const voteSpread = clamp(standardDeviation(votes) / 0.9, 0, 1)
+
+  const blendManual = hasManualAxis ? 0.65 : 0
+  const blendInferred = hasManualAxis ? 0.35 : 1
+  const blendedEconomic = (manualEconomic * blendManual) + (inferredEconomic * blendInferred)
+  const blendedSocial = (manualSocial * blendManual) + (inferredSocial * blendInferred)
+
+  const consistency = hasManualAxis
+    ? clamp(1 - ((Math.abs(manualEconomic - inferredEconomic) + Math.abs(manualSocial - inferredSocial)) / 4), 0, 1)
+    : inferredStrength
+
+  const discriminationBase = Number(question?.discrimination)
+  const base = Number.isFinite(discriminationBase) && discriminationBase > 0 ? discriminationBase : 1
+  const discrimination = clamp(
+    base
+      * (0.72 + (0.58 * inferredStrength))
+      * (0.8 + (0.32 * voteSpread))
+      * (0.82 + (0.25 * coverage))
+      * (0.85 + (0.3 * consistency)),
+    0.65,
+    1.85
+  )
+
+  return {
+    axis: {
+      economic: clamp(blendedEconomic, -1, 1),
+      social: clamp(blendedSocial, -1, 1)
+    },
+    discrimination,
+    inferredStrength,
+    consistency,
+    coverage
+  }
 }
 
 async function loadQuiz() {
@@ -110,18 +273,25 @@ function answer(vote) {
 const affinities = computed(() => {
   if (!activeQuiz.value || !isResults.value) return []
 
+  const calibratedMap = calibratedAdvancedQuestionModel.value
+
   const scores = {}
   activeQuiz.value.groups.forEach((group) => {
     scores[group] = 0
   })
 
   const totalWeight = activeQuiz.value.questions.reduce((acc, question) => {
-    return acc + getQuestionWeight(question)
+    const baseWeight = getQuestionWeight(question)
+    const calibration = calibratedMap[question.id]
+    const effectiveWeight = isAdvancedMode.value ? baseWeight * (calibration?.discrimination || 1) : baseWeight
+    return acc + effectiveWeight
   }, 0)
 
   activeQuiz.value.questions.forEach((question) => {
     const userVote = answers.value[question.id]
-    const weight = getQuestionWeight(question)
+    const baseWeight = getQuestionWeight(question)
+    const calibration = calibratedMap[question.id]
+    const weight = isAdvancedMode.value ? baseWeight * (calibration?.discrimination || 1) : baseWeight
 
     activeQuiz.value.groups.forEach((group) => {
       const groupVote = question.votes[group]
@@ -141,9 +311,21 @@ const affinities = computed(() => {
     .sort((a, b) => b.pct - a.pct)
 })
 
+const calibratedAdvancedQuestionModel = computed(() => {
+  if (!isAdvancedMode.value || !activeQuiz.value) return {}
+
+  const model = {}
+  const groups = activeQuiz.value.groups || []
+  activeQuiz.value.questions.forEach((question) => {
+    model[question.id] = calibrateQuestionForCompass(question, groups)
+  })
+  return model
+})
+
 const compassData = computed(() => {
   if (!isAdvancedMode.value || !activeQuiz.value || !isResults.value) return null
 
+  const calibratedMap = calibratedAdvancedQuestionModel.value
   const groups = activeQuiz.value.groups
   const partyScores = {}
   groups.forEach((group) => {
@@ -154,24 +336,39 @@ const compassData = computed(() => {
   let userSocial = 0
   let maxEconomic = 0
   let maxSocial = 0
+  let totalModelWeight = 0
+  let answeredDirectionalWeight = 0
+  let weightedStrength = 0
+  let weightedConsistency = 0
+  let answeredQuestions = 0
 
   activeQuiz.value.questions.forEach((question) => {
-    const axis = question.axis || {}
-    const weight = getQuestionWeight(question)
+    const calibration = calibratedMap[question.id] || {}
+    const axis = calibration.axis || question.axis || {}
+    const baseWeight = getQuestionWeight(question)
+    const discrimination = calibration.discrimination || 1
+    const effectiveWeight = baseWeight * discrimination
     const economicDelta = Number(axis.economic) || 0
     const socialDelta = Number(axis.social) || 0
 
-    maxEconomic += Math.abs(economicDelta * weight)
-    maxSocial += Math.abs(socialDelta * weight)
+    maxEconomic += Math.abs(economicDelta * effectiveWeight)
+    maxSocial += Math.abs(socialDelta * effectiveWeight)
+    totalModelWeight += effectiveWeight
+    weightedStrength += (calibration.inferredStrength || 0) * effectiveWeight
+    weightedConsistency += (calibration.consistency || 0) * effectiveWeight
 
     const userFactor = voteToFactor(answers.value[question.id])
-    userEconomic += userFactor * economicDelta * weight
-    userSocial += userFactor * socialDelta * weight
+    userEconomic += userFactor * economicDelta * effectiveWeight
+    userSocial += userFactor * socialDelta * effectiveWeight
+    if (userFactor !== 0) {
+      answeredDirectionalWeight += effectiveWeight
+      answeredQuestions += 1
+    }
 
     groups.forEach((group) => {
       const groupFactor = voteToFactor(question.votes[group])
-      partyScores[group].economic += groupFactor * economicDelta * weight
-      partyScores[group].social += groupFactor * socialDelta * weight
+      partyScores[group].economic += groupFactor * economicDelta * effectiveWeight
+      partyScores[group].social += groupFactor * socialDelta * effectiveWeight
     })
   })
 
@@ -181,7 +378,7 @@ const compassData = computed(() => {
   }
 
   const affinityOrder = affinities.value.map((result) => result.group)
-  const parties = groups
+  const partiesByAffinity = groups
     .map((group) => ({
       group,
       economic: normalizeAxisScore(partyScores[group].economic, maxEconomic),
@@ -189,31 +386,83 @@ const compassData = computed(() => {
     }))
     .sort((a, b) => affinityOrder.indexOf(a.group) - affinityOrder.indexOf(b.group))
 
-  return { user, parties }
+  const partiesByDistance = partiesByAffinity
+    .map((party) => ({
+      ...party,
+      distance: Math.hypot(user.economic - party.economic, user.social - party.social)
+    }))
+    .sort((a, b) => a.distance - b.distance)
+
+  const responseCoverage = totalModelWeight ? answeredDirectionalWeight / totalModelWeight : 0
+  const avgStrength = totalModelWeight ? weightedStrength / totalModelWeight : 0
+  const avgConsistency = totalModelWeight ? weightedConsistency / totalModelWeight : 0
+  const axisBalance = Math.max(maxEconomic, maxSocial)
+    ? Math.min(maxEconomic, maxSocial) / Math.max(maxEconomic, maxSocial)
+    : 0
+  const confidenceScore = clamp(
+    Math.round(((
+      (0.45 * responseCoverage) +
+      (0.25 * avgStrength) +
+      (0.2 * avgConsistency) +
+      (0.1 * axisBalance)
+    ) * 100)),
+    0,
+    100
+  )
+  const confidenceLabel = classifyCompassConfidence(confidenceScore, answeredQuestions)
+
+  return {
+    user,
+    partiesByAffinity,
+    partiesByDistance,
+    quality: {
+      confidenceScore,
+      confidenceLabel,
+      responseCoverage: Math.round(responseCoverage * 100),
+      modelStrength: Math.round(avgStrength * 100)
+    }
+  }
 })
 
 const topCompassParties = computed(() => {
   if (!compassData.value) return []
-  return compassData.value.parties.slice(0, 4)
+  return compassData.value.partiesByDistance.slice(0, 5)
 })
 
 const userCompassLabel = computed(() => {
   if (!compassData.value) return ''
 
   const { economic, social } = compassData.value.user
-  const economicLabel = economic < -15 ? 'izquierda económica' : economic > 15 ? 'derecha económica' : 'centro económico'
-  const socialLabel = social > 15 ? 'más autoritario' : social < -15 ? 'más libertario' : 'centro social'
+  const economicLabel = economic < -ECONOMIC_AXIS_THRESHOLD
+    ? 'izquierda económica'
+    : economic > ECONOMIC_AXIS_THRESHOLD
+      ? 'derecha económica'
+      : 'centro económico'
+  const socialLabel = social > SOCIAL_AXIS_THRESHOLD
+    ? 'más conservador/autoritario'
+    : social < -SOCIAL_AXIS_THRESHOLD
+      ? 'más progresista/libertario'
+      : 'centro social'
+  const nearest = compassData.value.partiesByDistance[0]
+  const nearestLabel = nearest ? ` El partido más cercano en mapa es ${nearest.group}.` : ''
 
-  return `Tu posición cae en ${economicLabel} y ${socialLabel}.`
+  return `Tu posición cae en ${economicLabel} y ${socialLabel}.${nearestLabel}`
 })
 
 function pointStyle(point) {
-  const x = clampCoordinate(Number(point?.economic) || 0)
-  const y = clampCoordinate(Number(point?.social) || 0)
+  const x = clamp(Number(point?.economic) || 0, -100, 100)
+  const y = clamp(Number(point?.social) || 0, -100, 100)
 
   return {
     left: `${((x + 100) / 200) * 100}%`,
     top: `${((100 - y) / 200) * 100}%`
+  }
+}
+
+function partyPointStyle(party) {
+  return {
+    ...pointStyle(party),
+    backgroundColor: getPartyColor(party.group)
   }
 }
 
@@ -228,7 +477,8 @@ function finishQuiz() {
       top_match_group: topMatch ? topMatch.group : 'none',
       top_match_pct: topMatch ? topMatch.pct : 0,
       compass_economic: compass ? compass.user.economic : null,
-      compass_social: compass ? compass.user.social : null
+      compass_social: compass ? compass.user.social : null,
+      compass_confidence: compass ? compass.quality.confidenceScore : null
     }
 
     if (window.dataLayer) {
@@ -248,7 +498,7 @@ function shareResults() {
   const modeLabel = selectedMode.value === 'advanced' ? 'avanzado' : 'basico'
   const compass = compassData.value
   const compassSnippet = compass
-    ? ` Mi posicion en el mapa: X ${compass.user.economic}, Y ${compass.user.social}.`
+    ? ` Mi posicion en el mapa: X ${compass.user.economic}, Y ${compass.user.social} (confianza ${compass.quality.confidenceScore}%).`
     : ''
 
   const text = `He hecho el test ${modeLabel} de @LoQueVotan y mi mayor afinidad es con ${top.group} (${top.pct}%).${compassSnippet} ¡Descubre la tuya!`
@@ -332,7 +582,7 @@ function resetQuiz() {
             <li>Te mostraremos <strong>{{ activeQuiz.questions.length }} votaciones reales</strong> que tuvieron lugar en el parlamento.</li>
             <li>No te diremos quién propuso la ley para evitar sesgos.</li>
             <li>Al finalizar, calcularemos matemáticamente tu afinidad con los votos de cada partido.</li>
-            <li v-if="isAdvancedMode">Además, en el test avanzado te ubicamos en un mapa político de dos ejes (económico y social).</li>
+            <li v-if="isAdvancedMode">Además, en el test avanzado te ubicamos en un mapa político de dos ejes (económico y social) usando calibración empírica por patrones de voto.</li>
             <li v-else>Algunas preguntas tienen más peso porque ayudan a separar partidos con votos muy parecidos.</li>
           </ul>
         </div>
@@ -403,7 +653,7 @@ function resetQuiz() {
                 v-for="party in topCompassParties"
                 :key="`party-${party.group}`"
                 class="compass-point compass-point--party"
-                :style="pointStyle(party)"
+                :style="partyPointStyle(party)"
                 :title="`${party.group}: X ${party.economic}, Y ${party.social}`"
               >
                 <span class="compass-point-label">{{ party.group }}</span>
@@ -417,6 +667,11 @@ function resetQuiz() {
             <p class="compass-values">
               Eje X (económico): <strong>{{ compassData.user.economic }}</strong> |
               Eje Y (social): <strong>{{ compassData.user.social }}</strong>
+            </p>
+            <p class="compass-quality">
+              Calibración: <strong>{{ compassData.quality.confidenceLabel }}</strong>
+              ({{ compassData.quality.confidenceScore }}%).
+              Cobertura de respuestas: {{ compassData.quality.responseCoverage }}%.
             </p>
           </div>
 
@@ -444,7 +699,7 @@ function resetQuiz() {
           <strong>Metodología de afinidad:</strong> Coincidencia exacta suma el peso completo de la pregunta; coincidencia parcial (uno se abstiene y el otro no) suma el 35% de ese peso.
           <template v-if="isAdvancedMode">
             <br />
-            <strong>Metodología del mapa:</strong> Cada respuesta desplaza tu posición en dos ejes (económico y social), normalizados entre -100 y +100.
+            <strong>Metodología del mapa:</strong> Modelo calibrado con anclajes ideológicos por partido y poder de discriminación empírico por pregunta. Cada respuesta desplaza tu posición en dos ejes (económico y social), normalizados entre -100 y +100.
           </template>
         </div>
       </div>
@@ -801,6 +1056,13 @@ function resetQuiz() {
   margin: 0.9rem 0 0;
   text-align: center;
   color: var(--color-text-secondary);
+}
+
+.compass-quality {
+  margin: 0.45rem 0 0;
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-size: 0.88rem;
 }
 
 .results-list {
