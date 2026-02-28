@@ -1,0 +1,1636 @@
+[
+  {
+    "id": "MAD-XIII-1-1",
+    "fecha": "22/06/2023",
+    "titulo": "Sesión de Investidura de la Candidata a la Presidencia de la Comunidad de Madrid, Dña. Isabel Natividad Díaz Ayuso",
+    "votos": [
+      {
+        "diputado": "María Acín Carrera",
+        "diputadoId": "MAD-13-MARÍAACÍNC",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Rocío Albert López",
+        "diputadoId": "MAD-13-ROCÍOALBER",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Esteban Álvarez León",
+        "diputadoId": "MAD-13-ESTEBANÁLV",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Ignacio Arias Moreno",
+        "diputadoId": "MAD-13-JOSÉIGNACI",
+        "grupo": "Vox",
+        "voto": "abstencion"
+      },
+      {
+        "diputado": "José María Arribas del Barrio",
+        "diputadoId": "MAD-13-JOSÉMARÍAA",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Jonatan Alberto Arroyo Perea",
+        "diputadoId": "MAD-13-JONATANALB",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Álvaro Ballarín Valcárcel",
+        "diputadoId": "MAD-13-ÁLVAROBALL",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Jazmín Beirak Ulanosky",
+        "diputadoId": "MAD-13-JAZMÍNBEIR",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Manuela Bergerot Uncal",
+        "diputadoId": "MAD-13-MANUELABER",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Marta Bernardo Llorente",
+        "diputadoId": "MAD-13-MARTABERNA",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "María del Mar Blanco Garrido",
+        "diputadoId": "MAD-13-MARÍADELMA",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Sara Bonmati García",
+        "diputadoId": "MAD-13-SARABONMAT",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Beatriz Borrás Vergel",
+        "diputadoId": "MAD-13-BEATRIZBOR",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Miriam Bravo Sánchez",
+        "diputadoId": "MAD-13-MIRIAMBRAV",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Tomás Burgos Beteta",
+        "diputadoId": "MAD-13-TOMÁSBURGO",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Isabel Sofía Cadórniga Varela",
+        "diputadoId": "MAD-13-ISABELSOFÍ",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Mariano Calabuig Martínez",
+        "diputadoId": "MAD-13-MARIANOCAL",
+        "grupo": "Vox",
+        "voto": "abstencion"
+      },
+      {
+        "diputado": "María Eugenia Carballedo Berlanga",
+        "diputadoId": "MAD-13-MARÍAEUGEN",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Marta Carmona Ossorio",
+        "diputadoId": "MAD-13-MARTACARMO",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "María de los Llanos Castellanos Garijo",
+        "diputadoId": "MAD-13-MARÍADELOS",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Laura Castilla Rodríguez",
+        "diputadoId": "MAD-13-LAURACASTI",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Ignacio Catalá Martínez",
+        "diputadoId": "MAD-13-IGNACIOCAT",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Jesús Celada Pérez",
+        "diputadoId": "MAD-13-JESÚSCELAD",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Carmelo Cepeda García de León",
+        "diputadoId": "MAD-13-JOSÉCARMEL",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Ana Collado Jiménez",
+        "diputadoId": "MAD-13-ANACOLLADO",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Pedro María Corral Corral",
+        "diputadoId": "MAD-13-PEDROMARÍA",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Mirina Cortés Ortega",
+        "diputadoId": "MAD-13-MIRINACORT",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Diego Cruz Torrijos",
+        "diputadoId": "MAD-13-DIEGOCRUZT",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Ana María Cuartero Lorenzo",
+        "diputadoId": "MAD-13-ANAMARÍACU",
+        "grupo": "Vox",
+        "voto": "abstencion"
+      },
+      {
+        "diputado": "Ramón Cubián Martínez",
+        "diputadoId": "MAD-13-RAMÓNCUBIÁ",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Jorge Arturo Cutillas Cordón",
+        "diputadoId": "MAD-13-JORGEARTUR",
+        "grupo": "Vox",
+        "voto": "abstencion"
+      },
+      {
+        "diputado": "Ana Dávila-Ponce de León Municio",
+        "diputadoId": "MAD-13-ANADÁVILA-",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Paula Raquel de las Heras Tundidor",
+        "diputadoId": "MAD-13-PAULARAQUE",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Jaime de los Santos González",
+        "diputadoId": "MAD-13-JAIMEDELOS",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Carla Delgado Gómez",
+        "diputadoId": "MAD-13-CARLADELGA",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Emilio Delgado Orgaz",
+        "diputadoId": "MAD-13-EMILIODELG",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Isabel Natividad Díaz Ayuso",
+        "diputadoId": "MAD-13-ISABELNATI",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Carlos Díaz-Pache Gosende",
+        "diputadoId": "MAD-13-CARLOSDÍAZ",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "María del Mar Espinar Mesa-Moles",
+        "diputadoId": "MAD-13-MARÍADELMA",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Gustavo Alaín Eustache Soteldo",
+        "diputadoId": "MAD-13-GUSTAVOALA",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Alma Lucía Ezcurra Almansa",
+        "diputadoId": "MAD-13-ALMALUCÍAE",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Fernando Fernández Lara",
+        "diputadoId": "MAD-13-FERNANDOFE",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Javier Fernández-Lasquetty",
+        "diputadoId": "MAD-13-JAVIERFERN",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Diego Figuera Álvarez",
+        "diputadoId": "MAD-13-DIEGOFIGUE",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Antonio Fúster Lamelas",
+        "diputadoId": "MAD-13-JOSÉANTONI",
+        "grupo": "Vox",
+        "voto": "abstencion"
+      },
+      {
+        "diputado": "Francisco Galeote Perea",
+        "diputadoId": "MAD-13-FRANCISCOG",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Jorge García Díaz",
+        "diputadoId": "MAD-13-JORGEGARCÍ",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Mónica García Gómez",
+        "diputadoId": "MAD-13-MÓNICAGARC",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Rafael García González",
+        "diputadoId": "MAD-13-RAFAELGARC",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Miguel Ángel García Martín",
+        "diputadoId": "MAD-13-MIGUELÁNGE",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Oliva Cristina García Robredo",
+        "diputadoId": "MAD-13-OLIVACRIST",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "José Luis García Sánchez",
+        "diputadoId": "MAD-13-JOSÉLUISGA",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Pablo Gómez Perpinyà",
+        "diputadoId": "MAD-13-PABLOGÓMEZ",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Cristina González Álvarez",
+        "diputadoId": "MAD-13-CRISTINAGO",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Jimena González Gómez",
+        "diputadoId": "MAD-13-JIMENAGONZ",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Carlos González Maestre",
+        "diputadoId": "MAD-13-CARLOSGONZ",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "María Belén González Moreno",
+        "diputadoId": "MAD-13-MARÍABELÉN",
+        "grupo": "Vox",
+        "voto": "abstencion"
+      },
+      {
+        "diputado": "Javier Guardiola Arévalo",
+        "diputadoId": "MAD-13-JAVIERGUAR",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Laura Gutiérrez Barreno",
+        "diputadoId": "MAD-13-LAURAGUTIÉ",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Santiago Eduardo Gutiérrez Benito",
+        "diputadoId": "MAD-13-SANTIAGOED",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Íñigo Henríquez de Luna Losada",
+        "diputadoId": "MAD-13-ÍÑIGOHENRÍ",
+        "grupo": "Vox",
+        "voto": "abstencion"
+      },
+      {
+        "diputado": "María Yolanda Ibarrola de la Fuente",
+        "diputadoId": "MAD-13-MARÍAYOLAN",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "María Tatiana Jiménez Liébana",
+        "diputadoId": "MAD-13-MARÍATATIA",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Mónica Lavín Moreno-Torres",
+        "diputadoId": "MAD-13-MÓNICALAVÍ",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Juan Lobato Gandarias-Sánchez",
+        "diputadoId": "MAD-13-JUANLOBATO",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Miguel López-Valverde Argüeso",
+        "diputadoId": "MAD-13-MIGUELLÓPE",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Leticia Lorenzo Brito",
+        "diputadoId": "MAD-13-LETICIALOR",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Marta Lozano Sabroso",
+        "diputadoId": "MAD-13-MARTALOZAN",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Marta Marbán de Frutos",
+        "diputadoId": "MAD-13-MARTAMARBÁ",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Raúl Martín Galán",
+        "diputadoId": "MAD-13-RAÚLMARTÍN",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Guillermo Martín Jiménez",
+        "diputadoId": "MAD-13-GUILLERMOM",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Paloma Martín Martín",
+        "diputadoId": "MAD-13-PALOMAMART",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Hugo Martínez Abarca",
+        "diputadoId": "MAD-13-HUGOMARTÍN",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Rafael Martínez Pérez",
+        "diputadoId": "MAD-13-RAFAELMART",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Carlos Daniel Martínez Rodríguez",
+        "diputadoId": "MAD-13-CARLOSDANI",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "María Carmen Mena Romero",
+        "diputadoId": "MAD-13-MARÍACARME",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Virgilio Menéndez Medrano",
+        "diputadoId": "MAD-13-JOSÉVIRGIL",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Ana Belén Millán Arroyo",
+        "diputadoId": "MAD-13-ANABELÉNMI",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Rocío Monasterio San Martín",
+        "diputadoId": "MAD-13-ROCÍOMONAS",
+        "grupo": "Vox",
+        "voto": "abstencion"
+      },
+      {
+        "diputado": "Silvia Monterrubio Hernando",
+        "diputadoId": "MAD-13-SILVIAMONT",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Lorena Morales Porro",
+        "diputadoId": "MAD-13-LORENAMORA",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Jesús Moreno García",
+        "diputadoId": "MAD-13-JESÚSMOREN",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Carlos Moreno Vinués",
+        "diputadoId": "MAD-13-CARLOSMORE",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Jorge Moruno Danzi",
+        "diputadoId": "MAD-13-JORGEMORUN",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Pedro Muñoz Abrines",
+        "diputadoId": "MAD-13-PEDROMUÑOZ",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Juan José Murillo Moreno",
+        "diputadoId": "MAD-13-JUANJOSÉMU",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Carlos Novillo Piris",
+        "diputadoId": "MAD-13-CARLOSNOVI",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "José Enrique Núñez Guijarro",
+        "diputadoId": "MAD-13-JOSÉENRIQU",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Rafael Núñez Huesca",
+        "diputadoId": "MAD-13-RAFAELNÚÑE",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Miguel Olite Lumbreras",
+        "diputadoId": "MAD-13-MIGUELOLIT",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Alberto Oliver Gómez de la Vega",
+        "diputadoId": "MAD-13-ALBERTOOLI",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "José María Ortiz Claver",
+        "diputadoId": "MAD-13-JOSÉMARÍAO",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Enrique Matías Ossorio Crespo",
+        "diputadoId": "MAD-13-ENRIQUEMAT",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Javier Padilla Bernáldez",
+        "diputadoId": "MAD-13-JAVIERPADI",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Pablo José Padilla Estrada",
+        "diputadoId": "MAD-13-PABLOJOSÉP",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Diana Carol Paredes Choquehuanca",
+        "diputadoId": "MAD-13-DIANACAROL",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "David Jonathan Parry Lafont",
+        "diputadoId": "MAD-13-DAVIDJONAT",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Carlota Pasarón González",
+        "diputadoId": "MAD-13-CARLOTAPAS",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "María Pastor Valdés",
+        "diputadoId": "MAD-13-MARÍAPASTO",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Juana Beatriz Pérez Abraham",
+        "diputadoId": "MAD-13-JUANABEATR",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Isabel Pérez Moñino-Aranda",
+        "diputadoId": "MAD-13-ISABELPÉRE",
+        "grupo": "Vox",
+        "voto": "abstencion"
+      },
+      {
+        "diputado": "Alodia Pérez Muñoz",
+        "diputadoId": "MAD-13-ALODIAPÉRE",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Susana Pérez Quislant",
+        "diputadoId": "MAD-13-SUSANAPÉRE",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Esther Platero San Román",
+        "diputadoId": "MAD-13-ESTHERPLAT",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Daniel Portero de la Torre",
+        "diputadoId": "MAD-13-DANIELPORT",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Pablo Posse Praderas",
+        "diputadoId": "MAD-13-PABLOPOSSE",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Eduardo Raboso García-Baquero",
+        "diputadoId": "MAD-13-EDUARDORAB",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Patricia Isaura Reyes Rivera",
+        "diputadoId": "MAD-13-PATRICIAIS",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Santiago José Rivero Cruz",
+        "diputadoId": "MAD-13-SANTIAGOJO",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Jorge Rodrigo Domínguez",
+        "diputadoId": "MAD-13-JORGERODRI",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Daniel Rodríguez Asensio",
+        "diputadoId": "MAD-13-DANIELRODR",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Esther Rodríguez Moreno",
+        "diputadoId": "MAD-13-ESTHERRODR",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Daniel Rubio Caballero",
+        "diputadoId": "MAD-13-DANIELRUBI",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Luis Ruiz Bartolomé",
+        "diputadoId": "MAD-13-JOSÉLUISRU",
+        "grupo": "Vox",
+        "voto": "abstencion"
+      },
+      {
+        "diputado": "Enrique Ruiz Escudero",
+        "diputadoId": "MAD-13-ENRIQUERUI",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Miguel Ángel Rumayor Fernández",
+        "diputadoId": "MAD-13-MIGUELÁNGE",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Sandra Samboal Ugena",
+        "diputadoId": "MAD-13-SANDRASAMB",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Antonio Sánchez Domínguez",
+        "diputadoId": "MAD-13-ANTONIOSÁN",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Alejandro Sánchez Pérez",
+        "diputadoId": "MAD-13-ALEJANDROS",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Emilia Sánchez Prieto",
+        "diputadoId": "MAD-13-EMILIASÁNC",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Antonio Sánchez Serrano",
+        "diputadoId": "MAD-13-JOSÉANTONI",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Alicia Sánchez-Camacho Pérez",
+        "diputadoId": "MAD-13-ALICIASÁNC",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Paz Serra Portilla",
+        "diputadoId": "MAD-13-PAZSERRAPO",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Alfonso Carlos Serrano Sánchez-Capuchino",
+        "diputadoId": "MAD-13-ALFONSOCAR",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Héctor Tejero Franco",
+        "diputadoId": "MAD-13-HÉCTORTEJE",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Alberto Tomé González",
+        "diputadoId": "MAD-13-ALBERTOTOM",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Alicia Torija López",
+        "diputadoId": "MAD-13-ALICIATORI",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Ignacio Vázquez Casavilla",
+        "diputadoId": "MAD-13-IGNACIOVÁZ",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Isabel Vega de la Vara",
+        "diputadoId": "MAD-13-ISABELVEGA",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Ana María Velasco Vidal-Abarca",
+        "diputadoId": "MAD-13-ANAMARÍAVE",
+        "grupo": "Vox",
+        "voto": "abstencion"
+      },
+      {
+        "diputado": "Elisa Adela Vigil González",
+        "diputadoId": "MAD-13-ELISAADELA",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Manuela Villa Acosta",
+        "diputadoId": "MAD-13-MANUELAVIL",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Agustín Vinagre Alcázar",
+        "diputadoId": "MAD-13-AGUSTÍNVIN",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Nikolay Yordanov Atanasov",
+        "diputadoId": "MAD-13-NIKOLAYYOR",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "María Mercedes Zarzalejo Carbajo",
+        "diputadoId": "MAD-13-MARÍAMERCE",
+        "grupo": "PP",
+        "voto": "si"
+      }
+    ]
+  },
+  {
+    "id": "MAD-XIII-50-1",
+    "fecha": "26/02/2026",
+    "titulo": "Proposición No de Ley relativa al impulso de un plan de choque contra el hundimiento demográfico",
+    "votos": [
+      {
+        "diputado": "María Acín Carrera",
+        "diputadoId": "MAD-13-MARÍAACÍNC",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Rocío Albert López",
+        "diputadoId": "MAD-13-ROCÍOALBER",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Esteban Álvarez León",
+        "diputadoId": "MAD-13-ESTEBANÁLV",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Ignacio Arias Moreno",
+        "diputadoId": "MAD-13-JOSÉIGNACI",
+        "grupo": "Vox",
+        "voto": "no"
+      },
+      {
+        "diputado": "José María Arribas del Barrio",
+        "diputadoId": "MAD-13-JOSÉMARÍAA",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Jonatan Alberto Arroyo Perea",
+        "diputadoId": "MAD-13-JONATANALB",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Álvaro Ballarín Valcárcel",
+        "diputadoId": "MAD-13-ÁLVAROBALL",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Jazmín Beirak Ulanosky",
+        "diputadoId": "MAD-13-JAZMÍNBEIR",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Manuela Bergerot Uncal",
+        "diputadoId": "MAD-13-MANUELABER",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Marta Bernardo Llorente",
+        "diputadoId": "MAD-13-MARTABERNA",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "María del Mar Blanco Garrido",
+        "diputadoId": "MAD-13-MARÍADELMA",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Sara Bonmati García",
+        "diputadoId": "MAD-13-SARABONMAT",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Beatriz Borrás Vergel",
+        "diputadoId": "MAD-13-BEATRIZBOR",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Miriam Bravo Sánchez",
+        "diputadoId": "MAD-13-MIRIAMBRAV",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Tomás Burgos Beteta",
+        "diputadoId": "MAD-13-TOMÁSBURGO",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Isabel Sofía Cadórniga Varela",
+        "diputadoId": "MAD-13-ISABELSOFÍ",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Mariano Calabuig Martínez",
+        "diputadoId": "MAD-13-MARIANOCAL",
+        "grupo": "Vox",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Eugenia Carballedo Berlanga",
+        "diputadoId": "MAD-13-MARÍAEUGEN",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Marta Carmona Ossorio",
+        "diputadoId": "MAD-13-MARTACARMO",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "María de los Llanos Castellanos Garijo",
+        "diputadoId": "MAD-13-MARÍADELOS",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Laura Castilla Rodríguez",
+        "diputadoId": "MAD-13-LAURACASTI",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Ignacio Catalá Martínez",
+        "diputadoId": "MAD-13-IGNACIOCAT",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Jesús Celada Pérez",
+        "diputadoId": "MAD-13-JESÚSCELAD",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Carmelo Cepeda García de León",
+        "diputadoId": "MAD-13-JOSÉCARMEL",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Ana Collado Jiménez",
+        "diputadoId": "MAD-13-ANACOLLADO",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Pedro María Corral Corral",
+        "diputadoId": "MAD-13-PEDROMARÍA",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Mirina Cortés Ortega",
+        "diputadoId": "MAD-13-MIRINACORT",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Diego Cruz Torrijos",
+        "diputadoId": "MAD-13-DIEGOCRUZT",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Ana María Cuartero Lorenzo",
+        "diputadoId": "MAD-13-ANAMARÍACU",
+        "grupo": "Vox",
+        "voto": "no"
+      },
+      {
+        "diputado": "Ramón Cubián Martínez",
+        "diputadoId": "MAD-13-RAMÓNCUBIÁ",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Jorge Arturo Cutillas Cordón",
+        "diputadoId": "MAD-13-JORGEARTUR",
+        "grupo": "Vox",
+        "voto": "no"
+      },
+      {
+        "diputado": "Ana Dávila-Ponce de León Municio",
+        "diputadoId": "MAD-13-ANADÁVILA-",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Paula Raquel de las Heras Tundidor",
+        "diputadoId": "MAD-13-PAULARAQUE",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Jaime de los Santos González",
+        "diputadoId": "MAD-13-JAIMEDELOS",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Carla Delgado Gómez",
+        "diputadoId": "MAD-13-CARLADELGA",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Emilio Delgado Orgaz",
+        "diputadoId": "MAD-13-EMILIODELG",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Isabel Natividad Díaz Ayuso",
+        "diputadoId": "MAD-13-ISABELNATI",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Carlos Díaz-Pache Gosende",
+        "diputadoId": "MAD-13-CARLOSDÍAZ",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "María del Mar Espinar Mesa-Moles",
+        "diputadoId": "MAD-13-MARÍADELMA",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Gustavo Alaín Eustache Soteldo",
+        "diputadoId": "MAD-13-GUSTAVOALA",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Alma Lucía Ezcurra Almansa",
+        "diputadoId": "MAD-13-ALMALUCÍAE",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Fernando Fernández Lara",
+        "diputadoId": "MAD-13-FERNANDOFE",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Javier Fernández-Lasquetty",
+        "diputadoId": "MAD-13-JAVIERFERN",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Diego Figuera Álvarez",
+        "diputadoId": "MAD-13-DIEGOFIGUE",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Antonio Fúster Lamelas",
+        "diputadoId": "MAD-13-JOSÉANTONI",
+        "grupo": "Vox",
+        "voto": "no"
+      },
+      {
+        "diputado": "Francisco Galeote Perea",
+        "diputadoId": "MAD-13-FRANCISCOG",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Jorge García Díaz",
+        "diputadoId": "MAD-13-JORGEGARCÍ",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Mónica García Gómez",
+        "diputadoId": "MAD-13-MÓNICAGARC",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Rafael García González",
+        "diputadoId": "MAD-13-RAFAELGARC",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Miguel Ángel García Martín",
+        "diputadoId": "MAD-13-MIGUELÁNGE",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Oliva Cristina García Robredo",
+        "diputadoId": "MAD-13-OLIVACRIST",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "José Luis García Sánchez",
+        "diputadoId": "MAD-13-JOSÉLUISGA",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Pablo Gómez Perpinyà",
+        "diputadoId": "MAD-13-PABLOGÓMEZ",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Cristina González Álvarez",
+        "diputadoId": "MAD-13-CRISTINAGO",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Jimena González Gómez",
+        "diputadoId": "MAD-13-JIMENAGONZ",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Carlos González Maestre",
+        "diputadoId": "MAD-13-CARLOSGONZ",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "María Belén González Moreno",
+        "diputadoId": "MAD-13-MARÍABELÉN",
+        "grupo": "Vox",
+        "voto": "no"
+      },
+      {
+        "diputado": "Javier Guardiola Arévalo",
+        "diputadoId": "MAD-13-JAVIERGUAR",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Laura Gutiérrez Barreno",
+        "diputadoId": "MAD-13-LAURAGUTIÉ",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Santiago Eduardo Gutiérrez Benito",
+        "diputadoId": "MAD-13-SANTIAGOED",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Íñigo Henríquez de Luna Losada",
+        "diputadoId": "MAD-13-ÍÑIGOHENRÍ",
+        "grupo": "Vox",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Yolanda Ibarrola de la Fuente",
+        "diputadoId": "MAD-13-MARÍAYOLAN",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "María Tatiana Jiménez Liébana",
+        "diputadoId": "MAD-13-MARÍATATIA",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Mónica Lavín Moreno-Torres",
+        "diputadoId": "MAD-13-MÓNICALAVÍ",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Juan Lobato Gandarias-Sánchez",
+        "diputadoId": "MAD-13-JUANLOBATO",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Miguel López-Valverde Argüeso",
+        "diputadoId": "MAD-13-MIGUELLÓPE",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Leticia Lorenzo Brito",
+        "diputadoId": "MAD-13-LETICIALOR",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Marta Lozano Sabroso",
+        "diputadoId": "MAD-13-MARTALOZAN",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Marta Marbán de Frutos",
+        "diputadoId": "MAD-13-MARTAMARBÁ",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Raúl Martín Galán",
+        "diputadoId": "MAD-13-RAÚLMARTÍN",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Guillermo Martín Jiménez",
+        "diputadoId": "MAD-13-GUILLERMOM",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Paloma Martín Martín",
+        "diputadoId": "MAD-13-PALOMAMART",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Hugo Martínez Abarca",
+        "diputadoId": "MAD-13-HUGOMARTÍN",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Rafael Martínez Pérez",
+        "diputadoId": "MAD-13-RAFAELMART",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Carlos Daniel Martínez Rodríguez",
+        "diputadoId": "MAD-13-CARLOSDANI",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "María Carmen Mena Romero",
+        "diputadoId": "MAD-13-MARÍACARME",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Virgilio Menéndez Medrano",
+        "diputadoId": "MAD-13-JOSÉVIRGIL",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Ana Belén Millán Arroyo",
+        "diputadoId": "MAD-13-ANABELÉNMI",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Rocío Monasterio San Martín",
+        "diputadoId": "MAD-13-ROCÍOMONAS",
+        "grupo": "Vox",
+        "voto": "no"
+      },
+      {
+        "diputado": "Silvia Monterrubio Hernando",
+        "diputadoId": "MAD-13-SILVIAMONT",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Lorena Morales Porro",
+        "diputadoId": "MAD-13-LORENAMORA",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Jesús Moreno García",
+        "diputadoId": "MAD-13-JESÚSMOREN",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Carlos Moreno Vinués",
+        "diputadoId": "MAD-13-CARLOSMORE",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Jorge Moruno Danzi",
+        "diputadoId": "MAD-13-JORGEMORUN",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Pedro Muñoz Abrines",
+        "diputadoId": "MAD-13-PEDROMUÑOZ",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Juan José Murillo Moreno",
+        "diputadoId": "MAD-13-JUANJOSÉMU",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Carlos Novillo Piris",
+        "diputadoId": "MAD-13-CARLOSNOVI",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "José Enrique Núñez Guijarro",
+        "diputadoId": "MAD-13-JOSÉENRIQU",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Rafael Núñez Huesca",
+        "diputadoId": "MAD-13-RAFAELNÚÑE",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Miguel Olite Lumbreras",
+        "diputadoId": "MAD-13-MIGUELOLIT",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Alberto Oliver Gómez de la Vega",
+        "diputadoId": "MAD-13-ALBERTOOLI",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "José María Ortiz Claver",
+        "diputadoId": "MAD-13-JOSÉMARÍAO",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Enrique Matías Ossorio Crespo",
+        "diputadoId": "MAD-13-ENRIQUEMAT",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Javier Padilla Bernáldez",
+        "diputadoId": "MAD-13-JAVIERPADI",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Pablo José Padilla Estrada",
+        "diputadoId": "MAD-13-PABLOJOSÉP",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Diana Carol Paredes Choquehuanca",
+        "diputadoId": "MAD-13-DIANACAROL",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "David Jonathan Parry Lafont",
+        "diputadoId": "MAD-13-DAVIDJONAT",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Carlota Pasarón González",
+        "diputadoId": "MAD-13-CARLOTAPAS",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "María Pastor Valdés",
+        "diputadoId": "MAD-13-MARÍAPASTO",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Juana Beatriz Pérez Abraham",
+        "diputadoId": "MAD-13-JUANABEATR",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Isabel Pérez Moñino-Aranda",
+        "diputadoId": "MAD-13-ISABELPÉRE",
+        "grupo": "Vox",
+        "voto": "no"
+      },
+      {
+        "diputado": "Alodia Pérez Muñoz",
+        "diputadoId": "MAD-13-ALODIAPÉRE",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Susana Pérez Quislant",
+        "diputadoId": "MAD-13-SUSANAPÉRE",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Esther Platero San Román",
+        "diputadoId": "MAD-13-ESTHERPLAT",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Daniel Portero de la Torre",
+        "diputadoId": "MAD-13-DANIELPORT",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Pablo Posse Praderas",
+        "diputadoId": "MAD-13-PABLOPOSSE",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Eduardo Raboso García-Baquero",
+        "diputadoId": "MAD-13-EDUARDORAB",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Patricia Isaura Reyes Rivera",
+        "diputadoId": "MAD-13-PATRICIAIS",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Santiago José Rivero Cruz",
+        "diputadoId": "MAD-13-SANTIAGOJO",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Jorge Rodrigo Domínguez",
+        "diputadoId": "MAD-13-JORGERODRI",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Daniel Rodríguez Asensio",
+        "diputadoId": "MAD-13-DANIELRODR",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Esther Rodríguez Moreno",
+        "diputadoId": "MAD-13-ESTHERRODR",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Daniel Rubio Caballero",
+        "diputadoId": "MAD-13-DANIELRUBI",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Luis Ruiz Bartolomé",
+        "diputadoId": "MAD-13-JOSÉLUISRU",
+        "grupo": "Vox",
+        "voto": "no"
+      },
+      {
+        "diputado": "Enrique Ruiz Escudero",
+        "diputadoId": "MAD-13-ENRIQUERUI",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Miguel Ángel Rumayor Fernández",
+        "diputadoId": "MAD-13-MIGUELÁNGE",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Sandra Samboal Ugena",
+        "diputadoId": "MAD-13-SANDRASAMB",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Antonio Sánchez Domínguez",
+        "diputadoId": "MAD-13-ANTONIOSÁN",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Alejandro Sánchez Pérez",
+        "diputadoId": "MAD-13-ALEJANDROS",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Emilia Sánchez Prieto",
+        "diputadoId": "MAD-13-EMILIASÁNC",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Antonio Sánchez Serrano",
+        "diputadoId": "MAD-13-JOSÉANTONI",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Alicia Sánchez-Camacho Pérez",
+        "diputadoId": "MAD-13-ALICIASÁNC",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Paz Serra Portilla",
+        "diputadoId": "MAD-13-PAZSERRAPO",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Alfonso Carlos Serrano Sánchez-Capuchino",
+        "diputadoId": "MAD-13-ALFONSOCAR",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Héctor Tejero Franco",
+        "diputadoId": "MAD-13-HÉCTORTEJE",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Alberto Tomé González",
+        "diputadoId": "MAD-13-ALBERTOTOM",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Alicia Torija López",
+        "diputadoId": "MAD-13-ALICIATORI",
+        "grupo": "Más Madrid",
+        "voto": "no"
+      },
+      {
+        "diputado": "Ignacio Vázquez Casavilla",
+        "diputadoId": "MAD-13-IGNACIOVÁZ",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Isabel Vega de la Vara",
+        "diputadoId": "MAD-13-ISABELVEGA",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Ana María Velasco Vidal-Abarca",
+        "diputadoId": "MAD-13-ANAMARÍAVE",
+        "grupo": "Vox",
+        "voto": "no"
+      },
+      {
+        "diputado": "Elisa Adela Vigil González",
+        "diputadoId": "MAD-13-ELISAADELA",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "Manuela Villa Acosta",
+        "diputadoId": "MAD-13-MANUELAVIL",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Agustín Vinagre Alcázar",
+        "diputadoId": "MAD-13-AGUSTÍNVIN",
+        "grupo": "PSOE-M",
+        "voto": "no"
+      },
+      {
+        "diputado": "Nikolay Yordanov Atanasov",
+        "diputadoId": "MAD-13-NIKOLAYYOR",
+        "grupo": "PP",
+        "voto": "si"
+      },
+      {
+        "diputado": "María Mercedes Zarzalejo Carbajo",
+        "diputadoId": "MAD-13-MARÍAMERCE",
+        "grupo": "PP",
+        "voto": "si"
+      }
+    ]
+  }
+]

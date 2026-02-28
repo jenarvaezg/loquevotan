@@ -29,6 +29,13 @@
         "XI",
         "X"
       ]
+    },
+    {
+      "id": "madrid",
+      "nombre": "Asamblea de Madrid",
+      "legislaturas": [
+        "XIII"
+      ]
     }
   ]
 }

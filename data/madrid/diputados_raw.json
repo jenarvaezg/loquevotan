@@ -1,0 +1,947 @@
+[
+  {
+    "id": "MAD-13-MARÍAACÍNC",
+    "nombre": "María Acín Carrera",
+    "grupo": "Más Madrid",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-ROCÍOALBER",
+    "nombre": "Rocío Albert López",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-ESTEBANÁLV",
+    "nombre": "Esteban Álvarez León",
+    "grupo": "PSOE-M",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-JOSÉIGNACI",
+    "nombre": "José Ignacio Arias Moreno",
+    "grupo": "Vox",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-JOSÉMARÍAA",
+    "nombre": "José María Arribas del Barrio",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-JONATANALB",
+    "nombre": "Jonatan Alberto Arroyo Perea",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-ÁLVAROBALL",
+    "nombre": "Álvaro Ballarín Valcárcel",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-JAZMÍNBEIR",
+    "nombre": "Jazmín Beirak Ulanosky",
+    "grupo": "Más Madrid",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-MANUELABER",
+    "nombre": "Manuela Bergerot Uncal",
+    "grupo": "Más Madrid",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-MARTABERNA",
+    "nombre": "Marta Bernardo Llorente",
+    "grupo": "PSOE-M",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-MARÍADELMA",
+    "nombre": "María del Mar Blanco Garrido",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-SARABONMAT",
+    "nombre": "Sara Bonmati García",
+    "grupo": "PSOE-M",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-BEATRIZBOR",
+    "nombre": "Beatriz Borrás Vergel",
+    "grupo": "Más Madrid",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-MIRIAMBRAV",
+    "nombre": "Miriam Bravo Sánchez",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-TOMÁSBURGO",
+    "nombre": "Tomás Burgos Beteta",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-ISABELSOFÍ",
+    "nombre": "Isabel Sofía Cadórniga Varela",
+    "grupo": "PSOE-M",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-MARIANOCAL",
+    "nombre": "Mariano Calabuig Martínez",
+    "grupo": "Vox",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-MARÍAEUGEN",
+    "nombre": "María Eugenia Carballedo Berlanga",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-MARTACARMO",
+    "nombre": "Marta Carmona Ossorio",
+    "grupo": "Más Madrid",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-MARÍADELOS",
+    "nombre": "María de los Llanos Castellanos Garijo",
+    "grupo": "PSOE-M",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-LAURACASTI",
+    "nombre": "Laura Castilla Rodríguez",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-IGNACIOCAT",
+    "nombre": "Ignacio Catalá Martínez",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-JESÚSCELAD",
+    "nombre": "Jesús Celada Pérez",
+    "grupo": "PSOE-M",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-JOSÉCARMEL",
+    "nombre": "José Carmelo Cepeda García de León",
+    "grupo": "PSOE-M",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-ANACOLLADO",
+    "nombre": "Ana Collado Jiménez",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-PEDROMARÍA",
+    "nombre": "Pedro María Corral Corral",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-MIRINACORT",
+    "nombre": "Mirina Cortés Ortega",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-DIEGOCRUZT",
+    "nombre": "Diego Cruz Torrijos",
+    "grupo": "PSOE-M",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-ANAMARÍACU",
+    "nombre": "Ana María Cuartero Lorenzo",
+    "grupo": "Vox",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-RAMÓNCUBIÁ",
+    "nombre": "Ramón Cubián Martínez",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-JORGEARTUR",
+    "nombre": "Jorge Arturo Cutillas Cordón",
+    "grupo": "Vox",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-ANADÁVILA-",
+    "nombre": "Ana Dávila-Ponce de León Municio",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-PAULARAQUE",
+    "nombre": "Paula Raquel de las Heras Tundidor",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-JAIMEDELOS",
+    "nombre": "Jaime de los Santos González",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-CARLADELGA",
+    "nombre": "Carla Delgado Gómez",
+    "grupo": "Más Madrid",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-EMILIODELG",
+    "nombre": "Emilio Delgado Orgaz",
+    "grupo": "Más Madrid",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-ISABELNATI",
+    "nombre": "Isabel Natividad Díaz Ayuso",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-CARLOSDÍAZ",
+    "nombre": "Carlos Díaz-Pache Gosende",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-MARÍADELMA",
+    "nombre": "María del Mar Espinar Mesa-Moles",
+    "grupo": "PSOE-M",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-GUSTAVOALA",
+    "nombre": "Gustavo Alaín Eustache Soteldo",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-ALMALUCÍAE",
+    "nombre": "Alma Lucía Ezcurra Almansa",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-FERNANDOFE",
+    "nombre": "Fernando Fernández Lara",
+    "grupo": "PSOE-M",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-JAVIERFERN",
+    "nombre": "Javier Fernández-Lasquetty",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-DIEGOFIGUE",
+    "nombre": "Diego Figuera Álvarez",
+    "grupo": "Más Madrid",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-JOSÉANTONI",
+    "nombre": "José Antonio Fúster Lamelas",
+    "grupo": "Vox",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-FRANCISCOG",
+    "nombre": "Francisco Galeote Perea",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-JORGEGARCÍ",
+    "nombre": "Jorge García Díaz",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-MÓNICAGARC",
+    "nombre": "Mónica García Gómez",
+    "grupo": "Más Madrid",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-RAFAELGARC",
+    "nombre": "Rafael García González",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-MIGUELÁNGE",
+    "nombre": "Miguel Ángel García Martín",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-OLIVACRIST",
+    "nombre": "Oliva Cristina García Robredo",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-JOSÉLUISGA",
+    "nombre": "José Luis García Sánchez",
+    "grupo": "PSOE-M",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-PABLOGÓMEZ",
+    "nombre": "Pablo Gómez Perpinyà",
+    "grupo": "Más Madrid",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-CRISTINAGO",
+    "nombre": "Cristina González Álvarez",
+    "grupo": "PSOE-M",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-JIMENAGONZ",
+    "nombre": "Jimena González Gómez",
+    "grupo": "Más Madrid",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-CARLOSGONZ",
+    "nombre": "Carlos González Maestre",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-MARÍABELÉN",
+    "nombre": "María Belén González Moreno",
+    "grupo": "Vox",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-JAVIERGUAR",
+    "nombre": "Javier Guardiola Arévalo",
+    "grupo": "PSOE-M",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-LAURAGUTIÉ",
+    "nombre": "Laura Gutiérrez Barreno",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-SANTIAGOED",
+    "nombre": "Santiago Eduardo Gutiérrez Benito",
+    "grupo": "Más Madrid",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-ÍÑIGOHENRÍ",
+    "nombre": "Íñigo Henríquez de Luna Losada",
+    "grupo": "Vox",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-MARÍAYOLAN",
+    "nombre": "María Yolanda Ibarrola de la Fuente",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-MARÍATATIA",
+    "nombre": "María Tatiana Jiménez Liébana",
+    "grupo": "PSOE-M",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-MÓNICALAVÍ",
+    "nombre": "Mónica Lavín Moreno-Torres",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-JUANLOBATO",
+    "nombre": "Juan Lobato Gandarias-Sánchez",
+    "grupo": "PSOE-M",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-MIGUELLÓPE",
+    "nombre": "Miguel López-Valverde Argüeso",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-LETICIALOR",
+    "nombre": "Leticia Lorenzo Brito",
+    "grupo": "PSOE-M",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-MARTALOZAN",
+    "nombre": "Marta Lozano Sabroso",
+    "grupo": "Más Madrid",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-MARTAMARBÁ",
+    "nombre": "Marta Marbán de Frutos",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-RAÚLMARTÍN",
+    "nombre": "Raúl Martín Galán",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-GUILLERMOM",
+    "nombre": "Guillermo Martín Jiménez",
+    "grupo": "PSOE-M",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-PALOMAMART",
+    "nombre": "Paloma Martín Martín",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-HUGOMARTÍN",
+    "nombre": "Hugo Martínez Abarca",
+    "grupo": "Más Madrid",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-RAFAELMART",
+    "nombre": "Rafael Martínez Pérez",
+    "grupo": "PSOE-M",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-CARLOSDANI",
+    "nombre": "Carlos Daniel Martínez Rodríguez",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-MARÍACARME",
+    "nombre": "María Carmen Mena Romero",
+    "grupo": "PSOE-M",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-JOSÉVIRGIL",
+    "nombre": "José Virgilio Menéndez Medrano",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-ANABELÉNMI",
+    "nombre": "Ana Belén Millán Arroyo",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-ROCÍOMONAS",
+    "nombre": "Rocío Monasterio San Martín",
+    "grupo": "Vox",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-SILVIAMONT",
+    "nombre": "Silvia Monterrubio Hernando",
+    "grupo": "PSOE-M",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-LORENAMORA",
+    "nombre": "Lorena Morales Porro",
+    "grupo": "PSOE-M",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-JESÚSMOREN",
+    "nombre": "Jesús Moreno García",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-CARLOSMORE",
+    "nombre": "Carlos Moreno Vinués",
+    "grupo": "PSOE-M",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-JORGEMORUN",
+    "nombre": "Jorge Moruno Danzi",
+    "grupo": "Más Madrid",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-PEDROMUÑOZ",
+    "nombre": "Pedro Muñoz Abrines",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-JUANJOSÉMU",
+    "nombre": "Juan José Murillo Moreno",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-CARLOSNOVI",
+    "nombre": "Carlos Novillo Piris",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-JOSÉENRIQU",
+    "nombre": "José Enrique Núñez Guijarro",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-RAFAELNÚÑE",
+    "nombre": "Rafael Núñez Huesca",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-MIGUELOLIT",
+    "nombre": "Miguel Olite Lumbreras",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-ALBERTOOLI",
+    "nombre": "Alberto Oliver Gómez de la Vega",
+    "grupo": "Más Madrid",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-JOSÉMARÍAO",
+    "nombre": "José María Ortiz Claver",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-ENRIQUEMAT",
+    "nombre": "Enrique Matías Ossorio Crespo",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-JAVIERPADI",
+    "nombre": "Javier Padilla Bernáldez",
+    "grupo": "Más Madrid",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-PABLOJOSÉP",
+    "nombre": "Pablo José Padilla Estrada",
+    "grupo": "Más Madrid",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-DIANACAROL",
+    "nombre": "Diana Carol Paredes Choquehuanca",
+    "grupo": "Más Madrid",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-DAVIDJONAT",
+    "nombre": "David Jonathan Parry Lafont",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-CARLOTAPAS",
+    "nombre": "Carlota Pasarón González",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-MARÍAPASTO",
+    "nombre": "María Pastor Valdés",
+    "grupo": "Más Madrid",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-JUANABEATR",
+    "nombre": "Juana Beatriz Pérez Abraham",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-ISABELPÉRE",
+    "nombre": "Isabel Pérez Moñino-Aranda",
+    "grupo": "Vox",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-ALODIAPÉRE",
+    "nombre": "Alodia Pérez Muñoz",
+    "grupo": "Más Madrid",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-SUSANAPÉRE",
+    "nombre": "Susana Pérez Quislant",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-ESTHERPLAT",
+    "nombre": "Esther Platero San Román",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-DANIELPORT",
+    "nombre": "Daniel Portero de la Torre",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-PABLOPOSSE",
+    "nombre": "Pablo Posse Praderas",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-EDUARDORAB",
+    "nombre": "Eduardo Raboso García-Baquero",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-PATRICIAIS",
+    "nombre": "Patricia Isaura Reyes Rivera",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-SANTIAGOJO",
+    "nombre": "Santiago José Rivero Cruz",
+    "grupo": "PSOE-M",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-JORGERODRI",
+    "nombre": "Jorge Rodrigo Domínguez",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-DANIELRODR",
+    "nombre": "Daniel Rodríguez Asensio",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-ESTHERRODR",
+    "nombre": "Esther Rodríguez Moreno",
+    "grupo": "Más Madrid",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-DANIELRUBI",
+    "nombre": "Daniel Rubio Caballero",
+    "grupo": "PSOE-M",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-JOSÉLUISRU",
+    "nombre": "José Luis Ruiz Bartolomé",
+    "grupo": "Vox",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-ENRIQUERUI",
+    "nombre": "Enrique Ruiz Escudero",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-MIGUELÁNGE",
+    "nombre": "Miguel Ángel Rumayor Fernández",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-SANDRASAMB",
+    "nombre": "Sandra Samboal Ugena",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-ANTONIOSÁN",
+    "nombre": "Antonio Sánchez Domínguez",
+    "grupo": "Más Madrid",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-ALEJANDROS",
+    "nombre": "Alejandro Sánchez Pérez",
+    "grupo": "Más Madrid",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-EMILIASÁNC",
+    "nombre": "Emilia Sánchez Prieto",
+    "grupo": "PSOE-M",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-JOSÉANTONI",
+    "nombre": "José Antonio Sánchez Serrano",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-ALICIASÁNC",
+    "nombre": "Alicia Sánchez-Camacho Pérez",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-PAZSERRAPO",
+    "nombre": "Paz Serra Portilla",
+    "grupo": "Más Madrid",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-ALFONSOCAR",
+    "nombre": "Alfonso Carlos Serrano Sánchez-Capuchino",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-HÉCTORTEJE",
+    "nombre": "Héctor Tejero Franco",
+    "grupo": "Más Madrid",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-ALBERTOTOM",
+    "nombre": "Alberto Tomé González",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-ALICIATORI",
+    "nombre": "Alicia Torija López",
+    "grupo": "Más Madrid",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-IGNACIOVÁZ",
+    "nombre": "Ignacio Vázquez Casavilla",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-ISABELVEGA",
+    "nombre": "Isabel Vega de la Vara",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-ANAMARÍAVE",
+    "nombre": "Ana María Velasco Vidal-Abarca",
+    "grupo": "Vox",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-ELISAADELA",
+    "nombre": "Elisa Adela Vigil González",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-MANUELAVIL",
+    "nombre": "Manuela Villa Acosta",
+    "grupo": "PSOE-M",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-AGUSTÍNVIN",
+    "nombre": "Agustín Vinagre Alcázar",
+    "grupo": "PSOE-M",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-NIKOLAYYOR",
+    "nombre": "Nikolay Yordanov Atanasov",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  },
+  {
+    "id": "MAD-13-MARÍAMERCE",
+    "nombre": "María Mercedes Zarzalejo Carbajo",
+    "grupo": "PP",
+    "nlegis": "13",
+    "foto": null
+  }
+]
