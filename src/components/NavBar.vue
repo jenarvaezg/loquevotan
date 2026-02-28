@@ -9,6 +9,7 @@ const route = useRoute()
 const menuOpen = ref(false)
 const isDark = ref(false)
 const scopeMenuOpen = ref(false)
+const baseUrl = import.meta.env.BASE_URL
 
 const currentScope = computed(() => {
   return ambitos.value.find(a => a.id === currentScopeId.value) || ambitos.value[0]
@@ -71,7 +72,7 @@ initTheme()
         
         <div class="scope-dropdown" v-if="ambitos.length > 1">
           <button class="scope-btn" @click="toggleScopeMenu" :aria-expanded="scopeMenuOpen">
-            <span class="scope-icon">{{ currentScope?.id === 'nacional' ? '🇪🇸' : '🚩' }}</span>
+            <img :src="`${baseUrl}assets/flags/${currentScope?.id || 'nacional'}.svg`" class="scope-flag" :alt="currentScope?.nombre" />
             <span class="scope-label">{{ currentScope?.nombre || 'Cargando...' }}</span>
             <span class="scope-chevron">&#9662;</span>
           </button>
@@ -84,7 +85,7 @@ initTheme()
               :class="{ active: a.id === currentScopeId }"
               @click="selectScope(a.id)"
             >
-              <span class="scope-icon">{{ a.id === 'nacional' ? '🇪🇸' : '🚩' }}</span>
+              <img :src="`${baseUrl}assets/flags/${a.id}.svg`" class="scope-flag" :alt="a.nombre" />
               {{ a.nombre }}
               <span class="scope-check" v-if="a.id === currentScopeId">&#10003;</span>
             </button>
@@ -199,6 +200,15 @@ initTheme()
 .scope-icon {
   font-size: 1.1em;
   line-height: 1;
+}
+
+.scope-flag {
+  width: 18px;
+  height: 13px;
+  object-fit: cover;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+  display: block;
 }
 
 .scope-label {

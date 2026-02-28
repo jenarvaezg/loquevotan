@@ -45,6 +45,8 @@ const accTag = ref('')
 const groupByExp = ref(true)
 const expandedExps = ref({})
 
+const baseUrl = import.meta.env.BASE_URL
+
 // Track if votos for current filter legislatura (or latest) are loaded
 const votosReady = computed(() => {
   if (!ds.value?.legislaturas?.length) return false
@@ -275,10 +277,11 @@ watch(name, (n) => {
             <button 
               v-for="a in otherScopes" 
               :key="a.id"
-              class="btn btn--sm btn--outline"
+              class="btn btn--sm btn--outline scope-cross-btn"
               @click="navigateToScope(a.id)"
             >
-              {{ a.id === 'nacional' ? '🇪🇸' : '🚩' }} {{ a.nombre }} &rarr;
+              <img :src="`${baseUrl}assets/flags/${a.id}.svg`" class="scope-flag-sm" :alt="a.nombre" />
+              {{ a.nombre }} &rarr;
             </button>
           </div>
         </div>
@@ -613,6 +616,22 @@ watch(name, (n) => {
   font-weight: 700;
   font-size: 1.5rem;
   flex-shrink: 0;
+}
+
+.scope-cross-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.2rem 0.6rem;
+}
+
+.scope-flag-sm {
+  width: 14px;
+  height: 10px;
+  object-fit: cover;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+  display: block;
 }
 
 .detail-header {
