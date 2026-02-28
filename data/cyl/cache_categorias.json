@@ -175,198 +175,189 @@
     "proponente": "PP"
   },
   "Aprobación Ley de Presupuestos de la Comunidad para el 2023 y Rechazo PL de Medidas (Cont.)": {
-    "titulo_ciudadano": "Continuación de la aprobación de los presupuestos 2023",
+    "titulo_ciudadano": "Aprobación definitiva de los presupuestos regionales 2023",
     "categoria_principal": "Economia_y_Hacienda",
     "etiquetas": [
       "aprobar_presupuestos",
       "cyl"
     ],
-    "resumen_sencillo": "Votar a favor significa ratificar las secciones finales del presupuesto regional.",
+    "resumen_sencillo": "Votar a favor significa ratificar las cuentas públicas tras el debate de enmiendas.",
     "proponente": "Gobierno"
-  },
-  "Aprobación Ley Medidas": {
-    "titulo_ciudadano": "Aprobación de la Ley de Medidas Tributarias y Administrativas",
-    "categoria_principal": "Economia_y_Hacienda",
-    "etiquetas": [
-      "bajar_impuestos",
-      "controlar_gasto_publico",
-      "cyl"
-    ],
-    "resumen_sencillo": "Votar a favor significa apoyar el paquete de medidas económicas que acompaña a los presupuestos.",
-    "proponente": "Gobierno"
-  },
-  "Aprobación Ley Modificación Ley 2/2006 Hacienda y Sector Público, con objetivo de flexibilizar régimen presupuestario ante situaciones excepcionales emergencia salud pública – Convalidación Decreto-le": {
-    "titulo_ciudadano": "Flexibilizar el gasto público para emergencias sanitarias",
-    "categoria_principal": "Sanidad",
-    "etiquetas": [
-      "proteger_sanidad_publica",
-      "controlar_gasto_publico",
-      "cyl"
-    ],
-    "resumen_sencillo": "Votar a favor significa permitir que el gobierno use el dinero de forma más ágil ante crisis como el COVID-19.",
-    "proponente": "Gobierno"
-  },
-  "Convalidación Decreto-ley 7/2020 régimen sancionador incumplimiento medidas prevención y contención crisis sanitaria ocasionada COVID-19": {
-    "titulo_ciudadano": "Multas por incumplir las normas de prevención del COVID-19",
-    "categoria_principal": "Sanidad",
-    "etiquetas": [
-      "aumentar_seguridad_ciudadana",
-      "proteger_sanidad_publica",
-      "cyl"
-    ],
-    "resumen_sencillo": "Votar a favor significa ratificar las sanciones para quienes se salten las medidas de seguridad sanitaria.",
-    "proponente": "Gobierno"
-  },
-  "Toma en consideración PPL Medidas": {
-    "titulo_ciudadano": "Tramitar medidas legislativas urgentes",
-    "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario",
-      "cyl"
-    ],
-    "resumen_sencillo": "Votar a favor significa aceptar que se debata una nueva propuesta de ley de medidas administrativas.",
-    "proponente": "Varios grupos"
-  },
-  "Enmiendas debatidas y la Sección 08": {
-    "titulo_ciudadano": "Votación de enmiendas al presupuesto de agricultura y ganadería",
-    "categoria_principal": "Agricultura",
-    "etiquetas": [
-      "aprobar_presupuestos",
-      "proteger_sector_primario",
-      "cyl"
-    ],
-    "resumen_sencillo": "Votar a favor significa apoyar los cambios propuestos por la oposición en la partida de agricultura.",
-    "proponente": "PSOE"
-  },
-  "Sesión de Constitución de las Cortes de Castilla y León en la XI Legislatura": {
-    "titulo_ciudadano": "Inauguración oficial de la legislatura actual",
-    "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario",
-      "cyl"
-    ],
-    "resumen_sencillo": "Votar a favor significa dar validez a la formación de la nueva cámara tras las elecciones.",
-    "proponente": "Varios grupos"
-  },
-  "Toma en consideración PPL Derechos y garantías de las personas al final de su vida": {
-    "titulo_ciudadano": "Iniciar el debate sobre la ley de muerte digna",
-    "categoria_principal": "Sanidad",
-    "etiquetas": [
-      "proteger_enfermos",
-      "legalizar_eutanasia",
-      "cyl"
-    ],
-    "resumen_sencillo": "Votar a favor significa permitir que se tramite una ley para regular los derechos de los pacientes terminales.",
-    "proponente": "PSOE"
-  },
-  "Toma en consideración PPL Modificación Ley 7/1987 Designación de Senadores": {
-    "titulo_ciudadano": "Reformar cómo se eligen los senadores regionales",
-    "categoria_principal": "Gobernanza",
-    "etiquetas": [
-      "reformar_ley_electoral",
-      "procedimiento_parlamentario",
-      "cyl"
-    ],
-    "resumen_sencillo": "Votar a favor significa cambiar el sistema por el cual las Cortes de CyL envían representantes al Senado en Madrid.",
-    "proponente": "Varios grupos"
-  },
-  "Aprobación Ley de Presupuestos de la Comunidad para el 2023 y Rechazo PL de Medidas": {
-    "titulo_ciudadano": "Aprobar las cuentas públicas regionales de 2023",
-    "categoria_principal": "Economia_y_Hacienda",
-    "etiquetas": [
-      "aprobar_presupuestos",
-      "cyl"
-    ],
-    "resumen_sencillo": "Votar a favor significa validar el plan de ingresos y gastos de la Comunidad para el año 2023.",
-    "proponente": "Gobierno"
-  },
-  "Convalidación Decreto-ley 3/2021 suspensión vigencia artículos Ley 4/1998 Juego y Apuestas de CyL": {
-    "titulo_ciudadano": "Limitar el sector del juego y las apuestas en la región",
-    "categoria_principal": "Interior_y_Seguridad",
-    "etiquetas": [
-      "aumentar_seguridad_ciudadana",
-      "cyl"
-    ],
-    "resumen_sencillo": "Votar a favor significa endurecer temporalmente las normas contra las casas de apuestas.",
-    "proponente": "Gobierno"
-  },
-  "Toma en consideración PREA n. 1/10 Propuesta de Reforma del Estatuto de Autonomía, Desestimación PREA n. 2/10 Propuesta de Reforma del Estatuto de Autonomía": {
-    "titulo_ciudadano": "Debate sobre la reforma del Estatuto de Castilla y León",
-    "categoria_principal": "Politica_Territorial",
-    "etiquetas": [
-      "reformar_estatuto_autonomia",
-      "cyl"
-    ],
-    "resumen_sencillo": "Votar a favor significa avanzar en el cambio de la ley fundamental de la comunidad autónoma.",
-    "proponente": "Varios grupos"
-  },
-  "Desestimación PPL Modificación Ley 4/1998 Juego y Apuestas de CyL": {
-    "titulo_ciudadano": "Rechazar cambios en la ley regional del juego",
-    "categoria_principal": "Interior_y_Seguridad",
-    "etiquetas": [
-      "aumentar_seguridad_ciudadana",
-      "cyl"
-    ],
-    "resumen_sencillo": "Votar a favor de la desestimación significa mantener la ley de apuestas actual sin cambios.",
-    "proponente": "Varios grupos"
   },
   "Designaciones de Senadores y Vocales de la Comisión Mixta de Transferencias": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Elección de representantes en el Senado y Comisión de Transferencias",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "procedimiento_parlamentario",
+      "politica_territorial",
+      "cyl"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar la designación de las personas que representarán a la Comunidad ante el Estado.",
+    "proponente": "Varios grupos"
   },
   "Declaración Institucional DI n. 1/11 “Solidaridad y apoyo a los pueblos de Marruecos y Libia ante las terribles catástrofes naturales que han sufrido”": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Apoyo institucional a Marruecos y Libia por catástrofes naturales",
+    "categoria_principal": "Asuntos_Exteriores",
+    "etiquetas": [
+      "impulsar_cooperacion_internacional",
+      "cyl"
+    ],
+    "resumen_sencillo": "Votar a favor significa expresar la solidaridad unánime de las Cortes con las víctimas de los terremotos e inundaciones.",
+    "proponente": "Varios grupos"
   },
   "Debate sobre Política General de la Junta de Castilla y León (DPG 1/11) (Cont.)": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Debate del estado de la Región (Legislatura XI)",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "controlar_gobierno",
+      "cyl"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar las propuestas de resolución presentadas tras el debate de política general.",
+    "proponente": "Varios grupos"
   },
   "Efectos del otorgamiento de la confianza por parte de la Cámara al candidato propuesto para la Presidencia de la Junta de Castilla y León": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Investidura definitiva del Presidente de la Junta",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "procedimiento_parlamentario",
+      "cyl"
+    ],
+    "resumen_sencillo": "Votar a favor significa confirmar el nombramiento del candidato como jefe del ejecutivo regional.",
+    "proponente": "Varios grupos"
   },
   "Debate sobre Política General de la Junta de Castilla y León (DPG 1/10) (Cont.)": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Debate del estado de la Región (Legislatura X)",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "controlar_gobierno",
+      "cyl"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar la gestión del gobierno autonómico durante el gran debate anual.",
+    "proponente": "Varios grupos"
   },
   "Convalidación Decreto-ley 8/2020 modificación Ley 7/2006 Espectáculos Públicos y Actividades Recreativas de CyL – Convalidación Decreto-ley 9/2020 medidas extraordinarias apoyo personas y familias par": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Medidas de apoyo a familias y reforma de espectáculos públicos por el COVID",
+    "categoria_principal": "Sanidad",
+    "etiquetas": [
+      "proteger_familias",
+      "proteger_sanidad_publica",
+      "cyl"
+    ],
+    "resumen_sencillo": "Votar a favor significa ratificar las ayudas económicas a familias y adaptar las normas de ocio a la situación de pandemia.",
+    "proponente": "Gobierno"
   },
   "Comparecencia Presidente de la Junta de Castilla y León para informar sobre actuaciones y normas en relación con crisis  COVID_19, así como actuaciones y medidas para el futuro": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Explicaciones del Presidente sobre la gestión post-COVID",
+    "categoria_principal": "Sanidad",
+    "etiquetas": [
+      "controlar_gobierno",
+      "proteger_sanidad_publica",
+      "cyl"
+    ],
+    "resumen_sencillo": "Votar a favor significa dar por buenas las explicaciones del ejecutivo sobre cómo se afrontará el futuro tras la pandemia.",
+    "proponente": "Gobierno"
   },
   "Separada por bloques,": {
+    "titulo_ciudadano": "Votación por bloques de una iniciativa legislativa",
+    "categoria_principal": "Otros",
+    "etiquetas": [
+      "procedimiento_parlamentario",
+      "cyl"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar un conjunto de artículos o puntos de una ley agrupados por su temática.",
+    "proponente": "Varios grupos"
+  },
+  "Debate de totalidad PL de Presupuestos de la Comunidad para el 2022 y PL de Medidas": {
+    "titulo_ciudadano": "Debate de totalidad de los Presupuestos 2022",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "cyl"
+    ],
+    "resumen_sencillo": "Votar a favor significa rechazar las enmiendas a la totalidad y permitir que el presupuesto siga su tramitación.",
+    "proponente": "Gobierno"
+  },
+  "Sesión de Constitución de las Cortes de Castilla y León en la X Legislatura": {
+    "titulo_ciudadano": "Inauguración de la X Legislatura regional",
+    "categoria_principal": "Otros",
+    "etiquetas": [
+      "procedimiento_parlamentario",
+      "cyl"
+    ],
+    "resumen_sencillo": "Votar a favor significa validar el inicio oficial de la legislatura 2015-2019.",
+    "proponente": "Varios grupos"
+  },
+  "Sesión de Constitución de las Cortes de Castilla y León en la XI Legislatura": {
     "titulo_ciudadano": "Asunto parlamentario sin clasificar",
     "categoria_principal": "Otros",
     "etiquetas": [],
     "resumen_sencillo": "",
     "proponente": ""
   },
-  "Debate de totalidad PL de Presupuestos de la Comunidad para el 2022 y PL de Medidas": {
+  "Toma en consideración PPL Derechos y garantías de las personas al final de su vida": {
+    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "categoria_principal": "Otros",
+    "etiquetas": [],
+    "resumen_sencillo": "",
+    "proponente": ""
+  },
+  "Toma en consideración PPL Modificación Ley 7/1987 Designación de Senadores": {
+    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "categoria_principal": "Otros",
+    "etiquetas": [],
+    "resumen_sencillo": "",
+    "proponente": ""
+  },
+  "Enmiendas debatidas y la Sección 08": {
+    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "categoria_principal": "Otros",
+    "etiquetas": [],
+    "resumen_sencillo": "",
+    "proponente": ""
+  },
+  "Toma en consideración PPL Medidas": {
+    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "categoria_principal": "Otros",
+    "etiquetas": [],
+    "resumen_sencillo": "",
+    "proponente": ""
+  },
+  "Aprobación Ley Medidas": {
+    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "categoria_principal": "Otros",
+    "etiquetas": [],
+    "resumen_sencillo": "",
+    "proponente": ""
+  },
+  "Desestimación PPL Modificación Ley 4/1998 Juego y Apuestas de CyL": {
+    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "categoria_principal": "Otros",
+    "etiquetas": [],
+    "resumen_sencillo": "",
+    "proponente": ""
+  },
+  "Aprobación Ley Modificación Ley 2/2006 Hacienda y Sector Público, con objetivo de flexibilizar régimen presupuestario ante situaciones excepcionales emergencia salud pública – Convalidación Decreto-le": {
+    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "categoria_principal": "Otros",
+    "etiquetas": [],
+    "resumen_sencillo": "",
+    "proponente": ""
+  },
+  "Convalidación Decreto-ley 7/2020 régimen sancionador incumplimiento medidas prevención y contención crisis sanitaria ocasionada COVID-19": {
+    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "categoria_principal": "Otros",
+    "etiquetas": [],
+    "resumen_sencillo": "",
+    "proponente": ""
+  },
+  "Convalidación Decreto-ley 3/2021 suspensión vigencia artículos Ley 4/1998 Juego y Apuestas de CyL": {
+    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "categoria_principal": "Otros",
+    "etiquetas": [],
+    "resumen_sencillo": "",
+    "proponente": ""
+  },
+  "Toma en consideración PREA n. 1/10 Propuesta de Reforma del Estatuto de Autonomía, Desestimación PREA n. 2/10 Propuesta de Reforma del Estatuto de Autonomía": {
     "titulo_ciudadano": "Asunto parlamentario sin clasificar",
     "categoria_principal": "Otros",
     "etiquetas": [],
