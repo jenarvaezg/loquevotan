@@ -1,13 +1,12 @@
 <script setup>
-import { ref, computed, watch, onMounted } from 'vue'
-import { useRouter } from 'vue-router'
+import { ref, computed, watch } from 'vue'
 import { useData } from '../composables/useData'
 import html2canvas from 'html2canvas'
 
 const { currentScopeId } = useData()
-const router = useRouter()
 
-const quizData = ref(null)
+const quizSets = ref({ basic: null, advanced: null })
+const selectedMode = ref('basic')
 const loading = ref(true)
 const error = ref(null)
 const captureArea = ref(null)
@@ -16,23 +15,63 @@ const currentStep = ref(-1) // -1: Intro, 0-N: Questions, N+1: Results
 const answers = ref({}) // qId -> 'si' | 'no' | 'abstencion'
 const PARTIAL_MATCH_FACTOR = 0.35
 
-const isResults = computed(() => quizData.value && currentStep.value >= quizData.value.questions.length)
-const currentQuestion = computed(() => {
-  if (!quizData.value || currentStep.value < 0 || isResults.value) return null
-  return quizData.value.questions[currentStep.value]
+const hasAdvanced = computed(() => !!quizSets.value.advanced)
+const activeQuiz = computed(() => {
+  if (selectedMode.value === 'advanced' && quizSets.value.advanced) return quizSets.value.advanced
+  return quizSets.value.basic
 })
+const isAdvancedMode = computed(() => selectedMode.value === 'advanced' && !!quizSets.value.advanced)
+
+const isResults = computed(() => activeQuiz.value && currentStep.value >= activeQuiz.value.questions.length)
+const currentQuestion = computed(() => {
+  if (!activeQuiz.value || currentStep.value < 0 || isResults.value) return null
+  return activeQuiz.value.questions[currentStep.value]
+})
+
+function getQuestionWeight(question) {
+  const rawWeight = Number(question?.weight)
+  return Number.isFinite(rawWeight) && rawWeight > 0 ? rawWeight : 1
+}
+
+function voteToFactor(vote) {
+  if (vote === 'si') return 1
+  if (vote === 'no') return -1
+  return 0
+}
+
+function clampCoordinate(value) {
+  return Math.max(-100, Math.min(100, value))
+}
+
+function normalizeAxisScore(score, maxScore) {
+  if (!maxScore) return 0
+  return clampCoordinate(Math.round((score / maxScore) * 100))
+}
 
 async function loadQuiz() {
   loading.value = true
   error.value = null
+
   try {
-    const scopePath = currentScopeId.value === "nacional" ? "" : `${currentScopeId.value}/`
-    const url = `${import.meta.env.BASE_URL}data/${scopePath}quiz.json`
-    const resp = await fetch(url)
-    if (!resp.ok) throw new Error('Quiz not available for this scope')
-    quizData.value = await resp.json()
+    const scopePath = currentScopeId.value === 'nacional' ? '' : `${currentScopeId.value}/`
+    const baseUrl = `${import.meta.env.BASE_URL}data/${scopePath}`
+
+    const basicResp = await fetch(`${baseUrl}quiz.json`)
+    if (!basicResp.ok) throw new Error('Basic quiz not available for this scope')
+    const basicQuiz = await basicResp.json()
+
+    let advancedQuiz = null
+    try {
+      const advancedResp = await fetch(`${baseUrl}quiz_advanced.json`)
+      if (advancedResp.ok) advancedQuiz = await advancedResp.json()
+    } catch (_) {
+      // Optional file
+    }
+
+    quizSets.value = { basic: basicQuiz, advanced: advancedQuiz }
+    if (selectedMode.value === 'advanced' && !advancedQuiz) selectedMode.value = 'basic'
   } catch (err) {
-    error.value = "No hay un test de afinidad disponible para este parlamento en este momento."
+    error.value = 'No hay un test de afinidad disponible para este parlamento en este momento.'
   } finally {
     loading.value = false
   }
@@ -41,10 +80,19 @@ async function loadQuiz() {
 watch(currentScopeId, () => {
   currentStep.value = -1
   answers.value = {}
+  selectedMode.value = 'basic'
   loadQuiz()
 }, { immediate: true })
 
+function selectMode(mode) {
+  if (mode === 'advanced' && !hasAdvanced.value) return
+  selectedMode.value = mode
+  answers.value = {}
+  currentStep.value = -1
+}
+
 function startQuiz() {
+  if (!activeQuiz.value) return
   currentStep.value = 0
 }
 
@@ -52,7 +100,7 @@ function answer(vote) {
   if (currentQuestion.value) {
     answers.value[currentQuestion.value.id] = vote
     currentStep.value++
-    
+
     if (isResults.value) {
       finishQuiz()
     }
@@ -60,31 +108,31 @@ function answer(vote) {
 }
 
 const affinities = computed(() => {
-  if (!quizData.value || !isResults.value) return []
-  
-  const scores = {}
-  quizData.value.groups.forEach(g => { scores[g] = 0 })
-  
-  const totalWeight = quizData.value.questions.reduce((acc, q) => {
-    const rawWeight = Number(q.weight)
-    return acc + (Number.isFinite(rawWeight) && rawWeight > 0 ? rawWeight : 1)
-  }, 0)
-  
-  quizData.value.questions.forEach(q => {
-    const userVote = answers.value[q.id]
-    const rawWeight = Number(q.weight)
-    const weight = Number.isFinite(rawWeight) && rawWeight > 0 ? rawWeight : 1
+  if (!activeQuiz.value || !isResults.value) return []
 
-    quizData.value.groups.forEach(g => {
-      const groupVote = q.votes[g]
+  const scores = {}
+  activeQuiz.value.groups.forEach((group) => {
+    scores[group] = 0
+  })
+
+  const totalWeight = activeQuiz.value.questions.reduce((acc, question) => {
+    return acc + getQuestionWeight(question)
+  }, 0)
+
+  activeQuiz.value.questions.forEach((question) => {
+    const userVote = answers.value[question.id]
+    const weight = getQuestionWeight(question)
+
+    activeQuiz.value.groups.forEach((group) => {
+      const groupVote = question.votes[group]
       if (groupVote === userVote) {
-        scores[g] += weight
+        scores[group] += weight
       } else if ((groupVote === 'abstencion' || userVote === 'abstencion') && groupVote !== userVote) {
-        scores[g] += weight * PARTIAL_MATCH_FACTOR
+        scores[group] += weight * PARTIAL_MATCH_FACTOR
       }
     })
   })
-  
+
   return Object.entries(scores)
     .map(([group, score]) => ({
       group,
@@ -93,20 +141,100 @@ const affinities = computed(() => {
     .sort((a, b) => b.pct - a.pct)
 })
 
+const compassData = computed(() => {
+  if (!isAdvancedMode.value || !activeQuiz.value || !isResults.value) return null
+
+  const groups = activeQuiz.value.groups
+  const partyScores = {}
+  groups.forEach((group) => {
+    partyScores[group] = { economic: 0, social: 0 }
+  })
+
+  let userEconomic = 0
+  let userSocial = 0
+  let maxEconomic = 0
+  let maxSocial = 0
+
+  activeQuiz.value.questions.forEach((question) => {
+    const axis = question.axis || {}
+    const weight = getQuestionWeight(question)
+    const economicDelta = Number(axis.economic) || 0
+    const socialDelta = Number(axis.social) || 0
+
+    maxEconomic += Math.abs(economicDelta * weight)
+    maxSocial += Math.abs(socialDelta * weight)
+
+    const userFactor = voteToFactor(answers.value[question.id])
+    userEconomic += userFactor * economicDelta * weight
+    userSocial += userFactor * socialDelta * weight
+
+    groups.forEach((group) => {
+      const groupFactor = voteToFactor(question.votes[group])
+      partyScores[group].economic += groupFactor * economicDelta * weight
+      partyScores[group].social += groupFactor * socialDelta * weight
+    })
+  })
+
+  const user = {
+    economic: normalizeAxisScore(userEconomic, maxEconomic),
+    social: normalizeAxisScore(userSocial, maxSocial)
+  }
+
+  const affinityOrder = affinities.value.map((result) => result.group)
+  const parties = groups
+    .map((group) => ({
+      group,
+      economic: normalizeAxisScore(partyScores[group].economic, maxEconomic),
+      social: normalizeAxisScore(partyScores[group].social, maxSocial)
+    }))
+    .sort((a, b) => affinityOrder.indexOf(a.group) - affinityOrder.indexOf(b.group))
+
+  return { user, parties }
+})
+
+const topCompassParties = computed(() => {
+  if (!compassData.value) return []
+  return compassData.value.parties.slice(0, 4)
+})
+
+const userCompassLabel = computed(() => {
+  if (!compassData.value) return ''
+
+  const { economic, social } = compassData.value.user
+  const economicLabel = economic < -15 ? 'izquierda económica' : economic > 15 ? 'derecha económica' : 'centro económico'
+  const socialLabel = social > 15 ? 'más autoritario' : social < -15 ? 'más libertario' : 'centro social'
+
+  return `Tu posición cae en ${economicLabel} y ${socialLabel}.`
+})
+
+function pointStyle(point) {
+  const x = clampCoordinate(Number(point?.economic) || 0)
+  const y = clampCoordinate(Number(point?.social) || 0)
+
+  return {
+    left: `${((x + 100) / 200) * 100}%`,
+    top: `${((100 - y) / 200) * 100}%`
+  }
+}
+
 function finishQuiz() {
-  // Try to push to dataLayer for Google Analytics if available
   try {
     const topMatch = affinities.value[0]
+    const compass = compassData.value
     const eventData = {
       event: 'quiz_completed',
       quiz_scope: currentScopeId.value,
+      quiz_mode: selectedMode.value,
       top_match_group: topMatch ? topMatch.group : 'none',
-      top_match_pct: topMatch ? topMatch.pct : 0
+      top_match_pct: topMatch ? topMatch.pct : 0,
+      compass_economic: compass ? compass.user.economic : null,
+      compass_social: compass ? compass.user.social : null
     }
+
     if (window.dataLayer) {
       window.dataLayer.push(eventData)
     } else {
-      console.log("[Analytics Dummy] Quiz completed:", eventData)
+      console.log('[Analytics Dummy] Quiz completed:', eventData)
     }
   } catch (e) {
     // ignore
@@ -115,9 +243,17 @@ function finishQuiz() {
 
 function shareResults() {
   const top = affinities.value[0]
-  const text = `He hecho el test ciego de votaciones de @LoQueVotan y mi mayor afinidad es con ${top.group} (${top.pct}%). ¡Descubre la tuya!`
+  if (!top) return
+
+  const modeLabel = selectedMode.value === 'advanced' ? 'avanzado' : 'basico'
+  const compass = compassData.value
+  const compassSnippet = compass
+    ? ` Mi posicion en el mapa: X ${compass.user.economic}, Y ${compass.user.social}.`
+    : ''
+
+  const text = `He hecho el test ${modeLabel} de @LoQueVotan y mi mayor afinidad es con ${top.group} (${top.pct}%).${compassSnippet} ¡Descubre la tuya!`
   const url = window.location.href
-  
+
   if (navigator.share) {
     navigator.share({ title: 'Lo Que Votan - Test de Afinidad', text, url }).catch(() => {})
   } else {
@@ -127,11 +263,10 @@ function shareResults() {
 
 async function downloadImage() {
   if (!captureArea.value) return
-  
-  // Temporarily show the logo watermark
+
   const watermark = captureArea.value.querySelector('.quiz-watermark')
   if (watermark) watermark.style.display = 'block'
-  
+
   try {
     const canvas = await html2canvas(captureArea.value, {
       scale: 2,
@@ -141,12 +276,11 @@ async function downloadImage() {
     const url = canvas.toDataURL('image/png')
     const a = document.createElement('a')
     a.href = url
-    a.download = `loquevotan-afinidad-${currentScopeId.value}.png`
+    a.download = `loquevotan-afinidad-${currentScopeId.value}-${selectedMode.value}.png`
     a.click()
   } catch (err) {
     console.error('Error generating image:', err)
   } finally {
-    // Hide watermark again
     if (watermark) watermark.style.display = 'none'
   }
 }
@@ -160,41 +294,59 @@ function resetQuiz() {
 <template>
   <div class="quiz-container">
     <div v-if="loading" class="loading-wrap"><div class="loading-spinner"></div></div>
-    
+
     <div v-else-if="error" class="error-state">
       <h2>Oops!</h2>
       <p>{{ error }}</p>
       <router-link to="/" class="btn btn--primary mt-2">Volver al inicio</router-link>
     </div>
 
-    <div v-else-if="quizData" class="quiz-content">
-      
-      <!-- INTRO -->
+    <div v-else-if="activeQuiz" class="quiz-content">
       <div v-if="currentStep === -1" class="quiz-intro">
-        <h1>{{ quizData.title }}</h1>
-        <p class="lead-text">{{ quizData.description }}</p>
-        
+        <h1>{{ activeQuiz.title }}</h1>
+
+        <div v-if="hasAdvanced" class="mode-switch">
+          <button
+            class="mode-pill"
+            :class="{ 'mode-pill--active': selectedMode === 'basic' }"
+            @click="selectMode('basic')"
+          >
+            <span>Básico</span>
+            <small>{{ quizSets.basic.questions.length }} preguntas</small>
+          </button>
+          <button
+            class="mode-pill"
+            :class="{ 'mode-pill--active': selectedMode === 'advanced' }"
+            @click="selectMode('advanced')"
+          >
+            <span>Avanzado</span>
+            <small>{{ quizSets.advanced.questions.length }} preguntas + mapa</small>
+          </button>
+        </div>
+
+        <p class="lead-text">{{ activeQuiz.description }}</p>
+
         <div class="methodology-box">
           <h3>¿Cómo funciona?</h3>
           <ul>
-            <li>Te mostraremos <strong>{{ quizData.questions.length }} votaciones reales</strong> que tuvieron lugar en el parlamento.</li>
+            <li>Te mostraremos <strong>{{ activeQuiz.questions.length }} votaciones reales</strong> que tuvieron lugar en el parlamento.</li>
             <li>No te diremos quién propuso la ley para evitar sesgos.</li>
-            <li>Al finalizar, calcularemos matemáticamente tu porcentaje de afinidad con los votos reales de cada partido.</li>
-            <li>Algunas preguntas tienen más peso porque ayudan a separar partidos con votos muy parecidos.</li>
+            <li>Al finalizar, calcularemos matemáticamente tu afinidad con los votos de cada partido.</li>
+            <li v-if="isAdvancedMode">Además, en el test avanzado te ubicamos en un mapa político de dos ejes (económico y social).</li>
+            <li v-else>Algunas preguntas tienen más peso porque ayudan a separar partidos con votos muy parecidos.</li>
           </ul>
         </div>
 
         <button class="btn btn--primary btn--lg quiz-start-btn" @click="startQuiz">
-          Empezar el Test &rarr;
+          Empezar {{ isAdvancedMode ? 'Test Avanzado' : 'Test Básico' }} &rarr;
         </button>
       </div>
 
-      <!-- QUESTIONS -->
       <div v-else-if="!isResults" class="quiz-question-view">
         <div class="quiz-progress">
-          <div class="quiz-progress-text">Pregunta {{ currentStep + 1 }} de {{ quizData.questions.length }}</div>
+          <div class="quiz-progress-text">Pregunta {{ currentStep + 1 }} de {{ activeQuiz.questions.length }}</div>
           <div class="quiz-progress-bar">
-            <div class="quiz-progress-fill" :style="{ width: `${(currentStep / quizData.questions.length) * 100}%` }"></div>
+            <div class="quiz-progress-fill" :style="{ width: `${(currentStep / activeQuiz.questions.length) * 100}%` }"></div>
           </div>
         </div>
 
@@ -217,16 +369,55 @@ function resetQuiz() {
         </div>
       </div>
 
-      <!-- RESULTS -->
       <div v-else class="quiz-results">
         <div ref="captureArea" class="quiz-capture-area">
-          <div class="quiz-watermark" style="display:none; text-align:center; margin-bottom:1rem; font-weight:800; font-size:1.5rem; color:var(--color-primary);">
+          <div
+            class="quiz-watermark"
+            style="display:none; text-align:center; margin-bottom:1rem; font-weight:800; font-size:1.5rem; color:var(--color-primary);"
+          >
             Lo Que Votan
           </div>
-          
+
           <div class="results-header">
             <h2>Tu Afinidad Política</h2>
-            <p>Basado en {{ quizData.questions.length }} votaciones reales de esta legislatura.</p>
+            <p>
+              Resultado del test {{ isAdvancedMode ? 'avanzado' : 'básico' }}
+              basado en {{ activeQuiz.questions.length }} votaciones.
+            </p>
+          </div>
+
+          <div v-if="isAdvancedMode && compassData" class="compass-card">
+            <h3>Mapa político (tipo compass)</h3>
+            <p class="compass-summary">{{ userCompassLabel }}</p>
+
+            <div class="compass-board">
+              <div class="compass-axis compass-axis--horizontal"></div>
+              <div class="compass-axis compass-axis--vertical"></div>
+
+              <div class="compass-corner compass-corner--tl">Izq. / Autoritario</div>
+              <div class="compass-corner compass-corner--tr">Der. / Autoritario</div>
+              <div class="compass-corner compass-corner--bl">Izq. / Libertario</div>
+              <div class="compass-corner compass-corner--br">Der. / Libertario</div>
+
+              <div
+                v-for="party in topCompassParties"
+                :key="`party-${party.group}`"
+                class="compass-point compass-point--party"
+                :style="pointStyle(party)"
+                :title="`${party.group}: X ${party.economic}, Y ${party.social}`"
+              >
+                <span class="compass-point-label">{{ party.group }}</span>
+              </div>
+
+              <div class="compass-point compass-point--user" :style="pointStyle(compassData.user)">
+                <span class="compass-point-label">Tú</span>
+              </div>
+            </div>
+
+            <p class="compass-values">
+              Eje X (económico): <strong>{{ compassData.user.economic }}</strong> |
+              Eje Y (social): <strong>{{ compassData.user.social }}</strong>
+            </p>
           </div>
 
           <div class="results-list">
@@ -244,29 +435,26 @@ function resetQuiz() {
         </div>
 
         <div class="results-actions">
-          <button class="btn btn--primary btn--lg" @click="shareResults">
-            Compartir Link
-          </button>
-          <button class="btn btn--outline btn--lg" @click="downloadImage">
-            📸 Bajar Imagen
-          </button>
-          <button class="btn" style="background:transparent;border:none;text-decoration:underline" @click="resetQuiz">
-            Repetir Test
-          </button>
+          <button class="btn btn--primary btn--lg" @click="shareResults">Compartir Link</button>
+          <button class="btn btn--outline btn--lg" @click="downloadImage">📸 Bajar Imagen</button>
+          <button class="btn" style="background:transparent;border:none;text-decoration:underline" @click="resetQuiz">Repetir Test</button>
         </div>
 
         <div class="results-disclaimer">
-          <strong>Metodología:</strong> Estos resultados son puramente matemáticos basados en el sentido de voto (A favor, En contra, Abstención). Una coincidencia exacta suma el peso completo de la pregunta; una coincidencia parcial (uno se abstiene y el otro no) suma el 35% de ese peso.
+          <strong>Metodología de afinidad:</strong> Coincidencia exacta suma el peso completo de la pregunta; coincidencia parcial (uno se abstiene y el otro no) suma el 35% de ese peso.
+          <template v-if="isAdvancedMode">
+            <br />
+            <strong>Metodología del mapa:</strong> Cada respuesta desplaza tu posición en dos ejes (económico y social), normalizados entre -100 y +100.
+          </template>
         </div>
       </div>
-
     </div>
   </div>
 </template>
 
 <style scoped>
 .quiz-container {
-  max-width: 700px;
+  max-width: 860px;
   margin: 0 auto;
   padding: 2rem 1.25rem;
   min-height: calc(100vh - var(--nav-height));
@@ -281,7 +469,6 @@ function resetQuiz() {
   justify-content: center;
 }
 
-/* Intro */
 .quiz-intro {
   text-align: center;
   animation: fadeIn 0.4s ease;
@@ -290,6 +477,49 @@ function resetQuiz() {
 .quiz-intro h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
+  color: var(--color-primary);
+}
+
+.mode-switch {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 0.75rem auto 1.5rem;
+  flex-wrap: wrap;
+}
+
+.mode-pill {
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  border-radius: 999px;
+  padding: 0.65rem 1rem;
+  min-width: 210px;
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--color-text-secondary);
+  transition: border-color 0.15s, color 0.15s, box-shadow 0.15s;
+}
+
+.mode-pill span {
+  font-weight: 700;
+  color: inherit;
+}
+
+.mode-pill small {
+  font-size: 0.78rem;
+  opacity: 0.9;
+}
+
+.mode-pill:hover {
+  border-color: var(--color-primary);
+  color: var(--color-text);
+}
+
+.mode-pill--active {
+  border-color: var(--color-primary);
+  box-shadow: 0 3px 10px rgba(37, 99, 235, 0.18);
   color: var(--color-primary);
 }
 
@@ -339,7 +569,6 @@ function resetQuiz() {
   box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
 }
 
-/* Question View */
 .quiz-question-view {
   animation: slideIn 0.3s ease;
   width: 100%;
@@ -412,7 +641,7 @@ function resetQuiz() {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  max-width: 400px;
+  max-width: 420px;
   margin: 0 auto;
 }
 
@@ -445,7 +674,6 @@ function resetQuiz() {
   font-size: 1.4rem;
 }
 
-/* Results */
 .quiz-results {
   animation: fadeIn 0.6s ease;
 }
@@ -459,7 +687,7 @@ function resetQuiz() {
 
 .results-header {
   text-align: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.75rem;
 }
 
 .results-header h2 {
@@ -473,12 +701,114 @@ function resetQuiz() {
   font-size: 1.1rem;
 }
 
+.compass-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.compass-card h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.15rem;
+}
+
+.compass-summary {
+  margin: 0 0 1rem;
+  color: var(--color-text-secondary);
+}
+
+.compass-board {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background:
+    linear-gradient(to right, rgba(37, 99, 235, 0.07), rgba(37, 99, 235, 0.02) 50%, rgba(239, 68, 68, 0.07));
+  overflow: hidden;
+}
+
+.compass-axis {
+  position: absolute;
+  background: rgba(15, 23, 42, 0.22);
+}
+
+.compass-axis--horizontal {
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+}
+
+.compass-axis--vertical {
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+}
+
+.compass-corner {
+  position: absolute;
+  font-size: 0.64rem;
+  color: var(--color-text-secondary);
+  background: rgba(255, 255, 255, 0.75);
+  padding: 0.2rem 0.35rem;
+  border-radius: 6px;
+}
+
+.compass-corner--tl { left: 0.4rem; top: 0.4rem; }
+.compass-corner--tr { right: 0.4rem; top: 0.4rem; }
+.compass-corner--bl { left: 0.4rem; bottom: 0.4rem; }
+.compass-corner--br { right: 0.4rem; bottom: 0.4rem; }
+
+.compass-point {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.compass-point--party {
+  background: #64748b;
+}
+
+.compass-point--user {
+  background: var(--color-primary);
+  width: 13px;
+  height: 13px;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.22);
+  z-index: 3;
+}
+
+.compass-point-label {
+  position: absolute;
+  top: -1.1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.68rem;
+  font-weight: 700;
+  white-space: nowrap;
+  color: var(--color-text);
+}
+
+.compass-values {
+  margin: 0.9rem 0 0;
+  text-align: center;
+  color: var(--color-text-secondary);
+}
+
 .results-list {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: 1.5rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2.2rem;
   box-shadow: var(--shadow-sm);
 }
 
@@ -507,7 +837,7 @@ function resetQuiz() {
 }
 
 .result-group {
-  width: 120px;
+  width: 150px;
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -576,8 +906,11 @@ function resetQuiz() {
   .quiz-intro h1 { font-size: 2rem; }
   .question-card { padding: 1.5rem 1rem; }
   .question-text { font-size: 1.3rem; }
-  .result-group { width: 90px; }
+  .result-group { width: 100px; }
   .result-name { font-size: 0.85rem; }
   .results-actions { flex-direction: column; }
+  .mode-pill { min-width: 170px; }
+  .compass-point-label { font-size: 0.62rem; }
+  .compass-corner { font-size: 0.58rem; }
 }
 </style>
