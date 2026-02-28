@@ -9,6 +9,12 @@
         "diputadoId": "CYL-UNK-tudanca fe",
         "grupo": "Unknown",
         "voto": "sí"
+      },
+      {
+        "diputado": "TUDANCA FERNÁNDEZ",
+        "diputadoId": "CYL-UNK-tudanca fe",
+        "grupo": "Unknown",
+        "voto": "sí"
       }
     ],
     "tipo": "nominal"
@@ -37,6 +43,12 @@
         "diputadoId": "CYL-UNK-tudanca fe",
         "grupo": "Unknown",
         "voto": "sí"
+      },
+      {
+        "diputado": "TUDANCA FERNÁNDEZ",
+        "diputadoId": "CYL-UNK-tudanca fe",
+        "grupo": "Unknown",
+        "voto": "sí"
       }
     ],
     "tipo": "nominal"
@@ -46,6 +58,12 @@
     "fecha": "10/03/2022",
     "titulo": "Sesión de Constitución de las Cortes de Castilla y León en la XI Legislatura",
     "votos": [
+      {
+        "diputado": "TUDANCA FERNÁNDEZ",
+        "diputadoId": "CYL-UNK-tudanca fe",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
       {
         "diputado": "TUDANCA FERNÁNDEZ",
         "diputadoId": "CYL-UNK-tudanca fe",
@@ -63,6 +81,70 @@
       {
         "diputado": "TUDANCA FERNÁNDEZ",
         "diputadoId": "CYL-UNK-tudanca fe",
+        "grupo": "Unknown",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-11-10-1",
+    "fecha": "22/06/2022",
+    "titulo": "Votación nominal",
+    "votos": [
+      {
+        "diputado": "SANTOS REYERO",
+        "diputadoId": "CYL-UNK-santos rey",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "FERNÁNDEZ SANTOS",
+        "diputadoId": "CYL-UNK-fernandez ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "FERNÁNDEZ SANTOS",
+        "diputadoId": "CYL-UNK-fernandez ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "FERNÁNDEZ MENÉNDEZ",
+        "diputadoId": "CYL-UNK-fernandez ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-11-10-2",
+    "fecha": "22/06/2022",
+    "titulo": "Votación nominal",
+    "votos": [
+      {
+        "diputado": "SANTOS REYERO",
+        "diputadoId": "CYL-UNK-santos rey",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "FERNÁNDEZ SANTOS",
+        "diputadoId": "CYL-UNK-fernandez ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "FERNÁNDEZ SANTOS",
+        "diputadoId": "CYL-UNK-fernandez ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "FERNÁNDEZ MENÉNDEZ",
+        "diputadoId": "CYL-UNK-fernandez ",
         "grupo": "Unknown",
         "voto": "sí"
       }
@@ -89,7 +171,7 @@
       {
         "diputado": "Juan Antonio Palomar Sicilia",
         "diputadoId": "CYL-11-P11020",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "sí"
       },
       {
@@ -121,7 +203,7 @@
       {
         "diputado": "Juan Antonio Palomar Sicilia",
         "diputadoId": "CYL-11-P11020",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "sí"
       },
       {
@@ -136,7 +218,7 @@
   {
     "id": "CYL-11-110-1",
     "fecha": "27/05/2025",
-    "titulo": "",
+    "titulo": "Votación nominal",
     "votos": [
       {
         "diputado": "FERNÁNDEZ SANTOS",
@@ -159,7 +241,7 @@
       {
         "diputado": "Juan Antonio Palomar Sicilia",
         "diputadoId": "CYL-11-P11020",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "sí"
       },
       {
@@ -174,7 +256,7 @@
   {
     "id": "CYL-11-12-1",
     "fecha": "06/09/2022",
-    "titulo": "",
+    "titulo": "Votación nominal",
     "votos": [
       {
         "diputado": "FERNÁNDEZ SANTOS",
@@ -200,7 +282,21 @@
   {
     "id": "CYL-11-121-1",
     "fecha": "07/10/2025",
-    "titulo": "",
+    "titulo": "Votación nominal",
+    "votos": [
+      {
+        "diputado": "FERNÁNDEZ SANTOS",
+        "diputadoId": "CYL-UNK-fernandez ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-11-121-2",
+    "fecha": "07/10/2025",
+    "titulo": "Votación nominal",
     "votos": [
       {
         "diputado": "PABLOS ROMO",
@@ -226,7 +322,7 @@
   {
     "id": "CYL-11-127-1",
     "fecha": "26/11/2025",
-    "titulo": "Toma en consideración PPL agentes Medioambientales de Cyl --Aprobación Ley Bonificaciones Fiscales de tasas veterinarias, caza y pesca y por expedición de certificados de profesionalidad, acreditaciones parciales acumulables y expedición-- Derogación Decreto-ley 1/2025 Medidas Urgentes Incendios Forestales relativas a personal al servicio de la Administración de C y L --Derogación Decreto -ley 2/2025, medidas urgentes riesgo incendios forestales",
+    "titulo": "Toma en consideración PPL agentes Medioambientales de Cyl",
     "votos": [
       {
         "diputado": "FERNÁNDEZ SANTOS",
@@ -237,7 +333,7 @@
       {
         "diputado": "Miguel Suárez Arca",
         "diputadoId": "CYL-11-P11025",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "sí"
       },
       {
@@ -300,7 +396,7 @@
   {
     "id": "CYL-11-127-2",
     "fecha": "26/11/2025",
-    "titulo": "Toma en consideración PPL agentes Medioambientales de Cyl --Aprobación Ley Bonificaciones Fiscales de tasas veterinarias, caza y pesca y por expedición de certificados de profesionalidad, acreditaciones parciales acumulables y expedición-- Derogación Decreto-ley 1/2025 Medidas Urgentes Incendios Forestales relativas a personal al servicio de la Administración de C y L --Derogación Decreto -ley 2/2025, medidas urgentes riesgo incendios forestales",
+    "titulo": "Toma en consideración PPL agentes Medioambientales de Cyl",
     "votos": [
       {
         "diputado": "GONZÁLEZ REGLERO",
@@ -317,7 +413,7 @@
       {
         "diputado": "Miguel Suárez Arca",
         "diputadoId": "CYL-11-P11025",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "sí"
       },
       {
@@ -386,7 +482,7 @@
   {
     "id": "CYL-11-129-1",
     "fecha": "10/12/2025",
-    "titulo": "",
+    "titulo": "Votación nominal",
     "votos": [
       {
         "diputado": "FERNÁNDEZ SANTOS",
@@ -397,13 +493,13 @@
       {
         "diputado": "Juan Antonio Palomar Sicilia",
         "diputadoId": "CYL-11-P11020",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "sí"
       },
       {
         "diputado": "Juan Antonio Palomar Sicilia",
         "diputadoId": "CYL-11-P11020",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "sí"
       },
       {
@@ -424,7 +520,7 @@
   {
     "id": "CYL-11-129-2",
     "fecha": "10/12/2025",
-    "titulo": "",
+    "titulo": "Votación nominal",
     "votos": [
       {
         "diputado": "FERNÁNDEZ SANTOS",
@@ -447,13 +543,13 @@
       {
         "diputado": "Juan Antonio Palomar Sicilia",
         "diputadoId": "CYL-11-P11020",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "sí"
       },
       {
         "diputado": "Juan Antonio Palomar Sicilia",
         "diputadoId": "CYL-11-P11020",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "sí"
       },
       {
@@ -486,7 +582,7 @@
   {
     "id": "CYL-11-13-1",
     "fecha": "07/09/2022",
-    "titulo": "Toma en consideración PPL Derechos y garantías de las personas al final de su vida -- Rechazo  Comisión Investigación gestión actuaciones centros servicios sociales residencial Comunidad Autónoma ante pandemia COVID-19 -- Rechazo  Comisión Investigación incendio forestal Sierra Paramera Ávila -- Rechazo Comisión Investigación incendio Sierra Culebra Zamora, y su integración en comisión investigación incendio forestal Sierra Paramera Ávila",
+    "titulo": "Toma en consideración PPL Derechos y garantías de las personas al final de su vida",
     "votos": [
       {
         "diputado": "FERNÁNDEZ SANTOS",
@@ -548,7 +644,7 @@
   {
     "id": "CYL-11-13-2",
     "fecha": "07/09/2022",
-    "titulo": "Toma en consideración PPL Derechos y garantías de las personas al final de su vida -- Rechazo  Comisión Investigación gestión actuaciones centros servicios sociales residencial Comunidad Autónoma ante pandemia COVID-19 -- Rechazo  Comisión Investigación incendio forestal Sierra Paramera Ávila -- Rechazo Comisión Investigación incendio Sierra Culebra Zamora, y su integración en comisión investigación incendio forestal Sierra Paramera Ávila",
+    "titulo": "Toma en consideración PPL Derechos y garantías de las personas al final de su vida",
     "votos": [
       {
         "diputado": "FERNÁNDEZ SANTOS",
@@ -639,7 +735,7 @@
       {
         "diputado": "Juan Antonio Palomar Sicilia",
         "diputadoId": "CYL-11-P11020",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "sí"
       },
       {
@@ -701,7 +797,7 @@
       {
         "diputado": "Juan Antonio Palomar Sicilia",
         "diputadoId": "CYL-11-P11020",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "sí"
       },
       {
@@ -734,7 +830,21 @@
   {
     "id": "CYL-11-17-1",
     "fecha": "05/10/2022",
-    "titulo": "",
+    "titulo": "Votación nominal",
+    "votos": [
+      {
+        "diputado": "FERNÁNDEZ SANTOS",
+        "diputadoId": "CYL-UNK-fernandez ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-11-17-2",
+    "fecha": "05/10/2022",
+    "titulo": "Votación nominal",
     "votos": [
       {
         "diputado": "FERNÁNDEZ SANTOS",
@@ -789,7 +899,7 @@
       {
         "diputado": "Beatriz Coelho Luna",
         "diputadoId": "CYL-11-P11009",
-        "grupo": "Popular",
+        "grupo": "PP",
         "voto": "sí"
       },
       {
@@ -819,13 +929,13 @@
       {
         "diputado": "Alicia Gallego González",
         "diputadoId": "CYL-11-P11001",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "no"
       },
       {
         "diputado": "José Ramón García Fernández",
         "diputadoId": "CYL-11-P11007",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "no"
       },
       {
@@ -837,7 +947,7 @@
       {
         "diputado": "Leila Vanessa García Macarrón",
         "diputadoId": "CYL-11-P11015",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "no"
       },
       {
@@ -921,7 +1031,7 @@
       {
         "diputado": "David Hierro Santos",
         "diputadoId": "CYL-11-P11018",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "sí"
       },
       {
@@ -963,7 +1073,7 @@
       {
         "diputado": "Carlos Menéndez Blanco",
         "diputadoId": "CYL-11-P11019",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "sí"
       },
       {
@@ -987,13 +1097,13 @@
       {
         "diputado": "Juan Antonio Palomar Sicilia",
         "diputadoId": "CYL-11-P11020",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "no"
       },
       {
         "diputado": "José Antonio Palomo Martín",
         "diputadoId": "CYL-11-P11021",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "sí"
       },
       {
@@ -1017,7 +1127,7 @@
       {
         "diputado": "María de los Ángeles Prieto Sánchez",
         "diputadoId": "CYL-11-P11003",
-        "grupo": "Popular",
+        "grupo": "PP",
         "voto": "sí"
       },
       {
@@ -1083,7 +1193,7 @@
       {
         "diputado": "José María Sánchez Martín",
         "diputadoId": "CYL-11-P11008",
-        "grupo": "Popular",
+        "grupo": "PP",
         "voto": "sí"
       },
       {
@@ -1101,19 +1211,19 @@
       {
         "diputado": "Ignacio Sicilia Doménech",
         "diputadoId": "CYL-11-P11024",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "sí"
       },
       {
         "diputado": "Miguel Suárez Arca",
         "diputadoId": "CYL-11-P11025",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "sí"
       },
       {
         "diputado": "Susana Suárez Villagrá",
         "diputadoId": "CYL-11-P11026",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "sí"
       },
       {
@@ -1137,7 +1247,7 @@
       {
         "diputado": "Emilio José Berzosa Peña",
         "diputadoId": "CYL-11-P11006",
-        "grupo": "Popular",
+        "grupo": "PP",
         "voto": "sí"
       },
       {
@@ -1155,7 +1265,7 @@
       {
         "diputado": "María Luisa Calvo Enríquez",
         "diputadoId": "CYL-11-P11012",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "sí"
       },
       {
@@ -1173,7 +1283,7 @@
       {
         "diputado": "José Ángel Ceña Tutor",
         "diputadoId": "CYL-11-P11014",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "no"
       },
       {
@@ -1185,7 +1295,7 @@
       {
         "diputado": "María Isabel Blanco Llamas",
         "diputadoId": "CYL-11-P8022",
-        "grupo": "Popular",
+        "grupo": "PP",
         "voto": "sí"
       },
       {
@@ -1263,7 +1373,7 @@
       {
         "diputado": "Carlos Pollán Fernández",
         "diputadoId": "CYL-11-P11022",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "sí"
       }
     ],
@@ -1277,7 +1387,7 @@
       {
         "diputado": "Beatriz Coelho Luna",
         "diputadoId": "CYL-11-P11009",
-        "grupo": "Popular",
+        "grupo": "PP",
         "voto": "sí"
       },
       {
@@ -1307,13 +1417,13 @@
       {
         "diputado": "Alicia Gallego González",
         "diputadoId": "CYL-11-P11001",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "no"
       },
       {
         "diputado": "José Ramón García Fernández",
         "diputadoId": "CYL-11-P11007",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "no"
       },
       {
@@ -1325,7 +1435,7 @@
       {
         "diputado": "Leila Vanessa García Macarrón",
         "diputadoId": "CYL-11-P11015",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "no"
       },
       {
@@ -1409,7 +1519,7 @@
       {
         "diputado": "David Hierro Santos",
         "diputadoId": "CYL-11-P11018",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "sí"
       },
       {
@@ -1451,7 +1561,7 @@
       {
         "diputado": "Carlos Menéndez Blanco",
         "diputadoId": "CYL-11-P11019",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "sí"
       },
       {
@@ -1475,13 +1585,13 @@
       {
         "diputado": "Juan Antonio Palomar Sicilia",
         "diputadoId": "CYL-11-P11020",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "no"
       },
       {
         "diputado": "José Antonio Palomo Martín",
         "diputadoId": "CYL-11-P11021",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "sí"
       },
       {
@@ -1505,7 +1615,7 @@
       {
         "diputado": "María de los Ángeles Prieto Sánchez",
         "diputadoId": "CYL-11-P11003",
-        "grupo": "Popular",
+        "grupo": "PP",
         "voto": "sí"
       },
       {
@@ -1571,7 +1681,7 @@
       {
         "diputado": "José María Sánchez Martín",
         "diputadoId": "CYL-11-P11008",
-        "grupo": "Popular",
+        "grupo": "PP",
         "voto": "sí"
       },
       {
@@ -1589,19 +1699,19 @@
       {
         "diputado": "Ignacio Sicilia Doménech",
         "diputadoId": "CYL-11-P11024",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "sí"
       },
       {
         "diputado": "Miguel Suárez Arca",
         "diputadoId": "CYL-11-P11025",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "sí"
       },
       {
         "diputado": "Susana Suárez Villagrá",
         "diputadoId": "CYL-11-P11026",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "sí"
       },
       {
@@ -1625,7 +1735,7 @@
       {
         "diputado": "Emilio José Berzosa Peña",
         "diputadoId": "CYL-11-P11006",
-        "grupo": "Popular",
+        "grupo": "PP",
         "voto": "sí"
       },
       {
@@ -1643,7 +1753,7 @@
       {
         "diputado": "María Luisa Calvo Enríquez",
         "diputadoId": "CYL-11-P11012",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "sí"
       },
       {
@@ -1661,7 +1771,7 @@
       {
         "diputado": "José Ángel Ceña Tutor",
         "diputadoId": "CYL-11-P11014",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "no"
       },
       {
@@ -1673,7 +1783,7 @@
       {
         "diputado": "María Isabel Blanco Llamas",
         "diputadoId": "CYL-11-P8022",
-        "grupo": "Popular",
+        "grupo": "PP",
         "voto": "sí"
       },
       {
@@ -1751,7 +1861,7 @@
       {
         "diputado": "Carlos Pollán Fernández",
         "diputadoId": "CYL-11-P11022",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "sí"
       }
     ],
@@ -1777,7 +1887,7 @@
       {
         "diputado": "Beatriz Coelho Luna",
         "diputadoId": "CYL-11-P11009",
-        "grupo": "Popular",
+        "grupo": "PP",
         "voto": "sí"
       },
       {
@@ -1807,13 +1917,13 @@
       {
         "diputado": "Alicia Gallego González",
         "diputadoId": "CYL-11-P11001",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "no"
       },
       {
         "diputado": "José Ramón García Fernández",
         "diputadoId": "CYL-11-P11007",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "no"
       },
       {
@@ -1825,7 +1935,7 @@
       {
         "diputado": "Leila Vanessa García Macarrón",
         "diputadoId": "CYL-11-P11015",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "no"
       },
       {
@@ -1909,7 +2019,7 @@
       {
         "diputado": "David Hierro Santos",
         "diputadoId": "CYL-11-P11018",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "sí"
       },
       {
@@ -1951,7 +2061,7 @@
       {
         "diputado": "Carlos Menéndez Blanco",
         "diputadoId": "CYL-11-P11019",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "sí"
       },
       {
@@ -1975,13 +2085,13 @@
       {
         "diputado": "Juan Antonio Palomar Sicilia",
         "diputadoId": "CYL-11-P11020",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "no"
       },
       {
         "diputado": "José Antonio Palomo Martín",
         "diputadoId": "CYL-11-P11021",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "sí"
       },
       {
@@ -2005,7 +2115,7 @@
       {
         "diputado": "María de los Ángeles Prieto Sánchez",
         "diputadoId": "CYL-11-P11003",
-        "grupo": "Popular",
+        "grupo": "PP",
         "voto": "sí"
       },
       {
@@ -2071,7 +2181,7 @@
       {
         "diputado": "José María Sánchez Martín",
         "diputadoId": "CYL-11-P11008",
-        "grupo": "Popular",
+        "grupo": "PP",
         "voto": "sí"
       },
       {
@@ -2089,19 +2199,19 @@
       {
         "diputado": "Ignacio Sicilia Doménech",
         "diputadoId": "CYL-11-P11024",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "sí"
       },
       {
         "diputado": "Miguel Suárez Arca",
         "diputadoId": "CYL-11-P11025",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "sí"
       },
       {
         "diputado": "Susana Suárez Villagrá",
         "diputadoId": "CYL-11-P11026",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "sí"
       },
       {
@@ -2125,7 +2235,7 @@
       {
         "diputado": "Emilio José Berzosa Peña",
         "diputadoId": "CYL-11-P11006",
-        "grupo": "Popular",
+        "grupo": "PP",
         "voto": "sí"
       },
       {
@@ -2143,7 +2253,7 @@
       {
         "diputado": "María Luisa Calvo Enríquez",
         "diputadoId": "CYL-11-P11012",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "sí"
       },
       {
@@ -2161,7 +2271,7 @@
       {
         "diputado": "José Ángel Ceña Tutor",
         "diputadoId": "CYL-11-P11014",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "no"
       },
       {
@@ -2173,7 +2283,7 @@
       {
         "diputado": "María Isabel Blanco Llamas",
         "diputadoId": "CYL-11-P8022",
-        "grupo": "Popular",
+        "grupo": "PP",
         "voto": "sí"
       },
       {
@@ -2251,7 +2361,7 @@
       {
         "diputado": "Carlos Pollán Fernández",
         "diputadoId": "CYL-11-P11022",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "sí"
       }
     ],
@@ -2265,7 +2375,7 @@
       {
         "diputado": "Beatriz Coelho Luna",
         "diputadoId": "CYL-11-P11009",
-        "grupo": "Popular",
+        "grupo": "PP",
         "voto": "sí"
       },
       {
@@ -2295,13 +2405,13 @@
       {
         "diputado": "Alicia Gallego González",
         "diputadoId": "CYL-11-P11001",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "no"
       },
       {
         "diputado": "José Ramón García Fernández",
         "diputadoId": "CYL-11-P11007",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "no"
       },
       {
@@ -2313,7 +2423,7 @@
       {
         "diputado": "Leila Vanessa García Macarrón",
         "diputadoId": "CYL-11-P11015",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "no"
       },
       {
@@ -2397,7 +2507,7 @@
       {
         "diputado": "David Hierro Santos",
         "diputadoId": "CYL-11-P11018",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "sí"
       },
       {
@@ -2439,7 +2549,7 @@
       {
         "diputado": "Carlos Menéndez Blanco",
         "diputadoId": "CYL-11-P11019",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "sí"
       },
       {
@@ -2463,13 +2573,13 @@
       {
         "diputado": "Juan Antonio Palomar Sicilia",
         "diputadoId": "CYL-11-P11020",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "no"
       },
       {
         "diputado": "José Antonio Palomo Martín",
         "diputadoId": "CYL-11-P11021",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "sí"
       },
       {
@@ -2493,7 +2603,7 @@
       {
         "diputado": "María de los Ángeles Prieto Sánchez",
         "diputadoId": "CYL-11-P11003",
-        "grupo": "Popular",
+        "grupo": "PP",
         "voto": "sí"
       },
       {
@@ -2559,7 +2669,7 @@
       {
         "diputado": "José María Sánchez Martín",
         "diputadoId": "CYL-11-P11008",
-        "grupo": "Popular",
+        "grupo": "PP",
         "voto": "sí"
       },
       {
@@ -2577,19 +2687,19 @@
       {
         "diputado": "Ignacio Sicilia Doménech",
         "diputadoId": "CYL-11-P11024",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "sí"
       },
       {
         "diputado": "Miguel Suárez Arca",
         "diputadoId": "CYL-11-P11025",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "sí"
       },
       {
         "diputado": "Susana Suárez Villagrá",
         "diputadoId": "CYL-11-P11026",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "sí"
       },
       {
@@ -2613,7 +2723,7 @@
       {
         "diputado": "Emilio José Berzosa Peña",
         "diputadoId": "CYL-11-P11006",
-        "grupo": "Popular",
+        "grupo": "PP",
         "voto": "sí"
       },
       {
@@ -2631,7 +2741,7 @@
       {
         "diputado": "María Luisa Calvo Enríquez",
         "diputadoId": "CYL-11-P11012",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "sí"
       },
       {
@@ -2649,7 +2759,7 @@
       {
         "diputado": "José Ángel Ceña Tutor",
         "diputadoId": "CYL-11-P11014",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "no"
       },
       {
@@ -2661,7 +2771,7 @@
       {
         "diputado": "María Isabel Blanco Llamas",
         "diputadoId": "CYL-11-P8022",
-        "grupo": "Popular",
+        "grupo": "PP",
         "voto": "sí"
       },
       {
@@ -2739,7 +2849,7 @@
       {
         "diputado": "Carlos Pollán Fernández",
         "diputadoId": "CYL-11-P11022",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "sí"
       }
     ],
@@ -2748,7 +2858,7 @@
   {
     "id": "CYL-11-24-1",
     "fecha": "15/12/2022",
-    "titulo": "Rechazo PPL Transparencia, acceso a la información pública y su reutilización -- Ratificación de la Adenda Convenio de colaboración/cooperación entre Comunidades Autónomas Madrid y de Castilla y León para ejecución política conjunta materia transporte colectivo viajeros, determinados municipios provincias Ávila y Segovia",
+    "titulo": "Rechazo PPL Transparencia, acceso a la información pública y su reutilización",
     "votos": [
       {
         "diputado": "SANTOS REYERO",
@@ -2762,7 +2872,7 @@
   {
     "id": "CYL-11-24-2",
     "fecha": "15/12/2022",
-    "titulo": "Rechazo PPL Transparencia, acceso a la información pública y su reutilización -- Ratificación de la Adenda Convenio de colaboración/cooperación entre Comunidades Autónomas Madrid y de Castilla y León para ejecución política conjunta materia transporte colectivo viajeros, determinados municipios provincias Ávila y Segovia",
+    "titulo": "Rechazo PPL Transparencia, acceso a la información pública y su reutilización",
     "votos": [
       {
         "diputado": "SANTOS REYERO",
@@ -2798,9 +2908,253 @@
     "tipo": "nominal"
   },
   {
+    "id": "CYL-11-25-1",
+    "fecha": "22/12/2022",
+    "titulo": "Aprobación Ley de Presupuestos de la Comunidad para el 2023  y Rechazo PL de Medidas",
+    "votos": [
+      {
+        "diputado": "FERNÁNDEZ SANTOS",
+        "diputadoId": "CYL-UNK-fernandez ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "FERNÁNDEZ SANTOS",
+        "diputadoId": "CYL-UNK-fernandez ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "SANZ MERINO",
+        "diputadoId": "CYL-UNK-sanz merin",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "SANTOS REYERO",
+        "diputadoId": "CYL-UNK-santos rey",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Antonio Palomar Sicilia",
+        "diputadoId": "CYL-11-P11020",
+        "grupo": "UPL-SY",
+        "voto": "sí"
+      },
+      {
+        "diputado": "SANTOS REYERO",
+        "diputadoId": "CYL-UNK-santos rey",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "FERNÁNDEZ SANTOS",
+        "diputadoId": "CYL-UNK-fernandez ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-11-25-2",
+    "fecha": "22/12/2022",
+    "titulo": "Aprobación Ley de Presupuestos de la Comunidad para el 2023  y Rechazo PL de Medidas",
+    "votos": [
+      {
+        "diputado": "FERNÁNDEZ SANTOS",
+        "diputadoId": "CYL-UNK-fernandez ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Javier Bernardo Teira Lafuente",
+        "diputadoId": "CYL-11-P11027",
+        "grupo": "No Adscrito",
+        "voto": "no"
+      },
+      {
+        "diputado": "Juan Antonio Palomar Sicilia",
+        "diputadoId": "CYL-11-P11020",
+        "grupo": "UPL-SY",
+        "voto": "sí"
+      },
+      {
+        "diputado": "FERNÁNDEZ SANTOS",
+        "diputadoId": "CYL-UNK-fernandez ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "SANTOS REYERO",
+        "diputadoId": "CYL-UNK-santos rey",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "FERNÁNDEZ SANTOS",
+        "diputadoId": "CYL-UNK-fernandez ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "SANTOS REYERO",
+        "diputadoId": "CYL-UNK-santos rey",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "SANTOS REYERO",
+        "diputadoId": "CYL-UNK-santos rey",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "FERNÁNDEZ SANTOS",
+        "diputadoId": "CYL-UNK-fernandez ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "FERNÁNDEZ SANTOS",
+        "diputadoId": "CYL-UNK-fernandez ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "GAVILANES FERNÁNDEZ-LLAMAZARES",
+        "diputadoId": "CYL-UNK-gavilanes ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "SANTOS REYERO",
+        "diputadoId": "CYL-UNK-santos rey",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "FERNÁNDEZ SANTOS",
+        "diputadoId": "CYL-UNK-fernandez ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "FERNÁNDEZ SANTOS",
+        "diputadoId": "CYL-UNK-fernandez ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "SANZ MERINO",
+        "diputadoId": "CYL-UNK-sanz merin",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "SANTOS REYERO",
+        "diputadoId": "CYL-UNK-santos rey",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Antonio Palomar Sicilia",
+        "diputadoId": "CYL-11-P11020",
+        "grupo": "UPL-SY",
+        "voto": "sí"
+      },
+      {
+        "diputado": "SANTOS REYERO",
+        "diputadoId": "CYL-UNK-santos rey",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "FERNÁNDEZ SANTOS",
+        "diputadoId": "CYL-UNK-fernandez ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "FERNÁNDEZ SANTOS",
+        "diputadoId": "CYL-UNK-fernandez ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Javier Bernardo Teira Lafuente",
+        "diputadoId": "CYL-11-P11027",
+        "grupo": "No Adscrito",
+        "voto": "no"
+      },
+      {
+        "diputado": "Juan Antonio Palomar Sicilia",
+        "diputadoId": "CYL-11-P11020",
+        "grupo": "UPL-SY",
+        "voto": "sí"
+      },
+      {
+        "diputado": "FERNÁNDEZ SANTOS",
+        "diputadoId": "CYL-UNK-fernandez ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "SANTOS REYERO",
+        "diputadoId": "CYL-UNK-santos rey",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "FERNÁNDEZ SANTOS",
+        "diputadoId": "CYL-UNK-fernandez ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "SANTOS REYERO",
+        "diputadoId": "CYL-UNK-santos rey",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "SANTOS REYERO",
+        "diputadoId": "CYL-UNK-santos rey",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "FERNÁNDEZ SANTOS",
+        "diputadoId": "CYL-UNK-fernandez ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "FERNÁNDEZ SANTOS",
+        "diputadoId": "CYL-UNK-fernandez ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "GAVILANES FERNÁNDEZ-LLAMAZARES",
+        "diputadoId": "CYL-UNK-gavilanes ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "SANTOS REYERO",
+        "diputadoId": "CYL-UNK-santos rey",
+        "grupo": "Unknown",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
     "id": "CYL-11-26-2",
     "fecha": "23/12/2022",
-    "titulo": "Aprobación Ley de Presupuestos de la Comunidad para el 2023 y Rechazo PL de Medidas (Cont.)",
+    "titulo": "Enmiendas debatidas y la Sección 08",
     "votos": [
       {
         "diputado": "FERNÁNDEZ SANTOS",
@@ -2884,7 +3238,7 @@
   {
     "id": "CYL-11-26-6",
     "fecha": "23/12/2022",
-    "titulo": "Aprobación Ley de Presupuestos de la Comunidad para el 2023 y Rechazo PL de Medidas (Cont.)",
+    "titulo": "Enmiendas debatidas y la Sección 08",
     "votos": [
       {
         "diputado": "FERNÁNDEZ SANTOS",
@@ -3047,7 +3401,7 @@
       {
         "diputado": "Juan Antonio Palomar Sicilia",
         "diputadoId": "CYL-11-P11020",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "sí"
       },
       {
@@ -3077,7 +3431,7 @@
       {
         "diputado": "Juan Antonio Palomar Sicilia",
         "diputadoId": "CYL-11-P11020",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "sí"
       },
       {
@@ -3096,14 +3450,14 @@
     "tipo": "nominal"
   },
   {
-    "id": "CYL-11-31-3",
+    "id": "CYL-11-31-5",
     "fecha": "22/02/2023",
     "titulo": "Aprobación Ley Medidas",
     "votos": [
       {
         "diputado": "José Ángel Ceña Tutor",
         "diputadoId": "CYL-11-P11014",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "sí"
       },
       {
@@ -3121,7 +3475,7 @@
       {
         "diputado": "Carlos Menéndez Blanco",
         "diputadoId": "CYL-11-P11019",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "no"
       },
       {
@@ -3139,13 +3493,13 @@
       {
         "diputado": "Juan Antonio Palomar Sicilia",
         "diputadoId": "CYL-11-P11020",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "sí"
       },
       {
         "diputado": "José Antonio Palomo Martín",
         "diputadoId": "CYL-11-P11021",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "no"
       },
       {
@@ -3169,7 +3523,7 @@
       {
         "diputado": "María de los Ángeles Prieto Sánchez",
         "diputadoId": "CYL-11-P11003",
-        "grupo": "Popular",
+        "grupo": "PP",
         "voto": "no"
       },
       {
@@ -3229,7 +3583,7 @@
       {
         "diputado": "José María Sánchez Martín",
         "diputadoId": "CYL-11-P11008",
-        "grupo": "Popular",
+        "grupo": "PP",
         "voto": "no"
       },
       {
@@ -3247,19 +3601,19 @@
       {
         "diputado": "Ignacio Sicilia Doménech",
         "diputadoId": "CYL-11-P11024",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "no"
       },
       {
         "diputado": "Miguel Suárez Arca",
         "diputadoId": "CYL-11-P11025",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "no"
       },
       {
         "diputado": "Susana Suárez Villagrá",
         "diputadoId": "CYL-11-P11026",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "no"
       },
       {
@@ -3295,7 +3649,7 @@
       {
         "diputado": "Emilio José Berzosa Peña",
         "diputadoId": "CYL-11-P11006",
-        "grupo": "Popular",
+        "grupo": "PP",
         "voto": "no"
       },
       {
@@ -3313,7 +3667,7 @@
       {
         "diputado": "María Luisa Calvo Enríquez",
         "diputadoId": "CYL-11-P11012",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "no"
       },
       {
@@ -3337,7 +3691,7 @@
       {
         "diputado": "José Ángel Ceña Tutor",
         "diputadoId": "CYL-11-P11014",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "sí"
       },
       {
@@ -3349,7 +3703,7 @@
       {
         "diputado": "Beatriz Coelho Luna",
         "diputadoId": "CYL-11-P11009",
-        "grupo": "Popular",
+        "grupo": "PP",
         "voto": "no"
       },
       {
@@ -3379,13 +3733,13 @@
       {
         "diputado": "Alicia Gallego González",
         "diputadoId": "CYL-11-P11001",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "sí"
       },
       {
         "diputado": "José Ramón García Fernández",
         "diputadoId": "CYL-11-P11007",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "sí"
       },
       {
@@ -3397,7 +3751,7 @@
       {
         "diputado": "Leila Vanessa García Macarrón",
         "diputadoId": "CYL-11-P11015",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "sí"
       },
       {
@@ -3469,7 +3823,7 @@
       {
         "diputado": "David Hierro Santos",
         "diputadoId": "CYL-11-P11018",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "no"
       },
       {
@@ -3505,7 +3859,7 @@
       {
         "diputado": "María Isabel Blanco Llamas",
         "diputadoId": "CYL-11-P8022",
-        "grupo": "Popular",
+        "grupo": "PP",
         "voto": "no"
       },
       {
@@ -3577,70 +3931,8 @@
       {
         "diputado": "Carlos Pollán Fernández",
         "diputadoId": "CYL-11-P11022",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "no"
-      }
-    ],
-    "tipo": "nominal"
-  },
-  {
-    "id": "CYL-11-31-4",
-    "fecha": "22/02/2023",
-    "titulo": "Aprobación Ley Medidas",
-    "votos": [
-      {
-        "diputado": "FERNÁNDEZ SANTOS",
-        "diputadoId": "CYL-UNK-fernandez ",
-        "grupo": "Unknown",
-        "voto": "sí"
-      },
-      {
-        "diputado": "Juan Antonio Palomar Sicilia",
-        "diputadoId": "CYL-11-P11020",
-        "grupo": "UPL-SORIA ¡YA!",
-        "voto": "sí"
-      },
-      {
-        "diputado": "FERNÁNDEZ SANTOS",
-        "diputadoId": "CYL-UNK-fernandez ",
-        "grupo": "Unknown",
-        "voto": "sí"
-      },
-      {
-        "diputado": "SANTOS REYERO",
-        "diputadoId": "CYL-UNK-santos rey",
-        "grupo": "Unknown",
-        "voto": "sí"
-      },
-      {
-        "diputado": "FERNÁNDEZ SANTOS",
-        "diputadoId": "CYL-UNK-fernandez ",
-        "grupo": "Unknown",
-        "voto": "sí"
-      },
-      {
-        "diputado": "VALLEJO QUEVEDO",
-        "diputadoId": "CYL-UNK-vallejo qu",
-        "grupo": "Unknown",
-        "voto": "sí"
-      },
-      {
-        "diputado": "Juan Antonio Palomar Sicilia",
-        "diputadoId": "CYL-11-P11020",
-        "grupo": "UPL-SORIA ¡YA!",
-        "voto": "sí"
-      },
-      {
-        "diputado": "FERNÁNDEZ SANTOS",
-        "diputadoId": "CYL-UNK-fernandez ",
-        "grupo": "Unknown",
-        "voto": "sí"
-      },
-      {
-        "diputado": "FERNÁNDEZ SANTOS",
-        "diputadoId": "CYL-UNK-fernandez ",
-        "grupo": "Unknown",
-        "voto": "sí"
       }
     ],
     "tipo": "nominal"
@@ -3651,9 +3943,71 @@
     "titulo": "Aprobación Ley Medidas",
     "votos": [
       {
+        "diputado": "FERNÁNDEZ SANTOS",
+        "diputadoId": "CYL-UNK-fernandez ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Antonio Palomar Sicilia",
+        "diputadoId": "CYL-11-P11020",
+        "grupo": "UPL-SY",
+        "voto": "sí"
+      },
+      {
+        "diputado": "FERNÁNDEZ SANTOS",
+        "diputadoId": "CYL-UNK-fernandez ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "SANTOS REYERO",
+        "diputadoId": "CYL-UNK-santos rey",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "FERNÁNDEZ SANTOS",
+        "diputadoId": "CYL-UNK-fernandez ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "VALLEJO QUEVEDO",
+        "diputadoId": "CYL-UNK-vallejo qu",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Antonio Palomar Sicilia",
+        "diputadoId": "CYL-11-P11020",
+        "grupo": "UPL-SY",
+        "voto": "sí"
+      },
+      {
+        "diputado": "FERNÁNDEZ SANTOS",
+        "diputadoId": "CYL-UNK-fernandez ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "FERNÁNDEZ SANTOS",
+        "diputadoId": "CYL-UNK-fernandez ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-11-31-10",
+    "fecha": "22/02/2023",
+    "titulo": "Aprobación Ley Medidas",
+    "votos": [
+      {
         "diputado": "José Ángel Ceña Tutor",
         "diputadoId": "CYL-11-P11014",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "sí"
       },
       {
@@ -3671,7 +4025,7 @@
       {
         "diputado": "Carlos Menéndez Blanco",
         "diputadoId": "CYL-11-P11019",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "no"
       },
       {
@@ -3689,13 +4043,13 @@
       {
         "diputado": "Juan Antonio Palomar Sicilia",
         "diputadoId": "CYL-11-P11020",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "sí"
       },
       {
         "diputado": "José Antonio Palomo Martín",
         "diputadoId": "CYL-11-P11021",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "no"
       },
       {
@@ -3719,7 +4073,7 @@
       {
         "diputado": "María de los Ángeles Prieto Sánchez",
         "diputadoId": "CYL-11-P11003",
-        "grupo": "Popular",
+        "grupo": "PP",
         "voto": "no"
       },
       {
@@ -3779,7 +4133,7 @@
       {
         "diputado": "José María Sánchez Martín",
         "diputadoId": "CYL-11-P11008",
-        "grupo": "Popular",
+        "grupo": "PP",
         "voto": "no"
       },
       {
@@ -3797,19 +4151,19 @@
       {
         "diputado": "Ignacio Sicilia Doménech",
         "diputadoId": "CYL-11-P11024",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "no"
       },
       {
         "diputado": "Miguel Suárez Arca",
         "diputadoId": "CYL-11-P11025",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "no"
       },
       {
         "diputado": "Susana Suárez Villagrá",
         "diputadoId": "CYL-11-P11026",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "no"
       },
       {
@@ -3845,7 +4199,7 @@
       {
         "diputado": "Emilio José Berzosa Peña",
         "diputadoId": "CYL-11-P11006",
-        "grupo": "Popular",
+        "grupo": "PP",
         "voto": "no"
       },
       {
@@ -3863,7 +4217,7 @@
       {
         "diputado": "María Luisa Calvo Enríquez",
         "diputadoId": "CYL-11-P11012",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "no"
       },
       {
@@ -3887,7 +4241,7 @@
       {
         "diputado": "José Ángel Ceña Tutor",
         "diputadoId": "CYL-11-P11014",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "sí"
       },
       {
@@ -3899,7 +4253,7 @@
       {
         "diputado": "Beatriz Coelho Luna",
         "diputadoId": "CYL-11-P11009",
-        "grupo": "Popular",
+        "grupo": "PP",
         "voto": "no"
       },
       {
@@ -3929,13 +4283,13 @@
       {
         "diputado": "Alicia Gallego González",
         "diputadoId": "CYL-11-P11001",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "sí"
       },
       {
         "diputado": "José Ramón García Fernández",
         "diputadoId": "CYL-11-P11007",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "sí"
       },
       {
@@ -3947,7 +4301,7 @@
       {
         "diputado": "Leila Vanessa García Macarrón",
         "diputadoId": "CYL-11-P11015",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "sí"
       },
       {
@@ -4019,7 +4373,7 @@
       {
         "diputado": "David Hierro Santos",
         "diputadoId": "CYL-11-P11018",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "no"
       },
       {
@@ -4055,7 +4409,7 @@
       {
         "diputado": "María Isabel Blanco Llamas",
         "diputadoId": "CYL-11-P8022",
-        "grupo": "Popular",
+        "grupo": "PP",
         "voto": "no"
       },
       {
@@ -4127,7 +4481,7 @@
       {
         "diputado": "Carlos Pollán Fernández",
         "diputadoId": "CYL-11-P11022",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "no"
       }
     ],
@@ -4136,12 +4490,12 @@
   {
     "id": "CYL-11-43-1",
     "fecha": "13/06/2023",
-    "titulo": "",
+    "titulo": "Votación nominal",
     "votos": [
       {
         "diputado": "Elena Rincón Iglesias",
         "diputadoId": "CYL-11-P11029",
-        "grupo": "Popular",
+        "grupo": "PP",
         "voto": "sí"
       },
       {
@@ -4153,7 +4507,33 @@
       {
         "diputado": "Juan Antonio Palomar Sicilia",
         "diputadoId": "CYL-11-P11020",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-11-49-1",
+    "fecha": "19/09/2023",
+    "titulo": "Declaración Institucional DI n. 1/11 “Solidaridad y apoyo a los pueblos de Marruecos y Libia ante las terribles catástrofes naturales que han sufrido”",
+    "votos": [
+      {
+        "diputado": "SACRISTÁN RODRÍGUEZ",
+        "diputadoId": "CYL-UNK-sacristan ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "MORENO CASTRILLO",
+        "diputadoId": "CYL-UNK-moreno cas",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "FERNÁNDEZ SANTOS",
+        "diputadoId": "CYL-UNK-fernandez ",
+        "grupo": "Unknown",
         "voto": "sí"
       }
     ],
@@ -4190,18 +4570,18 @@
   {
     "id": "CYL-11-56-1",
     "fecha": "08/11/2023",
-    "titulo": "Aprobación Ley Bonificaciones fiscales de tasas veterinarias -- Debate de totalidad PL Patrimonio Cultural de CyL",
+    "titulo": "Aprobación Ley Bonificaciones fiscales de tasas veterinarias",
     "votos": [
       {
         "diputado": "Juan Antonio Palomar Sicilia",
         "diputadoId": "CYL-11-P11020",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "sí"
       },
       {
         "diputado": "Juan Antonio Palomar Sicilia",
         "diputadoId": "CYL-11-P11020",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "sí"
       },
       {
@@ -4222,18 +4602,18 @@
   {
     "id": "CYL-11-56-2",
     "fecha": "08/11/2023",
-    "titulo": "Aprobación Ley Bonificaciones fiscales de tasas veterinarias -- Debate de totalidad PL Patrimonio Cultural de CyL",
+    "titulo": "Aprobación Ley Bonificaciones fiscales de tasas veterinarias",
     "votos": [
       {
         "diputado": "Juan Antonio Palomar Sicilia",
         "diputadoId": "CYL-11-P11020",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "sí"
       },
       {
         "diputado": "Juan Antonio Palomar Sicilia",
         "diputadoId": "CYL-11-P11020",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "sí"
       },
       {
@@ -4252,20 +4632,156 @@
     "tipo": "nominal"
   },
   {
-    "id": "CYL-11-67-1",
-    "fecha": "13/03/2024",
-    "titulo": "",
+    "id": "CYL-11-66-1",
+    "fecha": "21/02/2024",
+    "titulo": "Votación nominal",
     "votos": [
       {
-        "diputado": "Juan Antonio Palomar Sicilia",
-        "diputadoId": "CYL-11-P11020",
-        "grupo": "UPL-SORIA ¡YA!",
+        "diputado": "FERNÁNDEZ SANTOS",
+        "diputadoId": "CYL-UNK-fernandez ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "SANTOS REYERO",
+        "diputadoId": "CYL-UNK-santos rey",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "FERNÁNDEZ SANTOS",
+        "diputadoId": "CYL-UNK-fernandez ",
+        "grupo": "Unknown",
         "voto": "sí"
       },
       {
         "diputado": "Juan Antonio Palomar Sicilia",
         "diputadoId": "CYL-11-P11020",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
+        "voto": "sí"
+      },
+      {
+        "diputado": "IGEA ARISQUETA",
+        "diputadoId": "CYL-UNK-igea arisq",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "FERNÁNDEZ SANTOS",
+        "diputadoId": "CYL-UNK-fernandez ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "FERNÁNDEZ SANTOS",
+        "diputadoId": "CYL-UNK-fernandez ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "GÓMEZ URBÁN",
+        "diputadoId": "CYL-UNK-gomez urba",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "GÓMEZ URBÁN",
+        "diputadoId": "CYL-UNK-gomez urba",
+        "grupo": "Unknown",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-11-66-2",
+    "fecha": "21/02/2024",
+    "titulo": "Votación nominal",
+    "votos": [
+      {
+        "diputado": "FERNÁNDEZ SANTOS",
+        "diputadoId": "CYL-UNK-fernandez ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "FERNÁNDEZ SANTOS",
+        "diputadoId": "CYL-UNK-fernandez ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "SANTOS REYERO",
+        "diputadoId": "CYL-UNK-santos rey",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "FERNÁNDEZ SANTOS",
+        "diputadoId": "CYL-UNK-fernandez ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Antonio Palomar Sicilia",
+        "diputadoId": "CYL-11-P11020",
+        "grupo": "UPL-SY",
+        "voto": "sí"
+      },
+      {
+        "diputado": "IGEA ARISQUETA",
+        "diputadoId": "CYL-UNK-igea arisq",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "FERNÁNDEZ SANTOS",
+        "diputadoId": "CYL-UNK-fernandez ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "FERNÁNDEZ SANTOS",
+        "diputadoId": "CYL-UNK-fernandez ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "GÓMEZ URBÁN",
+        "diputadoId": "CYL-UNK-gomez urba",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "GÓMEZ URBÁN",
+        "diputadoId": "CYL-UNK-gomez urba",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "FERNÁNDEZ SANTOS",
+        "diputadoId": "CYL-UNK-fernandez ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-11-67-1",
+    "fecha": "13/03/2024",
+    "titulo": "Votación nominal",
+    "votos": [
+      {
+        "diputado": "Juan Antonio Palomar Sicilia",
+        "diputadoId": "CYL-11-P11020",
+        "grupo": "UPL-SY",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Antonio Palomar Sicilia",
+        "diputadoId": "CYL-11-P11020",
+        "grupo": "UPL-SY",
         "voto": "sí"
       },
       {
@@ -4298,18 +4814,18 @@
   {
     "id": "CYL-11-67-2",
     "fecha": "13/03/2024",
-    "titulo": "",
+    "titulo": "Votación nominal",
     "votos": [
       {
         "diputado": "Juan Antonio Palomar Sicilia",
         "diputadoId": "CYL-11-P11020",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "sí"
       },
       {
         "diputado": "Juan Antonio Palomar Sicilia",
         "diputadoId": "CYL-11-P11020",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "sí"
       },
       {
@@ -4342,7 +4858,7 @@
   {
     "id": "CYL-11-77-1",
     "fecha": "13/06/2024",
-    "titulo": "",
+    "titulo": "Votación nominal",
     "votos": [
       {
         "diputado": "SANTOS REYERO",
@@ -4353,7 +4869,7 @@
       {
         "diputado": "Juan Antonio Palomar Sicilia",
         "diputadoId": "CYL-11-P11020",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "sí"
       },
       {
@@ -4380,7 +4896,7 @@
   {
     "id": "CYL-11-77-2",
     "fecha": "13/06/2024",
-    "titulo": "",
+    "titulo": "Votación nominal",
     "votos": [
       {
         "diputado": "SANTOS REYERO",
@@ -4391,7 +4907,7 @@
       {
         "diputado": "Juan Antonio Palomar Sicilia",
         "diputadoId": "CYL-11-P11020",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "sí"
       },
       {
@@ -4418,7 +4934,7 @@
   {
     "id": "CYL-11-78-1",
     "fecha": "14/06/2024",
-    "titulo": "Aprobación Ley Patrimonio Cultural de CyL -- Aprobación Ley Modificación Ley 6/1994 Sanidad Animal de CyL",
+    "titulo": "Aprobación Ley Patrimonio Cultural de CyL",
     "votos": [
       {
         "diputado": "SANTOS REYERO",
@@ -4435,7 +4951,7 @@
       {
         "diputado": "Juan Antonio Palomar Sicilia",
         "diputadoId": "CYL-11-P11020",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "sí"
       }
     ],
@@ -4444,7 +4960,7 @@
   {
     "id": "CYL-11-78-2",
     "fecha": "14/06/2024",
-    "titulo": "Aprobación Ley Patrimonio Cultural de CyL -- Aprobación Ley Modificación Ley 6/1994 Sanidad Animal de CyL",
+    "titulo": "Aprobación Ley Patrimonio Cultural de CyL",
     "votos": [
       {
         "diputado": "SANTOS REYERO",
@@ -4467,7 +4983,7 @@
       {
         "diputado": "Juan Antonio Palomar Sicilia",
         "diputadoId": "CYL-11-P11020",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "sí"
       },
       {
@@ -4665,7 +5181,7 @@
       {
         "diputado": "Carlos Menéndez Blanco",
         "diputadoId": "CYL-11-P11019",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "sí"
       },
       {
@@ -4709,7 +5225,7 @@
       {
         "diputado": "Carlos Menéndez Blanco",
         "diputadoId": "CYL-11-P11019",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "sí"
       },
       {
@@ -4730,7 +5246,7 @@
   {
     "id": "CYL-11-97-1",
     "fecha": "11/02/2025",
-    "titulo": "",
+    "titulo": "Votación nominal",
     "votos": [
       {
         "diputado": "GONZÁLEZ REGLERO",
@@ -4741,13 +5257,13 @@
       {
         "diputado": "Carlos Menéndez Blanco",
         "diputadoId": "CYL-11-P11019",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "sí"
       },
       {
         "diputado": "Juan Antonio Palomar Sicilia",
         "diputadoId": "CYL-11-P11020",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "sí"
       },
       {
@@ -4771,7 +5287,7 @@
       {
         "diputado": "María Isabel Pérez Martín",
         "diputadoId": "CYL-11-P11035",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "sí"
       }
     ],
@@ -4780,7 +5296,7 @@
   {
     "id": "CYL-11-97-2",
     "fecha": "11/02/2025",
-    "titulo": "",
+    "titulo": "Votación nominal",
     "votos": [
       {
         "diputado": "GONZÁLEZ REGLERO",
@@ -4791,13 +5307,13 @@
       {
         "diputado": "Carlos Menéndez Blanco",
         "diputadoId": "CYL-11-P11019",
-        "grupo": "VOX Castilla y León",
+        "grupo": "VOX",
         "voto": "sí"
       },
       {
         "diputado": "Juan Antonio Palomar Sicilia",
         "diputadoId": "CYL-11-P11020",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "sí"
       },
       {
@@ -4861,7 +5377,7 @@
       {
         "diputado": "Juan Antonio Palomar Sicilia",
         "diputadoId": "CYL-11-P11020",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "sí"
       },
       {
@@ -4909,7 +5425,7 @@
       {
         "diputado": "Juan Antonio Palomar Sicilia",
         "diputadoId": "CYL-11-P11020",
-        "grupo": "UPL-SORIA ¡YA!",
+        "grupo": "UPL-SY",
         "voto": "sí"
       },
       {
