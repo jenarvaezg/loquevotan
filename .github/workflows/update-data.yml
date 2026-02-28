@@ -21,9 +21,14 @@ jobs:
       - name: Restore raw data cache
         uses: actions/cache@v4
         with:
-          path: data/raw
-          key: congress-raw-${{ github.run_id }}
-          restore-keys: congress-raw-
+          path: |
+            data/raw
+            data/andalucia/raw
+            data/cyl/raw
+          key: parliament-raw-${{ github.run_id }}
+          restore-keys: |
+            parliament-raw-
+            congress-raw-
 
       - name: Install dependencies
         run: |
