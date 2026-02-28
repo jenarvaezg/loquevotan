@@ -2,6 +2,7 @@
 import { ref, computed, watch, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useData } from '../composables/useData'
+import html2canvas from 'html2canvas'
 
 const { currentScopeId } = useData()
 const router = useRouter()
@@ -9,6 +10,7 @@ const router = useRouter()
 const quizData = ref(null)
 const loading = ref(true)
 const error = ref(null)
+const captureArea = ref(null)
 
 const currentStep = ref(-1) // -1: Intro, 0-N: Questions, N+1: Results
 const answers = ref({}) // qId -> 'si' | 'no' | 'abstencion'
@@ -116,6 +118,32 @@ function shareResults() {
   }
 }
 
+async function downloadImage() {
+  if (!captureArea.value) return
+  
+  // Temporarily show the logo watermark
+  const watermark = captureArea.value.querySelector('.quiz-watermark')
+  if (watermark) watermark.style.display = 'block'
+  
+  try {
+    const canvas = await html2canvas(captureArea.value, {
+      scale: 2,
+      backgroundColor: getComputedStyle(document.documentElement).getPropertyValue('--color-bg'),
+      useCORS: true
+    })
+    const url = canvas.toDataURL('image/png')
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `loquevotan-afinidad-${currentScopeId.value}.png`
+    a.click()
+  } catch (err) {
+    console.error('Error generating image:', err)
+  } finally {
+    // Hide watermark again
+    if (watermark) watermark.style.display = 'none'
+  }
+}
+
 function resetQuiz() {
   answers.value = {}
   currentStep.value = -1
@@ -183,29 +211,38 @@ function resetQuiz() {
 
       <!-- RESULTS -->
       <div v-else class="quiz-results">
-        <div class="results-header">
-          <h2>Tu Afinidad Política</h2>
-          <p>Basado en {{ quizData.questions.length }} votaciones reales de esta legislatura.</p>
-        </div>
+        <div ref="captureArea" class="quiz-capture-area">
+          <div class="quiz-watermark" style="display:none; text-align:center; margin-bottom:1rem; font-weight:800; font-size:1.5rem; color:var(--color-primary);">
+            Lo Que Votan
+          </div>
+          
+          <div class="results-header">
+            <h2>Tu Afinidad Política</h2>
+            <p>Basado en {{ quizData.questions.length }} votaciones reales de esta legislatura.</p>
+          </div>
 
-        <div class="results-list">
-          <div v-for="(res, idx) in affinities" :key="res.group" class="result-row" :class="{ 'result-row--winner': idx === 0 }">
-            <div class="result-group">
-              <span class="result-rank">{{ idx + 1 }}</span>
-              <span class="result-name">{{ res.group }}</span>
+          <div class="results-list">
+            <div v-for="(res, idx) in affinities" :key="res.group" class="result-row" :class="{ 'result-row--winner': idx === 0 }">
+              <div class="result-group">
+                <span class="result-rank">{{ idx + 1 }}</span>
+                <span class="result-name">{{ res.group }}</span>
+              </div>
+              <div class="result-bar-wrap">
+                <div class="result-bar" :style="{ width: `${res.pct}%`, backgroundColor: idx === 0 ? 'var(--color-primary)' : 'var(--color-border-hover)' }"></div>
+              </div>
+              <div class="result-pct">{{ res.pct }}%</div>
             </div>
-            <div class="result-bar-wrap">
-              <div class="result-bar" :style="{ width: `${res.pct}%`, backgroundColor: idx === 0 ? 'var(--color-primary)' : 'var(--color-border-hover)' }"></div>
-            </div>
-            <div class="result-pct">{{ res.pct }}%</div>
           </div>
         </div>
 
         <div class="results-actions">
           <button class="btn btn--primary btn--lg" @click="shareResults">
-            Compartir Resultado
+            Compartir Link
           </button>
-          <button class="btn btn--outline" @click="resetQuiz">
+          <button class="btn btn--outline btn--lg" @click="downloadImage">
+            📸 Bajar Imagen
+          </button>
+          <button class="btn" style="background:transparent;border:none;text-decoration:underline" @click="resetQuiz">
             Repetir Test
           </button>
         </div>
@@ -403,6 +440,13 @@ function resetQuiz() {
 /* Results */
 .quiz-results {
   animation: fadeIn 0.6s ease;
+}
+
+.quiz-capture-area {
+  padding: 1rem;
+  background: var(--color-bg);
+  border-radius: var(--radius-md);
+  margin-bottom: 1.5rem;
 }
 
 .results-header {

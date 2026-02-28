@@ -1,7 +1,8 @@
 <script setup>
 import { computed, ref, onMounted, onUnmounted } from 'vue'
 import { useData } from '../composables/useData'
-import { fmt, avatarStyle, avatarInitials } from '../utils'
+import { fmt, avatarStyle, avatarInitials, dipPhotoUrl } from '../utils'
+import html2canvas from 'html2canvas'
 
 const props = defineProps({
   dipIdx: Number,
@@ -10,14 +11,16 @@ const props = defineProps({
 
 const emit = defineEmits(['close'])
 
-const { diputados, grupos, dipStats, votos, votaciones, votosByDiputado } = useData()
+const { diputados, grupos, dipStats, dipFotos, votos, votaciones, votosByDiputado } = useData()
 const copyLabel = ref('Copiar enlace')
+const captureArea = ref(null)
 
 const name = computed(() => diputados.value[props.dipIdx])
 const ds = computed(() => dipStats.value[props.dipIdx])
 const grupoName = computed(() =>
   ds.value.mainGrupo >= 0 ? grupos.value[ds.value.mainGrupo] : 'Sin grupo'
 )
+const photoUrl = computed(() => dipPhotoUrl(dipFotos.value[props.dipIdx]))
 const topicLabel = computed(() => fmt(props.tag))
 
 const counts = computed(() => {
@@ -75,6 +78,24 @@ async function copyUrl() {
   setTimeout(() => { copyLabel.value = 'Copiar enlace' }, 2000)
 }
 
+async function downloadImage() {
+  if (!captureArea.value) return
+  try {
+    const canvas = await html2canvas(captureArea.value, {
+      scale: 2,
+      backgroundColor: getComputedStyle(document.documentElement).getPropertyValue('--color-surface'),
+      useCORS: true // To allow loading external images like the avatar
+    })
+    const url = canvas.toDataURL('image/png')
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `loquevotan-${name.value.replace(/[^a-z0-9]/gi, '_').toLowerCase()}-${props.tag}.png`
+    a.click()
+  } catch (err) {
+    console.error('Error generating image:', err)
+  }
+}
+
 function onKey(e) {
   if (e.key === 'Escape') emit('close')
 }
@@ -94,38 +115,47 @@ onUnmounted(() => document.removeEventListener('keydown', onKey))
     >
       <div class="acc-card">
         <button class="acc-close" aria-label="Cerrar" @click="emit('close')">&times;</button>
-        <div class="avatar" :style="avatarStyle(name)">{{ avatarInitials(name) }}</div>
-        <div class="acc-name">{{ name }}</div>
-        <div class="acc-grupo">{{ grupoName }}</div>
-        <div class="acc-topic">{{ topicLabel }}</div>
+        
+        <!-- Contenedor para exportar a imagen -->
+        <div ref="captureArea" class="acc-capture-area">
+          <div class="acc-capture-header">
+            <div class="acc-logo-watermark">Lo Que Votan</div>
+          </div>
+          <img v-if="photoUrl" :src="photoUrl" :alt="name" class="acc-photo" crossorigin="anonymous">
+          <div v-else class="avatar" :style="avatarStyle(name)">{{ avatarInitials(name) }}</div>
+          <div class="acc-name">{{ name }}</div>
+          <div class="acc-grupo">{{ grupoName }}</div>
+          <div class="acc-topic">{{ topicLabel }}</div>
 
-        <div class="acc-votes">
-          <div class="acc-vote-row">
-            <span class="acc-vote-label">A FAVOR</span>
-            <div class="acc-vote-bar">
-              <div class="acc-vote-bar-fill" :style="{ width: barWidth(counts.favor), background: 'var(--color-favor)' }"></div>
+          <div class="acc-votes">
+            <div class="acc-vote-row">
+              <span class="acc-vote-label">A FAVOR</span>
+              <div class="acc-vote-bar">
+                <div class="acc-vote-bar-fill" :style="{ width: barWidth(counts.favor), background: 'var(--color-favor)' }"></div>
+              </div>
+              <span class="acc-vote-count">{{ veces(counts.favor) }}</span>
             </div>
-            <span class="acc-vote-count">{{ veces(counts.favor) }}</span>
-          </div>
-          <div class="acc-vote-row">
-            <span class="acc-vote-label">EN CONTRA</span>
-            <div class="acc-vote-bar">
-              <div class="acc-vote-bar-fill" :style="{ width: barWidth(counts.contra), background: 'var(--color-contra)' }"></div>
+            <div class="acc-vote-row">
+              <span class="acc-vote-label">EN CONTRA</span>
+              <div class="acc-vote-bar">
+                <div class="acc-vote-bar-fill" :style="{ width: barWidth(counts.contra), background: 'var(--color-contra)' }"></div>
+              </div>
+              <span class="acc-vote-count">{{ veces(counts.contra) }}</span>
             </div>
-            <span class="acc-vote-count">{{ veces(counts.contra) }}</span>
-          </div>
-          <div class="acc-vote-row">
-            <span class="acc-vote-label">ABSTENCI&Oacute;N</span>
-            <div class="acc-vote-bar">
-              <div class="acc-vote-bar-fill" :style="{ width: barWidth(counts.abstencion), background: 'var(--color-abstencion)' }"></div>
+            <div class="acc-vote-row">
+              <span class="acc-vote-label">ABSTENCI&Oacute;N</span>
+              <div class="acc-vote-bar">
+                <div class="acc-vote-bar-fill" :style="{ width: barWidth(counts.abstencion), background: 'var(--color-abstencion)' }"></div>
+              </div>
+              <span class="acc-vote-count">{{ veces(counts.abstencion) }}</span>
             </div>
-            <span class="acc-vote-count">{{ veces(counts.abstencion) }}</span>
           </div>
+          
+          <div class="acc-url">loquevotan.es</div>
         </div>
 
-        <div class="acc-url">loquevotan.es</div>
         <div class="acc-share">
-          <button class="acc-share-btn acc-share-btn--primary" @click="copyUrl">{{ copyLabel }}</button>
+          <button class="acc-share-btn" @click="downloadImage">📸 Descargar Imagen</button>
           <a class="acc-share-btn" :href="twitterUrl" target="_blank" rel="noopener">X / Twitter</a>
           <a class="acc-share-btn" :href="whatsappUrl" target="_blank" rel="noopener">WhatsApp</a>
         </div>
@@ -152,9 +182,37 @@ onUnmounted(() => document.removeEventListener('keydown', onKey))
   box-shadow: var(--shadow-lg);
   max-width: 420px;
   width: 100%;
-  padding: 2rem;
+  padding: 1.5rem;
   position: relative;
   text-align: center;
+}
+
+.acc-capture-area {
+  padding: 1rem;
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+}
+
+.acc-capture-header {
+  display: none;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.acc-logo-watermark {
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--color-primary);
+}
+
+.acc-photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 0.75rem auto;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  display: block;
 }
 
 .acc-close {
