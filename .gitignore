@@ -4,6 +4,7 @@ __pycache__/
 node_modules/
 dist/
 .omc/
+test-results/
 
 # Data and Scraping
 **/raw/
