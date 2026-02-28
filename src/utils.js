@@ -96,6 +96,8 @@ const LEG_TO_NUM = { X: 10, XI: 11, XII: 12, XIII: 13, XIV: 14, XV: 15 };
 
 export function dipPhotoUrl(fotoEntry) {
   if (!fotoEntry) return null;
+  // If it's already a full URL string (like for Andalucia), return it
+  if (typeof fotoEntry === 'string') return fotoEntry;
   // Pick the most recent legislatura available
   const legs = Object.keys(fotoEntry);
   if (legs.length === 0) return null;

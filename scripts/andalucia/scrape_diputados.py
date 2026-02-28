@@ -17,46 +17,30 @@ def scrape_andalucia_all_diputados():
         response = requests.get(url)
         soup = BeautifulSoup(response.text, 'html.parser')
         
-        # Find all article tags
-        articles = soup.find_all('article')
-        
-        if not articles:
-            # Fallback for older layouts if any
-            links = soup.find_all('a', href=re.compile(r'codmie='))
-            seen_codmies = set()
-            for l in links:
-                href = l.get('href')
-                m = re.search(r'codmie=(\d+)', href)
-                if m and m.group(1) not in seen_codmies:
-                    seen_codmies.add(m.group(1))
-                    name = l.get_text().strip()
-                    all_diputados.append({
-                        "id": f"AND-{legis}-{m.group(1)}",
-                        "nombre": name,
-                        "grupo": "Unknown", # To be filled by PDF parser
-                        "codmie": m.group(1),
-                        "nlegis": legis,
-                        "foto": None
-                    })
-            continue
-
-        for art in articles:
-            link = art.find('a', href=re.compile(r'codmie='))
-            if not link: continue
-            
-            name = link.get_text().strip()
+        # Find all card tags or links
+        links = soup.find_all('a', href=re.compile(r'codmie='))
+        seen_codmies = set()
+        for link in links:
             href = link.get('href')
-            
             codmie_match = re.search(r'codmie=(\d+)', href)
             if not codmie_match: continue
             codmie = codmie_match.group(1)
             
-            img_tag = art.find('img')
+            if codmie in seen_codmies:
+                continue
+            seen_codmies.add(codmie)
+            
+            name = link.get_text().strip()
+            
+            # Find the photo by looking at the parent containers
             img_url = None
-            if img_tag:
-                src = img_tag.get('src')
-                if src:
-                    img_url = urljoin(url, src)
+            parent = link.parent
+            while parent and parent.name != 'body':
+                img_tag = parent.find('img')
+                if img_tag and img_tag.get('src'):
+                    img_url = urljoin(url, img_tag.get('src'))
+                    break
+                parent = parent.parent
             
             all_diputados.append({
                 "id": f"AND-{legis}-{codmie}",
