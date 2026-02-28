@@ -17,6 +17,8 @@ OUTPUT_FILE = os.path.join(SCRIPT_DIR, "..", "public", "data", "votaciones.json"
 CACHE_FILE = os.path.join(SCRIPT_DIR, "..", "data", "cache_categorias.json")
 PROMPT_FILE = os.path.join(SCRIPT_DIR, "prompt_categorizacion.txt")
 FOTO_MAP_FILE = os.path.join(SCRIPT_DIR, "..", "data", "foto_map.json")
+MANIFEST_FILE = os.path.join(SCRIPT_DIR, "..", "public", "data", "manifest_home.json")
+META_FILE = os.path.join(SCRIPT_DIR, "..", "public", "data", "votaciones_meta.json")
 
 VALID_CATEGORIES = frozenset([
     "Economia_y_Hacienda", "Sanidad", "Educacion", "Vivienda",
@@ -120,6 +122,23 @@ VOTE_MAP = {
     "No": "En contra",
     "Abstención": "Abstención",
 }
+
+LEGISLATURAS = [
+    {"id": "X", "desde": "2012-01-01", "hasta": "2015-10-27"},
+    {"id": "XI", "desde": "2016-01-13", "hasta": "2016-05-03"},
+    {"id": "XII", "desde": "2016-07-19", "hasta": "2019-02-13"},
+    {"id": "XIII", "desde": "2019-05-21", "hasta": "2019-09-24"},
+    {"id": "XIV", "desde": "2020-01-03", "hasta": "2023-05-29"},
+    {"id": "XV", "desde": "2023-08-17", "hasta": "2099-12-31"},
+]
+
+
+def get_leg(fecha):
+    """Get legislatura ID for a date string (YYYY-MM-DD)."""
+    for leg in reversed(LEGISLATURAS):
+        if leg["desde"] <= fecha <= leg["hasta"]:
+            return leg["id"]
+    return ""
 
 
 def classify_subgrupo(titulo_subgrupo):
@@ -492,9 +511,6 @@ def main():
     if os.path.exists(FOTO_MAP_FILE):
         with open(FOTO_MAP_FILE, encoding="utf-8") as f:
             foto_map = json.load(f)
-        # foto_map keys are "Nombre Apellidos" (congreso.es format)
-        # Our diputados are "Apellidos, Nombre"
-        # Build reverse lookup: lowercase "nombre apellidos" -> foto_map entry
         foto_lookup = {}
         for full_name, leg_map in foto_map.items():
             foto_lookup[full_name.lower()] = leg_map
@@ -511,7 +527,211 @@ def main():
     else:
         print("  (sin foto_map.json, ejecuta scrape_photos.py)")
 
-    output = {
+    # ── Add legislatura to each votacion ──
+    for vi in range(len(votaciones_list)):
+        votaciones_list[vi]["legislatura"] = get_leg(votaciones_list[vi]["fecha"])
+
+    # ── Pre-compute: build vote indexes ──
+    print("  Pre-computando índices...")
+    vbv = {}  # votIdx -> list of votos indices
+    vbd = {}  # dipIdx -> list of votos indices
+    for i, v in enumerate(votos_list):
+        vbv.setdefault(v[0], []).append(i)
+        vbd.setdefault(v[1], []).append(i)
+
+    # ── Pre-compute: votacion results + group majorities ──
+    vot_results = []
+    group_majority = {}
+    for vi in range(len(votaciones_list)):
+        indices = vbv.get(vi, [])
+        t = {1: 0, 2: 0, 3: 0}
+        by_group = {}
+        for j in indices:
+            v = votos_list[j]
+            code, grp = v[3], v[2]
+            t[code] += 1
+            if grp not in by_group:
+                by_group[grp] = {1: 0, 2: 0, 3: 0}
+            by_group[grp][code] += 1
+
+        total = len(indices)
+        favor, contra = t[1], t[2]
+        result = "Aprobada" if favor > contra else ("Rechazada" if contra > favor else "Empate")
+        vot_results.append({
+            "favor": favor,
+            "contra": contra,
+            "abstencion": t[3],
+            "total": total,
+            "result": result,
+            "margin": abs(favor - contra),
+        })
+
+        gm = {}
+        for g_idx, c in by_group.items():
+            if c[1] >= c[2] and c[1] >= c[3]:
+                gm[g_idx] = 1
+            elif c[2] >= c[3]:
+                gm[g_idx] = 2
+            else:
+                gm[g_idx] = 3
+        group_majority[vi] = gm
+
+    # ── Pre-compute: diputado stats + loyalty ──
+    print("  Pre-computando stats de diputados...")
+    leg_ids = [l["id"] for l in LEGISLATURAS]
+    dip_stats = []
+    for di in range(len(diputados_set)):
+        indices = vbd.get(di, [])
+        t = {1: 0, 2: 0, 3: 0}
+        grupo_count = {}
+        loyal = 0
+        for j in indices:
+            v = votos_list[j]
+            code, grp = v[3], v[2]
+            t[code] += 1
+            grupo_count[grp] = grupo_count.get(grp, 0) + 1
+            maj = group_majority.get(v[0], {})
+            if maj.get(grp) == code:
+                loyal += 1
+
+        total = len(indices)
+        main_grupo = -1
+        if grupo_count:
+            main_grupo = max(grupo_count, key=grupo_count.get)
+
+        leg_set = set()
+        for j in indices:
+            leg = votaciones_list[votos_list[j][0]].get("legislatura", "")
+            if leg:
+                leg_set.add(leg)
+
+        dip_stats.append({
+            "favor": t[1],
+            "contra": t[2],
+            "abstencion": t[3],
+            "total": total,
+            "mainGrupo": main_grupo,
+            "loyalty": round(loyal / total, 4) if total > 0 else 0,
+            "legislaturas": [lid for lid in leg_ids if lid in leg_set],
+        })
+
+    # ── Pre-compute: tag counts ──
+    tag_counts = {}
+    for vot in votaciones_list:
+        for tag in vot.get("etiquetas", []):
+            tag_counts[tag] = tag_counts.get(tag, 0) + 1
+    top_tags = sorted(tag_counts.items(), key=lambda x: -x[1])[:20]
+
+    # ── Pre-compute: sorted votacion indices by date desc ──
+    sorted_vot_idx = sorted(
+        range(len(votaciones_list)),
+        key=lambda i: votaciones_list[i]["fecha"],
+        reverse=True,
+    )
+
+    # ── Pre-compute: group affinity by legislatura ──
+    print("  Pre-computando afinidad entre grupos...")
+    group_affinity_by_leg = {}
+    for leg_id in leg_ids + [""]:
+        ga = {}
+        for vi in range(len(votaciones_list)):
+            if leg_id and votaciones_list[vi].get("legislatura") != leg_id:
+                continue
+            gm = group_majority.get(vi, {})
+            g_keys = sorted(gm.keys())
+            for a in range(len(g_keys)):
+                for b in range(a + 1, len(g_keys)):
+                    ka, kb = g_keys[a], g_keys[b]
+                    key = f"{ka},{kb}" if ka < kb else f"{kb},{ka}"
+                    if key not in ga:
+                        ga[key] = {"same": 0, "total": 0}
+                    ga[key]["total"] += 1
+                    if gm[ka] == gm[kb]:
+                        ga[key]["same"] += 1
+        if ga:
+            group_affinity_by_leg[leg_id] = ga
+
+    # ── Pre-compute: votaciones by expediente ──
+    vots_by_exp = {}
+    for i, vot in enumerate(votaciones_list):
+        exp = vot.get("exp")
+        if exp:
+            vots_by_exp.setdefault(exp, []).append(i)
+
+    # ══════════════════════════════════════════════
+    # Generate Tier 1: manifest_home.json
+    # ══════════════════════════════════════════════
+    hero_examples = [
+        ["subir_pensiones", "Quien voto subir pensiones?"],
+        ["facilitar_acceso_vivienda", "Acceso a vivienda"],
+        ["combatir_cambio_climatico", "Cambio climatico"],
+        ["reformar_codigo_penal", "Reforma penal"],
+        ["proteger_sanidad_publica", "Sanidad publica"],
+    ]
+    hero_examples = [e for e in hero_examples if e[0] in tag_counts]
+
+    latest_votes = sorted_vot_idx[:10]
+    tight_votes = sorted(
+        [i for i in sorted_vot_idx if vot_results[i]["total"] > 0],
+        key=lambda i: vot_results[i]["margin"],
+    )[:10]
+    rebels = sorted(
+        [i for i in range(len(diputados_set)) if dip_stats[i]["total"] > 50],
+        key=lambda i: dip_stats[i]["loyalty"],
+    )[:10]
+
+    def manifest_vote(vi):
+        v = votaciones_list[vi]
+        r = vot_results[vi]
+        return {
+            "idx": vi,
+            "titulo_ciudadano": v["titulo_ciudadano"],
+            "fecha": v["fecha"],
+            "categoria": categorias_set[v["categoria"]],
+            "etiquetas": v.get("etiquetas", []),
+            "subTipo": v.get("subTipo", ""),
+            "proponente": v.get("proponente", ""),
+            "result": r["result"],
+            "favor": r["favor"],
+            "contra": r["contra"],
+            "abstencion": r["abstencion"],
+            "total": r["total"],
+            "margin": r["margin"],
+        }
+
+    manifest = {
+        "stats": {
+            "diputados": len(diputados_set),
+            "votaciones": len(votaciones_list),
+            "votos": len(votos_list),
+        },
+        "topTags": [list(t) for t in top_tags],
+        "heroExamples": hero_examples,
+        "latestVotes": [manifest_vote(i) for i in latest_votes],
+        "tightVotes": [manifest_vote(i) for i in tight_votes],
+        "rebels": [
+            {
+                "idx": i,
+                "name": diputados_set[i],
+                "grupo": grupos_set[dip_stats[i]["mainGrupo"]] if dip_stats[i]["mainGrupo"] >= 0 else "Sin grupo",
+                "loyalty": round(dip_stats[i]["loyalty"], 4),
+            }
+            for i in rebels
+        ],
+        "categorias": categorias_set,
+    }
+
+    # ══════════════════════════════════════════════
+    # Generate Tier 2: votaciones_meta.json
+    # ══════════════════════════════════════════════
+    # Strip heavy detail-only fields from tier 2 (saved ~5.8 MB)
+    DETAIL_FIELDS = {"textoOficial", "resumen", "urlCongreso", "subgrupo", "subgrupo_detalle"}
+    votaciones_light = [
+        {k: v for k, v in vot.items() if k not in DETAIL_FIELDS}
+        for vot in votaciones_list
+    ]
+
+    meta_output = {
         "meta": {
             "generado": __import__("datetime").date.today().isoformat(),
             "total_votaciones": len(votaciones_list),
@@ -520,21 +740,71 @@ def main():
         "diputados": diputados_set,
         "grupos": grupos_set,
         "categorias": categorias_set,
-        "votaciones": votaciones_list,
-        "votos": votos_list,
         "dipFotos": dip_fotos,
+        "votaciones": votaciones_light,
+        "votResults": vot_results,
+        "dipStats": dip_stats,
+        "tagCounts": tag_counts,
+        "topTags": [list(t) for t in top_tags],
+        "sortedVotIdxByDate": sorted_vot_idx,
+        "groupAffinityByLeg": group_affinity_by_leg,
+        "votsByExp": vots_by_exp,
     }
 
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-        json.dump(output, f, ensure_ascii=False, separators=(",", ":"))
+    # ══════════════════════════════════════════════
+    # Generate Tier 3: votos_{leg}.json per legislatura
+    # Includes individual votes + detail fields for VotacionDetail
+    # ══════════════════════════════════════════════
+    votos_by_leg = {}
+    detail_by_leg = {}
+    for v in votos_list:
+        leg = votaciones_list[v[0]].get("legislatura", "")
+        if leg:
+            votos_by_leg.setdefault(leg, []).append(v)
+
+    for i, vot in enumerate(votaciones_list):
+        leg = vot.get("legislatura", "")
+        detail = {k: vot[k] for k in DETAIL_FIELDS if k in vot and vot[k]}
+        if leg and detail:
+            detail_by_leg.setdefault(leg, {})[i] = detail
+
+    # ── Write all output files ──
+    output_dir = os.path.dirname(OUTPUT_FILE)
+    os.makedirs(output_dir, exist_ok=True)
+
+    with open(MANIFEST_FILE, "w", encoding="utf-8") as f:
+        json.dump(manifest, f, ensure_ascii=False, separators=(",", ":"))
+
+    with open(META_FILE, "w", encoding="utf-8") as f:
+        json.dump(meta_output, f, ensure_ascii=False, separators=(",", ":"))
+
+    for leg_id, leg_votos in votos_by_leg.items():
+        votos_file = os.path.join(output_dir, f"votos_{leg_id}.json")
+        tier3 = {"votos": leg_votos, "detail": detail_by_leg.get(leg_id, {})}
+        with open(votos_file, "w", encoding="utf-8") as f:
+            json.dump(tier3, f, ensure_ascii=False, separators=(",", ":"))
+
+    # Remove old backward-compat file if it exists
+    if os.path.exists(OUTPUT_FILE):
+        os.remove(OUTPUT_FILE)
+        print(f"  Eliminado {os.path.basename(OUTPUT_FILE)} (ya no se usa)")
 
     save_cache(cache)
 
+    # ── Print summary ──
+    manifest_size = os.path.getsize(MANIFEST_FILE) / 1024
+    meta_size = os.path.getsize(META_FILE) / (1024 * 1024)
     print(f"\nCompletado:")
     print(f"  {len(votaciones_list)} votaciones únicas")
     print(f"  {len(votos_list)} votos individuales")
     print(f"  {len(diputados_set)} diputados")
     print(f"  {len(grupos_set)} grupos")
+    print(f"  manifest_home.json: {manifest_size:.1f} KB")
+    print(f"  votaciones_meta.json: {meta_size:.1f} MB")
+    for leg_id in sorted(votos_by_leg.keys()):
+        votos_file = os.path.join(output_dir, f"votos_{leg_id}.json")
+        votos_size = os.path.getsize(votos_file) / (1024 * 1024)
+        print(f"  votos_{leg_id}.json: {votos_size:.1f} MB ({len(votos_by_leg[leg_id])} votos)")
     print(f"Nuevas categorizaciones: {new_categorizations}")
     print(f"Entradas en caché: {len(cache)}")
 

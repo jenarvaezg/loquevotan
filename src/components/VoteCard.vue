@@ -7,16 +7,23 @@ import ResultBadge from './ResultBadge.vue'
 
 const props = defineProps({
   idx: Number,
+  votData: Object,
+  votResult: Object,
 })
 
 const { votaciones, votResults, categorias } = useData()
 
-const vot = computed(() => votaciones.value[props.idx])
-const r = computed(() => votResults.value[props.idx])
+const vot = computed(() => props.votData || votaciones.value[props.idx])
+const r = computed(() => props.votResult || votResults.value[props.idx])
+const catLabel = computed(() => {
+  if (props.votData) return props.votData.categoria
+  return categorias.value[vot.value?.categoria]
+})
+const linkIdx = computed(() => props.votData?.idx ?? props.idx)
 </script>
 
 <template>
-  <router-link :to="'/votacion/' + idx" class="card vote-card card-link">
+  <router-link :to="'/votacion/' + linkIdx" class="card vote-card card-link">
     <div class="vote-card-header">
       <span class="vote-card-title">{{ vot.titulo_ciudadano }}</span>
       <ResultBadge :result="r.result" />
@@ -24,7 +31,7 @@ const r = computed(() => votResults.value[props.idx])
     <div class="vote-card-meta">
       <span>{{ vot.fecha }}</span>
       <span v-if="vot.subTipo" class="badge badge--sm" :class="subTipoBadgeClass(vot.subTipo)">{{ subTipoLabel(vot.subTipo) }}</span>
-      <span class="badge badge--cat">{{ fmt(categorias[vot.categoria]) }}</span>
+      <span class="badge badge--cat">{{ fmt(catLabel) }}</span>
       <span v-if="vot.proponente" class="badge badge--proponente">{{ vot.proponente }}</span>
     </div>
     <VoteBar :favor="r.favor" :contra="r.contra" :abstencion="r.abstencion" :total="r.total" small />

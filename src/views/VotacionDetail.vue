@@ -8,13 +8,28 @@ import ResultBadge from '../components/ResultBadge.vue'
 import ShareBar from '../components/ShareBar.vue'
 
 const route = useRoute()
-const { votaciones, votResults, votos, votosByVotacion, votsByExp, categorias, grupos, diputados } = useData()
+const { votaciones, votResults, votos, votosByVotacion, votsByExp, categorias, grupos, diputados, loadVotosForLeg, votosLoaded, votacionDetail } = useData()
 
 const idx = computed(() => parseInt(route.params.idx, 10))
-const vot = computed(() => votaciones.value[idx.value])
+const vot = computed(() => {
+  const base = votaciones.value[idx.value]
+  if (!base) return base
+  const detail = votacionDetail.value[idx.value]
+  return detail ? { ...base, ...detail } : base
+})
 const r = computed(() => votResults.value[idx.value])
 const dipSearch = ref('')
 const highlightedDip = ref('')
+
+const votosReady = computed(() => {
+  if (!vot.value?.legislatura) return false
+  return votosLoaded.value.has(vot.value.legislatura)
+})
+
+// Load votos for this votacion's legislatura
+watch(vot, (v) => {
+  if (v?.legislatura) loadVotosForLeg(v.legislatura)
+}, { immediate: true })
 
 // Handle ?dip= query param to pre-filter and highlight a specific diputado
 watch(() => route.query.dip, (dip) => {
@@ -27,6 +42,7 @@ watch(() => route.query.dip, (dip) => {
 
 // Group breakdown
 const byGroup = computed(() => {
+  if (!votosReady.value) return {}
   const result = {}
   const indices = votosByVotacion.value[idx.value] || []
   for (let j = 0; j < indices.length; j++) {
@@ -47,6 +63,7 @@ const sortedGroups = computed(() =>
 
 // Individual votes sorted by name
 const sortedVoteIndices = computed(() => {
+  if (!votosReady.value) return []
   const indices = votosByVotacion.value[idx.value] || []
   return [...indices].sort((a, b) =>
     diputados.value[votos.value[a][1]].localeCompare(diputados.value[votos.value[b][1]])
@@ -158,7 +175,6 @@ watch(vot, (v) => {
           <span class="badge badge--cat">{{ fmt(categorias[vot.categoria]) }}</span>
           <span v-for="tag in (vot.etiquetas || [])" :key="tag" class="chip">{{ fmt(tag) }}</span>
         </div>
-
       </div>
 
       <!-- Official text and source -->
@@ -183,30 +199,36 @@ watch(vot, (v) => {
         </div>
       </div>
 
-      <div class="detail-section">
-        <h2>Votos por grupo parlamentario</h2>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Grupo</th>
-                <th>A favor</th>
-                <th>En contra</th>
-                <th>Abstenciones</th>
-                <th>Total</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="gIdx in sortedGroups" :key="gIdx">
-                <td><span class="badge badge--grupo">{{ grupos[gIdx] }}</span></td>
-                <td>{{ byGroup[gIdx][1] }}</td>
-                <td>{{ byGroup[gIdx][2] }}</td>
-                <td>{{ byGroup[gIdx][3] }}</td>
-                <td>{{ byGroup[gIdx].total }}</td>
-              </tr>
-            </tbody>
-          </table>
+      <template v-if="votosReady">
+        <div class="detail-section">
+          <h2>Votos por grupo parlamentario</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Grupo</th>
+                  <th>A favor</th>
+                  <th>En contra</th>
+                  <th>Abstenciones</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="gIdx in sortedGroups" :key="gIdx">
+                  <td><span class="badge badge--grupo">{{ grupos[gIdx] }}</span></td>
+                  <td>{{ byGroup[gIdx][1] }}</td>
+                  <td>{{ byGroup[gIdx][2] }}</td>
+                  <td>{{ byGroup[gIdx][3] }}</td>
+                  <td>{{ byGroup[gIdx].total }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
+      </template>
+      <div v-else class="detail-section">
+        <h2>Votos por grupo parlamentario</h2>
+        <div class="loading-wrap" style="padding:2rem"><div class="loading-spinner"></div></div>
       </div>
 
       <!-- Expediente summary -->
@@ -265,53 +287,59 @@ watch(vot, (v) => {
         </div>
       </div>
 
-      <div class="detail-section">
-        <h2>Votos individuales</h2>
-        <input
-          v-model="dipSearch"
-          type="search"
-          class="filter-input"
-          placeholder="Buscar diputado/a..."
-          style="max-width:350px;margin-bottom:0.75rem"
-          @input="onDipSearch"
-        >
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Diputado/a</th>
-                <th>Grupo</th>
-                <th>Voto</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="vi in filteredVotes" :key="vi" :class="{ 'tr--highlighted': highlightedDip && diputados[votos[vi][1]] === highlightedDip }">
-                <td>
-                  <router-link :to="'/diputado/' + encodeURIComponent(diputados[votos[vi][1]])">
-                    {{ diputados[votos[vi][1]] }}
-                  </router-link>
-                </td>
-                <td><span class="badge badge--grupo">{{ grupos[votos[vi][2]] }}</span></td>
-                <td>
-                  <span class="voto-pill" :class="votoPillClass(votos[vi][3])">
-                    {{ VOTO_LABELS[votos[vi][3]] || '?' }}
-                  </span>
-                </td>
-                <td>
-                  <button class="btn-share-vote" :title="copiedVi === vi ? 'Copiado!' : 'Compartir voto'" @click.prevent="shareVote(vi)">
-                    {{ copiedVi === vi ? '&#10003;' : '&#128279;' }}
-                  </button>
-                </td>
-              </tr>
-              <tr v-if="!filteredVotes.length">
-                <td colspan="4" class="text-center" style="padding:1.5rem;color:var(--color-muted)">
-                  Sin resultados
-                </td>
-              </tr>
-            </tbody>
-          </table>
+      <template v-if="votosReady">
+        <div class="detail-section">
+          <h2>Votos individuales</h2>
+          <input
+            v-model="dipSearch"
+            type="search"
+            class="filter-input"
+            placeholder="Buscar diputado/a..."
+            style="max-width:350px;margin-bottom:0.75rem"
+            @input="onDipSearch"
+          >
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Diputado/a</th>
+                  <th>Grupo</th>
+                  <th>Voto</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="vi in filteredVotes" :key="vi" :class="{ 'tr--highlighted': highlightedDip && diputados[votos[vi][1]] === highlightedDip }">
+                  <td>
+                    <router-link :to="'/diputado/' + encodeURIComponent(diputados[votos[vi][1]])">
+                      {{ diputados[votos[vi][1]] }}
+                    </router-link>
+                  </td>
+                  <td><span class="badge badge--grupo">{{ grupos[votos[vi][2]] }}</span></td>
+                  <td>
+                    <span class="voto-pill" :class="votoPillClass(votos[vi][3])">
+                      {{ VOTO_LABELS[votos[vi][3]] || '?' }}
+                    </span>
+                  </td>
+                  <td>
+                    <button class="btn-share-vote" :title="copiedVi === vi ? 'Copiado!' : 'Compartir voto'" @click.prevent="shareVote(vi)">
+                      {{ copiedVi === vi ? '&#10003;' : '&#128279;' }}
+                    </button>
+                  </td>
+                </tr>
+                <tr v-if="!filteredVotes.length">
+                  <td colspan="4" class="text-center" style="padding:1.5rem;color:var(--color-muted)">
+                    Sin resultados
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
+      </template>
+      <div v-else class="detail-section">
+        <h2>Votos individuales</h2>
+        <div class="loading-wrap" style="padding:2rem"><div class="loading-spinner"></div></div>
       </div>
     </div>
   </section>

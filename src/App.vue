@@ -2,23 +2,18 @@
 import NavBar from './components/NavBar.vue'
 import { useData } from './composables/useData'
 
-const { loading, error, loadData } = useData()
+const { error, loadData } = useData()
 loadData()
 </script>
 
 <template>
   <NavBar />
 
-  <div v-if="loading" class="loading-wrap">
-    <div class="loading-spinner"></div>
-    <p class="loading-text">Cargando datos del Congreso...</p>
-  </div>
-
-  <p v-else-if="error" class="error-msg" role="alert" style="display:block">
+  <p v-if="error" class="error-msg" role="alert" style="display:block">
     {{ error }}
   </p>
 
-  <router-view v-else />
+  <router-view />
 
   <footer class="site-footer">
     Datos oficiales del

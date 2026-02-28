@@ -1,68 +1,29 @@
 <script setup>
-import { ref, computed, watch } from 'vue'
+import { ref, computed } from 'vue'
 import { useData } from '../composables/useData'
 import { LEGISLATURAS, affinityColor } from '../utils'
 
-const { votaciones, votos, votosByVotacion, grupos } = useData()
+const { grupos, groupAffinityByLeg, loaded } = useData()
 
 const legFilter = ref('XV')
 
 const affinityData = computed(() => {
   const leg = legFilter.value
+  const aff = groupAffinityByLeg.value[leg] || groupAffinityByLeg.value[''] || {}
 
-  // Collect valid group indices
-  const grupoSet = new Set()
-  for (let vi = 0; vi < votaciones.value.length; vi++) {
-    if (leg && votaciones.value[vi].legislatura !== leg) continue
-    const indices = votosByVotacion.value[vi] || []
-    for (let j = 0; j < indices.length; j++) {
-      grupoSet.add(votos.value[indices[j]][2])
-    }
-  }
-
-  // Recompute affinity filtered by legislatura
-  const aff = {}
-  for (let vi = 0; vi < votaciones.value.length; vi++) {
-    if (leg && votaciones.value[vi].legislatura !== leg) continue
-    const indices = votosByVotacion.value[vi] || []
-    const byGroup = {}
-    for (let j = 0; j < indices.length; j++) {
-      const v = votos.value[indices[j]]
-      const grp = v[2]
-      const code = v[3]
-      if (!byGroup[grp]) byGroup[grp] = { 1: 0, 2: 0, 3: 0 }
-      byGroup[grp][code]++
-    }
-    const gm = {}
-    for (const gIdx in byGroup) {
-      const c = byGroup[gIdx]
-      gm[gIdx] = c[1] >= c[2] && c[1] >= c[3] ? 1 : c[2] >= c[3] ? 2 : 3
-    }
-    const gKeys = Object.keys(gm).map(Number)
-    for (let a = 0; a < gKeys.length; a++) {
-      for (let b = a + 1; b < gKeys.length; b++) {
-        const ga = gKeys[a]
-        const gb = gKeys[b]
-        const key = ga < gb ? ga + ',' + gb : gb + ',' + ga
-        if (!aff[key]) aff[key] = { same: 0, total: 0 }
-        aff[key].total++
-        if (gm[ga] === gm[gb]) aff[key].same++
-      }
-    }
-  }
-
-  // Count total votaciones per group
   const groupTotals = {}
+  const allGroups = new Set()
   for (const key in aff) {
     const parts = key.split(',')
     const ga = Number(parts[0])
     const gb = Number(parts[1])
+    allGroups.add(ga)
+    allGroups.add(gb)
     groupTotals[ga] = (groupTotals[ga] || 0) + aff[key].total
     groupTotals[gb] = (groupTotals[gb] || 0) + aff[key].total
   }
 
-  // Filter groups with >= 10 votaciones
-  const validGroups = Array.from(grupoSet)
+  const validGroups = Array.from(allGroups)
     .filter(g => (groupTotals[g] || 0) >= 10)
     .sort((a, b) => a - b)
 
@@ -79,8 +40,6 @@ function cellData(ga, gb) {
   const title = `${pctStr} (${d.same}/${d.total} votaciones coinciden)`
   return { pctStr, bg: affinityColor(pct), title, isSelf: false }
 }
-
-watch(legFilter, () => {}, { immediate: true })
 </script>
 
 <template>
@@ -149,6 +108,10 @@ watch(legFilter, () => {}, { immediate: true })
           </span>
         </div>
       </template>
+
+      <div v-else-if="!loaded" class="loading-wrap" style="padding:2rem">
+        <div class="loading-spinner"></div>
+      </div>
 
       <div v-else class="empty-state">
         <div class="empty-state-icon">&#128202;</div>

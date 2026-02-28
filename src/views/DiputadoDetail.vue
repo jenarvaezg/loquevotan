@@ -11,7 +11,7 @@ import AccountabilityCard from '../components/AccountabilityCard.vue'
 
 const route = useRoute()
 const router = useRouter()
-const { diputados, grupos, dipStats, dipFotos, votos, votaciones, votResults, votosByDiputado, categorias } = useData()
+const { diputados, grupos, dipStats, dipFotos, votos, votaciones, votResults, votosByDiputado, categorias, loadVotosForLeg, votosLoaded } = useData()
 
 const dipIdx = computed(() => diputados.value.indexOf(decodeURIComponent(route.params.name)))
 const name = computed(() => diputados.value[dipIdx.value])
@@ -20,6 +20,19 @@ const grupoName = computed(() =>
   ds.value?.mainGrupo >= 0 ? grupos.value[ds.value.mainGrupo] : 'Sin grupo'
 )
 const photoUrl = computed(() => dipPhotoUrl(dipFotos.value[dipIdx.value]))
+
+// Track if votos for this diputado's legislaturas are loaded
+const votosReady = computed(() => {
+  if (!ds.value?.legislaturas?.length) return false
+  return ds.value.legislaturas.every(leg => votosLoaded.value.has(leg))
+})
+
+// Load votos for all legislaturas this diputado participated in
+watch(ds, (stats) => {
+  if (stats?.legislaturas) {
+    stats.legislaturas.forEach(leg => loadVotosForLeg(leg))
+  }
+}, { immediate: true })
 
 // History filters
 const histSearch = ref('')
@@ -32,6 +45,7 @@ const accTag = ref('')
 
 // Category profile
 const catBreakdown = computed(() => {
+  if (!votosReady.value) return []
   const indices = votosByDiputado.value[dipIdx.value] || []
   const result = {}
   for (let j = 0; j < indices.length; j++) {
@@ -50,6 +64,7 @@ const catBreakdown = computed(() => {
 
 // Top tags
 const dipTopTags = computed(() => {
+  if (!votosReady.value) return []
   const indices = votosByDiputado.value[dipIdx.value] || []
   const counts = {}
   for (let j = 0; j < indices.length; j++) {
@@ -66,6 +81,7 @@ const dipTopTags = computed(() => {
 
 // Vote history records sorted by date desc
 const dipRecords = computed(() => {
+  if (!votosReady.value) return []
   const indices = votosByDiputado.value[dipIdx.value] || []
   return indices
     .map(vi => {
@@ -187,137 +203,142 @@ watch(name, (n) => {
 
       <VoteBar :favor="ds.favor" :contra="ds.contra" :abstencion="ds.abstencion" :total="ds.total" />
 
-      <!-- Category profile -->
-      <div v-if="catBreakdown.length" class="detail-section">
-        <h2>Perfil tematico</h2>
-        <div class="cat-profile">
-          <div v-for="[catIdx, counts] in catBreakdown" :key="catIdx" class="cat-profile-row">
-            <span class="cat-profile-label" :title="fmt(categorias[catIdx] || catIdx)">
-              {{ fmt(categorias[catIdx] || catIdx) }}
-            </span>
-            <div class="cat-profile-bar">
-              <div
-                class="cat-profile-seg"
-                :style="{ width: catPcts(counts).favorPct + '%', background: 'var(--color-favor)' }"
-                :title="catPcts(counts).favorPct + '% A favor'"
-              />
-              <div
-                class="cat-profile-seg"
-                :style="{ width: catPcts(counts).contraPct + '%', background: 'var(--color-contra)' }"
-                :title="catPcts(counts).contraPct + '% En contra'"
-              />
-              <div
-                class="cat-profile-seg"
-                :style="{ width: catPcts(counts).abstPct + '%', background: 'var(--color-abstencion)' }"
-                :title="catPcts(counts).abstPct + '% Abstencion'"
-              />
+      <template v-if="votosReady">
+        <!-- Category profile -->
+        <div v-if="catBreakdown.length" class="detail-section">
+          <h2>Perfil tematico</h2>
+          <div class="cat-profile">
+            <div v-for="[catIdx, counts] in catBreakdown" :key="catIdx" class="cat-profile-row">
+              <span class="cat-profile-label" :title="fmt(categorias[catIdx] || catIdx)">
+                {{ fmt(categorias[catIdx] || catIdx) }}
+              </span>
+              <div class="cat-profile-bar">
+                <div
+                  class="cat-profile-seg"
+                  :style="{ width: catPcts(counts).favorPct + '%', background: 'var(--color-favor)' }"
+                  :title="catPcts(counts).favorPct + '% A favor'"
+                />
+                <div
+                  class="cat-profile-seg"
+                  :style="{ width: catPcts(counts).contraPct + '%', background: 'var(--color-contra)' }"
+                  :title="catPcts(counts).contraPct + '% En contra'"
+                />
+                <div
+                  class="cat-profile-seg"
+                  :style="{ width: catPcts(counts).abstPct + '%', background: 'var(--color-abstencion)' }"
+                  :title="catPcts(counts).abstPct + '% Abstencion'"
+                />
+              </div>
+              <span class="cat-profile-count">{{ counts.total }}</span>
             </div>
-            <span class="cat-profile-count">{{ counts.total }}</span>
           </div>
         </div>
-      </div>
 
-      <!-- Top tags -->
-      <div v-if="dipTopTags.length" class="detail-section">
-        <h2>Temas mas votados</h2>
-        <div>
-          <span
-            v-for="[tag, count] in dipTopTags"
-            :key="tag"
-            class="chip chip--lg chip--clickable"
-            :class="{ 'chip--active': activeTag === tag }"
-            @click="toggleTag(tag)"
-          >
-            {{ fmt(tag) }} ({{ count }})
-          </span>
-        </div>
-      </div>
-
-      <!-- Vote history -->
-      <div class="detail-section">
-        <h2>Historial de votos</h2>
-        <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.75rem">
-          <input
-            v-model="histSearch"
-            type="search"
-            class="filter-input"
-            placeholder="Buscar asunto..."
-            style="flex:1;min-width:200px"
-            @input="onHistSearch"
-          >
-          <select v-model="histVoto" class="filter-select" style="width:auto;min-width:130px" @change="histPage = 1">
-            <option value="">Todos los votos</option>
-            <option value="1">A favor</option>
-            <option value="2">En contra</option>
-            <option value="3">Abstencion</option>
-          </select>
-          <select v-model="histLeg" class="filter-select" style="width:auto;min-width:130px" @change="histPage = 1">
-            <option value="">Todas las legislaturas</option>
-            <option v-for="l in (ds.legislaturas || [])" :key="l" :value="l">{{ l }}</option>
-          </select>
+        <!-- Top tags -->
+        <div v-if="dipTopTags.length" class="detail-section">
+          <h2>Temas mas votados</h2>
+          <div>
+            <span
+              v-for="[tag, count] in dipTopTags"
+              :key="tag"
+              class="chip chip--lg chip--clickable"
+              :class="{ 'chip--active': activeTag === tag }"
+              @click="toggleTag(tag)"
+            >
+              {{ fmt(tag) }} ({{ count }})
+            </span>
+          </div>
         </div>
 
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Fecha</th>
-                <th>Legislatura</th>
-                <th>Asunto</th>
-                <th>Categoria</th>
-                <th>Resultado</th>
-                <th>Voto</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="rec in histPageItems" :key="rec.votIdx">
-                <td>{{ votaciones[rec.votIdx].fecha }}</td>
-                <td>
-                  <span v-if="votaciones[rec.votIdx].legislatura" class="badge badge--leg">
-                    {{ votaciones[rec.votIdx].legislatura }}
-                  </span>
-                </td>
-                <td>
-                  <router-link :to="'/votacion/' + rec.votIdx">
-                    {{ votaciones[rec.votIdx].titulo_ciudadano }}
-                  </router-link>
-                  <span
-                    v-if="votaciones[rec.votIdx].subTipo"
-                    class="badge badge--sm"
-                    :class="subTipoBadgeClass(votaciones[rec.votIdx].subTipo)"
-                    style="margin-left:0.35rem"
-                  >{{ subTipoLabel(votaciones[rec.votIdx].subTipo) }}</span>
-                </td>
-                <td>
-                  <span class="badge badge--cat">
-                    {{ fmt(categorias[votaciones[rec.votIdx].categoria]) }}
-                  </span>
-                </td>
-                <td>
-                  <ResultBadge :result="votResults[rec.votIdx].result" />
-                </td>
-                <td>
-                  <span class="voto-pill" :class="votoPillClass(rec.code)">
-                    {{ VOTO_LABELS[rec.code] || '?' }}
-                  </span>
-                </td>
-              </tr>
-              <tr v-if="!histPageItems.length">
-                <td colspan="6" class="text-center" style="padding:1.5rem;color:var(--color-muted)">
-                  Sin resultados
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <!-- Vote history -->
+        <div class="detail-section">
+          <h2>Historial de votos</h2>
+          <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.75rem">
+            <input
+              v-model="histSearch"
+              type="search"
+              class="filter-input"
+              placeholder="Buscar asunto..."
+              style="flex:1;min-width:200px"
+              @input="onHistSearch"
+            >
+            <select v-model="histVoto" class="filter-select" style="width:auto;min-width:130px" @change="histPage = 1">
+              <option value="">Todos los votos</option>
+              <option value="1">A favor</option>
+              <option value="2">En contra</option>
+              <option value="3">Abstencion</option>
+            </select>
+            <select v-model="histLeg" class="filter-select" style="width:auto;min-width:130px" @change="histPage = 1">
+              <option value="">Todas las legislaturas</option>
+              <option v-for="l in (ds.legislaturas || [])" :key="l" :value="l">{{ l }}</option>
+            </select>
+          </div>
 
-        <Pagination :total-pages="histTotalPages" :current="histPage" @page="p => histPage = p" />
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Legislatura</th>
+                  <th>Asunto</th>
+                  <th>Categoria</th>
+                  <th>Resultado</th>
+                  <th>Voto</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="rec in histPageItems" :key="rec.votIdx">
+                  <td>{{ votaciones[rec.votIdx].fecha }}</td>
+                  <td>
+                    <span v-if="votaciones[rec.votIdx].legislatura" class="badge badge--leg">
+                      {{ votaciones[rec.votIdx].legislatura }}
+                    </span>
+                  </td>
+                  <td>
+                    <router-link :to="'/votacion/' + rec.votIdx">
+                      {{ votaciones[rec.votIdx].titulo_ciudadano }}
+                    </router-link>
+                    <span
+                      v-if="votaciones[rec.votIdx].subTipo"
+                      class="badge badge--sm"
+                      :class="subTipoBadgeClass(votaciones[rec.votIdx].subTipo)"
+                      style="margin-left:0.35rem"
+                    >{{ subTipoLabel(votaciones[rec.votIdx].subTipo) }}</span>
+                  </td>
+                  <td>
+                    <span class="badge badge--cat">
+                      {{ fmt(categorias[votaciones[rec.votIdx].categoria]) }}
+                    </span>
+                  </td>
+                  <td>
+                    <ResultBadge :result="votResults[rec.votIdx].result" />
+                  </td>
+                  <td>
+                    <span class="voto-pill" :class="votoPillClass(rec.code)">
+                      {{ VOTO_LABELS[rec.code] || '?' }}
+                    </span>
+                  </td>
+                </tr>
+                <tr v-if="!histPageItems.length">
+                  <td colspan="6" class="text-center" style="padding:1.5rem;color:var(--color-muted)">
+                    Sin resultados
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <Pagination :total-pages="histTotalPages" :current="histPage" @page="p => histPage = p" />
+        </div>
+      </template>
+      <div v-else class="detail-section">
+        <div class="loading-wrap" style="padding:2rem"><div class="loading-spinner"></div></div>
       </div>
 
       <ShareBar :title="name + ' - ' + grupoName" />
 
       <AccountabilityCard
-        v-if="showAccCard"
+        v-if="showAccCard && votosReady"
         :dip-idx="dipIdx"
         :tag="accTag"
         @close="closeAccCard"

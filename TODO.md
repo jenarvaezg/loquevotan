@@ -2,6 +2,7 @@
 
 ## Próximos pasos
 
+
 ### CCAA (Comunidades Autónomas)
 - [ ] Investigar qué parlamentos autonómicos tienen datos abiertos de votaciones
 - [ ] Candidatos prioritarios: Cataluña (parlament.cat), País Vasco (legebiltzarra.eus), Andalucía (parlamentodeandalucia.es)
@@ -21,3 +22,4 @@
 - [ ] Optimizar JSON de 77MB (gzip, paginación server-side, o split por legislatura)
 - [ ] Git LFS para votaciones.json
 - [ ] OG dinámico por diputado/votación (requiere proxy edge o prerender, no posible con hash routing + GitHub Pages estático)
+- [ ] Agrupar votaciones por enmienda en los listados.
