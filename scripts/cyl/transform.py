@@ -2,6 +2,11 @@ import json
 import os
 import hashlib
 import datetime
+import sys
+
+# Add root dir to path to import ai_utils
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
+import ai_utils
 
 # Configuration
 AMBITO = "cyl"
@@ -9,11 +14,13 @@ RAW_DIR = f"data/{AMBITO}"
 OUTPUT_DIR = f"public/data/{AMBITO}"
 META_FILE = f"{OUTPUT_DIR}/votaciones_meta.json"
 AMBITOS_CONFIG = "public/data/ambitos.json"
+PROMPT_FILE = "scripts/prompt_categorizacion.txt"
 
 LEGISLATURAS = ["XI", "X"]
 
 def transform():
     os.makedirs(OUTPUT_DIR, exist_ok=True)
+    api_key = os.environ.get("GEMINI_API_KEY")
     
     # 1. Load all raw votes and deputies
     all_raw_votes = []
@@ -28,12 +35,18 @@ def transform():
         raw_deps_list = json.load(f)
         raw_deps_map = {d["id"]: d for d in raw_deps_list}
     
-    # Use a dummy cache for now
+    cache_file = f"{RAW_DIR}/cache_categorias.json"
     cache = {}
+    if os.path.exists(cache_file):
+        with open(cache_file, "r") as f:
+            cache = json.load(f)
             
     # 2. Collect unique deputies and groups across all legislatures
     deputados_all = {}
     grupos_all = set()
+    
+    # Track titles for AI categorization
+    titles_to_categorize = []
     
     for v in all_raw_votes:
         for voto in v["votos"]:
@@ -46,6 +59,28 @@ def transform():
                 }
             grupos_all.add(voto["grupo"])
             
+        # Check if title is in cache
+        if v["titulo"] not in cache and v["titulo"] != "Votación nominal":
+            if not any(t[0] == v["titulo"] for t in titles_to_categorize):
+                titles_to_categorize.append((v["titulo"], v["titulo"]))
+
+    # 3. Categorize with AI if needed
+    if titles_to_categorize and api_key:
+        print(f"Categorizing {len(titles_to_categorize)} new titles for CyL...")
+        with open(PROMPT_FILE, "r") as f:
+            prompt_text = f.read()
+            
+        BATCH_SIZE = 30
+        for i in range(0, len(titles_to_categorize), BATCH_SIZE):
+            batch = titles_to_categorize[i:i+BATCH_SIZE]
+            print(f"  Lote {i//BATCH_SIZE + 1}/{(len(titles_to_categorize)-1)//BATCH_SIZE + 1}...")
+            results = ai_utils.categorize_batch(batch, api_key, prompt_text)
+            cache.update(results)
+            
+        # Save updated cache
+        with open(cache_file, "w") as f:
+            json.dump(cache, f, indent=2, ensure_ascii=False)
+
     diputados_list = sorted(list(deputados_all.values()), key=lambda x: x["nombre"])
     grupos_list = sorted(list(grupos_all))
     
@@ -53,17 +88,21 @@ def transform():
     dip_id_to_idx = {d["id"]: i for i, d in enumerate(diputados_list)}
     grupo_to_idx = {g: i for i, g in enumerate(grupos_list)}
     
-    # 3. Categories and tags
-    categorias_list = ["Otros"]
-    cat_to_idx = {"Otros": 0}
+    # 4. Categories and tags
+    categorias_all = {"Otros"}
+    for item in cache.values():
+        categorias_all.add(item.get("categoria_principal", item.get("categoria", "Otros")))
     
-    # 4. Process each legislature
+    categorias_list = sorted(list(categorias_all))
+    cat_to_idx = {c: i for i, c in enumerate(categorias_list)}
+    
+    # 5. Process each legislature
     votaciones_meta_list = []
     vot_results = []
-    tag_counts = {"cyl": 0}
+    tag_counts = {}
     
-    votos_by_leg = {leg: [] for leg in LEGISLATURAS}
-    vot_detail_by_leg = {leg: {} for leg in LEGISLATURAS}
+    votos_by_leg = {leg: [] for leg in ["XI", "X"]}
+    vot_detail_by_leg = {leg: {} for leg in ["XI", "X"]}
     
     # Sort all votes by date descending
     all_raw_votes.sort(key=lambda x: x["fecha"], reverse=True)
@@ -71,8 +110,15 @@ def transform():
     leg_map = {"11": "XI", "10": "X"}
     
     for i, v in enumerate(all_raw_votes):
+        cat_info = cache.get(v["titulo"], {
+            "categoria_principal": "Otros",
+            "etiquetas": [],
+            "resumen_sencillo": "Votación nominal en las Cortes de Castilla y León",
+            "titulo_ciudadano": v["titulo"]
+        })
+        
         vot_idx = i
-        leg_id = v["id"].split("-")[1] # 11 or 10
+        leg_id = v["id"].split("-")[1] 
         leg_roman = leg_map.get(leg_id, "XI")
         leg_key = leg_roman 
         
@@ -96,18 +142,31 @@ def transform():
             
         votaciones_meta_list.append({
             "id": v["id"],
-            "leg": leg_roman,
+            "legislatura": leg_roman,
             "fecha": v["fecha"],
-            "tit": v["titulo"],
-            "cat": 0,
-            "tags": ["cyl"]
+            "titulo_ciudadano": cat_info.get("titulo_ciudadano", v["titulo"]),
+            "categoria": cat_to_idx[cat_info.get("categoria_principal", cat_info.get("categoria", "Otros"))],
+            "etiquetas": cat_info.get("etiquetas", []) + ["cyl"]
         })
         
-        vot_results.append([favor, contra, abstencion, no_vota])
-        tag_counts["cyl"] += 1
+        total = favor + contra + abstencion
+        result = "Aprobada" if favor > contra else ("Rechazada" if contra > favor else "Empate")
+        vot_results.append({
+            "favor": favor,
+            "contra": contra,
+            "abstencion": abstencion,
+            "total": total,
+            "result": result,
+            "margin": abs(favor - contra),
+        })
+        
+        # Merge tags including institutions
+        all_tags = cat_info.get("etiquetas", []) + ["cyl"]
+        for tag in all_tags:
+            tag_counts[tag] = tag_counts.get(tag, 0) + 1
             
         vot_detail_by_leg[leg_key][vot_idx] = {
-            "resumen": "Votación nominal en las Cortes de Castilla y León",
+            "resumen": cat_info.get("resumen_sencillo", "Votación nominal en las Cortes de Castilla y León"),
             "textoOficial": v["titulo"],
             "urlCyL": f"https://www.ccyl.es/Publicaciones/TextoEntradaDiario?Legislatura={leg_id}&SeriePublicacion=DS(P)&NumeroPublicacion={v['id'].split('-')[2]}"
         }

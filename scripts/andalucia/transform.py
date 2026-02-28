@@ -2,18 +2,25 @@ import json
 import os
 import hashlib
 import datetime
+import sys
+
+# Add root dir to path to import ai_utils
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
+import ai_utils
 
 # Configuration
 AMBITO = "andalucia"
 RAW_DIR = f"data/{AMBITO}"
 OUTPUT_DIR = f"public/data/{AMBITO}"
 META_FILE = f"{OUTPUT_DIR}/votaciones_meta.json"
-MANIFEST_FILE = f"public/data/manifest_home.json"
+AMBITOS_CONFIG = "public/data/ambitos.json"
+PROMPT_FILE = "scripts/prompt_categorizacion.txt"
 
 LEGISLATURAS = ["XII", "XI", "X", "IX"]
 
 def transform():
     os.makedirs(OUTPUT_DIR, exist_ok=True)
+    api_key = os.environ.get("GEMINI_API_KEY")
     
     # 1. Load all raw votes and deputies
     all_raw_votes = []
@@ -38,6 +45,9 @@ def transform():
     deputados_all = {}
     grupos_all = set()
     
+    # Track titles for AI categorization
+    titles_to_categorize = []
+    
     for v in all_raw_votes:
         for voto in v["votos"]:
             if voto["diputadoId"] not in deputados_all:
@@ -48,7 +58,31 @@ def transform():
                     "foto": raw_deps_map.get(voto["diputadoId"], {}).get("foto")
                 }
             grupos_all.add(voto["grupo"])
+        
+        # Check if title is in cache
+        if v["titulo"] not in cache and v["titulo"] != "Votación sin título":
+            # Avoid duplicates in batch
+            if not any(t[0] == v["titulo"] for t in titles_to_categorize):
+                titles_to_categorize.append((v["titulo"], v["titulo"]))
+
+    # 3. Categorize with AI if needed
+    if titles_to_categorize and api_key:
+        print(f"Categorizing {len(titles_to_categorize)} new titles for Andalusia...")
+        with open(PROMPT_FILE, "r") as f:
+            prompt_text = f.read()
             
+        # Limit to 30 at a time to stay under tokens/limits
+        BATCH_SIZE = 30
+        for i in range(0, len(titles_to_categorize), BATCH_SIZE):
+            batch = titles_to_categorize[i:i+BATCH_SIZE]
+            print(f"  Lote {i//BATCH_SIZE + 1}/{(len(titles_to_categorize)-1)//BATCH_SIZE + 1}...")
+            results = ai_utils.categorize_batch(batch, api_key, prompt_text)
+            cache.update(results)
+            
+        # Save updated cache
+        with open(cache_file, "w") as f:
+            json.dump(cache, f, indent=2, ensure_ascii=False)
+
     diputados_list = sorted(list(deputados_all.values()), key=lambda x: x["nombre"])
     grupos_list = sorted(list(grupos_all))
     

@@ -1,19 +1,17 @@
 #!/usr/bin/env python3
 """
 Transforma los JSON brutos del Congreso en votaciones.json para el frontend.
-Usa gemini-cli para categorizar los textos parlamentarios con etiquetas múltiples.
+Usa Gemini AI para categorizar los textos parlamentarios con etiquetas múltiples.
 """
 
 import glob
 import hashlib
 import json
 import os
-import json
-import os
 import sys
 from google import genai
 from google.genai import types
-import sys
+import ai_utils
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 RAW_DIR = os.path.join(SCRIPT_DIR, "..", "data", "raw")
@@ -23,102 +21,6 @@ PROMPT_FILE = os.path.join(SCRIPT_DIR, "prompt_categorizacion.txt")
 FOTO_MAP_FILE = os.path.join(SCRIPT_DIR, "..", "data", "foto_map.json")
 MANIFEST_FILE = os.path.join(SCRIPT_DIR, "..", "public", "data", "manifest_home.json")
 META_FILE = os.path.join(SCRIPT_DIR, "..", "public", "data", "votaciones_meta.json")
-
-VALID_CATEGORIES = frozenset([
-    "Economia_y_Hacienda", "Sanidad", "Educacion", "Vivienda",
-    "Trabajo_y_Pensiones", "Derechos_Sociales", "Justicia",
-    "Interior_y_Seguridad", "Medio_Ambiente", "Infraestructuras",
-    "Politica_Territorial", "Asuntos_Exteriores", "Gobernanza",
-    "Agricultura", "Cultura", "Otros",
-    # Legacy names with accents (accept but normalize)
-    "Economía_y_Hacienda", "Educación",
-])
-
-# Normalize accented category names to non-accented
-CATEGORY_NORMALIZE = {
-    "Economía_y_Hacienda": "Economia_y_Hacienda",
-    "Educación": "Educacion",
-}
-
-VALID_TAGS = frozenset([
-    # Procedimiento parlamentario
-    "procedimiento_parlamentario", "tramitar_ley_urgencia",
-    "crear_comision_investigacion", "reformar_reglamento_congreso",
-    "aprobar_acuerdo_internacional",
-    # Control al gobierno
-    "controlar_gobierno", "exigir_responsabilidades_gobierno",
-    "reprobar_gestion_gobierno",
-    # Presupuestos y finanzas
-    "aprobar_presupuestos", "controlar_gasto_publico",
-    "reducir_deficit", "limitar_deuda_publica",
-    # Impuestos
-    "subir_impuestos", "bajar_impuestos", "combatir_fraude_fiscal",
-    # Economia
-    "impulsar_crecimiento_economico", "apoyar_emprendedores",
-    "proteger_consumidores", "regular_sector_financiero",
-    # Empleo
-    "crear_empleo", "mejorar_condiciones_laborales",
-    "reducir_jornada_laboral", "proteger_trabajadores",
-    # Pensiones
-    "subir_pensiones", "reformar_pensiones", "garantizar_pensiones",
-    # Conciliacion y seguridad social
-    "impulsar_conciliacion", "reformar_seguridad_social",
-    # Sanidad
-    "proteger_sanidad_publica", "ampliar_sanidad_publica",
-    "mejorar_salud_mental", "proteger_enfermos", "legalizar_eutanasia",
-    # Educacion
-    "reformar_educacion", "proteger_educacion_publica",
-    "financiar_universidad", "impulsar_formacion_profesional",
-    "impulsar_ciencia",
-    # Vivienda
-    "facilitar_acceso_vivienda", "evitar_desahucios",
-    "proteger_inquilinos", "limitar_okupacion",
-    # Igualdad y genero
-    "combatir_violencia_machista", "impulsar_igualdad_genero",
-    "proteger_derechos_lgbti",
-    # Derechos sociales
-    "combatir_pobreza", "proteger_infancia", "proteger_familias",
-    "proteger_personas_discapacidad", "proteger_derechos_humanos",
-    "proteger_libertad_expresion",
-    # Inmigracion
-    "restringir_inmigracion", "regularizar_inmigrantes",
-    "proteger_refugiados",
-    # Justicia
-    "reformar_codigo_penal", "reformar_poder_judicial",
-    "reformar_tribunal_constitucional", "combatir_corrupcion",
-    "recuperar_memoria_historica",
-    # Seguridad
-    "aumentar_seguridad_ciudadana", "combatir_terrorismo",
-    "proteger_victimas_terrorismo", "mejorar_seguridad_vial",
-    # Medio ambiente
-    "combatir_cambio_climatico", "reducir_emisiones",
-    "proteger_medio_ambiente", "gestionar_recursos_hidricos",
-    "proteger_biodiversidad",
-    # Energia
-    "impulsar_energia_renovable", "garantizar_suministro_electrico",
-    "combatir_pobreza_energetica",
-    # Infraestructuras
-    "mejorar_red_ferroviaria", "mejorar_carreteras",
-    "fomentar_transporte_publico", "financiar_infraestructuras",
-    "impulsar_telecomunicaciones",
-    # Territorio
-    "financiar_autonomias", "financiar_ayuntamientos",
-    "combatir_despoblacion", "reformar_financiacion_autonomica",
-    # Asuntos exteriores
-    "adaptar_normativa_europea", "impulsar_cooperacion_internacional",
-    "aumentar_gasto_defensa", "reducir_gasto_defensa",
-    "apoyar_palestina",
-    # Agricultura
-    "proteger_sector_primario", "defender_agricultores",
-    # Gobernanza
-    "aumentar_transparencia", "regular_lobbies",
-    "reformar_ley_electoral", "apoyar_monarquia", "abolir_monarquia",
-    # Emergencias
-    "aprobar_ayudas_emergencia", "financiar_reconstruccion",
-    # Cultura
-    "impulsar_cultura", "reformar_medios_comunicacion",
-    "proteger_lenguas_cooficiales",
-])
 
 VOTE_MAP = {
     "Si": "A favor",
@@ -152,21 +54,15 @@ def classify_subgrupo(titulo_subgrupo):
         return ""
     if "texto d" in tl or "conjunto" in tl:
         return "final"
-    if "totalidad" in tl:
-        return "totalidad"
-    if "transaccion" in tl:
-        return "transaccional"
-    if "voto particular" in tl or "votos particulares" in tl:
-        return "particular"
     if "enmienda" in tl:
         return "enmienda"
-    if "separada" in tl or "punto" in tl:
-        return "separada"
-    if "dictamen" in tl:
-        return "dictamen"
-    if "propuesta" in tl:
-        return "propuesta"
+    if "sección" in tl or "presupuest" in tl:
+        return "presupuestos"
     return "otro"
+
+
+def text_hash(text):
+    return ai_utils.text_hash(text)
 
 
 def load_cache():
@@ -181,122 +77,6 @@ def save_cache(cache):
         json.dump(cache, f, ensure_ascii=False, indent=2)
 
 
-def text_hash(text):
-    return hashlib.sha256(text.encode("utf-8")).hexdigest()[:16]
-
-
-def categorize_batch(texts_with_hashes):
-    """Categorize a batch of parliamentary texts using google-genai.
-
-    Args:
-        texts_with_hashes: list of (hash, text_expediente) tuples
-
-    Returns:
-        dict mapping hash -> categorization data
-    """
-    with open(PROMPT_FILE, encoding="utf-8") as f:
-        prompt_template = f.read()
-
-    # Build batch prompt
-    batch_items = []
-    for i, (h, text) in enumerate(texts_with_hashes):
-        batch_items.append(f'[{i}] "{text}"')
-    items_block = "\\n".join(batch_items)
-
-    full_prompt = (
-        f"{prompt_template}\\n\\n"
-        f"Categoriza CADA uno de los siguientes {len(texts_with_hashes)} asuntos parlamentarios.\\n"
-        f"Devuelve un JSON array con un objeto por asunto, en el MISMO ORDEN.\\n"
-        f"SOLO el JSON array, sin markdown ni explicacion.\\n\\n"
-        f"{items_block}"
-    )
-
-    try:
-        # Initialize the client. It will automatically pick up GEMINI_API_KEY from the environment
-        client = genai.Client()
-        
-        response = client.models.generate_content(
-            model='gemini-2.5-flash',
-            contents=full_prompt,
-            config=types.GenerateContentConfig(
-                temperature=0.1,
-            )
-        )
-
-        output = response.text.strip()
-
-        if not output:
-            raise ValueError("Empty output from Gemini")
-
-        # Extract JSON from possible markdown fences
-        if "```json" in output:
-            output = output.split("```json")[1].split("```")[0].strip()
-        elif "```" in output:
-            output = output.split("```")[1].split("```")[0].strip()
-
-        results_list = json.loads(output)
-
-        if not isinstance(results_list, list):
-            raise ValueError(f"Expected JSON array, got {type(results_list).__name__}")
-
-        result_map = {}
-        for i, (h, _text) in enumerate(texts_with_hashes):
-            if i < len(results_list):
-                data = _validate_categorization(results_list[i])
-            else:
-                data = _fallback_categorization()
-            result_map[h] = data
-
-        return result_map
-
-    except Exception as e:
-        print(f"  Batch error: {e}", file=sys.stderr)
-        result_map = {}
-        for h, text in texts_with_hashes:
-            result_map[h] = _fallback_categorization()
-        return result_map
-
-def _validate_categorization(data):
-    """Validate and normalize a single categorization result."""
-    if not isinstance(data, dict):
-        return _fallback_categorization()
-
-    cat = data.get("categoria_principal", "Otros")
-    cat = CATEGORY_NORMALIZE.get(cat, cat)
-    if cat not in VALID_CATEGORIES:
-        cat = "Otros"
-    data["categoria_principal"] = cat
-
-    words = data.get("titulo_ciudadano", "").split()
-    if len(words) > 12:
-        data["titulo_ciudadano"] = " ".join(words[:12])
-
-    etiquetas = data.get("etiquetas", [])
-    if not isinstance(etiquetas, list):
-        etiquetas = []
-    # Filter to only valid tags from the constrained vocabulary
-    etiquetas = [t for t in etiquetas if t in VALID_TAGS]
-    data["etiquetas"] = etiquetas[:4]
-
-    if not data.get("resumen_sencillo"):
-        data["resumen_sencillo"] = ""
-
-    if not data.get("proponente"):
-        data["proponente"] = ""
-
-    return data
-
-
-def _fallback_categorization():
-    return {
-        "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-        "categoria_principal": "Otros",
-        "etiquetas": [],
-        "resumen_sencillo": "",
-        "proponente": "",
-    }
-
-
 def parse_congress_date(fecha_str):
     """Convert '26/2/2026' to '2026-02-26'."""
     parts = fecha_str.split("/")
@@ -308,6 +88,7 @@ def parse_congress_date(fecha_str):
 
 def main():
     skip_ai = "--skip-ai" in sys.argv
+    api_key = os.environ.get("GEMINI_API_KEY")
 
     cache = load_cache()
     # Support both old format (date_S_V.json) and new (Lleg_date_S_V.json)
@@ -358,7 +139,7 @@ def main():
         file_data_list.append((filepath, data, h, texto, titulo_original, fecha, subgrupo_titulo, subgrupo_texto, sesion, numero_votacion, file_leg))
 
         if h not in cache:
-            if skip_ai:
+            if skip_ai or not api_key:
                 pass  # Don't pollute cache with fallback entries
             else:
                 # Deduplicate: only add each unique hash once
@@ -366,7 +147,10 @@ def main():
                     uncached.append((h, texto))
 
     # Batch categorize uncached texts with Gemini
-    if uncached:
+    if uncached and api_key:
+        with open(PROMPT_FILE, "r") as f:
+            prompt_text = f.read()
+            
         total_batches = (len(uncached) + BATCH_SIZE - 1) // BATCH_SIZE
         print(f"  {len(uncached)} textos por categorizar en {total_batches} lotes...")
 
@@ -375,7 +159,7 @@ def main():
             batch_num = batch_idx // BATCH_SIZE + 1
             print(f"  Lote {batch_num}/{total_batches} ({len(batch)} textos)...")
 
-            result_map = categorize_batch(batch)
+            result_map = ai_utils.categorize_batch(batch, api_key, prompt_text)
             for h, cat_data in result_map.items():
                 cache[h] = cat_data
                 new_categorizations += 1
@@ -384,8 +168,29 @@ def main():
             save_cache(cache)
 
     # Second pass: build votacion records using cache
+    # Filter valid categories and tags for frontend indexing
+    VALID_CAT_LIST = sorted(list(ai_utils.VALID_CATEGORIES))
+    cat_to_idx = {c: i for i, c in enumerate(VALID_CAT_LIST)}
+
+    vot_meta_list = []
+    vot_results_list = []
+    tag_counts = {}
+    
+    # Track unique deputies and groups
+    dep_fotos = {}
+    if os.path.exists(FOTO_MAP_FILE):
+        with open(FOTO_MAP_FILE) as f:
+            dep_fotos = json.load(f)
+
+    unique_diputados = {}
+    unique_grupos = set()
+    
+    # Store votes by legislatura
+    votos_by_leg = {}
+    vot_detail_by_leg = {}
+
     for filepath, data, h, texto, titulo_original, fecha, subgrupo_titulo, subgrupo_texto, sesion, numero_votacion, file_leg in file_data_list:
-        cat_data = cache.get(h, _fallback_categorization())
+        cat_data = cache.get(h, ai_utils._fallback_categorization())
 
         titulo_ciudadano = cat_data.get("titulo_ciudadano", "Sin título")
         categoria = cat_data.get("categoria_principal", "Otros")
@@ -393,435 +198,196 @@ def main():
         resumen = cat_data.get("resumen_sencillo", "")
         proponente = cat_data.get("proponente", "")
 
-        votes = []
+        leg = file_leg or get_leg(fecha)
+        if not leg: continue
+        
+        if leg not in votos_by_leg:
+            votos_by_leg[leg] = []
+            vot_detail_by_leg[leg] = {}
+
+        vot_idx = len(vot_meta_list)
+        
+        favor = 0
+        contra = 0
+        abstencion = 0
+        no_vota = 0
+        
+        by_group = {}
+
         for voto_entry in data.get("votaciones", []):
             voto_raw = voto_entry.get("voto", "")
             voto = VOTE_MAP.get(voto_raw, voto_raw)
-            if voto not in ("A favor", "En contra", "Abstención"):
-                continue
+            
+            code = 4
+            if voto == "A favor":
+                favor += 1
+                code = 1
+            elif voto == "En contra":
+                contra += 1
+                code = 2
+            elif voto == "Abstención":
+                abstencion += 1
+                code = 3
+            else:
+                no_vota += 1
+                
+            dip_id = voto_entry.get("diputadoId")
+            if not dip_id: continue
+            
+            grupo = voto_entry.get("grupo")
+            unique_grupos.add(grupo)
+            
+            if dip_id not in unique_diputados:
+                unique_diputados[dip_id] = {
+                    "nombre": voto_entry.get("diputado"),
+                    "grupo": grupo,
+                    "foto": dep_fotos.get(dip_id)
+                }
+            
+            # Store raw vote for later indexing
+            votos_by_leg[leg].append([vot_idx, dip_id, grupo, code])
+            
+            if grupo not in by_group:
+                by_group[grupo] = {1: 0, 2: 0, 3: 0, 4: 0}
+            by_group[grupo][code] += 1
 
-            grupo = voto_entry.get("grupo", "").strip()
-            votes.append({
-                "diputado": voto_entry.get("diputado", ""),
-                "grupo": grupo if grupo else "Sin grupo",
-                "voto": voto,
-            })
-
-        if votes:
-            votacion_records.append((
-                {
-                    "fecha": fecha,
-                    "titulo_ciudadano": titulo_ciudadano,
-                    "categoria_principal": categoria,
-                    "etiquetas": etiquetas,
-                    "resumen": resumen,
-                    "proponente": proponente,
-                    "subgrupo_titulo": subgrupo_titulo,
-                    "subgrupo_texto": subgrupo_texto,
-                    "exp_hash": text_hash(texto),
-                    "texto_oficial": texto,
-                    "sesion": sesion,
-                    "numero_votacion": numero_votacion,
-                    "legislatura": file_leg,
-                },
-                votes,
-            ))
-
-    # ── Normalize for compact output ──
-    # Build lookup tables from all votes
-    all_diputados = set()
-    all_grupos = set()
-    all_categorias = set()
-    for meta, votes in votacion_records:
-        all_categorias.add(meta["categoria_principal"])
-        for v in votes:
-            all_diputados.add(v["diputado"])
-            all_grupos.add(v["grupo"])
-
-    diputados_set = sorted(all_diputados)
-    grupos_set = sorted(all_grupos)
-    categorias_set = sorted(all_categorias)
-
-    dip_idx = {name: i for i, name in enumerate(diputados_set)}
-    grp_idx = {name: i for i, name in enumerate(grupos_set)}
-    cat_idx = {name: i for i, name in enumerate(categorias_set)}
-
-    voto_code = {"A favor": 1, "En contra": 2, "Abstención": 3}
-
-    # ── Group votaciones by textoExpediente ──
-    # Build expediente groups: texto_hash -> list of votacion_record indices
-    exp_groups = {}
-    for rec_idx, (meta, _votes) in enumerate(votacion_records):
-        eh = meta.get("exp_hash", "")
-        if eh:
-            if eh not in exp_groups:
-                exp_groups[eh] = []
-            exp_groups[eh].append(rec_idx)
-
-    # Only keep groups with >1 votacion
-    multi_exp = {eh: indices for eh, indices in exp_groups.items() if len(indices) > 1}
-    print(f"  Expedientes con múltiples votaciones: {len(multi_exp)}")
-
-    # Each votacion_record is already a unique votación (one per raw file)
-    votaciones_list = []
-    votos_list = []
-
-    for vot_idx, (meta, votes) in enumerate(votacion_records):
-        votacion_entry = {
-            "fecha": meta["fecha"],
-            "titulo_ciudadano": meta["titulo_ciudadano"],
-            "categoria": cat_idx[meta["categoria_principal"]],
-            "etiquetas": meta.get("etiquetas", []),
-            "resumen": meta.get("resumen", ""),
-            "proponente": meta.get("proponente", ""),
-        }
-        if meta.get("subgrupo_titulo"):
-            votacion_entry["subgrupo"] = meta["subgrupo_titulo"]
-        if meta.get("subgrupo_texto") and meta.get("subgrupo_texto") != meta.get("subgrupo_titulo"):
-            votacion_entry["subgrupo_detalle"] = meta["subgrupo_texto"]
-
-        # Add expediente group info for multi-vote groups
-        eh = meta.get("exp_hash", "")
-        sub_tipo = classify_subgrupo(meta.get("subgrupo_titulo", ""))
-        if eh and eh in multi_exp:
-            votacion_entry["exp"] = eh
-            if sub_tipo:
-                votacion_entry["subTipo"] = sub_tipo
-
-        # Official text and congreso.es link
-        if meta.get("texto_oficial"):
-            votacion_entry["textoOficial"] = meta["texto_oficial"]
-        if meta.get("sesion") and meta.get("numero_votacion") and meta.get("legislatura"):
-            votacion_entry["urlCongreso"] = (
-                f"https://www.congreso.es/opendata/votaciones"
-                f"?idLegislatura={meta['legislatura']}"
-                f"&idSesion={meta['sesion']}"
-                f"&idVotacion={meta['numero_votacion']}"
-            )
-
-        # Stable ID for URLs: legislatura-sesion-numero
-        _leg = meta.get("legislatura", "")
-        _ses = meta.get("sesion", "")
-        _num = meta.get("numero_votacion", "")
-        if _leg and _ses and _num:
-            votacion_entry["id"] = f"{_leg}-{_ses}-{_num}"
-        else:
-            votacion_entry["id"] = f"h_{text_hash(meta.get('texto_oficial', '') or str(vot_idx))[:8]}"
-
-        votaciones_list.append(votacion_entry)
-        for v in votes:
-            votos_list.append([
-                vot_idx,
-                dip_idx[v["diputado"]],
-                grp_idx[v["grupo"]],
-                voto_code[v["voto"]],
-            ])
-
-    # ── Load foto_map and build dipFotos ──
-    dip_fotos = [None] * len(diputados_set)
-    if os.path.exists(FOTO_MAP_FILE):
-        with open(FOTO_MAP_FILE, encoding="utf-8") as f:
-            foto_map = json.load(f)
-        foto_lookup = {}
-        for full_name, leg_map in foto_map.items():
-            foto_lookup[full_name.lower()] = leg_map
-
-        matched_fotos = 0
-        for i, dip_name in enumerate(diputados_set):
-            if ", " in dip_name:
-                apellidos, nombre = dip_name.split(", ", 1)
-                congreso_key = f"{nombre} {apellidos}".lower()
-                if congreso_key in foto_lookup:
-                    dip_fotos[i] = foto_lookup[congreso_key]
-                    matched_fotos += 1
-        print(f"  Fotos mapeadas: {matched_fotos}/{len(diputados_set)}")
-    else:
-        print("  (sin foto_map.json, ejecuta scrape_photos.py)")
-
-    # ── Add legislatura to each votacion ──
-    for vi in range(len(votaciones_list)):
-        votaciones_list[vi]["legislatura"] = get_leg(votaciones_list[vi]["fecha"])
-
-    # ── Pre-compute: build vote indexes ──
-    print("  Pre-computando índices...")
-    vbv = {}  # votIdx -> list of votos indices
-    vbd = {}  # dipIdx -> list of votos indices
-    for i, v in enumerate(votos_list):
-        vbv.setdefault(v[0], []).append(i)
-        vbd.setdefault(v[1], []).append(i)
-
-    # ── Pre-compute: votacion results + group majorities ──
-    vot_results = []
-    group_majority = {}
-    for vi in range(len(votaciones_list)):
-        indices = vbv.get(vi, [])
-        t = {1: 0, 2: 0, 3: 0}
-        by_group = {}
-        for j in indices:
-            v = votos_list[j]
-            code, grp = v[3], v[2]
-            t[code] += 1
-            if grp not in by_group:
-                by_group[grp] = {1: 0, 2: 0, 3: 0}
-            by_group[grp][code] += 1
-
-        total = len(indices)
-        favor, contra = t[1], t[2]
+        total = favor + contra + abstencion
         result = "Aprobada" if favor > contra else ("Rechazada" if contra > favor else "Empate")
-        vot_results.append({
+        
+        vot_meta_list.append({
+            "id": f"{leg}-{sesion}-{numero_votacion}",
+            "legislatura": leg,
+            "fecha": fecha,
+            "titulo_ciudadano": titulo_ciudadano,
+            "categoria": cat_to_idx.get(categoria, cat_to_idx["Otros"]),
+            "etiquetas": etiquetas + ["nacional"]
+        })
+        
+        vot_results_list.append({
             "favor": favor,
             "contra": contra,
-            "abstencion": t[3],
+            "abstencion": abstencion,
             "total": total,
             "result": result,
             "margin": abs(favor - contra),
+            "proponente": proponente
         })
-
+        
+        # Calculate group majorities for this vote
         gm = {}
-        for g_idx, c in by_group.items():
-            if c[1] >= c[2] and c[1] >= c[3]:
-                gm[g_idx] = 1
-            elif c[2] >= c[3]:
-                gm[g_idx] = 2
-            else:
-                gm[g_idx] = 3
-        group_majority[vi] = gm
+        for g_name, c in by_group.items():
+            if c[1] >= c[2] and c[1] >= c[3]: gm[g_name] = 1
+            elif c[2] >= c[3]: gm[g_name] = 2
+            else: gm[g_name] = 3
+        
+        vot_detail_by_leg[leg][vot_idx] = {
+            "resumen": resumen,
+            "textoOficial": titulo_original,
+            "urlCongreso": f"https://www.congreso.es/opendata/votaciones?idLegislatura={leg}&idSesion={sesion}&idVotacion={numero_votacion}",
+            "subgrupo": classify_subgrupo(subgrupo_titulo),
+            "subgrupo_detalle": subgrupo_titulo,
+            "group_majority": gm
+        }
+        
+        for t in etiquetas + ["nacional"]:
+            tag_counts[t] = tag_counts.get(t, 0) + 1
 
-    # ── Pre-compute: diputado stats + loyalty ──
-    print("  Pre-computando stats de diputados...")
-    leg_ids = [l["id"] for l in LEGISLATURAS]
+    # 3. Final indexing and file generation
+    sorted_dips = sorted(unique_diputados.keys(), key=lambda x: unique_diputados[x]["nombre"])
+    dip_id_to_idx = {d_id: i for i, d_id in enumerate(sorted_dips)}
+    
+    sorted_grupos = sorted(list(unique_grupos))
+    grupo_to_idx = {g: i for i, g in enumerate(sorted_grupos)}
+    
+    # Update votes with indices
+    for leg in votos_by_leg:
+        v_list = votos_by_leg[leg]
+        for i in range(len(v_list)):
+            v_list[i][1] = dip_id_to_idx[v_list[i][1]]
+            v_list[i][2] = grupo_to_idx[v_list[i][2]]
+            
+    # Calculate dip stats
     dip_stats = []
-    for di in range(len(diputados_set)):
-        indices = vbd.get(di, [])
-        t = {1: 0, 2: 0, 3: 0}
-        grupo_count = {}
-        loyal = 0
-        for j in indices:
-            v = votos_list[j]
-            code, grp = v[3], v[2]
-            t[code] += 1
-            grupo_count[grp] = grupo_count.get(grp, 0) + 1
-            maj = group_majority.get(v[0], {})
-            if maj.get(grp) == code:
-                loyal += 1
-
-        total = len(indices)
-        main_grupo = -1
-        if grupo_count:
-            main_grupo = max(grupo_count, key=grupo_count.get)
-
-        leg_set = set()
-        for j in indices:
-            leg = votaciones_list[votos_list[j][0]].get("legislatura", "")
-            if leg:
-                leg_set.add(leg)
-
+    for d_id in sorted_dips:
+        # This would be slow to re-calculate every time from all legs
+        # But for now let's do it simply
+        stats = {"favor": 0, "contra": 0, "abstencion": 0, "total": 0, "loyal": 0}
+        my_legs = set()
+        
+        for leg in votos_by_leg:
+            for v in votos_by_leg[leg]:
+                if sorted_dips[v[1]] == d_id:
+                    code = v[3]
+                    if code == 1: stats["favor"] += 1
+                    elif code == 2: stats["contra"] += 1
+                    elif code == 3: stats["abstencion"] += 1
+                    
+                    if code in (1, 2, 3):
+                        stats["total"] += 1
+                        my_legs.add(leg)
+                        # Check loyalty
+                        gm = vot_detail_by_leg[leg][v[0]]["group_majority"]
+                        if gm.get(sorted_grupos[v[2]]) == code:
+                            stats["loyal"] += 1
+                            
         dip_stats.append({
-            "favor": t[1],
-            "contra": t[2],
-            "abstencion": t[3],
-            "total": total,
-            "mainGrupo": main_grupo,
-            "loyalty": round(loyal / total, 4) if total > 0 else 0,
-            "legislaturas": [lid for lid in leg_ids if lid in leg_set],
+            "favor": stats["favor"],
+            "contra": stats["contra"],
+            "abstencion": stats["abstencion"],
+            "total": stats["total"],
+            "mainGrupo": grupo_to_idx[unique_diputados[d_id]["grupo"]],
+            "loyalty": round(stats["loyal"] / stats["total"], 4) if stats["total"] > 0 else 0,
+            "legislaturas": list(my_legs)
         })
 
-    # ── Pre-compute: tag counts ──
-    tag_counts = {}
-    for vot in votaciones_list:
-        for tag in vot.get("etiquetas", []):
-            tag_counts[tag] = tag_counts.get(tag, 0) + 1
-    top_tags = sorted(tag_counts.items(), key=lambda x: -x[1])[:20]
-
-    # ── Pre-compute: sorted votacion indices by date desc ──
-    sorted_vot_idx = sorted(
-        range(len(votaciones_list)),
-        key=lambda i: votaciones_list[i]["fecha"],
-        reverse=True,
-    )
-
-    # ── Pre-compute: group affinity by legislatura ──
-    print("  Pre-computando afinidad entre grupos...")
+    # Group affinity
     group_affinity_by_leg = {}
-    for leg_id in leg_ids + [""]:
+    for leg_id in list(votos_by_leg.keys()) + [""]:
         ga = {}
-        for vi in range(len(votaciones_list)):
-            if leg_id and votaciones_list[vi].get("legislatura") != leg_id:
-                continue
-            gm = group_majority.get(vi, {})
+        for vi in range(len(vot_meta_list)):
+            if leg_id and vot_meta_list[vi]["legislatura"] != leg_id: continue
+            
+            # Get group majority from detail
+            found_leg = vot_meta_list[vi]["legislatura"]
+            gm = vot_detail_by_leg[found_leg][vi]["group_majority"]
+            
             g_keys = sorted(gm.keys())
             for a in range(len(g_keys)):
                 for b in range(a + 1, len(g_keys)):
-                    ka, kb = g_keys[a], g_keys[b]
-                    key = f"{ka},{kb}" if ka < kb else f"{kb},{ka}"
-                    if key not in ga:
-                        ga[key] = {"same": 0, "total": 0}
+                    ga_idx, gb_idx = grupo_to_idx[g_keys[a]], grupo_to_idx[g_keys[b]]
+                    key = f"{ga_idx},{gb_idx}" if ga_idx < gb_idx else f"{gb_idx},{ga_idx}"
+                    if key not in ga: ga[key] = {"same": 0, "total": 0}
                     ga[key]["total"] += 1
-                    if gm[ka] == gm[kb]:
-                        ga[key]["same"] += 1
-        if ga:
-            group_affinity_by_leg[leg_id] = ga
+                    if gm[g_keys[a]] == gm[g_keys[b]]: ga[key]["same"] += 1
+        if ga: group_affinity_by_leg[leg_id] = ga
 
-    # ── Pre-compute: votaciones by expediente ──
-    vots_by_exp = {}
-    for i, vot in enumerate(votaciones_list):
-        exp = vot.get("exp")
-        if exp:
-            vots_by_exp.setdefault(exp, []).append(i)
-
-    # ── Pre-compute: votacion id to index mapping ──
-    votIdById = {vot["id"]: i for i, vot in enumerate(votaciones_list)}
-
-    # ══════════════════════════════════════════════
-    # Generate Tier 1: manifest_home.json
-    # ══════════════════════════════════════════════
-    hero_examples = [
-        ["subir_pensiones", "Quien voto subir pensiones?"],
-        ["facilitar_acceso_vivienda", "Acceso a vivienda"],
-        ["combatir_cambio_climatico", "Cambio climatico"],
-        ["reformar_codigo_penal", "Reforma penal"],
-        ["proteger_sanidad_publica", "Sanidad publica"],
-    ]
-    hero_examples = [e for e in hero_examples if e[0] in tag_counts]
-
-    latest_votes = sorted_vot_idx[:10]
-    tight_votes = sorted(
-        [i for i in sorted_vot_idx if vot_results[i]["total"] > 0],
-        key=lambda i: vot_results[i]["margin"],
-    )[:10]
-    rebels = sorted(
-        [i for i in range(len(diputados_set)) if dip_stats[i]["total"] > 50],
-        key=lambda i: dip_stats[i]["loyalty"],
-    )[:10]
-
-    def manifest_vote(vi):
-        v = votaciones_list[vi]
-        r = vot_results[vi]
-        return {
-            "id": v["id"],
-            "titulo_ciudadano": v["titulo_ciudadano"],
-            "fecha": v["fecha"],
-            "categoria": categorias_set[v["categoria"]],
-            "etiquetas": v.get("etiquetas", []),
-            "subTipo": v.get("subTipo", ""),
-            "proponente": v.get("proponente", ""),
-            "result": r["result"],
-            "favor": r["favor"],
-            "contra": r["contra"],
-            "abstencion": r["abstencion"],
-            "total": r["total"],
-            "margin": r["margin"],
-        }
-
-    manifest = {
-        "stats": {
-            "diputados": len(diputados_set),
-            "votaciones": len(votaciones_list),
-            "votos": len(votos_list),
-        },
-        "topTags": [list(t) for t in top_tags],
-        "heroExamples": hero_examples,
-        "latestVotes": [manifest_vote(i) for i in latest_votes],
-        "tightVotes": [manifest_vote(i) for i in tight_votes],
-        "rebels": [
-            {
-                "name": diputados_set[i],
-                "grupo": grupos_set[dip_stats[i]["mainGrupo"]] if dip_stats[i]["mainGrupo"] >= 0 else "Sin grupo",
-                "loyalty": round(dip_stats[i]["loyalty"], 4),
-            }
-            for i in rebels
-        ],
-        "categorias": categorias_set,
-    }
-
-    # ══════════════════════════════════════════════
-    # Generate Tier 2: votaciones_meta.json
-    # ══════════════════════════════════════════════
-    # Strip heavy detail-only fields from tier 2 (saved ~5.8 MB)
-    DETAIL_FIELDS = {"textoOficial", "resumen", "urlCongreso", "subgrupo", "subgrupo_detalle"}
-    votaciones_light = [
-        {k: v for k, v in vot.items() if k not in DETAIL_FIELDS}
-        for vot in votaciones_list
-    ]
-
-    meta_output = {
-        "meta": {
-            "generado": __import__("datetime").date.today().isoformat(),
-            "total_votaciones": len(votaciones_list),
-            "total_votos": len(votos_list),
-        },
-        "diputados": diputados_set,
-        "grupos": grupos_set,
-        "categorias": categorias_set,
-        "dipFotos": dip_fotos,
-        "votaciones": votaciones_light,
-        "votResults": vot_results,
-        "dipStats": dip_stats,
+    meta = {
+        "diputados": [unique_diputados[d_id]["nombre"] for d_id in sorted_dips],
+        "grupos": sorted_grupos,
+        "categorias": VALID_CAT_LIST,
+        "votaciones": vot_meta_list,
+        "votResults": vot_results_list,
         "tagCounts": tag_counts,
-        "topTags": [list(t) for t in top_tags],
-        "sortedVotIdxByDate": sorted_vot_idx,
+        "topTags": sorted(tag_counts.items(), key=lambda x: x[1], reverse=True)[:30],
+        "sortedVotIdxByDate": list(range(len(vot_meta_list))),
+        "dipStats": dip_stats,
         "groupAffinityByLeg": group_affinity_by_leg,
-        "votsByExp": vots_by_exp,
-        "votIdById": votIdById,
+        "votsByExp": {}, # Optional for now
+        "votIdById": {v["id"]: i for i, v in enumerate(vot_meta_list)},
+        "dipFotos": [unique_diputados[d_id]["foto"] for d_id in sorted_dips]
     }
 
-    # ══════════════════════════════════════════════
-    # Generate Tier 3: votos_{leg}.json per legislatura
-    # Includes individual votes + detail fields for VotacionDetail
-    # ══════════════════════════════════════════════
-    votos_by_leg = {}
-    detail_by_leg = {}
-    for v in votos_list:
-        leg = votaciones_list[v[0]].get("legislatura", "")
-        if leg:
-            votos_by_leg.setdefault(leg, []).append(v)
+    with open(META_FILE, "w") as f:
+        json.dump(meta, f, separators=(',', ':'))
 
-    for i, vot in enumerate(votaciones_list):
-        leg = vot.get("legislatura", "")
-        detail = {k: vot[k] for k in DETAIL_FIELDS if k in vot and vot[k]}
-        if leg and detail:
-            detail_by_leg.setdefault(leg, {})[i] = detail
+    for leg, v_list in votos_by_leg.items():
+        with open(os.path.join(SCRIPT_DIR, "..", "public", "data", f"votos_{leg}.json"), "w") as f:
+            json.dump({
+                "votos": v_list,
+                "detail": {k: {key: val for key, val in v.items() if key != "group_majority"} for k, v in vot_detail_by_leg[leg].items()}
+            }, f, separators=(',', ':'))
 
-    # ── Write all output files ──
-    output_dir = os.path.dirname(OUTPUT_FILE)
-    os.makedirs(output_dir, exist_ok=True)
-
-    with open(MANIFEST_FILE, "w", encoding="utf-8") as f:
-        json.dump(manifest, f, ensure_ascii=False, separators=(",", ":"))
-
-    with open(META_FILE, "w", encoding="utf-8") as f:
-        json.dump(meta_output, f, ensure_ascii=False, separators=(",", ":"))
-
-    for leg_id, leg_votos in votos_by_leg.items():
-        votos_file = os.path.join(output_dir, f"votos_{leg_id}.json")
-        tier3 = {"votos": leg_votos, "detail": detail_by_leg.get(leg_id, {})}
-        with open(votos_file, "w", encoding="utf-8") as f:
-            json.dump(tier3, f, ensure_ascii=False, separators=(",", ":"))
-
-    # Remove old backward-compat file if it exists
-    if os.path.exists(OUTPUT_FILE):
-        os.remove(OUTPUT_FILE)
-        print(f"  Eliminado {os.path.basename(OUTPUT_FILE)} (ya no se usa)")
-
-    save_cache(cache)
-
-    # ── Print summary ──
-    manifest_size = os.path.getsize(MANIFEST_FILE) / 1024
-    meta_size = os.path.getsize(META_FILE) / (1024 * 1024)
-    print(f"\nCompletado:")
-    print(f"  {len(votaciones_list)} votaciones únicas")
-    print(f"  {len(votos_list)} votos individuales")
-    print(f"  {len(diputados_set)} diputados")
-    print(f"  {len(grupos_set)} grupos")
-    print(f"  manifest_home.json: {manifest_size:.1f} KB")
-    print(f"  votaciones_meta.json: {meta_size:.1f} MB")
-    for leg_id in sorted(votos_by_leg.keys()):
-        votos_file = os.path.join(output_dir, f"votos_{leg_id}.json")
-        votos_size = os.path.getsize(votos_file) / (1024 * 1024)
-        print(f"  votos_{leg_id}.json: {votos_size:.1f} MB ({len(votos_by_leg[leg_id])} votos)")
-    print(f"Nuevas categorizaciones: {new_categorizations}")
-    print(f"Entradas en caché: {len(cache)}")
-
+    print(f"Transformación completada: {len(vot_meta_list)} votaciones.")
 
 if __name__ == "__main__":
     main()
