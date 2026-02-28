@@ -27,7 +27,7 @@ function goToTag(tag) {
   <section v-if="manifest">
     <div class="hero">
       <h1>Lo Que Votan</h1>
-      <p class="hero-tagline">Que vota cada diputado en el Congreso, explicado para ciudadanos</p>
+      <p class="hero-tagline">Qué vota cada diputado en el Congreso, explicado para ciudadanos</p>
       <HeroSearch />
       <div class="hero-chips">
         <a
@@ -78,7 +78,7 @@ function goToTag(tag) {
       </div>
 
       <div class="section-header">
-        <h2>Diputados mas rebeldes</h2>
+        <h2>Diputados más rebeldes</h2>
         <router-link to="/diputados">Ver todos &rarr;</router-link>
       </div>
       <div class="ranking-grid">
@@ -98,7 +98,7 @@ function goToTag(tag) {
       </div>
 
       <div class="section-header">
-        <h2>Votaciones mas ajustadas</h2>
+        <h2>Votaciones más ajustadas</h2>
         <router-link to="/votaciones">Ver todas &rarr;</router-link>
       </div>
       <div class="vote-cards-grid">
@@ -106,7 +106,7 @@ function goToTag(tag) {
       </div>
 
       <div class="section-header">
-        <h2>Ultimas votaciones</h2>
+        <h2>Últimas votaciones</h2>
         <router-link to="/votaciones">Ver todas &rarr;</router-link>
       </div>
       <div class="vote-cards-grid">

@@ -166,8 +166,8 @@ function goToPage(p) {
         <div class="filter-group">
           <label>Ordenar</label>
           <select v-model="sortMode" class="filter-select" @change="page = 1">
-            <option value="recent">Mas recientes</option>
-            <option value="closest">Mas ajustadas</option>
+            <option value="recent">Más recientes</option>
+            <option value="closest">Más ajustadas</option>
           </select>
         </div>
         <div class="filter-actions">

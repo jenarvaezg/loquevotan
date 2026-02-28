@@ -1,6 +1,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useRoute } from 'vue-router'
+import HeroSearch from './HeroSearch.vue'
 
 const route = useRoute()
 const menuOpen = ref(false)
@@ -68,6 +69,9 @@ initTheme()
           </router-link>
         </li>
       </ul>
+      <div v-if="route.path !== '/'" class="nav-search">
+        <HeroSearch />
+      </div>
       <button
         class="theme-toggle"
         aria-label="Cambiar tema"

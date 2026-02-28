@@ -37,7 +37,7 @@ export const LEGISLATURAS = [
   },
 ];
 
-export const VOTO_LABELS = { 1: "A favor", 2: "En contra", 3: "Abstencion" };
+export const VOTO_LABELS = { 1: "A favor", 2: "En contra", 3: "Abstención" };
 
 export const VOTES_PER_PAGE = 20;
 export const DIPS_PER_PAGE = 30;
@@ -108,14 +108,14 @@ export function dipPhotoUrl(fotoEntry) {
 }
 
 export const SUB_TIPO_LABELS = {
-  final: "Votacion final",
+  final: "Votación final",
   totalidad: "Enmienda a la totalidad",
   transaccional: "Enmienda transaccional",
   particular: "Voto particular",
   enmienda: "Enmienda",
-  separada: "Votacion separada",
+  separada: "Votación separada",
   dictamen: "Dictamen",
-  propuesta: "Propuesta de resolucion",
+  propuesta: "Propuesta de resolución",
   otro: "Otro",
 };
 
@@ -136,4 +136,12 @@ export function affinityColor(pct) {
   if (pct >= 0.4) return "#fde047";
   if (pct >= 0.2) return "#fca5a5";
   return "#dc2626";
+}
+
+export function votoPillClass(code) {
+  return code === 1
+    ? "voto-pill--favor"
+    : code === 2
+      ? "voto-pill--contra"
+      : "voto-pill--abstencion";
 }

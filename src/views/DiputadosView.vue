@@ -1,5 +1,6 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
+import { useRoute } from 'vue-router'
 import { useData } from '../composables/useData'
 import { debounce, normalize, DIPS_PER_PAGE } from '../utils'
 import DipCard from '../components/DipCard.vue'
@@ -8,10 +9,17 @@ import FilterBar from '../components/FilterBar.vue'
 
 const { diputados, grupos, dipStats } = useData()
 
+const route = useRoute()
+
 const search = ref('')
 const grupoFilter = ref('')
 const sortMode = ref('name')
 const page = ref(1)
+
+// Apply grupo filter from query param
+watch(() => route.query.grupo, (g) => {
+  if (g) { grupoFilter.value = g; page.value = 1 }
+}, { immediate: true })
 
 const sortedGrupos = computed(() => [...grupos.value].sort())
 
@@ -89,7 +97,7 @@ function goToPage(p) {
           <label>Ordenar</label>
           <select v-model="sortMode" class="filter-select" @change="page = 1">
             <option value="name">Nombre</option>
-            <option value="active">Mas activo</option>
+            <option value="active">Más activo</option>
             <option value="loyalty-low">Menor lealtad</option>
           </select>
         </div>

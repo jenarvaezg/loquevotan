@@ -176,6 +176,44 @@ input, select, button { font-family: inherit; font-size: inherit; }
 
 .theme-toggle:hover { border-color: var(--color-border-hover); }
 
+/* ── Nav Search ── */
+.nav-search {
+  flex: 1;
+  max-width: 300px;
+}
+
+.nav-search .hero-search-wrap {
+  max-width: 100%;
+  margin: 0;
+}
+
+.nav-search .hero-search {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  padding: 0.45rem 0.75rem 0.45rem 2.25rem;
+  font-size: 0.85rem;
+  border-radius: var(--radius-sm);
+}
+
+.nav-search .hero-search::placeholder {
+  color: var(--color-muted);
+}
+
+.nav-search .hero-search:focus {
+  border-color: var(--color-primary);
+  background: var(--color-bg);
+}
+
+.nav-search .hero-search-icon {
+  font-size: 0.9rem;
+  left: 0.7rem;
+}
+
+@media (max-width: 768px) {
+  .nav-search { display: none; }
+}
+
 /* ── Hero ── */
 .hero {
   background: linear-gradient(135deg, #1e3a8a 0%, #1a56db 50%, #2563eb 100%);
@@ -487,16 +525,19 @@ input, select, button { font-family: inherit; font-size: inherit; }
 }
 
 .badge--leg {
-  background: #e8f4e8;
-  color: #2d6a2d;
+  background: #dcfce7;
+  color: #166534;
   font-weight: 600;
 }
 
 .badge--proponente {
   background: #fef3c7;
-  color: #92400e;
+  color: #78350f;
   font-weight: 600;
 }
+
+a.badge { cursor: pointer; }
+a.badge:hover { text-decoration: none; opacity: 0.85; }
 
 /* ── Result Badge ── */
 .result-badge {
@@ -1409,6 +1450,10 @@ tbody tr:hover { background: var(--color-primary-lighter); }
   white-space: nowrap;
   border-bottom: 1px solid var(--color-border);
   min-width: 140px;
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background: var(--color-surface);
 }
 
 .affinity-cell {
@@ -1599,6 +1644,16 @@ tbody tr:hover { background: var(--color-primary-lighter); }
 .badge--enmienda {
   background: var(--color-border);
   color: var(--color-muted);
+}
+
+[data-theme="dark"] .badge--leg {
+  background: #064e3b;
+  color: #6ee7b7;
+}
+
+[data-theme="dark"] .badge--proponente {
+  background: #78350f;
+  color: #fbbf24;
 }
 
 [data-theme="dark"] .badge--final {

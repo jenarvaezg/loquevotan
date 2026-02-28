@@ -31,14 +31,15 @@ const affinityData = computed(() => {
 })
 
 function cellData(ga, gb) {
-  if (ga === gb) return { pctStr: '100%', bg: '#e2e8f0', isSelf: true }
+  if (ga === gb) return { pctStr: '100%', bg: '#e2e8f0', color: 'var(--color-muted)', isSelf: true }
   const key = ga < gb ? ga + ',' + gb : gb + ',' + ga
   const d = affinityData.value.aff[key]
-  if (!d || d.total === 0) return { pctStr: '\u2014', bg: '#e2e8f0', title: 'Sin datos', isSelf: false }
+  if (!d || d.total === 0) return { pctStr: '\u2014', bg: '#e2e8f0', color: 'var(--color-muted)', title: 'Sin datos', isSelf: false }
   const pct = d.same / d.total
   const pctStr = Math.round(pct * 100) + '%'
   const title = `${pctStr} (${d.same}/${d.total} votaciones coinciden)`
-  return { pctStr, bg: affinityColor(pct), title, isSelf: false }
+  const color = pct < 0.2 ? '#fff' : '#1e293b'
+  return { pctStr, bg: affinityColor(pct), color, title, isSelf: false }
 }
 </script>
 
@@ -47,7 +48,7 @@ function cellData(ga, gb) {
     <div class="container" style="padding-top:1.5rem">
       <h1 class="mb-2">Afinidad entre grupos parlamentarios</h1>
       <p style="color:var(--color-muted);font-size:0.9rem;margin-bottom:1.25rem">
-        Porcentaje de votaciones en las que cada par de grupos voto mayoritariamente igual.
+        Porcentaje de votaciones en las que cada par de grupos votó mayoritariamente igual.
         Se excluyen grupos con menos de 10 votaciones en el periodo seleccionado.
       </p>
 
@@ -80,7 +81,7 @@ function cellData(ga, gb) {
                   :key="gb"
                   class="affinity-cell"
                   :class="{ 'affinity-cell--self': ga === gb }"
-                  :style="{ background: cellData(ga, gb).bg }"
+                  :style="{ background: cellData(ga, gb).bg, color: cellData(ga, gb).color }"
                   :title="cellData(ga, gb).title || cellData(ga, gb).pctStr"
                 >
                   {{ cellData(ga, gb).pctStr }}

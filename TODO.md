@@ -1,25 +1,81 @@
-# Congreso Transparente - Pendiente
+# Lo Que Votan - Pendiente
 
-## Próximos pasos
+## Completado
 
-
-### CCAA (Comunidades Autónomas)
-- [ ] Investigar qué parlamentos autonómicos tienen datos abiertos de votaciones
-- [ ] Candidatos prioritarios: Cataluña (parlament.cat), País Vasco (legebiltzarra.eus), Andalucía (parlamentodeandalucia.es)
-- [ ] 17 CCAA + 2 ciudades autónomas = 19 fuentes distintas
-- [ ] Reutilizar arquitectura: mismo frontend, scraper adaptado por CCAA, misma categorización Gemini
-
-### Datos históricos
-- [ ] Legislaturas I-IX (1977-2011): no disponibles en datos abiertos, pendiente de digitalización
-- [x] Legislaturas XI-XIV: pendientes de scraping → completado (X-XV descargadas)
-
-### Mejoras datos
-- [ ] Diferenciar votaciones sobre el mismo textoExpediente (enmiendas, artículos, votación final) — actualmente comparten título ciudadano porque el texto parlamentario es idéntico
-- [ ] Re-categorizar los ~80 textos fallback (lotes que fallaron)
+- [x] Legislaturas X-XV: scraping completado
 - [x] Fotos de diputados: mapeado congreso.es codParlamentario (1259/1259, 100%)
+- [x] Optimizar JSON de 80MB: arquitectura 3-tier (manifest 8KB + meta 5MB + votos por legislatura on-demand)
+- [x] Agrupar votaciones por expediente en vista de detalle (subTipo, contexto del expediente)
+- [x] Diferenciar votaciones del mismo expediente (subTipo + subgrupo)
 
-### Mejoras frontend
-- [ ] Optimizar JSON de 77MB (gzip, paginación server-side, o split por legislatura)
-- [ ] Git LFS para votaciones.json
-- [ ] OG dinámico por diputado/votación (requiere proxy edge o prerender, no posible con hash routing + GitHub Pages estático)
-- [ ] Agrupar votaciones por enmienda en los listados.
+## Fase 1: Quick wins (1-2 dias) ✓
+
+### UX / Navegacion
+- [x] Busqueda global en NavBar (reusar logica de HeroSearch) — elimina el mayor dead-end de navegacion
+- [x] Ruta 404 con pagina NotFound — URLs invalidas muestran pagina en blanco
+- [x] Hacer badges de grupo clicables (link a /diputados?grupo=X) — dead end actual
+- [x] Reordenar columna "Voto" a posicion 2 en historial de diputado — en movil la columna mas importante queda fuera de pantalla
+
+### Accesibilidad / Textos
+- [x] Corregir tildes en textos de la UI ("Que vota", "Ultimas votaciones", "mas ajustadas", "mas rebeldes", "mas votados")
+- [x] Fix contraste WCAG en badges (badge--leg, badge--proponente) y chips — fallan ratio 4.5:1
+- [x] Overrides de dark mode para badge--leg y badge--proponente
+
+### Mobile
+- [x] Sticky row labels en tabla de afinidad — al hacer scroll horizontal se pierde el nombre del grupo
+
+### Code quality
+- [x] Extraer `votoPillClass` duplicado (VotacionDetail + DiputadoDetail) a utils.js
+- [x] Eliminar debounce no-op en VotacionDetail:82
+- [x] Actualizar placeholder de HeroSearch para indicar que tambien busca votaciones
+
+## Fase 2: Mejoras medias (3-5 dias)
+
+### Diseno visual
+- [ ] Cargar web font (ej. Source Sans 3 + DM Serif Display) — actualmente usa system font stack sin personalidad
+- [ ] Vista cards en movil para tablas de historial (<768px) — las tablas de 6 columnas son inutilizables en movil
+
+### Arquitectura de informacion
+- [ ] Pagina de perfil de partido/grupo (/partidos/:grupo) — stats, miembros, record de voto
+- [ ] Hint visual sobre AccountabilityCard ("Haz clic en un tema para ver la ficha completa") — feature potente pero invisible
+
+### Robustez
+- [ ] Estados de error para fallos de red (retry + mensaje visible) — actualmente spinner infinito
+- [ ] Limitar DiputadoDetail a cargar solo legislatura actual primero, luego lazy-load las anteriores — puede descargar 80+MB para diputados veteranos
+
+### Performance
+- [ ] Pre-comprimir JSON (gzip/brotli) o verificar que GitHub Pages sirve Content-Encoding — reduciria meta de 5MB a ~500KB
+- [ ] Reemplazar datalist de tags en VotacionesView por dropdown custom (como HeroSearch)
+
+### Datos
+- [ ] Re-categorizar los ~80 textos fallback (lotes que fallaron en categorizacion IA)
+
+## Fase 3: Features grandes (1-2 semanas)
+
+### Nuevas funcionalidades
+- [ ] Drill-down desde celda de afinidad ("ver votaciones donde PP y PSOE coincidieron")
+- [ ] Comparador de diputados (/comparar?a=X&b=Y) — side-by-side stats y votos compartidos
+- [ ] Timeline de actividad de voto por diputado (sparkline SVG mensual)
+- [ ] Vista alternativa de afinidad en movil (lista rankeada en vez de tabla NxN)
+- [ ] IDs estables en URLs (hash en vez de indice numerico) — las URLs actuales se rompen al regenerar datos
+
+### Calidad
+- [ ] Tests E2E y unitarios basicos (cobertura minima de flujos criticos)
+- [ ] Migrar CSS monolitico (1842 lineas) a estilos scoped por componente
+
+## Backlog (largo plazo)
+
+### CCAA (Comunidades Autonomas)
+- [ ] Investigar que parlamentos autonomicos tienen datos abiertos de votaciones
+- [ ] Candidatos prioritarios: Cataluna (parlament.cat), Pais Vasco (legebiltzarra.eus), Andalucia (parlamentodeandalucia.es)
+- [ ] 17 CCAA + 2 ciudades autonomas = 19 fuentes distintas
+- [ ] Reutilizar arquitectura: mismo frontend, scraper adaptado por CCAA, misma categorizacion
+
+### Datos historicos
+- [ ] Legislaturas I-IX (1977-2011): no disponibles en datos abiertos, pendiente de digitalizacion
+
+### Otros
+- [ ] OG dinamico por diputado/votacion (requiere proxy edge o prerender, no posible con hash routing + GitHub Pages estatico)
+- [ ] Bookmarks/favoritos de diputados y temas (localStorage)
+- [ ] Skip-to-content link para accesibilidad con teclado
+- [ ] Agrupar votaciones por expediente tambien en el listado de VotacionesView (actualmente solo en detalle)

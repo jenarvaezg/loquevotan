@@ -2,7 +2,7 @@
 import { computed, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useData } from '../composables/useData'
-import { fmt, debounce, normalize, VOTO_LABELS, resultMarginText, subTipoLabel, subTipoBadgeClass } from '../utils'
+import { fmt, normalize, VOTO_LABELS, resultMarginText, subTipoLabel, subTipoBadgeClass, votoPillClass } from '../utils'
 import VoteBar from '../components/VoteBar.vue'
 import ResultBadge from '../components/ResultBadge.vue'
 import ShareBar from '../components/ShareBar.vue'
@@ -79,12 +79,7 @@ const filteredVotes = computed(() => {
   })
 })
 
-const onDipSearch = debounce(() => {}, 200)
 const copiedVi = ref(null)
-
-function votoPillClass(code) {
-  return code === 1 ? 'voto-pill--favor' : code === 2 ? 'voto-pill--contra' : 'voto-pill--abstencion'
-}
 
 function shareVote(vi) {
   const v = votos.value[vi]
@@ -215,7 +210,7 @@ watch(vot, (v) => {
               </thead>
               <tbody>
                 <tr v-for="gIdx in sortedGroups" :key="gIdx">
-                  <td><span class="badge badge--grupo">{{ grupos[gIdx] }}</span></td>
+                  <td><router-link :to="{ path: '/diputados', query: { grupo: grupos[gIdx] } }" class="badge badge--grupo">{{ grupos[gIdx] }}</router-link></td>
                   <td>{{ byGroup[gIdx][1] }}</td>
                   <td>{{ byGroup[gIdx][2] }}</td>
                   <td>{{ byGroup[gIdx][3] }}</td>
@@ -236,7 +231,7 @@ watch(vot, (v) => {
         <h2>Contexto del expediente</h2>
         <div class="exp-summary-card">
           <p class="exp-summary-intro">
-            Este asunto se tramito con <strong>{{ expSummary.total }} votaciones</strong> separadas (enmiendas de cada grupo, votos particulares, etc.).
+            Este asunto se tramitó con <strong>{{ expSummary.total }} votaciones</strong> separadas (enmiendas de cada grupo, votos particulares, etc.).
             Esta es una de ellas.
           </p>
 
@@ -247,10 +242,10 @@ watch(vot, (v) => {
             <router-link v-if="expSummary.finalItem.idx !== idx" :to="'/votacion/' + expSummary.finalItem.idx" class="exp-final-link">
               Ver votacion final &rarr;
             </router-link>
-            <span v-else class="badge badge--final">Estas viendola</span>
+            <span v-else class="badge badge--final">Estás viéndola</span>
           </div>
           <div v-else class="exp-no-final">
-            No se registro votacion final en el pleno (pudo aprobarse por asentimiento o en otra sesion).
+            No se registró votación final en el pleno (pudo aprobarse por asentimiento o en otra sesión).
           </div>
 
           <!-- Approval ratio bar -->
@@ -296,7 +291,6 @@ watch(vot, (v) => {
             class="filter-input"
             placeholder="Buscar diputado/a..."
             style="max-width:350px;margin-bottom:0.75rem"
-            @input="onDipSearch"
           >
           <div class="table-wrap">
             <table>
@@ -315,7 +309,7 @@ watch(vot, (v) => {
                       {{ diputados[votos[vi][1]] }}
                     </router-link>
                   </td>
-                  <td><span class="badge badge--grupo">{{ grupos[votos[vi][2]] }}</span></td>
+                  <td><router-link :to="{ path: '/diputados', query: { grupo: grupos[votos[vi][2]] } }" class="badge badge--grupo">{{ grupos[votos[vi][2]] }}</router-link></td>
                   <td>
                     <span class="voto-pill" :class="votoPillClass(votos[vi][3])">
                       {{ VOTO_LABELS[votos[vi][3]] || '?' }}

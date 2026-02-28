@@ -2,7 +2,7 @@
 import { computed, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useData } from '../composables/useData'
-import { fmt, pct, debounce, normalize, dipPhotoUrl, avatarInitials, avatarStyle, VOTO_LABELS, VOTES_PER_PAGE, LEGISLATURAS, subTipoLabel, subTipoBadgeClass } from '../utils'
+import { fmt, pct, debounce, normalize, dipPhotoUrl, avatarInitials, avatarStyle, VOTO_LABELS, VOTES_PER_PAGE, LEGISLATURAS, subTipoLabel, subTipoBadgeClass, votoPillClass } from '../utils'
 import VoteBar from '../components/VoteBar.vue'
 import ResultBadge from '../components/ResultBadge.vue'
 import ShareBar from '../components/ShareBar.vue'
@@ -120,10 +120,6 @@ function resultClass(result) {
   return result === 'Aprobada' ? 'aprobada' : result === 'Rechazada' ? 'rechazada' : 'empate'
 }
 
-function votoPillClass(code) {
-  return code === 1 ? 'voto-pill--favor' : code === 2 ? 'voto-pill--contra' : 'voto-pill--abstencion'
-}
-
 function catPcts(counts) {
   const total = counts.total
   const favorPct = Math.round((counts[1] / total) * 100)
@@ -173,7 +169,7 @@ watch(name, (n) => {
         <div>
         <h1 style="margin:0">{{ name }}</h1>
         <div class="detail-meta" style="margin-top:0.5rem">
-          <span class="badge badge--grupo">{{ grupoName }}</span>
+          <router-link :to="{ path: '/diputados', query: { grupo: grupoName } }" class="badge badge--grupo">{{ grupoName }}</router-link>
           <span class="detail-meta-item">{{ ds.total }} votaciones</span>
           <span class="detail-meta-item">Lealtad al grupo: {{ pct(ds.loyalty) }}</span>
           <span v-for="l in ds.legislaturas" :key="l" class="badge badge--leg">{{ l }}</span>
@@ -206,7 +202,7 @@ watch(name, (n) => {
       <template v-if="votosReady">
         <!-- Category profile -->
         <div v-if="catBreakdown.length" class="detail-section">
-          <h2>Perfil tematico</h2>
+          <h2>Perfil temático</h2>
           <div class="cat-profile">
             <div v-for="[catIdx, counts] in catBreakdown" :key="catIdx" class="cat-profile-row">
               <span class="cat-profile-label" :title="fmt(categorias[catIdx] || catIdx)">
@@ -236,7 +232,7 @@ watch(name, (n) => {
 
         <!-- Top tags -->
         <div v-if="dipTopTags.length" class="detail-section">
-          <h2>Temas mas votados</h2>
+          <h2>Temas más votados</h2>
           <div>
             <span
               v-for="[tag, count] in dipTopTags"
@@ -266,7 +262,7 @@ watch(name, (n) => {
               <option value="">Todos los votos</option>
               <option value="1">A favor</option>
               <option value="2">En contra</option>
-              <option value="3">Abstencion</option>
+              <option value="3">Abstención</option>
             </select>
             <select v-model="histLeg" class="filter-select" style="width:auto;min-width:130px" @change="histPage = 1">
               <option value="">Todas las legislaturas</option>
@@ -279,19 +275,19 @@ watch(name, (n) => {
               <thead>
                 <tr>
                   <th>Fecha</th>
-                  <th>Legislatura</th>
-                  <th>Asunto</th>
-                  <th>Categoria</th>
-                  <th>Resultado</th>
                   <th>Voto</th>
+                  <th>Asunto</th>
+                  <th>Legislatura</th>
+                  <th>Categoría</th>
+                  <th>Resultado</th>
                 </tr>
               </thead>
               <tbody>
                 <tr v-for="rec in histPageItems" :key="rec.votIdx">
                   <td>{{ votaciones[rec.votIdx].fecha }}</td>
                   <td>
-                    <span v-if="votaciones[rec.votIdx].legislatura" class="badge badge--leg">
-                      {{ votaciones[rec.votIdx].legislatura }}
+                    <span class="voto-pill" :class="votoPillClass(rec.code)">
+                      {{ VOTO_LABELS[rec.code] || '?' }}
                     </span>
                   </td>
                   <td>
@@ -306,17 +302,17 @@ watch(name, (n) => {
                     >{{ subTipoLabel(votaciones[rec.votIdx].subTipo) }}</span>
                   </td>
                   <td>
+                    <span v-if="votaciones[rec.votIdx].legislatura" class="badge badge--leg">
+                      {{ votaciones[rec.votIdx].legislatura }}
+                    </span>
+                  </td>
+                  <td>
                     <span class="badge badge--cat">
                       {{ fmt(categorias[votaciones[rec.votIdx].categoria]) }}
                     </span>
                   </td>
                   <td>
                     <ResultBadge :result="votResults[rec.votIdx].result" />
-                  </td>
-                  <td>
-                    <span class="voto-pill" :class="votoPillClass(rec.code)">
-                      {{ VOTO_LABELS[rec.code] || '?' }}
-                    </span>
                   </td>
                 </tr>
                 <tr v-if="!histPageItems.length">
