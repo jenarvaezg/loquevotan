@@ -1,6 +1,7 @@
 [
   {
     "doc_id": "200414",
+    "legis_id": "12",
     "session": "77",
     "doc_num": "70",
     "date": "11/02/2026",
@@ -8,6 +9,7 @@
   },
   {
     "doc_id": "199894",
+    "legis_id": "12",
     "session": "76",
     "doc_num": "69",
     "date": "29/01/2026",
@@ -15,6 +17,7 @@
   },
   {
     "doc_id": "198975",
+    "legis_id": "12",
     "session": "75",
     "doc_num": "68",
     "date": "19/12/2025",
@@ -22,6 +25,7 @@
   },
   {
     "doc_id": "198534",
+    "legis_id": "12",
     "session": "74",
     "doc_num": "67",
     "date": "04/12/2025",
@@ -29,6 +33,7 @@
   },
   {
     "doc_id": "198414",
+    "legis_id": "12",
     "session": "73",
     "doc_num": "66",
     "date": "26/11/2025",
@@ -36,6 +41,7 @@
   },
   {
     "doc_id": "197894",
+    "legis_id": "12",
     "session": "72",
     "doc_num": "65",
     "date": "12/11/2025",
@@ -43,6 +49,7 @@
   },
   {
     "doc_id": "197174",
+    "legis_id": "12",
     "session": "71",
     "doc_num": "63",
     "date": "22/10/2025",
@@ -50,6 +57,7 @@
   },
   {
     "doc_id": "197175",
+    "legis_id": "12",
     "session": "70",
     "doc_num": "64",
     "date": "08/10/2025",
@@ -57,6 +65,7 @@
   },
   {
     "doc_id": "196374",
+    "legis_id": "12",
     "session": "69",
     "doc_num": "62",
     "date": "24/09/2025",
@@ -64,6 +73,7 @@
   },
   {
     "doc_id": "195934",
+    "legis_id": "12",
     "session": "68",
     "doc_num": "61",
     "date": "12/09/2025",
@@ -71,6 +81,7 @@
   },
   {
     "doc_id": "194954",
+    "legis_id": "12",
     "session": "67",
     "doc_num": "60",
     "date": "25/07/2025",
@@ -78,6 +89,7 @@
   },
   {
     "doc_id": "194634",
+    "legis_id": "12",
     "session": "66",
     "doc_num": "59",
     "date": "09/07/2025",
@@ -85,6 +97,7 @@
   },
   {
     "doc_id": "194174",
+    "legis_id": "12",
     "session": "65",
     "doc_num": "58",
     "date": "27/06/2025",
@@ -92,6 +105,7 @@
   },
   {
     "doc_id": "193674",
+    "legis_id": "12",
     "session": "64",
     "doc_num": "57",
     "date": "11/06/2025",
@@ -99,6 +113,7 @@
   },
   {
     "doc_id": "193154",
+    "legis_id": "12",
     "session": "63",
     "doc_num": "56",
     "date": "28/05/2025",
@@ -106,6 +121,7 @@
   },
   {
     "doc_id": "192934",
+    "legis_id": "12",
     "session": "62",
     "doc_num": "55",
     "date": "21/05/2025",
@@ -113,6 +129,7 @@
   },
   {
     "doc_id": "192174",
+    "legis_id": "12",
     "session": "61",
     "doc_num": "54",
     "date": "23/04/2025",
@@ -120,6 +137,7 @@
   },
   {
     "doc_id": "191797",
+    "legis_id": "12",
     "session": "60",
     "doc_num": "53",
     "date": "09/04/2025",
@@ -127,6 +145,7 @@
   },
   {
     "doc_id": "191796",
+    "legis_id": "12",
     "session": "59",
     "doc_num": "52",
     "date": "19/03/2025",
@@ -134,6 +153,7 @@
   },
   {
     "doc_id": "191795",
+    "legis_id": "12",
     "session": "58",
     "doc_num": "51",
     "date": "05/03/2025",
@@ -141,6 +161,7 @@
   },
   {
     "doc_id": "190054",
+    "legis_id": "12",
     "session": "56",
     "doc_num": "50",
     "date": "19/02/2025",
@@ -148,6 +169,7 @@
   },
   {
     "doc_id": "189495",
+    "legis_id": "12",
     "session": "55",
     "doc_num": "49",
     "date": "05/02/2025",
@@ -155,6 +177,7 @@
   },
   {
     "doc_id": "188394",
+    "legis_id": "12",
     "session": "54",
     "doc_num": "48",
     "date": "20/12/2024",
@@ -162,6 +185,7 @@
   },
   {
     "doc_id": "188154",
+    "legis_id": "12",
     "session": "53",
     "doc_num": "47",
     "date": "11/12/2024",
@@ -169,6 +193,7 @@
   },
   {
     "doc_id": "187854",
+    "legis_id": "12",
     "session": "52",
     "doc_num": "46",
     "date": "29/11/2024",
@@ -176,6 +201,7 @@
   },
   {
     "doc_id": "187395",
+    "legis_id": "12",
     "session": "51",
     "doc_num": "45",
     "date": "15/11/2024",
@@ -183,6 +209,7 @@
   },
   {
     "doc_id": "187214",
+    "legis_id": "12",
     "session": "50",
     "doc_num": "44",
     "date": "08/11/2024",
@@ -190,6 +217,7 @@
   },
   {
     "doc_id": "186316",
+    "legis_id": "12",
     "session": "48",
     "doc_num": "43",
     "date": "02/10/2024",
@@ -197,6 +225,7 @@
   },
   {
     "doc_id": "185895",
+    "legis_id": "12",
     "session": "47",
     "doc_num": "42",
     "date": "18/09/2024",
@@ -204,6 +233,7 @@
   },
   {
     "doc_id": "184894",
+    "legis_id": "12",
     "session": "46",
     "doc_num": "41",
     "date": "26/07/2024",
@@ -211,6 +241,7 @@
   },
   {
     "doc_id": "184594",
+    "legis_id": "12",
     "session": "45",
     "doc_num": "40",
     "date": "12/07/2024",
@@ -218,6 +249,7 @@
   },
   {
     "doc_id": "184314",
+    "legis_id": "12",
     "session": "44",
     "doc_num": "39",
     "date": "28/06/2024",
@@ -225,6 +257,7 @@
   },
   {
     "doc_id": "183794",
+    "legis_id": "12",
     "session": "43",
     "doc_num": "38",
     "date": "14/06/2024",
@@ -232,6 +265,7 @@
   },
   {
     "doc_id": "183374",
+    "legis_id": "12",
     "session": "42",
     "doc_num": "37",
     "date": "28/05/2024",
@@ -239,6 +273,7 @@
   },
   {
     "doc_id": "182834",
+    "legis_id": "12",
     "session": "41",
     "doc_num": "35",
     "date": "17/05/2024",
@@ -246,6 +281,7 @@
   },
   {
     "doc_id": "182334",
+    "legis_id": "12",
     "session": "40",
     "doc_num": "34",
     "date": "02/05/2024",
@@ -253,6 +289,7 @@
   },
   {
     "doc_id": "181614",
+    "legis_id": "12",
     "session": "39",
     "doc_num": "33",
     "date": "12/04/2024",
@@ -260,6 +297,7 @@
   },
   {
     "doc_id": "181074",
+    "legis_id": "12",
     "session": "38",
     "doc_num": "32",
     "date": "22/03/2024",
@@ -267,6 +305,7 @@
   },
   {
     "doc_id": "180615",
+    "legis_id": "12",
     "session": "37",
     "doc_num": "31",
     "date": "06/03/2024",
@@ -274,6 +313,7 @@
   },
   {
     "doc_id": "180254",
+    "legis_id": "12",
     "session": "35",
     "doc_num": "30",
     "date": "23/02/2024",
@@ -281,6 +321,7 @@
   },
   {
     "doc_id": "179895",
+    "legis_id": "12",
     "session": "34",
     "doc_num": "29",
     "date": "07/02/2024",
@@ -288,6 +329,7 @@
   },
   {
     "doc_id": "179034",
+    "legis_id": "12",
     "session": "33",
     "doc_num": "28",
     "date": "20/12/2023",
@@ -295,6 +337,7 @@
   },
   {
     "doc_id": "178954",
+    "legis_id": "12",
     "session": "32",
     "doc_num": "27",
     "date": "13/12/2023",
@@ -302,6 +345,7 @@
   },
   {
     "doc_id": "178554",
+    "legis_id": "12",
     "session": "31",
     "doc_num": "26",
     "date": "29/11/2023",
@@ -309,6 +353,7 @@
   },
   {
     "doc_id": "178155",
+    "legis_id": "12",
     "session": "30",
     "doc_num": "25",
     "date": "17/11/2023",
@@ -316,6 +361,7 @@
   },
   {
     "doc_id": "177454",
+    "legis_id": "12",
     "session": "29",
     "doc_num": "24",
     "date": "27/10/2023",
@@ -323,6 +369,7 @@
   },
   {
     "doc_id": "176994",
+    "legis_id": "12",
     "session": "28",
     "doc_num": "23",
     "date": "13/10/2023",
@@ -330,6 +377,7 @@
   },
   {
     "doc_id": "176614",
+    "legis_id": "12",
     "session": "27",
     "doc_num": "22",
     "date": "27/09/2023",
@@ -337,6 +385,7 @@
   },
   {
     "doc_id": "176194",
+    "legis_id": "12",
     "session": "26",
     "doc_num": "21",
     "date": "13/09/2023",
@@ -344,6 +393,7 @@
   },
   {
     "doc_id": "175415",
+    "legis_id": "12",
     "session": "25",
     "doc_num": "20",
     "date": "26/07/2023",
@@ -351,6 +401,7 @@
   },
   {
     "doc_id": "175015",
+    "legis_id": "12",
     "session": "24",
     "doc_num": "19",
     "date": "12/07/2023",
@@ -358,6 +409,7 @@
   },
   {
     "doc_id": "174674",
+    "legis_id": "12",
     "session": "23",
     "doc_num": "18",
     "date": "30/06/2023",
@@ -365,6 +417,7 @@
   },
   {
     "doc_id": "174174",
+    "legis_id": "12",
     "session": "22",
     "doc_num": "17",
     "date": "16/06/2023",
@@ -372,6 +425,7 @@
   },
   {
     "doc_id": "173835",
+    "legis_id": "12",
     "session": "21",
     "doc_num": "16",
     "date": "02/06/2023",
@@ -379,6 +433,7 @@
   },
   {
     "doc_id": "173414",
+    "legis_id": "12",
     "session": "20",
     "doc_num": "15",
     "date": "17/05/2023",
@@ -386,6 +441,7 @@
   },
   {
     "doc_id": "172994",
+    "legis_id": "12",
     "session": "19",
     "doc_num": "14",
     "date": "03/05/2023",
@@ -393,6 +449,7 @@
   },
   {
     "doc_id": "172535",
+    "legis_id": "12",
     "session": "18",
     "doc_num": "13",
     "date": "12/04/2023",
@@ -400,6 +457,7 @@
   },
   {
     "doc_id": "172074",
+    "legis_id": "12",
     "session": "17",
     "doc_num": "12",
     "date": "22/03/2023",
@@ -407,6 +465,7 @@
   },
   {
     "doc_id": "171614",
+    "legis_id": "12",
     "session": "16",
     "doc_num": "11",
     "date": "10/03/2023",
@@ -414,6 +473,7 @@
   },
   {
     "doc_id": "171154",
+    "legis_id": "12",
     "session": "14",
     "doc_num": "10",
     "date": "22/02/2023",
@@ -421,6 +481,7 @@
   },
   {
     "doc_id": "170735",
+    "legis_id": "12",
     "session": "13",
     "doc_num": "9",
     "date": "08/02/2023",
@@ -428,6 +489,7 @@
   },
   {
     "doc_id": "169695",
+    "legis_id": "12",
     "session": "12",
     "doc_num": "8",
     "date": "21/12/2022",
@@ -435,6 +497,7 @@
   },
   {
     "doc_id": "169694",
+    "legis_id": "12",
     "session": "11",
     "doc_num": "7",
     "date": "14/12/2022",
@@ -442,6 +505,7 @@
   },
   {
     "doc_id": "169034",
+    "legis_id": "12",
     "session": "9",
     "doc_num": "6",
     "date": "23/11/2022",
@@ -449,6 +513,7 @@
   },
   {
     "doc_id": "168555",
+    "legis_id": "12",
     "session": "8",
     "doc_num": "5",
     "date": "09/11/2022",
@@ -456,6 +521,7 @@
   },
   {
     "doc_id": "168134",
+    "legis_id": "12",
     "session": "7",
     "doc_num": "4",
     "date": "26/10/2022",
@@ -463,6 +529,7 @@
   },
   {
     "doc_id": "167675",
+    "legis_id": "12",
     "session": "6",
     "doc_num": "3",
     "date": "13/10/2022",
@@ -470,6 +537,7 @@
   },
   {
     "doc_id": "167674",
+    "legis_id": "12",
     "session": "5",
     "doc_num": "2",
     "date": "28/09/2022",
@@ -477,9 +545,1186 @@
   },
   {
     "doc_id": "166775",
+    "legis_id": "12",
     "session": "4",
     "doc_num": "1",
     "date": "14/09/2022",
     "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=166775"
+  },
+  {
+    "doc_id": "164376",
+    "legis_id": "11",
+    "session": "74",
+    "doc_num": "35",
+    "date": "06/04/2022",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=164376"
+  },
+  {
+    "doc_id": "163935",
+    "legis_id": "11",
+    "session": "73",
+    "doc_num": "34",
+    "date": "25/03/2022",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=163935"
+  },
+  {
+    "doc_id": "163434",
+    "legis_id": "11",
+    "session": "72",
+    "doc_num": "33",
+    "date": "09/03/2022",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=163434"
+  },
+  {
+    "doc_id": "163054",
+    "legis_id": "11",
+    "session": "70",
+    "doc_num": "32",
+    "date": "25/02/2022",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=163054"
+  },
+  {
+    "doc_id": "162614",
+    "legis_id": "11",
+    "session": "69",
+    "doc_num": "31",
+    "date": "09/02/2022",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=162614"
+  },
+  {
+    "doc_id": "161356",
+    "legis_id": "11",
+    "session": "67",
+    "doc_num": "30",
+    "date": "22/12/2021",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=161356"
+  },
+  {
+    "doc_id": "161174",
+    "legis_id": "11",
+    "session": "66",
+    "doc_num": "29",
+    "date": "15/12/2021",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=161174"
+  },
+  {
+    "doc_id": "160557",
+    "legis_id": "11",
+    "session": "65",
+    "doc_num": "28",
+    "date": "24/11/2021",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=160557"
+  },
+  {
+    "doc_id": "159995",
+    "legis_id": "11",
+    "session": "64",
+    "doc_num": "27",
+    "date": "10/11/2021",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=159995"
+  },
+  {
+    "doc_id": "159595",
+    "legis_id": "11",
+    "session": "63",
+    "doc_num": "26",
+    "date": "27/10/2021",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=159595"
+  },
+  {
+    "doc_id": "159214",
+    "legis_id": "11",
+    "session": "62",
+    "doc_num": "23",
+    "date": "13/10/2021",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=159214"
+  },
+  {
+    "doc_id": "159234",
+    "legis_id": "11",
+    "session": "61",
+    "doc_num": "24",
+    "date": "29/09/2021",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=159234"
+  },
+  {
+    "doc_id": "159235",
+    "legis_id": "11",
+    "session": "60",
+    "doc_num": "25",
+    "date": "15/09/2021",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=159235"
+  },
+  {
+    "doc_id": "144615",
+    "legis_id": "11",
+    "session": "28",
+    "doc_num": "22",
+    "date": "04/03/2020",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=144615"
+  },
+  {
+    "doc_id": "144294",
+    "legis_id": "11",
+    "session": "26",
+    "doc_num": "21",
+    "date": "19/02/2020",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=144294"
+  },
+  {
+    "doc_id": "143894",
+    "legis_id": "11",
+    "session": "25",
+    "doc_num": "20",
+    "date": "05/02/2020",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=143894"
+  },
+  {
+    "doc_id": "143074",
+    "legis_id": "11",
+    "session": "23",
+    "doc_num": "19",
+    "date": "18/12/2019",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=143074"
+  },
+  {
+    "doc_id": "142935",
+    "legis_id": "11",
+    "session": "22",
+    "doc_num": "18",
+    "date": "11/12/2019",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=142935"
+  },
+  {
+    "doc_id": "142634",
+    "legis_id": "11",
+    "session": "21",
+    "doc_num": "17",
+    "date": "27/11/2019",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=142634"
+  },
+  {
+    "doc_id": "142316",
+    "legis_id": "11",
+    "session": "20",
+    "doc_num": "16",
+    "date": "13/11/2019",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=142316"
+  },
+  {
+    "doc_id": "141876",
+    "legis_id": "11",
+    "session": "19",
+    "doc_num": "15",
+    "date": "23/10/2019",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=141876"
+  },
+  {
+    "doc_id": "141536",
+    "legis_id": "11",
+    "session": "18",
+    "doc_num": "13",
+    "date": "09/10/2019",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=141536"
+  },
+  {
+    "doc_id": "141537",
+    "legis_id": "11",
+    "session": "17",
+    "doc_num": "14",
+    "date": "25/09/2019",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=141537"
+  },
+  {
+    "doc_id": "140774",
+    "legis_id": "11",
+    "session": "16",
+    "doc_num": "12",
+    "date": "11/09/2019",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=140774"
+  },
+  {
+    "doc_id": "139974",
+    "legis_id": "11",
+    "session": "15",
+    "doc_num": "11",
+    "date": "17/07/2019",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=139974"
+  },
+  {
+    "doc_id": "139614",
+    "legis_id": "11",
+    "session": "14",
+    "doc_num": "10",
+    "date": "03/07/2019",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=139614"
+  },
+  {
+    "doc_id": "139434",
+    "legis_id": "11",
+    "session": "13",
+    "doc_num": "9",
+    "date": "26/06/2019",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=139434"
+  },
+  {
+    "doc_id": "139074",
+    "legis_id": "11",
+    "session": "12",
+    "doc_num": "8",
+    "date": "12/06/2019",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=139074"
+  },
+  {
+    "doc_id": "138755",
+    "legis_id": "11",
+    "session": "11",
+    "doc_num": "7",
+    "date": "29/05/2019",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=138755"
+  },
+  {
+    "doc_id": "138554",
+    "legis_id": "11",
+    "session": "10",
+    "doc_num": "6",
+    "date": "15/05/2019",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=138554"
+  },
+  {
+    "doc_id": "138294",
+    "legis_id": "11",
+    "session": "9",
+    "doc_num": "5",
+    "date": "02/05/2019",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=138294"
+  },
+  {
+    "doc_id": "137754",
+    "legis_id": "11",
+    "session": "8",
+    "doc_num": "4",
+    "date": "03/04/2019",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=137754"
+  },
+  {
+    "doc_id": "137414",
+    "legis_id": "11",
+    "session": "7",
+    "doc_num": "3",
+    "date": "20/03/2019",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=137414"
+  },
+  {
+    "doc_id": "137194",
+    "legis_id": "11",
+    "session": "6",
+    "doc_num": "2",
+    "date": "06/03/2019",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=137194"
+  },
+  {
+    "doc_id": "136794",
+    "legis_id": "11",
+    "session": "4",
+    "doc_num": "1",
+    "date": "20/02/2019",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=136794"
+  },
+  {
+    "doc_id": "133874",
+    "legis_id": "10",
+    "session": "70",
+    "doc_num": "66",
+    "date": "26/09/2018",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=133874"
+  },
+  {
+    "doc_id": "133394",
+    "legis_id": "10",
+    "session": "69",
+    "doc_num": "65",
+    "date": "12/09/2018",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=133394"
+  },
+  {
+    "doc_id": "132174",
+    "legis_id": "10",
+    "session": "68",
+    "doc_num": "64",
+    "date": "18/07/2018",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=132174"
+  },
+  {
+    "doc_id": "131814",
+    "legis_id": "10",
+    "session": "67",
+    "doc_num": "63",
+    "date": "04/07/2018",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=131814"
+  },
+  {
+    "doc_id": "131334",
+    "legis_id": "10",
+    "session": "66",
+    "doc_num": "62",
+    "date": "20/06/2018",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=131334"
+  },
+  {
+    "doc_id": "130876",
+    "legis_id": "10",
+    "session": "65",
+    "doc_num": "61",
+    "date": "06/06/2018",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=130876"
+  },
+  {
+    "doc_id": "130497",
+    "legis_id": "10",
+    "session": "64",
+    "doc_num": "60",
+    "date": "24/05/2018",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=130497"
+  },
+  {
+    "doc_id": "130134",
+    "legis_id": "10",
+    "session": "63",
+    "doc_num": "59",
+    "date": "09/05/2018",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=130134"
+  },
+  {
+    "doc_id": "129694",
+    "legis_id": "10",
+    "session": "62",
+    "doc_num": "58",
+    "date": "25/04/2018",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=129694"
+  },
+  {
+    "doc_id": "129414",
+    "legis_id": "10",
+    "session": "61",
+    "doc_num": "55",
+    "date": "11/04/2018",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=129414"
+  },
+  {
+    "doc_id": "128874",
+    "legis_id": "10",
+    "session": "60",
+    "doc_num": "54",
+    "date": "26/03/2018",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=128874"
+  },
+  {
+    "doc_id": "128234",
+    "legis_id": "10",
+    "session": "59",
+    "doc_num": "53",
+    "date": "06/03/2018",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=128234"
+  },
+  {
+    "doc_id": "127634",
+    "legis_id": "10",
+    "session": "57",
+    "doc_num": "52",
+    "date": "14/02/2018",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=127634"
+  },
+  {
+    "doc_id": "127355",
+    "legis_id": "10",
+    "session": "56",
+    "doc_num": "51",
+    "date": "01/02/2018",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=127355"
+  },
+  {
+    "doc_id": "126337",
+    "legis_id": "10",
+    "session": "55",
+    "doc_num": "50",
+    "date": "19/12/2017",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=126337"
+  },
+  {
+    "doc_id": "126135",
+    "legis_id": "10",
+    "session": "54",
+    "doc_num": "49",
+    "date": "13/12/2017",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=126135"
+  },
+  {
+    "doc_id": "125734",
+    "legis_id": "10",
+    "session": "53",
+    "doc_num": "48",
+    "date": "29/11/2017",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=125734"
+  },
+  {
+    "doc_id": "125254",
+    "legis_id": "10",
+    "session": "52",
+    "doc_num": "47",
+    "date": "16/11/2017",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=125254"
+  },
+  {
+    "doc_id": "124514",
+    "legis_id": "10",
+    "session": "51",
+    "doc_num": "46",
+    "date": "25/10/2017",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=124514"
+  },
+  {
+    "doc_id": "123834",
+    "legis_id": "10",
+    "session": "50",
+    "doc_num": "45",
+    "date": "04/10/2017",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=123834"
+  },
+  {
+    "doc_id": "123634",
+    "legis_id": "10",
+    "session": "49",
+    "doc_num": "44",
+    "date": "27/09/2017",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=123634"
+  },
+  {
+    "doc_id": "123174",
+    "legis_id": "10",
+    "session": "48",
+    "doc_num": "43",
+    "date": "13/09/2017",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=123174"
+  },
+  {
+    "doc_id": "122354",
+    "legis_id": "10",
+    "session": "47",
+    "doc_num": "42",
+    "date": "19/07/2017",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=122354"
+  },
+  {
+    "doc_id": "121936",
+    "legis_id": "10",
+    "session": "46",
+    "doc_num": "41",
+    "date": "06/07/2017",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=121936"
+  },
+  {
+    "doc_id": "121594",
+    "legis_id": "10",
+    "session": "45",
+    "doc_num": "40",
+    "date": "21/06/2017",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=121594"
+  },
+  {
+    "doc_id": "121334",
+    "legis_id": "10",
+    "session": "43",
+    "doc_num": "39",
+    "date": "08/06/2017",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=121334"
+  },
+  {
+    "doc_id": "121054",
+    "legis_id": "10",
+    "session": "42",
+    "doc_num": "38",
+    "date": "24/05/2017",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=121054"
+  },
+  {
+    "doc_id": "120714",
+    "legis_id": "10",
+    "session": "41",
+    "doc_num": "37",
+    "date": "10/05/2017",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=120714"
+  },
+  {
+    "doc_id": "120234",
+    "legis_id": "10",
+    "session": "40",
+    "doc_num": "36",
+    "date": "20/04/2017",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=120234"
+  },
+  {
+    "doc_id": "119854",
+    "legis_id": "10",
+    "session": "39",
+    "doc_num": "35",
+    "date": "29/03/2017",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=119854"
+  },
+  {
+    "doc_id": "119514",
+    "legis_id": "10",
+    "session": "38",
+    "doc_num": "34",
+    "date": "15/03/2017",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=119514"
+  },
+  {
+    "doc_id": "119214",
+    "legis_id": "10",
+    "session": "37",
+    "doc_num": "33",
+    "date": "02/03/2017",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=119214"
+  },
+  {
+    "doc_id": "118874",
+    "legis_id": "10",
+    "session": "35",
+    "doc_num": "32",
+    "date": "15/02/2017",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=118874"
+  },
+  {
+    "doc_id": "118596",
+    "legis_id": "10",
+    "session": "34",
+    "doc_num": "31",
+    "date": "01/02/2017",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=118596"
+  },
+  {
+    "doc_id": "117855",
+    "legis_id": "10",
+    "session": "33",
+    "doc_num": "30",
+    "date": "21/12/2016",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=117855"
+  },
+  {
+    "doc_id": "117695",
+    "legis_id": "10",
+    "session": "32",
+    "doc_num": "29",
+    "date": "14/12/2016",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=117695"
+  },
+  {
+    "doc_id": "117356",
+    "legis_id": "10",
+    "session": "31",
+    "doc_num": "28",
+    "date": "23/11/2016",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=117356"
+  },
+  {
+    "doc_id": "117054",
+    "legis_id": "10",
+    "session": "30",
+    "doc_num": "27",
+    "date": "09/11/2016",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=117054"
+  },
+  {
+    "doc_id": "116616",
+    "legis_id": "10",
+    "session": "29",
+    "doc_num": "26",
+    "date": "20/10/2016",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=116616"
+  },
+  {
+    "doc_id": "116355",
+    "legis_id": "10",
+    "session": "28",
+    "doc_num": "25",
+    "date": "05/10/2016",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=116355"
+  },
+  {
+    "doc_id": "116075",
+    "legis_id": "10",
+    "session": "27",
+    "doc_num": "24",
+    "date": "21/09/2016",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=116075"
+  },
+  {
+    "doc_id": "115774",
+    "legis_id": "10",
+    "session": "26",
+    "doc_num": "23",
+    "date": "07/09/2016",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=115774"
+  },
+  {
+    "doc_id": "115294",
+    "legis_id": "10",
+    "session": "25",
+    "doc_num": "22",
+    "date": "28/07/2016",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=115294"
+  },
+  {
+    "doc_id": "115175",
+    "legis_id": "10",
+    "session": "24",
+    "doc_num": "21",
+    "date": "20/07/2016",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=115175"
+  },
+  {
+    "doc_id": "114874",
+    "legis_id": "10",
+    "session": "23",
+    "doc_num": "20",
+    "date": "06/07/2016",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=114874"
+  },
+  {
+    "doc_id": "114255",
+    "legis_id": "10",
+    "session": "22",
+    "doc_num": "19",
+    "date": "08/06/2016",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=114255"
+  },
+  {
+    "doc_id": "113958",
+    "legis_id": "10",
+    "session": "21",
+    "doc_num": "18",
+    "date": "24/05/2016",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=113958"
+  },
+  {
+    "doc_id": "113675",
+    "legis_id": "10",
+    "session": "20",
+    "doc_num": "17",
+    "date": "11/05/2016",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=113675"
+  },
+  {
+    "doc_id": "113375",
+    "legis_id": "10",
+    "session": "19",
+    "doc_num": "16",
+    "date": "27/04/2016",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=113375"
+  },
+  {
+    "doc_id": "113014",
+    "legis_id": "10",
+    "session": "18",
+    "doc_num": "15",
+    "date": "06/04/2016",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=113014"
+  },
+  {
+    "doc_id": "112674",
+    "legis_id": "10",
+    "session": "17",
+    "doc_num": "14",
+    "date": "17/03/2016",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=112674"
+  },
+  {
+    "doc_id": "112314",
+    "legis_id": "10",
+    "session": "16",
+    "doc_num": "13",
+    "date": "03/03/2016",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=112314"
+  },
+  {
+    "doc_id": "112137",
+    "legis_id": "10",
+    "session": "14",
+    "doc_num": "12",
+    "date": "24/02/2016",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=112137"
+  },
+  {
+    "doc_id": "111756",
+    "legis_id": "10",
+    "session": "13",
+    "doc_num": "11",
+    "date": "10/02/2016",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=111756"
+  },
+  {
+    "doc_id": "110754",
+    "legis_id": "10",
+    "session": "12",
+    "doc_num": "10",
+    "date": "22/12/2015",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=110754"
+  },
+  {
+    "doc_id": "110354",
+    "legis_id": "10",
+    "session": "11",
+    "doc_num": "9",
+    "date": "02/12/2015",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=110354"
+  },
+  {
+    "doc_id": "109813",
+    "legis_id": "10",
+    "session": "10",
+    "doc_num": "8",
+    "date": "18/11/2015",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=109813"
+  },
+  {
+    "doc_id": "108993",
+    "legis_id": "10",
+    "session": "9",
+    "doc_num": "7",
+    "date": "04/11/2015",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=108993"
+  },
+  {
+    "doc_id": "108313",
+    "legis_id": "10",
+    "session": "8",
+    "doc_num": "6",
+    "date": "21/10/2015",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=108313"
+  },
+  {
+    "doc_id": "107513",
+    "legis_id": "10",
+    "session": "7",
+    "doc_num": "5",
+    "date": "07/10/2015",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=107513"
+  },
+  {
+    "doc_id": "106834",
+    "legis_id": "10",
+    "session": "6",
+    "doc_num": "4",
+    "date": "23/09/2015",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=106834"
+  },
+  {
+    "doc_id": "106233",
+    "legis_id": "10",
+    "session": "5",
+    "doc_num": "3",
+    "date": "11/09/2015",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=106233"
+  },
+  {
+    "doc_id": "105233",
+    "legis_id": "10",
+    "session": "4",
+    "doc_num": "2",
+    "date": "22/07/2015",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=105233"
+  },
+  {
+    "doc_id": "104193",
+    "legis_id": "10",
+    "session": "3",
+    "doc_num": "1",
+    "date": "01/07/2015",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=104193"
+  },
+  {
+    "doc_id": "100333",
+    "legis_id": "9",
+    "session": "56",
+    "doc_num": "54",
+    "date": "22/12/2014",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=100333"
+  },
+  {
+    "doc_id": "99813",
+    "legis_id": "9",
+    "session": "55",
+    "doc_num": "53",
+    "date": "10/12/2014",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=99813"
+  },
+  {
+    "doc_id": "99334",
+    "legis_id": "9",
+    "session": "54",
+    "doc_num": "52",
+    "date": "26/11/2014",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=99334"
+  },
+  {
+    "doc_id": "98614",
+    "legis_id": "9",
+    "session": "53",
+    "doc_num": "51",
+    "date": "14/11/2014",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=98614"
+  },
+  {
+    "doc_id": "97513",
+    "legis_id": "9",
+    "session": "52",
+    "doc_num": "50",
+    "date": "22/10/2014",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=97513"
+  },
+  {
+    "doc_id": "96993",
+    "legis_id": "9",
+    "session": "51",
+    "doc_num": "49",
+    "date": "08/10/2014",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=96993"
+  },
+  {
+    "doc_id": "96453",
+    "legis_id": "9",
+    "session": "50",
+    "doc_num": "48",
+    "date": "24/09/2014",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=96453"
+  },
+  {
+    "doc_id": "96193",
+    "legis_id": "9",
+    "session": "49",
+    "doc_num": "47",
+    "date": "18/09/2014",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=96193"
+  },
+  {
+    "doc_id": "95793",
+    "legis_id": "9",
+    "session": "48",
+    "doc_num": "46",
+    "date": "11/09/2014",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=95793"
+  },
+  {
+    "doc_id": "94333",
+    "legis_id": "9",
+    "session": "47",
+    "doc_num": "45",
+    "date": "25/06/2014",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=94333"
+  },
+  {
+    "doc_id": "93753",
+    "legis_id": "9",
+    "session": "46",
+    "doc_num": "44",
+    "date": "11/06/2014",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=93753"
+  },
+  {
+    "doc_id": "93213",
+    "legis_id": "9",
+    "session": "45",
+    "doc_num": "43",
+    "date": "28/05/2014",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=93213"
+  },
+  {
+    "doc_id": "92113",
+    "legis_id": "9",
+    "session": "43",
+    "doc_num": "41",
+    "date": "29/04/2014",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=92113"
+  },
+  {
+    "doc_id": "91453",
+    "legis_id": "9",
+    "session": "42",
+    "doc_num": "40",
+    "date": "09/04/2014",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=91453"
+  },
+  {
+    "doc_id": "90853",
+    "legis_id": "9",
+    "session": "41",
+    "doc_num": "39",
+    "date": "27/03/2014",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=90853"
+  },
+  {
+    "doc_id": "90314",
+    "legis_id": "9",
+    "session": "40",
+    "doc_num": "38",
+    "date": "12/03/2014",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=90314"
+  },
+  {
+    "doc_id": "89733",
+    "legis_id": "9",
+    "session": "38",
+    "doc_num": "37",
+    "date": "26/02/2014",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=89733"
+  },
+  {
+    "doc_id": "89553",
+    "legis_id": "9",
+    "session": "37",
+    "doc_num": "36",
+    "date": "26/02/2014",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=89553"
+  },
+  {
+    "doc_id": "89013",
+    "legis_id": "9",
+    "session": "36",
+    "doc_num": "35",
+    "date": "13/02/2014",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=89013"
+  },
+  {
+    "doc_id": "87573",
+    "legis_id": "9",
+    "session": "34",
+    "doc_num": "33",
+    "date": "19/12/2013",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=87573"
+  },
+  {
+    "doc_id": "87273",
+    "legis_id": "9",
+    "session": "33",
+    "doc_num": "32",
+    "date": "11/12/2013",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=87273"
+  },
+  {
+    "doc_id": "86713",
+    "legis_id": "9",
+    "session": "32",
+    "doc_num": "31",
+    "date": "27/11/2013",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=86713"
+  },
+  {
+    "doc_id": "86073",
+    "legis_id": "9",
+    "session": "31",
+    "doc_num": "30",
+    "date": "13/11/2013",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=86073"
+  },
+  {
+    "doc_id": "85053",
+    "legis_id": "9",
+    "session": "30",
+    "doc_num": "29",
+    "date": "23/10/2013",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=85053"
+  },
+  {
+    "doc_id": "84354",
+    "legis_id": "9",
+    "session": "29",
+    "doc_num": "28",
+    "date": "09/10/2013",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=84354"
+  },
+  {
+    "doc_id": "83753",
+    "legis_id": "9",
+    "session": "28",
+    "doc_num": "27",
+    "date": "25/09/2013",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=83753"
+  },
+  {
+    "doc_id": "82213",
+    "legis_id": "9",
+    "session": "25",
+    "doc_num": "24",
+    "date": "17/07/2013",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=82213"
+  },
+  {
+    "doc_id": "81654",
+    "legis_id": "9",
+    "session": "24",
+    "doc_num": "23",
+    "date": "27/06/2013",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=81654"
+  },
+  {
+    "doc_id": "80933",
+    "legis_id": "9",
+    "session": "23",
+    "doc_num": "22",
+    "date": "12/06/2013",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=80933"
+  },
+  {
+    "doc_id": "79893",
+    "legis_id": "9",
+    "session": "22",
+    "doc_num": "21",
+    "date": "22/05/2013",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=79893"
+  },
+  {
+    "doc_id": "79313",
+    "legis_id": "9",
+    "session": "21",
+    "doc_num": "20",
+    "date": "14/05/2013",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=79313"
+  },
+  {
+    "doc_id": "78673",
+    "legis_id": "9",
+    "session": "20",
+    "doc_num": "19",
+    "date": "24/04/2013",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=78673"
+  },
+  {
+    "doc_id": "78514",
+    "legis_id": "9",
+    "session": "19",
+    "doc_num": "18",
+    "date": "04/04/2013",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=78514"
+  },
+  {
+    "doc_id": "78468",
+    "legis_id": "9",
+    "session": "18",
+    "doc_num": "17",
+    "date": "14/03/2013",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=78468"
+  },
+  {
+    "doc_id": "78467",
+    "legis_id": "9",
+    "session": "16",
+    "doc_num": "16",
+    "date": "27/02/2013",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=78467"
+  },
+  {
+    "doc_id": "78466",
+    "legis_id": "9",
+    "session": "15",
+    "doc_num": "15",
+    "date": "13/02/2013",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=78466"
+  },
+  {
+    "doc_id": "78465",
+    "legis_id": "9",
+    "session": "14",
+    "doc_num": "14",
+    "date": "19/12/2012",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=78465"
+  },
+  {
+    "doc_id": "78464",
+    "legis_id": "9",
+    "session": "13",
+    "doc_num": "13",
+    "date": "12/12/2012",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=78464"
+  },
+  {
+    "doc_id": "78463",
+    "legis_id": "9",
+    "session": "12",
+    "doc_num": "12",
+    "date": "28/11/2012",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=78463"
+  },
+  {
+    "doc_id": "78462",
+    "legis_id": "9",
+    "session": "11",
+    "doc_num": "11",
+    "date": "15/11/2012",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=78462"
+  },
+  {
+    "doc_id": "78461",
+    "legis_id": "9",
+    "session": "10",
+    "doc_num": "10",
+    "date": "24/10/2012",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=78461"
+  },
+  {
+    "doc_id": "78460",
+    "legis_id": "9",
+    "session": "9",
+    "doc_num": "9",
+    "date": "11/10/2012",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=78460"
+  },
+  {
+    "doc_id": "78459",
+    "legis_id": "9",
+    "session": "8",
+    "doc_num": "8",
+    "date": "26/09/2012",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=78459"
+  },
+  {
+    "doc_id": "78458",
+    "legis_id": "9",
+    "session": "7",
+    "doc_num": "7",
+    "date": "12/09/2012",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=78458"
+  },
+  {
+    "doc_id": "78457",
+    "legis_id": "9",
+    "session": "6",
+    "doc_num": "6",
+    "date": "25/07/2012",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=78457"
+  },
+  {
+    "doc_id": "78456",
+    "legis_id": "9",
+    "session": "5",
+    "doc_num": "5",
+    "date": "27/06/2012",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=78456"
+  },
+  {
+    "doc_id": "78455",
+    "legis_id": "9",
+    "session": "4",
+    "doc_num": "4",
+    "date": "14/06/2012",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=78455"
+  },
+  {
+    "doc_id": "78454",
+    "legis_id": "9",
+    "session": "3",
+    "doc_num": "3",
+    "date": "23/05/2012",
+    "url": "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id=78454"
   }
 ]

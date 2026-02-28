@@ -8,7 +8,11 @@ import glob
 import hashlib
 import json
 import os
-import subprocess
+import json
+import os
+import sys
+from google import genai
+from google.genai import types
 import sys
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -182,7 +186,7 @@ def text_hash(text):
 
 
 def categorize_batch(texts_with_hashes):
-    """Categorize a batch of parliamentary texts using claude CLI.
+    """Categorize a batch of parliamentary texts using google-genai.
 
     Args:
         texts_with_hashes: list of (hash, text_expediente) tuples
@@ -197,33 +201,32 @@ def categorize_batch(texts_with_hashes):
     batch_items = []
     for i, (h, text) in enumerate(texts_with_hashes):
         batch_items.append(f'[{i}] "{text}"')
-    items_block = "\n".join(batch_items)
+    items_block = "\\n".join(batch_items)
 
     full_prompt = (
-        f"{prompt_template}\n\n"
-        f"Categoriza CADA uno de los siguientes {len(texts_with_hashes)} asuntos parlamentarios.\n"
-        f"Devuelve un JSON array con un objeto por asunto, en el MISMO ORDEN.\n"
-        f"SOLO el JSON array, sin markdown ni explicacion.\n\n"
+        f"{prompt_template}\\n\\n"
+        f"Categoriza CADA uno de los siguientes {len(texts_with_hashes)} asuntos parlamentarios.\\n"
+        f"Devuelve un JSON array con un objeto por asunto, en el MISMO ORDEN.\\n"
+        f"SOLO el JSON array, sin markdown ni explicacion.\\n\\n"
         f"{items_block}"
     )
 
     try:
-        env = os.environ.copy()
-        env.pop("CLAUDECODE", None)
-
-        result = subprocess.run(
-            ["claude", "-p", "--model", "haiku", "--output-format", "text"],
-            input=full_prompt,
-            capture_output=True,
-            text=True,
-            timeout=120,
-            env=env,
+        # Initialize the client. It will automatically pick up GEMINI_API_KEY from the environment
+        client = genai.Client()
+        
+        response = client.models.generate_content(
+            model='gemini-2.5-flash',
+            contents=full_prompt,
+            config=types.GenerateContentConfig(
+                temperature=0.1,
+            )
         )
 
-        output = result.stdout.strip()
+        output = response.text.strip()
 
         if not output:
-            raise ValueError(f"Empty output (rc={result.returncode}): {result.stderr[:200]}")
+            raise ValueError("Empty output from Gemini")
 
         # Extract JSON from possible markdown fences
         if "```json" in output:
@@ -252,7 +255,6 @@ def categorize_batch(texts_with_hashes):
         for h, text in texts_with_hashes:
             result_map[h] = _fallback_categorization()
         return result_map
-
 
 def _validate_categorization(data):
     """Validate and normalize a single categorization result."""

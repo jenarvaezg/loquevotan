@@ -15,19 +15,19 @@ def run_step(name, command):
 def main():
     script_dir = os.path.dirname(os.path.abspath(__file__))
     
-    # 1. Scrape deputies
-    run_step("Scrape Deputies", f"python3 {os.path.join(script_dir, 'scrape_diputados.py')}")
-    
-    # 2. Scrape session index
+    # 1. Scrape session index (Detects all available legislatures)
     run_step("Scrape Sessions Index", f"python3 {os.path.join(script_dir, 'scrape_sessions.py')}")
     
-    # 3. Download PDFs (only new ones)
+    # 2. Scrape deputies (Names and photos for all legislatures)
+    run_step("Scrape Deputies", f"python3 {os.path.join(script_dir, 'scrape_diputados.py')}")
+    
+    # 3. Download PDFs (Only new ones)
     run_step("Download PDFs", f"python3 {os.path.join(script_dir, 'download_pdfs.py')}")
     
-    # 4. Parse PDFs
+    # 4. Parse PDFs (Extract votes and group mappings)
     run_step("Parse PDFs", f"python3 {os.path.join(script_dir, 'parse_pdfs.py')}")
     
-    # 5. Transform
+    # 5. Transform (Generate optimized JSONs for frontend)
     run_step("Transform Data", f"python3 {os.path.join(script_dir, 'transform.py')}")
 
 if __name__ == "__main__":

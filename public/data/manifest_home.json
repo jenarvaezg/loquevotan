@@ -3,12 +3,24 @@
     {
       "id": "nacional",
       "nombre": "Congreso de los Diputados",
-      "legislaturas": ["XV", "XIV", "XIII", "XII", "XI", "X"]
+      "legislaturas": [
+        "XV",
+        "XIV",
+        "XIII",
+        "XII",
+        "XI",
+        "X"
+      ]
     },
     {
       "id": "andalucia",
       "nombre": "Parlamento de Andalucía",
-      "legislaturas": ["XII"]
+      "legislaturas": [
+        "XII",
+        "XI",
+        "X",
+        "IX"
+      ]
     }
   ],
   "ultima_actualizacion": "2026-02-28T19:35:00Z"

@@ -18,10 +18,6 @@ jobs:
         with:
           python-version: "3.11"
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-
       - name: Restore raw data cache
         uses: actions/cache@v4
         with:
@@ -29,27 +25,31 @@ jobs:
           key: congress-raw-${{ github.run_id }}
           restore-keys: congress-raw-
 
-      - name: Install gemini-cli
-        run: npm install -g @anthropic-ai/gemini-cli || npm install -g gemini-cli || echo "gemini-cli not available, using --skip-ai"
+      - name: Install dependencies
+        run: |
+          pip install requests beautifulsoup4 pdfplumber google-genai
 
-      - name: Run scraper
+      - name: Run National scraper
         run: python scripts/scraper.py
 
-      - name: Run transformer
+      - name: Run National transformer
         run: |
-          if command -v gemini &> /dev/null; then
-            python scripts/transform.py
-          else
-            echo "gemini-cli not found, running with --skip-ai"
+          if [ -z "${GEMINI_API_KEY}" ]; then
+            echo "GEMINI_API_KEY not found, running with --skip-ai"
             python scripts/transform.py --skip-ai
+          else
+            python scripts/transform.py
           fi
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+      - name: Run Andalusia update
+        run: python scripts/andalucia/run_update.py
 
       - name: Commit and push if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add public/data/votaciones.json data/cache_categorias.json
-          git diff --staged --quiet || git commit -m "chore: update voting data $(date +%Y-%m-%d)"
+          git add public/data/ data/cache_categorias.json data/andalucia/cache_categorias.json
+          git diff --staged --quiet || git commit -m "chore: update voting data (National + Andalusia) $(date +%Y-%m-%d)"
           git push

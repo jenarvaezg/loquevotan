@@ -6,44 +6,57 @@ import os
 from urllib.parse import urljoin
 
 def get_session_links():
-    base_url = "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/composicionyfuncionamiento/resultadosvotaciones.do?seleccion=publicadosen&legislatura=12&desderango=&hastarango=&desdemes=&desdeanyo=&hastames=&hastaanyo=&terminos=&accion=Ver+Sentido+del+voto"
+    base_url = "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/composicionyfuncionamiento/resultadosvotaciones.do?seleccion=publicadosen&desderango=&hastarango=&desdemes=&desdeanyo=&hastames=&hastaanyo=&terminos=&accion=Ver+Sentido+del+voto"
     
-    sessions = []
-    indices = [0, 15, 30, 45, 60] # Based on the 69 results found
+    legislaturas = ["12", "11", "10", "9"]
+    all_sessions = []
     
-    for indice in indices:
-        url = f"{base_url}&indice={indice}"
-        print(f"Fetching page with index {indice}...")
-        response = requests.get(url)
-        soup = BeautifulSoup(response.text, 'html.parser')
-        
-        # Looking for links with tipodoc=diario
-        links = soup.find_all('a', href=re.compile(r'tipodoc=diario'))
-        
-        for link in links:
-            text = link.get_text().strip()
-            href = link.get('href')
-            full_url = urljoin(url, href)
+    for legis in legislaturas:
+        print(f"--- Processing Legislatura {legis} ---")
+        # Most legislatures won't have more than 100 sessions, so 0, 15, 30, 45, 60, 75, 90 should cover most
+        # We'll check if we find new links in each page
+        for indice in range(0, 150, 15):
+            url = f"{base_url}&legislatura={legis}&indice={indice}"
+            print(f"Fetching page with index {indice}...")
+            response = requests.get(url)
+            soup = BeautifulSoup(response.text, 'html.parser')
             
-            # Extract id
-            id_match = re.search(r'id=(\d+)', href)
-            if id_match:
-                doc_id = id_match.group(1)
+            links = soup.find_all('a', href=re.compile(r'tipodoc=diario'))
+            if not links:
+                break
                 
-                # Extract session and document number from text
-                session_match = re.search(r'sesión número (\d+)', text)
-                doc_num_match = re.search(r'Documento número (\d+)', text)
-                date_match = re.search(r'(\d{2}/\d{2}/\d{4})', text)
+            found_new = False
+            for link in links:
+                text = link.get_text().strip()
+                href = link.get('href')
+                full_url = urljoin(url, href)
                 
-                sessions.append({
-                    "doc_id": doc_id,
-                    "session": session_match.group(1) if session_match else "Unknown",
-                    "doc_num": doc_num_match.group(1) if doc_num_match else "Unknown",
-                    "date": date_match.group(1) if date_match else "Unknown",
-                    "url": full_url
-                })
+                id_match = re.search(r'id=(\d+)', href)
+                if id_match:
+                    doc_id = id_match.group(1)
+                    
+                    # Avoid duplicates
+                    if any(s['doc_id'] == doc_id for s in all_sessions):
+                        continue
+                    
+                    found_new = True
+                    session_match = re.search(r'sesión número (\d+)', text)
+                    doc_num_match = re.search(r'Documento número (\d+)', text)
+                    date_match = re.search(r'(\d{2}/\d{2}/\d{4})', text)
+                    
+                    all_sessions.append({
+                        "doc_id": doc_id,
+                        "legis_id": legis,
+                        "session": session_match.group(1) if session_match else "Unknown",
+                        "doc_num": doc_num_match.group(1) if doc_num_match else "Unknown",
+                        "date": date_match.group(1) if date_match else "Unknown",
+                        "url": full_url
+                    })
             
-    return sessions
+            if not found_new:
+                break
+            
+    return all_sessions
 
 if __name__ == "__main__":
     sessions = get_session_links()

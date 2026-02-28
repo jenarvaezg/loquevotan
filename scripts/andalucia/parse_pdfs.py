@@ -23,7 +23,6 @@ def normalize_text(text):
 
 def parse_andalucia_voto_pdf(pdf_path, diputados_map, session_info):
     votes = []
-    doc_id = os.path.basename(pdf_path).replace('.pdf', '')
     
     with pdfplumber.open(pdf_path) as pdf:
         full_text = ""
@@ -32,7 +31,6 @@ def parse_andalucia_voto_pdf(pdf_path, diputados_map, session_info):
             if text:
                 full_text += text + "\n---PAGE_BREAK---\n"
             
-    # Split by vote
     vote_matches = list(re.finditer(r'VOTACIÓN Nº (\d+)', full_text))
     
     for i, match in enumerate(vote_matches):
@@ -41,98 +39,96 @@ def parse_andalucia_voto_pdf(pdf_path, diputados_map, session_info):
         end_idx = vote_matches[i+1].start() if i+1 < len(vote_matches) else len(full_text)
         content = full_text[start_idx:end_idx]
         
-        # Use session info from index as fallback
         session_num = session_info.get('session', 'Unknown')
-        legis = "XII"
+        legis_id = session_info.get('legis_id', '12')
+        # Map legis_id to roman
+        legis_map = {"12": "XII", "11": "XI", "10": "X", "9": "IX"}
+        legis = legis_map.get(legis_id, "XII")
         date = session_info.get('date', 'Unknown')
         
-        # Try to find better metadata in full_text
-        s_match = re.search(r'SESIÓN (\d+)', full_text)
-        if s_match: session_num = s_match.group(1)
-        
-        # Refined title extraction
-        title = ""
-        # Look for the line after the date/time timestamp
-        ts_match = re.search(r'\d{2}/\d{2}/\d{4} \d{2}:\d{2}:\d{2}', content)
-        if ts_match:
-            lines_after = content[ts_match.end():].split('\n')
-            for line in lines_after:
-                line = line.strip()
-                if not line or 'VOTACIÓN' in line or 'PROTOCOLO' in line or 'SESIÓN' in line or 'PRESIDE' in line:
-                    continue
-                if 'TÍTULO' in line:
-                    # Capture everything after TÍTULO ... DEBATE:
-                    title_match = re.search(r'TÍTULO (?:GENERAL|PARTICULAR) DEL DEBATE:\s*(.*)', line)
-                    if title_match:
-                        title = title_match.group(1).strip()
-                        break
-                    continue
-                if 'TOTAL' in line and 'PP' in line:
-                    break
-                title = line
-                break
-
-        if not title:
-            # Look at the text BEFORE the vote number (sometimes title is there)
-            prev_content = full_text[max(0, match.start()-200):match.start()]
-            title_match = re.search(r'TÍTULO (?:GENERAL|PARTICULAR) DEL DEBATE:\s*(.*?)\n', prev_content, re.DOTALL)
-            if title_match:
-                title = title_match.group(1).strip()
-
         results = {
             "id": f"AND-{legis}-{session_num}-{vote_num}",
             "fecha": date,
-            "titulo": title if title else "Votación sin título",
+            "titulo": "Votación sin título",
             "sesion": session_num,
             "numero": vote_num,
             "votos": []
         }
         
-        # Parse individual votes
-        sections = re.split(r'\*\*\* (SI|NO|ABSTENCIONES|AUSENTE) \*\*\*', content)
+        # Title extraction
+        ts_match = re.search(r'\d{2}/\d{2}/\d{4} \d{2}:\d{2}:\d{2}', content)
+        if ts_match:
+            lines = content[ts_match.end():].split('\n')
+            for line in lines:
+                line = line.strip()
+                if not line or any(x in line for x in ['VOTACIÓN', 'PROTOCOLO', 'SESIÓN', 'PRESIDE']): continue
+                if 'TÍTULO' in line:
+                    m = re.search(r'TÍTULO (?:GENERAL|PARTICULAR) DEL DEBATE:\s*(.*)', line)
+                    if m: 
+                        results["titulo"] = m.group(1).strip()
+                        break
+                    continue
+                if 'PRESENTES' in line or 'TOTAL' in line: break
+                results["titulo"] = line
+                break
+
+        current_group = "Unknown"
+        lines = content.split('\n')
+        current_sense = None
         
-        for j in range(1, len(sections), 2):
-            sense = sections[j]
-            names_text = sections[j+1]
+        for line in lines:
+            line = line.strip()
+            if not line: continue
             
-            deputy_matches = re.finditer(r'(\d{3})\s+(.*?)(?=\s+\d{3}|$|\n)', names_text)
+            # Detect sense
+            sense_match = re.search(r'\*\*\* (SI|NO|ABSTENCIONES|AUSENTE) \*\*\*', line)
+            if sense_match:
+                current_sense = sense_match.group(1)
+                continue
+                
+            # Detect group
+            if (line.startswith('G.P.') or line.startswith('GRUPO')) and '***' not in line:
+                current_group = line.replace('G.P. ', '').replace('GRUPO ', '').strip()
+                continue
             
-            for d_match in deputy_matches:
-                local_id = d_match.group(1)
-                full_name = d_match.group(2).strip()
-                full_name = " ".join(full_name.split())
-                
-                norm_name = normalize_text(full_name)
-                found_deputy = None
-                
-                if norm_name in diputados_map:
-                    found_deputy = diputados_map[norm_name]
-                else:
-                    # Fuzzy match for names like "Mª Mercedes" -> "Maria Mercedes"
+            # Detect deputies
+            if current_sense:
+                dep_matches = re.finditer(r'(\d{3})\s+(.*?)(?=\s+\d{3}|$)', line)
+                for d_m in dep_matches:
+                    local_id = d_m.group(1)
+                    full_name = " ".join(d_m.group(2).strip().split())
+                    
+                    norm_name = normalize_text(full_name)
+                    found_deputy = None
+                    
+                    # Try to find deputy in map for this legislature
                     for d_norm, d_data in diputados_map.items():
-                        if d_norm in norm_name or norm_name in d_norm:
+                        if d_data["nlegis"] == legis_id and (d_norm in norm_name or norm_name in d_norm):
                             found_deputy = d_data
                             break
-                
-                voto_sense = "abstencion"
-                if sense == "SI": voto_sense = "si"
-                elif sense == "NO": voto_sense = "no"
-                elif sense == "AUSENTE": voto_sense = "no_vota"
+                    
+                    voto_sense = "abstencion"
+                    if current_sense == "SI": voto_sense = "si"
+                    elif current_sense == "NO": voto_sense = "no"
+                    elif current_sense == "AUSENTE": voto_sense = "no_vota"
 
-                if found_deputy:
-                    results["votos"].append({
-                        "diputado": found_deputy["nombre"],
-                        "diputadoId": found_deputy["id"],
-                        "grupo": found_deputy["grupo"],
-                        "voto": voto_sense
-                    })
-                else:
-                    results["votos"].append({
-                        "diputado": full_name,
-                        "diputadoId": f"AND-UNK-{local_id}",
-                        "grupo": "Unknown",
-                        "voto": voto_sense
-                    })
+                    if found_deputy:
+                        if found_deputy["grupo"] == "Unknown":
+                            found_deputy["grupo"] = current_group
+
+                        results["votos"].append({
+                            "diputado": found_deputy["nombre"],
+                            "diputadoId": found_deputy["id"],
+                            "grupo": current_group,
+                            "voto": voto_sense
+                        })
+                    else:
+                        results["votos"].append({
+                            "diputado": full_name,
+                            "diputadoId": f"AND-UNK-{local_id}",
+                            "grupo": current_group,
+                            "voto": voto_sense
+                        })
         
         votes.append(results)
         
@@ -141,35 +137,43 @@ def parse_andalucia_voto_pdf(pdf_path, diputados_map, session_info):
 def main():
     # Load deputies map
     with open("data/andalucia/diputados_raw.json", "r") as f:
-        diputados = json.load(f)
+        diputados_list = json.load(f)
+    
+    diputados_map = {normalize_text(d["nombre"]): d for d in diputados_list}
     
     # Load session index
     with open("data/andalucia/sessions_index.json", "r") as f:
         sessions_list = json.load(f)
         sessions_map = {s['doc_id']: s for s in sessions_list}
     
-    diputados_map = {}
-    for d in diputados:
-        norm = normalize_text(d["nombre"])
-        diputados_map[norm] = d
-        
-    all_votes = []
+    votes_by_leg = {"12": [], "11": [], "10": [], "9": []}
     pdf_files = glob.glob("data/andalucia/raw/pdf/*.pdf")
     
     for pdf_path in sorted(pdf_files):
         doc_id = os.path.basename(pdf_path).replace('.pdf', '')
-        session_info = sessions_map.get(doc_id, {})
+        session_info = sessions_map.get(doc_id)
+        if not session_info: continue
         
-        print(f"Parsing {pdf_path}...")
+        leg = session_info['legis_id']
+        print(f"Parsing {pdf_path} (Leg {leg})...")
         try:
             votes = parse_andalucia_voto_pdf(pdf_path, diputados_map, session_info)
-            all_votes.extend(votes)
+            votes_by_leg[leg].extend(votes)
             print(f"  Found {len(votes)} votes")
         except Exception as e:
             print(f"  Error parsing {pdf_path}: {e}")
             
-    with open("data/andalucia/votos_XII_raw.json", "w") as f:
-        json.dump(all_votes, f, indent=2, ensure_ascii=False)
+    # Output structure
+    leg_roman = {"12": "XII", "11": "XI", "10": "X", "9": "IX"}
+    for leg_id, votes in votes_by_leg.items():
+        if not votes: continue
+        roman = leg_roman[leg_id]
+        with open(f"data/andalucia/votos_{roman}_raw.json", "w") as f:
+            json.dump(votes, f, indent=2, ensure_ascii=False)
+            
+    # Save updated diputados with groups
+    with open("data/andalucia/diputados_raw.json", "w") as f:
+        json.dump(list(diputados_map.values()), f, indent=2, ensure_ascii=False)
 
 if __name__ == "__main__":
     main()
