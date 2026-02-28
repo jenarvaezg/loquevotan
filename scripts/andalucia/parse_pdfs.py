@@ -55,22 +55,35 @@ def parse_andalucia_voto_pdf(pdf_path, diputados_map, session_info):
             "votos": []
         }
         
-        # Title extraction
+        # Title extraction (more aggressive)
         ts_match = re.search(r'\d{2}/\d{2}/\d{4} \d{2}:\d{2}:\d{2}', content)
-        if ts_match:
-            lines = content[ts_match.end():].split('\n')
+        header_text = content[:ts_match.start()] if ts_match else content
+        footer_text = content[ts_match.end():] if ts_match else ""
+
+        # Look for TÍTULO in the whole content
+        title_match = re.search(r'TÍTULO (?:GENERAL|PARTICULAR) DEL DEBATE:\s*(.*?)(?=\n[A-Z\s]+:|\nTOTAL|\n\d{2}/|$)', content, re.DOTALL)
+        if title_match:
+            results["titulo"] = " ".join(title_match.group(1).strip().split())
+        else:
+            # Fallback: look for lines between timestamp and the results table
+            lines = footer_text.split('\n')
+            candidate_lines = []
             for line in lines:
                 line = line.strip()
                 if not line or any(x in line for x in ['VOTACIÓN', 'PROTOCOLO', 'SESIÓN', 'PRESIDE']): continue
-                if 'TÍTULO' in line:
-                    m = re.search(r'TÍTULO (?:GENERAL|PARTICULAR) DEL DEBATE:\s*(.*)', line)
-                    if m: 
-                        results["titulo"] = m.group(1).strip()
-                        break
-                    continue
-                if 'PRESENTES' in line or 'TOTAL' in line: break
-                results["titulo"] = line
-                break
+                if 'PRESENTES' in line or 'TOTAL' in line or '***' in line: break
+                candidate_lines.append(line)
+
+            if candidate_lines:
+                results["titulo"] = " ".join(candidate_lines)
+            else:
+                # Last resort: use the first non-empty line of the header that isn't metadata
+                lines = header_text.split('\n')
+                for line in reversed(lines):
+                    line = line.strip()
+                    if not line or any(x in line for x in ['PARLAMENTO', 'LEGISLATURA', 'VOTACIÓN', 'SESIÓN']): continue
+                    results["titulo"] = line
+                    break
 
         current_group = "Unknown"
         lines = content.split('\n')

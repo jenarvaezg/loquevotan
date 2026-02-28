@@ -161,18 +161,20 @@ def transform():
                 "detail": vot_detail_by_leg[leg]
             }, f, separators=(',', ':'))
             
-    # 7. Update manifest
-    with open(MANIFEST_FILE, "r") as f:
-        manifest = json.load(f)
-    
-    # Find andalucia entry
-    for a in manifest["ambitos"]:
-        if a["id"] == "andalucia":
-            a["legislaturas"] = LEGISLATURAS
-            break
-    
-    with open(MANIFEST_FILE, "w") as f:
-        json.dump(manifest, f, indent=2, ensure_ascii=False)
+    # 7. Update ambitos config
+    config_file = "public/data/ambitos.json"
+    if os.path.exists(config_file):
+        with open(config_file, "r") as f:
+            config = json.load(f)
+        
+        # Find andalucia entry
+        for a in config["ambitos"]:
+            if a["id"] == "andalucia":
+                a["legislaturas"] = LEGISLATURAS
+                break
+        
+        with open(config_file, "w") as f:
+            json.dump(config, f, indent=2, ensure_ascii=False)
             
     print(f"Transformed {len(votaciones_meta_list)} total votaciones for {AMBITO}")
 

@@ -11,7 +11,7 @@ import AccountabilityCard from '../components/AccountabilityCard.vue'
 
 const route = useRoute()
 const router = useRouter()
-const { diputados, grupos, dipStats, dipFotos, votos, votaciones, votResults, votosByDiputado, categorias, loadVotosForLeg, votosLoaded } = useData()
+const { diputados, grupos, dipStats, dipFotos, votos, votaciones, votResults, votosByDiputado, categorias, loadVotosForLeg, votosLoaded, votsByExp } = useData()
 
 const dipIdx = computed(() => diputados.value.indexOf(decodeURIComponent(route.params.name)))
 const name = computed(() => diputados.value[dipIdx.value])
@@ -29,6 +29,8 @@ const histPage = ref(1)
 const activeTag = ref('')
 const showAccCard = ref(false)
 const accTag = ref('')
+const groupByExp = ref(true)
+const expandedExps = ref({})
 
 // Track if votos for current filter legislatura (or latest) are loaded
 const votosReady = computed(() => {
@@ -159,6 +161,40 @@ const histPageItems = computed(() => {
   const start = (p - 1) * VOTES_PER_PAGE
   return filteredHistory.value.slice(start, start + VOTES_PER_PAGE)
 })
+
+// Group page items by expediente
+const groupedHistoryItems = computed(() => {
+  if (!groupByExp.value) return histPageItems.value.map(r => ({ type: 'single', record: r }))
+
+  const items = []
+  const seen = new Set()
+  for (const record of histPageItems.value) {
+    const vot = votaciones.value[record.votIdx]
+    const exp = vot.exp
+    if (!exp || !votsByExp.value[exp] || votsByExp.value[exp].length <= 1) {
+      items.push({ type: 'single', record })
+      continue
+    }
+    if (seen.has(exp)) continue
+    seen.add(exp)
+    // Find all votaciones in this exp that are also in the current filtered set
+    const filteredIdsSet = new Set(filteredHistory.value.map(r => r.votIdx))
+    const expIndices = votsByExp.value[exp].filter(i => filteredIdsSet.has(i))
+    if (expIndices.length <= 1) {
+      items.push({ type: 'single', record })
+      continue
+    }
+    // Need to find the records for these indices to get the votes
+    const filteredRecordsMap = new Map(filteredHistory.value.map(r => [r.votIdx, r]))
+    const expRecords = expIndices.map(i => filteredRecordsMap.get(i))
+    items.push({ type: 'group', exp, records: expRecords, primary: record })
+  }
+  return items
+})
+
+function toggleExp(exp) {
+  expandedExps.value = { ...expandedExps.value, [exp]: !expandedExps.value[exp] }
+}
 
 const onHistSearch = debounce(() => { histPage.value = 1 }, 250)
 
@@ -359,6 +395,15 @@ watch(name, (n) => {
             </select>
           </div>
 
+          <div style="display:flex;align-items:center;gap:1rem;margin-bottom:0.75rem">
+            <p style="font-size:0.85rem;color:var(--color-muted);margin:0">
+              {{ filteredHistory.length.toLocaleString('es-ES') }} votaciones
+            </p>
+            <label style="font-size:0.8rem;color:var(--color-muted);display:flex;align-items:center;gap:0.35rem;margin-left:auto;cursor:pointer">
+              <input type="checkbox" v-model="groupByExp"> Agrupar por expediente
+            </label>
+          </div>
+
           <div class="table-wrap">
             <table class="responsive-table">
               <thead>
@@ -372,39 +417,129 @@ watch(name, (n) => {
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="rec in histPageItems" :key="rec.votIdx">
-                  <td data-label="Fecha">{{ votaciones[rec.votIdx].fecha }}</td>
-                  <td data-label="Voto">
-                    <span class="voto-pill" :class="votoPillClass(rec.code)">
-                      {{ VOTO_LABELS[rec.code] || '?' }}
-                    </span>
-                  </td>
-                  <td data-label="Asunto">
-                    <router-link :to="'/votacion/' + votaciones[rec.votIdx].id">
-                      {{ votaciones[rec.votIdx].titulo_ciudadano }}
-                    </router-link>
-                    <span
-                      v-if="votaciones[rec.votIdx].subTipo"
-                      class="badge badge--sm"
-                      :class="subTipoBadgeClass(votaciones[rec.votIdx].subTipo)"
-                      style="margin-left:0.35rem"
-                    >{{ subTipoLabel(votaciones[rec.votIdx].subTipo) }}</span>
-                  </td>
-                  <td data-label="Legislatura">
-                    <span v-if="votaciones[rec.votIdx].legislatura" class="badge badge--leg">
-                      {{ votaciones[rec.votIdx].legislatura }}
-                    </span>
-                  </td>
-                  <td data-label="Categoría">
-                    <span class="badge badge--cat">
-                      {{ fmt(categorias[votaciones[rec.votIdx].categoria]) }}
-                    </span>
-                  </td>
-                  <td data-label="Resultado">
-                    <ResultBadge :result="votResults[rec.votIdx].result" />
-                  </td>
-                </tr>
-                <tr v-if="!histPageItems.length">
+                <template v-if="groupedHistoryItems.length">
+                  <template v-for="item in groupedHistoryItems" :key="item.type === 'single' ? item.record.votIdx : item.exp">
+                    <!-- Header row for a group -->
+                    <tr v-if="item.type === 'group'" class="exp-row" @click="toggleExp(item.exp)">
+                      <td colspan="6">
+                        <div style="display:flex;align-items:center;gap:0.5rem;cursor:pointer">
+                          <span style="font-size:0.7rem;color:var(--color-muted);width:12px">
+                            {{ expandedExps[item.exp] ? '&#9660;' : '&#9654;' }}
+                          </span>
+                          <span style="font-weight:600;font-size:0.88rem;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">
+                            {{ votaciones[item.primary.votIdx].titulo_ciudadano }}
+                          </span>
+                          <span class="badge badge--sm badge--leg">{{ item.records.length }} votaciones</span>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <!-- Votes (either single or members of expanded group) -->
+                    <template v-if="item.type === 'single'">
+                      <tr>
+                        <td data-label="Fecha">{{ votaciones[item.record.votIdx].fecha }}</td>
+                        <td data-label="Voto">
+                          <span class="voto-pill" :class="votoPillClass(item.record.code)">
+                            {{ VOTO_LABELS[item.record.code] || '?' }}
+                          </span>
+                        </td>
+                        <td data-label="Asunto">
+                          <router-link :to="'/votacion/' + votaciones[item.record.votIdx].id">
+                            {{ votaciones[item.record.votIdx].titulo_ciudadano }}
+                          </router-link>
+                          <span
+                            v-if="votaciones[item.record.votIdx].subTipo"
+                            class="badge badge--sm"
+                            :class="subTipoBadgeClass(votaciones[item.record.votIdx].subTipo)"
+                            style="margin-left:0.35rem"
+                          >{{ subTipoLabel(votaciones[item.record.votIdx].subTipo) }}</span>
+                        </td>
+                        <td data-label="Legislatura">
+                          <span v-if="votaciones[item.record.votIdx].legislatura" class="badge badge--leg">
+                            {{ votaciones[item.record.votIdx].legislatura }}
+                          </span>
+                        </td>
+                        <td data-label="Categoría">
+                          <span class="badge badge--cat">
+                            {{ fmt(categorias[votaciones[item.record.votIdx].categoria]) }}
+                          </span>
+                        </td>
+                        <td data-label="Resultado">
+                          <ResultBadge :result="votResults[item.record.votIdx].result" />
+                        </td>
+                      </tr>
+                    </template>
+                    <template v-else-if="expandedExps[item.exp]">
+                      <tr v-for="rec in item.records" :key="rec.votIdx" class="exp-sub-row">
+                        <td data-label="Fecha">{{ votaciones[rec.votIdx].fecha }}</td>
+                        <td data-label="Voto">
+                          <span class="voto-pill" :class="votoPillClass(rec.code)">
+                            {{ VOTO_LABELS[rec.code] || '?' }}
+                          </span>
+                        </td>
+                        <td data-label="Asunto" style="padding-left:1.5rem">
+                          <router-link :to="'/votacion/' + votaciones[rec.votIdx].id">
+                            {{ votaciones[rec.votIdx].titulo_ciudadano }}
+                          </router-link>
+                          <span
+                            v-if="votaciones[rec.votIdx].subTipo"
+                            class="badge badge--sm"
+                            :class="subTipoBadgeClass(votaciones[rec.votIdx].subTipo)"
+                            style="margin-left:0.35rem"
+                          >{{ subTipoLabel(votaciones[rec.votIdx].subTipo) }}</span>
+                        </td>
+                        <td data-label="Legislatura">
+                          <span v-if="votaciones[rec.votIdx].legislatura" class="badge badge--leg">
+                            {{ votaciones[rec.votIdx].legislatura }}
+                          </span>
+                        </td>
+                        <td data-label="Categoría">
+                          <span class="badge badge--cat">
+                            {{ fmt(categorias[votaciones[rec.votIdx].categoria]) }}
+                          </span>
+                        </td>
+                        <td data-label="Resultado">
+                          <ResultBadge :result="votResults[rec.votIdx].result" />
+                        </td>
+                      </tr>
+                    </template>
+                    <template v-else>
+                      <tr>
+                        <td data-label="Fecha">{{ votaciones[item.primary.votIdx].fecha }}</td>
+                        <td data-label="Voto">
+                          <span class="voto-pill" :class="votoPillClass(item.primary.code)">
+                            {{ VOTO_LABELS[item.primary.code] || '?' }}
+                          </span>
+                        </td>
+                        <td data-label="Asunto">
+                          <router-link :to="'/votacion/' + votaciones[item.primary.votIdx].id">
+                            {{ votaciones[item.primary.votIdx].titulo_ciudadano }}
+                          </router-link>
+                          <span
+                            v-if="votaciones[item.primary.votIdx].subTipo"
+                            class="badge badge--sm"
+                            :class="subTipoBadgeClass(votaciones[item.primary.votIdx].subTipo)"
+                            style="margin-left:0.35rem"
+                          >{{ subTipoLabel(votaciones[item.primary.votIdx].subTipo) }}</span>
+                        </td>
+                        <td data-label="Legislatura">
+                          <span v-if="votaciones[item.primary.votIdx].legislatura" class="badge badge--leg">
+                            {{ votaciones[item.primary.votIdx].legislatura }}
+                          </span>
+                        </td>
+                        <td data-label="Categoría">
+                          <span class="badge badge--cat">
+                            {{ fmt(categorias[votaciones[item.primary.votIdx].categoria]) }}
+                          </span>
+                        </td>
+                        <td data-label="Resultado">
+                          <ResultBadge :result="votResults[item.primary.votIdx].result" />
+                        </td>
+                      </tr>
+                    </template>
+                  </template>
+                </template>
+                <tr v-else>
                   <td colspan="6" class="text-center" style="padding:1.5rem;color:var(--color-muted)">
                     Sin resultados
                   </td>
@@ -598,5 +733,28 @@ watch(name, (n) => {
   .detail-meta { flex-direction: column; align-items: flex-start; }
   .cat-profile-label { width: 120px; min-width: 120px; font-size: 0.78rem; }
   .cat-profile-row { gap: 0.5rem; }
+}
+
+.exp-row {
+  background: var(--color-surface-muted);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.exp-row:hover {
+  background: var(--color-primary-lighter);
+}
+
+.exp-sub-row {
+  border-left: 3px solid var(--color-primary);
+}
+
+@media (max-width: 768px) {
+  .exp-row td::before {
+    display: none !important;
+  }
+  .exp-row td {
+    padding-left: 1rem !important;
+  }
 }
 </style>

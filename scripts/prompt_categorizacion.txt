@@ -9,10 +9,10 @@ PASO 2: Asigna de 1 a 4 etiquetas de este VOCABULARIO CERRADO. NO inventes etiqu
 
 --- VOCABULARIO DE ETIQUETAS ---
 # Procedimiento parlamentario
-procedimiento_parlamentario, tramitar_ley_urgencia, crear_comision_investigacion, reformar_reglamento_congreso, aprobar_acuerdo_internacional
+procedimiento_parlamentario, tramitar_ley_urgencia, crear_comision_investigacion, reformar_reglamento_congreso
 
 # Control al gobierno
-controlar_gobierno, exigir_responsabilidades_gobierno, reprobar_gestion_gobierno
+controlar_gobierno, reprobar_cargo_publico
 
 # Presupuestos y finanzas
 aprobar_presupuestos, controlar_gasto_publico, reducir_deficit, limitar_deuda_publica
@@ -24,7 +24,7 @@ subir_impuestos, bajar_impuestos, combatir_fraude_fiscal
 impulsar_crecimiento_economico, apoyar_emprendedores, proteger_consumidores, regular_sector_financiero
 
 # Empleo
-crear_empleo, mejorar_condiciones_laborales, reducir_jornada_laboral, proteger_trabajadores
+crear_empleo, mejorar_condiciones_laborales, reducir_jornada_laboral
 
 # Pensiones
 subir_pensiones, reformar_pensiones, garantizar_pensiones
@@ -33,7 +33,7 @@ subir_pensiones, reformar_pensiones, garantizar_pensiones
 impulsar_conciliacion, reformar_seguridad_social
 
 # Sanidad
-proteger_sanidad_publica, ampliar_sanidad_publica, mejorar_salud_mental, proteger_enfermos, legalizar_eutanasia
+proteger_sanidad_publica, mejorar_salud_mental, proteger_enfermos, legalizar_eutanasia
 
 # Educacion
 reformar_educacion, proteger_educacion_publica, financiar_universidad, impulsar_formacion_profesional, impulsar_ciencia
@@ -57,7 +57,7 @@ reformar_codigo_penal, reformar_poder_judicial, reformar_tribunal_constitucional
 aumentar_seguridad_ciudadana, combatir_terrorismo, proteger_victimas_terrorismo, mejorar_seguridad_vial
 
 # Medio ambiente
-combatir_cambio_climatico, reducir_emisiones, proteger_medio_ambiente, gestionar_recursos_hidricos, proteger_biodiversidad
+combatir_cambio_climatico, proteger_medio_ambiente, gestionar_recursos_hidricos
 
 # Energia
 impulsar_energia_renovable, garantizar_suministro_electrico, combatir_pobreza_energetica
@@ -66,19 +66,19 @@ impulsar_energia_renovable, garantizar_suministro_electrico, combatir_pobreza_en
 mejorar_red_ferroviaria, mejorar_carreteras, fomentar_transporte_publico, financiar_infraestructuras, impulsar_telecomunicaciones
 
 # Territorio
-financiar_autonomias, financiar_ayuntamientos, combatir_despoblacion, reformar_financiacion_autonomica
+financiacion_autonomica, financiar_ayuntamientos, combatir_despoblacion
 
 # Asuntos exteriores
-adaptar_normativa_europea, impulsar_cooperacion_internacional, aumentar_gasto_defensa, reducir_gasto_defensa, apoyar_palestina
+aprobar_acuerdo_internacional, adaptar_normativa_europea, impulsar_cooperacion_internacional, presupuesto_defensa, posicionamiento_conflictos_internacionales
 
 # Agricultura
-proteger_sector_primario, defender_agricultores
+proteger_sector_primario
 
 # Gobernanza
-aumentar_transparencia, regular_lobbies, reformar_ley_electoral, apoyar_monarquia, abolir_monarquia
+aumentar_transparencia, regular_lobbies, reformar_ley_electoral, debatir_modelo_estado
 
 # Emergencias
-aprobar_ayudas_emergencia, financiar_reconstruccion
+aprobar_ayudas_emergencia
 
 # Cultura
 impulsar_cultura, reformar_medios_comunicacion, proteger_lenguas_cooficiales

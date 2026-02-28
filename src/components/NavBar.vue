@@ -2,7 +2,9 @@
 import { ref, computed } from 'vue'
 import { useRoute } from 'vue-router'
 import HeroSearch from './HeroSearch.vue'
+import { useData } from '../composables/useData'
 
+const { ambitos, currentScopeId, setScope } = useData()
 const route = useRoute()
 const menuOpen = ref(false)
 const isDark = ref(false)
@@ -30,13 +32,30 @@ function closeMenu() {
   menuOpen.value = false
 }
 
+function handleScopeChange(e) {
+  setScope(e.target.value)
+}
+
 initTheme()
 </script>
 
 <template>
   <nav class="nav-bar">
     <div class="nav-inner">
-      <router-link to="/" class="nav-brand" @click="closeMenu">Lo Que Votan</router-link>
+      <div class="nav-left">
+        <router-link to="/" class="nav-brand" @click="closeMenu">Lo Que Votan</router-link>
+        <select 
+          v-if="ambitos.length > 1"
+          class="scope-select" 
+          :value="currentScopeId" 
+          @change="handleScopeChange"
+          aria-label="Cambiar ámbito"
+        >
+          <option v-for="a in ambitos" :key="a.id" :value="a.id">
+            {{ a.id === 'nacional' ? '🇪🇸' : '🚩' }} {{ a.nombre }}
+          </option>
+        </select>
+      </div>
       <button class="nav-hamburger" aria-label="Menu" @click="menuOpen = !menuOpen">
         &#9776;
       </button>
@@ -109,6 +128,30 @@ initTheme()
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.scope-select {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.2rem 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  outline: none;
+  max-width: 150px;
+  text-overflow: ellipsis;
+}
+
+.scope-select:hover {
+  border-color: var(--color-primary);
 }
 
 .nav-brand {

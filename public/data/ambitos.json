@@ -1,0 +1,26 @@
+{
+  "ambitos": [
+    {
+      "id": "nacional",
+      "nombre": "Congreso de los Diputados",
+      "legislaturas": [
+        "XV",
+        "XIV",
+        "XIII",
+        "XII",
+        "XI",
+        "X"
+      ]
+    },
+    {
+      "id": "andalucia",
+      "nombre": "Parlamento de Andalucía",
+      "legislaturas": [
+        "XII",
+        "XI",
+        "X",
+        "IX"
+      ]
+    }
+  ]
+}

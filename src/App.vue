@@ -8,11 +8,12 @@ loadData()
 </script>
 
 <template>
+  <a href="#main-content" class="skip-link">Saltar al contenido</a>
   <NavBar />
 
   <ErrorBanner v-if="error" :message="error" @retry="retryLoad" />
 
-  <router-view />
+  <router-view id="main-content" />
 
   <footer class="site-footer">
     Datos oficiales del

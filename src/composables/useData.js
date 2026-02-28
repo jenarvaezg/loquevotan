@@ -4,6 +4,9 @@ const loading = ref(true);
 const error = ref(null);
 const loaded = ref(false);
 
+const ambitos = ref([]);
+const currentScopeId = ref(localStorage.getItem("preferredScope") || "nacional");
+
 const diputados = shallowRef([]);
 const grupos = shallowRef([]);
 const categorias = shallowRef([]);
@@ -35,7 +38,15 @@ async function _doLoad(retryCount = 0) {
   error.value = null;
 
   try {
-    const url = import.meta.env.BASE_URL + "data/votaciones_meta.json";
+    // Load ambitos config first
+    const ambitosResp = await fetch(import.meta.env.BASE_URL + "data/ambitos.json");
+    if (ambitosResp.ok) {
+      const config = await ambitosResp.json();
+      ambitos.value = config.ambitos || [];
+    }
+
+    const scopePath = currentScopeId.value === "nacional" ? "" : `${currentScopeId.value}/`;
+    const url = import.meta.env.BASE_URL + `data/${scopePath}votaciones_meta.json`;
     const resp = await fetch(url);
     if (!resp.ok) throw new Error("HTTP " + resp.status);
     const raw = await resp.json();
@@ -72,13 +83,32 @@ function retryLoad() {
   loadData();
 }
 
+function setScope(scopeId) {
+  if (currentScopeId.value === scopeId) return;
+  currentScopeId.value = scopeId;
+  localStorage.setItem("preferredScope", scopeId);
+  
+  // Reset state
+  loaded.value = false;
+  diputados.value = [];
+  grupos.value = [];
+  votaciones.value = [];
+  votos.value = [];
+  votosLoaded.value = new Set();
+  _loadPromise = null;
+  Object.keys(_legLoadPromises).forEach(k => delete _legLoadPromises[k]);
+  
+  return loadData();
+}
+
 async function loadVotosForLeg(legId) {
   if (!legId || votosLoaded.value.has(legId)) return;
   if (_legLoadPromises[legId]) return _legLoadPromises[legId];
 
   _legLoadPromises[legId] = (async () => {
     try {
-      const url = import.meta.env.BASE_URL + `data/votos_${legId}.json`;
+      const scopePath = currentScopeId.value === "nacional" ? "" : `${currentScopeId.value}/`;
+      const url = import.meta.env.BASE_URL + `data/${scopePath}votos_${legId}.json`;
       const resp = await fetch(url);
       if (!resp.ok) throw new Error("HTTP " + resp.status);
       const data = await resp.json();
@@ -139,6 +169,9 @@ export function useData() {
     error,
     loaded,
     loadData,
+    ambitos,
+    currentScopeId,
+    setScope,
     diputados,
     grupos,
     categorias,

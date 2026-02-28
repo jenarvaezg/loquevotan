@@ -78,26 +78,6 @@ function goToTag(tag) {
       </div>
 
       <div class="section-header">
-        <h2>Diputados más rebeldes</h2>
-        <router-link to="/diputados">Ver todos &rarr;</router-link>
-      </div>
-      <div class="ranking-grid">
-        <router-link
-          v-for="rebel in manifest.rebels"
-          :key="rebel.name"
-          class="ranking-card card-link"
-          :to="'/diputado/' + encodeURIComponent(rebel.name)"
-        >
-          <div class="avatar" :style="avatarStyle(rebel.name)">{{ avatarInitials(rebel.name) }}</div>
-          <div class="ranking-info">
-            <span class="ranking-name">{{ rebel.name }}</span>
-            <span class="ranking-detail">{{ rebel.grupo }}</span>
-            <span class="ranking-stat">{{ Math.round(rebel.loyalty * 100) }}% lealtad al grupo</span>
-          </div>
-        </router-link>
-      </div>
-
-      <div class="section-header">
         <h2>Votaciones más ajustadas</h2>
         <router-link to="/votaciones">Ver todas &rarr;</router-link>
       </div>
