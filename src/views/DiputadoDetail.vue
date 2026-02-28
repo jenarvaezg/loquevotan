@@ -431,3 +431,172 @@ watch(name, (n) => {
     </div>
   </section>
 </template>
+
+<style scoped>
+.dip-detail-photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.dip-detail-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.detail-header {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.detail-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+}
+
+.detail-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--color-muted);
+}
+
+.detail-section {
+  margin-top: 2rem;
+}
+
+.detail-section h2 {
+  font-size: 1.15rem;
+  margin-bottom: 0.75rem;
+}
+
+.stat-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat-card {
+  text-align: center;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
+.stat-card-value {
+  display: block;
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.stat-card-label {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  font-weight: 500;
+}
+
+.stat-card--favor { border-left: 4px solid var(--color-favor); }
+.stat-card--favor .stat-card-value { color: var(--color-favor); }
+.stat-card--contra { border-left: 4px solid var(--color-contra); }
+.stat-card--contra .stat-card-value { color: var(--color-contra); }
+.stat-card--abstencion { border-left: 4px solid var(--color-abstencion); }
+.stat-card--abstencion .stat-card-value { color: var(--color-abstencion); }
+
+.sparkline-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sparkline-svg {
+  width: 100%;
+  height: 80px;
+  display: block;
+}
+
+.sparkline-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  margin-top: 0.25rem;
+}
+
+.cat-profile { margin-top: 0.5rem; }
+
+.cat-profile-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.4rem;
+}
+
+.cat-profile-label {
+  width: 180px;
+  min-width: 180px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-text);
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cat-profile-bar {
+  flex: 1;
+  height: 22px;
+  border-radius: 4px;
+  display: flex;
+  overflow: hidden;
+  background: var(--color-border);
+}
+
+.cat-profile-seg {
+  height: 100%;
+  min-width: 1px;
+  transition: width 0.3s;
+}
+
+.cat-profile-count {
+  width: 40px;
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  text-align: right;
+}
+
+.hint-text {
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .stat-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .stat-card-value { font-size: 1.35rem; }
+  .detail-meta { flex-direction: column; align-items: flex-start; }
+  .cat-profile-label { width: 120px; min-width: 120px; font-size: 0.78rem; }
+  .cat-profile-row { gap: 0.5rem; }
+}
+</style>

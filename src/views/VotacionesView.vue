@@ -10,7 +10,7 @@ import TagSelect from '../components/TagSelect.vue'
 
 const route = useRoute()
 const router = useRouter()
-const { votaciones, votResults, categorias, tagCounts, sortedVotIdxByDate } = useData()
+const { votaciones, votResults, categorias, tagCounts, sortedVotIdxByDate, votsByExp } = useData()
 
 const search = ref('')
 const catFilter = ref('')
@@ -19,6 +19,8 @@ const legFilter = ref('XV')
 const sortMode = ref('recent')
 const selectedTags = ref([])
 const page = ref(1)
+const groupByExp = ref(true)
+const expandedExps = ref({})
 
 // Populate filter options
 const sortedCategorias = computed(() => [...categorias.value].sort())
@@ -74,6 +76,36 @@ const pageItems = computed(() => {
   const start = (p - 1) * VOTES_PER_PAGE
   return filtered.value.slice(start, start + VOTES_PER_PAGE)
 })
+
+// Group page items by expediente
+const groupedPageItems = computed(() => {
+  if (!groupByExp.value) return pageItems.value.map(i => ({ type: 'single', idx: i }))
+
+  const items = []
+  const seen = new Set()
+  for (const idx of pageItems.value) {
+    const exp = votaciones.value[idx].exp
+    if (!exp || !votsByExp.value[exp] || votsByExp.value[exp].length <= 1) {
+      items.push({ type: 'single', idx })
+      continue
+    }
+    if (seen.has(exp)) continue
+    seen.add(exp)
+    // Find all votaciones in this exp that are also in the current filtered set
+    const filteredSet = new Set(filtered.value)
+    const expIndices = votsByExp.value[exp].filter(i => filteredSet.has(i))
+    if (expIndices.length <= 1) {
+      items.push({ type: 'single', idx })
+      continue
+    }
+    items.push({ type: 'group', exp, indices: expIndices, primary: idx })
+  }
+  return items
+})
+
+function toggleExp(exp) {
+  expandedExps.value = { ...expandedExps.value, [exp]: !expandedExps.value[exp] }
+}
 
 const onSearchInput = debounce(() => { page.value = 1 }, 250)
 
@@ -147,13 +179,31 @@ function goToPage(p) {
         </div>
       </FilterBar>
 
-      <p style="font-size:0.85rem;color:var(--color-muted);margin-bottom:0.75rem">
-        {{ filtered.length.toLocaleString('es-ES') }} votaciones
-      </p>
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:0.75rem">
+        <p style="font-size:0.85rem;color:var(--color-muted);margin:0">
+          {{ filtered.length.toLocaleString('es-ES') }} votaciones
+        </p>
+        <label style="font-size:0.8rem;color:var(--color-muted);display:flex;align-items:center;gap:0.35rem;margin-left:auto;cursor:pointer">
+          <input type="checkbox" v-model="groupByExp"> Agrupar por expediente
+        </label>
+      </div>
 
       <div class="vote-cards-grid">
-        <template v-if="pageItems.length">
-          <VoteCard v-for="i in pageItems" :key="i" :idx="i" />
+        <template v-if="groupedPageItems.length">
+          <template v-for="item in groupedPageItems" :key="item.type === 'single' ? item.idx : item.exp">
+            <VoteCard v-if="item.type === 'single'" :idx="item.idx" />
+            <div v-else class="exp-group-card">
+              <button class="exp-group-header" @click="toggleExp(item.exp)">
+                <span class="exp-group-arrow">{{ expandedExps[item.exp] ? '&#9660;' : '&#9654;' }}</span>
+                <span class="exp-group-title">{{ votaciones[item.primary].titulo_ciudadano }}</span>
+                <span class="badge badge--sm badge--leg">{{ item.indices.length }} votaciones</span>
+              </button>
+              <template v-if="expandedExps[item.exp]">
+                <VoteCard v-for="i in item.indices" :key="i" :idx="i" />
+              </template>
+              <VoteCard v-else :idx="item.primary" />
+            </div>
+          </template>
         </template>
         <div v-else class="empty-state">
           <div class="empty-state-icon">&#128270;</div>
@@ -165,3 +215,51 @@ function goToPage(p) {
     </div>
   </section>
 </template>
+
+<style scoped>
+.vote-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+.exp-group-card {
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 0;
+  overflow: hidden;
+}
+
+.exp-group-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--color-surface);
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+  cursor: pointer;
+  text-align: left;
+  font-size: 0.88rem;
+  color: var(--color-text);
+}
+
+.exp-group-header:hover {
+  background: var(--color-primary-lighter);
+}
+
+.exp-group-arrow {
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  color: var(--color-muted);
+}
+
+.exp-group-title {
+  flex: 1;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+</style>

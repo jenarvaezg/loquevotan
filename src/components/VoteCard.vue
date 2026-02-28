@@ -41,3 +41,40 @@ const linkId = computed(() => props.votData?.id ?? vot.value?.id)
     </div>
   </router-link>
 </template>
+
+<style scoped>
+.vote-card { cursor: pointer; }
+
+.vote-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.vote-card-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.35;
+  flex: 1;
+}
+
+.vote-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}
+
+.vote-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.5rem;
+}
+</style>

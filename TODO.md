@@ -53,15 +53,42 @@
 ## Fase 3: Features grandes (1-2 semanas)
 
 ### Nuevas funcionalidades
-- [ ] Drill-down desde celda de afinidad ("ver votaciones donde PP y PSOE coincidieron")
-- [ ] Comparador de diputados (/comparar?a=X&b=Y) — side-by-side stats y votos compartidos
-- [ ] Timeline de actividad de voto por diputado (sparkline SVG mensual)
-- [ ] Vista alternativa de afinidad en movil (lista rankeada en vez de tabla NxN)
-- [ ] IDs estables en URLs (hash en vez de indice numerico) — las URLs actuales se rompen al regenerar datos
+- [x] Drill-down desde celda de afinidad ("ver votaciones donde PP y PSOE coincidieron") — /afinidad?ga=X&gb=Y&leg=Z con filtro coinciden/difieren
+- [x] Comparador de diputados (/comparar?a=X&b=Y) — side-by-side stats, fotos, VoteBars y votos compartidos
+- [x] Timeline de actividad de voto por diputado (sparkline SVG mensual) — barras apiladas favor/contra/abstencion
+- [x] Vista alternativa de afinidad en movil (lista rankeada en vez de tabla NxN) — selector de grupo + barras con porcentaje
+- [x] Skip-to-content link para accesibilidad con teclado
+- [x] Agrupar votaciones por expediente en VotacionesView — toggle checkbox, grupos expandibles
+- [x] IDs estables en URLs (legislatura-sesion-numero en vez de indice) — URLs sobreviven regeneracion de datos
 
 ### Calidad
 - [ ] Tests E2E y unitarios basicos (cobertura minima de flujos criticos)
 - [ ] Migrar CSS monolitico (1842 lineas) a estilos scoped por componente
+
+## Fase 4: Analisis Civico y Descubrimiento (Proximamente)
+
+### Alta prioridad / Baja complejidad
+- [ ] Votaciones "Destacadas" curadas manualmente para la portada.
+- [ ] Buscador de representantes por Provincia / Circunscripcion electoral.
+- [ ] Ranking de Asistencia: Destacar el porcentaje de absentismo ("No Vota") de cada diputado.
+
+### Media prioridad / Media complejidad
+- [ ] Buscador avanzado / Filtros combinados (Etiqueta + Rango de Fechas + Proponente + Resultado).
+- [ ] Detalle de "Rebeldia": Mostrar exactamente en que votaciones un diputado rompio la disciplina de su grupo.
+
+## Fase 5: Herramientas para Periodistas y Power Users (Futuro)
+
+### Media complejidad
+- [ ] Listado de "Politicas Clave": Agrupar multiples votaciones bajo un mismo paraguas historico (ej. "Reforma Laboral", "Ley de Amnistia").
+- [ ] Generacion automatica de Feeds RSS por etiquetas o por diputado para seguimiento externo.
+
+### Alta complejidad
+- [ ] Soporte para Widgets/Embeds: Permitir incrustar graficos de una votacion en medios digitales externos mediante `<iframe>`.
+
+## Fase 6: Gamificacion y Engagement (Largo plazo)
+
+### Alta complejidad (Requiere backend o logica compleja de estado)
+- [ ] Quiz de afinidad civica: Cuestionario de 10 votaciones clave reales para descubrir con que partido o diputado coincides mas.
 
 ## Backlog (largo plazo)
 
@@ -77,5 +104,3 @@
 ### Otros
 - [ ] OG dinamico por diputado/votacion (requiere proxy edge o prerender, no posible con hash routing + GitHub Pages estatico)
 - [ ] Bookmarks/favoritos de diputados y temas (localStorage)
-- [ ] Skip-to-content link para accesibilidad con teclado
-- [ ] Agrupar votaciones por expediente tambien en el listado de VotacionesView (actualmente solo en detalle)

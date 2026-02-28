@@ -44,3 +44,52 @@ const pages = computed(() => getPageRange(props.current, props.totalPages))
     </button>
   </nav>
 </template>
+
+<style scoped>
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+  margin: 1.5rem 0;
+}
+
+.page-btn {
+  min-width: 2.25rem;
+  height: 2.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.5rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  transition: background 0.15s;
+}
+
+.page-btn:hover:not(:disabled):not(.active) {
+  background: var(--color-bg);
+  border-color: var(--color-border-hover);
+}
+
+.page-btn.active {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+
+.page-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+.page-ellipsis { padding: 0 0.3rem; color: var(--color-muted); }
+
+@media (max-width: 768px) {
+  .page-btn {
+    min-width: 2rem;
+    height: 2rem;
+    font-size: 0.8rem;
+  }
+}
+</style>

@@ -124,3 +124,23 @@ function goToPage(p) {
     </div>
   </section>
 </template>
+
+<style scoped>
+.dip-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  .dip-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .dip-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+</style>

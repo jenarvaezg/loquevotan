@@ -6,6 +6,7 @@ import { LEGISLATURAS, affinityColor } from '../utils'
 const { grupos, groupAffinityByLeg, loaded } = useData()
 
 const legFilter = ref('XV')
+const mobileGroup = ref('')
 
 const affinityData = computed(() => {
   const leg = legFilter.value
@@ -28,6 +29,31 @@ const affinityData = computed(() => {
     .sort((a, b) => a - b)
 
   return { aff, validGroups }
+})
+
+// Mobile ranked list: for a selected group, show affinity with all others
+const mobileRankedPairs = computed(() => {
+  const { aff, validGroups } = affinityData.value
+  const selectedName = mobileGroup.value
+  const gIdx = selectedName ? validGroups.find(g => grupos.value[g] === selectedName) : validGroups[0]
+  if (gIdx === undefined) return []
+
+  const pairs = []
+  for (const other of validGroups) {
+    if (other === gIdx) continue
+    const key = gIdx < other ? gIdx + ',' + other : other + ',' + gIdx
+    const d = aff[key]
+    if (!d || d.total === 0) continue
+    const agreement = d.same / d.total
+    pairs.push({ idx: other, name: grupos.value[other], agreement, same: d.same, total: d.total })
+  }
+  return pairs.sort((a, b) => b.agreement - a.agreement)
+})
+
+const mobileSelectedGroup = computed(() => {
+  const { validGroups } = affinityData.value
+  if (mobileGroup.value) return mobileGroup.value
+  return validGroups.length ? grupos.value[validGroups[0]] : ''
 })
 
 function cellData(ga, gb) {
@@ -63,7 +89,8 @@ function cellData(ga, gb) {
       </div>
 
       <template v-if="affinityData.validGroups.length">
-        <div class="affinity-table-wrap">
+        <!-- Desktop: NxN table -->
+        <div class="affinity-table-wrap affinity-desktop">
           <table class="affinity-table">
             <thead>
               <tr>
@@ -84,15 +111,43 @@ function cellData(ga, gb) {
                   v-for="gb in affinityData.validGroups"
                   :key="gb"
                   class="affinity-cell"
-                  :class="{ 'affinity-cell--self': ga === gb }"
+                  :class="{ 'affinity-cell--self': ga === gb, 'affinity-cell--link': ga !== gb }"
                   :style="{ background: cellData(ga, gb).bg, color: cellData(ga, gb).color }"
                   :title="cellData(ga, gb).title || cellData(ga, gb).pctStr"
+                  @click="ga !== gb && $router.push({ path: '/afinidad', query: { ga: grupos[ga], gb: grupos[gb], leg: legFilter } })"
                 >
                   {{ cellData(ga, gb).pctStr }}
                 </td>
               </tr>
             </tbody>
           </table>
+        </div>
+
+        <!-- Mobile: ranked list per group -->
+        <div class="affinity-mobile">
+          <div class="filter-group" style="margin-bottom:1rem">
+            <label>Grupo</label>
+            <select v-model="mobileGroup" class="filter-select">
+              <option v-for="g in affinityData.validGroups" :key="g" :value="grupos[g]">{{ grupos[g] }}</option>
+            </select>
+          </div>
+          <p style="font-size:0.85rem;color:var(--color-muted);margin-bottom:0.75rem">
+            Afinidad de {{ mobileSelectedGroup }} con otros grupos
+          </p>
+          <div class="affinity-list">
+            <router-link
+              v-for="pair in mobileRankedPairs"
+              :key="pair.idx"
+              :to="'/grupo/' + encodeURIComponent(pair.name)"
+              class="affinity-list-item card-link"
+            >
+              <span class="affinity-list-name">{{ pair.name }}</span>
+              <div class="affinity-list-bar">
+                <div class="affinity-list-bar-fill" :style="{ width: Math.round(pair.agreement * 100) + '%', background: affinityColor(pair.agreement) }"></div>
+              </div>
+              <span class="affinity-list-pct">{{ Math.round(pair.agreement * 100) }}%</span>
+            </router-link>
+          </div>
         </div>
 
         <div class="affinity-legend">
@@ -125,3 +180,175 @@ function cellData(ga, gb) {
     </div>
   </section>
 </template>
+
+<style scoped>
+.affinity-table-wrap {
+  overflow-x: auto;
+  margin: 0.75rem 0 1.5rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.affinity-table {
+  border-collapse: collapse;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.affinity-table thead th {
+  background: var(--color-surface);
+  border-bottom: 2px solid var(--color-border);
+  padding: 0;
+  vertical-align: bottom;
+  text-align: center;
+}
+
+.affinity-th-col {
+  height: 120px;
+  width: 48px;
+  min-width: 48px;
+  max-width: 48px;
+}
+
+.affinity-th-label {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  text-transform: none;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  letter-spacing: 0;
+  padding: 0.5rem 0.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 110px;
+}
+
+.affinity-row-label {
+  padding: 0.4rem 0.75rem 0.4rem 0;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-text);
+  white-space: nowrap;
+  border-bottom: 1px solid var(--color-border);
+  min-width: 140px;
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background: var(--color-surface);
+}
+
+.affinity-cell {
+  width: 48px;
+  min-width: 48px;
+  max-width: 48px;
+  height: 36px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #1e293b;
+  border: 1px solid rgba(255,255,255,0.4);
+  cursor: default;
+  transition: opacity 0.1s;
+}
+
+.affinity-cell:hover { opacity: 0.85; }
+.affinity-cell--link { cursor: pointer; }
+
+.affinity-cell--self {
+  background: #e2e8f0 !important;
+  color: var(--color-muted);
+  font-weight: 400;
+}
+
+.affinity-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  margin-top: 0.5rem;
+}
+
+.affinity-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.affinity-legend-swatch {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.affinity-mobile { display: none; }
+
+.affinity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.affinity-list-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  text-decoration: none;
+  color: var(--color-text);
+  transition: border-color 0.15s;
+}
+
+.affinity-list-item:hover {
+  border-color: var(--color-primary);
+  text-decoration: none;
+}
+
+.affinity-list-name {
+  min-width: 200px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.affinity-list-bar {
+  flex: 1;
+  height: 8px;
+  background: var(--color-border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.affinity-list-bar-fill {
+  height: 100%;
+  background: var(--color-primary);
+  border-radius: 4px;
+  transition: width 0.3s;
+}
+
+.affinity-list-pct {
+  font-size: 0.88rem;
+  font-weight: 700;
+  min-width: 3rem;
+  text-align: right;
+  color: var(--color-text);
+}
+
+@media (max-width: 768px) {
+  .affinity-desktop { display: none; }
+  .affinity-mobile { display: block; }
+  .affinity-th-col { width: 40px; min-width: 40px; max-width: 40px; }
+  .affinity-cell { width: 40px; min-width: 40px; max-width: 40px; font-size: 0.65rem; }
+  .affinity-row-label { min-width: 100px; font-size: 0.75rem; }
+  .affinity-list-name { min-width: 120px; font-size: 0.8rem; }
+}
+</style>

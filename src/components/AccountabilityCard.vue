@@ -133,3 +133,147 @@ onUnmounted(() => document.removeEventListener('keydown', onKey))
     </div>
   </Teleport>
 </template>
+
+<style scoped>
+.acc-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.acc-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  max-width: 420px;
+  width: 100%;
+  padding: 2rem;
+  position: relative;
+  text-align: center;
+}
+
+.acc-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--color-muted);
+  line-height: 1;
+}
+
+.acc-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 0.25rem;
+}
+
+.acc-grupo {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  margin-bottom: 1.25rem;
+}
+
+.acc-topic {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background: var(--color-primary-light);
+  border-radius: var(--radius-sm);
+}
+
+.acc-votes {
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+.acc-vote-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.acc-vote-label {
+  width: 100px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-align: right;
+}
+
+.acc-vote-bar {
+  flex: 1;
+  height: 24px;
+  border-radius: 4px;
+  background: var(--color-border);
+  position: relative;
+}
+
+.acc-vote-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  min-width: 2px;
+  transition: width 0.3s;
+}
+
+.acc-vote-count {
+  width: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+.acc-url {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  margin-bottom: 1rem;
+}
+
+.acc-share {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.acc-share-btn {
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  transition: background 0.15s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.acc-share-btn:hover {
+  background: var(--color-bg);
+  text-decoration: none;
+  color: inherit;
+}
+
+.acc-share-btn--primary {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+.acc-share-btn--primary:hover {
+  background: var(--color-primary-hover);
+}
+</style>

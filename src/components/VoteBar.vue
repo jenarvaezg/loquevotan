@@ -39,3 +39,30 @@ const pA = computed(() => ((props.abstencion / props.total) * 100).toFixed(1))
     </div>
   </div>
 </template>
+
+<style scoped>
+.vote-bar {
+  display: flex;
+  height: 1.75rem;
+  border-radius: 50px;
+  overflow: hidden;
+  background: var(--color-border);
+}
+
+.vote-bar--sm { height: 0.5rem; border-radius: 4px; }
+
+.vote-bar-seg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  min-width: 2px;
+  transition: width 0.3s ease;
+}
+
+.vote-bar-seg--favor { background: var(--color-favor); }
+.vote-bar-seg--contra { background: var(--color-contra); }
+.vote-bar-seg--abstencion { background: var(--color-abstencion); }
+</style>

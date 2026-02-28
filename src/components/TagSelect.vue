@@ -95,3 +95,80 @@ function onBlur() {
     </div>
   </div>
 </template>
+
+<style scoped>
+.tag-select { position: relative; }
+.tag-select-input-wrap { position: relative; }
+
+.tag-select-dropdown {
+  position: absolute;
+  top: calc(100% + 2px);
+  left: 0;
+  right: 0;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-lg);
+  max-height: 240px;
+  overflow-y: auto;
+  z-index: 50;
+}
+
+.tag-select-option {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  font-size: 0.85rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text);
+  transition: background 0.1s;
+}
+
+.tag-select-option:hover,
+.tag-select-option--active {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.tag-select-option--selected {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.active-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.tag-active {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.25em 0.6em;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.tag-remove {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0 0.15em;
+  margin: 0;
+  line-height: 1;
+  opacity: 0.7;
+}
+
+.tag-remove:hover { opacity: 1; }
+</style>

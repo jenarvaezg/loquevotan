@@ -150,3 +150,90 @@ onUnmounted(() => document.removeEventListener('click', handleClickOutside))
     </div>
   </div>
 </template>
+
+<style scoped>
+.hero-search-wrap {
+  max-width: 500px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.hero-search {
+  width: 100%;
+  padding: 0.85rem 1.25rem;
+  padding-left: 2.75rem;
+  border: 2px solid rgba(255,255,255,0.25);
+  border-radius: 50px;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.hero-search::placeholder { color: rgba(255,255,255,0.6); }
+.hero-search:focus {
+  border-color: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.2);
+}
+
+.hero-search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.1rem;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.autocomplete-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  z-index: 50;
+  max-height: 360px;
+  overflow-y: auto;
+}
+
+.autocomplete-dropdown[hidden] { display: none; }
+
+.autocomplete-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background 0.1s;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.autocomplete-item:hover,
+.autocomplete-item.highlighted {
+  background: var(--color-primary-light);
+  text-decoration: none;
+}
+
+.autocomplete-item .ac-grupo {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}
+
+.ac-section-label {
+  padding: 0.4rem 1.25rem 0.2rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-muted);
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+</style>

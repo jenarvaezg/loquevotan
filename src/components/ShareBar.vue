@@ -53,3 +53,35 @@ async function copyUrl() {
     </a>
   </div>
 </template>
+
+<style scoped>
+.share-bar {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.share-btn:hover { background: var(--color-bg); text-decoration: none; color: inherit; }
+.share-btn--twitter { border-color: #1da1f2; color: #1da1f2; }
+.share-btn--twitter:hover { background: #1da1f2; color: #fff; }
+.share-btn--whatsapp { border-color: #25d366; color: #25d366; }
+.share-btn--whatsapp:hover { background: #25d366; color: #fff; }
+.share-btn--copy:hover { background: var(--color-primary-light); color: var(--color-primary); }
+</style>
