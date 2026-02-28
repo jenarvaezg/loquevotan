@@ -1,9 +1,12 @@
 __pycache__/
 *.pyc
 .DS_Store
-data/raw/
-data/last_fetch_*.txt
-data/cache_*.json
 node_modules/
 dist/
 .omc/
+
+# Data and Scraping
+**/raw/
+data/last_fetch_*.txt
+data/cache_*.json
+!data/*/cache_categorias.json
