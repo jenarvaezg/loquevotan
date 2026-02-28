@@ -450,6 +450,14 @@ def main():
     with open(MANIFEST_FILE, "w") as f:
         json.dump(manifest, f, separators=(',', ':'))
 
+    # Generate votes files
+    for leg, v_list in votos_by_leg.items():
+        with open(os.path.join(SCRIPT_DIR, "..", "public", "data", f"votos_{leg}.json"), "w") as f:
+            json.dump({
+                "votos": v_list,
+                "detail": vot_detail_by_leg[leg]
+            }, f, separators=(',', ':'))
+
     print(f"Transformación completada: {len(vot_meta_list)} votaciones.")
 
 if __name__ == "__main__":

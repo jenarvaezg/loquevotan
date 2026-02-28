@@ -138,13 +138,13 @@ def transform():
         by_group = {}
         
         for voto in v["votos"]:
-            s = voto["voto"]
+            s = voto["voto"].lower()
             code = 4
-            if s == "si": 
+            if s == "si" or s == "sí": 
                 favor += 1; code = 1
             elif s == "no": 
                 contra += 1; code = 2
-            elif s == "abstencion": 
+            elif s == "abstencion" or s == "abstención": 
                 abstencion += 1; code = 3
             else: 
                 no_vota += 1; code = 4
@@ -341,7 +341,7 @@ def transform():
         with open(f"{OUTPUT_DIR}/votos_{leg}.json", "w") as f:
             json.dump({
                 "votos": votos_by_leg[leg],
-                "detail": {k: {key: val for key, val in v.items() if key != "group_majority"} for k, v in vot_detail_by_leg[leg].items()}
+                "detail": vot_detail_by_leg[leg]
             }, f, separators=(',', ':'))
             
     # 10. Update ambitos config
