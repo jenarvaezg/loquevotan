@@ -19,6 +19,7 @@ OUTPUT_FILE = os.path.join(SCRIPT_DIR, "..", "public", "data", "votaciones.json"
 CACHE_FILE = os.path.join(SCRIPT_DIR, "..", "data", "cache_categorias.json")
 PROMPT_FILE = os.path.join(SCRIPT_DIR, "prompt_categorizacion.txt")
 FOTO_MAP_FILE = os.path.join(SCRIPT_DIR, "..", "data", "foto_map.json")
+PROVINCIA_MAP_FILE = os.path.join(SCRIPT_DIR, "..", "data", "provincia_map.json")
 MANIFEST_FILE = os.path.join(SCRIPT_DIR, "..", "public", "data", "manifest_home.json")
 META_FILE = os.path.join(SCRIPT_DIR, "..", "public", "data", "votaciones_meta.json")
 
@@ -182,6 +183,11 @@ def main():
         with open(FOTO_MAP_FILE) as f:
             dep_fotos = json.load(f)
 
+    dep_provs = {}
+    if os.path.exists(PROVINCIA_MAP_FILE):
+        with open(PROVINCIA_MAP_FILE) as f:
+            dep_provs = json.load(f)
+
     unique_diputados = {}
     unique_grupos = set()
     
@@ -231,7 +237,7 @@ def main():
             else:
                 no_vota += 1
                 
-            dip_id = voto_entry.get("diputadoId")
+            dip_id = voto_entry.get("diputado")
             if not dip_id: continue
             
             grupo = voto_entry.get("grupo")
@@ -239,9 +245,10 @@ def main():
             
             if dip_id not in unique_diputados:
                 unique_diputados[dip_id] = {
-                    "nombre": voto_entry.get("diputado"),
+                    "nombre": dip_id,
                     "grupo": grupo,
-                    "foto": dep_fotos.get(dip_id)
+                    "foto": dep_fotos.get(dip_id),
+                    "provincia": dep_provs.get(dip_id)
                 }
             
             # Store raw vote for later indexing
@@ -374,7 +381,8 @@ def main():
         "groupAffinityByLeg": group_affinity_by_leg,
         "votsByExp": {}, # Optional for now
         "votIdById": {v["id"]: i for i, v in enumerate(vot_meta_list)},
-        "dipFotos": [unique_diputados[d_id]["foto"] for d_id in sorted_dips]
+        "dipFotos": [unique_diputados[d_id]["foto"] for d_id in sorted_dips],
+        "dipProvincias": [unique_diputados[d_id]["provincia"] for d_id in sorted_dips]
     }
 
     with open(META_FILE, "w") as f:

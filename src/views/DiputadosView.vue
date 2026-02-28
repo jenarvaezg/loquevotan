@@ -7,12 +7,13 @@ import DipCard from '../components/DipCard.vue'
 import Pagination from '../components/Pagination.vue'
 import FilterBar from '../components/FilterBar.vue'
 
-const { diputados, grupos, dipStats } = useData()
+const { diputados, grupos, dipStats, dipProvincias } = useData()
 
 const route = useRoute()
 
 const search = ref('')
 const grupoFilter = ref('')
+const provinciaFilter = ref('')
 const sortMode = ref('name')
 const page = ref(1)
 
@@ -23,9 +24,21 @@ watch(() => route.query.grupo, (g) => {
 
 const sortedGrupos = computed(() => [...grupos.value].sort())
 
+const availableProvincias = computed(() => {
+  const set = new Set()
+  if (!dipProvincias.value) return []
+  dipProvincias.value.forEach(p => {
+    if (p) {
+      Object.values(p).forEach(name => set.add(name))
+    }
+  })
+  return Array.from(set).sort()
+})
+
 const filtered = computed(() => {
   const s = normalize(search.value.trim())
   const grupo = grupoFilter.value
+  const prov = provinciaFilter.value
   const sort = sortMode.value
 
   let result = []
@@ -34,6 +47,12 @@ const filtered = computed(() => {
     if (ds.total === 0) continue
     if (s && !normalize(diputados.value[i]).includes(s)) continue
     if (grupo && (ds.mainGrupo < 0 || grupos.value[ds.mainGrupo] !== grupo)) continue
+    
+    if (prov) {
+      const dp = dipProvincias.value[i]
+      if (!dp || !Object.values(dp).includes(prov)) continue
+    }
+    
     result.push(i)
   }
 
@@ -61,6 +80,7 @@ const onSearchInput = debounce(() => { page.value = 1 }, 250)
 function resetFilters() {
   search.value = ''
   grupoFilter.value = ''
+  provinciaFilter.value = ''
   sortMode.value = 'name'
   page.value = 1
 }
@@ -91,6 +111,13 @@ function goToPage(p) {
           <select v-model="grupoFilter" class="filter-select" @change="page = 1">
             <option value="">Todos</option>
             <option v-for="g in sortedGrupos" :key="g" :value="g">{{ g }}</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Provincia</label>
+          <select v-model="provinciaFilter" class="filter-select" @change="page = 1">
+            <option value="">Todas</option>
+            <option v-for="p in availableProvincias" :key="p" :value="p">{{ p }}</option>
           </select>
         </div>
         <div class="filter-group">

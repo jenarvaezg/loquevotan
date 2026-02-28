@@ -41,42 +41,55 @@ TITLE_RE = re.compile(r"<title>\s*(.+?)\s*-\s*[XIVL]+\s*Legislatura")
 HEADERS = {"User-Agent": "Mozilla/5.0 (loquevotan.es photo mapper)"}
 
 
-def fetch_name(cod, leg):
-    """Fetch the diputado name for a given codParlamentario and legislatura."""
+def fetch_name_and_prov(cod, leg):
+    """Fetch the diputado name and province for a given codParlamentario and legislatura."""
     url = BASE_URL.format(cod=cod, leg=leg)
     try:
         req = Request(url, headers=HEADERS)
         with urlopen(req, timeout=15) as resp:
-            # Read only enough to find the title (it's near the top)
-            chunk = resp.read(4096).decode("utf-8", errors="replace")
-            m = TITLE_RE.search(chunk)
-            if m:
-                name = m.group(1).strip()
-                # "Búsqueda" means no diputado found
-                if name.startswith("Búsqueda"):
-                    return None
-                return name
+            html = resp.read().decode("utf-8", errors="replace")
+            m_title = TITLE_RE.search(html)
+            if not m_title:
+                return None, None
+                
+            name = m_title.group(1).strip()
+            # "Búsqueda" means no diputado found
+            if name.startswith("Búsqueda"):
+                return None, None
+                
+            prov = None
+            m_prov = re.search(r'Diputad[ao] por\s+([^<]+)', html)
+            if m_prov:
+                prov = m_prov.group(1).strip()
+                
+            return name, prov
     except (HTTPError, URLError, TimeoutError):
         pass
-    return None
+    return None, None
 
 
 def name_to_apellidos_nombre(full_name):
     """Convert 'Nombre1 Nombre2 Apellido1 Apellido2' to 'Apellido1 Apellido2, Nombre1 Nombre2'.
-
-    This is heuristic — we'll use fuzzy matching later to resolve mismatches.
-    For now, just store the original full name as-is.
+    
+    Very rough heuristic for Spanish names.
     """
+    parts = full_name.strip().split()
+    if len(parts) >= 3:
+        # Typical case: 1 name, 2 surnames -> Surnames, Name
+        return f"{' '.join(parts[1:])}, {parts[0]}"
+    elif len(parts) == 2:
+        return f"{parts[1]}, {parts[0]}"
     return full_name
 
 
 def scrape_legislatura(leg):
-    """Scrape all codParlamentario → name mappings for a legislatura."""
-    results = {}  # full_name -> codParlamentario
+    """Scrape all codParlamentario → (name, prov) mappings for a legislatura."""
+    results = {}  # full_name -> {cod, prov}
     consecutive_misses = 0
 
     def process_id(cod):
-        return cod, fetch_name(cod, leg)
+        name, prov = fetch_name_and_prov(cod, leg)
+        return cod, name, prov
 
     with ThreadPoolExecutor(max_workers=10) as executor:
         # Submit in chunks to allow early stopping
@@ -90,14 +103,14 @@ def scrape_legislatura(leg):
 
             chunk_results = {}
             for future in as_completed(futures):
-                cod, name = future.result()
-                chunk_results[cod] = name
+                cod, name, prov = future.result()
+                chunk_results[cod] = (name, prov)
 
             # Process in order
             for cod in range(start, end):
-                name = chunk_results.get(cod)
+                name, prov = chunk_results.get(cod, (None, None))
                 if name:
-                    results[name] = cod
+                    results[name] = {"cod": cod, "provincia": prov}
                     consecutive_misses = 0
                 else:
                     consecutive_misses += 1
@@ -116,16 +129,25 @@ def load_existing():
             return json.load(f)
     return {}
 
+def load_existing_prov():
+    prov_file = os.path.join(SCRIPT_DIR, "..", "data", "provincia_map.json")
+    if os.path.exists(prov_file):
+        with open(prov_file, encoding="utf-8") as f:
+            return json.load(f)
+    return {}
+
 
 def main():
     only_legs = [l for l in sys.argv[1:] if l in LEGISLATURAS]
     if not only_legs:
         only_legs = LEGISLATURAS
 
-    print(f"Scraping fotos para legislaturas: {', '.join(only_legs)}")
+    print(f"Scraping fotos y provincias para legislaturas: {', '.join(only_legs)}")
 
     # Load existing map (full_name -> {leg: cod})
     foto_map = load_existing()
+    prov_map = load_existing_prov()
+    prov_file = os.path.join(SCRIPT_DIR, "..", "data", "provincia_map.json")
 
     for leg in only_legs:
         print(f"\n{'='*50}")
@@ -133,22 +155,34 @@ def main():
         print(f"{'='*50}")
 
         leg_results = scrape_legislatura(leg)
-        leg_num = LEG_TO_NUM[leg]
 
         found = 0
-        for full_name, cod in sorted(leg_results.items()):
-            if full_name not in foto_map:
-                foto_map[full_name] = {}
-            foto_map[full_name][leg] = cod
+        for full_name, data in sorted(leg_results.items()):
+            # Convert "Nombre Apellidos" to "Apellidos, Nombre" for matching with votes
+            clean_name = name_to_apellidos_nombre(full_name)
+            
+            if clean_name not in foto_map:
+                foto_map[clean_name] = {}
+            foto_map[clean_name][leg] = data["cod"]
+            
+            if data["provincia"]:
+                if clean_name not in prov_map:
+                    prov_map[clean_name] = {}
+                prov_map[clean_name][leg] = data["provincia"]
+                
             found += 1
-            print(f"  [{cod:3d}] {full_name}")
+            print(f"  [{data['cod']:3d}] {clean_name} ({data['provincia']})")
 
         print(f"  → {found} diputados encontrados")
 
         # Save after each legislatura
         with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
             json.dump(foto_map, f, ensure_ascii=False, indent=2, sort_keys=True)
-        print(f"  → Guardado en {OUTPUT_FILE}")
+            
+        with open(prov_file, "w", encoding="utf-8") as f:
+            json.dump(prov_map, f, ensure_ascii=False, indent=2, sort_keys=True)
+            
+        print(f"  → Guardado en {OUTPUT_FILE} y {prov_file}")
 
     print(f"\nTotal nombres únicos: {len(foto_map)}")
     print(f"Fichero: {OUTPUT_FILE}")

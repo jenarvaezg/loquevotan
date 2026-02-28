@@ -42,13 +42,27 @@ def scrape_andalucia_all_diputados():
                     break
                 parent = parent.parent
             
+            # Fetch individual page for province
+            prov = None
+            try:
+                detail_url = urljoin(url, href)
+                detail_resp = requests.get(detail_url)
+                detail_soup = BeautifulSoup(detail_resp.text, 'html.parser')
+                m_prov = detail_soup.find(string=re.compile(r'Circunscripci.n', re.IGNORECASE))
+                if m_prov:
+                    prov = m_prov.parent.parent.get_text().replace('Circunscripción:', '').strip()
+                time.sleep(0.1) # Be nice
+            except Exception as e:
+                print(f"  Error getting province for {name}: {e}")
+
             all_diputados.append({
                 "id": f"AND-{legis}-{codmie}",
                 "nombre": name,
                 "grupo": "Unknown", 
                 "codmie": codmie,
                 "nlegis": legis,
-                "foto": img_url
+                "foto": img_url,
+                "provincia": prov
             })
             
     return all_diputados

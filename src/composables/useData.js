@@ -17,6 +17,7 @@ const votosByVotacion = shallowRef({});
 const votosByDiputado = shallowRef({});
 
 const dipFotos = shallowRef([]);
+const dipProvincias = shallowRef([]);
 
 const votResults = shallowRef([]);
 const dipStats = shallowRef([]);
@@ -66,6 +67,7 @@ async function _doLoad(retryCount = 0) {
     categorias.value = raw.categorias;
     votaciones.value = raw.votaciones;
     dipFotos.value = raw.dipFotos || [];
+    dipProvincias.value = raw.dipProvincias || [];
     votResults.value = raw.votResults;
     dipStats.value = raw.dipStats;
     tagCounts.value = raw.tagCounts;
@@ -196,6 +198,7 @@ export function useData() {
     sortedVotIdxByDate,
     groupAffinityByLeg,
     dipFotos,
+    dipProvincias,
     votsByExp,
     votacionDetail,
     votIdById,

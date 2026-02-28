@@ -51,11 +51,13 @@ def transform():
     for v in all_raw_votes:
         for voto in v["votos"]:
             if voto["diputadoId"] not in deputados_all:
+                dep_data = raw_deps_map.get(voto["diputadoId"], {})
                 deputados_all[voto["diputadoId"]] = {
                     "id": voto["diputadoId"],
                     "nombre": voto["diputado"],
                     "grupo": voto["grupo"],
-                    "foto": raw_deps_map.get(voto["diputadoId"], {}).get("foto")
+                    "foto": dep_data.get("foto"),
+                    "provincia": dep_data.get("provincia")
                 }
             grupos_all.add(voto["grupo"])
         
@@ -66,7 +68,7 @@ def transform():
                 titles_to_categorize.append((v["titulo"], v["titulo"]))
 
     # 3. Categorize with AI if needed
-    if titles_to_categorize and api_key:
+    if titles_to_categorize:
         print(f"Categorizing {len(titles_to_categorize)} new titles for Andalusia...")
         with open(PROMPT_FILE, "r") as f:
             prompt_text = f.read()
@@ -272,7 +274,8 @@ def transform():
         "groupAffinityByLeg": group_affinity_by_leg, 
         "votsByExp": {},
         "votIdById": {v["id"]: i for i, v in enumerate(votaciones_meta_list)},
-        "dipFotos": [d.get("foto") for d in diputados_list]
+        "dipFotos": [d.get("foto") for d in diputados_list],
+        "dipProvincias": [d.get("provincia") for d in diputados_list]
     }
     
     with open(META_FILE, "w") as f:
