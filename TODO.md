@@ -8,61 +8,58 @@
   - Seleccionar 10-15 votaciones clave y polarizantes de la última legislatura en CyL.
   - El usuario vota (A favor, En contra, Abstención) a ciegas.
   - Al final, la app calcula su % de afinidad real con cada partido/candidato en base al historial de voto.
-  - *Metodología:* Explicar de forma transparente (y enlazando a las votaciones originales) por qué sale ese resultado. Contrastar el sentido de voto real de la legislatura anterior con las promesas de los programas electorales actuales.
 - [x] **Encuesta / Analytics del Quiz:**
-  - Integrar Google Analytics (o PostHog/Plausible para mayor privacidad) configurando eventos personalizados para guardar los resultados *anonimizados* del Quiz.
-  - Esto permitirá generar artículos/hilos tipo "El 60% de los votantes del Quiz en León prefiere las políticas de X partido, pero no lo saben".
+  - Integrar Google Analytics para guardar los resultados anonimizados.
 - [ ] **Tarjetas Sociales Dinámicas (Open Graph):**
-  - Generar imágenes OG para que al pasar un link de un político o del resultado del Quiz por WhatsApp/Twitter salga su foto, sus stats o el % de afinidad del usuario. (Requiere Edge API o generación estática).
+  - Generar imágenes OG para compartir en redes.
 - [x] **Botón "Fiscalizar" / Share Accountability:**
-  - En la ficha temática de un diputado, añadir un botón para exportar esa "tarjeta" como imagen (usando `html2canvas`) para subir directa a Instagram Stories o Twitter.
+  - Exportar ficha de diputado como imagen.
 - [x] **Buscador de representantes por Provincia:**
-  - Vital para CyL. Permitir filtrar la vista de Diputados por su circunscripción (ej. León, Valladolid...) para que el usuario encuentre a "su" candidato local.
+  - Filtrar por circunscripción local.
 
 ---
 
 ## Completado
 
-- [x] **Arquitectura y Scraping Base:** Scraping Legislaturas X-XV completado. Arquitectura de JSON optimizada (3-tier).
-- [x] **Andalucía:** Integración completa (Scraping PDFs, extracción de votos, extracción de fotos, transformación a JSON).
-- [x] **Castilla y León:** Integración completa (Parsing de Diarios de Sesiones TXT para votos nominales).
-- [x] **Madrid:** Integración básica (Diputados XIII, Investidura 2023 y leyes recientes via deducción grupal).
+- [x] **Arquitectura y Scraping Base:** Legislaturas X-XV.
+- [x] **Andalucía:** Integración completa del histórico (2012-2026).
+- [x] **Castilla y León:** Integración completa (Votos nominales + Títulos ciudadanos e IA al 100%).
+- [x] **Madrid:** Integración básica (Diputados XIII, Investidura 2023 y leyes recientes).
 - [x] **Optimización de Repo:** Configuración de .gitignore y limpieza de archivos "raw" (~200MB eliminados).
-- [x] **UI/UX Global:** Buscador global, selector de ámbito (banderas), compatibilidad con Dark Mode, mejoras de contraste WCAG.
-- [x] **Taxonomía Unificada:** Cerebro de IA (`ai_utils.py`) compartido entre todas las instituciones.
-- [x] **Global Index:** Unificación de los 1.927 diputados de todas las cámaras en un índice global.
+- [x] **UI/UX Global:** Buscador, selector de ámbito, Dark Mode, contraste WCAG.
+- [x] **Taxonomía Unificada:** Cerebro de IA (`ai_utils.py`) compartido.
+- [x] **Global Index:** Unificación de 1.927 diputados en índice global.
 
 ---
 
 ## Fase 2: Calidad de Datos e Inteligencia (Pendiente)
 
-### 🏙️ Específico Madrid (Completar Alta según AGENTS.md)
-- [ ] **Bypass Permanente / Scraping Avanzado:** Investigar si hay una forma más robusta de obtener los votos nominales (¿quizás el Portal de Transparencia tiene una API OData escondida?).
+### 🏙️ Específico Madrid
+- [ ] **Bypass Permanente / Scraping Avanzado:** Investigar fuentes más robustas para votos nominales.
 - [ ] **Histórico Madrid:** Descargar y procesar Legislaturas XII, XI y X (vía servidor estático).
-- [ ] **Activos Visuales:** Añadir bandera oficial de la Comunidad de Madrid en SVG.
-- [ ] **Quiz Madrid:** Seleccionar votaciones clave de la Asamblea para el motor de afinidad.
+- [ ] **AI Pass Madrid:** Generar títulos ciudadanos para todas las votaciones.
 
 ### 🧠 Inteligencia y Funcionalidad Global
-- [ ] **AI Full-Pass para CCAA:**
-  - Procesar los ~400 temas de Andalucía XII y los ~120 temas de CyL XI con IA para eliminar títulos crípticos del BOPA/Diarios.
+- [ ] **AI Full-Pass Andalucía:**
+  - Procesar los ~400 temas de Andalucía XII con IA para eliminar títulos crípticos del BOPA.
   - *Estado:* Pendiente por errores de cuota/configuración en el CLI de Gemini. 
-- [/] **Detalle de "Rebeldía" y Tránsfugas:** (Ranking listo, falta detalle en perfil) Mostrar exactamente en qué votaciones un diputado rompió la disciplina de su grupo parlamentario.
-- [x] **Ranking de Asistencia ("Los que menos van"):** Destacar el porcentaje de absentismo ("No Vota") de cada diputado en una vista dedicada de ránkings.
-- [ ] **Soporte para Widgets/Embeds (`<iframe>`):** Permitir a la prensa incrustar gráficos de votaciones.
+- [/] **Detalle de "Rebeldía" y Tránsfugas:** (Ranking listo, falta detalle en perfil) Mostrar votos específicos.
+- [x] **Ranking de Asistencia ("Los que menos van"):** Vista dedicada de ránkings.
+- [ ] **Soporte para Widgets/Embeds:** Para prensa local.
 
 ---
 
 ## Fase 3: Deuda Técnica y Robustez
 
-- [ ] **Filtros Combinados / Buscador Avanzado:** Permitir buscar combinando (Etiqueta + Rango de Fechas + Proponente + Resultado).
-- [ ] **Migrar CSS Monolítico:** Pasar el resto de `custom.css` a estilos `scoped`.
-- [ ] **Tests E2E y Unitarios:** Cobertura de flujos críticos multi-parlamento.
+- [ ] **Filtros Combinados / Buscador Avanzado:** (Etiqueta + Fecha + Proponente).
+- [ ] **Migrar CSS Monolítico:** Estilos `scoped`.
+- [ ] **Tests E2E y Unitarios:** Cobertura de flujos críticos.
 
 ---
 
 ## Backlog (Largo plazo)
 
-- [ ] **Otras CCAA:** Investigar Cataluña (parlament.cat), País Vasco (legebiltzarra.eus), Comunidad Valenciana, etc.
-- [ ] **Generación automática de Feeds RSS:** Seguimiento externo.
-- [ ] **Bookmarks/Favoritos locales:** `localStorage`.
-- [ ] **Datos históricos:** Legislaturas I-IX del Congreso (1977-2011).
+- [ ] **Otras CCAA:** Cataluña, País Vasco, C. Valenciana, etc.
+- [ ] **Generación automática de Feeds RSS.**
+- [ ] **Bookmarks/Favoritos locales.**
+- [ ] **Datos históricos:** Legislaturas I-IX (1977-2011).
