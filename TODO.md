@@ -48,7 +48,7 @@
 - [x] Reemplazar datalist de tags en VotacionesView por TagSelect dropdown custom con autocompletado
 
 ### Datos
-- [ ] Re-categorizar los ~80 textos fallback (lotes que fallaron en categorizacion IA)
+- [x] Re-categorizar textos fallback — verificado: 0 entradas sin clasificar, todas tienen titulo ciudadano
 
 ## Fase 3: Features grandes (1-2 semanas)
 
