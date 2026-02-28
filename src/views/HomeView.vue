@@ -84,7 +84,7 @@ function goToTag(tag) {
       <div class="ranking-grid">
         <router-link
           v-for="rebel in manifest.rebels"
-          :key="rebel.idx"
+          :key="rebel.name"
           class="ranking-card card-link"
           :to="'/diputado/' + encodeURIComponent(rebel.name)"
         >
@@ -102,7 +102,7 @@ function goToTag(tag) {
         <router-link to="/votaciones">Ver todas &rarr;</router-link>
       </div>
       <div class="vote-cards-grid">
-        <VoteCard v-for="v in manifest.tightVotes" :key="v.idx" :votData="v" :votResult="v" />
+        <VoteCard v-for="v in manifest.tightVotes" :key="v.id" :votData="v" :votResult="v" />
       </div>
 
       <div class="section-header">
@@ -110,7 +110,7 @@ function goToTag(tag) {
         <router-link to="/votaciones">Ver todas &rarr;</router-link>
       </div>
       <div class="vote-cards-grid">
-        <VoteCard v-for="v in manifest.latestVotes" :key="v.idx" :votData="v" :votResult="v" />
+        <VoteCard v-for="v in manifest.latestVotes" :key="v.id" :votData="v" :votResult="v" />
       </div>
     </div>
   </section>

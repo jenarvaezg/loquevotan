@@ -19,11 +19,11 @@ const catLabel = computed(() => {
   if (props.votData) return props.votData.categoria
   return categorias.value[vot.value?.categoria]
 })
-const linkIdx = computed(() => props.votData?.idx ?? props.idx)
+const linkId = computed(() => props.votData?.id ?? vot.value?.id)
 </script>
 
 <template>
-  <router-link :to="'/votacion/' + linkIdx" class="card vote-card card-link">
+  <router-link :to="'/votacion/' + linkId" class="card vote-card card-link">
     <div class="vote-card-header">
       <span class="vote-card-title">{{ vot.titulo_ciudadano }}</span>
       <ResultBadge :result="r.result" />

@@ -8,9 +8,9 @@ import ResultBadge from '../components/ResultBadge.vue'
 import ShareBar from '../components/ShareBar.vue'
 
 const route = useRoute()
-const { votaciones, votResults, votos, votosByVotacion, votsByExp, categorias, grupos, diputados, loadVotosForLeg, votosLoaded, votacionDetail } = useData()
+const { votaciones, votResults, votos, votosByVotacion, votsByExp, categorias, grupos, diputados, loadVotosForLeg, votosLoaded, votacionDetail, votIdById } = useData()
 
-const idx = computed(() => parseInt(route.params.idx, 10))
+const idx = computed(() => votIdById.value?.[route.params.id])
 const vot = computed(() => {
   const base = votaciones.value[idx.value]
   if (!base) return base
@@ -86,7 +86,7 @@ function shareVote(vi) {
   const dipName = diputados.value[v[1]]
   const votoText = VOTO_LABELS[v[3]]
   const titulo = vot.value.titulo_ciudadano
-  const url = window.location.origin + import.meta.env.BASE_URL + '#/votacion/' + idx.value + '?dip=' + encodeURIComponent(dipName)
+  const url = window.location.origin + import.meta.env.BASE_URL + '#/votacion/' + vot.value.id + '?dip=' + encodeURIComponent(dipName)
   const text = `${dipName} voto ${votoText.toLowerCase()} en: "${titulo}" - ${url}`
 
   navigator.clipboard.writeText(text).then(() => {
@@ -239,7 +239,7 @@ watch(vot, (v) => {
           <div v-if="expSummary.finalItem" class="exp-final-result">
             <span class="exp-final-label">Resultado final:</span>
             <ResultBadge :result="expSummary.finalItem.r.result" large />
-            <router-link v-if="expSummary.finalItem.idx !== idx" :to="'/votacion/' + expSummary.finalItem.idx" class="exp-final-link">
+            <router-link v-if="expSummary.finalItem.idx !== idx" :to="'/votacion/' + expSummary.finalItem.vot.id" class="exp-final-link">
               Ver votacion final &rarr;
             </router-link>
             <span v-else class="badge badge--final">Estás viéndola</span>
@@ -269,7 +269,7 @@ watch(vot, (v) => {
                 <router-link
                   v-for="item in t.items"
                   :key="item.idx"
-                  :to="'/votacion/' + item.idx"
+                  :to="'/votacion/' + item.vot.id"
                   class="exp-tipo-item"
                   :class="{ 'exp-tipo-item--current': item.idx === idx }"
                 >

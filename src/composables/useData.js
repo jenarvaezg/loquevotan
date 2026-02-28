@@ -23,6 +23,7 @@ const sortedVotIdxByDate = shallowRef([]);
 const groupAffinityByLeg = shallowRef({});
 const votsByExp = shallowRef({});
 const votacionDetail = shallowRef({});
+const votIdById = shallowRef({});
 
 const votosLoaded = ref(new Set());
 
@@ -51,6 +52,7 @@ async function _doLoad(retryCount = 0) {
     sortedVotIdxByDate.value = raw.sortedVotIdxByDate;
     groupAffinityByLeg.value = raw.groupAffinityByLeg;
     votsByExp.value = raw.votsByExp;
+    votIdById.value = raw.votIdById || {};
 
     loaded.value = true;
   } catch (err) {
@@ -153,6 +155,7 @@ export function useData() {
     dipFotos,
     votsByExp,
     votacionDetail,
+    votIdById,
     votosLoaded,
     loadVotosForLeg,
     retryLoad,

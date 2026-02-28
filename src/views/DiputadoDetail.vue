@@ -21,6 +21,15 @@ const grupoName = computed(() =>
 )
 const photoUrl = computed(() => dipPhotoUrl(dipFotos.value[dipIdx.value]))
 
+// History filters
+const histSearch = ref('')
+const histVoto = ref('')
+const histLeg = ref('')
+const histPage = ref(1)
+const activeTag = ref('')
+const showAccCard = ref(false)
+const accTag = ref('')
+
 // Track if votos for current filter legislatura (or latest) are loaded
 const votosReady = computed(() => {
   if (!ds.value?.legislaturas?.length) return false
@@ -53,14 +62,32 @@ watch(votosReady, (ready) => {
   }
 })
 
-// History filters
-const histSearch = ref('')
-const histVoto = ref('')
-const histLeg = ref('')
-const histPage = ref(1)
-const activeTag = ref('')
-const showAccCard = ref(false)
-const accTag = ref('')
+// Monthly activity sparkline
+const monthlyActivity = computed(() => {
+  if (!allVotosReady.value) return []
+  const indices = votosByDiputado.value[dipIdx.value] || []
+  const months = {}
+  for (let j = 0; j < indices.length; j++) {
+    const votIdx = votos.value[indices[j]][0]
+    const fecha = votaciones.value[votIdx].fecha
+    const month = fecha.slice(0, 7) // YYYY-MM
+    if (!months[month]) months[month] = { month, favor: 0, contra: 0, abst: 0, total: 0 }
+    const code = votos.value[indices[j]][3]
+    if (code === 1) months[month].favor++
+    else if (code === 2) months[month].contra++
+    else months[month].abst++
+    months[month].total++
+  }
+  return Object.values(months).sort((a, b) => a.month.localeCompare(b.month))
+})
+
+const sparklineMax = computed(() => {
+  let max = 0
+  for (const m of monthlyActivity.value) {
+    if (m.total > max) max = m.total
+  }
+  return max || 1
+})
 
 // Category profile
 const catBreakdown = computed(() => {
@@ -219,6 +246,42 @@ watch(name, (n) => {
       <VoteBar :favor="ds.favor" :contra="ds.contra" :abstencion="ds.abstencion" :total="ds.total" />
 
       <template v-if="allVotosReady">
+        <!-- Activity timeline -->
+        <div v-if="monthlyActivity.length > 1" class="detail-section">
+          <h2>Actividad mensual</h2>
+          <div class="sparkline-wrap">
+            <svg :viewBox="'0 0 ' + monthlyActivity.length * 8 + ' 50'" preserveAspectRatio="none" class="sparkline-svg">
+              <g v-for="(m, i) in monthlyActivity" :key="m.month">
+                <rect
+                  :x="i * 8" :y="50 - (m.favor / sparklineMax * 48)"
+                  width="6" :height="m.favor / sparklineMax * 48"
+                  fill="var(--color-favor)" opacity="0.85"
+                >
+                  <title>{{ m.month }}: {{ m.favor }} a favor, {{ m.contra }} en contra, {{ m.abst }} abstenciones</title>
+                </rect>
+                <rect
+                  :x="i * 8" :y="50 - ((m.favor + m.contra) / sparklineMax * 48)"
+                  width="6" :height="m.contra / sparklineMax * 48"
+                  fill="var(--color-contra)" opacity="0.85"
+                >
+                  <title>{{ m.month }}: {{ m.favor }} a favor, {{ m.contra }} en contra, {{ m.abst }} abstenciones</title>
+                </rect>
+                <rect
+                  :x="i * 8" :y="50 - (m.total / sparklineMax * 48)"
+                  width="6" :height="m.abst / sparklineMax * 48"
+                  fill="var(--color-abstencion)" opacity="0.85"
+                >
+                  <title>{{ m.month }}: {{ m.favor }} a favor, {{ m.contra }} en contra, {{ m.abst }} abstenciones</title>
+                </rect>
+              </g>
+            </svg>
+            <div class="sparkline-labels">
+              <span>{{ monthlyActivity[0].month }}</span>
+              <span>{{ monthlyActivity[monthlyActivity.length - 1].month }}</span>
+            </div>
+          </div>
+        </div>
+
         <!-- Category profile -->
         <div v-if="catBreakdown.length" class="detail-section">
           <h2>Perfil temático</h2>
@@ -317,7 +380,7 @@ watch(name, (n) => {
                     </span>
                   </td>
                   <td data-label="Asunto">
-                    <router-link :to="'/votacion/' + rec.votIdx">
+                    <router-link :to="'/votacion/' + votaciones[rec.votIdx].id">
                       {{ votaciones[rec.votIdx].titulo_ciudadano }}
                     </router-link>
                     <span

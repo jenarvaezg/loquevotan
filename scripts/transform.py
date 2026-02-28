@@ -497,6 +497,15 @@ def main():
                 f"&idVotacion={meta['numero_votacion']}"
             )
 
+        # Stable ID for URLs: legislatura-sesion-numero
+        _leg = meta.get("legislatura", "")
+        _ses = meta.get("sesion", "")
+        _num = meta.get("numero_votacion", "")
+        if _leg and _ses and _num:
+            votacion_entry["id"] = f"{_leg}-{_ses}-{_num}"
+        else:
+            votacion_entry["id"] = f"h_{text_hash(meta.get('texto_oficial', '') or str(vot_idx))[:8]}"
+
         votaciones_list.append(votacion_entry)
         for v in votes:
             votos_list.append([
@@ -658,6 +667,9 @@ def main():
         if exp:
             vots_by_exp.setdefault(exp, []).append(i)
 
+    # ── Pre-compute: votacion id to index mapping ──
+    votIdById = {vot["id"]: i for i, vot in enumerate(votaciones_list)}
+
     # ══════════════════════════════════════════════
     # Generate Tier 1: manifest_home.json
     # ══════════════════════════════════════════════
@@ -684,7 +696,7 @@ def main():
         v = votaciones_list[vi]
         r = vot_results[vi]
         return {
-            "idx": vi,
+            "id": v["id"],
             "titulo_ciudadano": v["titulo_ciudadano"],
             "fecha": v["fecha"],
             "categoria": categorias_set[v["categoria"]],
@@ -711,7 +723,6 @@ def main():
         "tightVotes": [manifest_vote(i) for i in tight_votes],
         "rebels": [
             {
-                "idx": i,
                 "name": diputados_set[i],
                 "grupo": grupos_set[dip_stats[i]["mainGrupo"]] if dip_stats[i]["mainGrupo"] >= 0 else "Sin grupo",
                 "loyalty": round(dip_stats[i]["loyalty"], 4),
@@ -749,6 +760,7 @@ def main():
         "sortedVotIdxByDate": sorted_vot_idx,
         "groupAffinityByLeg": group_affinity_by_leg,
         "votsByExp": vots_by_exp,
+        "votIdById": votIdById,
     }
 
     # ══════════════════════════════════════════════

@@ -77,7 +77,7 @@ function goToDip(i) {
 }
 
 function goToVot(i) {
-  router.push('/votacion/' + i)
+  router.push('/votacion/' + votaciones.value[i].id)
   close()
 }
 

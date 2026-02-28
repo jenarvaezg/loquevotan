@@ -19,7 +19,7 @@ const router = createRouter({
       component: () => import("./views/DiputadosView.vue"),
     },
     {
-      path: "/votacion/:idx",
+      path: "/votacion/:id",
       name: "votacion",
       component: () => import("./views/VotacionDetail.vue"),
     },
@@ -37,6 +37,16 @@ const router = createRouter({
       path: "/grupo/:grupo",
       name: "grupo",
       component: () => import("./views/GrupoDetail.vue"),
+    },
+    {
+      path: "/comparar",
+      name: "comparar",
+      component: () => import("./views/ComparadorView.vue"),
+    },
+    {
+      path: "/afinidad",
+      name: "afinidad",
+      component: () => import("./views/AffinityDetail.vue"),
     },
     {
       path: "/:pathMatch(.*)*",

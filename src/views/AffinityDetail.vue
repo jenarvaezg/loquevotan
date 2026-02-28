@@ -1,0 +1,158 @@
+<script setup>
+import { computed, ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
+import { useData } from '../composables/useData'
+import { fmt, VOTO_LABELS, VOTES_PER_PAGE, votoPillClass } from '../utils'
+import ResultBadge from '../components/ResultBadge.vue'
+import Pagination from '../components/Pagination.vue'
+
+const route = useRoute()
+const { grupos, votaciones, votos, votosByVotacion, votResults, categorias, loadVotosForLeg, votosLoaded } = useData()
+
+const gaName = computed(() => route.query.ga ? decodeURIComponent(route.query.ga) : '')
+const gbName = computed(() => route.query.gb ? decodeURIComponent(route.query.gb) : '')
+const leg = computed(() => route.query.leg || '')
+
+const gaIdx = computed(() => grupos.value.indexOf(gaName.value))
+const gbIdx = computed(() => grupos.value.indexOf(gbName.value))
+
+const valid = computed(() => gaIdx.value >= 0 && gbIdx.value >= 0 && leg.value)
+const votosReady = computed(() => votosLoaded.value.has(leg.value))
+
+watch(leg, (l) => { if (l) loadVotosForLeg(l) }, { immediate: true })
+
+watch([gaName, gbName, leg], ([a, b, l]) => {
+  if (a && b && l) document.title = `${a} vs ${b} | Lo Que Votan`
+}, { immediate: true })
+
+function groupMajority(votIndices, gIdx) {
+  const counts = { 1: 0, 2: 0, 3: 0 }
+  for (const vi of votIndices) {
+    const v = votos.value[vi]
+    if (v[2] === gIdx) counts[v[3]] = (counts[v[3]] || 0) + 1
+  }
+  const total = counts[1] + counts[2] + counts[3]
+  if (total === 0) return null
+  return Number(Object.entries(counts).reduce((a, b) => b[1] > a[1] ? b : a)[0])
+}
+
+// Each item: { votIdx, vot, result, majorityA, majorityB, coincide }
+const classified = computed(() => {
+  if (!valid.value || !votosReady.value) return []
+  const result = []
+  for (let i = 0; i < votaciones.value.length; i++) {
+    const vot = votaciones.value[i]
+    if (vot.legislatura !== leg.value) continue
+    const indices = votosByVotacion.value[i] || []
+    const majA = groupMajority(indices, gaIdx.value)
+    const majB = groupMajority(indices, gbIdx.value)
+    if (majA === null || majB === null) continue
+    result.push({ votIdx: i, vot, result: votResults.value[i], majorityA: majA, majorityB: majB, coincide: majA === majB })
+  }
+  return result
+})
+
+const totalCount = computed(() => classified.value.length)
+const coincidenCount = computed(() => classified.value.filter(x => x.coincide).length)
+const diferencCount = computed(() => classified.value.filter(x => !x.coincide).length)
+
+const activeTab = ref('todas')
+const page = ref(1)
+
+const filtered = computed(() => {
+  if (activeTab.value === 'coinciden') return classified.value.filter(x => x.coincide)
+  if (activeTab.value === 'difieren') return classified.value.filter(x => !x.coincide)
+  return classified.value
+})
+
+watch(activeTab, () => { page.value = 1 })
+
+const totalPages = computed(() => Math.max(1, Math.ceil(filtered.value.length / VOTES_PER_PAGE)))
+
+const pageItems = computed(() => {
+  const p = Math.min(page.value, totalPages.value)
+  const start = (p - 1) * VOTES_PER_PAGE
+  return filtered.value.slice(start, start + VOTES_PER_PAGE)
+})
+</script>
+
+<template>
+  <section v-if="valid && votosReady">
+    <div class="container" style="padding-top:1.5rem">
+      <router-link to="/grupos" class="back-link">&larr; Afinidad entre partidos</router-link>
+
+      <div class="detail-header">
+        <h1>{{ gaName }} <span style="color:var(--color-muted);font-weight:400">vs</span> {{ gbName }}</h1>
+        <div class="detail-meta" style="margin-top:0.5rem">
+          <span class="badge badge--leg">{{ leg }}</span>
+        </div>
+      </div>
+
+      <div class="stat-cards">
+        <div class="stat-card">
+          <span class="stat-card-value">{{ totalCount }}</span>
+          <span class="stat-card-label">Votaciones</span>
+        </div>
+        <div class="stat-card stat-card--favor">
+          <span class="stat-card-value">{{ coincidenCount }}</span>
+          <span class="stat-card-label">Coinciden ({{ totalCount ? Math.round(coincidenCount / totalCount * 100) : 0 }}%)</span>
+        </div>
+        <div class="stat-card stat-card--contra">
+          <span class="stat-card-value">{{ diferencCount }}</span>
+          <span class="stat-card-label">Difieren ({{ totalCount ? Math.round(diferencCount / totalCount * 100) : 0 }}%)</span>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1rem">
+          <button
+            v-for="tab in [['todas','Todas'],['coinciden','Coinciden'],['difieren','Difieren']]"
+            :key="tab[0]"
+            class="chip chip--lg chip--clickable"
+            :class="{ 'chip--active': activeTab === tab[0] }"
+            @click="activeTab = tab[0]"
+          >{{ tab[1] }}</button>
+        </div>
+
+        <div v-if="filtered.length === 0" class="empty-state">
+          <div class="empty-state-icon">&#128202;</div>
+          <p class="empty-state-text">No hay votaciones para mostrar.</p>
+        </div>
+
+        <div v-for="item in pageItems" :key="item.votIdx" class="vot-card">
+          <div class="vot-card-header">
+            <span class="badge badge--leg" style="margin-right:0.4rem">{{ item.vot.fecha }}</span>
+            <span v-if="item.vot.categoria != null" class="badge badge--cat">{{ fmt(categorias[item.vot.categoria]) }}</span>
+          </div>
+          <router-link :to="'/votacion/' + item.vot.id" class="vot-card-title card-link">
+            {{ item.vot.titulo_ciudadano }}
+          </router-link>
+          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;align-items:center;margin-top:0.5rem">
+            <span style="font-size:0.8rem;color:var(--color-muted)">{{ gaName }}:</span>
+            <span class="voto-pill" :class="votoPillClass(item.majorityA)">{{ VOTO_LABELS[item.majorityA] }}</span>
+            <span style="font-size:0.8rem;color:var(--color-muted)">{{ gbName }}:</span>
+            <span class="voto-pill" :class="votoPillClass(item.majorityB)">{{ VOTO_LABELS[item.majorityB] }}</span>
+            <ResultBadge v-if="item.result" :result="item.result.result" style="margin-left:auto" />
+          </div>
+        </div>
+
+        <Pagination :total-pages="totalPages" :current="page" @page="p => page = p" />
+      </div>
+    </div>
+  </section>
+
+  <div v-else-if="!votosReady && valid" class="loading-wrap">
+    <div class="loading-spinner"></div>
+  </div>
+
+  <section v-else>
+    <div class="container" style="padding-top:3rem">
+      <div class="empty-state">
+        <div class="empty-state-icon">&#128202;</div>
+        <h1 style="margin-bottom:0.5rem">Grupos no encontrados</h1>
+        <p class="empty-state-text">Los grupos parlamentarios o la legislatura indicados no existen.</p>
+        <router-link to="/grupos" class="btn btn--primary" style="margin-top:1.5rem">Ver partidos</router-link>
+      </div>
+    </div>
+  </section>
+</template>
