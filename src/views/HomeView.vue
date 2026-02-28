@@ -61,6 +61,17 @@ function goToTag(tag) {
         </router-link>
       </div>
 
+      <!-- QUIZ BANNER -->
+      <div class="quiz-banner">
+        <div class="quiz-banner-content">
+          <h2>¿A quién deberías votar?</h2>
+          <p>Descubre qué partido vota más parecido a ti en temas clave haciendo nuestro test a ciegas.</p>
+        </div>
+        <router-link to="/quiz" class="btn btn--primary btn--lg quiz-banner-btn">
+          Hacer el test &rarr;
+        </router-link>
+      </div>
+
       <div class="section-header">
         <h2>Temas populares</h2>
       </div>
@@ -181,6 +192,39 @@ function goToTag(tag) {
   font-weight: 500;
 }
 
+.quiz-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  background: var(--color-primary-lighter);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2.5rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.1);
+}
+
+.quiz-banner-content h2 {
+  font-size: 1.6rem;
+  margin: 0 0 0.5rem 0;
+  color: var(--color-primary);
+  font-family: var(--font-serif);
+}
+
+.quiz-banner-content p {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+.quiz-banner-btn {
+  flex-shrink: 0;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
 .topic-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -297,6 +341,14 @@ function goToTag(tag) {
   .hero-tagline { font-size: 1rem; }
   .stats-banner { gap: 1rem; }
   .stat-number { font-size: 1.35rem; }
+  .quiz-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+  .quiz-banner-content h2 { font-size: 1.4rem; }
+  .quiz-banner-btn { width: 100%; justify-content: center; }
   .topic-grid {
     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   }

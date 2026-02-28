@@ -1,0 +1,37 @@
+{
+  "title": "¿Con quién coincides en el Congreso?",
+  "description": "Descubre qué partido del Congreso de los Diputados vota más parecido a ti en temas clave de la legislatura actual. ¡Vota a ciegas y descubre tu afinidad real!",
+  "groups": ["PSOE", "PP", "VOX", "SUMAR", "ERC", "JUNTS", "PNV"],
+  "questions": [
+    {
+      "id": "q1",
+      "topic": "Vivienda",
+      "text": "Ley por el Derecho a la Vivienda, estableciendo topes a los precios del alquiler en zonas tensionadas.",
+      "votes": { "PSOE": "si", "PP": "no", "VOX": "no", "SUMAR": "si", "ERC": "si", "JUNTS": "si", "PNV": "no" }
+    },
+    {
+      "id": "q2",
+      "topic": "Trabajo",
+      "text": "Real Decreto-ley de medidas urgentes para la reforma laboral, priorizando los convenios sectoriales.",
+      "votes": { "PSOE": "si", "PP": "no", "VOX": "no", "SUMAR": "si", "ERC": "no", "JUNTS": "no", "PNV": "si" }
+    },
+    {
+      "id": "q3",
+      "topic": "Derechos",
+      "text": "Ley para la igualdad real y efectiva de las personas trans y para la garantía de los derechos LGTBI.",
+      "votes": { "PSOE": "si", "PP": "no", "VOX": "no", "SUMAR": "si", "ERC": "si", "JUNTS": "si", "PNV": "si" }
+    },
+    {
+      "id": "q4",
+      "topic": "Justicia",
+      "text": "Ley Orgánica de amnistía para la normalización institucional, política y social en Cataluña.",
+      "votes": { "PSOE": "si", "PP": "no", "VOX": "no", "SUMAR": "si", "ERC": "si", "JUNTS": "si", "PNV": "si" }
+    },
+    {
+      "id": "q5",
+      "topic": "Fiscalidad",
+      "text": "Establecimiento de un impuesto temporal y extraordinario a las grandes fortunas e instituciones de crédito.",
+      "votes": { "PSOE": "si", "PP": "no", "VOX": "no", "SUMAR": "si", "ERC": "si", "JUNTS": "abstencion", "PNV": "si" }
+    }
+  ]
+}

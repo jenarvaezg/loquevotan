@@ -49,6 +49,11 @@ const router = createRouter({
       component: () => import("./views/AffinityDetail.vue"),
     },
     {
+      path: "/quiz",
+      name: "quiz",
+      component: () => import("./views/QuizView.vue"),
+    },
+    {
       path: "/:pathMatch(.*)*",
       name: "not-found",
       component: () => import("./views/NotFoundView.vue"),

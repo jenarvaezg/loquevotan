@@ -98,6 +98,16 @@ initTheme()
       <ul class="nav-links" :class="{ open: menuOpen }">
         <li>
           <router-link
+            to="/quiz"
+            :class="{ active: route.path === '/quiz' }"
+            @click="closeMenu"
+            class="quiz-nav-link"
+          >
+            🔥 Test Afinidad
+          </router-link>
+        </li>
+        <li>
+          <router-link
             to="/votaciones"
             :class="{ active: route.path === '/votaciones' }"
             @click="closeMenu"
@@ -312,6 +322,22 @@ initTheme()
   background: var(--color-primary-light);
   color: var(--color-primary);
   text-decoration: none;
+}
+
+.quiz-nav-link {
+  color: #ea580c !important; /* Orange 600 */
+  font-weight: 700 !important;
+  background: rgba(234, 88, 12, 0.08);
+}
+
+.quiz-nav-link:hover,
+.quiz-nav-link.active {
+  background: rgba(234, 88, 12, 0.15) !important;
+  color: #c2410c !important;
+}
+
+[data-theme="dark"] .quiz-nav-link {
+  color: #fb923c !important;
 }
 
 .theme-toggle {
