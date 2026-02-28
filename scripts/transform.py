@@ -267,7 +267,8 @@ def main():
             "fecha": fecha,
             "titulo_ciudadano": titulo_ciudadano,
             "categoria": cat_to_idx.get(categoria, cat_to_idx["Otros"]),
-            "etiquetas": etiquetas + ["nacional"]
+            "etiquetas": etiquetas + ["nacional"],
+            "proponente": proponente
         })
         
         vot_results_list.append({

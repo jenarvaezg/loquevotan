@@ -20,6 +20,21 @@ const vot = computed(() => {
 const r = computed(() => votResults.value[idx.value])
 const dipSearch = ref('')
 const highlightedDip = ref('')
+const showEmbed = ref(false)
+
+const embedCode = computed(() => {
+  if (!vot.value) return ''
+  const url = location.origin + location.pathname + `#/widget/${vot.value.id}`
+  return `<iframe src="${url}" width="100%" height="250" frameborder="0" style="border:1px solid #e2e8f0; border-radius:8px;"></iframe>`
+})
+
+function toggleEmbed() {
+  showEmbed.value = !showEmbed.value
+}
+
+function copyEmbed() {
+  navigator.clipboard.writeText(embedCode.value)
+}
 
 const votosReady = computed(() => {
   if (!vot.value?.legislatura) return false
@@ -157,8 +172,22 @@ watch(vot, (v) => {
       <router-link to="/votaciones" class="back-link">&larr; Votaciones</router-link>
 
       <div class="detail-header">
-        <h1>{{ vot.titulo_ciudadano }}</h1>
-        <p v-if="vot.resumen" class="detail-summary">{{ vot.resumen }}</p>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:1rem">
+          <h1 style="flex:1; margin:0">{{ vot.titulo_ciudadano }}</h1>
+          <button class="btn btn--sm btn--outline" @click="toggleEmbed">
+            &#128187; Insertar en web
+          </button>
+        </div>
+
+        <div v-if="showEmbed" class="embed-box">
+          <p class="small mb-1">Copia este código para insertar el gráfico en tu web o blog:</p>
+          <div class="embed-code-wrap">
+            <textarea readonly class="embed-code" @click="$event.target.select()">{{ embedCode }}</textarea>
+            <button class="btn btn--primary btn--sm" @click="copyEmbed">Copiar código</button>
+          </div>
+        </div>
+
+        <p v-if="vot.resumen" class="detail-summary" style="margin-top:0.5rem">{{ vot.resumen }}</p>
         <p v-if="vot.subgrupo" class="detail-subgrupo">{{ vot.subgrupo }}</p>
         <div class="detail-meta" style="margin-top:0.75rem">
           <ResultBadge :result="r.result" large />
@@ -398,7 +427,34 @@ watch(vot, (v) => {
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   font-size: 0.88rem;
   line-height: 1.6;
-  color: var(--color-text);
+}
+
+.embed-box {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.embed-code-wrap {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.embed-code {
+  flex: 1;
+  font-family: monospace;
+  font-size: 0.75rem;
+  padding: 0.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+  height: 60px;
+  resize: none;
+}
+
+.link-congreso {
   font-style: italic;
 }
 

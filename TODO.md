@@ -9,7 +9,7 @@
   - El usuario vota (A favor, En contra, Abstención) a ciegas.
   - Al final, la app calcula su % de afinidad real con cada partido/candidato en base al historial de voto.
   - *Metodología:* Explicar de forma transparente (y enlazando a las votaciones originales) por qué sale ese resultado. Contrastar el sentido de voto real de la legislatura anterior con las promesas de los programas electorales actuales.
-- [ ] **Encuesta / Analytics del Quiz:**
+- [x] **Encuesta / Analytics del Quiz:**
   - Integrar Google Analytics (o PostHog/Plausible para mayor privacidad) configurando eventos personalizados para guardar los resultados *anonimizados* del Quiz.
   - Esto permitirá generar artículos/hilos tipo "El 60% de los votantes del Quiz en León prefiere las políticas de X partido, pero no lo saben".
 - [ ] **Tarjetas Sociales Dinámicas (Open Graph):**
@@ -38,8 +38,8 @@
 - [ ] **AI Full-Pass para CCAA:**
   - Procesar los ~400 temas de Andalucía XII y los ~120 temas de CyL XI con IA para eliminar títulos crípticos del BOPA/Diarios.
   - *Estado:* Pendiente por errores de cuota/configuración en el CLI de Gemini. 
-- [ ] **Detalle de "Rebeldía" y Tránsfugas:** Mostrar exactamente en qué votaciones un diputado rompió la disciplina de su grupo parlamentario.
-- [ ] **Ranking de Asistencia ("Los que menos van"):** Destacar el porcentaje de absentismo ("No Vota") de cada diputado en una vista dedicada de ránkings.
+- [/] **Detalle de "Rebeldía" y Tránsfugas:** (Ranking listo, falta detalle en perfil) Mostrar exactamente en qué votaciones un diputado rompió la disciplina de su grupo parlamentario.
+- [x] **Ranking de Asistencia ("Los que menos van"):** Destacar el porcentaje de absentismo ("No Vota") de cada diputado en una vista dedicada de ránkings.
 - [ ] **Soporte para Widgets/Embeds (`<iframe>`):** Permitir a la prensa incrustar gráficos de votaciones.
 
 ---

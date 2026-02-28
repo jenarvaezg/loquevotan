@@ -15,6 +15,7 @@ const { votaciones, votResults, categorias, tagCounts, sortedVotIdxByDate, votsB
 const search = ref('')
 const catFilter = ref('')
 const resultFilter = ref('')
+const proponenteFilter = ref('')
 const legFilter = ref('XV')
 const sortMode = ref('recent')
 const selectedTags = ref([])
@@ -25,6 +26,13 @@ const expandedExps = ref({})
 // Populate filter options
 const sortedCategorias = computed(() => [...categorias.value].sort())
 const allTags = computed(() => Object.keys(tagCounts.value).sort())
+const allProponentes = computed(() => {
+  const set = new Set()
+  votaciones.value.forEach(v => {
+    if (v.proponente) set.add(v.proponente)
+  })
+  return Array.from(set).sort()
+})
 
 // Apply initial tag from query param
 onMounted(() => {
@@ -46,6 +54,7 @@ const filtered = computed(() => {
   const s = normalize(search.value.trim())
   const cat = catFilter.value
   const result = resultFilter.value
+  const proponente = proponenteFilter.value
   const leg = legFilter.value
   const tags = selectedTags.value
 
@@ -54,6 +63,7 @@ const filtered = computed(() => {
     if (s && !normalize(vot.titulo_ciudadano).includes(s)) return false
     if (cat && categorias.value[vot.categoria] !== cat) return false
     if (result && votResults.value[i].result !== result) return false
+    if (proponente && vot.proponente !== proponente) return false
     if (leg && vot.legislatura !== leg) return false
     if (tags.length > 0) {
       const etiquetas = vot.etiquetas || []
@@ -113,6 +123,7 @@ function resetFilters() {
   search.value = ''
   catFilter.value = ''
   resultFilter.value = ''
+  proponenteFilter.value = ''
   legFilter.value = ''
   sortMode.value = 'recent'
   selectedTags.value = []
@@ -147,13 +158,20 @@ function goToPage(p) {
             <option value="">Todas</option>
             <option v-for="c in sortedCategorias" :key="c" :value="c">{{ fmt(c) }}</option>
           </select>
-        </div>
         <div class="filter-group">
           <label>Resultado</label>
           <select v-model="resultFilter" class="filter-select" @change="page = 1">
             <option value="">Todos</option>
             <option value="Aprobada">Aprobada</option>
             <option value="Rechazada">Rechazada</option>
+            <option value="Empate">Empate</option>
+          </select>
+        </div>
+        <div v-if="allProponentes.length > 0" class="filter-group">
+          <label>Proponente</label>
+          <select v-model="proponenteFilter" class="filter-select" @change="page = 1">
+            <option value="">Todos</option>
+            <option v-for="p in allProponentes" :key="p" :value="p">{{ p }}</option>
           </select>
         </div>
         <div class="filter-group">

@@ -240,6 +240,15 @@ function closeAccCard() {
   showAccCard.value = false
 }
 
+function isRebel(votIdx, code, grpIdx) {
+  const detail = votacionDetail.value[votIdx]
+  if (!detail || !detail.group_majority) return false
+  const groupName = grupos.value[grpIdx]
+  const maj = detail.group_majority[groupName]
+  // maj is 1 (favor), 2 (contra), 3 (abstencion)
+  return maj && maj !== code && code !== 4 // 4 is no_vota
+}
+
 // Handle tag from URL query
 watch(() => route.query.tag, (tag) => {
   if (tag) {
@@ -470,6 +479,7 @@ watch(name, (n) => {
                           <span class="voto-pill" :class="votoPillClass(item.record.code)">
                             {{ VOTO_LABELS[item.record.code] || '?' }}
                           </span>
+                          <span v-if="isRebel(item.record.votIdx, item.record.code, item.record.grpIdx)" class="badge badge--contra badge--sm" style="margin-left:0.35rem" title="Voto diferente a la mayoría de su grupo">Rebelde</span>
                         </td>
                         <td data-label="Asunto">
                           <router-link :to="'/votacion/' + votaciones[item.record.votIdx].id">
@@ -504,6 +514,7 @@ watch(name, (n) => {
                           <span class="voto-pill" :class="votoPillClass(rec.code)">
                             {{ VOTO_LABELS[rec.code] || '?' }}
                           </span>
+                          <span v-if="isRebel(rec.votIdx, rec.code, rec.grpIdx)" class="badge badge--contra badge--sm" style="margin-left:0.35rem" title="Voto diferente a la mayoría de su grupo">Rebelde</span>
                         </td>
                         <td data-label="Asunto" style="padding-left:1.5rem">
                           <router-link :to="'/votacion/' + votaciones[rec.votIdx].id">
@@ -538,6 +549,7 @@ watch(name, (n) => {
                           <span class="voto-pill" :class="votoPillClass(item.primary.code)">
                             {{ VOTO_LABELS[item.primary.code] || '?' }}
                           </span>
+                          <span v-if="isRebel(item.primary.votIdx, item.primary.code, item.primary.grpIdx)" class="badge badge--contra badge--sm" style="margin-left:0.35rem" title="Voto diferente a la mayoría de su grupo">Rebelde</span>
                         </td>
                         <td data-label="Asunto">
                           <router-link :to="'/votacion/' + votaciones[item.primary.votIdx].id">

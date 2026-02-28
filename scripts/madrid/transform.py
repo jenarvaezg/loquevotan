@@ -50,7 +50,34 @@ def transform():
     titles_to_categorize = []
     
     for v in all_raw_votes:
-        for voto in v["votos"]:
+        vot_id = v["id"]
+        # Handle individual votes if present, else deduct from group votes
+        votos_list = v.get("votos")
+        if not votos_list and "group_votes" in v:
+            votos_list = []
+            gv = v["group_votes"]
+            for d_id, d_info in raw_deps_map.items():
+                # Matching by group name (handling variations if any)
+                # Group names in gv: 'Vox', 'PP', 'Más Madrid', 'PSOE-M'
+                # Group names in d_info: need to check
+                d_group = d_info.get("grupo", "")
+                
+                voto_sense = "no_vota"
+                for g_key, sense in gv.items():
+                    if g_key.lower() in d_group.lower() or d_group.lower() in g_key.lower():
+                        voto_sense = sense
+                        break
+                
+                votos_list.append({
+                    "diputadoId": d_id,
+                    "diputado": d_info["nombre"],
+                    "grupo": d_group,
+                    "voto": voto_sense
+                })
+
+        if not votos_list: continue
+
+        for voto in votos_list:
             if voto["diputadoId"] not in deputados_all:
                 dep_data = raw_deps_map.get(voto["diputadoId"], {})
                 deputados_all[voto["diputadoId"]] = {
@@ -58,7 +85,7 @@ def transform():
                     "nombre": voto["diputado"],
                     "grupo": voto["grupo"],
                     "foto": dep_data.get("foto"),
-                    "provincia": "Madrid" # All Assembly members are from Madrid
+                    "provincia": "Madrid"
                 }
             grupos_all.add(voto["grupo"])
             
@@ -112,6 +139,22 @@ def transform():
     all_raw_votes.sort(key=lambda x: x["fecha"], reverse=True)
     
     for i, v in enumerate(all_raw_votes):
+        vot_id = v["id"]
+        votos_list = v.get("votos")
+        if not votos_list and "group_votes" in v:
+            votos_list = []
+            gv = v["group_votes"]
+            for d_id, d_info in raw_deps_map.items():
+                d_group = d_info.get("grupo", "")
+                voto_sense = "no_vota"
+                for g_key, sense in gv.items():
+                    if g_key.lower() in d_group.lower() or d_group.lower() in g_key.lower():
+                        voto_sense = sense
+                        break
+                votos_list.append({"diputadoId": d_id, "voto": voto_sense, "grupo": d_group})
+
+        if not votos_list: continue
+
         cat_info = cache.get(v["titulo"], {
             "categoria_principal": "Otros",
             "etiquetas": [],
@@ -125,7 +168,7 @@ def transform():
         
         favor, contra, abstencion, no_vota = 0, 0, 0, 0
         by_group = {}
-        for voto in v["votos"]:
+        for voto in votos_list:
             s = voto["voto"]
             code = 4
             if s == "si": favor += 1; code = 1
