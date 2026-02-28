@@ -1,7 +1,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useData } from '../composables/useData'
-import { debounce, DIPS_PER_PAGE } from '../utils'
+import { debounce, normalize, DIPS_PER_PAGE } from '../utils'
 import DipCard from '../components/DipCard.vue'
 import Pagination from '../components/Pagination.vue'
 import FilterBar from '../components/FilterBar.vue'
@@ -16,7 +16,7 @@ const page = ref(1)
 const sortedGrupos = computed(() => [...grupos.value].sort())
 
 const filtered = computed(() => {
-  const s = search.value.toLowerCase().trim()
+  const s = normalize(search.value.trim())
   const grupo = grupoFilter.value
   const sort = sortMode.value
 
@@ -24,7 +24,7 @@ const filtered = computed(() => {
   for (let i = 0; i < diputados.value.length; i++) {
     const ds = dipStats.value[i]
     if (ds.total === 0) continue
-    if (s && !diputados.value[i].toLowerCase().includes(s)) continue
+    if (s && !normalize(diputados.value[i]).includes(s)) continue
     if (grupo && (ds.mainGrupo < 0 || grupos.value[ds.mainGrupo] !== grupo)) continue
     result.push(i)
   }

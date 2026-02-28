@@ -122,6 +122,30 @@ VOTE_MAP = {
 }
 
 
+def classify_subgrupo(titulo_subgrupo):
+    """Classify a tituloSubGrupo into a short type label."""
+    tl = titulo_subgrupo.lower()
+    if not titulo_subgrupo:
+        return ""
+    if "texto d" in tl or "conjunto" in tl:
+        return "final"
+    if "totalidad" in tl:
+        return "totalidad"
+    if "transaccion" in tl:
+        return "transaccional"
+    if "voto particular" in tl or "votos particulares" in tl:
+        return "particular"
+    if "enmienda" in tl:
+        return "enmienda"
+    if "separada" in tl or "punto" in tl:
+        return "separada"
+    if "dictamen" in tl:
+        return "dictamen"
+    if "propuesta" in tl:
+        return "propuesta"
+    return "otro"
+
+
 def load_cache():
     if os.path.exists(CACHE_FILE):
         with open(CACHE_FILE, encoding="utf-8") as f:
@@ -298,9 +322,19 @@ def main():
         texto = info.get("textoExpediente", "").strip()
         titulo_original = info.get("titulo", "").strip()
         fecha = parse_congress_date(info.get("fecha", ""))
+        subgrupo_titulo = info.get("tituloSubGrupo", "").strip()
+        subgrupo_texto = info.get("textoSubGrupo", "").strip()
         h = text_hash(texto)
 
-        file_data_list.append((filepath, data, h, texto, titulo_original, fecha))
+        sesion = info.get("sesion", "")
+        numero_votacion = info.get("numeroVotacion", "")
+        # Extract legislatura from filename (LXIII_...) or fallback
+        basename = os.path.basename(filepath)
+        file_leg = ""
+        if basename.startswith("L"):
+            file_leg = basename.split("_")[0][1:]  # "LXIII_..." -> "XIII"
+
+        file_data_list.append((filepath, data, h, texto, titulo_original, fecha, subgrupo_titulo, subgrupo_texto, sesion, numero_votacion, file_leg))
 
         if h not in cache:
             if skip_ai:
@@ -329,7 +363,7 @@ def main():
             save_cache(cache)
 
     # Second pass: build votacion records using cache
-    for filepath, data, h, texto, titulo_original, fecha in file_data_list:
+    for filepath, data, h, texto, titulo_original, fecha, subgrupo_titulo, subgrupo_texto, sesion, numero_votacion, file_leg in file_data_list:
         cat_data = cache.get(h, _fallback_categorization())
 
         titulo_ciudadano = cat_data.get("titulo_ciudadano", "Sin título")
@@ -361,6 +395,13 @@ def main():
                     "etiquetas": etiquetas,
                     "resumen": resumen,
                     "proponente": proponente,
+                    "subgrupo_titulo": subgrupo_titulo,
+                    "subgrupo_texto": subgrupo_texto,
+                    "exp_hash": text_hash(texto),
+                    "texto_oficial": texto,
+                    "sesion": sesion,
+                    "numero_votacion": numero_votacion,
+                    "legislatura": file_leg,
                 },
                 votes,
             ))
@@ -386,19 +427,58 @@ def main():
 
     voto_code = {"A favor": 1, "En contra": 2, "Abstención": 3}
 
+    # ── Group votaciones by textoExpediente ──
+    # Build expediente groups: texto_hash -> list of votacion_record indices
+    exp_groups = {}
+    for rec_idx, (meta, _votes) in enumerate(votacion_records):
+        eh = meta.get("exp_hash", "")
+        if eh:
+            if eh not in exp_groups:
+                exp_groups[eh] = []
+            exp_groups[eh].append(rec_idx)
+
+    # Only keep groups with >1 votacion
+    multi_exp = {eh: indices for eh, indices in exp_groups.items() if len(indices) > 1}
+    print(f"  Expedientes con múltiples votaciones: {len(multi_exp)}")
+
     # Each votacion_record is already a unique votación (one per raw file)
     votaciones_list = []
     votos_list = []
 
     for vot_idx, (meta, votes) in enumerate(votacion_records):
-        votaciones_list.append({
+        votacion_entry = {
             "fecha": meta["fecha"],
             "titulo_ciudadano": meta["titulo_ciudadano"],
             "categoria": cat_idx[meta["categoria_principal"]],
             "etiquetas": meta.get("etiquetas", []),
             "resumen": meta.get("resumen", ""),
             "proponente": meta.get("proponente", ""),
-        })
+        }
+        if meta.get("subgrupo_titulo"):
+            votacion_entry["subgrupo"] = meta["subgrupo_titulo"]
+        if meta.get("subgrupo_texto") and meta.get("subgrupo_texto") != meta.get("subgrupo_titulo"):
+            votacion_entry["subgrupo_detalle"] = meta["subgrupo_texto"]
+
+        # Add expediente group info for multi-vote groups
+        eh = meta.get("exp_hash", "")
+        sub_tipo = classify_subgrupo(meta.get("subgrupo_titulo", ""))
+        if eh and eh in multi_exp:
+            votacion_entry["exp"] = eh
+            if sub_tipo:
+                votacion_entry["subTipo"] = sub_tipo
+
+        # Official text and congreso.es link
+        if meta.get("texto_oficial"):
+            votacion_entry["textoOficial"] = meta["texto_oficial"]
+        if meta.get("sesion") and meta.get("numero_votacion") and meta.get("legislatura"):
+            votacion_entry["urlCongreso"] = (
+                f"https://www.congreso.es/opendata/votaciones"
+                f"?idLegislatura={meta['legislatura']}"
+                f"&idSesion={meta['sesion']}"
+                f"&idVotacion={meta['numero_votacion']}"
+            )
+
+        votaciones_list.append(votacion_entry)
         for v in votes:
             votos_list.append([
                 vot_idx,

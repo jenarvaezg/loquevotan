@@ -2,7 +2,7 @@
 import { ref, computed, watch, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useData } from '../composables/useData'
-import { fmt, debounce, LEGISLATURAS, VOTES_PER_PAGE } from '../utils'
+import { fmt, debounce, normalize, LEGISLATURAS, VOTES_PER_PAGE } from '../utils'
 import VoteCard from '../components/VoteCard.vue'
 import Pagination from '../components/Pagination.vue'
 import FilterBar from '../components/FilterBar.vue'
@@ -41,7 +41,7 @@ watch(() => route.query.tag, (tag) => {
 })
 
 const filtered = computed(() => {
-  const s = search.value.toLowerCase().trim()
+  const s = normalize(search.value.trim())
   const cat = catFilter.value
   const result = resultFilter.value
   const leg = legFilter.value
@@ -49,7 +49,7 @@ const filtered = computed(() => {
 
   let indices = sortedVotIdxByDate.value.filter(i => {
     const vot = votaciones.value[i]
-    if (s && !vot.titulo_ciudadano.toLowerCase().includes(s)) return false
+    if (s && !normalize(vot.titulo_ciudadano).includes(s)) return false
     if (cat && categorias.value[vot.categoria] !== cat) return false
     if (result && votResults.value[i].result !== result) return false
     if (leg && vot.legislatura !== leg) return false

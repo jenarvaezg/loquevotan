@@ -22,6 +22,7 @@ const tagCounts = shallowRef({});
 const topTags = shallowRef([]);
 const sortedVotIdxByDate = shallowRef([]);
 const groupAffinity = shallowRef({});
+const votsByExp = shallowRef({});
 
 let _loadPromise = null;
 
@@ -175,6 +176,16 @@ async function _doLoad() {
       }
     }
 
+    // ── Build expediente index (group related votaciones) ──
+    const _votsByExp = {};
+    for (let i = 0; i < _vots.length; i++) {
+      const exp = _vots[i].exp;
+      if (exp) {
+        if (!_votsByExp[exp]) _votsByExp[exp] = [];
+        _votsByExp[exp].push(i);
+      }
+    }
+
     // ── Assign all refs at once ──
     diputados.value = _dips;
     grupos.value = _grupos;
@@ -190,6 +201,7 @@ async function _doLoad() {
     sortedVotIdxByDate.value = _sorted;
     groupAffinity.value = _ga;
     dipFotos.value = raw.dipFotos || [];
+    votsByExp.value = _votsByExp;
 
     loaded.value = true;
   } catch (err) {
@@ -224,5 +236,6 @@ export function useData() {
     sortedVotIdxByDate,
     groupAffinity,
     dipFotos,
+    votsByExp,
   };
 }

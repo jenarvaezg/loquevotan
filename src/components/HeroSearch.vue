@@ -2,7 +2,7 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useData } from '../composables/useData'
-import { debounce } from '../utils'
+import { debounce, normalize } from '../utils'
 
 const router = useRouter()
 const { diputados, grupos, dipStats, votaciones, sortedVotIdxByDate } = useData()
@@ -20,19 +20,19 @@ const doSearch = debounce((q) => {
     return
   }
 
-  const lower = q.toLowerCase()
+  const norm = normalize(q)
 
   const dips = []
   for (let i = 0; i < diputados.value.length && dips.length < 5; i++) {
     if (dipStats.value[i].total === 0) continue
-    if (diputados.value[i].toLowerCase().includes(lower)) dips.push(i)
+    if (normalize(diputados.value[i]).includes(norm)) dips.push(i)
   }
 
   const vots = []
   const sorted = sortedVotIdxByDate.value
   for (let i = 0; i < sorted.length && vots.length < 3; i++) {
     const idx = sorted[i]
-    if (votaciones.value[idx].titulo_ciudadano.toLowerCase().includes(lower)) vots.push(idx)
+    if (normalize(votaciones.value[idx].titulo_ciudadano).includes(norm)) vots.push(idx)
   }
 
   dipMatches.value = dips

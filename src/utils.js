@@ -55,6 +55,13 @@ export function fmt(s) {
   return (s || "").replace(/_/g, " ");
 }
 
+export function normalize(s) {
+  return s
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+}
+
 export function pct(n) {
   return (n * 100).toFixed(1) + "%";
 }
@@ -98,6 +105,29 @@ export function dipPhotoUrl(fotoEntry) {
   const cod = fotoEntry[best];
   const num = LEG_TO_NUM[best];
   return `https://www.congreso.es/docu/imgweb/diputados/${cod}_${num}.jpg`;
+}
+
+export const SUB_TIPO_LABELS = {
+  final: "Votacion final",
+  totalidad: "Enmienda a la totalidad",
+  transaccional: "Enmienda transaccional",
+  particular: "Voto particular",
+  enmienda: "Enmienda",
+  separada: "Votacion separada",
+  dictamen: "Dictamen",
+  propuesta: "Propuesta de resolucion",
+  otro: "Otro",
+};
+
+export function subTipoLabel(tipo) {
+  return SUB_TIPO_LABELS[tipo] || tipo || "";
+}
+
+export function subTipoBadgeClass(tipo) {
+  if (tipo === "final" || tipo === "dictamen") return "badge--final";
+  if (tipo === "totalidad") return "badge--totalidad";
+  if (tipo === "transaccional") return "badge--transaccional";
+  return "badge--enmienda";
 }
 
 export function affinityColor(pct) {

@@ -2,7 +2,7 @@
 import { computed, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useData } from '../composables/useData'
-import { fmt, pct, debounce, dipPhotoUrl, avatarInitials, avatarStyle, VOTO_LABELS, VOTES_PER_PAGE, LEGISLATURAS } from '../utils'
+import { fmt, pct, debounce, normalize, dipPhotoUrl, avatarInitials, avatarStyle, VOTO_LABELS, VOTES_PER_PAGE, LEGISLATURAS, subTipoLabel, subTipoBadgeClass } from '../utils'
 import VoteBar from '../components/VoteBar.vue'
 import ResultBadge from '../components/ResultBadge.vue'
 import ShareBar from '../components/ShareBar.vue'
@@ -76,13 +76,13 @@ const dipRecords = computed(() => {
 })
 
 const filteredHistory = computed(() => {
-  const q = histSearch.value.toLowerCase().trim()
+  const q = normalize(histSearch.value.trim())
   const votoFilter = histVoto.value
   const legFilter = histLeg.value
   const tag = activeTag.value
 
   return dipRecords.value.filter(r => {
-    if (q && !votaciones.value[r.votIdx].titulo_ciudadano.toLowerCase().includes(q)) return false
+    if (q && !normalize(votaciones.value[r.votIdx].titulo_ciudadano).includes(q)) return false
     if (votoFilter && r.code !== Number(votoFilter)) return false
     if (legFilter && votaciones.value[r.votIdx].legislatura !== legFilter) return false
     if (tag && !(votaciones.value[r.votIdx].etiquetas || []).includes(tag)) return false
@@ -281,6 +281,12 @@ watch(name, (n) => {
                   <router-link :to="'/votacion/' + rec.votIdx">
                     {{ votaciones[rec.votIdx].titulo_ciudadano }}
                   </router-link>
+                  <span
+                    v-if="votaciones[rec.votIdx].subTipo"
+                    class="badge badge--sm"
+                    :class="subTipoBadgeClass(votaciones[rec.votIdx].subTipo)"
+                    style="margin-left:0.35rem"
+                  >{{ subTipoLabel(votaciones[rec.votIdx].subTipo) }}</span>
                 </td>
                 <td>
                   <span class="badge badge--cat">

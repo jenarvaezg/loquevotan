@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from 'vue'
 import { useData } from '../composables/useData'
-import { fmt } from '../utils'
+import { fmt, subTipoLabel, subTipoBadgeClass } from '../utils'
 import VoteBar from './VoteBar.vue'
 import ResultBadge from './ResultBadge.vue'
 
@@ -23,6 +23,7 @@ const r = computed(() => votResults.value[props.idx])
     </div>
     <div class="vote-card-meta">
       <span>{{ vot.fecha }}</span>
+      <span v-if="vot.subTipo" class="badge badge--sm" :class="subTipoBadgeClass(vot.subTipo)">{{ subTipoLabel(vot.subTipo) }}</span>
       <span class="badge badge--cat">{{ fmt(categorias[vot.categoria]) }}</span>
       <span v-if="vot.proponente" class="badge badge--proponente">{{ vot.proponente }}</span>
     </div>
