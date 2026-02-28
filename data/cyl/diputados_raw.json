@@ -1,0 +1,1622 @@
+[
+  {
+    "id": "CYL-11-P11034",
+    "nombre": "Rebeca Arroyo Otero",
+    "grupo": "VOX Castilla y León",
+    "provincia": "Valladolid",
+    "p_id": "P11034",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P11034",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P11034.jpg"
+  },
+  {
+    "id": "CYL-11-P10084",
+    "nombre": "David Beltrán Martín",
+    "grupo": "Popular",
+    "provincia": "Ávila",
+    "p_id": "P10084",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P10084",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10084.jpg"
+  },
+  {
+    "id": "CYL-11-P11006",
+    "nombre": "Emilio José Berzosa Peña",
+    "grupo": "Popular",
+    "provincia": "Burgos",
+    "p_id": "P11006",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P11006",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P11006.jpg"
+  },
+  {
+    "id": "CYL-11-P8022",
+    "nombre": "María Isabel Blanco Llamas",
+    "grupo": "Popular",
+    "provincia": "Zamora",
+    "p_id": "P8022",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P8022",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P8022.jpg"
+  },
+  {
+    "id": "CYL-11-P8109",
+    "nombre": "Juan Jesús Blanco Muñiz",
+    "grupo": "Popular",
+    "provincia": "Palencia",
+    "p_id": "P8109",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P8109",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P8109.jpg"
+  },
+  {
+    "id": "CYL-11-P10006",
+    "nombre": "María Soraya Blázquez Domínguez",
+    "grupo": "Socialista",
+    "provincia": "Ávila",
+    "p_id": "P10006",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P10006",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10006.jpg"
+  },
+  {
+    "id": "CYL-11-P9042",
+    "nombre": "Luis Briones Martínez",
+    "grupo": "Socialista",
+    "provincia": "Burgos",
+    "p_id": "P9042",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P9042",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P9042.jpg"
+  },
+  {
+    "id": "CYL-11-P11012",
+    "nombre": "María Luisa Calvo Enríquez",
+    "grupo": "VOX Castilla y León",
+    "provincia": "Zamora",
+    "p_id": "P11012",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P11012",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P11012.jpg"
+  },
+  {
+    "id": "CYL-11-P8042",
+    "nombre": "Javier Campos de la Fuente",
+    "grupo": "Socialista",
+    "provincia": "León",
+    "p_id": "P8042",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P8042",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P8042.jpg"
+  },
+  {
+    "id": "CYL-11-P11032",
+    "nombre": "Francisco Javier Carpio Guijarro",
+    "grupo": "Popular",
+    "provincia": "Segovia",
+    "p_id": "P11032",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P11032",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P11032.jpg"
+  },
+  {
+    "id": "CYL-11-P10078",
+    "nombre": "José Alberto Castro Cañibano",
+    "grupo": "Popular",
+    "provincia": "Zamora",
+    "p_id": "P10078",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P10078",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10078.jpg"
+  },
+  {
+    "id": "CYL-11-P11036",
+    "nombre": "Eva Ceballos Marroquín",
+    "grupo": "Socialista",
+    "provincia": "Burgos",
+    "p_id": "P11036",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P11036",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P11036.jpg"
+  },
+  {
+    "id": "CYL-11-P11014",
+    "nombre": "José Ángel Ceña Tutor",
+    "grupo": "UPL-SORIA ¡YA!",
+    "provincia": "Soria",
+    "p_id": "P11014",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P11014",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P11014.jpg"
+  },
+  {
+    "id": "CYL-11-P11009",
+    "nombre": "Beatriz Coelho Luna",
+    "grupo": "Popular",
+    "provincia": "León",
+    "p_id": "P11009",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P11009",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P11009.jpg"
+  },
+  {
+    "id": "CYL-11-P10035",
+    "nombre": "María de las Mercedes Cófreces Martín",
+    "grupo": "Popular",
+    "provincia": "Palencia",
+    "p_id": "P10035",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P10035",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10035.jpg"
+  },
+  {
+    "id": "CYL-11-P10044",
+    "nombre": "Rosa María Esteban Ayuso",
+    "grupo": "Popular",
+    "provincia": "Salamanca",
+    "p_id": "P10044",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P10044",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10044.jpg"
+  },
+  {
+    "id": "CYL-11-J5004",
+    "nombre": "Carlos Javier Amando Fernández Carriedo",
+    "grupo": "Popular",
+    "provincia": "Palencia",
+    "p_id": "J5004",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=J5004",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11J5004.jpg"
+  },
+  {
+    "id": "CYL-11-P10088",
+    "nombre": "Carlos Fernández Herrera",
+    "grupo": "Socialista",
+    "provincia": "Zamora",
+    "p_id": "P10088",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P10088",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10088.jpg"
+  },
+  {
+    "id": "CYL-11-J5001",
+    "nombre": "Alfonso Fernández Mañueco",
+    "grupo": "Popular",
+    "provincia": "Salamanca",
+    "p_id": "J5001",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=J5001",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11J5001.jpg"
+  },
+  {
+    "id": "CYL-11-P9053",
+    "nombre": "Juan Pablo Fernández Santos",
+    "grupo": "Mixto",
+    "provincia": "Valladolid",
+    "p_id": "P9053",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P9053",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P9053.jpg"
+  },
+  {
+    "id": "CYL-11-P11031",
+    "nombre": "Lorena de la Fuente Ruiz",
+    "grupo": "Popular",
+    "provincia": "Burgos",
+    "p_id": "P11031",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P11031",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P11031.jpg"
+  },
+  {
+    "id": "CYL-11-P11001",
+    "nombre": "Alicia Gallego González",
+    "grupo": "UPL-SORIA ¡YA!",
+    "provincia": "León",
+    "p_id": "P11001",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P11001",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P11001.jpg"
+  },
+  {
+    "id": "CYL-11-P11007",
+    "nombre": "José Ramón García Fernández",
+    "grupo": "UPL-SORIA ¡YA!",
+    "provincia": "León",
+    "p_id": "P11007",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P11007",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P11007.jpg"
+  },
+  {
+    "id": "CYL-11-P11015",
+    "nombre": "Leila Vanessa García Macarrón",
+    "grupo": "UPL-SORIA ¡YA!",
+    "provincia": "Soria",
+    "p_id": "P11015",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P11015",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P11015.jpg"
+  },
+  {
+    "id": "CYL-11-P10002",
+    "nombre": "Miguel Ángel García Nieto",
+    "grupo": "Popular",
+    "provincia": "Ávila",
+    "p_id": "P10002",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P10002",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10002.jpg"
+  },
+  {
+    "id": "CYL-11-P10048",
+    "nombre": "María del Carmen García Romero",
+    "grupo": "Socialista",
+    "provincia": "Salamanca",
+    "p_id": "P10048",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P10048",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10048.jpg"
+  },
+  {
+    "id": "CYL-11-P10023",
+    "nombre": "Ricardo Gavilanes Fernández-Llamazares",
+    "grupo": "Popular",
+    "provincia": "León",
+    "p_id": "P10023",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P10023",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10023.jpg"
+  },
+  {
+    "id": "CYL-11-P10068",
+    "nombre": "Elisa Patricia Gómez Urbán",
+    "grupo": "Socialista",
+    "provincia": "Valladolid",
+    "p_id": "P10068",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P10068",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10068.jpg"
+  },
+  {
+    "id": "CYL-11-P8072",
+    "nombre": "Pedro Luis González Reglero",
+    "grupo": "Socialista",
+    "provincia": "Valladolid",
+    "p_id": "P8072",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P8072",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P8072.jpg"
+  },
+  {
+    "id": "CYL-11-P10072",
+    "nombre": "María Isabel Gonzalo Ramírez",
+    "grupo": "Socialista",
+    "provincia": "Valladolid",
+    "p_id": "P10072",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P10072",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10072.jpg"
+  },
+  {
+    "id": "CYL-11-P9030",
+    "nombre": "Jesús Guerrero Arroyo",
+    "grupo": "Socialista",
+    "provincia": "Palencia",
+    "p_id": "P9030",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P9030",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P9030.jpg"
+  },
+  {
+    "id": "CYL-11-P9014",
+    "nombre": "Pedro Antonio Heras Jiménez",
+    "grupo": "Popular",
+    "provincia": "Soria",
+    "p_id": "P9014",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P9014",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P9014.jpg"
+  },
+  {
+    "id": "CYL-11-P10005",
+    "nombre": "Eugenio Miguel Hernández Alcojor",
+    "grupo": "Socialista",
+    "provincia": "Ávila",
+    "p_id": "P10005",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P10005",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10005.jpg"
+  },
+  {
+    "id": "CYL-11-P10090",
+    "nombre": "Raúl Hernández López",
+    "grupo": "Popular",
+    "provincia": "Salamanca",
+    "p_id": "P10090",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P10090",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10090.jpg"
+  },
+  {
+    "id": "CYL-11-P11017",
+    "nombre": "Ana Rosa Hernando Ruiz",
+    "grupo": "No Adscrito",
+    "provincia": "Burgos",
+    "p_id": "P11017",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P11017",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P11017.jpg"
+  },
+  {
+    "id": "CYL-11-P11018",
+    "nombre": "David Hierro Santos",
+    "grupo": "VOX Castilla y León",
+    "provincia": "Palencia",
+    "p_id": "P11018",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P11018",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P11018.jpg"
+  },
+  {
+    "id": "CYL-11-P10060",
+    "nombre": "Francisco Igea Arisqueta",
+    "grupo": "Mixto",
+    "provincia": "Valladolid",
+    "p_id": "P10060",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P10060",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10060.jpg"
+  },
+  {
+    "id": "CYL-11-P10054",
+    "nombre": "Sergio Iglesias Herrera",
+    "grupo": "Socialista",
+    "provincia": "Segovia",
+    "p_id": "P10054",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P10054",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10054.jpg"
+  },
+  {
+    "id": "CYL-11-P10038",
+    "nombre": "Rubén Illera Redón",
+    "grupo": "Socialista",
+    "provincia": "Palencia",
+    "p_id": "P10038",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P10038",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10038.jpg"
+  },
+  {
+    "id": "CYL-11-P9041",
+    "nombre": "Virginia Jiménez Campano",
+    "grupo": "Socialista",
+    "provincia": "Burgos",
+    "p_id": "P9041",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P9041",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P9041.jpg"
+  },
+  {
+    "id": "CYL-11-P11033",
+    "nombre": "María Antonia López Sáenz de Santa María",
+    "grupo": "Popular",
+    "provincia": "Valladolid",
+    "p_id": "P11033",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P11033",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P11033.jpg"
+  },
+  {
+    "id": "CYL-11-P7034",
+    "nombre": "José Ignacio Martín Benito",
+    "grupo": "Socialista",
+    "provincia": "Zamora",
+    "p_id": "P7034",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P7034",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P7034.jpg"
+  },
+  {
+    "id": "CYL-11-P5054",
+    "nombre": "José Francisco Martín Martínez",
+    "grupo": "Socialista",
+    "provincia": "Valladolid",
+    "p_id": "P5054",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P5054",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P5054.jpg"
+  },
+  {
+    "id": "CYL-11-P11030",
+    "nombre": "Antonio Jaime Mendoza Toribio",
+    "grupo": "Popular",
+    "provincia": "León",
+    "p_id": "P11030",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P11030",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P11030.jpg"
+  },
+  {
+    "id": "CYL-11-P11019",
+    "nombre": "Carlos Menéndez Blanco",
+    "grupo": "VOX Castilla y León",
+    "provincia": "Salamanca",
+    "p_id": "P11019",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P11019",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P11019.jpg"
+  },
+  {
+    "id": "CYL-11-P10028",
+    "nombre": "Diego Moreno Castrillo",
+    "grupo": "Socialista",
+    "provincia": "León",
+    "p_id": "P10028",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P10028",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10028.jpg"
+  },
+  {
+    "id": "CYL-11-P9031",
+    "nombre": "María Consolación Pablos Labajo",
+    "grupo": "Socialista",
+    "provincia": "Palencia",
+    "p_id": "P9031",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P9031",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P9031.jpg"
+  },
+  {
+    "id": "CYL-11-P8056",
+    "nombre": "Fernando Pablos Romo",
+    "grupo": "Socialista",
+    "provincia": "Salamanca",
+    "p_id": "P8056",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P8056",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P8056.jpg"
+  },
+  {
+    "id": "CYL-11-P11020",
+    "nombre": "Juan Antonio Palomar Sicilia",
+    "grupo": "UPL-SORIA ¡YA!",
+    "provincia": "Soria",
+    "p_id": "P11020",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P11020",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P11020.jpg"
+  },
+  {
+    "id": "CYL-11-P11021",
+    "nombre": "José Antonio Palomo Martín",
+    "grupo": "VOX Castilla y León",
+    "provincia": "Ávila",
+    "p_id": "P11021",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P11021",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P11021.jpg"
+  },
+  {
+    "id": "CYL-11-P10053",
+    "nombre": "Alicia Palomo Sebastián",
+    "grupo": "Socialista",
+    "provincia": "Segovia",
+    "p_id": "P10053",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P10053",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10053.jpg"
+  },
+  {
+    "id": "CYL-11-P10007",
+    "nombre": "Pedro José Pascual Muñoz",
+    "grupo": "Mixto",
+    "provincia": "Ávila",
+    "p_id": "P10007",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P10007",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10007.jpg"
+  },
+  {
+    "id": "CYL-11-P9023",
+    "nombre": "Laura Pelegrina Cortijo",
+    "grupo": "Socialista",
+    "provincia": "Valladolid",
+    "p_id": "P9023",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P9023",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P9023.jpg"
+  },
+  {
+    "id": "CYL-11-P11035",
+    "nombre": "María Isabel Pérez Martín",
+    "grupo": "VOX Castilla y León",
+    "provincia": "Valladolid",
+    "p_id": "P11035",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P11035",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P11035.jpg"
+  },
+  {
+    "id": "CYL-11-P10089",
+    "nombre": "María de Fátima Pinacho Fernández",
+    "grupo": "VOX Castilla y León",
+    "provincia": "Valladolid",
+    "p_id": "P10089",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P10089",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10089.jpg"
+  },
+  {
+    "id": "CYL-11-P11022",
+    "nombre": "Carlos Pollán Fernández",
+    "grupo": "VOX Castilla y León",
+    "provincia": "León",
+    "p_id": "P11022",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P11022",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P11022.jpg"
+  },
+  {
+    "id": "CYL-11-P11003",
+    "nombre": "María de los Ángeles Prieto Sánchez",
+    "grupo": "Popular",
+    "provincia": "Ávila",
+    "p_id": "P11003",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P11003",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P11003.jpg"
+  },
+  {
+    "id": "CYL-11-P7212",
+    "nombre": "Jesús Puente Alcaraz",
+    "grupo": "Socialista",
+    "provincia": "Burgos",
+    "p_id": "P7212",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P7212",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P7212.jpg"
+  },
+  {
+    "id": "CYL-11-P7209",
+    "nombre": "María Inmaculada Ranedo Gómez",
+    "grupo": "Popular",
+    "provincia": "Burgos",
+    "p_id": "P7209",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P7209",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P7209.jpg"
+  },
+  {
+    "id": "CYL-11-P7032",
+    "nombre": "Óscar Reguera Acevedo",
+    "grupo": "Popular",
+    "provincia": "Zamora",
+    "p_id": "P7032",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P7032",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P7032.jpg"
+  },
+  {
+    "id": "CYL-11-P11029",
+    "nombre": "Elena Rincón Iglesias",
+    "grupo": "Popular",
+    "provincia": "Segovia",
+    "p_id": "P11029",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P11029",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P11029.jpg"
+  },
+  {
+    "id": "CYL-11-P10083",
+    "nombre": "Noemí Rojo Sahagún",
+    "grupo": "Popular",
+    "provincia": "Valladolid",
+    "p_id": "P10083",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P10083",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10083.jpg"
+  },
+  {
+    "id": "CYL-11-P10025",
+    "nombre": "Nuria Rubio García",
+    "grupo": "Socialista",
+    "provincia": "León",
+    "p_id": "P10025",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P10025",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10025.jpg"
+  },
+  {
+    "id": "CYL-11-P10046",
+    "nombre": "Rosa María Rubio Martín",
+    "grupo": "Socialista",
+    "provincia": "Salamanca",
+    "p_id": "P10046",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P10046",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10046.jpg"
+  },
+  {
+    "id": "CYL-11-P7263",
+    "nombre": "Ramiro Felipe Ruiz Medrano",
+    "grupo": "Popular",
+    "provincia": "Valladolid",
+    "p_id": "P7263",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P7263",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P7263.jpg"
+  },
+  {
+    "id": "CYL-11-P10027",
+    "nombre": "Yolanda Sacristán Rodríguez",
+    "grupo": "Socialista",
+    "provincia": "León",
+    "p_id": "P10027",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P10027",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10027.jpg"
+  },
+  {
+    "id": "CYL-11-P11037",
+    "nombre": "David Sáinz-Aja Sáinz-Maza",
+    "grupo": "Socialista",
+    "provincia": "Burgos",
+    "p_id": "P11037",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P11037",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P11037.jpg"
+  },
+  {
+    "id": "CYL-11-P10042",
+    "nombre": "María del Carmen Sánchez Bellota",
+    "grupo": "Popular",
+    "provincia": "Salamanca",
+    "p_id": "P10042",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P10042",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10042.jpg"
+  },
+  {
+    "id": "CYL-11-P6031",
+    "nombre": "Ana Sánchez Hernández",
+    "grupo": "Socialista",
+    "provincia": "Zamora",
+    "p_id": "P6031",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P6031",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P6031.jpg"
+  },
+  {
+    "id": "CYL-11-P11008",
+    "nombre": "José María Sánchez Martín",
+    "grupo": "Popular",
+    "provincia": "Salamanca",
+    "p_id": "P11008",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P11008",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P11008.jpg"
+  },
+  {
+    "id": "CYL-11-P9056",
+    "nombre": "Luis Mariano Santos Reyero",
+    "grupo": "UPL-SORIA ¡YA!",
+    "provincia": "León",
+    "p_id": "P9056",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P9056",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P9056.jpg"
+  },
+  {
+    "id": "CYL-11-P11024",
+    "nombre": "Ignacio Sicilia Doménech",
+    "grupo": "VOX Castilla y León",
+    "provincia": "Burgos",
+    "p_id": "P11024",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P11024",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P11024.jpg"
+  },
+  {
+    "id": "CYL-11-P11025",
+    "nombre": "Miguel Suárez Arca",
+    "grupo": "VOX Castilla y León",
+    "provincia": "León",
+    "p_id": "P11025",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P11025",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P11025.jpg"
+  },
+  {
+    "id": "CYL-11-P11026",
+    "nombre": "Susana Suárez Villagrá",
+    "grupo": "VOX Castilla y León",
+    "provincia": "Segovia",
+    "p_id": "P11026",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P11026",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P11026.jpg"
+  },
+  {
+    "id": "CYL-11-P10021",
+    "nombre": "Juan Carlos Suárez-Quiñones Fernández",
+    "grupo": "Popular",
+    "provincia": "León",
+    "p_id": "P10021",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P10021",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10021.jpg"
+  },
+  {
+    "id": "CYL-11-P11027",
+    "nombre": "Javier Bernardo Teira Lafuente",
+    "grupo": "No Adscrito",
+    "provincia": "Salamanca",
+    "p_id": "P11027",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P11027",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P11027.jpg"
+  },
+  {
+    "id": "CYL-11-P10082",
+    "nombre": "Pablo Trillo-Figueroa Martínez-Conde",
+    "grupo": "Popular",
+    "provincia": "Valladolid",
+    "p_id": "P10082",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P10082",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10082.jpg"
+  },
+  {
+    "id": "CYL-11-P9197",
+    "nombre": "María Paloma Vallejo Quevedo",
+    "grupo": "Popular",
+    "provincia": "Valladolid",
+    "p_id": "P9197",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P9197",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P9197.jpg"
+  },
+  {
+    "id": "CYL-11-P9006",
+    "nombre": "Alejandro Vázquez Ramos",
+    "grupo": "Popular",
+    "provincia": "Burgos",
+    "p_id": "P9006",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P9006",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P9006.jpg"
+  },
+  {
+    "id": "CYL-11-P0112",
+    "nombre": "Francisco Javier Vázquez Requero",
+    "grupo": "Popular",
+    "provincia": "Segovia",
+    "p_id": "P0112",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P0112",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P0112.jpg"
+  },
+  {
+    "id": "CYL-11-P10059",
+    "nombre": "Judit Villar Lacueva",
+    "grupo": "Socialista",
+    "provincia": "Soria",
+    "p_id": "P10059",
+    "nlegis": "11",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=11&CodigoPersona=P10059",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10059.jpg"
+  },
+  {
+    "id": "CYL-10-P10084",
+    "nombre": "David Beltrán Martín",
+    "grupo": "Popular",
+    "provincia": "Ávila",
+    "p_id": "P10084",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10084",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10084.jpg"
+  },
+  {
+    "id": "CYL-10-P10087",
+    "nombre": "Alba Priscila Bermejo Santos",
+    "grupo": "de Ciudadanos",
+    "provincia": "Palencia",
+    "p_id": "P10087",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10087",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10087.jpg"
+  },
+  {
+    "id": "CYL-10-P10006",
+    "nombre": "María Soraya Blázquez Domínguez",
+    "grupo": "Socialista",
+    "provincia": "Ávila",
+    "p_id": "P10006",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10006",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10006.jpg"
+  },
+  {
+    "id": "CYL-10-P9042",
+    "nombre": "Luis Briones Martínez",
+    "grupo": "Socialista",
+    "provincia": "Burgos",
+    "p_id": "P9042",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P9042",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P9042.jpg"
+  },
+  {
+    "id": "CYL-10-P8042",
+    "nombre": "Javier Campos de la Fuente",
+    "grupo": "Socialista",
+    "provincia": "León",
+    "p_id": "P8042",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P8042",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P8042.jpg"
+  },
+  {
+    "id": "CYL-10-P9058",
+    "nombre": "David Castaño Sequeros",
+    "grupo": "de Ciudadanos",
+    "provincia": "Salamanca",
+    "p_id": "P9058",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P9058",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P9058.jpg"
+  },
+  {
+    "id": "CYL-10-P10078",
+    "nombre": "José Alberto Castro Cañibano",
+    "grupo": "Popular",
+    "provincia": "Zamora",
+    "p_id": "P10078",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10078",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10078.jpg"
+  },
+  {
+    "id": "CYL-10-P8057",
+    "nombre": "Juan Luis Cepa Álvarez",
+    "grupo": "Socialista",
+    "provincia": "Salamanca",
+    "p_id": "P8057",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P8057",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P8057.jpg"
+  },
+  {
+    "id": "CYL-10-P10035",
+    "nombre": "María de las Mercedes Cófreces Martín",
+    "grupo": "Popular",
+    "provincia": "Palencia",
+    "p_id": "P10035",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10035",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10035.jpg"
+  },
+  {
+    "id": "CYL-10-P9052",
+    "nombre": "José Ignacio Delgado Palacios",
+    "grupo": "de Ciudadanos",
+    "provincia": "Burgos",
+    "p_id": "P9052",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P9052",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P9052.jpg"
+  },
+  {
+    "id": "CYL-10-P9051",
+    "nombre": "Laura Domínguez Arroyo",
+    "grupo": "Mixto",
+    "provincia": "Burgos",
+    "p_id": "P9051",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P9051",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P9051.jpg"
+  },
+  {
+    "id": "CYL-10-P10044",
+    "nombre": "Rosa María Esteban Ayuso",
+    "grupo": "Popular",
+    "provincia": "Salamanca",
+    "p_id": "P10044",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10044",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10044.jpg"
+  },
+  {
+    "id": "CYL-10-P10073",
+    "nombre": "Luis Ángel Fernández Bayón",
+    "grupo": "Socialista",
+    "provincia": "Valladolid",
+    "p_id": "P10073",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10073",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10073.jpg"
+  },
+  {
+    "id": "CYL-10-J5004",
+    "nombre": "Carlos Javier Amando Fernández Carriedo",
+    "grupo": "Popular",
+    "provincia": "Palencia",
+    "p_id": "J5004",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=J5004",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11J5004.jpg"
+  },
+  {
+    "id": "CYL-10-P10088",
+    "nombre": "Carlos Fernández Herrera",
+    "grupo": "Socialista",
+    "provincia": "Zamora",
+    "p_id": "P10088",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10088",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10088.jpg"
+  },
+  {
+    "id": "CYL-10-J5001",
+    "nombre": "Alfonso Fernández Mañueco",
+    "grupo": "Popular",
+    "provincia": "Salamanca",
+    "p_id": "J5001",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=J5001",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11J5001.jpg"
+  },
+  {
+    "id": "CYL-10-P9053",
+    "nombre": "Juan Pablo Fernández Santos",
+    "grupo": "Mixto",
+    "provincia": "León",
+    "p_id": "P9053",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P9053",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P9053.jpg"
+  },
+  {
+    "id": "CYL-10-P10017",
+    "nombre": "Noelia Frutos Rubio",
+    "grupo": "Socialista",
+    "provincia": "Burgos",
+    "p_id": "P10017",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10017",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10017.jpg"
+  },
+  {
+    "id": "CYL-10-P9067",
+    "nombre": "Luis Fuentes Rodríguez",
+    "grupo": "de Ciudadanos",
+    "provincia": "Valladolid",
+    "p_id": "P9067",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P9067",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P9067.jpg"
+  },
+  {
+    "id": "CYL-10-P10075",
+    "nombre": "María Teresa Gago López",
+    "grupo": "de Ciudadanos",
+    "provincia": "Zamora",
+    "p_id": "P10075",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10075",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10075.jpg"
+  },
+  {
+    "id": "CYL-10-P7002",
+    "nombre": "Vidal Galicia Jaramillo",
+    "grupo": "Popular",
+    "provincia": "Ávila",
+    "p_id": "P7002",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P7002",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P7002.jpg"
+  },
+  {
+    "id": "CYL-10-P9011",
+    "nombre": "María Ángeles García Herrero",
+    "grupo": "Popular",
+    "provincia": "Segovia",
+    "p_id": "P9011",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P9011",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P9011.jpg"
+  },
+  {
+    "id": "CYL-10-P10002",
+    "nombre": "Miguel Ángel García Nieto",
+    "grupo": "Popular",
+    "provincia": "Ávila",
+    "p_id": "P10002",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10002",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10002.jpg"
+  },
+  {
+    "id": "CYL-10-P10048",
+    "nombre": "María del Carmen García Romero",
+    "grupo": "Socialista",
+    "provincia": "Salamanca",
+    "p_id": "P10048",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10048",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10048.jpg"
+  },
+  {
+    "id": "CYL-10-P10076",
+    "nombre": "Leticia García Sánchez",
+    "grupo": "Popular",
+    "provincia": "Zamora",
+    "p_id": "P10076",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10076",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10076.jpg"
+  },
+  {
+    "id": "CYL-10-P10023",
+    "nombre": "Ricardo Gavilanes Fernández-Llamazares",
+    "grupo": "Popular",
+    "provincia": "León",
+    "p_id": "P10023",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10023",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10023.jpg"
+  },
+  {
+    "id": "CYL-10-P10085",
+    "nombre": "Inmaculada Gómez Jiménez",
+    "grupo": "de Ciudadanos",
+    "provincia": "Ávila",
+    "p_id": "P10085",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10085",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10085.jpg"
+  },
+  {
+    "id": "CYL-10-P10068",
+    "nombre": "Elisa Patricia Gómez Urbán",
+    "grupo": "Socialista",
+    "provincia": "Valladolid",
+    "p_id": "P10068",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10068",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10068.jpg"
+  },
+  {
+    "id": "CYL-10-P8072",
+    "nombre": "Pedro Luis González Reglero",
+    "grupo": "Socialista",
+    "provincia": "Valladolid",
+    "p_id": "P8072",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P8072",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P8072.jpg"
+  },
+  {
+    "id": "CYL-10-P10062",
+    "nombre": "Miguel Ángel González Rodrigo",
+    "grupo": "de Ciudadanos",
+    "provincia": "Valladolid",
+    "p_id": "P10062",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10062",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10062.jpg"
+  },
+  {
+    "id": "CYL-10-P10072",
+    "nombre": "María Isabel Gonzalo Ramírez",
+    "grupo": "Socialista",
+    "provincia": "Valladolid",
+    "p_id": "P10072",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10072",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10072.jpg"
+  },
+  {
+    "id": "CYL-10-P9030",
+    "nombre": "Jesús Guerrero Arroyo",
+    "grupo": "Socialista",
+    "provincia": "Palencia",
+    "p_id": "P9030",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P9030",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P9030.jpg"
+  },
+  {
+    "id": "CYL-10-P9014",
+    "nombre": "Pedro Antonio Heras Jiménez",
+    "grupo": "Popular",
+    "provincia": "Soria",
+    "p_id": "P9014",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P9014",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P9014.jpg"
+  },
+  {
+    "id": "CYL-10-P10005",
+    "nombre": "Eugenio Miguel Hernández Alcojor",
+    "grupo": "Socialista",
+    "provincia": "Ávila",
+    "p_id": "P10005",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10005",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10005.jpg"
+  },
+  {
+    "id": "CYL-10-P10090",
+    "nombre": "Raúl Hernández López",
+    "grupo": "Popular",
+    "provincia": "Salamanca",
+    "p_id": "P10090",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10090",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10090.jpg"
+  },
+  {
+    "id": "CYL-10-P9024",
+    "nombre": "Ángel Hernández Martínez",
+    "grupo": "Socialista",
+    "provincia": "Soria",
+    "p_id": "P9024",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P9024",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P9024.jpg"
+  },
+  {
+    "id": "CYL-10-P5039",
+    "nombre": "Raúl de la Hoz Quintano",
+    "grupo": "Popular",
+    "provincia": "Valladolid",
+    "p_id": "P5039",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P5039",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P5039.jpg"
+  },
+  {
+    "id": "CYL-10-P9005",
+    "nombre": "Ángel Mariano Ibáñez Hernando",
+    "grupo": "Popular",
+    "provincia": "Burgos",
+    "p_id": "P9005",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P9005",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P9005.jpg"
+  },
+  {
+    "id": "CYL-10-P10060",
+    "nombre": "Francisco Igea Arisqueta",
+    "grupo": "de Ciudadanos",
+    "provincia": "Valladolid",
+    "p_id": "P10060",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10060",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10060.jpg"
+  },
+  {
+    "id": "CYL-10-P10054",
+    "nombre": "Sergio Iglesias Herrera",
+    "grupo": "Socialista",
+    "provincia": "Segovia",
+    "p_id": "P10054",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10054",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10054.jpg"
+  },
+  {
+    "id": "CYL-10-P10038",
+    "nombre": "Rubén Illera Redón",
+    "grupo": "Socialista",
+    "provincia": "Palencia",
+    "p_id": "P10038",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10038",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10038.jpg"
+  },
+  {
+    "id": "CYL-10-P9200",
+    "nombre": "Isaac Izquierdo Gonzalo",
+    "grupo": "Socialista",
+    "provincia": "Soria",
+    "p_id": "P9200",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P9200",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P9200.jpg"
+  },
+  {
+    "id": "CYL-10-P9041",
+    "nombre": "Virginia Jiménez Campano",
+    "grupo": "Socialista",
+    "provincia": "Burgos",
+    "p_id": "P9041",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P9041",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P9041.jpg"
+  },
+  {
+    "id": "CYL-10-P7034",
+    "nombre": "José Ignacio Martín Benito",
+    "grupo": "Socialista",
+    "provincia": "Zamora",
+    "p_id": "P7034",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P7034",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P7034.jpg"
+  },
+  {
+    "id": "CYL-10-P5054",
+    "nombre": "José Francisco Martín Martínez",
+    "grupo": "Socialista",
+    "provincia": "Valladolid",
+    "p_id": "P5054",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P5054",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P5054.jpg"
+  },
+  {
+    "id": "CYL-10-P10040",
+    "nombre": "María Montero Carrasco",
+    "grupo": "No Adscrito",
+    "provincia": "Salamanca",
+    "p_id": "P10040",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10040",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10040.jpg"
+  },
+  {
+    "id": "CYL-10-P10024",
+    "nombre": "Smara Morala Prieto",
+    "grupo": "Popular",
+    "provincia": "León",
+    "p_id": "P10024",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10024",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10024.jpg"
+  },
+  {
+    "id": "CYL-10-P10028",
+    "nombre": "Diego Moreno Castrillo",
+    "grupo": "Socialista",
+    "provincia": "León",
+    "p_id": "P10028",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10028",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10028.jpg"
+  },
+  {
+    "id": "CYL-10-P10009",
+    "nombre": "Blanca Delia Negrete Santamaría",
+    "grupo": "de Ciudadanos",
+    "provincia": "Burgos",
+    "p_id": "P10009",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10009",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10009.jpg"
+  },
+  {
+    "id": "CYL-10-P10034",
+    "nombre": "María José Ortega Gómez",
+    "grupo": "Popular",
+    "provincia": "Palencia",
+    "p_id": "P10034",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10034",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10034.jpg"
+  },
+  {
+    "id": "CYL-10-P9031",
+    "nombre": "María Consolación Pablos Labajo",
+    "grupo": "Socialista",
+    "provincia": "Palencia",
+    "p_id": "P9031",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P9031",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P9031.jpg"
+  },
+  {
+    "id": "CYL-10-P8056",
+    "nombre": "Fernando Pablos Romo",
+    "grupo": "Socialista",
+    "provincia": "Salamanca",
+    "p_id": "P8056",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P8056",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P8056.jpg"
+  },
+  {
+    "id": "CYL-10-P10053",
+    "nombre": "Alicia Palomo Sebastián",
+    "grupo": "Socialista",
+    "provincia": "Segovia",
+    "p_id": "P10053",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10053",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10053.jpg"
+  },
+  {
+    "id": "CYL-10-P10086",
+    "nombre": "Francisco Javier Panizo García",
+    "grupo": "de Ciudadanos",
+    "provincia": "León",
+    "p_id": "P10086",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10086",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10086.jpg"
+  },
+  {
+    "id": "CYL-10-P10007",
+    "nombre": "Pedro José Pascual Muñoz",
+    "grupo": "Mixto",
+    "provincia": "Ávila",
+    "p_id": "P10007",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10007",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10007.jpg"
+  },
+  {
+    "id": "CYL-10-P9023",
+    "nombre": "Laura Pelegrina Cortijo",
+    "grupo": "Socialista",
+    "provincia": "Valladolid",
+    "p_id": "P9023",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P9023",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P9023.jpg"
+  },
+  {
+    "id": "CYL-10-P8016",
+    "nombre": "Jesús Ángel Peregrina Molina",
+    "grupo": "Popular",
+    "provincia": "Soria",
+    "p_id": "P8016",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P8016",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P8016.jpg"
+  },
+  {
+    "id": "CYL-10-P10089",
+    "nombre": "María de Fátima Pinacho Fernández",
+    "grupo": "Mixto",
+    "provincia": "Valladolid",
+    "p_id": "P10089",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10089",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10089.jpg"
+  },
+  {
+    "id": "CYL-10-P7212",
+    "nombre": "Jesús Puente Alcaraz",
+    "grupo": "Socialista",
+    "provincia": "Burgos",
+    "p_id": "P7212",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P7212",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P7212.jpg"
+  },
+  {
+    "id": "CYL-10-P7209",
+    "nombre": "María Inmaculada Ranedo Gómez",
+    "grupo": "Popular",
+    "provincia": "Burgos",
+    "p_id": "P7209",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P7209",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P7209.jpg"
+  },
+  {
+    "id": "CYL-10-P7032",
+    "nombre": "Óscar Reguera Acevedo",
+    "grupo": "Popular",
+    "provincia": "Zamora",
+    "p_id": "P7032",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P7032",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P7032.jpg"
+  },
+  {
+    "id": "CYL-10-P10029",
+    "nombre": "María Rodríguez Díaz",
+    "grupo": "Socialista",
+    "provincia": "León",
+    "p_id": "P10029",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10029",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10029.jpg"
+  },
+  {
+    "id": "CYL-10-P10083",
+    "nombre": "Noemí Rojo Sahagún",
+    "grupo": "Popular",
+    "provincia": "Valladolid",
+    "p_id": "P10083",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10083",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10083.jpg"
+  },
+  {
+    "id": "CYL-10-P10030",
+    "nombre": "José Ignacio Ronda Gutiérrez",
+    "grupo": "Socialista",
+    "provincia": "León",
+    "p_id": "P10030",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10030",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10030.jpg"
+  },
+  {
+    "id": "CYL-10-P10025",
+    "nombre": "Nuria Rubio García",
+    "grupo": "Socialista",
+    "provincia": "León",
+    "p_id": "P10025",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10025",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10025.jpg"
+  },
+  {
+    "id": "CYL-10-P10046",
+    "nombre": "Rosa María Rubio Martín",
+    "grupo": "Socialista",
+    "provincia": "Salamanca",
+    "p_id": "P10046",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10046",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10046.jpg"
+  },
+  {
+    "id": "CYL-10-P7263",
+    "nombre": "Ramiro Felipe Ruiz Medrano",
+    "grupo": "Popular",
+    "provincia": "Valladolid",
+    "p_id": "P7263",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P7263",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P7263.jpg"
+  },
+  {
+    "id": "CYL-10-P10027",
+    "nombre": "Yolanda Sacristán Rodríguez",
+    "grupo": "Socialista",
+    "provincia": "León",
+    "p_id": "P10027",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10027",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10027.jpg"
+  },
+  {
+    "id": "CYL-10-P10042",
+    "nombre": "María del Carmen Sánchez Bellota",
+    "grupo": "Popular",
+    "provincia": "Salamanca",
+    "p_id": "P10042",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10042",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10042.jpg"
+  },
+  {
+    "id": "CYL-10-P6031",
+    "nombre": "Ana Sánchez Hernández",
+    "grupo": "Socialista",
+    "provincia": "Zamora",
+    "p_id": "P6031",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P6031",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P6031.jpg"
+  },
+  {
+    "id": "CYL-10-P9056",
+    "nombre": "Luis Mariano Santos Reyero",
+    "grupo": "Mixto",
+    "provincia": "León",
+    "p_id": "P9056",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P9056",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P9056.jpg"
+  },
+  {
+    "id": "CYL-10-P10049",
+    "nombre": "Marta Sanz Gilmartín",
+    "grupo": "de Ciudadanos",
+    "provincia": "Segovia",
+    "p_id": "P10049",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10049",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10049.jpg"
+  },
+  {
+    "id": "CYL-10-P10021",
+    "nombre": "Juan Carlos Suárez-Quiñones Fernández",
+    "grupo": "Popular",
+    "provincia": "León",
+    "p_id": "P10021",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10021",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10021.jpg"
+  },
+  {
+    "id": "CYL-10-P10082",
+    "nombre": "Pablo Trillo-Figueroa Martínez-Conde",
+    "grupo": "Popular",
+    "provincia": "Valladolid",
+    "p_id": "P10082",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10082",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10082.jpg"
+  },
+  {
+    "id": "CYL-10-P9040",
+    "nombre": "Luis Tudanca Fernández",
+    "grupo": "Socialista",
+    "provincia": "Burgos",
+    "p_id": "P9040",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P9040",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P9040.jpg"
+  },
+  {
+    "id": "CYL-10-P9197",
+    "nombre": "María Paloma Vallejo Quevedo",
+    "grupo": "Popular",
+    "provincia": "Valladolid",
+    "p_id": "P9197",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P9197",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P9197.jpg"
+  },
+  {
+    "id": "CYL-10-P10052",
+    "nombre": "José Luis Vázquez Fernández",
+    "grupo": "Socialista",
+    "provincia": "Segovia",
+    "p_id": "P10052",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10052",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10052.jpg"
+  },
+  {
+    "id": "CYL-10-P9006",
+    "nombre": "Alejandro Vázquez Ramos",
+    "grupo": "Popular",
+    "provincia": "Burgos",
+    "p_id": "P9006",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P9006",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P9006.jpg"
+  },
+  {
+    "id": "CYL-10-P0112",
+    "nombre": "Francisco Javier Vázquez Requero",
+    "grupo": "Popular",
+    "provincia": "Segovia",
+    "p_id": "P0112",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P0112",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P0112.jpg"
+  },
+  {
+    "id": "CYL-10-P10022",
+    "nombre": "Amparo Vidal Gago",
+    "grupo": "Popular",
+    "provincia": "León",
+    "p_id": "P10022",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10022",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10022.jpg"
+  },
+  {
+    "id": "CYL-10-P10059",
+    "nombre": "Judit Villar Lacueva",
+    "grupo": "Socialista",
+    "provincia": "Soria",
+    "p_id": "P10059",
+    "nlegis": "10",
+    "url": "https://www.ccyl.es/Organizacion/Procurador?Legislatura=10&CodigoPersona=P10059",
+    "foto": "https://www.ccyl.es/Content/img/procuradores/XI/PRC11P10059.jpg"
+  }
+]

@@ -21,6 +21,14 @@
         "X",
         "IX"
       ]
+    },
+    {
+      "id": "cyl",
+      "nombre": "Cortes de Castilla y León",
+      "legislaturas": [
+        "XI",
+        "X"
+      ]
     }
   ]
 }

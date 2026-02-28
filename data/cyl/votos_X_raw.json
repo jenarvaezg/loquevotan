@@ -1,0 +1,6332 @@
+[
+  {
+    "id": "CYL-10-11-1",
+    "fecha": "13/11/2019",
+    "titulo": "Desestimación PPL Igualdad social diversidad sexual y de género, y políticas públicas contra discriminación por orientación sexual e identidad de género",
+    "votos": [
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-11-2",
+    "fecha": "13/11/2019",
+    "titulo": "Desestimación PPL Igualdad social diversidad sexual y de género, y políticas públicas contra discriminación por orientación sexual e identidad de género",
+    "votos": [
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-17-1",
+    "fecha": "18/12/2019",
+    "titulo": "",
+    "votos": [
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-17-2",
+    "fecha": "18/12/2019",
+    "titulo": "",
+    "votos": [
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-19-1",
+    "fecha": "05/02/2020",
+    "titulo": "Desestimación PPL Modificación Ley 4/1998 Juego y Apuestas de CyL",
+    "votos": [
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-19-2",
+    "fecha": "05/02/2020",
+    "titulo": "Desestimación PPL Modificación Ley 4/1998 Juego y Apuestas de CyL",
+    "votos": [
+      {
+        "diputado": "Laura Domínguez Arroyo",
+        "diputadoId": "CYL-10-P9051",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Laura Domínguez Arroyo",
+        "diputadoId": "CYL-10-P9051",
+        "grupo": "Mixto",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-2-1",
+    "fecha": "09/07/2019",
+    "titulo": "Debate Investidura del Candidato a la Presidencia de la Junta de CyL",
+    "votos": [
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Miguel Ángel González Rodrigo",
+        "diputadoId": "CYL-10-P10062",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Isabel Gonzalo Ramírez",
+        "diputadoId": "CYL-10-P10072",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Jesús Guerrero Arroyo",
+        "diputadoId": "CYL-10-P9030",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Pedro Antonio Heras Jiménez",
+        "diputadoId": "CYL-10-P9014",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Eugenio Miguel Hernández Alcojor",
+        "diputadoId": "CYL-10-P10005",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Ángel Hernández Martínez",
+        "diputadoId": "CYL-10-P9024",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Raúl de la Hoz Quintano",
+        "diputadoId": "CYL-10-P5039",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Ángel Mariano Ibáñez Hernando",
+        "diputadoId": "CYL-10-P9005",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Francisco Igea Arisqueta",
+        "diputadoId": "CYL-10-P10060",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Sergio Iglesias Herrera",
+        "diputadoId": "CYL-10-P10054",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Rubén Illera Redón",
+        "diputadoId": "CYL-10-P10038",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "IZQUIERDO FERNÁNDEZ",
+        "diputadoId": "CYL-UNK-izquierdo ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Virginia Jiménez Campano",
+        "diputadoId": "CYL-10-P9041",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Ignacio Martín Benito",
+        "diputadoId": "CYL-10-P7034",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Francisco Martín Martínez",
+        "diputadoId": "CYL-10-P5054",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Montero Carrasco",
+        "diputadoId": "CYL-10-P10040",
+        "grupo": "No Adscrito",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Smara Morala Prieto",
+        "diputadoId": "CYL-10-P10024",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Diego Moreno Castrillo",
+        "diputadoId": "CYL-10-P10028",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Blanca Delia Negrete Santamaría",
+        "diputadoId": "CYL-10-P10009",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María José Ortega Gómez",
+        "diputadoId": "CYL-10-P10034",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Consolación Pablos Labajo",
+        "diputadoId": "CYL-10-P9031",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Fernando Pablos Romo",
+        "diputadoId": "CYL-10-P8056",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Alicia Palomo Sebastián",
+        "diputadoId": "CYL-10-P10053",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Pedro José Pascual Muñoz",
+        "diputadoId": "CYL-10-P10007",
+        "grupo": "Mixto",
+        "voto": "abstención"
+      },
+      {
+        "diputado": "Laura Pelegrina Cortijo",
+        "diputadoId": "CYL-10-P9023",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Jesús Ángel Peregrina Molina",
+        "diputadoId": "CYL-10-P8016",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "PINDADO GONZÁLEZ",
+        "diputadoId": "CYL-UNK-pindado go",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Jesús Puente Alcaraz",
+        "diputadoId": "CYL-10-P7212",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Inmaculada Ranedo Gómez",
+        "diputadoId": "CYL-10-P7209",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Rodríguez Díaz",
+        "diputadoId": "CYL-10-P10029",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Ignacio Ronda Gutiérrez",
+        "diputadoId": "CYL-10-P10030",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Nuria Rubio García",
+        "diputadoId": "CYL-10-P10025",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Rosa María Rubio Martín",
+        "diputadoId": "CYL-10-P10046",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Ramiro Felipe Ruiz Medrano",
+        "diputadoId": "CYL-10-P7263",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Yolanda Sacristán Rodríguez",
+        "diputadoId": "CYL-10-P10027",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "María del Carmen Sánchez Bellota",
+        "diputadoId": "CYL-10-P10042",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "no"
+      },
+      {
+        "diputado": "Luis Tudanca Fernández",
+        "diputadoId": "CYL-10-P9040",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Paloma Vallejo Quevedo",
+        "diputadoId": "CYL-10-P9197",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "José Luis Vázquez Fernández",
+        "diputadoId": "CYL-10-P10052",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Alejandro Vázquez Ramos",
+        "diputadoId": "CYL-10-P9006",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Amparo Vidal Gago",
+        "diputadoId": "CYL-10-P10022",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Judit Villar Lacueva",
+        "diputadoId": "CYL-10-P10059",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "AMIGO PIQUERO",
+        "diputadoId": "CYL-UNK-amigo piqu",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "BARCONES SANZ",
+        "diputadoId": "CYL-UNK-barcones s",
+        "grupo": "Unknown",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Soraya Blázquez Domínguez",
+        "diputadoId": "CYL-10-P10006",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Luis Briones Martínez",
+        "diputadoId": "CYL-10-P9042",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Javier Campos de la Fuente",
+        "diputadoId": "CYL-10-P8042",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "David Castaño Sequeros",
+        "diputadoId": "CYL-10-P9058",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "José Alberto Castro Cañibano",
+        "diputadoId": "CYL-10-P10078",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Luis Cepa Álvarez",
+        "diputadoId": "CYL-10-P8057",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "María de las Mercedes Cófreces Martín",
+        "diputadoId": "CYL-10-P10035",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "CRUZ GARCÍA",
+        "diputadoId": "CYL-UNK-cruz garci",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "José Ignacio Delgado Palacios",
+        "diputadoId": "CYL-10-P9052",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Laura Domínguez Arroyo",
+        "diputadoId": "CYL-10-P9051",
+        "grupo": "Mixto",
+        "voto": "no"
+      },
+      {
+        "diputado": "Rosa María Esteban Ayuso",
+        "diputadoId": "CYL-10-P10044",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Ángel Fernández Bayón",
+        "diputadoId": "CYL-10-P10073",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Alfonso Fernández Mañueco",
+        "diputadoId": "CYL-10-J5001",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "no"
+      },
+      {
+        "diputado": "Noelia Frutos Rubio",
+        "diputadoId": "CYL-10-P10017",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Teresa Gago López",
+        "diputadoId": "CYL-10-P10075",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Vidal Galicia Jaramillo",
+        "diputadoId": "CYL-10-P7002",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "GARCÉS GARCÍA",
+        "diputadoId": "CYL-UNK-garces gar",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Ángeles García Herrero",
+        "diputadoId": "CYL-10-P9011",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Miguel Ángel García Nieto",
+        "diputadoId": "CYL-10-P10002",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "GARCÍA RIOJA",
+        "diputadoId": "CYL-UNK-garcia rio",
+        "grupo": "Unknown",
+        "voto": "no"
+      },
+      {
+        "diputado": "María del Carmen García Romero",
+        "diputadoId": "CYL-10-P10048",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Leticia García Sánchez",
+        "diputadoId": "CYL-10-P10076",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "GARCÍA-CONDE DEL CASTILLO",
+        "diputadoId": "CYL-UNK-garciacond",
+        "grupo": "Unknown",
+        "voto": "abstención"
+      },
+      {
+        "diputado": "Ricardo Gavilanes Fernández-Llamazares",
+        "diputadoId": "CYL-10-P10023",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Elisa Patricia Gómez Urbán",
+        "diputadoId": "CYL-10-P10068",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "GONZÁLEZ GAGO",
+        "diputadoId": "CYL-UNK-gonzalez g",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Pedro Luis González Reglero",
+        "diputadoId": "CYL-10-P8072",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Carlos Javier Amando Fernández Carriedo",
+        "diputadoId": "CYL-10-J5004",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Carlos Suárez-Quiñones Fernández",
+        "diputadoId": "CYL-10-P10021",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Marta Sanz Gilmartín",
+        "diputadoId": "CYL-10-P10049",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Óscar Reguera Acevedo",
+        "diputadoId": "CYL-10-P7032",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "José Francisco Martín Martínez",
+        "diputadoId": "CYL-10-P5054",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Ana Sánchez Hernández",
+        "diputadoId": "CYL-10-P6031",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Francisco Javier Vázquez Requero",
+        "diputadoId": "CYL-10-P0112",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Fuentes Rodríguez",
+        "diputadoId": "CYL-10-P9067",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-2-2",
+    "fecha": "09/07/2019",
+    "titulo": "Debate Investidura del Candidato a la Presidencia de la Junta de CyL",
+    "votos": [
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Miguel Ángel González Rodrigo",
+        "diputadoId": "CYL-10-P10062",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Isabel Gonzalo Ramírez",
+        "diputadoId": "CYL-10-P10072",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Jesús Guerrero Arroyo",
+        "diputadoId": "CYL-10-P9030",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Pedro Antonio Heras Jiménez",
+        "diputadoId": "CYL-10-P9014",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Eugenio Miguel Hernández Alcojor",
+        "diputadoId": "CYL-10-P10005",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Ángel Hernández Martínez",
+        "diputadoId": "CYL-10-P9024",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Raúl de la Hoz Quintano",
+        "diputadoId": "CYL-10-P5039",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Ángel Mariano Ibáñez Hernando",
+        "diputadoId": "CYL-10-P9005",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Francisco Igea Arisqueta",
+        "diputadoId": "CYL-10-P10060",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Sergio Iglesias Herrera",
+        "diputadoId": "CYL-10-P10054",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Rubén Illera Redón",
+        "diputadoId": "CYL-10-P10038",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "IZQUIERDO FERNÁNDEZ",
+        "diputadoId": "CYL-UNK-izquierdo ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Virginia Jiménez Campano",
+        "diputadoId": "CYL-10-P9041",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Ignacio Martín Benito",
+        "diputadoId": "CYL-10-P7034",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Francisco Martín Martínez",
+        "diputadoId": "CYL-10-P5054",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Montero Carrasco",
+        "diputadoId": "CYL-10-P10040",
+        "grupo": "No Adscrito",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Smara Morala Prieto",
+        "diputadoId": "CYL-10-P10024",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Diego Moreno Castrillo",
+        "diputadoId": "CYL-10-P10028",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Blanca Delia Negrete Santamaría",
+        "diputadoId": "CYL-10-P10009",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María José Ortega Gómez",
+        "diputadoId": "CYL-10-P10034",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Consolación Pablos Labajo",
+        "diputadoId": "CYL-10-P9031",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Fernando Pablos Romo",
+        "diputadoId": "CYL-10-P8056",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Alicia Palomo Sebastián",
+        "diputadoId": "CYL-10-P10053",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Pedro José Pascual Muñoz",
+        "diputadoId": "CYL-10-P10007",
+        "grupo": "Mixto",
+        "voto": "abstención"
+      },
+      {
+        "diputado": "Laura Pelegrina Cortijo",
+        "diputadoId": "CYL-10-P9023",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Jesús Ángel Peregrina Molina",
+        "diputadoId": "CYL-10-P8016",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "PINDADO GONZÁLEZ",
+        "diputadoId": "CYL-UNK-pindado go",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Jesús Puente Alcaraz",
+        "diputadoId": "CYL-10-P7212",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Inmaculada Ranedo Gómez",
+        "diputadoId": "CYL-10-P7209",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Rodríguez Díaz",
+        "diputadoId": "CYL-10-P10029",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Ignacio Ronda Gutiérrez",
+        "diputadoId": "CYL-10-P10030",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Nuria Rubio García",
+        "diputadoId": "CYL-10-P10025",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Rosa María Rubio Martín",
+        "diputadoId": "CYL-10-P10046",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Ramiro Felipe Ruiz Medrano",
+        "diputadoId": "CYL-10-P7263",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Yolanda Sacristán Rodríguez",
+        "diputadoId": "CYL-10-P10027",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "María del Carmen Sánchez Bellota",
+        "diputadoId": "CYL-10-P10042",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "no"
+      },
+      {
+        "diputado": "Luis Tudanca Fernández",
+        "diputadoId": "CYL-10-P9040",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Paloma Vallejo Quevedo",
+        "diputadoId": "CYL-10-P9197",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "José Luis Vázquez Fernández",
+        "diputadoId": "CYL-10-P10052",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Alejandro Vázquez Ramos",
+        "diputadoId": "CYL-10-P9006",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Amparo Vidal Gago",
+        "diputadoId": "CYL-10-P10022",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Judit Villar Lacueva",
+        "diputadoId": "CYL-10-P10059",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "AMIGO PIQUERO",
+        "diputadoId": "CYL-UNK-amigo piqu",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "BARCONES SANZ",
+        "diputadoId": "CYL-UNK-barcones s",
+        "grupo": "Unknown",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Soraya Blázquez Domínguez",
+        "diputadoId": "CYL-10-P10006",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Luis Briones Martínez",
+        "diputadoId": "CYL-10-P9042",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Javier Campos de la Fuente",
+        "diputadoId": "CYL-10-P8042",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "David Castaño Sequeros",
+        "diputadoId": "CYL-10-P9058",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "José Alberto Castro Cañibano",
+        "diputadoId": "CYL-10-P10078",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Luis Cepa Álvarez",
+        "diputadoId": "CYL-10-P8057",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "María de las Mercedes Cófreces Martín",
+        "diputadoId": "CYL-10-P10035",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "CRUZ GARCÍA",
+        "diputadoId": "CYL-UNK-cruz garci",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "José Ignacio Delgado Palacios",
+        "diputadoId": "CYL-10-P9052",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Laura Domínguez Arroyo",
+        "diputadoId": "CYL-10-P9051",
+        "grupo": "Mixto",
+        "voto": "no"
+      },
+      {
+        "diputado": "Rosa María Esteban Ayuso",
+        "diputadoId": "CYL-10-P10044",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Ángel Fernández Bayón",
+        "diputadoId": "CYL-10-P10073",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Alfonso Fernández Mañueco",
+        "diputadoId": "CYL-10-J5001",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "no"
+      },
+      {
+        "diputado": "Noelia Frutos Rubio",
+        "diputadoId": "CYL-10-P10017",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Teresa Gago López",
+        "diputadoId": "CYL-10-P10075",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Vidal Galicia Jaramillo",
+        "diputadoId": "CYL-10-P7002",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "GARCÉS GARCÍA",
+        "diputadoId": "CYL-UNK-garces gar",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Ángeles García Herrero",
+        "diputadoId": "CYL-10-P9011",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Miguel Ángel García Nieto",
+        "diputadoId": "CYL-10-P10002",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "GARCÍA RIOJA",
+        "diputadoId": "CYL-UNK-garcia rio",
+        "grupo": "Unknown",
+        "voto": "no"
+      },
+      {
+        "diputado": "María del Carmen García Romero",
+        "diputadoId": "CYL-10-P10048",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Leticia García Sánchez",
+        "diputadoId": "CYL-10-P10076",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "GARCÍA-CONDE DEL CASTILLO",
+        "diputadoId": "CYL-UNK-garciacond",
+        "grupo": "Unknown",
+        "voto": "abstención"
+      },
+      {
+        "diputado": "Ricardo Gavilanes Fernández-Llamazares",
+        "diputadoId": "CYL-10-P10023",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Elisa Patricia Gómez Urbán",
+        "diputadoId": "CYL-10-P10068",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "GONZÁLEZ GAGO",
+        "diputadoId": "CYL-UNK-gonzalez g",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Pedro Luis González Reglero",
+        "diputadoId": "CYL-10-P8072",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Carlos Javier Amando Fernández Carriedo",
+        "diputadoId": "CYL-10-J5004",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Carlos Suárez-Quiñones Fernández",
+        "diputadoId": "CYL-10-P10021",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Marta Sanz Gilmartín",
+        "diputadoId": "CYL-10-P10049",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Óscar Reguera Acevedo",
+        "diputadoId": "CYL-10-P7032",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "José Francisco Martín Martínez",
+        "diputadoId": "CYL-10-P5054",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Ana Sánchez Hernández",
+        "diputadoId": "CYL-10-P6031",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Francisco Javier Vázquez Requero",
+        "diputadoId": "CYL-10-P0112",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Fuentes Rodríguez",
+        "diputadoId": "CYL-10-P9067",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-2-3",
+    "fecha": "09/07/2019",
+    "titulo": "Debate Investidura del Candidato a la Presidencia de la Junta de CyL",
+    "votos": [
+      {
+        "diputado": "Miguel Ángel González Rodrigo",
+        "diputadoId": "CYL-10-P10062",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Isabel Gonzalo Ramírez",
+        "diputadoId": "CYL-10-P10072",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Jesús Guerrero Arroyo",
+        "diputadoId": "CYL-10-P9030",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Pedro Antonio Heras Jiménez",
+        "diputadoId": "CYL-10-P9014",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Eugenio Miguel Hernández Alcojor",
+        "diputadoId": "CYL-10-P10005",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Ángel Hernández Martínez",
+        "diputadoId": "CYL-10-P9024",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Raúl de la Hoz Quintano",
+        "diputadoId": "CYL-10-P5039",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Ángel Mariano Ibáñez Hernando",
+        "diputadoId": "CYL-10-P9005",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Francisco Igea Arisqueta",
+        "diputadoId": "CYL-10-P10060",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Sergio Iglesias Herrera",
+        "diputadoId": "CYL-10-P10054",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Rubén Illera Redón",
+        "diputadoId": "CYL-10-P10038",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "IZQUIERDO FERNÁNDEZ",
+        "diputadoId": "CYL-UNK-izquierdo ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Virginia Jiménez Campano",
+        "diputadoId": "CYL-10-P9041",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Ignacio Martín Benito",
+        "diputadoId": "CYL-10-P7034",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Francisco Martín Martínez",
+        "diputadoId": "CYL-10-P5054",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Montero Carrasco",
+        "diputadoId": "CYL-10-P10040",
+        "grupo": "No Adscrito",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Smara Morala Prieto",
+        "diputadoId": "CYL-10-P10024",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Diego Moreno Castrillo",
+        "diputadoId": "CYL-10-P10028",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Blanca Delia Negrete Santamaría",
+        "diputadoId": "CYL-10-P10009",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María José Ortega Gómez",
+        "diputadoId": "CYL-10-P10034",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Consolación Pablos Labajo",
+        "diputadoId": "CYL-10-P9031",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Fernando Pablos Romo",
+        "diputadoId": "CYL-10-P8056",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Alicia Palomo Sebastián",
+        "diputadoId": "CYL-10-P10053",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Pedro José Pascual Muñoz",
+        "diputadoId": "CYL-10-P10007",
+        "grupo": "Mixto",
+        "voto": "abstención"
+      },
+      {
+        "diputado": "Laura Pelegrina Cortijo",
+        "diputadoId": "CYL-10-P9023",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Jesús Ángel Peregrina Molina",
+        "diputadoId": "CYL-10-P8016",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "PINDADO GONZÁLEZ",
+        "diputadoId": "CYL-UNK-pindado go",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Jesús Puente Alcaraz",
+        "diputadoId": "CYL-10-P7212",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Inmaculada Ranedo Gómez",
+        "diputadoId": "CYL-10-P7209",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Rodríguez Díaz",
+        "diputadoId": "CYL-10-P10029",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Ignacio Ronda Gutiérrez",
+        "diputadoId": "CYL-10-P10030",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Nuria Rubio García",
+        "diputadoId": "CYL-10-P10025",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Rosa María Rubio Martín",
+        "diputadoId": "CYL-10-P10046",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Ramiro Felipe Ruiz Medrano",
+        "diputadoId": "CYL-10-P7263",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Yolanda Sacristán Rodríguez",
+        "diputadoId": "CYL-10-P10027",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "María del Carmen Sánchez Bellota",
+        "diputadoId": "CYL-10-P10042",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "no"
+      },
+      {
+        "diputado": "Luis Tudanca Fernández",
+        "diputadoId": "CYL-10-P9040",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Paloma Vallejo Quevedo",
+        "diputadoId": "CYL-10-P9197",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "José Luis Vázquez Fernández",
+        "diputadoId": "CYL-10-P10052",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Alejandro Vázquez Ramos",
+        "diputadoId": "CYL-10-P9006",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Amparo Vidal Gago",
+        "diputadoId": "CYL-10-P10022",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Judit Villar Lacueva",
+        "diputadoId": "CYL-10-P10059",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "AMIGO PIQUERO",
+        "diputadoId": "CYL-UNK-amigo piqu",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "BARCONES SANZ",
+        "diputadoId": "CYL-UNK-barcones s",
+        "grupo": "Unknown",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Soraya Blázquez Domínguez",
+        "diputadoId": "CYL-10-P10006",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Luis Briones Martínez",
+        "diputadoId": "CYL-10-P9042",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Javier Campos de la Fuente",
+        "diputadoId": "CYL-10-P8042",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "David Castaño Sequeros",
+        "diputadoId": "CYL-10-P9058",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "José Alberto Castro Cañibano",
+        "diputadoId": "CYL-10-P10078",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Luis Cepa Álvarez",
+        "diputadoId": "CYL-10-P8057",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "María de las Mercedes Cófreces Martín",
+        "diputadoId": "CYL-10-P10035",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "CRUZ GARCÍA",
+        "diputadoId": "CYL-UNK-cruz garci",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "José Ignacio Delgado Palacios",
+        "diputadoId": "CYL-10-P9052",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Laura Domínguez Arroyo",
+        "diputadoId": "CYL-10-P9051",
+        "grupo": "Mixto",
+        "voto": "no"
+      },
+      {
+        "diputado": "Rosa María Esteban Ayuso",
+        "diputadoId": "CYL-10-P10044",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Ángel Fernández Bayón",
+        "diputadoId": "CYL-10-P10073",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Alfonso Fernández Mañueco",
+        "diputadoId": "CYL-10-J5001",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "no"
+      },
+      {
+        "diputado": "Noelia Frutos Rubio",
+        "diputadoId": "CYL-10-P10017",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Teresa Gago López",
+        "diputadoId": "CYL-10-P10075",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Vidal Galicia Jaramillo",
+        "diputadoId": "CYL-10-P7002",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "GARCÉS GARCÍA",
+        "diputadoId": "CYL-UNK-garces gar",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Ángeles García Herrero",
+        "diputadoId": "CYL-10-P9011",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Miguel Ángel García Nieto",
+        "diputadoId": "CYL-10-P10002",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "GARCÍA RIOJA",
+        "diputadoId": "CYL-UNK-garcia rio",
+        "grupo": "Unknown",
+        "voto": "no"
+      },
+      {
+        "diputado": "María del Carmen García Romero",
+        "diputadoId": "CYL-10-P10048",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Leticia García Sánchez",
+        "diputadoId": "CYL-10-P10076",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "GARCÍA-CONDE DEL CASTILLO",
+        "diputadoId": "CYL-UNK-garciacond",
+        "grupo": "Unknown",
+        "voto": "abstención"
+      },
+      {
+        "diputado": "Ricardo Gavilanes Fernández-Llamazares",
+        "diputadoId": "CYL-10-P10023",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Elisa Patricia Gómez Urbán",
+        "diputadoId": "CYL-10-P10068",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "GONZÁLEZ GAGO",
+        "diputadoId": "CYL-UNK-gonzalez g",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Pedro Luis González Reglero",
+        "diputadoId": "CYL-10-P8072",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Carlos Javier Amando Fernández Carriedo",
+        "diputadoId": "CYL-10-J5004",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Carlos Suárez-Quiñones Fernández",
+        "diputadoId": "CYL-10-P10021",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Marta Sanz Gilmartín",
+        "diputadoId": "CYL-10-P10049",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Óscar Reguera Acevedo",
+        "diputadoId": "CYL-10-P7032",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "José Francisco Martín Martínez",
+        "diputadoId": "CYL-10-P5054",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Ana Sánchez Hernández",
+        "diputadoId": "CYL-10-P6031",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Francisco Javier Vázquez Requero",
+        "diputadoId": "CYL-10-P0112",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Fuentes Rodríguez",
+        "diputadoId": "CYL-10-P9067",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-2-4",
+    "fecha": "09/07/2019",
+    "titulo": "Debate Investidura del Candidato a la Presidencia de la Junta de CyL",
+    "votos": [
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Miguel Ángel González Rodrigo",
+        "diputadoId": "CYL-10-P10062",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Isabel Gonzalo Ramírez",
+        "diputadoId": "CYL-10-P10072",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Jesús Guerrero Arroyo",
+        "diputadoId": "CYL-10-P9030",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Pedro Antonio Heras Jiménez",
+        "diputadoId": "CYL-10-P9014",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Eugenio Miguel Hernández Alcojor",
+        "diputadoId": "CYL-10-P10005",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Ángel Hernández Martínez",
+        "diputadoId": "CYL-10-P9024",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Raúl de la Hoz Quintano",
+        "diputadoId": "CYL-10-P5039",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Ángel Mariano Ibáñez Hernando",
+        "diputadoId": "CYL-10-P9005",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Francisco Igea Arisqueta",
+        "diputadoId": "CYL-10-P10060",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Sergio Iglesias Herrera",
+        "diputadoId": "CYL-10-P10054",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Rubén Illera Redón",
+        "diputadoId": "CYL-10-P10038",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "IZQUIERDO FERNÁNDEZ",
+        "diputadoId": "CYL-UNK-izquierdo ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Virginia Jiménez Campano",
+        "diputadoId": "CYL-10-P9041",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Ignacio Martín Benito",
+        "diputadoId": "CYL-10-P7034",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Francisco Martín Martínez",
+        "diputadoId": "CYL-10-P5054",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Montero Carrasco",
+        "diputadoId": "CYL-10-P10040",
+        "grupo": "No Adscrito",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Smara Morala Prieto",
+        "diputadoId": "CYL-10-P10024",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Diego Moreno Castrillo",
+        "diputadoId": "CYL-10-P10028",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Blanca Delia Negrete Santamaría",
+        "diputadoId": "CYL-10-P10009",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María José Ortega Gómez",
+        "diputadoId": "CYL-10-P10034",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Consolación Pablos Labajo",
+        "diputadoId": "CYL-10-P9031",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Fernando Pablos Romo",
+        "diputadoId": "CYL-10-P8056",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Alicia Palomo Sebastián",
+        "diputadoId": "CYL-10-P10053",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Pedro José Pascual Muñoz",
+        "diputadoId": "CYL-10-P10007",
+        "grupo": "Mixto",
+        "voto": "abstención"
+      },
+      {
+        "diputado": "Laura Pelegrina Cortijo",
+        "diputadoId": "CYL-10-P9023",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Jesús Ángel Peregrina Molina",
+        "diputadoId": "CYL-10-P8016",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "PINDADO GONZÁLEZ",
+        "diputadoId": "CYL-UNK-pindado go",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Jesús Puente Alcaraz",
+        "diputadoId": "CYL-10-P7212",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Inmaculada Ranedo Gómez",
+        "diputadoId": "CYL-10-P7209",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Rodríguez Díaz",
+        "diputadoId": "CYL-10-P10029",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Ignacio Ronda Gutiérrez",
+        "diputadoId": "CYL-10-P10030",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Nuria Rubio García",
+        "diputadoId": "CYL-10-P10025",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Rosa María Rubio Martín",
+        "diputadoId": "CYL-10-P10046",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Ramiro Felipe Ruiz Medrano",
+        "diputadoId": "CYL-10-P7263",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Yolanda Sacristán Rodríguez",
+        "diputadoId": "CYL-10-P10027",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "María del Carmen Sánchez Bellota",
+        "diputadoId": "CYL-10-P10042",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "no"
+      },
+      {
+        "diputado": "Luis Tudanca Fernández",
+        "diputadoId": "CYL-10-P9040",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Paloma Vallejo Quevedo",
+        "diputadoId": "CYL-10-P9197",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "José Luis Vázquez Fernández",
+        "diputadoId": "CYL-10-P10052",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Alejandro Vázquez Ramos",
+        "diputadoId": "CYL-10-P9006",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Amparo Vidal Gago",
+        "diputadoId": "CYL-10-P10022",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Judit Villar Lacueva",
+        "diputadoId": "CYL-10-P10059",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "AMIGO PIQUERO",
+        "diputadoId": "CYL-UNK-amigo piqu",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "BARCONES SANZ",
+        "diputadoId": "CYL-UNK-barcones s",
+        "grupo": "Unknown",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Soraya Blázquez Domínguez",
+        "diputadoId": "CYL-10-P10006",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Luis Briones Martínez",
+        "diputadoId": "CYL-10-P9042",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Javier Campos de la Fuente",
+        "diputadoId": "CYL-10-P8042",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "David Castaño Sequeros",
+        "diputadoId": "CYL-10-P9058",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "José Alberto Castro Cañibano",
+        "diputadoId": "CYL-10-P10078",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Luis Cepa Álvarez",
+        "diputadoId": "CYL-10-P8057",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "María de las Mercedes Cófreces Martín",
+        "diputadoId": "CYL-10-P10035",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "CRUZ GARCÍA",
+        "diputadoId": "CYL-UNK-cruz garci",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "José Ignacio Delgado Palacios",
+        "diputadoId": "CYL-10-P9052",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Laura Domínguez Arroyo",
+        "diputadoId": "CYL-10-P9051",
+        "grupo": "Mixto",
+        "voto": "no"
+      },
+      {
+        "diputado": "Rosa María Esteban Ayuso",
+        "diputadoId": "CYL-10-P10044",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Ángel Fernández Bayón",
+        "diputadoId": "CYL-10-P10073",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Alfonso Fernández Mañueco",
+        "diputadoId": "CYL-10-J5001",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "no"
+      },
+      {
+        "diputado": "Noelia Frutos Rubio",
+        "diputadoId": "CYL-10-P10017",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Teresa Gago López",
+        "diputadoId": "CYL-10-P10075",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Vidal Galicia Jaramillo",
+        "diputadoId": "CYL-10-P7002",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "GARCÉS GARCÍA",
+        "diputadoId": "CYL-UNK-garces gar",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Ángeles García Herrero",
+        "diputadoId": "CYL-10-P9011",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Miguel Ángel García Nieto",
+        "diputadoId": "CYL-10-P10002",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "GARCÍA RIOJA",
+        "diputadoId": "CYL-UNK-garcia rio",
+        "grupo": "Unknown",
+        "voto": "no"
+      },
+      {
+        "diputado": "María del Carmen García Romero",
+        "diputadoId": "CYL-10-P10048",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Leticia García Sánchez",
+        "diputadoId": "CYL-10-P10076",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "GARCÍA-CONDE DEL CASTILLO",
+        "diputadoId": "CYL-UNK-garciacond",
+        "grupo": "Unknown",
+        "voto": "abstención"
+      },
+      {
+        "diputado": "Ricardo Gavilanes Fernández-Llamazares",
+        "diputadoId": "CYL-10-P10023",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Elisa Patricia Gómez Urbán",
+        "diputadoId": "CYL-10-P10068",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "GONZÁLEZ GAGO",
+        "diputadoId": "CYL-UNK-gonzalez g",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Pedro Luis González Reglero",
+        "diputadoId": "CYL-10-P8072",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Carlos Javier Amando Fernández Carriedo",
+        "diputadoId": "CYL-10-J5004",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Carlos Suárez-Quiñones Fernández",
+        "diputadoId": "CYL-10-P10021",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Marta Sanz Gilmartín",
+        "diputadoId": "CYL-10-P10049",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Óscar Reguera Acevedo",
+        "diputadoId": "CYL-10-P7032",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "José Francisco Martín Martínez",
+        "diputadoId": "CYL-10-P5054",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Ana Sánchez Hernández",
+        "diputadoId": "CYL-10-P6031",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Francisco Javier Vázquez Requero",
+        "diputadoId": "CYL-10-P0112",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Fuentes Rodríguez",
+        "diputadoId": "CYL-10-P9067",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-2-5",
+    "fecha": "09/07/2019",
+    "titulo": "Debate Investidura del Candidato a la Presidencia de la Junta de CyL",
+    "votos": [
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Miguel Ángel González Rodrigo",
+        "diputadoId": "CYL-10-P10062",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Isabel Gonzalo Ramírez",
+        "diputadoId": "CYL-10-P10072",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Jesús Guerrero Arroyo",
+        "diputadoId": "CYL-10-P9030",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Pedro Antonio Heras Jiménez",
+        "diputadoId": "CYL-10-P9014",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Eugenio Miguel Hernández Alcojor",
+        "diputadoId": "CYL-10-P10005",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Ángel Hernández Martínez",
+        "diputadoId": "CYL-10-P9024",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Raúl de la Hoz Quintano",
+        "diputadoId": "CYL-10-P5039",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Ángel Mariano Ibáñez Hernando",
+        "diputadoId": "CYL-10-P9005",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Francisco Igea Arisqueta",
+        "diputadoId": "CYL-10-P10060",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Sergio Iglesias Herrera",
+        "diputadoId": "CYL-10-P10054",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Rubén Illera Redón",
+        "diputadoId": "CYL-10-P10038",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "IZQUIERDO FERNÁNDEZ",
+        "diputadoId": "CYL-UNK-izquierdo ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Virginia Jiménez Campano",
+        "diputadoId": "CYL-10-P9041",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Ignacio Martín Benito",
+        "diputadoId": "CYL-10-P7034",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Francisco Martín Martínez",
+        "diputadoId": "CYL-10-P5054",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Montero Carrasco",
+        "diputadoId": "CYL-10-P10040",
+        "grupo": "No Adscrito",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Smara Morala Prieto",
+        "diputadoId": "CYL-10-P10024",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Diego Moreno Castrillo",
+        "diputadoId": "CYL-10-P10028",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Blanca Delia Negrete Santamaría",
+        "diputadoId": "CYL-10-P10009",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María José Ortega Gómez",
+        "diputadoId": "CYL-10-P10034",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Consolación Pablos Labajo",
+        "diputadoId": "CYL-10-P9031",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Fernando Pablos Romo",
+        "diputadoId": "CYL-10-P8056",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Alicia Palomo Sebastián",
+        "diputadoId": "CYL-10-P10053",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Pedro José Pascual Muñoz",
+        "diputadoId": "CYL-10-P10007",
+        "grupo": "Mixto",
+        "voto": "abstención"
+      },
+      {
+        "diputado": "Laura Pelegrina Cortijo",
+        "diputadoId": "CYL-10-P9023",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Jesús Ángel Peregrina Molina",
+        "diputadoId": "CYL-10-P8016",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "PINDADO GONZÁLEZ",
+        "diputadoId": "CYL-UNK-pindado go",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Jesús Puente Alcaraz",
+        "diputadoId": "CYL-10-P7212",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Inmaculada Ranedo Gómez",
+        "diputadoId": "CYL-10-P7209",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Rodríguez Díaz",
+        "diputadoId": "CYL-10-P10029",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Ignacio Ronda Gutiérrez",
+        "diputadoId": "CYL-10-P10030",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Nuria Rubio García",
+        "diputadoId": "CYL-10-P10025",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Rosa María Rubio Martín",
+        "diputadoId": "CYL-10-P10046",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Ramiro Felipe Ruiz Medrano",
+        "diputadoId": "CYL-10-P7263",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Yolanda Sacristán Rodríguez",
+        "diputadoId": "CYL-10-P10027",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "María del Carmen Sánchez Bellota",
+        "diputadoId": "CYL-10-P10042",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "no"
+      },
+      {
+        "diputado": "Luis Tudanca Fernández",
+        "diputadoId": "CYL-10-P9040",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Paloma Vallejo Quevedo",
+        "diputadoId": "CYL-10-P9197",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "José Luis Vázquez Fernández",
+        "diputadoId": "CYL-10-P10052",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Alejandro Vázquez Ramos",
+        "diputadoId": "CYL-10-P9006",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Amparo Vidal Gago",
+        "diputadoId": "CYL-10-P10022",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Judit Villar Lacueva",
+        "diputadoId": "CYL-10-P10059",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "AMIGO PIQUERO",
+        "diputadoId": "CYL-UNK-amigo piqu",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "BARCONES SANZ",
+        "diputadoId": "CYL-UNK-barcones s",
+        "grupo": "Unknown",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Soraya Blázquez Domínguez",
+        "diputadoId": "CYL-10-P10006",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Luis Briones Martínez",
+        "diputadoId": "CYL-10-P9042",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Javier Campos de la Fuente",
+        "diputadoId": "CYL-10-P8042",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "David Castaño Sequeros",
+        "diputadoId": "CYL-10-P9058",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "José Alberto Castro Cañibano",
+        "diputadoId": "CYL-10-P10078",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Luis Cepa Álvarez",
+        "diputadoId": "CYL-10-P8057",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "María de las Mercedes Cófreces Martín",
+        "diputadoId": "CYL-10-P10035",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "CRUZ GARCÍA",
+        "diputadoId": "CYL-UNK-cruz garci",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "José Ignacio Delgado Palacios",
+        "diputadoId": "CYL-10-P9052",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Laura Domínguez Arroyo",
+        "diputadoId": "CYL-10-P9051",
+        "grupo": "Mixto",
+        "voto": "no"
+      },
+      {
+        "diputado": "Rosa María Esteban Ayuso",
+        "diputadoId": "CYL-10-P10044",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Ángel Fernández Bayón",
+        "diputadoId": "CYL-10-P10073",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Alfonso Fernández Mañueco",
+        "diputadoId": "CYL-10-J5001",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "no"
+      },
+      {
+        "diputado": "Noelia Frutos Rubio",
+        "diputadoId": "CYL-10-P10017",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Teresa Gago López",
+        "diputadoId": "CYL-10-P10075",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Vidal Galicia Jaramillo",
+        "diputadoId": "CYL-10-P7002",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "GARCÉS GARCÍA",
+        "diputadoId": "CYL-UNK-garces gar",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Ángeles García Herrero",
+        "diputadoId": "CYL-10-P9011",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Miguel Ángel García Nieto",
+        "diputadoId": "CYL-10-P10002",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "GARCÍA RIOJA",
+        "diputadoId": "CYL-UNK-garcia rio",
+        "grupo": "Unknown",
+        "voto": "no"
+      },
+      {
+        "diputado": "María del Carmen García Romero",
+        "diputadoId": "CYL-10-P10048",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Leticia García Sánchez",
+        "diputadoId": "CYL-10-P10076",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "GARCÍA-CONDE DEL CASTILLO",
+        "diputadoId": "CYL-UNK-garciacond",
+        "grupo": "Unknown",
+        "voto": "abstención"
+      },
+      {
+        "diputado": "Ricardo Gavilanes Fernández-Llamazares",
+        "diputadoId": "CYL-10-P10023",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Elisa Patricia Gómez Urbán",
+        "diputadoId": "CYL-10-P10068",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "GONZÁLEZ GAGO",
+        "diputadoId": "CYL-UNK-gonzalez g",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Pedro Luis González Reglero",
+        "diputadoId": "CYL-10-P8072",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Carlos Javier Amando Fernández Carriedo",
+        "diputadoId": "CYL-10-J5004",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Carlos Suárez-Quiñones Fernández",
+        "diputadoId": "CYL-10-P10021",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Marta Sanz Gilmartín",
+        "diputadoId": "CYL-10-P10049",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Óscar Reguera Acevedo",
+        "diputadoId": "CYL-10-P7032",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "José Francisco Martín Martínez",
+        "diputadoId": "CYL-10-P5054",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Ana Sánchez Hernández",
+        "diputadoId": "CYL-10-P6031",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Francisco Javier Vázquez Requero",
+        "diputadoId": "CYL-10-P0112",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Fuentes Rodríguez",
+        "diputadoId": "CYL-10-P9067",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-2-6",
+    "fecha": "09/07/2019",
+    "titulo": "Debate Investidura del Candidato a la Presidencia de la Junta de CyL",
+    "votos": [
+      {
+        "diputado": "Miguel Ángel González Rodrigo",
+        "diputadoId": "CYL-10-P10062",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Isabel Gonzalo Ramírez",
+        "diputadoId": "CYL-10-P10072",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Jesús Guerrero Arroyo",
+        "diputadoId": "CYL-10-P9030",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Pedro Antonio Heras Jiménez",
+        "diputadoId": "CYL-10-P9014",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Eugenio Miguel Hernández Alcojor",
+        "diputadoId": "CYL-10-P10005",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Ángel Hernández Martínez",
+        "diputadoId": "CYL-10-P9024",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Raúl de la Hoz Quintano",
+        "diputadoId": "CYL-10-P5039",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Ángel Mariano Ibáñez Hernando",
+        "diputadoId": "CYL-10-P9005",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Francisco Igea Arisqueta",
+        "diputadoId": "CYL-10-P10060",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Sergio Iglesias Herrera",
+        "diputadoId": "CYL-10-P10054",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Rubén Illera Redón",
+        "diputadoId": "CYL-10-P10038",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "IZQUIERDO FERNÁNDEZ",
+        "diputadoId": "CYL-UNK-izquierdo ",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Virginia Jiménez Campano",
+        "diputadoId": "CYL-10-P9041",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Ignacio Martín Benito",
+        "diputadoId": "CYL-10-P7034",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Francisco Martín Martínez",
+        "diputadoId": "CYL-10-P5054",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Montero Carrasco",
+        "diputadoId": "CYL-10-P10040",
+        "grupo": "No Adscrito",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Smara Morala Prieto",
+        "diputadoId": "CYL-10-P10024",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Diego Moreno Castrillo",
+        "diputadoId": "CYL-10-P10028",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Blanca Delia Negrete Santamaría",
+        "diputadoId": "CYL-10-P10009",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María José Ortega Gómez",
+        "diputadoId": "CYL-10-P10034",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Consolación Pablos Labajo",
+        "diputadoId": "CYL-10-P9031",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Fernando Pablos Romo",
+        "diputadoId": "CYL-10-P8056",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Alicia Palomo Sebastián",
+        "diputadoId": "CYL-10-P10053",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Pedro José Pascual Muñoz",
+        "diputadoId": "CYL-10-P10007",
+        "grupo": "Mixto",
+        "voto": "abstención"
+      },
+      {
+        "diputado": "Laura Pelegrina Cortijo",
+        "diputadoId": "CYL-10-P9023",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Jesús Ángel Peregrina Molina",
+        "diputadoId": "CYL-10-P8016",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "PINDADO GONZÁLEZ",
+        "diputadoId": "CYL-UNK-pindado go",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Jesús Puente Alcaraz",
+        "diputadoId": "CYL-10-P7212",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Inmaculada Ranedo Gómez",
+        "diputadoId": "CYL-10-P7209",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Rodríguez Díaz",
+        "diputadoId": "CYL-10-P10029",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Ignacio Ronda Gutiérrez",
+        "diputadoId": "CYL-10-P10030",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Nuria Rubio García",
+        "diputadoId": "CYL-10-P10025",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Rosa María Rubio Martín",
+        "diputadoId": "CYL-10-P10046",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Ramiro Felipe Ruiz Medrano",
+        "diputadoId": "CYL-10-P7263",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Yolanda Sacristán Rodríguez",
+        "diputadoId": "CYL-10-P10027",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "María del Carmen Sánchez Bellota",
+        "diputadoId": "CYL-10-P10042",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "no"
+      },
+      {
+        "diputado": "Luis Tudanca Fernández",
+        "diputadoId": "CYL-10-P9040",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Paloma Vallejo Quevedo",
+        "diputadoId": "CYL-10-P9197",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "José Luis Vázquez Fernández",
+        "diputadoId": "CYL-10-P10052",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Alejandro Vázquez Ramos",
+        "diputadoId": "CYL-10-P9006",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Amparo Vidal Gago",
+        "diputadoId": "CYL-10-P10022",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Judit Villar Lacueva",
+        "diputadoId": "CYL-10-P10059",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "AMIGO PIQUERO",
+        "diputadoId": "CYL-UNK-amigo piqu",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "BARCONES SANZ",
+        "diputadoId": "CYL-UNK-barcones s",
+        "grupo": "Unknown",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Soraya Blázquez Domínguez",
+        "diputadoId": "CYL-10-P10006",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Luis Briones Martínez",
+        "diputadoId": "CYL-10-P9042",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Javier Campos de la Fuente",
+        "diputadoId": "CYL-10-P8042",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "David Castaño Sequeros",
+        "diputadoId": "CYL-10-P9058",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "José Alberto Castro Cañibano",
+        "diputadoId": "CYL-10-P10078",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Luis Cepa Álvarez",
+        "diputadoId": "CYL-10-P8057",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "María de las Mercedes Cófreces Martín",
+        "diputadoId": "CYL-10-P10035",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "CRUZ GARCÍA",
+        "diputadoId": "CYL-UNK-cruz garci",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "José Ignacio Delgado Palacios",
+        "diputadoId": "CYL-10-P9052",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Laura Domínguez Arroyo",
+        "diputadoId": "CYL-10-P9051",
+        "grupo": "Mixto",
+        "voto": "no"
+      },
+      {
+        "diputado": "Rosa María Esteban Ayuso",
+        "diputadoId": "CYL-10-P10044",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Ángel Fernández Bayón",
+        "diputadoId": "CYL-10-P10073",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Alfonso Fernández Mañueco",
+        "diputadoId": "CYL-10-J5001",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "no"
+      },
+      {
+        "diputado": "Noelia Frutos Rubio",
+        "diputadoId": "CYL-10-P10017",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Teresa Gago López",
+        "diputadoId": "CYL-10-P10075",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Vidal Galicia Jaramillo",
+        "diputadoId": "CYL-10-P7002",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "GARCÉS GARCÍA",
+        "diputadoId": "CYL-UNK-garces gar",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Ángeles García Herrero",
+        "diputadoId": "CYL-10-P9011",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Miguel Ángel García Nieto",
+        "diputadoId": "CYL-10-P10002",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "GARCÍA RIOJA",
+        "diputadoId": "CYL-UNK-garcia rio",
+        "grupo": "Unknown",
+        "voto": "no"
+      },
+      {
+        "diputado": "María del Carmen García Romero",
+        "diputadoId": "CYL-10-P10048",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Leticia García Sánchez",
+        "diputadoId": "CYL-10-P10076",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "GARCÍA-CONDE DEL CASTILLO",
+        "diputadoId": "CYL-UNK-garciacond",
+        "grupo": "Unknown",
+        "voto": "abstención"
+      },
+      {
+        "diputado": "Ricardo Gavilanes Fernández-Llamazares",
+        "diputadoId": "CYL-10-P10023",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Elisa Patricia Gómez Urbán",
+        "diputadoId": "CYL-10-P10068",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "GONZÁLEZ GAGO",
+        "diputadoId": "CYL-UNK-gonzalez g",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Pedro Luis González Reglero",
+        "diputadoId": "CYL-10-P8072",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Carlos Javier Amando Fernández Carriedo",
+        "diputadoId": "CYL-10-J5004",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Carlos Suárez-Quiñones Fernández",
+        "diputadoId": "CYL-10-P10021",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Marta Sanz Gilmartín",
+        "diputadoId": "CYL-10-P10049",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Óscar Reguera Acevedo",
+        "diputadoId": "CYL-10-P7032",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "José Francisco Martín Martínez",
+        "diputadoId": "CYL-10-P5054",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Ana Sánchez Hernández",
+        "diputadoId": "CYL-10-P6031",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Francisco Javier Vázquez Requero",
+        "diputadoId": "CYL-10-P0112",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Fuentes Rodríguez",
+        "diputadoId": "CYL-10-P9067",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-23-1",
+    "fecha": "04/03/2020",
+    "titulo": "Rechazo de  PREA n. 1/10 Propuesta de Reforma del Estatuto de Autonomía -- Aprobación límite de gasto no financiero para el ejercicio 2020 -- Declaración Institucional DI n. 2/10 “Día mundial de las Enfermedades Raras 2020”",
+    "votos": [
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Luis Cepa Álvarez",
+        "diputadoId": "CYL-10-P8057",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Óscar Reguera Acevedo",
+        "diputadoId": "CYL-10-P7032",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Óscar Reguera Acevedo",
+        "diputadoId": "CYL-10-P7032",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Raúl de la Hoz Quintano",
+        "diputadoId": "CYL-10-P5039",
+        "grupo": "Popular",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-23-2",
+    "fecha": "04/03/2020",
+    "titulo": "Rechazo de  PREA n. 1/10 Propuesta de Reforma del Estatuto de Autonomía -- Aprobación límite de gasto no financiero para el ejercicio 2020 -- Declaración Institucional DI n. 2/10 “Día mundial de las Enfermedades Raras 2020”",
+    "votos": [
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Luis Cepa Álvarez",
+        "diputadoId": "CYL-10-P8057",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Óscar Reguera Acevedo",
+        "diputadoId": "CYL-10-P7032",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Óscar Reguera Acevedo",
+        "diputadoId": "CYL-10-P7032",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Raúl de la Hoz Quintano",
+        "diputadoId": "CYL-10-P5039",
+        "grupo": "Popular",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-24-1",
+    "fecha": "24/04/2020",
+    "titulo": "Comparecencia Presidente de la Junta de Castilla y León para informar sobre actuaciones ejecutadas en relación con el COVID-19 -- Convalidación Decreto-ley 2/2020 medidas urgentes y extraordinarias protección personas y empresas de Castilla y León frente impacto económico y social COVID-19",
+    "votos": [
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Raúl de la Hoz Quintano",
+        "diputadoId": "CYL-10-P5039",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-24-2",
+    "fecha": "24/04/2020",
+    "titulo": "Comparecencia Presidente de la Junta de Castilla y León para informar sobre actuaciones ejecutadas en relación con el COVID-19 -- Convalidación Decreto-ley 2/2020 medidas urgentes y extraordinarias protección personas y empresas de Castilla y León frente impacto económico y social COVID-19",
+    "votos": [
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Raúl de la Hoz Quintano",
+        "diputadoId": "CYL-10-P5039",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-28-1",
+    "fecha": "10/06/2020",
+    "titulo": "",
+    "votos": [
+      {
+        "diputado": "BARCONES SANZ",
+        "diputadoId": "CYL-UNK-barcones s",
+        "grupo": "Unknown",
+        "voto": "no"
+      },
+      {
+        "diputado": "Noemí Rojo Sahagún",
+        "diputadoId": "CYL-10-P10083",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-28-2",
+    "fecha": "10/06/2020",
+    "titulo": "",
+    "votos": [
+      {
+        "diputado": "BARCONES SANZ",
+        "diputadoId": "CYL-UNK-barcones s",
+        "grupo": "Unknown",
+        "voto": "no"
+      },
+      {
+        "diputado": "Noemí Rojo Sahagún",
+        "diputadoId": "CYL-10-P10083",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-3-3",
+    "fecha": "23/07/2019",
+    "titulo": "Designaciones de Senadores y Vocales de la Comisión Mixta de Transferencias",
+    "votos": [
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-32-1",
+    "fecha": "01/07/2020",
+    "titulo": "Debate sobre Política General de la Junta de Castilla y León (DPG 1/10) (Cont.)",
+    "votos": [
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-32-2",
+    "fecha": "01/07/2020",
+    "titulo": "Debate sobre Política General de la Junta de Castilla y León (DPG 1/10) (Cont.)",
+    "votos": [
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-34-2",
+    "fecha": "22/07/2020",
+    "titulo": "Aprobación Ley Modificación Ley 2/2006 Hacienda y Sector Público, con objetivo de flexibilizar régimen presupuestario ante situaciones excepcionales emergencia salud pública – Convalidación Decreto-ley 6/2020 medidas incentivar recuperación económica y social en el ámbito local",
+    "votos": [
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-36-1",
+    "fecha": "02/09/2020",
+    "titulo": "Convalidación Decreto-ley 7/2020 régimen sancionador incumplimiento medidas prevención y contención crisis sanitaria ocasionada COVID-19 ",
+    "votos": [
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-36-2",
+    "fecha": "02/09/2020",
+    "titulo": "Convalidación Decreto-ley 7/2020 régimen sancionador incumplimiento medidas prevención y contención crisis sanitaria ocasionada COVID-19 ",
+    "votos": [
+      {
+        "diputado": "María del Carmen Sánchez Bellota",
+        "diputadoId": "CYL-10-P10042",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María del Carmen Sánchez Bellota",
+        "diputadoId": "CYL-10-P10042",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-38-1",
+    "fecha": "23/09/2020",
+    "titulo": "Convalidación Decreto-ley 8/2020 modificación Ley 7/2006 Espectáculos Públicos y Actividades Recreativas de CyL – Convalidación Decreto-ley 9/2020 medidas extraordinarias apoyo personas y familias para atención domiciliaria de menores, personas dependientes o con discapacidad por confinamiento domiciliario COVID 19",
+    "votos": [
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-38-2",
+    "fecha": "23/09/2020",
+    "titulo": "Convalidación Decreto-ley 8/2020 modificación Ley 7/2006 Espectáculos Públicos y Actividades Recreativas de CyL – Convalidación Decreto-ley 9/2020 medidas extraordinarias apoyo personas y familias para atención domiciliaria de menores, personas dependientes o con discapacidad por confinamiento domiciliario COVID 19",
+    "votos": [
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-40-1",
+    "fecha": "07/10/2020",
+    "titulo": "",
+    "votos": [
+      {
+        "diputado": "Rubén Illera Redón",
+        "diputadoId": "CYL-10-P10038",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Ricardo Gavilanes Fernández-Llamazares",
+        "diputadoId": "CYL-10-P10023",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-40-2",
+    "fecha": "07/10/2020",
+    "titulo": "",
+    "votos": [
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Rubén Illera Redón",
+        "diputadoId": "CYL-10-P10038",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Ricardo Gavilanes Fernández-Llamazares",
+        "diputadoId": "CYL-10-P10023",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-42-1",
+    "fecha": "21/10/2020",
+    "titulo": "",
+    "votos": [
+      {
+        "diputado": "Juan Luis Cepa Álvarez",
+        "diputadoId": "CYL-10-P8057",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Rosa María Esteban Ayuso",
+        "diputadoId": "CYL-10-P10044",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Luis Cepa Álvarez",
+        "diputadoId": "CYL-10-P8057",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Blanca Delia Negrete Santamaría",
+        "diputadoId": "CYL-10-P10009",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "José Luis Vázquez Fernández",
+        "diputadoId": "CYL-10-P10052",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "GARCÍA-CONDE DEL CASTILLO",
+        "diputadoId": "CYL-UNK-garciacond",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Luis Cepa Álvarez",
+        "diputadoId": "CYL-10-P8057",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Rosa María Esteban Ayuso",
+        "diputadoId": "CYL-10-P10044",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Luis Cepa Álvarez",
+        "diputadoId": "CYL-10-P8057",
+        "grupo": "Socialista",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-47-1",
+    "fecha": "01/12/2020",
+    "titulo": "Comparecencia Presidente de la Junta de Castilla y León para informar sobre actuaciones y normas en relación con crisis  COVID_19, así como actuaciones y medidas para el futuro",
+    "votos": [
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-47-2",
+    "fecha": "01/12/2020",
+    "titulo": "Comparecencia Presidente de la Junta de Castilla y León para informar sobre actuaciones y normas en relación con crisis  COVID_19, así como actuaciones y medidas para el futuro",
+    "votos": [
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-48-1",
+    "fecha": "02/12/2020",
+    "titulo": "Aprobación Ley Declaración Parque Natural \"Sabinares del Arlanza-La Yecla\" (Burgos) – Aprobación Ley Modificación Ley 16/2010 Servicios Sociales de CyL) – Ratificación del Convenio de Colaboración entre el Gobierno de Cantabria y la Junta de Castilla y León – Rechazo propuesta de creación Comisión de Investigación sobre la gestión en centros de servicios sociales de carácter residencial ante pandemia COVID-19",
+    "votos": [
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Virginia Jiménez Campano",
+        "diputadoId": "CYL-10-P9041",
+        "grupo": "Socialista",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-48-2",
+    "fecha": "02/12/2020",
+    "titulo": "Aprobación Ley Declaración Parque Natural \"Sabinares del Arlanza-La Yecla\" (Burgos) – Aprobación Ley Modificación Ley 16/2010 Servicios Sociales de CyL) – Ratificación del Convenio de Colaboración entre el Gobierno de Cantabria y la Junta de Castilla y León – Rechazo propuesta de creación Comisión de Investigación sobre la gestión en centros de servicios sociales de carácter residencial ante pandemia COVID-19",
+    "votos": [
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Virginia Jiménez Campano",
+        "diputadoId": "CYL-10-P9041",
+        "grupo": "Socialista",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-57-1",
+    "fecha": "22/03/2021",
+    "titulo": "Moción de censura a la Junta de CyL presidida por D. Alfonso Fernández Mañueco",
+    "votos": [
+      {
+        "diputado": "Luis Tudanca Fernández",
+        "diputadoId": "CYL-10-P9040",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Tudanca Fernández",
+        "diputadoId": "CYL-10-P9040",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Tudanca Fernández",
+        "diputadoId": "CYL-10-P9040",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-57-3",
+    "fecha": "22/03/2021",
+    "titulo": "Moción de censura a la Junta de CyL presidida por D. Alfonso Fernández Mañueco",
+    "votos": [
+      {
+        "diputado": "Elisa Patricia Gómez Urbán",
+        "diputadoId": "CYL-10-P10068",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Pedro Luis González Reglero",
+        "diputadoId": "CYL-10-P8072",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Miguel Ángel González Rodrigo",
+        "diputadoId": "CYL-10-P10062",
+        "grupo": "de Ciudadanos",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Isabel Gonzalo Ramírez",
+        "diputadoId": "CYL-10-P10072",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Jesús Guerrero Arroyo",
+        "diputadoId": "CYL-10-P9030",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Pedro Antonio Heras Jiménez",
+        "diputadoId": "CYL-10-P9014",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "Eugenio Miguel Hernández Alcojor",
+        "diputadoId": "CYL-10-P10005",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Ángel Hernández Martínez",
+        "diputadoId": "CYL-10-P9024",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Raúl de la Hoz Quintano",
+        "diputadoId": "CYL-10-P5039",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "Sergio Iglesias Herrera",
+        "diputadoId": "CYL-10-P10054",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Rubén Illera Redón",
+        "diputadoId": "CYL-10-P10038",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Virginia Jiménez Campano",
+        "diputadoId": "CYL-10-P9041",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "José Ignacio Martín Benito",
+        "diputadoId": "CYL-10-P7034",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Montero Carrasco",
+        "diputadoId": "CYL-10-P10040",
+        "grupo": "No Adscrito",
+        "voto": "abstención"
+      },
+      {
+        "diputado": "Smara Morala Prieto",
+        "diputadoId": "CYL-10-P10024",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "Diego Moreno Castrillo",
+        "diputadoId": "CYL-10-P10028",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Blanca Delia Negrete Santamaría",
+        "diputadoId": "CYL-10-P10009",
+        "grupo": "de Ciudadanos",
+        "voto": "no"
+      },
+      {
+        "diputado": "María José Ortega Gómez",
+        "diputadoId": "CYL-10-P10034",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Consolación Pablos Labajo",
+        "diputadoId": "CYL-10-P9031",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Fernando Pablos Romo",
+        "diputadoId": "CYL-10-P8056",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Alicia Palomo Sebastián",
+        "diputadoId": "CYL-10-P10053",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Francisco Javier Panizo García",
+        "diputadoId": "CYL-10-P10086",
+        "grupo": "de Ciudadanos",
+        "voto": "no"
+      },
+      {
+        "diputado": "Pedro José Pascual Muñoz",
+        "diputadoId": "CYL-10-P10007",
+        "grupo": "Mixto",
+        "voto": "abstención"
+      },
+      {
+        "diputado": "Laura Pelegrina Cortijo",
+        "diputadoId": "CYL-10-P9023",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Jesús Ángel Peregrina Molina",
+        "diputadoId": "CYL-10-P8016",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "María de Fátima Pinacho Fernández",
+        "diputadoId": "CYL-10-P10089",
+        "grupo": "Mixto",
+        "voto": "no"
+      },
+      {
+        "diputado": "Jesús Puente Alcaraz",
+        "diputadoId": "CYL-10-P7212",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Inmaculada Ranedo Gómez",
+        "diputadoId": "CYL-10-P7209",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Rodríguez Díaz",
+        "diputadoId": "CYL-10-P10029",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Noemí Rojo Sahagún",
+        "diputadoId": "CYL-10-P10083",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Ignacio Ronda Gutiérrez",
+        "diputadoId": "CYL-10-P10030",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Nuria Rubio García",
+        "diputadoId": "CYL-10-P10025",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Rosa María Rubio Martín",
+        "diputadoId": "CYL-10-P10046",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Ramiro Felipe Ruiz Medrano",
+        "diputadoId": "CYL-10-P7263",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "Yolanda Sacristán Rodríguez",
+        "diputadoId": "CYL-10-P10027",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María del Carmen Sánchez Bellota",
+        "diputadoId": "CYL-10-P10042",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "abstención"
+      },
+      {
+        "diputado": "Pablo Trillo-Figueroa Martínez-Conde",
+        "diputadoId": "CYL-10-P10082",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "Luis Tudanca Fernández",
+        "diputadoId": "CYL-10-P9040",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Paloma Vallejo Quevedo",
+        "diputadoId": "CYL-10-P9197",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Luis Vázquez Fernández",
+        "diputadoId": "CYL-10-P10052",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Alejandro Vázquez Ramos",
+        "diputadoId": "CYL-10-P9006",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "Amparo Vidal Gago",
+        "diputadoId": "CYL-10-P10022",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "Judit Villar Lacueva",
+        "diputadoId": "CYL-10-P10059",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "BARCONES SANZ",
+        "diputadoId": "CYL-UNK-barcones s",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "David Beltrán Martín",
+        "diputadoId": "CYL-10-P10084",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "Alba Priscila Bermejo Santos",
+        "diputadoId": "CYL-10-P10087",
+        "grupo": "de Ciudadanos",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Soraya Blázquez Domínguez",
+        "diputadoId": "CYL-10-P10006",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Briones Martínez",
+        "diputadoId": "CYL-10-P9042",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Javier Campos de la Fuente",
+        "diputadoId": "CYL-10-P8042",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "David Castaño Sequeros",
+        "diputadoId": "CYL-10-P9058",
+        "grupo": "de Ciudadanos",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Alberto Castro Cañibano",
+        "diputadoId": "CYL-10-P10078",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "Juan Luis Cepa Álvarez",
+        "diputadoId": "CYL-10-P8057",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María de las Mercedes Cófreces Martín",
+        "diputadoId": "CYL-10-P10035",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "CRUZ GARCÍA",
+        "diputadoId": "CYL-UNK-cruz garci",
+        "grupo": "Unknown",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Ignacio Delgado Palacios",
+        "diputadoId": "CYL-10-P9052",
+        "grupo": "de Ciudadanos",
+        "voto": "no"
+      },
+      {
+        "diputado": "Laura Domínguez Arroyo",
+        "diputadoId": "CYL-10-P9051",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Rosa María Esteban Ayuso",
+        "diputadoId": "CYL-10-P10044",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "Luis Ángel Fernández Bayón",
+        "diputadoId": "CYL-10-P10073",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Carlos Fernández Herrera",
+        "diputadoId": "CYL-10-P10088",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Noelia Frutos Rubio",
+        "diputadoId": "CYL-10-P10017",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Teresa Gago López",
+        "diputadoId": "CYL-10-P10075",
+        "grupo": "de Ciudadanos",
+        "voto": "no"
+      },
+      {
+        "diputado": "Vidal Galicia Jaramillo",
+        "diputadoId": "CYL-10-P7002",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Ángeles García Herrero",
+        "diputadoId": "CYL-10-P9011",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "Miguel Ángel García Nieto",
+        "diputadoId": "CYL-10-P10002",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "María del Carmen García Romero",
+        "diputadoId": "CYL-10-P10048",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Leticia García Sánchez",
+        "diputadoId": "CYL-10-P10076",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Ricardo Gavilanes Fernández-Llamazares",
+        "diputadoId": "CYL-10-P10023",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "Inmaculada Gómez Jiménez",
+        "diputadoId": "CYL-10-P10085",
+        "grupo": "de Ciudadanos",
+        "voto": "no"
+      },
+      {
+        "diputado": "Juan Carlos Suárez-Quiñones Fernández",
+        "diputadoId": "CYL-10-P10021",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "Carlos Javier Amando Fernández Carriedo",
+        "diputadoId": "CYL-10-J5004",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "Ángel Mariano Ibáñez Hernando",
+        "diputadoId": "CYL-10-P9005",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "Francisco Igea Arisqueta",
+        "diputadoId": "CYL-10-P10060",
+        "grupo": "de Ciudadanos",
+        "voto": "no"
+      },
+      {
+        "diputado": "Alfonso Fernández Mañueco",
+        "diputadoId": "CYL-10-J5001",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "Marta Sanz Gilmartín",
+        "diputadoId": "CYL-10-P10049",
+        "grupo": "de Ciudadanos",
+        "voto": "no"
+      },
+      {
+        "diputado": "Óscar Reguera Acevedo",
+        "diputadoId": "CYL-10-P7032",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Francisco Martín Martínez",
+        "diputadoId": "CYL-10-P5054",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Ana Sánchez Hernández",
+        "diputadoId": "CYL-10-P6031",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Francisco Javier Vázquez Requero",
+        "diputadoId": "CYL-10-P0112",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "Luis Fuentes Rodríguez",
+        "diputadoId": "CYL-10-P9067",
+        "grupo": "de Ciudadanos",
+        "voto": "no"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-57-4",
+    "fecha": "22/03/2021",
+    "titulo": "Moción de censura a la Junta de CyL presidida por D. Alfonso Fernández Mañueco",
+    "votos": [
+      {
+        "diputado": "Luis Tudanca Fernández",
+        "diputadoId": "CYL-10-P9040",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Tudanca Fernández",
+        "diputadoId": "CYL-10-P9040",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Tudanca Fernández",
+        "diputadoId": "CYL-10-P9040",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-57-6",
+    "fecha": "22/03/2021",
+    "titulo": "Moción de censura a la Junta de CyL presidida por D. Alfonso Fernández Mañueco",
+    "votos": [
+      {
+        "diputado": "Elisa Patricia Gómez Urbán",
+        "diputadoId": "CYL-10-P10068",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Pedro Luis González Reglero",
+        "diputadoId": "CYL-10-P8072",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Miguel Ángel González Rodrigo",
+        "diputadoId": "CYL-10-P10062",
+        "grupo": "de Ciudadanos",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Isabel Gonzalo Ramírez",
+        "diputadoId": "CYL-10-P10072",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Jesús Guerrero Arroyo",
+        "diputadoId": "CYL-10-P9030",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Pedro Antonio Heras Jiménez",
+        "diputadoId": "CYL-10-P9014",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "Eugenio Miguel Hernández Alcojor",
+        "diputadoId": "CYL-10-P10005",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Ángel Hernández Martínez",
+        "diputadoId": "CYL-10-P9024",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Raúl de la Hoz Quintano",
+        "diputadoId": "CYL-10-P5039",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "Sergio Iglesias Herrera",
+        "diputadoId": "CYL-10-P10054",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Rubén Illera Redón",
+        "diputadoId": "CYL-10-P10038",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Virginia Jiménez Campano",
+        "diputadoId": "CYL-10-P9041",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "José Ignacio Martín Benito",
+        "diputadoId": "CYL-10-P7034",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Montero Carrasco",
+        "diputadoId": "CYL-10-P10040",
+        "grupo": "No Adscrito",
+        "voto": "abstención"
+      },
+      {
+        "diputado": "Smara Morala Prieto",
+        "diputadoId": "CYL-10-P10024",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "Diego Moreno Castrillo",
+        "diputadoId": "CYL-10-P10028",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Blanca Delia Negrete Santamaría",
+        "diputadoId": "CYL-10-P10009",
+        "grupo": "de Ciudadanos",
+        "voto": "no"
+      },
+      {
+        "diputado": "María José Ortega Gómez",
+        "diputadoId": "CYL-10-P10034",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Consolación Pablos Labajo",
+        "diputadoId": "CYL-10-P9031",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Fernando Pablos Romo",
+        "diputadoId": "CYL-10-P8056",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Alicia Palomo Sebastián",
+        "diputadoId": "CYL-10-P10053",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Francisco Javier Panizo García",
+        "diputadoId": "CYL-10-P10086",
+        "grupo": "de Ciudadanos",
+        "voto": "no"
+      },
+      {
+        "diputado": "Pedro José Pascual Muñoz",
+        "diputadoId": "CYL-10-P10007",
+        "grupo": "Mixto",
+        "voto": "abstención"
+      },
+      {
+        "diputado": "Laura Pelegrina Cortijo",
+        "diputadoId": "CYL-10-P9023",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Jesús Ángel Peregrina Molina",
+        "diputadoId": "CYL-10-P8016",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "María de Fátima Pinacho Fernández",
+        "diputadoId": "CYL-10-P10089",
+        "grupo": "Mixto",
+        "voto": "no"
+      },
+      {
+        "diputado": "Jesús Puente Alcaraz",
+        "diputadoId": "CYL-10-P7212",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Inmaculada Ranedo Gómez",
+        "diputadoId": "CYL-10-P7209",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Rodríguez Díaz",
+        "diputadoId": "CYL-10-P10029",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Noemí Rojo Sahagún",
+        "diputadoId": "CYL-10-P10083",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Ignacio Ronda Gutiérrez",
+        "diputadoId": "CYL-10-P10030",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Nuria Rubio García",
+        "diputadoId": "CYL-10-P10025",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Rosa María Rubio Martín",
+        "diputadoId": "CYL-10-P10046",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Ramiro Felipe Ruiz Medrano",
+        "diputadoId": "CYL-10-P7263",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "Yolanda Sacristán Rodríguez",
+        "diputadoId": "CYL-10-P10027",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María del Carmen Sánchez Bellota",
+        "diputadoId": "CYL-10-P10042",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "abstención"
+      },
+      {
+        "diputado": "Pablo Trillo-Figueroa Martínez-Conde",
+        "diputadoId": "CYL-10-P10082",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "Luis Tudanca Fernández",
+        "diputadoId": "CYL-10-P9040",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Paloma Vallejo Quevedo",
+        "diputadoId": "CYL-10-P9197",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Luis Vázquez Fernández",
+        "diputadoId": "CYL-10-P10052",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Alejandro Vázquez Ramos",
+        "diputadoId": "CYL-10-P9006",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "Amparo Vidal Gago",
+        "diputadoId": "CYL-10-P10022",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "Judit Villar Lacueva",
+        "diputadoId": "CYL-10-P10059",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "BARCONES SANZ",
+        "diputadoId": "CYL-UNK-barcones s",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "David Beltrán Martín",
+        "diputadoId": "CYL-10-P10084",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "Alba Priscila Bermejo Santos",
+        "diputadoId": "CYL-10-P10087",
+        "grupo": "de Ciudadanos",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Soraya Blázquez Domínguez",
+        "diputadoId": "CYL-10-P10006",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Briones Martínez",
+        "diputadoId": "CYL-10-P9042",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Javier Campos de la Fuente",
+        "diputadoId": "CYL-10-P8042",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "David Castaño Sequeros",
+        "diputadoId": "CYL-10-P9058",
+        "grupo": "de Ciudadanos",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Alberto Castro Cañibano",
+        "diputadoId": "CYL-10-P10078",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "Juan Luis Cepa Álvarez",
+        "diputadoId": "CYL-10-P8057",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María de las Mercedes Cófreces Martín",
+        "diputadoId": "CYL-10-P10035",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "CRUZ GARCÍA",
+        "diputadoId": "CYL-UNK-cruz garci",
+        "grupo": "Unknown",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Ignacio Delgado Palacios",
+        "diputadoId": "CYL-10-P9052",
+        "grupo": "de Ciudadanos",
+        "voto": "no"
+      },
+      {
+        "diputado": "Laura Domínguez Arroyo",
+        "diputadoId": "CYL-10-P9051",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Rosa María Esteban Ayuso",
+        "diputadoId": "CYL-10-P10044",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "Luis Ángel Fernández Bayón",
+        "diputadoId": "CYL-10-P10073",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Carlos Fernández Herrera",
+        "diputadoId": "CYL-10-P10088",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Noelia Frutos Rubio",
+        "diputadoId": "CYL-10-P10017",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Teresa Gago López",
+        "diputadoId": "CYL-10-P10075",
+        "grupo": "de Ciudadanos",
+        "voto": "no"
+      },
+      {
+        "diputado": "Vidal Galicia Jaramillo",
+        "diputadoId": "CYL-10-P7002",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Ángeles García Herrero",
+        "diputadoId": "CYL-10-P9011",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "Miguel Ángel García Nieto",
+        "diputadoId": "CYL-10-P10002",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "María del Carmen García Romero",
+        "diputadoId": "CYL-10-P10048",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Leticia García Sánchez",
+        "diputadoId": "CYL-10-P10076",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Ricardo Gavilanes Fernández-Llamazares",
+        "diputadoId": "CYL-10-P10023",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "Inmaculada Gómez Jiménez",
+        "diputadoId": "CYL-10-P10085",
+        "grupo": "de Ciudadanos",
+        "voto": "no"
+      },
+      {
+        "diputado": "Juan Carlos Suárez-Quiñones Fernández",
+        "diputadoId": "CYL-10-P10021",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "Carlos Javier Amando Fernández Carriedo",
+        "diputadoId": "CYL-10-J5004",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "Ángel Mariano Ibáñez Hernando",
+        "diputadoId": "CYL-10-P9005",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "Francisco Igea Arisqueta",
+        "diputadoId": "CYL-10-P10060",
+        "grupo": "de Ciudadanos",
+        "voto": "no"
+      },
+      {
+        "diputado": "Alfonso Fernández Mañueco",
+        "diputadoId": "CYL-10-J5001",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "Marta Sanz Gilmartín",
+        "diputadoId": "CYL-10-P10049",
+        "grupo": "de Ciudadanos",
+        "voto": "no"
+      },
+      {
+        "diputado": "Óscar Reguera Acevedo",
+        "diputadoId": "CYL-10-P7032",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Francisco Martín Martínez",
+        "diputadoId": "CYL-10-P5054",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Ana Sánchez Hernández",
+        "diputadoId": "CYL-10-P6031",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Francisco Javier Vázquez Requero",
+        "diputadoId": "CYL-10-P0112",
+        "grupo": "Popular",
+        "voto": "no"
+      },
+      {
+        "diputado": "Luis Fuentes Rodríguez",
+        "diputadoId": "CYL-10-P9067",
+        "grupo": "de Ciudadanos",
+        "voto": "no"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-64-1",
+    "fecha": "26/05/2021",
+    "titulo": "Rechazo PPL Modificación Ley 13/2010 Violencia de Género en CyL",
+    "votos": [
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-64-2",
+    "fecha": "26/05/2021",
+    "titulo": "Rechazo PPL Modificación Ley 13/2010 Violencia de Género en CyL",
+    "votos": [
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Francisco Javier Panizo García",
+        "diputadoId": "CYL-10-P10086",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-64-3",
+    "fecha": "26/05/2021",
+    "titulo": "Rechazo PPL Modificación Ley 13/2010 Violencia de Género en CyL",
+    "votos": [
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-64-4",
+    "fecha": "26/05/2021",
+    "titulo": "Rechazo PPL Modificación Ley 13/2010 Violencia de Género en CyL",
+    "votos": [
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Francisco Javier Panizo García",
+        "diputadoId": "CYL-10-P10086",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-66-2",
+    "fecha": "09/06/2021",
+    "titulo": "",
+    "votos": [
+      {
+        "diputado": "Sergio Iglesias Herrera",
+        "diputadoId": "CYL-10-P10054",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "CRUZ GARCÍA",
+        "diputadoId": "CYL-UNK-cruz garci",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-66-3",
+    "fecha": "09/06/2021",
+    "titulo": "",
+    "votos": [
+      {
+        "diputado": "Carlos Fernández Herrera",
+        "diputadoId": "CYL-10-P10088",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "no"
+      },
+      {
+        "diputado": "Noelia Frutos Rubio",
+        "diputadoId": "CYL-10-P10017",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Teresa Gago López",
+        "diputadoId": "CYL-10-P10075",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Vidal Galicia Jaramillo",
+        "diputadoId": "CYL-10-P7002",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Ángeles García Herrero",
+        "diputadoId": "CYL-10-P9011",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Miguel Ángel García Nieto",
+        "diputadoId": "CYL-10-P10002",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María del Carmen García Romero",
+        "diputadoId": "CYL-10-P10048",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Leticia García Sánchez",
+        "diputadoId": "CYL-10-P10076",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Ricardo Gavilanes Fernández-Llamazares",
+        "diputadoId": "CYL-10-P10023",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Inmaculada Gómez Jiménez",
+        "diputadoId": "CYL-10-P10085",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Elisa Patricia Gómez Urbán",
+        "diputadoId": "CYL-10-P10068",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Pedro Luis González Reglero",
+        "diputadoId": "CYL-10-P8072",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Miguel Ángel González Rodrigo",
+        "diputadoId": "CYL-10-P10062",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Isabel Gonzalo Ramírez",
+        "diputadoId": "CYL-10-P10072",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Jesús Guerrero Arroyo",
+        "diputadoId": "CYL-10-P9030",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Pedro Antonio Heras Jiménez",
+        "diputadoId": "CYL-10-P9014",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Ángel Hernández Martínez",
+        "diputadoId": "CYL-10-P9024",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Raúl de la Hoz Quintano",
+        "diputadoId": "CYL-10-P5039",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Sergio Iglesias Herrera",
+        "diputadoId": "CYL-10-P10054",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Virginia Jiménez Campano",
+        "diputadoId": "CYL-10-P9041",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Ignacio Martín Benito",
+        "diputadoId": "CYL-10-P7034",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Montero Carrasco",
+        "diputadoId": "CYL-10-P10040",
+        "grupo": "No Adscrito",
+        "voto": "no"
+      },
+      {
+        "diputado": "Smara Morala Prieto",
+        "diputadoId": "CYL-10-P10024",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Diego Moreno Castrillo",
+        "diputadoId": "CYL-10-P10028",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Blanca Delia Negrete Santamaría",
+        "diputadoId": "CYL-10-P10009",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María José Ortega Gómez",
+        "diputadoId": "CYL-10-P10034",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Consolación Pablos Labajo",
+        "diputadoId": "CYL-10-P9031",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Alicia Palomo Sebastián",
+        "diputadoId": "CYL-10-P10053",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Laura Pelegrina Cortijo",
+        "diputadoId": "CYL-10-P9023",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Jesús Ángel Peregrina Molina",
+        "diputadoId": "CYL-10-P8016",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Jesús Puente Alcaraz",
+        "diputadoId": "CYL-10-P7212",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Inmaculada Ranedo Gómez",
+        "diputadoId": "CYL-10-P7209",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Rodríguez Díaz",
+        "diputadoId": "CYL-10-P10029",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Noemí Rojo Sahagún",
+        "diputadoId": "CYL-10-P10083",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "José Ignacio Ronda Gutiérrez",
+        "diputadoId": "CYL-10-P10030",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Nuria Rubio García",
+        "diputadoId": "CYL-10-P10025",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Rosa María Rubio Martín",
+        "diputadoId": "CYL-10-P10046",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Ramiro Felipe Ruiz Medrano",
+        "diputadoId": "CYL-10-P7263",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Yolanda Sacristán Rodríguez",
+        "diputadoId": "CYL-10-P10027",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "María del Carmen Sánchez Bellota",
+        "diputadoId": "CYL-10-P10042",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Pablo Trillo-Figueroa Martínez-Conde",
+        "diputadoId": "CYL-10-P10082",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Tudanca Fernández",
+        "diputadoId": "CYL-10-P9040",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Paloma Vallejo Quevedo",
+        "diputadoId": "CYL-10-P9197",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "José Luis Vázquez Fernández",
+        "diputadoId": "CYL-10-P10052",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Alejandro Vázquez Ramos",
+        "diputadoId": "CYL-10-P9006",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Amparo Vidal Gago",
+        "diputadoId": "CYL-10-P10022",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Judit Villar Lacueva",
+        "diputadoId": "CYL-10-P10059",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "BARCONES SANZ",
+        "diputadoId": "CYL-UNK-barcones s",
+        "grupo": "Unknown",
+        "voto": "no"
+      },
+      {
+        "diputado": "David Beltrán Martín",
+        "diputadoId": "CYL-10-P10084",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Soraya Blázquez Domínguez",
+        "diputadoId": "CYL-10-P10006",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Javier Campos de la Fuente",
+        "diputadoId": "CYL-10-P8042",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "David Castaño Sequeros",
+        "diputadoId": "CYL-10-P9058",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "José Alberto Castro Cañibano",
+        "diputadoId": "CYL-10-P10078",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María de las Mercedes Cófreces Martín",
+        "diputadoId": "CYL-10-P10035",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "CRUZ GARCÍA",
+        "diputadoId": "CYL-UNK-cruz garci",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "José Ignacio Delgado Palacios",
+        "diputadoId": "CYL-10-P9052",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Laura Domínguez Arroyo",
+        "diputadoId": "CYL-10-P9051",
+        "grupo": "Mixto",
+        "voto": "no"
+      },
+      {
+        "diputado": "Rosa María Esteban Ayuso",
+        "diputadoId": "CYL-10-P10044",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Carlos Suárez-Quiñones Fernández",
+        "diputadoId": "CYL-10-P10021",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Carlos Javier Amando Fernández Carriedo",
+        "diputadoId": "CYL-10-J5004",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Ángel Mariano Ibáñez Hernando",
+        "diputadoId": "CYL-10-P9005",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Francisco Igea Arisqueta",
+        "diputadoId": "CYL-10-P10060",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Alfonso Fernández Mañueco",
+        "diputadoId": "CYL-10-J5001",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Marta Sanz Gilmartín",
+        "diputadoId": "CYL-10-P10049",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Óscar Reguera Acevedo",
+        "diputadoId": "CYL-10-P7032",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "José Francisco Martín Martínez",
+        "diputadoId": "CYL-10-P5054",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Ana Sánchez Hernández",
+        "diputadoId": "CYL-10-P6031",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Francisco Javier Vázquez Requero",
+        "diputadoId": "CYL-10-P0112",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Fuentes Rodríguez",
+        "diputadoId": "CYL-10-P9067",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-66-5",
+    "fecha": "09/06/2021",
+    "titulo": "",
+    "votos": [
+      {
+        "diputado": "Sergio Iglesias Herrera",
+        "diputadoId": "CYL-10-P10054",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "CRUZ GARCÍA",
+        "diputadoId": "CYL-UNK-cruz garci",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-66-6",
+    "fecha": "09/06/2021",
+    "titulo": "",
+    "votos": [
+      {
+        "diputado": "Carlos Fernández Herrera",
+        "diputadoId": "CYL-10-P10088",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "no"
+      },
+      {
+        "diputado": "Noelia Frutos Rubio",
+        "diputadoId": "CYL-10-P10017",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Teresa Gago López",
+        "diputadoId": "CYL-10-P10075",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Vidal Galicia Jaramillo",
+        "diputadoId": "CYL-10-P7002",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Ángeles García Herrero",
+        "diputadoId": "CYL-10-P9011",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Miguel Ángel García Nieto",
+        "diputadoId": "CYL-10-P10002",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María del Carmen García Romero",
+        "diputadoId": "CYL-10-P10048",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Leticia García Sánchez",
+        "diputadoId": "CYL-10-P10076",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Ricardo Gavilanes Fernández-Llamazares",
+        "diputadoId": "CYL-10-P10023",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Inmaculada Gómez Jiménez",
+        "diputadoId": "CYL-10-P10085",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Elisa Patricia Gómez Urbán",
+        "diputadoId": "CYL-10-P10068",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Pedro Luis González Reglero",
+        "diputadoId": "CYL-10-P8072",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Miguel Ángel González Rodrigo",
+        "diputadoId": "CYL-10-P10062",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Isabel Gonzalo Ramírez",
+        "diputadoId": "CYL-10-P10072",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Jesús Guerrero Arroyo",
+        "diputadoId": "CYL-10-P9030",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Pedro Antonio Heras Jiménez",
+        "diputadoId": "CYL-10-P9014",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Ángel Hernández Martínez",
+        "diputadoId": "CYL-10-P9024",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Raúl de la Hoz Quintano",
+        "diputadoId": "CYL-10-P5039",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Sergio Iglesias Herrera",
+        "diputadoId": "CYL-10-P10054",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Virginia Jiménez Campano",
+        "diputadoId": "CYL-10-P9041",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "José Ignacio Martín Benito",
+        "diputadoId": "CYL-10-P7034",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Montero Carrasco",
+        "diputadoId": "CYL-10-P10040",
+        "grupo": "No Adscrito",
+        "voto": "no"
+      },
+      {
+        "diputado": "Smara Morala Prieto",
+        "diputadoId": "CYL-10-P10024",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Diego Moreno Castrillo",
+        "diputadoId": "CYL-10-P10028",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Blanca Delia Negrete Santamaría",
+        "diputadoId": "CYL-10-P10009",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María José Ortega Gómez",
+        "diputadoId": "CYL-10-P10034",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Consolación Pablos Labajo",
+        "diputadoId": "CYL-10-P9031",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Alicia Palomo Sebastián",
+        "diputadoId": "CYL-10-P10053",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Laura Pelegrina Cortijo",
+        "diputadoId": "CYL-10-P9023",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Jesús Ángel Peregrina Molina",
+        "diputadoId": "CYL-10-P8016",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Jesús Puente Alcaraz",
+        "diputadoId": "CYL-10-P7212",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Inmaculada Ranedo Gómez",
+        "diputadoId": "CYL-10-P7209",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Rodríguez Díaz",
+        "diputadoId": "CYL-10-P10029",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Noemí Rojo Sahagún",
+        "diputadoId": "CYL-10-P10083",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "José Ignacio Ronda Gutiérrez",
+        "diputadoId": "CYL-10-P10030",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Nuria Rubio García",
+        "diputadoId": "CYL-10-P10025",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Rosa María Rubio Martín",
+        "diputadoId": "CYL-10-P10046",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Ramiro Felipe Ruiz Medrano",
+        "diputadoId": "CYL-10-P7263",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Yolanda Sacristán Rodríguez",
+        "diputadoId": "CYL-10-P10027",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "María del Carmen Sánchez Bellota",
+        "diputadoId": "CYL-10-P10042",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Pablo Trillo-Figueroa Martínez-Conde",
+        "diputadoId": "CYL-10-P10082",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Tudanca Fernández",
+        "diputadoId": "CYL-10-P9040",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "María Paloma Vallejo Quevedo",
+        "diputadoId": "CYL-10-P9197",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "José Luis Vázquez Fernández",
+        "diputadoId": "CYL-10-P10052",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Alejandro Vázquez Ramos",
+        "diputadoId": "CYL-10-P9006",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Amparo Vidal Gago",
+        "diputadoId": "CYL-10-P10022",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Judit Villar Lacueva",
+        "diputadoId": "CYL-10-P10059",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "BARCONES SANZ",
+        "diputadoId": "CYL-UNK-barcones s",
+        "grupo": "Unknown",
+        "voto": "no"
+      },
+      {
+        "diputado": "David Beltrán Martín",
+        "diputadoId": "CYL-10-P10084",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María Soraya Blázquez Domínguez",
+        "diputadoId": "CYL-10-P10006",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Javier Campos de la Fuente",
+        "diputadoId": "CYL-10-P8042",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "David Castaño Sequeros",
+        "diputadoId": "CYL-10-P9058",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "José Alberto Castro Cañibano",
+        "diputadoId": "CYL-10-P10078",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María de las Mercedes Cófreces Martín",
+        "diputadoId": "CYL-10-P10035",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "CRUZ GARCÍA",
+        "diputadoId": "CYL-UNK-cruz garci",
+        "grupo": "Unknown",
+        "voto": "sí"
+      },
+      {
+        "diputado": "José Ignacio Delgado Palacios",
+        "diputadoId": "CYL-10-P9052",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Laura Domínguez Arroyo",
+        "diputadoId": "CYL-10-P9051",
+        "grupo": "Mixto",
+        "voto": "no"
+      },
+      {
+        "diputado": "Rosa María Esteban Ayuso",
+        "diputadoId": "CYL-10-P10044",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Carlos Suárez-Quiñones Fernández",
+        "diputadoId": "CYL-10-P10021",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Carlos Javier Amando Fernández Carriedo",
+        "diputadoId": "CYL-10-J5004",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Ángel Mariano Ibáñez Hernando",
+        "diputadoId": "CYL-10-P9005",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Francisco Igea Arisqueta",
+        "diputadoId": "CYL-10-P10060",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Alfonso Fernández Mañueco",
+        "diputadoId": "CYL-10-J5001",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Marta Sanz Gilmartín",
+        "diputadoId": "CYL-10-P10049",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Óscar Reguera Acevedo",
+        "diputadoId": "CYL-10-P7032",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "José Francisco Martín Martínez",
+        "diputadoId": "CYL-10-P5054",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Ana Sánchez Hernández",
+        "diputadoId": "CYL-10-P6031",
+        "grupo": "Socialista",
+        "voto": "no"
+      },
+      {
+        "diputado": "Francisco Javier Vázquez Requero",
+        "diputadoId": "CYL-10-P0112",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Fuentes Rodríguez",
+        "diputadoId": "CYL-10-P9067",
+        "grupo": "de Ciudadanos",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-67-1",
+    "fecha": "22/06/2021",
+    "titulo": "",
+    "votos": [
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-67-2",
+    "fecha": "22/06/2021",
+    "titulo": "",
+    "votos": [
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-68-1",
+    "fecha": "23/06/2021",
+    "titulo": "Convalidación Decreto-ley 3/2021 suspensión vigencia artículos Ley 4/1998 Juego y Apuestas de CyL -- Aprobación Ley Caza y gestión recursos cinegéticos de CyL",
+    "votos": [
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "David Castaño Sequeros",
+        "diputadoId": "CYL-10-P9058",
+        "grupo": "de Ciudadanos",
+        "voto": "no"
+      },
+      {
+        "diputado": "Judit Villar Lacueva",
+        "diputadoId": "CYL-10-P10059",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María del Carmen Sánchez Bellota",
+        "diputadoId": "CYL-10-P10042",
+        "grupo": "Popular",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-68-2",
+    "fecha": "23/06/2021",
+    "titulo": "Convalidación Decreto-ley 3/2021 suspensión vigencia artículos Ley 4/1998 Juego y Apuestas de CyL -- Aprobación Ley Caza y gestión recursos cinegéticos de CyL",
+    "votos": [
+      {
+        "diputado": "Ricardo Gavilanes Fernández-Llamazares",
+        "diputadoId": "CYL-10-P10023",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "David Castaño Sequeros",
+        "diputadoId": "CYL-10-P9058",
+        "grupo": "de Ciudadanos",
+        "voto": "no"
+      },
+      {
+        "diputado": "Judit Villar Lacueva",
+        "diputadoId": "CYL-10-P10059",
+        "grupo": "Socialista",
+        "voto": "sí"
+      },
+      {
+        "diputado": "María del Carmen Sánchez Bellota",
+        "diputadoId": "CYL-10-P10042",
+        "grupo": "Popular",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Ricardo Gavilanes Fernández-Llamazares",
+        "diputadoId": "CYL-10-P10023",
+        "grupo": "Popular",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-7-1",
+    "fecha": "08/10/2019",
+    "titulo": "",
+    "votos": [
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-74-1",
+    "fecha": "06/10/2021",
+    "titulo": "",
+    "votos": [
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-74-2",
+    "fecha": "06/10/2021",
+    "titulo": "",
+    "votos": [
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Luis Mariano Santos Reyero",
+        "diputadoId": "CYL-10-P9056",
+        "grupo": "Mixto",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-9-1",
+    "fecha": "23/10/2019",
+    "titulo": "Toma en consideración PREA n. 1/10 Propuesta de Reforma del Estatuto de Autonomía, Desestimación PREA n. 2/10 Propuesta de Reforma del Estatuto de Autonomía",
+    "votos": [
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  },
+  {
+    "id": "CYL-10-9-2",
+    "fecha": "23/10/2019",
+    "titulo": "Toma en consideración PREA n. 1/10 Propuesta de Reforma del Estatuto de Autonomía, Desestimación PREA n. 2/10 Propuesta de Reforma del Estatuto de Autonomía",
+    "votos": [
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      },
+      {
+        "diputado": "Juan Pablo Fernández Santos",
+        "diputadoId": "CYL-10-P9053",
+        "grupo": "Mixto",
+        "voto": "sí"
+      }
+    ],
+    "tipo": "nominal"
+  }
+]
