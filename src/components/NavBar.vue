@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
 import HeroSearch from './HeroSearch.vue'
 import { useData } from '../composables/useData'
@@ -8,6 +8,11 @@ const { ambitos, currentScopeId, setScope } = useData()
 const route = useRoute()
 const menuOpen = ref(false)
 const isDark = ref(false)
+const scopeMenuOpen = ref(false)
+
+const currentScope = computed(() => {
+  return ambitos.value.find(a => a.id === currentScopeId.value) || ambitos.value[0]
+})
 
 function initTheme() {
   const saved = localStorage.getItem('lqv-theme')
@@ -32,9 +37,28 @@ function closeMenu() {
   menuOpen.value = false
 }
 
-function handleScopeChange(e) {
-  setScope(e.target.value)
+function toggleScopeMenu() {
+  scopeMenuOpen.value = !scopeMenuOpen.value
 }
+
+function selectScope(id) {
+  setScope(id)
+  scopeMenuOpen.value = false
+}
+
+function closeScopeMenu(e) {
+  if (!e.target.closest('.scope-dropdown')) {
+    scopeMenuOpen.value = false
+  }
+}
+
+onMounted(() => {
+  document.addEventListener('click', closeScopeMenu)
+})
+
+onUnmounted(() => {
+  document.removeEventListener('click', closeScopeMenu)
+})
 
 initTheme()
 </script>
@@ -44,17 +68,28 @@ initTheme()
     <div class="nav-inner">
       <div class="nav-left">
         <router-link to="/" class="nav-brand" @click="closeMenu">Lo Que Votan</router-link>
-        <select 
-          v-if="ambitos.length > 1"
-          class="scope-select" 
-          :value="currentScopeId" 
-          @change="handleScopeChange"
-          aria-label="Cambiar ámbito"
-        >
-          <option v-for="a in ambitos" :key="a.id" :value="a.id">
-            {{ a.id === 'nacional' ? '🇪🇸' : '🚩' }} {{ a.nombre }}
-          </option>
-        </select>
+        
+        <div class="scope-dropdown" v-if="ambitos.length > 1">
+          <button class="scope-btn" @click="toggleScopeMenu" :aria-expanded="scopeMenuOpen">
+            <span class="scope-icon">{{ currentScope?.id === 'nacional' ? '🇪🇸' : '🚩' }}</span>
+            <span class="scope-label">{{ currentScope?.nombre || 'Cargando...' }}</span>
+            <span class="scope-chevron">&#9662;</span>
+          </button>
+          
+          <div class="scope-menu" :class="{ 'scope-menu--open': scopeMenuOpen }">
+            <button 
+              v-for="a in ambitos" 
+              :key="a.id" 
+              class="scope-menu-item"
+              :class="{ active: a.id === currentScopeId }"
+              @click="selectScope(a.id)"
+            >
+              <span class="scope-icon">{{ a.id === 'nacional' ? '🇪🇸' : '🚩' }}</span>
+              {{ a.nombre }}
+              <span class="scope-check" v-if="a.id === currentScopeId">&#10003;</span>
+            </button>
+          </div>
+        </div>
       </div>
       <button class="nav-hamburger" aria-label="Menu" @click="menuOpen = !menuOpen">
         &#9776;
@@ -136,22 +171,102 @@ initTheme()
   gap: 0.75rem;
 }
 
-.scope-select {
-  background: var(--color-bg);
+.scope-dropdown {
+  position: relative;
+}
+
+.scope-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--color-surface-muted);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  padding: 0.2rem 0.4rem;
-  font-size: 0.75rem;
+  border-radius: 20px;
+  padding: 0.25rem 0.6rem 0.25rem 0.4rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  color: var(--color-text-secondary);
+  color: var(--color-text);
   cursor: pointer;
   outline: none;
-  max-width: 150px;
+  transition: all 0.2s ease;
+}
+
+.scope-btn:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary-lighter);
+}
+
+.scope-icon {
+  font-size: 1.1em;
+  line-height: 1;
+}
+
+.scope-label {
+  white-space: nowrap;
+  max-width: 160px;
+  overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.scope-select:hover {
-  border-color: var(--color-primary);
+.scope-chevron {
+  font-size: 0.7rem;
+  color: var(--color-muted);
+  margin-left: 0.2rem;
+}
+
+.scope-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  min-width: 220px;
+  padding: 0.4rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-5px);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 101;
+}
+
+.scope-menu--open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scope-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  background: transparent;
+  border: none;
+  text-align: left;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-text);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.scope-menu-item:hover {
+  background: var(--color-surface-muted);
+}
+
+.scope-menu-item.active {
+  background: var(--color-primary-lighter);
+  color: var(--color-primary);
+}
+
+.scope-check {
+  margin-left: auto;
+  font-weight: 800;
+  color: var(--color-primary);
 }
 
 .nav-brand {

@@ -46,13 +46,13 @@ jobs:
       - name: Run Andalusia update
         run: python scripts/andalucia/run_update.py
 
-      - name: Run CyL update
-        run: python scripts/cyl/run_update.py
+      - name: Build global index
+        run: python scripts/build_global_index.py
 
       - name: Commit and push if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add public/data/ data/cache_categorias.json data/andalucia/cache_categorias.json public/data/ambitos.json
-          git diff --staged --quiet || git commit -m "chore: update voting data (National + Andalusia + CyL) $(date +%Y-%m-%d)"
+          git add public/data/ data/cache_categorias.json data/andalucia/cache_categorias.json
+          git diff --staged --quiet || git commit -m "chore: update voting data (National + Andalusia) $(date +%Y-%m-%d)"
           git push

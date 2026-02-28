@@ -11,7 +11,7 @@ import AccountabilityCard from '../components/AccountabilityCard.vue'
 
 const route = useRoute()
 const router = useRouter()
-const { diputados, grupos, dipStats, dipFotos, votos, votaciones, votResults, votosByDiputado, categorias, loadVotosForLeg, votosLoaded, votsByExp } = useData()
+const { diputados, grupos, dipStats, dipFotos, votos, votaciones, votResults, votosByDiputado, categorias, loadVotosForLeg, votosLoaded, votsByExp, globalDiputados, ambitos, currentScopeId, setScope } = useData()
 
 const dipIdx = computed(() => diputados.value.indexOf(decodeURIComponent(route.params.name)))
 const name = computed(() => diputados.value[dipIdx.value])
@@ -20,6 +20,19 @@ const grupoName = computed(() =>
   ds.value?.mainGrupo >= 0 ? grupos.value[ds.value.mainGrupo] : 'Sin grupo'
 )
 const photoUrl = computed(() => dipPhotoUrl(dipFotos.value[dipIdx.value]))
+
+const otherScopes = computed(() => {
+  if (!name.value || !globalDiputados.value[name.value]) return [];
+  const scopesForDip = globalDiputados.value[name.value];
+  return ambitos.value.filter(a => a.id !== currentScopeId.value && scopesForDip.includes(a.id));
+})
+
+function navigateToScope(scopeId) {
+  setScope(scopeId).then(() => {
+    // Re-trigger navigation to same route but it will now render in the context of the new scope
+    router.replace(`/diputado/${encodeURIComponent(name.value)}`)
+  })
+}
 
 // History filters
 const histSearch = ref('')
@@ -249,13 +262,25 @@ watch(name, (n) => {
         <img v-if="photoUrl" :src="photoUrl" :alt="name" class="dip-detail-photo">
         <span v-else class="dip-detail-avatar" :style="avatarStyle(name)">{{ avatarInitials(name) }}</span>
         <div>
-        <h1 style="margin:0">{{ name }}</h1>
-        <div class="detail-meta" style="margin-top:0.5rem">
-          <router-link :to="{ path: '/diputados', query: { grupo: grupoName } }" class="badge badge--grupo">{{ grupoName }}</router-link>
-          <span class="detail-meta-item">{{ ds.total }} votaciones</span>
-          <span class="detail-meta-item">Lealtad al grupo: {{ pct(ds.loyalty) }}</span>
-          <span v-for="l in ds.legislaturas" :key="l" class="badge badge--leg">{{ l }}</span>
-        </div>
+          <h1 style="margin:0">{{ name }}</h1>
+          <div class="detail-meta" style="margin-top:0.5rem">
+            <router-link :to="{ path: '/diputados', query: { grupo: grupoName } }" class="badge badge--grupo">{{ grupoName }}</router-link>
+            <span class="detail-meta-item">{{ ds.total }} votaciones</span>
+            <span class="detail-meta-item">Lealtad al grupo: {{ pct(ds.loyalty) }}</span>
+            <span v-for="l in ds.legislaturas" :key="l" class="badge badge--leg">{{ l }}</span>
+          </div>
+          
+          <div v-if="otherScopes.length > 0" style="margin-top: 0.75rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+            <span style="font-size: 0.85rem; color: var(--color-text-secondary); font-weight: 500;">También en:</span>
+            <button 
+              v-for="a in otherScopes" 
+              :key="a.id"
+              class="btn btn--sm btn--outline"
+              @click="navigateToScope(a.id)"
+            >
+              {{ a.id === 'nacional' ? '🇪🇸' : '🚩' }} {{ a.nombre }} &rarr;
+            </button>
+          </div>
         </div>
       </div>
 

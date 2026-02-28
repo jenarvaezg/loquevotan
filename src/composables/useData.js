@@ -28,6 +28,8 @@ const votsByExp = shallowRef({});
 const votacionDetail = shallowRef({});
 const votIdById = shallowRef({});
 
+const globalDiputados = shallowRef({});
+
 const votosLoaded = ref(new Set());
 
 let _loadPromise = null;
@@ -43,6 +45,14 @@ async function _doLoad(retryCount = 0) {
     if (ambitosResp.ok) {
       const config = await ambitosResp.json();
       ambitos.value = config.ambitos || [];
+    }
+
+    // Load global diputados index
+    if (Object.keys(globalDiputados.value).length === 0) {
+      const gResp = await fetch(import.meta.env.BASE_URL + "data/global_diputados.json");
+      if (gResp.ok) {
+        globalDiputados.value = await gResp.json();
+      }
     }
 
     const scopePath = currentScopeId.value === "nacional" ? "" : `${currentScopeId.value}/`;
@@ -190,6 +200,7 @@ export function useData() {
     votacionDetail,
     votIdById,
     votosLoaded,
+    globalDiputados,
     loadVotosForLeg,
     retryLoad,
   };
