@@ -1,0 +1,154 @@
+{
+  "title": "¿A quién voto en Andalucía?",
+  "description": "Descubre qué partido del Parlamento andaluz vota más parecido a ti en cuestiones clave de la próxima campaña: agua, sanidad, vivienda, fiscalidad y derechos.",
+  "groups": [
+    "PP",
+    "PSOE",
+    "VOX",
+    "POR ANDALUCÍA",
+    "PODEMOS",
+    "ADELANTE"
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "topic": "Agua y Doñana",
+      "text": "Regularizar nuevos regadíos en el entorno de Doñana para ampliar superficie agrícola.",
+      "weight": 1.35,
+      "votes": {
+        "PP": "si",
+        "PSOE": "no",
+        "VOX": "si",
+        "POR ANDALUCÍA": "no",
+        "PODEMOS": "no",
+        "ADELANTE": "no"
+      }
+    },
+    {
+      "id": "q2",
+      "topic": "Sanidad",
+      "text": "Plan de choque para reducir listas de espera reforzando exclusivamente la red pública.",
+      "weight": 1.4,
+      "votes": {
+        "PP": "no",
+        "PSOE": "si",
+        "VOX": "no",
+        "POR ANDALUCÍA": "si",
+        "PODEMOS": "si",
+        "ADELANTE": "si"
+      }
+    },
+    {
+      "id": "q3",
+      "topic": "Vivienda",
+      "text": "Limitar viviendas turísticas en zonas tensionadas para proteger alquiler residencial.",
+      "weight": 1.35,
+      "votes": {
+        "PP": "no",
+        "PSOE": "si",
+        "VOX": "no",
+        "POR ANDALUCÍA": "si",
+        "PODEMOS": "si",
+        "ADELANTE": "si"
+      }
+    },
+    {
+      "id": "q4",
+      "topic": "Fiscalidad",
+      "text": "Bajar de forma general el tramo autonómico del IRPF.",
+      "weight": 1.15,
+      "votes": {
+        "PP": "si",
+        "PSOE": "no",
+        "VOX": "si",
+        "POR ANDALUCÍA": "no",
+        "PODEMOS": "no",
+        "ADELANTE": "no"
+      }
+    },
+    {
+      "id": "q5",
+      "topic": "Igualdad",
+      "text": "Reforzar la red integral andaluza contra la violencia machista.",
+      "weight": 1.35,
+      "votes": {
+        "PP": "si",
+        "PSOE": "si",
+        "VOX": "no",
+        "POR ANDALUCÍA": "si",
+        "PODEMOS": "si",
+        "ADELANTE": "si"
+      }
+    },
+    {
+      "id": "q6",
+      "topic": "Presupuestos",
+      "text": "Aprobar presupuestos con regla de gasto estricta y techo de deuda reforzado.",
+      "weight": 1.25,
+      "votes": {
+        "PP": "si",
+        "PSOE": "abstencion",
+        "VOX": "si",
+        "POR ANDALUCÍA": "abstencion",
+        "PODEMOS": "no",
+        "ADELANTE": "no"
+      }
+    },
+    {
+      "id": "q7",
+      "topic": "Movilidad",
+      "text": "Tarjeta joven metropolitana con bonificación permanente para transporte público.",
+      "weight": 1.2,
+      "votes": {
+        "PP": "si",
+        "PSOE": "si",
+        "VOX": "no",
+        "POR ANDALUCÍA": "si",
+        "PODEMOS": "si",
+        "ADELANTE": "si"
+      }
+    },
+    {
+      "id": "q8",
+      "topic": "Energía y Territorio",
+      "text": "Moratoria de macroplantas solares en suelos agrarios de alto valor.",
+      "weight": 1.2,
+      "votes": {
+        "PP": "no",
+        "PSOE": "abstencion",
+        "VOX": "no",
+        "POR ANDALUCÍA": "si",
+        "PODEMOS": "no",
+        "ADELANTE": "si"
+      }
+    },
+    {
+      "id": "q9",
+      "topic": "Financiación Autonómica",
+      "text": "Reclamar condonación parcial de deuda para reforzar servicios públicos andaluces.",
+      "weight": 1.25,
+      "votes": {
+        "PP": "no",
+        "PSOE": "si",
+        "VOX": "no",
+        "POR ANDALUCÍA": "si",
+        "PODEMOS": "si",
+        "ADELANTE": "si"
+      }
+    },
+    {
+      "id": "q10",
+      "topic": "Educación",
+      "text": "Reducir ratios en la escuela pública y frenar cierres de aulas rurales.",
+      "weight": 1.3,
+      "votes": {
+        "PP": "no",
+        "PSOE": "si",
+        "VOX": "no",
+        "POR ANDALUCÍA": "si",
+        "PODEMOS": "si",
+        "ADELANTE": "si"
+      }
+    }
+  ]
+}
