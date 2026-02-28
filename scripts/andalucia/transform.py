@@ -59,7 +59,7 @@ def transform():
     # 3. Categories and tags
     categorias_all = {"Otros"}
     for item in cache.values():
-        categorias_all.add(item["categoria"])
+        categorias_all.add(item.get("categoria_principal", item.get("categoria", "Otros")))
     
     categorias_list = sorted(list(categorias_all))
     cat_to_idx = {c: i for i, c in enumerate(categorias_list)}
@@ -68,6 +68,7 @@ def transform():
     votaciones_meta_list = []
     vot_results = []
     tag_counts = {}
+    group_majority = {}
     
     votos_by_leg = {leg: [] for leg in LEGISLATURAS}
     vot_detail_by_leg = {leg: {} for leg in LEGISLATURAS}
@@ -77,9 +78,9 @@ def transform():
     
     for i, v in enumerate(all_raw_votes):
         cat_info = cache.get(v["titulo"], {
-            "categoria": "Otros",
+            "categoria_principal": "Otros",
             "etiquetas": ["andalucia"],
-            "resumen": "Votación en el Parlamento de Andalucía",
+            "resumen_sencillo": "Votación en el Parlamento de Andalucía",
             "titulo_ciudadano": v["titulo"]
         })
         
@@ -91,41 +92,139 @@ def transform():
         contra = 0
         abstencion = 0
         no_vota = 0
+        
+        by_group = {}
+        
         for voto in v["votos"]:
             s = voto["voto"]
-            if s == "si": favor += 1
-            elif s == "no": contra += 1
-            elif s == "abstencion": abstencion += 1
-            else: no_vota += 1
+            code = 4
+            if s == "si": 
+                favor += 1
+                code = 1
+            elif s == "no": 
+                contra += 1
+                code = 2
+            elif s == "abstencion": 
+                abstencion += 1
+                code = 3
+            else: 
+                no_vota += 1
+                code = 4
+            
+            grp_idx = grupo_to_idx[voto["grupo"]]
+            
+            if grp_idx not in by_group:
+                by_group[grp_idx] = {1: 0, 2: 0, 3: 0, 4: 0}
+            by_group[grp_idx][code] += 1
             
             votos_by_leg[leg_key].append([
                 vot_idx,
                 dip_id_to_idx[voto["diputadoId"]],
-                grupo_to_idx[voto["grupo"]],
-                1 if s == "si" else 2 if s == "no" else 3 if s == "abstencion" else 4
+                grp_idx,
+                code
             ])
             
         votaciones_meta_list.append({
             "id": v["id"],
-            "leg": leg_roman,
+            "legislatura": leg_roman,
             "fecha": v["fecha"],
-            "tit": cat_info["titulo_ciudadano"],
-            "cat": cat_to_idx[cat_info["categoria"]],
-            "tags": cat_info["etiquetas"]
+            "titulo_ciudadano": cat_info.get("titulo_ciudadano", v["titulo"]),
+            "categoria": cat_to_idx[cat_info.get("categoria_principal", cat_info.get("categoria", "Otros"))],
+            "etiquetas": cat_info.get("etiquetas", [])
         })
         
-        vot_results.append([favor, contra, abstencion, no_vota])
+        total = favor + contra + abstencion
+        result = "Aprobada" if favor > contra else ("Rechazada" if contra > favor else "Empate")
+        vot_results.append({
+            "favor": favor,
+            "contra": contra,
+            "abstencion": abstencion,
+            "total": total,
+            "result": result,
+            "margin": abs(favor - contra),
+        })
         
-        for tag in cat_info["etiquetas"]:
+        gm = {}
+        for g_idx, c in by_group.items():
+            if c[1] >= c[2] and c[1] >= c[3]:
+                gm[g_idx] = 1
+            elif c[2] >= c[3]:
+                gm[g_idx] = 2
+            else:
+                gm[g_idx] = 3
+        group_majority[vot_idx] = gm
+        
+        for tag in cat_info.get("etiquetas", []):
             tag_counts[tag] = tag_counts.get(tag, 0) + 1
             
         vot_detail_by_leg[leg_key][vot_idx] = {
-            "resumen": cat_info["resumen"],
+            "resumen": cat_info.get("resumen_sencillo", cat_info.get("resumen", "")),
             "textoOficial": v["titulo"],
-            "urlAndalucia": f"https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id={v.get('id', '')}"
+            "urlCongreso": f"https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id={v.get('id', '')}"
         }
 
     # 5. Generate meta file
+    dip_stats = []
+    vbd = {} # dipIdx -> list of (votIdx, code, grpIdx, leg_roman)
+    
+    for leg in LEGISLATURAS:
+        for v in votos_by_leg[leg]:
+            votIdx, dipIdx, grpIdx, code = v
+            if dipIdx not in vbd:
+                vbd[dipIdx] = []
+            vbd[dipIdx].append((votIdx, code, grpIdx, leg))
+            
+    for di in range(len(diputados_list)):
+        indices = vbd.get(di, [])
+        t = {1: 0, 2: 0, 3: 0, 4: 0}
+        grupo_count = {}
+        loyal = 0
+        leg_set = set()
+        
+        for (votIdx, code, grpIdx, leg) in indices:
+            t[code] += 1
+            grupo_count[grpIdx] = grupo_count.get(grpIdx, 0) + 1
+            maj = group_majority.get(votIdx, {})
+            if maj.get(grpIdx) == code:
+                loyal += 1
+            leg_set.add(leg)
+            
+        total = t[1] + t[2] + t[3] # Exclude no_vota from total if we align with National
+        main_grupo = -1
+        if grupo_count:
+            main_grupo = max(grupo_count, key=grupo_count.get)
+            
+        dip_stats.append({
+            "favor": t[1],
+            "contra": t[2],
+            "abstencion": t[3],
+            "total": total,
+            "mainGrupo": main_grupo,
+            "loyalty": round(loyal / total, 4) if total > 0 else 0,
+            "legislaturas": list(leg_set)
+        })
+        
+    # Pre-computando afinidad entre grupos
+    group_affinity_by_leg = {}
+    for leg_id in LEGISLATURAS + [""]:
+        ga = {}
+        for vi in range(len(votaciones_meta_list)):
+            if leg_id and votaciones_meta_list[vi].get("legislatura") != leg_id:
+                continue
+            gm = group_majority.get(vi, {})
+            g_keys = sorted(gm.keys())
+            for a in range(len(g_keys)):
+                for b in range(a + 1, len(g_keys)):
+                    ka, kb = g_keys[a], g_keys[b]
+                    key = f"{ka},{kb}" if ka < kb else f"{kb},{ka}"
+                    if key not in ga:
+                        ga[key] = {"same": 0, "total": 0}
+                    ga[key]["total"] += 1
+                    if gm[ka] == gm[kb]:
+                        ga[key]["same"] += 1
+        if ga:
+            group_affinity_by_leg[leg_id] = ga
+
     meta = {
         "diputados": [d["nombre"] for d in diputados_list],
         "grupos": grupos_list,
@@ -135,20 +234,13 @@ def transform():
         "tagCounts": tag_counts,
         "topTags": sorted(tag_counts.items(), key=lambda x: x[1], reverse=True)[:20],
         "sortedVotIdxByDate": list(range(len(votaciones_meta_list))), 
-        "dipStats": [[0,0,0,0] for _ in diputados_list],
-        "groupAffinityByLeg": {leg: [] for leg in LEGISLATURAS}, 
+        "dipStats": dip_stats,
+        "groupAffinityByLeg": group_affinity_by_leg, 
         "votsByExp": {},
         "votIdById": {v["id"]: i for i, v in enumerate(votaciones_meta_list)},
         "dipFotos": [d.get("foto") for d in diputados_list]
     }
     
-    # Calculate dipStats across all legislaturas
-    for leg in LEGISLATURAS:
-        for v in votos_by_leg[leg]:
-            dip_idx = v[1]
-            sense = v[3]
-            meta["dipStats"][dip_idx][sense-1] += 1
-
     with open(META_FILE, "w") as f:
         json.dump(meta, f, separators=(',', ':'))
         
