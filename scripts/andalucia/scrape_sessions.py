@@ -11,10 +11,17 @@ def get_session_links():
     legislaturas = ["12", "11", "10", "9"]
     all_sessions = []
     
+    index_file = "data/andalucia/sessions_index.json"
+    if os.path.exists(index_file):
+        with open(index_file, "r") as f:
+            all_sessions = json.load(f)
+            
+    existing_doc_ids = {s['doc_id'] for s in all_sessions}
+    new_sessions = []
+    
     for legis in legislaturas:
         print(f"--- Processing Legislatura {legis} ---")
         # Most legislatures won't have more than 100 sessions, so 0, 15, 30, 45, 60, 75, 90 should cover most
-        # We'll check if we find new links in each page
         for indice in range(0, 150, 15):
             url = f"{base_url}&legislatura={legis}&indice={indice}"
             print(f"Fetching page with index {indice}...")
@@ -35,16 +42,16 @@ def get_session_links():
                 if id_match:
                     doc_id = id_match.group(1)
                     
-                    # Avoid duplicates
-                    if any(s['doc_id'] == doc_id for s in all_sessions):
+                    if doc_id in existing_doc_ids:
                         continue
                     
                     found_new = True
+                    existing_doc_ids.add(doc_id)
                     session_match = re.search(r'sesión número (\d+)', text)
                     doc_num_match = re.search(r'Documento número (\d+)', text)
                     date_match = re.search(r'(\d{2}/\d{2}/\d{4})', text)
                     
-                    all_sessions.append({
+                    new_sessions.append({
                         "doc_id": doc_id,
                         "legis_id": legis,
                         "session": session_match.group(1) if session_match else "Unknown",
@@ -53,10 +60,12 @@ def get_session_links():
                         "url": full_url
                     })
             
+            # If all links on this page were already known, we don't need to check older pages for this legislatura
             if not found_new:
+                print("No new sessions found on this page, stopping for this legislatura.")
                 break
             
-    return all_sessions
+    return all_sessions + new_sessions
 
 if __name__ == "__main__":
     sessions = get_session_links()
