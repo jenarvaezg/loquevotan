@@ -1,8 +1,29 @@
 [
   {
-    "id": "MAD-XIII-22-4-23",
+    "id": "MAD-XIII-2-pos-345672",
+    "fecha": "22 de junio de 2023",
+    "titulo": "Fernández-Lasquetty Blanc, Francisco Javier.",
+    "group_votes": {
+      "PP": "si",
+      "Vox": "abstencion",
+      "Más Madrid": "no",
+      "PSOE-M": "no"
+    },
+    "results_raw": {
+      "favor": 70,
+      "contra": 54,
+      "abstencion": 10,
+      "present": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por disciplina de grupo (Asamblea de Madrid no publica votos individuales en actas ordinarias)."
+    }
+  },
+  {
+    "id": "MAD-XIII-22-pos-469145",
     "fecha": "14 de septiembre de 2023",
-    "titulo": "la Asamblea de Madrid insta al Gobierno de la Comunidad de Madrid a crear un soporte de pago del transporte público madrileño que cumpla las características e implique los beneficios en el uso de un billete monedero o billete combinado",
+    "titulo": "En primer lugar, se procede a someter a votación la Proposición No de Ley 4/23. Iniciamos la",
     "group_votes": {
       "PP": "no",
       "Vox": "abstencion",
@@ -14,6 +35,48 @@
       "contra": 62,
       "abstencion": 11,
       "present": 127
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por disciplina de grupo (Asamblea de Madrid no publica votos individuales en actas ordinarias)."
+    }
+  },
+  {
+    "id": "MAD-XIII-22-pos-469443",
+    "fecha": "14 de septiembre de 2023",
+    "titulo": "a votación la PNL 6/23. Iniciamos la votación. (Pausa.) El",
+    "group_votes": {
+      "PP": "no",
+      "Vox": "abstencion",
+      "Más Madrid": "si",
+      "PSOE-M": "si"
+    },
+    "results_raw": {
+      "favor": 54,
+      "contra": 68,
+      "abstencion": 11,
+      "present": 133
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por disciplina de grupo (Asamblea de Madrid no publica votos individuales en actas ordinarias)."
+    }
+  },
+  {
+    "id": "MAD-XIII-30-pos-138871",
+    "fecha": "20 de septiembre de 2023",
+    "titulo": "del parecer favorable de la comisión sobre la comunicación del Gobierno 30/2023, número de registro",
+    "group_votes": {
+      "PP": "si",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "results_raw": {
+      "favor": 10,
+      "contra": 6,
+      "abstencion": 0,
+      "present": 135
     },
     "metadatos": {
       "tipo": "deduccion_grupal",

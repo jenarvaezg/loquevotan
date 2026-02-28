@@ -2,7 +2,7 @@
 import { computed, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useData } from '../composables/useData'
-import { fmt, normalize, VOTO_LABELS, resultMarginText, subTipoLabel, subTipoBadgeClass, votoPillClass } from '../utils'
+import { fmt, normalize, VOTO_LABELS, resultMarginText, subTipoLabel, subTipoBadgeClass, votoPillClass, getGroupInfo } from '../utils'
 import VoteBar from '../components/VoteBar.vue'
 import ResultBadge from '../components/ResultBadge.vue'
 import ShareBar from '../components/ShareBar.vue'
@@ -188,6 +188,13 @@ watch(vot, (v) => {
         </div>
 
         <p v-if="vot.resumen" class="detail-summary" style="margin-top:0.5rem">{{ vot.resumen }}</p>
+        
+        <!-- Nota explicativa para votos deducidos -->
+        <div v-if="vot.metadatos?.tipo === 'deduccion_grupal'" class="deduced-note">
+          <span class="deduced-icon">ℹ️</span>
+          <p>{{ vot.metadatos.nota }}</p>
+        </div>
+
         <p v-if="vot.subgrupo" class="detail-subgrupo">{{ vot.subgrupo }}</p>
         <div class="detail-meta" style="margin-top:0.75rem">
           <ResultBadge :result="r.result" large />
@@ -205,8 +212,17 @@ watch(vot, (v) => {
       <div v-if="vot.textoOficial" class="detail-section detail-oficial">
         <h2>Texto oficial del expediente</h2>
         <blockquote class="texto-oficial">{{ vot.textoOficial }}</blockquote>
-        <a v-if="vot.urlCongreso" :href="vot.urlCongreso" target="_blank" rel="noopener" class="link-congreso">
+        <a v-if="vot.urlCongreso" :href="vot.urlCongreso" target="_blank" rel="noopener" class="link-external">
           Ver en congreso.es &nearr;
+        </a>
+        <a v-else-if="vot.urlAndalucia" :href="vot.urlAndalucia" target="_blank" rel="noopener" class="link-external">
+          Ver en parlamentodeandalucia.es &nearr;
+        </a>
+        <a v-else-if="vot.urlCyL" :href="vot.urlCyL" target="_blank" rel="noopener" class="link-external">
+          Ver en ccyl.es &nearr;
+        </a>
+        <a v-else-if="vot.urlMadrid" :href="vot.urlMadrid" target="_blank" rel="noopener" class="link-external">
+          Ver en asambleamadrid.es &nearr;
         </a>
       </div>
 
@@ -239,7 +255,11 @@ watch(vot, (v) => {
               </thead>
               <tbody>
                 <tr v-for="gIdx in sortedGroups" :key="gIdx">
-                  <td><router-link :to="{ path: '/diputados', query: { grupo: grupos[gIdx] } }" class="badge badge--grupo">{{ grupos[gIdx] }}</router-link></td>
+                  <td>
+                    <router-link :to="{ path: '/diputados', query: { grupo: grupos[gIdx] } }" class="badge" :style="{ backgroundColor: getGroupInfo(grupos[gIdx]).color, color: 'white' }">
+                      {{ getGroupInfo(grupos[gIdx]).label }}
+                    </router-link>
+                  </td>
                   <td>{{ byGroup[gIdx][1] }}</td>
                   <td>{{ byGroup[gIdx][2] }}</td>
                   <td>{{ byGroup[gIdx][3] }}</td>
@@ -338,7 +358,11 @@ watch(vot, (v) => {
                       {{ diputados[votos[vi][1]] }}
                     </router-link>
                   </td>
-                  <td data-label="Grupo"><router-link :to="{ path: '/diputados', query: { grupo: grupos[votos[vi][2]] } }" class="badge badge--grupo">{{ grupos[votos[vi][2]] }}</router-link></td>
+                  <td data-label="Grupo">
+                    <router-link :to="{ path: '/diputados', query: { grupo: grupos[votos[vi][2]] } }" class="badge" :style="{ backgroundColor: getGroupInfo(grupos[votos[vi][2]]).color, color: 'white' }">
+                      {{ getGroupInfo(grupos[votos[vi][2]]).label }}
+                    </router-link>
+                  </td>
                   <td data-label="Voto">
                     <span class="voto-pill" :class="votoPillClass(votos[vi][3])">
                       {{ VOTO_LABELS[votos[vi][3]] || '?' }}
@@ -382,6 +406,22 @@ watch(vot, (v) => {
   color: var(--color-muted);
   line-height: 1.5;
 }
+
+.deduced-note {
+  margin-top: 0.75rem;
+  padding: 0.6rem 0.85rem;
+  background: var(--color-primary-lighter);
+  border-radius: var(--radius-sm);
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-primary-light);
+}
+
+.deduced-note p { margin: 0; line-height: 1.4; }
+.deduced-icon { font-size: 1rem; flex-shrink: 0; }
 
 .detail-subgrupo {
   margin: 0.25rem 0 0;
@@ -454,11 +494,7 @@ watch(vot, (v) => {
   resize: none;
 }
 
-.link-congreso {
-  font-style: italic;
-}
-
-.link-congreso {
+.link-external {
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
@@ -466,9 +502,10 @@ watch(vot, (v) => {
   font-weight: 600;
   color: var(--color-primary);
   text-decoration: none;
+  font-style: italic;
 }
 
-.link-congreso:hover { text-decoration: underline; }
+.link-external:hover { text-decoration: underline; }
 
 .vote-totals {
   display: flex;
