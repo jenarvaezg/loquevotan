@@ -126,6 +126,15 @@ initTheme()
         </li>
         <li>
           <router-link
+            to="/rankings"
+            :class="{ active: route.path === '/rankings' }"
+            @click="closeMenu"
+          >
+            Rankings
+          </router-link>
+        </li>
+        <li>
+          <router-link
             to="/grupos"
             :class="{ active: route.path === '/grupos' }"
             @click="closeMenu"

@@ -44,6 +44,11 @@ const router = createRouter({
       component: () => import("./views/ComparadorView.vue"),
     },
     {
+      path: "/rankings",
+      name: "rankings",
+      component: () => import("./views/RankingsView.vue"),
+    },
+    {
       path: "/afinidad",
       name: "afinidad",
       component: () => import("./views/AffinityDetail.vue"),

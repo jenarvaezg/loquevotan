@@ -50,11 +50,19 @@ def transform():
     titles_to_categorize = []
     
     for v in all_raw_votes:
+        leg_id_raw = v["id"].split("-")[1] 
         for voto in v["votos"]:
+            d_id = voto["diputadoId"]
             if voto["diputadoId"] not in deputados_all:
-                dep_data = raw_deps_map.get(voto["diputadoId"], {})
-                deputados_all[voto["diputadoId"]] = {
-                    "id": voto["diputadoId"],
+                # Try to find with possible prefixes
+                dep_data = raw_deps_map.get(d_id)
+                if not dep_data:
+                    dep_data = raw_deps_map.get(f"CYL-{leg_id_raw}-{d_id}")
+                if not dep_data:
+                    dep_data = {}
+                
+                deputados_all[d_id] = {
+                    "id": d_id,
                     "nombre": voto["diputado"],
                     "grupo": voto["grupo"],
                     "foto": dep_data.get("foto"),
@@ -223,6 +231,7 @@ def transform():
             "favor": t[1],
             "contra": t[2],
             "abstencion": t[3],
+            "no_vota": t[4],
             "total": total,
             "mainGrupo": main_g,
             "loyalty": round(loyal / total, 4) if total > 0 else 0,

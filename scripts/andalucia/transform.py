@@ -235,6 +235,7 @@ def transform():
             "favor": t[1],
             "contra": t[2],
             "abstencion": t[3],
+            "no_vota": t[4],
             "total": total,
             "mainGrupo": main_grupo,
             "loyalty": round(loyal / total, 4) if total > 0 else 0,

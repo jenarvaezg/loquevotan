@@ -318,7 +318,7 @@ def main():
     for d_id in sorted_dips:
         # This would be slow to re-calculate every time from all legs
         # But for now let's do it simply
-        stats = {"favor": 0, "contra": 0, "abstencion": 0, "total": 0, "loyal": 0}
+        stats = {"favor": 0, "contra": 0, "abstencion": 0, "no_vota": 0, "total": 0, "loyal": 0}
         my_legs = set()
         
         for leg in votos_by_leg:
@@ -328,6 +328,7 @@ def main():
                     if code == 1: stats["favor"] += 1
                     elif code == 2: stats["contra"] += 1
                     elif code == 3: stats["abstencion"] += 1
+                    elif code == 4: stats["no_vota"] += 1
                     
                     if code in (1, 2, 3):
                         stats["total"] += 1
@@ -341,6 +342,7 @@ def main():
             "favor": stats["favor"],
             "contra": stats["contra"],
             "abstencion": stats["abstencion"],
+            "no_vota": stats["no_vota"],
             "total": stats["total"],
             "mainGrupo": grupo_to_idx[unique_diputados[d_id]["grupo"]],
             "loyalty": round(stats["loyal"] / stats["total"], 4) if stats["total"] > 0 else 0,
