@@ -17,29 +17,33 @@ const PARTIAL_MATCH_FACTOR = 0.35
 const SOCIAL_AXIS_THRESHOLD = 15
 const ECONOMIC_AXIS_THRESHOLD = 15
 const COMPASS_MIN_QUESTIONS_FOR_HIGH_CONFIDENCE = 14
+const COMPASS_DISPLAY_MARGIN = 8
+const COMPASS_DISPLAY_SOFTNESS = 1.12
+const COMPASS_EMPIRICAL_SCALE = 30
+const COMPASS_EMPIRICAL_BLEND_BASE = 0.58
 
 const PARTY_ANCHORS = {
-  PSOE: { economic: -28, social: -30, color: '#ef4444' },
-  PP: { economic: 60, social: 35, color: '#2563eb' },
-  VOX: { economic: 86, social: 84, color: '#16a34a' },
-  SUMAR: { economic: -78, social: -82, color: '#db2777' },
-  PODEMOS: { economic: -90, social: -88, color: '#7c3aed' },
-  ERC: { economic: -42, social: -58, color: '#f59e0b' },
-  JUNTS: { economic: 16, social: -8, color: '#0ea5e9' },
-  PNV: { economic: 22, social: -6, color: '#14b8a6' },
+  PSOE: { economic: -18, social: -22, color: '#ef4444' },
+  PP: { economic: 28, social: 24, color: '#2563eb' },
+  VOX: { economic: 52, social: 55, color: '#16a34a' },
+  SUMAR: { economic: -38, social: -44, color: '#db2777' },
+  PODEMOS: { economic: -48, social: -52, color: '#7c3aed' },
+  ERC: { economic: -30, social: -40, color: '#f59e0b' },
+  JUNTS: { economic: 8, social: -4, color: '#0ea5e9' },
+  PNV: { economic: 6, social: -8, color: '#14b8a6' },
 
-  CS: { economic: 45, social: 16, color: '#f97316' },
+  CS: { economic: 24, social: 6, color: '#f97316' },
   'UPL-SY': { economic: -8, social: -12, color: '#a855f7' },
-  'POR ANDALUCÍA': { economic: -78, social: -80, color: '#ec4899' },
-  ADELANTE: { economic: -82, social: -72, color: '#8b5cf6' },
+  'POR ANDALUCÍA': { economic: -40, social: -46, color: '#ec4899' },
+  ADELANTE: { economic: -45, social: -35, color: '#8b5cf6' },
 
-  'PSOE DE ANDALUCÍA': { economic: -28, social: -30, color: '#ef4444' },
-  'POPULAR ANDALUZ': { economic: 60, social: 35, color: '#2563eb' },
-  'VOX EN ANDALUCÍA': { economic: 86, social: 84, color: '#16a34a' },
-  'UNIDAS PODEMOS POR ANDALUCÍA': { economic: -88, social: -84, color: '#7c3aed' },
-  'ADELANTE ANDALUCÍA': { economic: -82, social: -72, color: '#8b5cf6' },
-  'MIXTO-ADELANTE ANDALUCÍA': { economic: -82, social: -72, color: '#8b5cf6' },
-  CIUDADANOS: { economic: 45, social: 16, color: '#f97316' }
+  'PSOE DE ANDALUCÍA': { economic: -18, social: -22, color: '#ef4444' },
+  'POPULAR ANDALUZ': { economic: 28, social: 24, color: '#2563eb' },
+  'VOX EN ANDALUCÍA': { economic: 52, social: 55, color: '#16a34a' },
+  'UNIDAS PODEMOS POR ANDALUCÍA': { economic: -46, social: -50, color: '#7c3aed' },
+  'ADELANTE ANDALUCÍA': { economic: -45, social: -35, color: '#8b5cf6' },
+  'MIXTO-ADELANTE ANDALUCÍA': { economic: -45, social: -35, color: '#8b5cf6' },
+  CIUDADANOS: { economic: 24, social: 6, color: '#f97316' }
 }
 
 const PARTY_ALIAS = {
@@ -134,6 +138,22 @@ function pearsonCorrelation(xs, ys) {
 function normalizeAxisScore(score, maxScore) {
   if (!maxScore) return 0
   return clamp(Math.round((score / maxScore) * 100), -100, 100)
+}
+
+function normalizeAxisScoreEmpirical(score, center, spread, empiricalScale = COMPASS_EMPIRICAL_SCALE) {
+  if (!spread) return 0
+  return clamp(Math.round(((score - center) / spread) * empiricalScale), -100, 100)
+}
+
+function blendAxisScore(score, maxScore, center, spread, empiricalBlend) {
+  const theoretical = normalizeAxisScore(score, maxScore)
+  if (!spread) return theoretical
+  const empirical = normalizeAxisScoreEmpirical(score, center, spread)
+  return clamp(
+    Math.round((theoretical * (1 - empiricalBlend)) + (empirical * empiricalBlend)),
+    -100,
+    100
+  )
 }
 
 function classifyCompassConfidence(confidence, answeredQuestions) {
@@ -372,17 +392,41 @@ const compassData = computed(() => {
     })
   })
 
+  const partyEconomicValues = groups.map((group) => partyScores[group].economic)
+  const partySocialValues = groups.map((group) => partyScores[group].social)
+  const economicCenter = mean(partyEconomicValues)
+  const socialCenter = mean(partySocialValues)
+  const economicSpread = standardDeviation(partyEconomicValues)
+  const socialSpread = standardDeviation(partySocialValues)
+  const empiricalBlend = clamp(
+    COMPASS_EMPIRICAL_BLEND_BASE + ((8 - groups.length) * 0.06),
+    0.5,
+    0.82
+  )
+
   const user = {
-    economic: normalizeAxisScore(userEconomic, maxEconomic),
-    social: normalizeAxisScore(userSocial, maxSocial)
+    economic: blendAxisScore(userEconomic, maxEconomic, economicCenter, economicSpread, empiricalBlend),
+    social: blendAxisScore(userSocial, maxSocial, socialCenter, socialSpread, empiricalBlend)
   }
 
   const affinityOrder = affinities.value.map((result) => result.group)
   const partiesByAffinity = groups
     .map((group) => ({
       group,
-      economic: normalizeAxisScore(partyScores[group].economic, maxEconomic),
-      social: normalizeAxisScore(partyScores[group].social, maxSocial)
+      economic: blendAxisScore(
+        partyScores[group].economic,
+        maxEconomic,
+        economicCenter,
+        economicSpread,
+        empiricalBlend
+      ),
+      social: blendAxisScore(
+        partyScores[group].social,
+        maxSocial,
+        socialCenter,
+        socialSpread,
+        empiricalBlend
+      )
     }))
     .sort((a, b) => affinityOrder.indexOf(a.group) - affinityOrder.indexOf(b.group))
 
@@ -450,12 +494,12 @@ const userCompassLabel = computed(() => {
 })
 
 function pointStyle(point) {
-  const x = clamp(Number(point?.economic) || 0, -100, 100)
-  const y = clamp(Number(point?.social) || 0, -100, 100)
+  const x = squashAxisForDisplay(Number(point?.economic) || 0)
+  const y = squashAxisForDisplay(Number(point?.social) || 0)
 
   return {
-    left: `${((x + 100) / 200) * 100}%`,
-    top: `${((100 - y) / 200) * 100}%`
+    left: `${axisToBoardPercent(x)}%`,
+    top: `${axisToBoardPercent(-y)}%`
   }
 }
 
@@ -538,6 +582,18 @@ async function downloadImage() {
 function resetQuiz() {
   answers.value = {}
   currentStep.value = -1
+}
+
+function squashAxisForDisplay(axisValue) {
+  const raw = clamp(Number(axisValue) || 0, -100, 100)
+  const normalized = raw / 100
+  const softened = Math.tanh(normalized * COMPASS_DISPLAY_SOFTNESS) / Math.tanh(COMPASS_DISPLAY_SOFTNESS)
+  return clamp(softened * 100, -100, 100)
+}
+
+function axisToBoardPercent(axisValue) {
+  const usableRange = 100 - (COMPASS_DISPLAY_MARGIN * 2)
+  return COMPASS_DISPLAY_MARGIN + (((axisValue + 100) / 200) * usableRange)
 }
 </script>
 
@@ -650,17 +706,35 @@ function resetQuiz() {
               <div class="compass-corner compass-corner--br">Der. / Libertario</div>
 
               <div
-                v-for="party in topCompassParties"
+                v-for="(party, idx) in topCompassParties"
                 :key="`party-${party.group}`"
                 class="compass-point compass-point--party"
                 :style="partyPointStyle(party)"
                 :title="`${party.group}: X ${party.economic}, Y ${party.social}`"
               >
-                <span class="compass-point-label">{{ party.group }}</span>
+                <span class="compass-point-index">{{ idx + 1 }}</span>
               </div>
 
               <div class="compass-point compass-point--user" :style="pointStyle(compassData.user)">
-                <span class="compass-point-label">Tú</span>
+                <span class="compass-point-label compass-point-label--user">Tú</span>
+              </div>
+            </div>
+
+            <div class="compass-legend">
+              <div class="compass-legend-row compass-legend-row--user">
+                <span class="compass-legend-swatch compass-legend-swatch--user"></span>
+                <span class="compass-legend-name">Tú</span>
+                <span class="compass-legend-coords">X {{ compassData.user.economic }}, Y {{ compassData.user.social }}</span>
+              </div>
+              <div
+                v-for="(party, idx) in topCompassParties"
+                :key="`legend-${party.group}`"
+                class="compass-legend-row"
+              >
+                <span class="compass-legend-rank">{{ idx + 1 }}.</span>
+                <span class="compass-legend-swatch" :style="{ backgroundColor: getPartyColor(party.group) }"></span>
+                <span class="compass-legend-name">{{ party.group }}</span>
+                <span class="compass-legend-coords">X {{ party.economic }}, Y {{ party.social }}</span>
               </div>
             </div>
 
@@ -672,6 +746,9 @@ function resetQuiz() {
               Calibración: <strong>{{ compassData.quality.confidenceLabel }}</strong>
               ({{ compassData.quality.confidenceScore }}%).
               Cobertura de respuestas: {{ compassData.quality.responseCoverage }}%.
+            </p>
+            <p class="compass-note">
+              Visualización con compresión de escala para evitar solapes en extremos. Los valores X/Y mostrados son los exactos.
             </p>
           </div>
 
@@ -978,7 +1055,7 @@ function resetQuiz() {
 .compass-board {
   position: relative;
   width: 100%;
-  max-width: 420px;
+  max-width: 460px;
   aspect-ratio: 1 / 1;
   margin: 0 auto;
   border: 1px solid var(--color-border);
@@ -1031,6 +1108,10 @@ function resetQuiz() {
 
 .compass-point--party {
   background: #64748b;
+  border: 1.5px solid rgba(255, 255, 255, 0.78);
+  width: 11px;
+  height: 11px;
+  z-index: 2;
 }
 
 .compass-point--user {
@@ -1052,6 +1133,78 @@ function resetQuiz() {
   color: var(--color-text);
 }
 
+.compass-point-label--user {
+  top: -1.25rem;
+}
+
+.compass-point-index {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.48rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.compass-legend {
+  margin: 0.8rem auto 0;
+  max-width: 460px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-muted);
+  padding: 0.5rem 0.65rem;
+}
+
+.compass-legend-row {
+  display: grid;
+  grid-template-columns: auto auto minmax(0, 1fr) auto;
+  gap: 0.45rem;
+  align-items: center;
+  font-size: 0.8rem;
+  padding: 0.2rem 0;
+}
+
+.compass-legend-row + .compass-legend-row {
+  border-top: 1px dashed var(--color-border);
+}
+
+.compass-legend-row--user {
+  font-weight: 700;
+}
+
+.compass-legend-rank {
+  color: var(--color-muted);
+  font-weight: 700;
+  width: 1rem;
+}
+
+.compass-legend-swatch {
+  width: 0.62rem;
+  height: 0.62rem;
+  border-radius: 50%;
+  border: 1px solid rgba(15, 23, 42, 0.25);
+}
+
+.compass-legend-swatch--user {
+  background: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.22);
+}
+
+.compass-legend-name {
+  font-weight: 600;
+  color: var(--color-text);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.compass-legend-coords {
+  color: var(--color-text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
 .compass-values {
   margin: 0.9rem 0 0;
   text-align: center;
@@ -1063,6 +1216,13 @@ function resetQuiz() {
   text-align: center;
   color: var(--color-text-secondary);
   font-size: 0.88rem;
+}
+
+.compass-note {
+  margin: 0.4rem 0 0;
+  text-align: center;
+  color: var(--color-muted);
+  font-size: 0.76rem;
 }
 
 .results-list {
@@ -1174,5 +1334,13 @@ function resetQuiz() {
   .mode-pill { min-width: 170px; }
   .compass-point-label { font-size: 0.62rem; }
   .compass-corner { font-size: 0.58rem; }
+  .compass-legend-row {
+    grid-template-columns: auto auto minmax(0, 1fr);
+    row-gap: 0.15rem;
+  }
+  .compass-legend-coords {
+    grid-column: 3;
+    font-size: 0.72rem;
+  }
 }
 </style>
