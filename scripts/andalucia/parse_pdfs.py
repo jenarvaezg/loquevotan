@@ -111,6 +111,10 @@ def parse_andalucia_voto_pdf(pdf_path, diputados_map, session_info):
                     local_id = d_m.group(1)
                     full_name = " ".join(d_m.group(2).strip().split())
                     
+                    # Ignore artifacts like timestamps or empty names
+                    if not full_name or re.match(r'^\d{2}:\d{2}:\d{2}', full_name) or re.match(r'^[\d\s\:\.\/]+$', full_name):
+                        continue
+                    
                     norm_name = normalize_text(full_name)
                     found_deputy = None
                     
