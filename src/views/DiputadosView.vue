@@ -2,7 +2,7 @@
 import { ref, computed, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useData } from '../composables/useData'
-import { debounce, normalize, DIPS_PER_PAGE } from '../utils'
+import { debounce, normalize, DIPS_PER_PAGE, getGroupInfo } from '../utils'
 import DipCard from '../components/DipCard.vue'
 import Pagination from '../components/Pagination.vue'
 import FilterBar from '../components/FilterBar.vue'
@@ -22,7 +22,11 @@ watch(() => route.query.grupo, (g) => {
   if (g) { grupoFilter.value = g; page.value = 1 }
 }, { immediate: true })
 
-const sortedGrupos = computed(() => [...grupos.value].sort())
+const sortedGrupos = computed(() => 
+  [...grupos.value]
+    .map(g => ({ value: g, ...getGroupInfo(g) }))
+    .sort((a, b) => a.label.localeCompare(b.label))
+)
 
 const availableProvincias = computed(() => {
   const set = new Set()
@@ -110,7 +114,7 @@ function goToPage(p) {
           <label>Grupo</label>
           <select v-model="grupoFilter" class="filter-select" @change="page = 1">
             <option value="">Todos</option>
-            <option v-for="g in sortedGrupos" :key="g" :value="g">{{ g }}</option>
+            <option v-for="g in sortedGrupos" :key="g.value" :value="g.value">{{ g.label }}</option>
           </select>
         </div>
         <div class="filter-group">

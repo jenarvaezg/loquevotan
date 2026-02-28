@@ -1,7 +1,7 @@
 <script setup>
 import { computed, ref } from 'vue'
 import { useData } from '../composables/useData'
-import { pct, dipPhotoUrl, avatarInitials, avatarStyle } from '../utils'
+import { pct, dipPhotoUrl, avatarInitials, avatarStyle, getGroupInfo } from '../utils'
 
 const { diputados, grupos, dipStats, dipFotos, currentScopeId, loading } = useData()
 
@@ -17,10 +17,14 @@ const rankings = computed(() => {
     const allPossibleVotes = ds.total + (ds.no_vota || 0)
     if (allPossibleVotes < minVotes) continue
 
+    const gName = ds.mainGrupo >= 0 ? grupos.value[ds.mainGrupo] : 'Sin grupo'
+    const gInfo = getGroupInfo(gName)
+
     data.push({
       idx: i,
       name: diputados.value[i],
-      grupo: ds.mainGrupo >= 0 ? grupos.value[ds.mainGrupo] : 'Sin grupo',
+      grupo: gInfo.label,
+      grupoColor: gInfo.color,
       loyalty: ds.loyalty,
       absentismo: ds.no_vota / allPossibleVotes,
       photo: dipPhotoUrl(dipFotos.value[i]),
@@ -72,7 +76,7 @@ const rankings = computed(() => {
             
             <div class="rank-info">
               <div class="rank-name">{{ d.name }}</div>
-              <div class="rank-meta">{{ d.grupo }}</div>
+              <div class="rank-meta" :style="{ color: d.grupoColor, fontWeight: 600 }">{{ d.grupo }}</div>
             </div>
             
             <div class="rank-stat">
@@ -104,7 +108,7 @@ const rankings = computed(() => {
             
             <div class="rank-info">
               <div class="rank-name">{{ d.name }}</div>
-              <div class="rank-meta">{{ d.grupo }}</div>
+              <div class="rank-meta" :style="{ color: d.grupoColor, fontWeight: 600 }">{{ d.grupo }}</div>
             </div>
             
             <div class="rank-stat rank-stat--alt">

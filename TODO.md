@@ -26,15 +26,23 @@
 - [x] **Arquitectura y Scraping Base:** Scraping Legislaturas X-XV completado. Arquitectura de JSON optimizada (3-tier).
 - [x] **Andalucía:** Integración completa (Scraping PDFs, extracción de votos, extracción de fotos, transformación a JSON).
 - [x] **Castilla y León:** Integración completa (Parsing de Diarios de Sesiones TXT para votos nominales).
-- [x] **Madrid:** Integración básica (Diputados XIII y votación de Investidura 2023).
+- [x] **Madrid:** Integración básica (Diputados XIII, Investidura 2023 y leyes recientes via deducción grupal).
 - [x] **Optimización de Repo:** Configuración de .gitignore y limpieza de archivos "raw" (~200MB eliminados).
 - [x] **UI/UX Global:** Buscador global, selector de ámbito (banderas), compatibilidad con Dark Mode, mejoras de contraste WCAG.
 - [x] **Taxonomía Unificada:** Cerebro de IA (`ai_utils.py`) compartido entre todas las instituciones.
+- [x] **Global Index:** Unificación de los 1.927 diputados de todas las cámaras en un índice global.
 
 ---
 
 ## Fase 2: Calidad de Datos e Inteligencia (Pendiente)
 
+### 🏙️ Específico Madrid (Completar Alta según AGENTS.md)
+- [ ] **Bypass Permanente / Scraping Avanzado:** Investigar si hay una forma más robusta de obtener los votos nominales (¿quizás el Portal de Transparencia tiene una API OData escondida?).
+- [ ] **Histórico Madrid:** Descargar y procesar Legislaturas XII, XI y X (vía servidor estático).
+- [ ] **Activos Visuales:** Añadir bandera oficial de la Comunidad de Madrid en SVG.
+- [ ] **Quiz Madrid:** Seleccionar votaciones clave de la Asamblea para el motor de afinidad.
+
+### 🧠 Inteligencia y Funcionalidad Global
 - [ ] **AI Full-Pass para CCAA:**
   - Procesar los ~400 temas de Andalucía XII y los ~120 temas de CyL XI con IA para eliminar títulos crípticos del BOPA/Diarios.
   - *Estado:* Pendiente por errores de cuota/configuración en el CLI de Gemini. 

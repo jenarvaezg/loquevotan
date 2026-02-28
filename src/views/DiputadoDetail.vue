@@ -2,7 +2,7 @@
 import { computed, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useData } from '../composables/useData'
-import { fmt, pct, debounce, normalize, dipPhotoUrl, avatarInitials, avatarStyle, VOTO_LABELS, VOTES_PER_PAGE, LEGISLATURAS, subTipoLabel, subTipoBadgeClass, votoPillClass } from '../utils'
+import { fmt, pct, debounce, normalize, dipPhotoUrl, avatarInitials, avatarStyle, VOTO_LABELS, VOTES_PER_PAGE, LEGISLATURAS, subTipoLabel, subTipoBadgeClass, votoPillClass, getGroupInfo } from '../utils'
 import VoteBar from '../components/VoteBar.vue'
 import ResultBadge from '../components/ResultBadge.vue'
 import ShareBar from '../components/ShareBar.vue'
@@ -11,14 +11,15 @@ import AccountabilityCard from '../components/AccountabilityCard.vue'
 
 const route = useRoute()
 const router = useRouter()
-const { diputados, grupos, dipStats, dipFotos, votos, votaciones, votResults, votosByDiputado, categorias, loadVotosForLeg, votosLoaded, votsByExp, globalDiputados, ambitos, currentScopeId, setScope } = useData()
+const { diputados, grupos, dipStats, dipFotos, votos, votaciones, votResults, votosByDiputado, categorias, loadVotosForLeg, votosLoaded, votsByExp, globalDiputados, ambitos, currentScopeId, setScope, votacionDetail } = useData()
 
 const dipIdx = computed(() => diputados.value.indexOf(decodeURIComponent(route.params.name)))
 const name = computed(() => diputados.value[dipIdx.value])
 const ds = computed(() => dipStats.value[dipIdx.value])
-const grupoName = computed(() =>
-  ds.value?.mainGrupo >= 0 ? grupos.value[ds.value.mainGrupo] : 'Sin grupo'
-)
+const groupInfo = computed(() => {
+  const gName = ds.value?.mainGrupo >= 0 ? grupos.value[ds.value.mainGrupo] : 'Sin grupo'
+  return getGroupInfo(gName)
+})
 const photoUrl = computed(() => dipPhotoUrl(dipFotos.value[dipIdx.value]))
 
 const otherScopes = computed(() => {
@@ -149,7 +150,7 @@ const dipRecords = computed(() => {
   return indices
     .map(vi => {
       const v = votos.value[vi]
-      return { votIdx: v[0], code: v[3] }
+      return { votIdx: v[0], code: v[3], grpIdx: v[2] }
     })
     .sort((a, b) => votaciones.value[b.votIdx].fecha.localeCompare(votaciones.value[a.votIdx].fecha))
 })
@@ -275,7 +276,7 @@ watch(name, (n) => {
         <div>
           <h1 style="margin:0">{{ name }}</h1>
           <div class="detail-meta" style="margin-top:0.5rem">
-            <router-link :to="{ path: '/diputados', query: { grupo: grupoName } }" class="badge badge--grupo">{{ grupoName }}</router-link>
+            <router-link :to="{ path: '/diputados', query: { grupo: groupInfo.value } }" class="badge" :style="{ backgroundColor: groupInfo.color, color: 'white' }">{{ groupInfo.label }}</router-link>
             <span class="detail-meta-item">{{ ds.total }} votaciones</span>
             <span class="detail-meta-item">Lealtad al grupo: {{ pct(ds.loyalty) }}</span>
             <span v-for="l in ds.legislaturas" :key="l" class="badge badge--leg">{{ l }}</span>
@@ -595,7 +596,7 @@ watch(name, (n) => {
         <div class="loading-wrap" style="padding:2rem"><div class="loading-spinner"></div></div>
       </div>
 
-      <ShareBar :title="name + ' - ' + grupoName" />
+      <ShareBar :title="name + ' - ' + (groupInfo?.label || 'Sin grupo')" />
 
       <AccountabilityCard
         v-if="showAccCard && votosReady"

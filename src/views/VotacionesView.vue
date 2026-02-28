@@ -158,6 +158,7 @@ function goToPage(p) {
             <option value="">Todas</option>
             <option v-for="c in sortedCategorias" :key="c" :value="c">{{ fmt(c) }}</option>
           </select>
+        </div>
         <div class="filter-group">
           <label>Resultado</label>
           <select v-model="resultFilter" class="filter-select" @change="page = 1">

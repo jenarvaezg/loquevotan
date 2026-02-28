@@ -1,7 +1,7 @@
 <script setup>
 import { computed, ref, onMounted, onUnmounted } from 'vue'
 import { useData } from '../composables/useData'
-import { fmt, avatarStyle, avatarInitials, dipPhotoUrl } from '../utils'
+import { fmt, avatarStyle, avatarInitials, dipPhotoUrl, getGroupInfo } from '../utils'
 import html2canvas from 'html2canvas'
 
 const props = defineProps({
@@ -17,9 +17,10 @@ const captureArea = ref(null)
 
 const name = computed(() => diputados.value[props.dipIdx])
 const ds = computed(() => dipStats.value[props.dipIdx])
-const grupoName = computed(() =>
-  ds.value.mainGrupo >= 0 ? grupos.value[ds.value.mainGrupo] : 'Sin grupo'
-)
+const groupInfo = computed(() => {
+  const gName = ds.value.mainGrupo >= 0 ? grupos.value[ds.value.mainGrupo] : 'Sin grupo'
+  return getGroupInfo(gName)
+})
 const photoUrl = computed(() => dipPhotoUrl(dipFotos.value[props.dipIdx]))
 const topicLabel = computed(() => fmt(props.tag))
 
@@ -46,12 +47,12 @@ const shareUrl = computed(() =>
 )
 
 const twitterUrl = computed(() => {
-  const text = `${name.value} (${grupoName.value}) ha votado ${counts.value.favor} veces A FAVOR de ${topicLabel.value}. Compruebalo: ${shareUrl.value}`
+  const text = `${name.value} (${groupInfo.value.label}) ha votado ${counts.value.favor} veces A FAVOR de ${topicLabel.value}. Compruebalo: ${shareUrl.value}`
   return 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text)
 })
 
 const whatsappUrl = computed(() => {
-  const text = `${name.value} (${grupoName.value}) ha votado ${counts.value.favor} veces A FAVOR de ${topicLabel.value}. Compruebalo: ${shareUrl.value}`
+  const text = `${name.value} (${groupInfo.value.label}) ha votado ${counts.value.favor} veces A FAVOR de ${topicLabel.value}. Compruebalo: ${shareUrl.value}`
   return 'whatsapp://send?text=' + encodeURIComponent(text)
 })
 
@@ -124,7 +125,7 @@ onUnmounted(() => document.removeEventListener('keydown', onKey))
           <img v-if="photoUrl" :src="photoUrl" :alt="name" class="acc-photo" crossorigin="anonymous">
           <div v-else class="avatar" :style="avatarStyle(name)">{{ avatarInitials(name) }}</div>
           <div class="acc-name">{{ name }}</div>
-          <div class="acc-grupo">{{ grupoName }}</div>
+          <div class="acc-grupo" :style="{ color: groupInfo.color, fontWeight: 700 }">{{ groupInfo.label }}</div>
           <div class="acc-topic">{{ topicLabel }}</div>
 
           <div class="acc-votes">

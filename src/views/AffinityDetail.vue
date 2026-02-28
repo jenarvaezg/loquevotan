@@ -2,7 +2,7 @@
 import { computed, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useData } from '../composables/useData'
-import { fmt, VOTO_LABELS, VOTES_PER_PAGE, votoPillClass } from '../utils'
+import { fmt, VOTO_LABELS, VOTES_PER_PAGE, votoPillClass, getGroupInfo } from '../utils'
 import ResultBadge from '../components/ResultBadge.vue'
 import Pagination from '../components/Pagination.vue'
 
@@ -16,13 +16,20 @@ const leg = computed(() => route.query.leg || '')
 const gaIdx = computed(() => grupos.value.indexOf(gaName.value))
 const gbIdx = computed(() => grupos.value.indexOf(gbName.value))
 
+const gaInfo = computed(() => getGroupInfo(gaName.value))
+const gbInfo = computed(() => getGroupInfo(gbName.value))
+
 const valid = computed(() => gaIdx.value >= 0 && gbIdx.value >= 0 && leg.value)
 const votosReady = computed(() => votosLoaded.value.has(leg.value))
 
 watch(leg, (l) => { if (l) loadVotosForLeg(l) }, { immediate: true })
 
 watch([gaName, gbName, leg], ([a, b, l]) => {
-  if (a && b && l) document.title = `${a} vs ${b} | Lo Que Votan`
+  if (a && b && l) {
+    const labelA = getGroupInfo(a).label
+    const labelB = getGroupInfo(b).label
+    document.title = `${labelA} vs ${labelB} | Lo Que Votan`
+  }
 }, { immediate: true })
 
 function groupMajority(votIndices, gIdx) {
@@ -82,7 +89,11 @@ const pageItems = computed(() => {
       <router-link to="/grupos" class="back-link">&larr; Afinidad entre partidos</router-link>
 
       <div class="detail-header">
-        <h1>{{ gaName }} <span style="color:var(--color-muted);font-weight:400">vs</span> {{ gbName }}</h1>
+        <h1>
+          <span :style="{ color: gaInfo.color }">{{ gaInfo.label }}</span>
+          <span style="color:var(--color-muted);font-weight:400;margin:0 0.75rem">vs</span>
+          <span :style="{ color: gbInfo.color }">{{ gbInfo.label }}</span>
+        </h1>
         <div class="detail-meta" style="margin-top:0.5rem">
           <span class="badge badge--leg">{{ leg }}</span>
         </div>
@@ -128,9 +139,9 @@ const pageItems = computed(() => {
             {{ item.vot.titulo_ciudadano }}
           </router-link>
           <div style="display:flex;gap:0.75rem;flex-wrap:wrap;align-items:center;margin-top:0.5rem">
-            <span style="font-size:0.8rem;color:var(--color-muted)">{{ gaName }}:</span>
+            <span style="font-size:0.8rem;color:var(--color-muted);font-weight:600" :style="{ color: gaInfo.color }">{{ gaInfo.label }}:</span>
             <span class="voto-pill" :class="votoPillClass(item.majorityA)">{{ VOTO_LABELS[item.majorityA] }}</span>
-            <span style="font-size:0.8rem;color:var(--color-muted)">{{ gbName }}:</span>
+            <span style="font-size:0.8rem;color:var(--color-muted);font-weight:600" :style="{ color: gbInfo.color }">{{ gbInfo.label }}:</span>
             <span class="voto-pill" :class="votoPillClass(item.majorityB)">{{ VOTO_LABELS[item.majorityB] }}</span>
             <ResultBadge v-if="item.result" :result="item.result.result" style="margin-left:auto" />
           </div>

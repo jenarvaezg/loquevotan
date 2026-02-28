@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from 'vue'
 import { useData } from '../composables/useData'
-import { pct, dipPhotoUrl, avatarInitials, avatarStyle } from '../utils'
+import { pct, dipPhotoUrl, avatarInitials, avatarStyle, getGroupInfo } from '../utils'
 import VoteBar from './VoteBar.vue'
 
 const props = defineProps({
@@ -12,9 +12,10 @@ const { diputados, grupos, dipStats, dipFotos } = useData()
 
 const name = computed(() => diputados.value[props.idx])
 const ds = computed(() => dipStats.value[props.idx])
-const grupoName = computed(() =>
-  ds.value.mainGrupo >= 0 ? grupos.value[ds.value.mainGrupo] : 'Sin grupo'
-)
+const groupInfo = computed(() => {
+  const gName = ds.value.mainGrupo >= 0 ? grupos.value[ds.value.mainGrupo] : 'Sin grupo'
+  return getGroupInfo(gName)
+})
 const photoUrl = computed(() => dipPhotoUrl(dipFotos.value[props.idx]))
 </script>
 
@@ -25,7 +26,7 @@ const photoUrl = computed(() => dipPhotoUrl(dipFotos.value[props.idx]))
       <span v-else class="dip-card-avatar" :style="avatarStyle(name)">{{ avatarInitials(name) }}</span>
       <div>
         <div class="dip-card-name">{{ name }}</div>
-        <span class="badge badge--grupo">{{ grupoName }}</span>
+        <span class="badge" :style="{ backgroundColor: groupInfo.color, color: 'white' }">{{ groupInfo.label }}</span>
       </div>
     </div>
     <div class="dip-card-stats">

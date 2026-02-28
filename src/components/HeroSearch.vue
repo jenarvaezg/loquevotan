@@ -2,7 +2,7 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useData } from '../composables/useData'
-import { debounce, normalize } from '../utils'
+import { debounce, normalize, getGroupInfo } from '../utils'
 
 const router = useRouter()
 const { diputados, grupos, dipStats, votaciones, sortedVotIdxByDate } = useData()
@@ -88,7 +88,8 @@ function close() {
 
 function dipGrupo(i) {
   const mg = dipStats.value[i].mainGrupo
-  return mg >= 0 ? grupos.value[mg] : ''
+  const raw = mg >= 0 ? grupos.value[mg] : ''
+  return getGroupInfo(raw).label
 }
 
 function isHighlighted(section, i) {

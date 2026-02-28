@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from 'vue'
 import { useData } from '../composables/useData'
-import { fmt, subTipoLabel, subTipoBadgeClass } from '../utils'
+import { fmt, subTipoLabel, subTipoBadgeClass, getGroupInfo } from '../utils'
 import VoteBar from './VoteBar.vue'
 import ResultBadge from './ResultBadge.vue'
 
@@ -20,6 +20,11 @@ const catLabel = computed(() => {
   return categorias.value[vot.value?.categoria]
 })
 const linkId = computed(() => props.votData?.id ?? vot.value?.id)
+
+const proponenteInfo = computed(() => {
+  if (!vot.value?.proponente) return null
+  return getGroupInfo(vot.value.proponente)
+})
 </script>
 
 <template>
@@ -32,7 +37,7 @@ const linkId = computed(() => props.votData?.id ?? vot.value?.id)
       <span>{{ vot.fecha }}</span>
       <span v-if="vot.subTipo" class="badge badge--sm" :class="subTipoBadgeClass(vot.subTipo)">{{ subTipoLabel(vot.subTipo) }}</span>
       <span class="badge badge--cat">{{ fmt(catLabel) }}</span>
-      <span v-if="vot.proponente" class="badge badge--proponente">{{ vot.proponente }}</span>
+      <span v-if="proponenteInfo" class="badge" :style="{ backgroundColor: proponenteInfo.color, color: 'white' }">{{ proponenteInfo.label }}</span>
     </div>
     <VoteBar :favor="r.favor" :contra="r.contra" :abstencion="r.abstencion" :total="r.total" small />
     <div v-if="vot.etiquetas?.length" class="vote-card-tags">

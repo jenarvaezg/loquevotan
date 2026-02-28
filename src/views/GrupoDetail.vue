@@ -2,15 +2,16 @@
 import { computed, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useData } from '../composables/useData'
-import { fmt, pct, normalize, dipPhotoUrl, avatarStyle, avatarInitials, LEGISLATURAS, DIPS_PER_PAGE } from '../utils'
+import { fmt, pct, normalize, dipPhotoUrl, avatarStyle, avatarInitials, LEGISLATURAS, DIPS_PER_PAGE, getGroupInfo } from '../utils'
 import VoteBar from '../components/VoteBar.vue'
 import Pagination from '../components/Pagination.vue'
 
 const route = useRoute()
 const { grupos, diputados, dipStats, dipFotos, votaciones, votResults, groupAffinityByLeg, categorias, loaded } = useData()
 
-const grupoName = computed(() => decodeURIComponent(route.params.grupo))
-const grupoIdx = computed(() => grupos.value.indexOf(grupoName.value))
+const grupoRawName = computed(() => decodeURIComponent(route.params.grupo))
+const grupoIdx = computed(() => grupos.value.indexOf(grupoRawName.value))
+const groupInfo = computed(() => getGroupInfo(grupoRawName.value))
 
 // Members of this grupo
 const members = computed(() => {
@@ -102,8 +103,8 @@ const memberPageItems = computed(() => {
 })
 
 // Update document title
-watch(grupoName, (n) => {
-  if (n) document.title = n + ' | Lo Que Votan'
+watch(grupoRawName, (n) => {
+  if (n) document.title = getGroupInfo(n).label + ' | Lo Que Votan'
 }, { immediate: true })
 </script>
 
@@ -112,12 +113,16 @@ watch(grupoName, (n) => {
     <div class="container" style="padding-top:1.5rem">
       <router-link to="/grupos" class="back-link">&larr; Partidos</router-link>
 
-      <div class="detail-header">
-        <h1>{{ grupoName }}</h1>
-        <div class="detail-meta" style="margin-top:0.5rem">
-          <span class="detail-meta-item">{{ members.length }} diputados</span>
-          <span class="detail-meta-item">Lealtad media: {{ pct(avgLoyalty) }}</span>
-          <span v-for="l in grupoLegs" :key="l" class="badge badge--leg">{{ l }}</span>
+      <div class="detail-header" style="display:flex; align-items:center; gap:1rem">
+        <span class="group-icon-large" :style="{ backgroundColor: groupInfo.color }"></span>
+        <div>
+          <h1 style="margin:0">{{ groupInfo.label }}</h1>
+          <div class="detail-meta" style="margin-top:0.25rem">
+            <span class="detail-meta-item">{{ members.length }} diputados</span>
+            <span class="detail-meta-item">Lealtad media: {{ pct(avgLoyalty) }}</span>
+            <span v-for="l in grupoLegs" :key="l" class="badge badge--leg">{{ l }}</span>
+          </div>
+          <p class="small text-muted" style="margin-top:0.25rem">Nombre oficial: {{ grupoRawName }}</p>
         </div>
       </div>
 
@@ -154,9 +159,12 @@ watch(grupoName, (n) => {
             :to="'/grupo/' + encodeURIComponent(pair.name)"
             class="affinity-list-item card-link"
           >
-            <span class="affinity-list-name">{{ pair.name }}</span>
+            <div style="min-width:180px; display:flex; align-items:center; gap:0.5rem">
+              <span class="group-dot" :style="{ backgroundColor: getGroupInfo(pair.name).color }"></span>
+              <span class="affinity-list-name">{{ getGroupInfo(pair.name).label }}</span>
+            </div>
             <div class="affinity-list-bar">
-              <div class="affinity-list-bar-fill" :style="{ width: Math.round(pair.agreement * 100) + '%' }"></div>
+              <div class="affinity-list-bar-fill" :style="{ width: Math.round(pair.agreement * 100) + '%', background: getGroupInfo(pair.name).color }"></div>
             </div>
             <span class="affinity-list-pct">{{ Math.round(pair.agreement * 100) }}%</span>
           </router-link>
@@ -231,6 +239,21 @@ watch(grupoName, (n) => {
 </template>
 
 <style scoped>
+.group-icon-large {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.group-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
 .detail-header {
   margin-bottom: 1.5rem;
   padding-bottom: 1.25rem;
@@ -242,7 +265,6 @@ watch(grupoName, (n) => {
   flex-wrap: wrap;
   gap: 0.75rem;
   align-items: center;
-  margin-bottom: 1.5rem;
   font-size: 0.875rem;
 }
 
@@ -329,7 +351,7 @@ watch(grupoName, (n) => {
 }
 
 .affinity-list-name {
-  min-width: 200px;
+  min-width: 180px;
   font-size: 0.88rem;
   font-weight: 600;
   white-space: nowrap;

@@ -147,3 +147,71 @@ export function votoPillClass(code) {
       ? "voto-pill--contra"
       : "voto-pill--abstencion";
 }
+
+const GROUP_MAP = {
+  // National
+  'GS': { label: 'PSOE', color: '#ef1c27' },
+  'GP': { label: 'PP', color: '#0056a0' },
+  'GVOX': { label: 'VOX', color: '#63be21' },
+  'GSUMAR': { label: 'Sumar', color: '#e51c55' },
+  'GCs': { label: 'Ciudadanos', color: '#eb6109' },
+  'GEH Bildu': { label: 'EH Bildu', color: '#b5cf18' },
+  'GER': { label: 'ERC', color: '#ffb232' },
+  'GR': { label: 'ERC', color: '#ffb232' },
+  'GJxCAT': { label: 'Junts', color: '#00c3b2' },
+  'GPlu': { label: 'Junts/Plu', color: '#00c3b2' },
+  'GV (EAJ-PNV)': { label: 'PNV', color: '#008000' },
+  'GCUP-EC-EM': { label: 'Podemos', color: '#673ab7' },
+  'GCUP-EC-GC': { label: 'Podemos', color: '#673ab7' },
+  'GP-EC-EM': { label: 'Podemos', color: '#673ab7' },
+  'GUPyD': { label: 'UPyD', color: '#ff00ff' },
+  'GMx': { label: 'Mixto', color: '#64748b' },
+  'GC-CiU': { label: 'CiU', color: '#0033a0' },
+  'GC-DL': { label: 'DL', color: '#00c3b2' },
+  'GIP': { label: 'Podemos/IU', color: '#673ab7' },
+
+  // Andalucia
+  'PSOE DE ANDALUCÍA': { label: 'PSOE', color: '#ef1c27' },
+  'POPULAR ANDALUZ': { label: 'PP', color: '#0056a0' },
+  'VOX EN ANDALUCÍA': { label: 'VOX', color: '#63be21' },
+  'POR ANDALUCÍA': { label: 'PorA', color: '#673ab7' },
+  'ADELANTE ANDALUCÍA': { label: 'Adelante', color: '#00a551' },
+  'UNIDAS PODEMOS POR ANDALUCÍA': { label: 'UP', color: '#673ab7' },
+  'CIUDADANOS': { label: 'CS', color: '#eb6109' },
+  'PODEMOS ANDALUCIA': { label: 'Podemos', color: '#673ab7' },
+  'IU-LV CONV. POR ANDALUCÍA': { label: 'IU', color: '#ef1c27' },
+  'MIXTO-ADELANTE ANDALUCÍA': { label: 'Adelante', color: '#00a551' },
+
+  // CyL
+  'PSOE': { label: 'PSOE', color: '#ef1c27' },
+  'PP': { label: 'PP', color: '#0056a0' },
+  'VOX': { label: 'VOX', color: '#63be21' },
+  'CS': { label: 'CS', color: '#eb6109' },
+  'UPL-SY': { label: 'UPL-SY', color: '#7b1c34' },
+  'Mixto': { label: 'Mixto', color: '#64748b' },
+
+  // Madrid
+  'PSOE-M': { label: 'PSOE', color: '#ef1c27' },
+  'Más Madrid': { label: 'Más Madrid', color: '#00dec5' },
+};
+
+export function getGroupInfo(groupName) {
+  const g = groupName || '';
+  const info = GROUP_MAP[g];
+  if (info) return info;
+
+  // Fallbacks for contains or clean matches
+  const lower = g.toLowerCase();
+  if (lower.includes('psoe') || lower.includes('socialista')) return { label: 'PSOE', color: '#ef1c27' };
+  if (lower.includes('popular') || lower === 'pp') return { label: 'PP', color: '#0056a0' };
+  if (lower.includes('vox')) return { label: 'VOX', color: '#63be21' };
+  if (lower.includes('podemos') || lower.includes('unidas')) return { label: 'Podemos', color: '#673ab7' };
+  if (lower.includes('sumar')) return { label: 'Sumar', color: '#e51c55' };
+  if (lower.includes('ciudadanos') || lower === 'cs') return { label: 'CS', color: '#eb6109' };
+  if (lower.includes('erc') || lower.includes('republicano')) return { label: 'ERC', color: '#ffb232' };
+  if (lower.includes('junts')) return { label: 'Junts', color: '#00c3b2' };
+  if (lower.includes('pnv') || lower.includes('vasco')) return { label: 'PNV', color: '#008000' };
+  if (lower.includes('bildu')) return { label: 'EH Bildu', color: '#b5cf18' };
+
+  return { label: g, color: '#64748b' };
+}

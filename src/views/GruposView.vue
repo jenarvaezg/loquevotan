@@ -1,7 +1,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useData } from '../composables/useData'
-import { LEGISLATURAS, affinityColor } from '../utils'
+import { LEGISLATURAS, affinityColor, getGroupInfo } from '../utils'
 
 const { grupos, groupAffinityByLeg, loaded } = useData()
 
@@ -26,7 +26,11 @@ const affinityData = computed(() => {
 
   const validGroups = Array.from(allGroups)
     .filter(g => (groupTotals[g] || 0) >= 10)
-    .sort((a, b) => a - b)
+    .sort((a, b) => {
+      const infoA = getGroupInfo(grupos.value[a])
+      const infoB = getGroupInfo(grupos.value[b])
+      return infoA.label.localeCompare(infoB.label)
+    })
 
   return { aff, validGroups }
 })
@@ -96,15 +100,18 @@ function cellData(ga, gb) {
               <tr>
                 <th></th>
                 <th v-for="g in affinityData.validGroups" :key="g" class="affinity-th-col">
-                  <div class="affinity-th-label">{{ grupos[g] || ('Grupo ' + g) }}</div>
+                  <div class="affinity-th-label" :style="{ color: getGroupInfo(grupos[g]).color }">
+                    {{ getGroupInfo(grupos[g]).label }}
+                  </div>
                 </th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="ga in affinityData.validGroups" :key="ga">
                 <td class="affinity-row-label">
-                  <router-link :to="'/grupo/' + encodeURIComponent(grupos[ga] || ('Grupo ' + ga))" style="color:inherit;text-decoration:none">
-                    {{ grupos[ga] || ('Grupo ' + ga) }}
+                  <router-link :to="'/grupo/' + encodeURIComponent(grupos[ga])" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:0.5rem">
+                    <span class="group-dot" :style="{ backgroundColor: getGroupInfo(grupos[ga]).color }"></span>
+                    {{ getGroupInfo(grupos[ga]).label }}
                   </router-link>
                 </td>
                 <td
@@ -128,11 +135,11 @@ function cellData(ga, gb) {
           <div class="filter-group" style="margin-bottom:1rem">
             <label>Grupo</label>
             <select v-model="mobileGroup" class="filter-select">
-              <option v-for="g in affinityData.validGroups" :key="g" :value="grupos[g]">{{ grupos[g] }}</option>
+              <option v-for="g in affinityData.validGroups" :key="g" :value="grupos[g]">{{ getGroupInfo(grupos[g]).label }}</option>
             </select>
           </div>
           <p style="font-size:0.85rem;color:var(--color-muted);margin-bottom:0.75rem">
-            Afinidad de {{ mobileSelectedGroup }} con otros grupos
+            Afinidad de <strong>{{ getGroupInfo(mobileSelectedGroup).label }}</strong> con otros grupos
           </p>
           <div class="affinity-list">
             <router-link
@@ -141,7 +148,10 @@ function cellData(ga, gb) {
               :to="'/grupo/' + encodeURIComponent(pair.name)"
               class="affinity-list-item card-link"
             >
-              <span class="affinity-list-name">{{ pair.name }}</span>
+              <div class="affinity-list-name-wrap">
+                <span class="group-dot" :style="{ backgroundColor: getGroupInfo(pair.name).color }"></span>
+                <span class="affinity-list-name">{{ getGroupInfo(pair.name).label }}</span>
+              </div>
               <div class="affinity-list-bar">
                 <div class="affinity-list-bar-fill" :style="{ width: Math.round(pair.agreement * 100) + '%', background: affinityColor(pair.agreement) }"></div>
               </div>
@@ -214,8 +224,7 @@ function cellData(ga, gb) {
   transform: rotate(180deg);
   text-transform: none;
   font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--color-text-secondary);
+  font-weight: 700;
   letter-spacing: 0;
   padding: 0.5rem 0.25rem;
   white-space: nowrap;
@@ -227,7 +236,7 @@ function cellData(ga, gb) {
 .affinity-row-label {
   padding: 0.4rem 0.75rem 0.4rem 0;
   font-size: 0.8rem;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--color-text);
   white-space: nowrap;
   border-bottom: 1px solid var(--color-border);
@@ -236,6 +245,14 @@ function cellData(ga, gb) {
   left: 0;
   z-index: 1;
   background: var(--color-surface);
+}
+
+.group-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
 }
 
 .affinity-cell {
@@ -311,8 +328,14 @@ function cellData(ga, gb) {
   text-decoration: none;
 }
 
+.affinity-list-name-wrap {
+  min-width: 180px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .affinity-list-name {
-  min-width: 200px;
   font-size: 0.88rem;
   font-weight: 600;
   white-space: nowrap;
@@ -349,6 +372,7 @@ function cellData(ga, gb) {
   .affinity-th-col { width: 40px; min-width: 40px; max-width: 40px; }
   .affinity-cell { width: 40px; min-width: 40px; max-width: 40px; font-size: 0.65rem; }
   .affinity-row-label { min-width: 100px; font-size: 0.75rem; }
-  .affinity-list-name { min-width: 120px; font-size: 0.8rem; }
+  .affinity-list-name-wrap { min-width: 120px; }
+  .affinity-list-name { font-size: 0.8rem; }
 }
 </style>
