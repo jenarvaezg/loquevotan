@@ -1,17 +1,16 @@
 <script setup>
 import NavBar from './components/NavBar.vue'
+import ErrorBanner from './components/ErrorBanner.vue'
 import { useData } from './composables/useData'
 
-const { error, loadData } = useData()
+const { error, loadData, retryLoad } = useData()
 loadData()
 </script>
 
 <template>
   <NavBar />
 
-  <p v-if="error" class="error-msg" role="alert" style="display:block">
-    {{ error }}
-  </p>
+  <ErrorBanner v-if="error" :message="error" @retry="retryLoad" />
 
   <router-view />
 

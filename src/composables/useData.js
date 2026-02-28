@@ -29,7 +29,7 @@ const votosLoaded = ref(new Set());
 let _loadPromise = null;
 const _legLoadPromises = {};
 
-async function _doLoad() {
+async function _doLoad(retryCount = 0) {
   loading.value = true;
   error.value = null;
 
@@ -54,10 +54,20 @@ async function _doLoad() {
 
     loaded.value = true;
   } catch (err) {
-    error.value = "Error cargando datos: " + err.message;
+    if (retryCount < 2) {
+      await new Promise((r) => setTimeout(r, 1000 * (retryCount + 1)));
+      return _doLoad(retryCount + 1);
+    }
+    error.value =
+      "Error cargando datos. Comprueba tu conexión e inténtalo de nuevo.";
   } finally {
     loading.value = false;
   }
+}
+
+function retryLoad() {
+  _loadPromise = null;
+  loadData();
 }
 
 async function loadVotosForLeg(legId) {
@@ -145,5 +155,6 @@ export function useData() {
     votacionDetail,
     votosLoaded,
     loadVotosForLeg,
+    retryLoad,
   };
 }

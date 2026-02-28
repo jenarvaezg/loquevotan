@@ -293,7 +293,7 @@ watch(vot, (v) => {
             style="max-width:350px;margin-bottom:0.75rem"
           >
           <div class="table-wrap">
-            <table>
+            <table class="responsive-table">
               <thead>
                 <tr>
                   <th>Diputado/a</th>
@@ -304,13 +304,13 @@ watch(vot, (v) => {
               </thead>
               <tbody>
                 <tr v-for="vi in filteredVotes" :key="vi" :class="{ 'tr--highlighted': highlightedDip && diputados[votos[vi][1]] === highlightedDip }">
-                  <td>
+                  <td data-label="Diputado/a">
                     <router-link :to="'/diputado/' + encodeURIComponent(diputados[votos[vi][1]])">
                       {{ diputados[votos[vi][1]] }}
                     </router-link>
                   </td>
-                  <td><router-link :to="{ path: '/diputados', query: { grupo: grupos[votos[vi][2]] } }" class="badge badge--grupo">{{ grupos[votos[vi][2]] }}</router-link></td>
-                  <td>
+                  <td data-label="Grupo"><router-link :to="{ path: '/diputados', query: { grupo: grupos[votos[vi][2]] } }" class="badge badge--grupo">{{ grupos[votos[vi][2]] }}</router-link></td>
+                  <td data-label="Voto">
                     <span class="voto-pill" :class="votoPillClass(votos[vi][3])">
                       {{ VOTO_LABELS[votos[vi][3]] || '?' }}
                     </span>

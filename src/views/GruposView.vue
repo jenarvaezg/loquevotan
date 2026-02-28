@@ -75,7 +75,11 @@ function cellData(ga, gb) {
             </thead>
             <tbody>
               <tr v-for="ga in affinityData.validGroups" :key="ga">
-                <td class="affinity-row-label">{{ grupos[ga] || ('Grupo ' + ga) }}</td>
+                <td class="affinity-row-label">
+                  <router-link :to="'/grupo/' + encodeURIComponent(grupos[ga] || ('Grupo ' + ga))" style="color:inherit;text-decoration:none">
+                    {{ grupos[ga] || ('Grupo ' + ga) }}
+                  </router-link>
+                </td>
                 <td
                   v-for="gb in affinityData.validGroups"
                   :key="gb"

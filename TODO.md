@@ -29,23 +29,23 @@
 - [x] Eliminar debounce no-op en VotacionDetail:82
 - [x] Actualizar placeholder de HeroSearch para indicar que tambien busca votaciones
 
-## Fase 2: Mejoras medias (3-5 dias)
+## Fase 2: Mejoras medias (3-5 dias) ✓
 
 ### Diseno visual
-- [ ] Cargar web font (ej. Source Sans 3 + DM Serif Display) — actualmente usa system font stack sin personalidad
-- [ ] Vista cards en movil para tablas de historial (<768px) — las tablas de 6 columnas son inutilizables en movil
+- [x] Cargar web font (Source Sans 3 + DM Serif Display) — headings con serif, body con Source Sans
+- [x] Vista cards en movil para tablas de historial (<768px) — responsive-table con data-label en DiputadoDetail y VotacionDetail
 
 ### Arquitectura de informacion
-- [ ] Pagina de perfil de partido/grupo (/partidos/:grupo) — stats, miembros, record de voto
-- [ ] Hint visual sobre AccountabilityCard ("Haz clic en un tema para ver la ficha completa") — feature potente pero invisible
+- [x] Pagina de perfil de partido/grupo (/grupo/:grupo) — stats agregados, afinidad, rebeldes, miembros con paginacion
+- [x] Hint visual sobre AccountabilityCard ("Haz clic en un tema para ver la ficha de rendicion de cuentas")
 
 ### Robustez
-- [ ] Estados de error para fallos de red (retry + mensaje visible) — actualmente spinner infinito
-- [ ] Limitar DiputadoDetail a cargar solo legislatura actual primero, luego lazy-load las anteriores — puede descargar 80+MB para diputados veteranos
+- [x] Estados de error para fallos de red (retry automatico x2 + ErrorBanner con boton reintentar)
+- [x] Limitar DiputadoDetail a cargar solo legislatura actual primero, luego lazy-load las anteriores en background
 
 ### Performance
-- [ ] Pre-comprimir JSON (gzip/brotli) o verificar que GitHub Pages sirve Content-Encoding — reduciria meta de 5MB a ~500KB
-- [ ] Reemplazar datalist de tags en VotacionesView por dropdown custom (como HeroSearch)
+- [x] Verificado: GitHub Pages sirve Content-Encoding: gzip (5MB → 423KB) — no necesita pre-compresion
+- [x] Reemplazar datalist de tags en VotacionesView por TagSelect dropdown custom con autocompletado
 
 ### Datos
 - [ ] Re-categorizar los ~80 textos fallback (lotes que fallaron en categorizacion IA)

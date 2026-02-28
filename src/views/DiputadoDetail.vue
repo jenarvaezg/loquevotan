@@ -21,18 +21,37 @@ const grupoName = computed(() =>
 )
 const photoUrl = computed(() => dipPhotoUrl(dipFotos.value[dipIdx.value]))
 
-// Track if votos for this diputado's legislaturas are loaded
+// Track if votos for current filter legislatura (or latest) are loaded
 const votosReady = computed(() => {
+  if (!ds.value?.legislaturas?.length) return false
+  const target = histLeg.value || ds.value.legislaturas[0]
+  return votosLoaded.value.has(target)
+})
+
+// Track if ALL legislaturas are loaded (for full stats)
+const allVotosReady = computed(() => {
   if (!ds.value?.legislaturas?.length) return false
   return ds.value.legislaturas.every(leg => votosLoaded.value.has(leg))
 })
 
-// Load votos for all legislaturas this diputado participated in
+// Load only latest legislatura initially, then lazy-load rest
 watch(ds, (stats) => {
-  if (stats?.legislaturas) {
-    stats.legislaturas.forEach(leg => loadVotosForLeg(leg))
+  if (stats?.legislaturas?.length) {
+    loadVotosForLeg(stats.legislaturas[0])
   }
 }, { immediate: true })
+
+// When user changes leg filter, load that legislatura on demand
+watch(histLeg, (leg) => {
+  if (leg) loadVotosForLeg(leg)
+})
+
+// Background-load remaining legislaturas after the first one is ready
+watch(votosReady, (ready) => {
+  if (ready && ds.value?.legislaturas?.length > 1) {
+    ds.value.legislaturas.slice(1).forEach(leg => loadVotosForLeg(leg))
+  }
+})
 
 // History filters
 const histSearch = ref('')
@@ -45,7 +64,7 @@ const accTag = ref('')
 
 // Category profile
 const catBreakdown = computed(() => {
-  if (!votosReady.value) return []
+  if (!allVotosReady.value) return []
   const indices = votosByDiputado.value[dipIdx.value] || []
   const result = {}
   for (let j = 0; j < indices.length; j++) {
@@ -64,7 +83,7 @@ const catBreakdown = computed(() => {
 
 // Top tags
 const dipTopTags = computed(() => {
-  if (!votosReady.value) return []
+  if (!allVotosReady.value) return []
   const indices = votosByDiputado.value[dipIdx.value] || []
   const counts = {}
   for (let j = 0; j < indices.length; j++) {
@@ -199,7 +218,7 @@ watch(name, (n) => {
 
       <VoteBar :favor="ds.favor" :contra="ds.contra" :abstencion="ds.abstencion" :total="ds.total" />
 
-      <template v-if="votosReady">
+      <template v-if="allVotosReady">
         <!-- Category profile -->
         <div v-if="catBreakdown.length" class="detail-section">
           <h2>Perfil temático</h2>
@@ -233,6 +252,7 @@ watch(name, (n) => {
         <!-- Top tags -->
         <div v-if="dipTopTags.length" class="detail-section">
           <h2>Temas más votados</h2>
+          <p class="hint-text">Haz clic en un tema para ver la ficha de rendición de cuentas</p>
           <div>
             <span
               v-for="[tag, count] in dipTopTags"
@@ -246,7 +266,13 @@ watch(name, (n) => {
           </div>
         </div>
 
-        <!-- Vote history -->
+      </template>
+      <div v-else class="detail-section">
+        <div class="loading-wrap" style="padding:2rem"><div class="loading-spinner"></div></div>
+      </div>
+
+      <!-- Vote history (works with partial votos) -->
+      <template v-if="votosReady">
         <div class="detail-section">
           <h2>Historial de votos</h2>
           <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.75rem">
@@ -271,7 +297,7 @@ watch(name, (n) => {
           </div>
 
           <div class="table-wrap">
-            <table>
+            <table class="responsive-table">
               <thead>
                 <tr>
                   <th>Fecha</th>
@@ -284,13 +310,13 @@ watch(name, (n) => {
               </thead>
               <tbody>
                 <tr v-for="rec in histPageItems" :key="rec.votIdx">
-                  <td>{{ votaciones[rec.votIdx].fecha }}</td>
-                  <td>
+                  <td data-label="Fecha">{{ votaciones[rec.votIdx].fecha }}</td>
+                  <td data-label="Voto">
                     <span class="voto-pill" :class="votoPillClass(rec.code)">
                       {{ VOTO_LABELS[rec.code] || '?' }}
                     </span>
                   </td>
-                  <td>
+                  <td data-label="Asunto">
                     <router-link :to="'/votacion/' + rec.votIdx">
                       {{ votaciones[rec.votIdx].titulo_ciudadano }}
                     </router-link>
@@ -301,17 +327,17 @@ watch(name, (n) => {
                       style="margin-left:0.35rem"
                     >{{ subTipoLabel(votaciones[rec.votIdx].subTipo) }}</span>
                   </td>
-                  <td>
+                  <td data-label="Legislatura">
                     <span v-if="votaciones[rec.votIdx].legislatura" class="badge badge--leg">
                       {{ votaciones[rec.votIdx].legislatura }}
                     </span>
                   </td>
-                  <td>
+                  <td data-label="Categoría">
                     <span class="badge badge--cat">
                       {{ fmt(categorias[votaciones[rec.votIdx].categoria]) }}
                     </span>
                   </td>
-                  <td>
+                  <td data-label="Resultado">
                     <ResultBadge :result="votResults[rec.votIdx].result" />
                   </td>
                 </tr>

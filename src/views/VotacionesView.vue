@@ -6,6 +6,7 @@ import { fmt, debounce, normalize, LEGISLATURAS, VOTES_PER_PAGE } from '../utils
 import VoteCard from '../components/VoteCard.vue'
 import Pagination from '../components/Pagination.vue'
 import FilterBar from '../components/FilterBar.vue'
+import TagSelect from '../components/TagSelect.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -15,7 +16,6 @@ const search = ref('')
 const catFilter = ref('')
 const resultFilter = ref('')
 const legFilter = ref('XV')
-const tagInput = ref('')
 const sortMode = ref('recent')
 const selectedTags = ref([])
 const page = ref(1)
@@ -77,29 +77,12 @@ const pageItems = computed(() => {
 
 const onSearchInput = debounce(() => { page.value = 1 }, 250)
 
-function addTag() {
-  const value = tagInput.value.trim()
-  if (!value) return
-  const tag = value.replace(/ /g, '_')
-  if (!selectedTags.value.includes(tag)) {
-    selectedTags.value = [...selectedTags.value, tag]
-    page.value = 1
-  }
-  tagInput.value = ''
-}
-
-function removeTag(tag) {
-  selectedTags.value = selectedTags.value.filter(t => t !== tag)
-  page.value = 1
-}
-
 function resetFilters() {
   search.value = ''
   catFilter.value = ''
   resultFilter.value = ''
   legFilter.value = ''
   sortMode.value = 'recent'
-  tagInput.value = ''
   selectedTags.value = []
   page.value = 1
   router.replace({ query: {} })
@@ -150,18 +133,7 @@ function goToPage(p) {
         </div>
         <div class="filter-group">
           <label>Etiqueta</label>
-          <input
-            v-model="tagInput"
-            type="search"
-            class="filter-input"
-            placeholder="Ej: subir_pensiones"
-            :list="'vots-tags-list'"
-            @keydown.enter.prevent="addTag"
-            @change="addTag"
-          >
-          <datalist id="vots-tags-list">
-            <option v-for="tag in allTags" :key="tag" :value="fmt(tag)" />
-          </datalist>
+          <TagSelect :tags="allTags" v-model="selectedTags" @update:model-value="page = 1" />
         </div>
         <div class="filter-group">
           <label>Ordenar</label>
@@ -174,13 +146,6 @@ function goToPage(p) {
           <button class="btn btn--sm" @click="resetFilters">Limpiar</button>
         </div>
       </FilterBar>
-
-      <div v-if="selectedTags.length" class="active-tags">
-        <span v-for="tag in selectedTags" :key="tag" class="tag-active">
-          {{ fmt(tag) }}
-          <button type="button" class="tag-remove" @click="removeTag(tag)">&times;</button>
-        </span>
-      </div>
 
       <p style="font-size:0.85rem;color:var(--color-muted);margin-bottom:0.75rem">
         {{ filtered.length.toLocaleString('es-ES') }} votaciones
