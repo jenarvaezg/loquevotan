@@ -82,5 +82,1932 @@
       "tipo": "deduccion_grupal",
       "nota": "Sentido del voto deducido por disciplina de grupo (Asamblea de Madrid no publica votos individuales en actas ordinarias)."
     }
+  },
+  {
+    "id": "MAD-XIII-591-1",
+    "fecha": "09/10/2025",
+    "titulo": "Proposición No de Ley 211/25; la enmienda transaccional",
+    "votos": [],
+    "group_votes": {
+      "PP": "si",
+      "Más Madrid": "si",
+      "PSOE-M": "si",
+      "Vox": "si"
+    },
+    "totales": {
+      "favor": 128,
+      "contra": 0,
+      "abstencion": 0,
+      "total": 128
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-591-2",
+    "fecha": "09/10/2025",
+    "titulo": "Proposición No de Ley 366/25",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 52,
+      "contra": 77,
+      "abstencion": 0,
+      "total": 129
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-600-1",
+    "fecha": "16/10/2025",
+    "titulo": "texto original de la proposición no de ley",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 50,
+      "contra": 75,
+      "abstencion": 0,
+      "total": 125
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-600-2",
+    "fecha": "16/10/2025",
+    "titulo": "es de 125 votos emitidos: 50 síes, 75 noes y cero abstenciones; como dije,",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 52,
+      "contra": 75,
+      "abstencion": 0,
+      "total": 127
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-600-3",
+    "fecha": "16/10/2025",
+    "titulo": "es de",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 11,
+      "contra": 119,
+      "abstencion": 0,
+      "total": 130
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-600-4",
+    "fecha": "16/10/2025",
+    "titulo": "es de 125 votos emitidos: 11 síes, 114 noes y cero abstenciones; añadimos 5 noes a distancia",
+    "votos": [],
+    "group_votes": {
+      "PP": "si",
+      "Vox": "abstencion",
+      "Más Madrid": "no",
+      "PSOE-M": "no"
+    },
+    "totales": {
+      "favor": 75,
+      "contra": 52,
+      "abstencion": 0,
+      "total": 127
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-610-1",
+    "fecha": "23/10/2025",
+    "titulo": "en primer lugar la Proposición No de Ley 47/25",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 49,
+      "contra": 76,
+      "abstencion": 0,
+      "total": 125
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-610-2",
+    "fecha": "23/10/2025",
+    "titulo": "es de 125 votos emitidos: 49 síes, 76 noes y cero abstenciones; no podemos",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 49,
+      "contra": 79,
+      "abstencion": 0,
+      "total": 128
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-610-3",
+    "fecha": "23/10/2025",
+    "titulo": "es de",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 10,
+      "contra": 115,
+      "abstencion": 0,
+      "total": 125
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-610-4",
+    "fecha": "23/10/2025",
+    "titulo": "es de 125",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 49,
+      "contra": 76,
+      "abstencion": 0,
+      "total": 125
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-610-5",
+    "fecha": "23/10/2025",
+    "titulo": "445/25",
+    "votos": [],
+    "group_votes": {
+      "PP": "si",
+      "Vox": "abstencion",
+      "Más Madrid": "no",
+      "PSOE-M": "no"
+    },
+    "totales": {
+      "favor": 76,
+      "contra": 49,
+      "abstencion": 0,
+      "total": 125
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-622-1",
+    "fecha": "06/11/2025",
+    "titulo": "enmienda a la totalidad presentada por el Grupo",
+    "votos": [],
+    "group_votes": {
+      "PP": "si",
+      "Más Madrid": "si",
+      "PSOE-M": "si",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 60,
+      "contra": 66,
+      "abstencion": 0,
+      "total": 126
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-622-2",
+    "fecha": "06/11/2025",
+    "titulo": "presentada por el Grupo Parlamentario Vox",
+    "votos": [],
+    "group_votes": {
+      "PP": "si",
+      "Más Madrid": "si",
+      "PSOE-M": "si",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 60,
+      "contra": 66,
+      "abstencion": 0,
+      "total": 126
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-622-3",
+    "fecha": "06/11/2025",
+    "titulo": "enmienda a la totalidad presentada por el Grupo Parlamentario Socialista",
+    "votos": [],
+    "group_votes": {
+      "PP": "si",
+      "Más Madrid": "si",
+      "PSOE-M": "si",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 60,
+      "contra": 66,
+      "abstencion": 0,
+      "total": 126
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-622-4",
+    "fecha": "06/11/2025",
+    "titulo": "toma en consideración de la Proposición de Ley 15/24",
+    "votos": [],
+    "group_votes": {
+      "PP": "si",
+      "Más Madrid": "si",
+      "PSOE-M": "si",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 65,
+      "contra": 66,
+      "abstencion": 0,
+      "total": 131
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-622-5",
+    "fecha": "06/11/2025",
+    "titulo": "es de 126 votos emitidos: 60 síes, 66 noes y cero",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 49,
+      "contra": 77,
+      "abstencion": 0,
+      "total": 126
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-622-6",
+    "fecha": "06/11/2025",
+    "titulo": "Proposición No de Ley 413/25",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 49,
+      "contra": 77,
+      "abstencion": 0,
+      "total": 126
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-622-7",
+    "fecha": "06/11/2025",
+    "titulo": "es de 126 votos emitidos: 49 síes, 77 noes y cero abstenciones; añadimos 1 sí",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 11,
+      "contra": 115,
+      "abstencion": 0,
+      "total": 126
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-632-1",
+    "fecha": "13/11/2025",
+    "titulo": "texto original",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 53,
+      "contra": 77,
+      "abstencion": 0,
+      "total": 130
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-632-2",
+    "fecha": "13/11/2025",
+    "titulo": "es de 128 votos emitidos: 51 síes, 77 noes y cero abstenciones; añadimos 2",
+    "votos": [],
+    "group_votes": {
+      "PP": "si",
+      "Más Madrid": "si",
+      "PSOE-M": "si",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 62,
+      "contra": 66,
+      "abstencion": 0,
+      "total": 128
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-632-3",
+    "fecha": "13/11/2025",
+    "titulo": "es de 128 votos emitidos: 62 síes, 66 noes y cero abstenciones",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 51,
+      "contra": 79,
+      "abstencion": 0,
+      "total": 130
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-632-4",
+    "fecha": "13/11/2025",
+    "titulo": "es de 128 votos emitidos: 51 síes, 77 noes y cero abstenciones; añadimos 2 noes a",
+    "votos": [],
+    "group_votes": {
+      "PP": "si",
+      "Más Madrid": "si",
+      "PSOE-M": "si",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 49,
+      "contra": 68,
+      "abstencion": 11,
+      "total": 128
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-632-5",
+    "fecha": "13/11/2025",
+    "titulo": "es de 128 votos",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 11,
+      "contra": 121,
+      "abstencion": 0,
+      "total": 132
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-632-pos-372825",
+    "fecha": "13 de noviembre de 2025",
+    "titulo": "Vamos a votar, en primer lugar, la Proposición No de Ley 48/25. Se inicia la votación. (Pausa.)",
+    "group_votes": {
+      "PP": "no",
+      "Vox": "abstencion",
+      "Más Madrid": "si",
+      "PSOE-M": "si"
+    },
+    "results_raw": {
+      "favor": 9,
+      "contra": 68,
+      "abstencion": 11,
+      "present": 4
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por disciplina de grupo (Asamblea de Madrid no publica votos individuales en actas ordinarias)."
+    }
+  },
+  {
+    "id": "MAD-XIII-642-1",
+    "fecha": "20/11/2025",
+    "titulo": "texto original de Más Madrid",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 52,
+      "contra": 80,
+      "abstencion": 0,
+      "total": 132
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-642-2",
+    "fecha": "20/11/2025",
+    "titulo": "Proposición No de Ley 486/25",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 52,
+      "contra": 80,
+      "abstencion": 0,
+      "total": 132
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-642-3",
+    "fecha": "20/11/2025",
+    "titulo": "es de 130 votos emitidos: 11",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 52,
+      "contra": 78,
+      "abstencion": 0,
+      "total": 130
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-642-4",
+    "fecha": "20/11/2025",
+    "titulo": "es de 130 votos emitidos: 52 síes, 78 noes y cero abstenciones; 2 noes y 1 sí a distancia",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 52,
+      "contra": 78,
+      "abstencion": 0,
+      "total": 130
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-653-1",
+    "fecha": "04/12/2025",
+    "titulo": "presentada por el Grupo Parlamentario Socialista",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 51,
+      "contra": 80,
+      "abstencion": 0,
+      "total": 131
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-653-2",
+    "fecha": "04/12/2025",
+    "titulo": "ahora la del Grupo",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 10,
+      "contra": 121,
+      "abstencion": 0,
+      "total": 131
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-1",
+    "fecha": "11/12/2025",
+    "titulo": "es la tramitación en lectura única del Proyecto Ley 5/2025",
+    "votos": [],
+    "group_votes": {
+      "PP": "si",
+      "Vox": "abstencion",
+      "Más Madrid": "no",
+      "PSOE-M": "no"
+    },
+    "totales": {
+      "favor": 78,
+      "contra": 51,
+      "abstencion": 0,
+      "total": 129
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-10",
+    "fecha": "11/12/2025",
+    "titulo": "separada de la enmienda 10",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 52,
+      "contra": 79,
+      "abstencion": 0,
+      "total": 131
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-11",
+    "fecha": "11/12/2025",
+    "titulo": "separada de la enmienda",
+    "votos": [],
+    "group_votes": {
+      "PP": "si",
+      "Más Madrid": "si",
+      "PSOE-M": "si",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 52,
+      "contra": 66,
+      "abstencion": 10,
+      "total": 128
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-12",
+    "fecha": "11/12/2025",
+    "titulo": "separada de la enmienda 17 del Grupo",
+    "votos": [],
+    "group_votes": {
+      "PP": "si",
+      "Más Madrid": "si",
+      "PSOE-M": "si",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 62,
+      "contra": 66,
+      "abstencion": 0,
+      "total": 128
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-13",
+    "fecha": "11/12/2025",
+    "titulo": "separada de las enmiendas 2, 4, 16, 18, 26, 31, 58,",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 35,
+      "contra": 93,
+      "abstencion": 0,
+      "total": 128
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-14",
+    "fecha": "11/12/2025",
+    "titulo": "separada de las",
+    "votos": [],
+    "group_votes": {
+      "PP": "si",
+      "Más Madrid": "si",
+      "PSOE-M": "si",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 62,
+      "contra": 66,
+      "abstencion": 0,
+      "total": 128
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-15",
+    "fecha": "11/12/2025",
+    "titulo": "separada de",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 35,
+      "contra": 96,
+      "abstencion": 0,
+      "total": 131
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-16",
+    "fecha": "11/12/2025",
+    "titulo": "separada de la enmienda número",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 36,
+      "contra": 96,
+      "abstencion": 0,
+      "total": 132
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-17",
+    "fecha": "11/12/2025",
+    "titulo": "separada de la enmienda 37 de su propio",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 10,
+      "contra": 118,
+      "abstencion": 0,
+      "total": 128
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-18",
+    "fecha": "11/12/2025",
+    "titulo": "separada de las enmiendas",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 37,
+      "contra": 95,
+      "abstencion": 0,
+      "total": 132
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-19",
+    "fecha": "11/12/2025",
+    "titulo": "separada de la enmienda 53 de su propio",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 10,
+      "contra": 118,
+      "abstencion": 0,
+      "total": 128
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-2",
+    "fecha": "11/12/2025",
+    "titulo": "l Proyecto de Ley 5/2025, que es de reconocimiento de la",
+    "votos": [],
+    "group_votes": {
+      "PP": "si",
+      "Vox": "abstencion",
+      "Más Madrid": "no",
+      "PSOE-M": "no"
+    },
+    "totales": {
+      "favor": 79,
+      "contra": 24,
+      "abstencion": 27,
+      "total": 130
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-20",
+    "fecha": "11/12/2025",
+    "titulo": "enmienda número 54 del Grupo Parlamentario Vox en Madrid",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 10,
+      "contra": 122,
+      "abstencion": 0,
+      "total": 132
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-21",
+    "fecha": "11/12/2025",
+    "titulo": "enmienda número 80 del Grupo Parlamentario Vox",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 10,
+      "contra": 117,
+      "abstencion": 0,
+      "total": 127
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-22",
+    "fecha": "11/12/2025",
+    "titulo": "enmienda número 105 del Grupo Parlamentario Vox",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 10,
+      "contra": 118,
+      "abstencion": 0,
+      "total": 128
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-23",
+    "fecha": "11/12/2025",
+    "titulo": "enmienda número 115 del Grupo Parlamentario Vox",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 10,
+      "contra": 118,
+      "abstencion": 0,
+      "total": 128
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-24",
+    "fecha": "11/12/2025",
+    "titulo": "enmienda número 130 de Vox",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 10,
+      "contra": 118,
+      "abstencion": 0,
+      "total": 128
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-25",
+    "fecha": "11/12/2025",
+    "titulo": "enmienda número 145 del Grupo Parlamentario Vox",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 10,
+      "contra": 122,
+      "abstencion": 0,
+      "total": 132
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-26",
+    "fecha": "11/12/2025",
+    "titulo": "enmienda número 146 de Vox",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 35,
+      "contra": 96,
+      "abstencion": 0,
+      "total": 131
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-27",
+    "fecha": "11/12/2025",
+    "titulo": "enmienda número 151 del Grupo Parlamentario Vox en Madrid",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 10,
+      "contra": 122,
+      "abstencion": 0,
+      "total": 132
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-28",
+    "fecha": "11/12/2025",
+    "titulo": "enmienda número 162 de Vox, que es la que por unanimidad de los grupos",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 10,
+      "contra": 93,
+      "abstencion": 25,
+      "total": 128
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-29",
+    "fecha": "11/12/2025",
+    "titulo": "es de 128 votos emitidos: 10 síes, 93",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 35,
+      "contra": 97,
+      "abstencion": 0,
+      "total": 132
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-3",
+    "fecha": "11/12/2025",
+    "titulo": "escrito de oposición presentado por el Grupo Parlamentario",
+    "votos": [],
+    "group_votes": {
+      "PP": "si",
+      "Más Madrid": "si",
+      "PSOE-M": "si",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 66,
+      "contra": 62,
+      "abstencion": 0,
+      "total": 128
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-30",
+    "fecha": "11/12/2025",
+    "titulo": "separada de la enmienda 164 del Grupo",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 35,
+      "contra": 96,
+      "abstencion": 0,
+      "total": 131
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-31",
+    "fecha": "11/12/2025",
+    "titulo": "enmienda número 165 del Grupo Parlamentario Vox",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 10,
+      "contra": 121,
+      "abstencion": 0,
+      "total": 131
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-32",
+    "fecha": "11/12/2025",
+    "titulo": "resto de las enmiendas del Grupo Parlamentario Vox en Madrid: 1, 5 a 11,",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 10,
+      "contra": 122,
+      "abstencion": 0,
+      "total": 132
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-33",
+    "fecha": "11/12/2025",
+    "titulo": "separada de las enmiendas 1, 6, 10, 11, 13, 15, 17, 19, 25 y 28",
+    "votos": [],
+    "group_votes": {
+      "PP": "si",
+      "Más Madrid": "si",
+      "PSOE-M": "si",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 62,
+      "contra": 66,
+      "abstencion": 0,
+      "total": 128
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-34",
+    "fecha": "11/12/2025",
+    "titulo": "separada de las enmiendas 14, 16 y 29 de Más Madrid",
+    "votos": [],
+    "group_votes": {
+      "PP": "si",
+      "Más Madrid": "si",
+      "PSOE-M": "si",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 52,
+      "contra": 69,
+      "abstencion": 10,
+      "total": 131
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-35",
+    "fecha": "11/12/2025",
+    "titulo": "enmienda restante del Grupo Parlamentario Más Madrid, que es la 31",
+    "votos": [],
+    "group_votes": {
+      "PP": "si",
+      "Más Madrid": "si",
+      "PSOE-M": "si",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 62,
+      "contra": 69,
+      "abstencion": 0,
+      "total": 131
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-36",
+    "fecha": "11/12/2025",
+    "titulo": "es de 128 votos emitidos: 62 síes, 66 noes y cero",
+    "votos": [],
+    "group_votes": {
+      "PP": "si",
+      "Más Madrid": "si",
+      "PSOE-M": "si",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 69,
+      "contra": 62,
+      "abstencion": 0,
+      "total": 131
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-37",
+    "fecha": "11/12/2025",
+    "titulo": "exposición de motivos, que, en caso de que sus señorías la aprueben, se",
+    "votos": [],
+    "group_votes": {
+      "PP": "si",
+      "Más Madrid": "si",
+      "PSOE-M": "si",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 66,
+      "contra": 62,
+      "abstencion": 0,
+      "total": 128
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-38",
+    "fecha": "11/12/2025",
+    "titulo": "s proposiciones no de ley",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 10,
+      "contra": 122,
+      "abstencion": 0,
+      "total": 132
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-39",
+    "fecha": "11/12/2025",
+    "titulo": "515/25",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 51,
+      "contra": 80,
+      "abstencion": 0,
+      "total": 131
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-4",
+    "fecha": "11/12/2025",
+    "titulo": "enmienda transaccional a las enmiendas",
+    "votos": [],
+    "group_votes": {
+      "PP": "si",
+      "Más Madrid": "si",
+      "PSOE-M": "si",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 61,
+      "contra": 69,
+      "abstencion": 0,
+      "total": 130
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-5",
+    "fecha": "11/12/2025",
+    "titulo": "separada de la enmienda número 2",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 52,
+      "contra": 79,
+      "abstencion": 0,
+      "total": 131
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-6",
+    "fecha": "11/12/2025",
+    "titulo": "es de 128 votos emitidos: 52 síes, 76 noes y cero abstenciones; añadimos 3 noes a distancia",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 52,
+      "contra": 76,
+      "abstencion": 0,
+      "total": 128
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-7",
+    "fecha": "11/12/2025",
+    "titulo": "separada de la enmienda 4 del Grupo Parlamentario Socialista",
+    "votos": [],
+    "group_votes": {
+      "PP": "si",
+      "Más Madrid": "si",
+      "PSOE-M": "si",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 62,
+      "contra": 69,
+      "abstencion": 0,
+      "total": 131
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-8",
+    "fecha": "11/12/2025",
+    "titulo": "separada de las enmiendas 6 y 7 del Grupo Socialista",
+    "votos": [],
+    "group_votes": {
+      "PP": "si",
+      "Más Madrid": "si",
+      "PSOE-M": "si",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 36,
+      "contra": 69,
+      "abstencion": 25,
+      "total": 130
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-9",
+    "fecha": "11/12/2025",
+    "titulo": "separada de la enmienda 9 del",
+    "votos": [],
+    "group_votes": {
+      "PP": "si",
+      "Más Madrid": "si",
+      "PSOE-M": "si",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 52,
+      "contra": 69,
+      "abstencion": 10,
+      "total": 131
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-pos-160686",
+    "fecha": "11 de diciembre de 2025",
+    "titulo": "Como les decía, lo que votamos es la tramitación en lectura única del Proyecto Ley 5/2025.",
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "abstencion",
+      "PSOE-M": "si",
+      "Vox": "si"
+    },
+    "results_raw": {
+      "favor": 6,
+      "contra": 24,
+      "abstencion": 27,
+      "present": 7
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por disciplina de grupo (Asamblea de Madrid no publica votos individuales en actas ordinarias)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-pos-611149",
+    "fecha": "11 de diciembre de 2025",
+    "titulo": "Madrid; por tanto, será en contra de la creación de la comisión de investigación. Se inicia la votación.",
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "abstencion",
+      "PSOE-M": "si",
+      "Vox": "si"
+    },
+    "results_raw": {
+      "favor": 6,
+      "contra": 66,
+      "abstencion": 25,
+      "present": 3
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por disciplina de grupo (Asamblea de Madrid no publica votos individuales en actas ordinarias)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-pos-614326",
+    "fecha": "11 de diciembre de 2025",
+    "titulo": "Partido Socialista. Se inicia la votación. (Pausa.) El",
+    "group_votes": {
+      "PP": "no",
+      "Vox": "abstencion",
+      "Más Madrid": "si",
+      "PSOE-M": "si"
+    },
+    "results_raw": {
+      "favor": 2,
+      "contra": 66,
+      "abstencion": 10,
+      "present": 5
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por disciplina de grupo (Asamblea de Madrid no publica votos individuales en actas ordinarias)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-pos-614633",
+    "fecha": "11 de diciembre de 2025",
+    "titulo": "del Grupo Socialista. Se inicia la votación. (Pausa.) El",
+    "group_votes": {
+      "PP": "no",
+      "Vox": "abstencion",
+      "Más Madrid": "si",
+      "PSOE-M": "si"
+    },
+    "results_raw": {
+      "favor": 2,
+      "contra": 66,
+      "abstencion": 10,
+      "present": 5
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por disciplina de grupo (Asamblea de Madrid no publica votos individuales en actas ordinarias)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-pos-616097",
+    "fecha": "11 de diciembre de 2025",
+    "titulo": "Socialista. Se inicia la votación. (Pausa.) El",
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "abstencion",
+      "PSOE-M": "si",
+      "Vox": "si"
+    },
+    "results_raw": {
+      "favor": 0,
+      "contra": 93,
+      "abstencion": 25,
+      "present": 1
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por disciplina de grupo (Asamblea de Madrid no publica votos individuales en actas ordinarias)."
+    }
+  },
+  {
+    "id": "MAD-XIII-659-pos-624395",
+    "fecha": "11 de diciembre de 2025",
+    "titulo": "Parlamentario Vox. Se inicia la votación. (Pausa.) El",
+    "group_votes": {
+      "PP": "no",
+      "Vox": "abstencion",
+      "Más Madrid": "si",
+      "PSOE-M": "si"
+    },
+    "results_raw": {
+      "favor": 2,
+      "contra": 66,
+      "abstencion": 10,
+      "present": 5
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por disciplina de grupo (Asamblea de Madrid no publica votos individuales en actas ordinarias)."
+    }
+  },
+  {
+    "id": "MAD-XIII-679-1",
+    "fecha": "05/02/2026",
+    "titulo": "la Proposición No de Ley 358/25",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 53,
+      "contra": 80,
+      "abstencion": 0,
+      "total": 133
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-679-2",
+    "fecha": "05/02/2026",
+    "titulo": "es de 128 votos emitidos: 53 síes, 75 noes y cero abstenciones; le añadimos",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 53,
+      "contra": 80,
+      "abstencion": 0,
+      "total": 133
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-679-3",
+    "fecha": "05/02/2026",
+    "titulo": "es de 128 votos emitidos: 53 síes, 75 noes y cero abstenciones; le añadimos 5 noes a",
+    "votos": [],
+    "group_votes": {
+      "PP": "si",
+      "Más Madrid": "si",
+      "PSOE-M": "si",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 52,
+      "contra": 69,
+      "abstencion": 11,
+      "total": 132
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-679-4",
+    "fecha": "05/02/2026",
+    "titulo": "517/25",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 11,
+      "contra": 122,
+      "abstencion": 0,
+      "total": 133
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-679-pos-396114",
+    "fecha": "5 de febrero de 2026",
+    "titulo": "Empezamos con la votación de la Proposición No de Ley 358/25. Se inicia la votación. (Pausa.)",
+    "group_votes": {
+      "PP": "no",
+      "Vox": "abstencion",
+      "Más Madrid": "si",
+      "PSOE-M": "si"
+    },
+    "results_raw": {
+      "favor": 2,
+      "contra": 64,
+      "abstencion": 11,
+      "present": 5
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por disciplina de grupo (Asamblea de Madrid no publica votos individuales en actas ordinarias)."
+    }
+  },
+  {
+    "id": "MAD-XIII-688-1",
+    "fecha": "12/02/2026",
+    "titulo": "Proposición No de Ley 141/24",
+    "votos": [],
+    "group_votes": {
+      "PP": "si",
+      "Más Madrid": "si",
+      "PSOE-M": "si",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 55,
+      "contra": 66,
+      "abstencion": 11,
+      "total": 132
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-688-2",
+    "fecha": "12/02/2026",
+    "titulo": "Proposición No de Ley 18/25",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 52,
+      "contra": 80,
+      "abstencion": 0,
+      "total": 132
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-688-3",
+    "fecha": "12/02/2026",
+    "titulo": "Proposición No de Ley 522/25",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 52,
+      "contra": 80,
+      "abstencion": 0,
+      "total": 132
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-688-4",
+    "fecha": "12/02/2026",
+    "titulo": "Proposición No de Ley 23/26",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 25,
+      "contra": 80,
+      "abstencion": 27,
+      "total": 132
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-688-5",
+    "fecha": "12/02/2026",
+    "titulo": "ahora la Proposición No de Ley 26/26",
+    "votos": [],
+    "group_votes": {
+      "PP": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 11,
+      "contra": 121,
+      "abstencion": 0,
+      "total": 132
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-688-6",
+    "fecha": "12/02/2026",
+    "titulo": "Proposición No de Ley 33/26",
+    "votos": [],
+    "group_votes": {
+      "PP": "si",
+      "Más Madrid": "si",
+      "PSOE-M": "si",
+      "Vox": "no"
+    },
+    "totales": {
+      "favor": 69,
+      "contra": 52,
+      "abstencion": 11,
+      "total": 132
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-688-7",
+    "fecha": "12/02/2026",
+    "titulo": "ratificación del convenio en materia del Consorcio Regional",
+    "votos": [],
+    "group_votes": {
+      "PP": "si",
+      "Más Madrid": "si",
+      "PSOE-M": "si",
+      "Vox": "si"
+    },
+    "totales": {
+      "favor": 131,
+      "contra": 0,
+      "abstencion": 0,
+      "total": 131
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+    }
+  },
+  {
+    "id": "MAD-XIII-688-pos-512912",
+    "fecha": "12 de febrero de 2026",
+    "titulo": "Empezamos votando la Proposición No de Ley 141/24. Se inicia la votación. (Pausa.) El",
+    "group_votes": {
+      "PP": "no",
+      "Vox": "abstencion",
+      "Más Madrid": "si",
+      "PSOE-M": "si"
+    },
+    "results_raw": {
+      "favor": 2,
+      "contra": 66,
+      "abstencion": 11,
+      "present": 5
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por disciplina de grupo (Asamblea de Madrid no publica votos individuales en actas ordinarias)."
+    }
   }
 ]

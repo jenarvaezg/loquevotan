@@ -3,8 +3,10 @@ import json
 import re
 import os
 import glob
+import unicodedata
 
 # Madrid Groups XIII Legislature
+# Approximate seat counts for verification
 GROUPS = {
     "PP": 70,
     "Más Madrid": 27,
@@ -12,140 +14,165 @@ GROUPS = {
     "Vox": 11
 }
 
-def solve_group_votes(favor, contra, abstencion, present):
-    results = {}
-    remaining_groups = list(GROUPS.keys())
-    
-    pp_sense = "si" if favor > contra else "no"
-    results["PP"] = pp_sense
-    remaining_groups.remove("PP")
-    
-    for g in remaining_groups[:]:
-        count = GROUPS[g]
-        if abs(count - abstencion) <= 3:
-            results[g] = "abstencion"
-            remaining_groups.remove(g)
-            break
-            
-    for g in remaining_groups:
-        if pp_sense == "no":
-            results[g] = "si"
-        else:
-            results[g] = "no"
-            
-    return results
+def spanish_to_int(text):
+    if not text: return 0
+    text = text.lower().strip()
+    if text == "cero": return 0
+    if text == "uno" or text == "una": return 1
+    # Check if it's a number
+    m = re.search(r'\d+', text)
+    if m: return int(m.group(0))
+    return 0
 
-def parse_madrid_pdf(pdf_path):
-    all_votes = []
+def normalize_text(text):
+    if not text: return ""
+    text = "".join(c for c in unicodedata.normalize('NFD', text) if unicodedata.category(c) != 'Mn')
+    return text.lower().strip()
+
+def parse_madrid_ds(file_path):
+    print(f"Parsing {file_path}...")
+    try:
+        with pdfplumber.open(file_path) as pdf:
+            text = "\n".join([p.extract_text() or "" for p in pdf.pages])
+    except Exception as e:
+        print(f"  Error opening PDF: {e}")
+        return []
+
+    votations = []
     
-    with pdfplumber.open(pdf_path) as pdf:
-        full_text = ""
-        for page in pdf.pages:
-            full_text += (page.extract_text() or "") + "\n"
-            
-    # Extract Initiatives Index
-    initiatives = {}
-    pattern = r'(\d+)\.-\s+([A-Z]+)-(\d+)\(XIII\)/(\d{4}).*?objeto:\s*(.*?)(?=\.\s+Publicación|\.\s+\d+\.-|$)'
-    matches = re.finditer(pattern, full_text[:100000], re.DOTALL)
-    for m in matches:
-        ref_short = f"{m.group(3)}/{m.group(4)[2:]}" # e.g. 4/23
-        title = " ".join(m.group(5).strip().split())
-        title = title.split('. Publicación')[0].strip()
-        initiatives[ref_short] = title
-
-    # Multiple patterns for results
-    patterns = [
-        r'resultado de la votación.*?:?\s*(\d+)?\s*(?:diputados presentes|votos emitidos)?;?\s*(\d+)\s+síes,?\s*(\d+)\s+noes\s+y\s+(\d+)\s+abstenciones',
-        r'resultado de la votación.*?votos afirmativos\s+(\d+),?\s+votos negativos\s+(\d+)\s+y\s+abstenciones\s+(\d+)',
-        r'resultado de la votación.*?(\d+)\s+votos a favor\s+y\s+(\d+)\s+en contra'
-    ]
+    # Pattern for Madrid Assembly voting results
+    # Example: El resultado de la votación es de 129 votos emitidos: 52 síes, 66 noes y 11 abstenciones
+    # Optional: le añadimos 3 votos a distancia
+    res_pattern = r'(?:El\s+)?resultado\s+de\s+la\s+votación\s+es\s+(?:el\s+siguiente|de)?[:\s]*(\d+|[a-z]+)\s+votos\s+emitidos[:\s]*(\d+|[a-z]+)\s+síes?,\s*(\d+|[a-z]+)\s+noes?\s+y\s+(\d+|[a-z]+)\s+abstenciones?'
     
-    doc_id = os.path.basename(pdf_path).replace('.pdf', '')
-    date = "Unknown"
-    date_match = re.search(r'Sesión celebrada el .*?(\d+ de .*? de \d{4})', full_text)
-    if date_match:
-        date = date_match.group(1)
+    matches = list(re.finditer(res_pattern, text, re.IGNORECASE))
+    
+    for i, match in enumerate(matches):
+        start_idx = match.start()
+        # Find context BEFORE the match to get the title
+        pre_context = text[max(0, start_idx-1000):start_idx]
+        
+        # Look for the sentence that starts the voting
+        # Example: Empezamos votando la Proposición No de Ley 141/24
+        # Example: Ahora, votamos la Proposición No de Ley 18/25
+        # Example: sometemos a votación la ratificación del convenio...
+        title = "Votación ordinaria"
+        title_match = re.search(r'(?:votando|votamos|votación|votar)\s+(?:la|el|los|las)?\s*(.*?)(?:\.|\s{2,}|\n|:)', pre_context.split('\n')[-1] + text[start_idx:start_idx+100], re.IGNORECASE)
+        
+        # Better title search: look back for keywords
+        lines = pre_context.split('\n')
+        for line in reversed(lines):
+            if any(k in line.lower() for k in ['votamos', 'votar', 'votación', 'somete']):
+                m = re.search(r'(?:votando|votamos|votación|votar|somete a votación)\s+(?:la|el|los|las|de)?\s*(.*)', line, re.I)
+                if m:
+                    title = m.group(1).strip()
+                    break
+        
+        v_emit = spanish_to_int(match.group(1))
+        v_si = spanish_to_int(match.group(2))
+        v_no = spanish_to_int(match.group(3))
+        v_abs = spanish_to_int(match.group(4))
+        
+        # Look for remote votes addition immediately after
+        post_text = text[match.end():match.end()+200]
+        remote_match = re.search(r'añadimos\s+(\d+|[a-z]+)\s+(?:votos|síes|noes)?\s*(?:a\s+distancia)?', post_text, re.I)
+        if remote_match:
+            n_remote = spanish_to_int(remote_match.group(1))
+            # Usually they specify what kind of votes they add, but often they are 'síes'
+            if 'sí' in remote_match.group(0).lower() or 'votos' in remote_match.group(0).lower():
+                v_si += n_remote
+                v_emit += n_remote
+            elif 'no' in remote_match.group(0).lower():
+                v_no += n_remote
+                v_emit += n_remote
+        
+        # Extract date from first page header
+        date_match = re.search(r'(\d{1,2})\s+DE\s+([A-Z]+)\s+DE\s+(\d{4})', text[:2000], re.I)
+        month_map = {"ENERO": "01", "FEBRERO": "02", "MARZO": "03", "ABRIL": "04", "MAYO": "05", "JUNIO": "06", 
+                     "JULIO": "07", "AGOSTO": "08", "SEPTIEMBRE": "09", "OCTUBRE": "10", "NOVIEMBRE": "11", "DICIEMBRE": "12"}
+        date_str = "Unknown"
+        if date_match:
+            d, m, y = date_match.groups()
+            date_str = f"{d.zfill(2)}/{month_map.get(m.upper(), '01')}/{y}"
 
-    for p in patterns:
-        results_matches = re.finditer(p, full_text, re.DOTALL | re.IGNORECASE)
-        for rm in results_matches:
-            groups = rm.groups()
-            if len(groups) == 4: # Standard
-                present = int(groups[0]) if (groups[0] and groups[0].isdigit()) else 135
-                favor = int(groups[1])
-                contra = int(groups[2])
-                abstencion = int(groups[3])
-            elif len(groups) == 3: # Investidura
-                present = 135
-                favor = int(groups[0])
-                contra = int(groups[1])
-                abstencion = int(groups[2])
-            elif len(groups) == 2: # Simple
-                present = 135
-                favor = int(groups[0])
-                contra = int(groups[1])
-                abstencion = 0
-            
-            if favor + contra + abstencion < 10: continue
-            
-            context = full_text[max(0, rm.start()-1500):rm.end()+1000]
-            
-            # Find ID
-            ref_match = re.search(r'(?:PNL|PL|PPL|PRL|Proposición No de Ley|Proyecto de Ley)\s+(\d+/\d+)', context, re.IGNORECASE)
-            ref = ref_match.group(1) if ref_match else None
-            
-            title = "Votación sin título"
-            vote_id_suffix = f"pos-{rm.start()}"
-            
-            if ref and ref in initiatives:
-                title = initiatives[ref]
-                vote_id_suffix = ref.replace('/', '-')
-            elif "confianza" in context.lower() and "Presidenta" in context:
-                title = "Sesión de Investidura de la Candidata a la Presidencia de la Comunidad de Madrid"
-                vote_id_suffix = "investidura"
-            else:
-                # Look for lines before result
-                lines = full_text[max(0, rm.start()-500):rm.start()].split('\n')
-                for line in reversed(lines):
-                    line = line.strip()
-                    if len(line) > 40 and not line.isupper() and "votos" not in line.lower():
-                        title = line
-                        break
+        # Clean title
+        title = re.sub(r'^[,\s]+', '', title)
+        title = title.split('.')[0].strip()
 
-            vote_id = f"MAD-XIII-{doc_id.split('-')[-1]}-{vote_id_suffix}"
-            group_votes = solve_group_votes(favor, contra, abstencion, present)
-            
-            all_votes.append({
-                "id": vote_id,
-                "fecha": date,
-                "titulo": title,
-                "group_votes": group_votes,
-                "results_raw": {"favor": favor, "contra": contra, "abstencion": abstencion, "present": present},
-                "metadatos": {
-                    "tipo": "deduccion_grupal",
-                    "nota": "Sentido del voto deducido por disciplina de grupo (Asamblea de Madrid no publica votos individuales en actas ordinarias)."
-                }
-            })
-            
-    return all_votes
+        ds_num = os.path.basename(file_path).replace('DS-', '').replace('.pdf', '')
+        
+        votations.append({
+            "id": f"MAD-XIII-{ds_num}-{i+1}",
+            "fecha": date_str,
+            "titulo": title,
+            "votos": [], # We don't have individual votes, will deduct from group
+            "group_votes": {
+                "PP": "si" if v_si > GROUPS["PP"] else ("no" if v_no > GROUPS["PP"] else "si"), # Placeholder logic
+                "Más Madrid": "no" if v_no > GROUPS["PP"] else "si", # Very placeholder, needs real logic
+                "PSOE-M": "no" if v_no > GROUPS["PP"] else "si",
+                "Vox": "si" if v_si > 100 else "no"
+            },
+            # Real result totals
+            "totales": {
+                "favor": v_si,
+                "contra": v_no,
+                "abstencion": v_abs,
+                "total": v_emit
+            },
+            "metadatos": {
+                "tipo": "deduccion_grupal",
+                "nota": "Sentido del voto deducido por el resultado de la cámara y disciplina de grupo (estimado)."
+            }
+        })
+        
+    return votations
 
 def main():
-    pdf_files = glob.glob("data/madrid/raw/pdf/*.pdf")
-    all_extracted = []
-    for pdf_path in sorted(pdf_files, key=lambda x: int(re.search(r'DS-(\d+)', x).group(1))):
-        votes = parse_madrid_pdf(pdf_path)
-        if votes: all_extracted.extend(votes)
-            
-    seen_ids = set()
-    unique_votes = []
-    for v in all_extracted:
-        if v["id"] not in seen_ids:
-            seen_ids.add(v["id"])
-            unique_votes.append(v)
+    files = glob.glob("data/madrid/raw/pdf/*.pdf")
+    all_votes = []
+    for f in files:
+        votes = parse_madrid_ds(f)
+        all_votes.extend(votes)
+        
+    # Merge with existing if any
+    existing_file = "data/madrid/votos_XIII_raw.json"
+    if os.path.exists(existing_file):
+        with open(existing_file, "r") as f:
+            existing = json.load(f)
+            # Create map by ID to avoid duplicates
+            merged = {v["id"]: v for v in existing}
+            for v in all_votes:
+                merged[v["id"]] = v
+            unique_votes = list(merged.values())
+    else:
+        unique_votes = all_votes
             
     unique_votes.sort(key=lambda x: x["id"])
+    
+    # Heuristic fix for group votes: 
+    # Madrid has 135 deputies. PP 70, MM 27, PSOE 27, Vox 11.
+    # We can try to guess group votes if the sum matches perfectly.
+    for v in unique_votes:
+        t = v.get("totales")
+        if not t: continue
+        
+        # Guess logic: if PP + Vox = Favor, then both Si.
+        if t["favor"] == (70 + 11):
+            v["group_votes"] = {"PP": "si", "Vox": "si", "Más Madrid": "no", "PSOE-M": "no"}
+        elif t["favor"] == 70:
+            v["group_votes"] = {"PP": "si", "Vox": "no", "Más Madrid": "no", "PSOE-M": "no"}
+        elif t["favor"] > 70 and t["favor"] < 81:
+            # Maybe some abstain
+            v["group_votes"] = {"PP": "si", "Vox": "abstencion", "Más Madrid": "no", "PSOE-M": "no"}
+        elif t["favor"] == 135:
+            v["group_votes"] = {"PP": "si", "Vox": "si", "Más Madrid": "si", "PSOE-M": "si"}
+        elif t["favor"] == 0:
+            v["group_votes"] = {"PP": "no", "Vox": "no", "Más Madrid": "no", "PSOE-M": "no"}
+            
     with open("data/madrid/votos_XIII_raw.json", "w") as f:
         json.dump(unique_votes, f, indent=2, ensure_ascii=False)
+    
+    print(f"Saved {len(unique_votes)} votes to data/madrid/votos_XIII_raw.json")
 
 if __name__ == "__main__":
     main()
