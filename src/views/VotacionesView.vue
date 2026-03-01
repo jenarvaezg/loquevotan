@@ -16,7 +16,8 @@ const search = ref('')
 const catFilter = ref('')
 const resultFilter = ref('')
 const proponenteFilter = ref('')
-const legFilter = ref('') // Will be set on mount/change
+const tipoFilter = ref('')
+const legFilter = ref('')
 const sortMode = ref('recent')
 const selectedTags = ref([])
 const page = ref(1)
@@ -28,13 +29,6 @@ const currentScopeLegs = computed(() => {
   return scope ? scope.legislaturas : []
 })
 
-// Update legFilter when scope changes or on mount
-watch(currentScopeLegs, (legs) => {
-  if (legs.length > 0 && !legs.includes(legFilter.value)) {
-    legFilter.value = legs[0]
-  }
-}, { immediate: true })
-
 // Populate filter options
 const sortedCategorias = computed(() => [...categorias.value].sort())
 const allTags = computed(() => Object.keys(tagCounts.value).sort())
@@ -45,20 +39,49 @@ const allProponentes = computed(() => {
   })
   return Array.from(set).sort()
 })
+const allTipos = computed(() => {
+  const set = new Set()
+  votaciones.value.forEach(v => {
+    if (v.subTipo) set.add(v.subTipo)
+  })
+  return Array.from(set).sort()
+})
 
-// Apply initial tag from query param
+// URL Sync
 onMounted(() => {
-  if (route.query.tag) {
-    selectedTags.value = [route.query.tag]
-    legFilter.value = ''
+  if (route.query.q) search.value = route.query.q
+  if (route.query.cat) catFilter.value = route.query.cat
+  if (route.query.res) resultFilter.value = route.query.res
+  if (route.query.prop) proponenteFilter.value = route.query.prop
+  if (route.query.tipo) tipoFilter.value = route.query.tipo
+  if (route.query.leg) legFilter.value = route.query.leg
+  if (route.query.sort) sortMode.value = route.query.sort
+  if (route.query.page) page.value = parseInt(route.query.page) || 1
+  if (route.query.tag) selectedTags.value = Array.isArray(route.query.tag) ? route.query.tag : [route.query.tag]
+  
+  if (!route.query.leg && currentScopeLegs.value.length > 0 && !selectedTags.value.length) {
+    legFilter.value = currentScopeLegs.value[0]
   }
 })
 
-watch(() => route.query.tag, (tag) => {
-  if (tag && !selectedTags.value.includes(tag)) {
-    selectedTags.value = [tag]
-    legFilter.value = ''
-    page.value = 1
+watch([search, catFilter, resultFilter, proponenteFilter, tipoFilter, legFilter, sortMode, page, selectedTags], () => {
+  const query = {}
+  if (search.value) query.q = search.value
+  if (catFilter.value) query.cat = catFilter.value
+  if (resultFilter.value) query.res = resultFilter.value
+  if (proponenteFilter.value) query.prop = proponenteFilter.value
+  if (tipoFilter.value) query.tipo = tipoFilter.value
+  if (legFilter.value) query.leg = legFilter.value
+  if (sortMode.value !== 'recent') query.sort = sortMode.value
+  if (page.value > 1) query.page = page.value
+  if (selectedTags.value.length) query.tag = selectedTags.value
+  
+  router.replace({ query })
+}, { deep: true })
+
+watch(currentScopeLegs, (legs) => {
+  if (legs.length > 0 && !legs.includes(legFilter.value) && !selectedTags.value.length && !route.query.leg) {
+    legFilter.value = legs[0]
   }
 })
 
@@ -67,6 +90,7 @@ const filtered = computed(() => {
   const cat = catFilter.value
   const result = resultFilter.value
   const proponente = proponenteFilter.value
+  const tipo = tipoFilter.value
   const leg = legFilter.value
   const tags = selectedTags.value
 
@@ -76,6 +100,7 @@ const filtered = computed(() => {
     if (cat && categorias.value[vot.categoria] !== cat) return false
     if (result && votResults.value[i].result !== result) return false
     if (proponente && vot.proponente !== proponente) return false
+    if (tipo && vot.subTipo !== tipo) return false
     if (leg && vot.legislatura !== leg) return false
     if (tags.length > 0) {
       const etiquetas = vot.etiquetas || []
@@ -138,6 +163,7 @@ function resetFilters() {
   catFilter.value = ''
   resultFilter.value = ''
   proponenteFilter.value = ''
+  tipoFilter.value = ''
   legFilter.value = ''
   sortMode.value = 'recent'
   selectedTags.value = []
@@ -189,6 +215,13 @@ function goToPage(p) {
           <select id="vot-proponente-select" v-model="proponenteFilter" class="filter-select" data-testid="vot-filter-proponente" @change="page = 1">
             <option value="">Todos</option>
             <option v-for="p in allProponentes" :key="p" :value="p">{{ p }}</option>
+          </select>
+        </div>
+        <div v-if="allTipos.length > 0" class="filter-group">
+          <label for="vot-tipo-select">Tipo</label>
+          <select id="vot-tipo-select" v-model="tipoFilter" class="filter-select" data-testid="vot-filter-tipo" @change="page = 1">
+            <option value="">Todos</option>
+            <option v-for="t in allTipos" :key="t" :value="t">{{ fmt(t) }}</option>
           </select>
         </div>
         <div class="filter-group">
