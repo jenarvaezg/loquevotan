@@ -221,11 +221,22 @@ function calibrateQuestionForCompass(question, groups) {
   const coverage = groups.length ? clamp(samples.length / groups.length, 0, 1) : 0
   const voteSpread = clamp(standardDeviation(votes) / 0.9, 0, 1)
 
-  const blendManual = hasManualAxis ? 0.65 : 0
-  const blendInferred = hasManualAxis ? 0.35 : 1
-  const blendedEconomic = (manualEconomic * blendManual) + (inferredEconomic * blendInferred)
-  const blendedSocial = (manualSocial * blendManual) + (inferredSocial * blendInferred)
-  const blendedTerritorial = (manualTerritorial * blendManual) + (inferredTerritorial * blendInferred)
+  // Trust manual axes more to prevent artificial diagonal clustering
+  const blendManual = hasManualAxis ? 0.85 : 0
+  const baseBlendInferred = hasManualAxis ? 0.15 : 1
+
+  // If a manual axis was explicitly set to ~0, drastically reduce the inferred "contagion"
+  // to allow for orthogonal point spreading (e.g. purely social or purely economic questions)
+  const isOrthogonalIntent = hasManualAxis &&
+    (Math.abs(manualEconomic) < 0.2 || Math.abs(manualSocial) < 0.2 || Math.abs(manualTerritorial) < 0.2)
+
+  const blendInferredEconomic = isOrthogonalIntent && Math.abs(manualEconomic) < 0.2 ? baseBlendInferred * 0.2 : baseBlendInferred
+  const blendInferredSocial = isOrthogonalIntent && Math.abs(manualSocial) < 0.2 ? baseBlendInferred * 0.2 : baseBlendInferred
+  const blendInferredTerritorial = isOrthogonalIntent && Math.abs(manualTerritorial) < 0.2 ? baseBlendInferred * 0.2 : baseBlendInferred
+
+  const blendedEconomic = (manualEconomic * blendManual) + (inferredEconomic * blendInferredEconomic)
+  const blendedSocial = (manualSocial * blendManual) + (inferredSocial * blendInferredSocial)
+  const blendedTerritorial = (manualTerritorial * blendManual) + (inferredTerritorial * blendInferredTerritorial)
 
   const consistency = hasManualAxis
     ? clamp(1 - ((Math.abs(manualEconomic - inferredEconomic) + Math.abs(manualSocial - inferredSocial) + Math.abs(manualTerritorial - inferredTerritorial)) / 6), 0, 1)
@@ -565,7 +576,7 @@ const compassData = computed(() => {
 
 const topCompassParties = computed(() => {
   if (!compassData.value) return []
-  return compassData.value.partiesByDistance.slice(0, 5)
+  return compassData.value.partiesByDistance
 })
 
 const userCompassLabel = computed(() => {
