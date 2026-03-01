@@ -10,6 +10,7 @@ const selectedMode = ref('basic')
 const loading = ref(true)
 const error = ref(null)
 const captureArea = ref(null)
+const hoveredPoint = ref(null)
 
 const currentStep = ref(-1) // -1: Intro, 0-N: Questions, N+1: Results
 const answers = ref({}) // qId -> 'si' | 'no' | 'abstencion'
@@ -18,7 +19,7 @@ const SOCIAL_AXIS_THRESHOLD = 15
 const ECONOMIC_AXIS_THRESHOLD = 15
 const COMPASS_MIN_QUESTIONS_FOR_HIGH_CONFIDENCE = 14
 const COMPASS_DISPLAY_MARGIN = 8
-const COMPASS_DISPLAY_SOFTNESS = 0.62
+const COMPASS_DISPLAY_SOFTNESS = 0.55
 const COMPASS_EMPIRICAL_SCALE = 24
 const COMPASS_EMPIRICAL_BLEND_BASE = 0.44
 const COMPASS_SPREAD_FLOOR_FACTOR = 0.26
@@ -36,6 +37,11 @@ const PARTY_ANCHORS = {
 
   CS: { economic: 24, social: 6, color: '#f97316' },
   'UPL-SY': { economic: -8, social: -12, color: '#a855f7' },
+  UPL: { economic: -12, social: -15, color: '#a855f7' },
+  SY: { economic: -5, social: -10, color: '#334155' },
+  'SORIA ¡YA!': { economic: -5, social: -10, color: '#334155' },
+  XAV: { economic: 12, social: 4, color: '#ffee00' },
+  'POR ÁVILA': { economic: 12, social: 4, color: '#ffee00' },
   'POR ANDALUCÍA': { economic: -40, social: -46, color: '#ec4899' },
   ADELANTE: { economic: -45, social: -35, color: '#8b5cf6' },
 
@@ -763,13 +769,27 @@ function axisToBoardPercent(axisValue) {
                 :key="`party-${party.group}`"
                 class="compass-point compass-point--party"
                 :style="partyPointStyle(party)"
-                :title="`${party.group}: X ${party.economic}, Y ${party.social}`"
+                @mouseenter="hoveredPoint = { ...party, label: party.group }"
+                @mouseleave="hoveredPoint = null"
               >
                 <span class="compass-point-index">{{ idx + 1 }}</span>
               </div>
 
-              <div class="compass-point compass-point--user" :style="pointStyle(compassData.user)">
+              <div
+                class="compass-point compass-point--user"
+                :style="pointStyle(compassData.user)"
+                @mouseenter="hoveredPoint = { ...compassData.user, label: 'Tú' }"
+                @mouseleave="hoveredPoint = null"
+              >
                 <span class="compass-point-label compass-point-label--user">Tú</span>
+              </div>
+
+              <!-- Tooltip -->
+              <div v-if="hoveredPoint" class="compass-tooltip" :style="pointStyle(hoveredPoint)">
+                <div class="tooltip-content">
+                  <strong>{{ hoveredPoint.label }}</strong>
+                  <span>X {{ hoveredPoint.economic }}, Y {{ hoveredPoint.social }}</span>
+                </div>
               </div>
             </div>
 
@@ -1202,6 +1222,52 @@ function axisToBoardPercent(axisValue) {
   font-size: 0.48rem;
   font-weight: 800;
   color: #0f172a;
+}
+
+.compass-tooltip {
+  position: absolute;
+  pointer-events: none;
+  z-index: 100;
+  min-width: 120px;
+}
+
+.tooltip-content {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1e293b;
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  white-space: nowrap;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tooltip-content::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: #1e293b;
+}
+
+.tooltip-content strong {
+  font-size: 0.85rem;
+  color: var(--color-primary-light, #60a5fa);
+}
+
+.tooltip-content span {
+  opacity: 0.8;
+  font-family: monospace;
 }
 
 .compass-legend {

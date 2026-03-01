@@ -5,9 +5,9 @@
     "PP",
     "PSOE",
     "VOX",
-    "UPL-SY",
-    "PODEMOS",
-    "CS",
+    "UPL",
+    "SY",
+    "SUMAR",
     "XAV"
   ],
   "questions": [
@@ -24,9 +24,9 @@
         "PP": "no",
         "PSOE": "si",
         "VOX": "no",
-        "UPL-SY": "si",
-        "PODEMOS": "si",
-        "CS": "si",
+        "UPL": "si",
+        "SY": "si",
+        "SUMAR": "si",
         "XAV": "si"
       }
     },
@@ -43,9 +43,9 @@
         "PP": "si",
         "PSOE": "no",
         "VOX": "si",
-        "UPL-SY": "abstencion",
-        "PODEMOS": "no",
-        "CS": "si",
+        "UPL": "abstencion",
+        "SY": "abstencion",
+        "SUMAR": "no",
         "XAV": "si"
       }
     },
@@ -62,9 +62,9 @@
         "PP": "si",
         "PSOE": "si",
         "VOX": "no",
-        "UPL-SY": "si",
-        "PODEMOS": "si",
-        "CS": "si",
+        "UPL": "si",
+        "SY": "si",
+        "SUMAR": "si",
         "XAV": "si"
       }
     },
@@ -81,9 +81,9 @@
         "PP": "no",
         "PSOE": "si",
         "VOX": "no",
-        "UPL-SY": "si",
-        "PODEMOS": "si",
-        "CS": "si",
+        "UPL": "si",
+        "SY": "si",
+        "SUMAR": "si",
         "XAV": "si"
       }
     },
@@ -100,9 +100,9 @@
         "PP": "abstencion",
         "PSOE": "si",
         "VOX": "no",
-        "UPL-SY": "si",
-        "PODEMOS": "si",
-        "CS": "abstencion",
+        "UPL": "si",
+        "SY": "si",
+        "SUMAR": "si",
         "XAV": "si"
       }
     },
@@ -119,9 +119,9 @@
         "PP": "si",
         "PSOE": "si",
         "VOX": "no",
-        "UPL-SY": "si",
-        "PODEMOS": "si",
-        "CS": "si",
+        "UPL": "si",
+        "SY": "si",
+        "SUMAR": "si",
         "XAV": "si"
       }
     },
@@ -138,9 +138,9 @@
         "PP": "no",
         "PSOE": "si",
         "VOX": "no",
-        "UPL-SY": "si",
-        "PODEMOS": "si",
-        "CS": "no",
+        "UPL": "si",
+        "SY": "si",
+        "SUMAR": "si",
         "XAV": "si"
       }
     },
@@ -157,9 +157,9 @@
         "PP": "si",
         "PSOE": "no",
         "VOX": "si",
-        "UPL-SY": "abstencion",
-        "PODEMOS": "no",
-        "CS": "si",
+        "UPL": "abstencion",
+        "SY": "abstencion",
+        "SUMAR": "no",
         "XAV": "si"
       }
     },
@@ -176,9 +176,9 @@
         "PP": "abstencion",
         "PSOE": "si",
         "VOX": "no",
-        "UPL-SY": "si",
-        "PODEMOS": "si",
-        "CS": "si",
+        "UPL": "si",
+        "SY": "si",
+        "SUMAR": "si",
         "XAV": "si"
       }
     },
@@ -195,9 +195,9 @@
         "PP": "no",
         "PSOE": "abstencion",
         "VOX": "no",
-        "UPL-SY": "si",
-        "PODEMOS": "si",
-        "CS": "no",
+        "UPL": "si",
+        "SY": "si",
+        "SUMAR": "si",
         "XAV": "si"
       }
     },
@@ -214,9 +214,9 @@
         "PP": "si",
         "PSOE": "abstencion",
         "VOX": "si",
-        "UPL-SY": "si",
-        "PODEMOS": "no",
-        "CS": "si",
+        "UPL": "si",
+        "SY": "si",
+        "SUMAR": "no",
         "XAV": "si"
       }
     },
@@ -233,9 +233,9 @@
         "PP": "abstencion",
         "PSOE": "si",
         "VOX": "no",
-        "UPL-SY": "si",
-        "PODEMOS": "si",
-        "CS": "abstencion",
+        "UPL": "si",
+        "SY": "si",
+        "SUMAR": "si",
         "XAV": "si"
       }
     },
@@ -252,9 +252,9 @@
         "PP": "si",
         "PSOE": "si",
         "VOX": "si",
-        "UPL-SY": "si",
-        "PODEMOS": "si",
-        "CS": "si",
+        "UPL": "si",
+        "SY": "si",
+        "SUMAR": "si",
         "XAV": "si"
       }
     },
@@ -271,9 +271,9 @@
         "PP": "si",
         "PSOE": "abstencion",
         "VOX": "si",
-        "UPL-SY": "si",
-        "PODEMOS": "no",
-        "CS": "si",
+        "UPL": "si",
+        "SY": "si",
+        "SUMAR": "no",
         "XAV": "si"
       }
     },
@@ -290,9 +290,9 @@
         "PP": "no",
         "PSOE": "si",
         "VOX": "abstencion",
-        "UPL-SY": "si",
-        "PODEMOS": "si",
-        "CS": "si",
+        "UPL": "si",
+        "SY": "si",
+        "SUMAR": "si",
         "XAV": "si"
       }
     },
@@ -309,9 +309,9 @@
         "PP": "si",
         "PSOE": "si",
         "VOX": "no",
-        "UPL-SY": "abstencion",
-        "PODEMOS": "no",
-        "CS": "si",
+        "UPL": "abstencion",
+        "SY": "abstencion",
+        "SUMAR": "no",
         "XAV": "si"
       }
     },
@@ -328,9 +328,9 @@
         "PP": "si",
         "PSOE": "si",
         "VOX": "si",
-        "UPL-SY": "si",
-        "PODEMOS": "si",
-        "CS": "si",
+        "UPL": "si",
+        "SY": "si",
+        "SUMAR": "si",
         "XAV": "si"
       }
     },
@@ -347,9 +347,9 @@
         "PP": "abstencion",
         "PSOE": "si",
         "VOX": "no",
-        "UPL-SY": "si",
-        "PODEMOS": "si",
-        "CS": "si",
+        "UPL": "si",
+        "SY": "si",
+        "SUMAR": "si",
         "XAV": "si"
       }
     },
@@ -366,9 +366,9 @@
         "PP": "si",
         "PSOE": "si",
         "VOX": "abstencion",
-        "UPL-SY": "si",
-        "PODEMOS": "si",
-        "CS": "si",
+        "UPL": "si",
+        "SY": "si",
+        "SUMAR": "si",
         "XAV": "si"
       }
     },
@@ -385,9 +385,9 @@
         "PP": "no",
         "PSOE": "abstencion",
         "VOX": "si",
-        "UPL-SY": "abstencion",
-        "PODEMOS": "no",
-        "CS": "si",
+        "UPL": "abstencion",
+        "SY": "abstencion",
+        "SUMAR": "no",
         "XAV": "abstencion"
       }
     }
