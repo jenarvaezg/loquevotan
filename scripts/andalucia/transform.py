@@ -3,6 +3,7 @@ import os
 import hashlib
 import datetime
 import sys
+import re
 
 # Add root dir to path to import ai_utils
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
@@ -109,6 +110,7 @@ def transform():
     
     votos_by_leg = {leg: [] for leg in LEGISLATURAS}
     vot_detail_by_leg = {leg: {} for leg in LEGISLATURAS}
+    vots_by_exp = {} # exp_id -> list of vot_idx
     
     # Sort all votes by date descending
     all_raw_votes.sort(key=lambda x: x["fecha"], reverse=True)
@@ -124,6 +126,14 @@ def transform():
         vot_idx = i
         leg_roman = v["id"].split("-")[1] # e.g. AND-XII-77-1 -> XII
         leg_key = leg_roman 
+
+        # Extract expediente from title (e.g. 12-22/PNLP-000003)
+        exp_match = re.search(r"(\d+-\d+/[A-Z]+-\d+)", v["titulo"])
+        exp_id = exp_match.group(1) if exp_match else None
+        if exp_id:
+            if exp_id not in vots_by_exp:
+                vots_by_exp[exp_id] = []
+            vots_by_exp[exp_id].append(vot_idx)
         
         favor = 0
         contra = 0
@@ -167,7 +177,10 @@ def transform():
             "fecha": v["fecha"],
             "titulo_ciudadano": cat_info.get("titulo_ciudadano", v["titulo"]),
             "categoria": cat_to_idx[cat_info.get("categoria_principal", cat_info.get("categoria", "Otros"))],
-            "etiquetas": cat_info.get("etiquetas", [])
+            "etiquetas": cat_info.get("etiquetas", []),
+            "exp": exp_id,
+            "subTipo": cat_info.get("subTipo", ""),
+            "proponente": cat_info.get("proponente", "")
         })
         
         total = favor + contra + abstencion
@@ -274,7 +287,7 @@ def transform():
         "sortedVotIdxByDate": list(range(len(votaciones_meta_list))), 
         "dipStats": dip_stats,
         "groupAffinityByLeg": group_affinity_by_leg, 
-        "votsByExp": {},
+        "votsByExp": vots_by_exp,
         "votIdById": {v["id"]: i for i, v in enumerate(votaciones_meta_list)},
         "dipFotos": [d.get("foto") for d in diputados_list],
         "dipProvincias": [d.get("provincia") for d in diputados_list]
@@ -299,8 +312,8 @@ def transform():
             "fecha": v_meta["fecha"],
             "categoria": categorias_list[v_meta["categoria"]],
             "etiquetas": v_meta["etiquetas"],
-            "subTipo": "", 
-            "proponente": "",
+            "subTipo": v_meta["subTipo"], 
+            "proponente": v_meta["proponente"],
             "result": v_res["result"],
             "favor": v_res["favor"],
             "contra": v_res["contra"],

@@ -1,0 +1,2338 @@
+[
+  {
+    "id": "CAT-15-035-1",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 30,
+      "contra": 14,
+      "abstencion": 90,
+      "total": 134
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-035-10",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 5.1.",
+    "votos": [],
+    "totales": {
+      "favor": 123,
+      "contra": 0,
+      "abstencion": 11,
+      "total": 134
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-035-11",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 63,
+      "contra": 11,
+      "abstencion": 60,
+      "total": 134
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-035-12",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 2.1.",
+    "votos": [],
+    "totales": {
+      "favor": 76,
+      "contra": 0,
+      "abstencion": 58,
+      "total": 134
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-035-13",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 2.1.",
+    "votos": [],
+    "totales": {
+      "favor": 69,
+      "contra": 35,
+      "abstencion": 30,
+      "total": 134
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-035-14",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 2.2.",
+    "votos": [],
+    "totales": {
+      "favor": 123,
+      "contra": 0,
+      "abstencion": 11,
+      "total": 134
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-035-15",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 3.2.",
+    "votos": [],
+    "totales": {
+      "favor": 68,
+      "contra": 64,
+      "abstencion": 2,
+      "total": 134
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-035-16",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 4.2.",
+    "votos": [],
+    "totales": {
+      "favor": 67,
+      "contra": 26,
+      "abstencion": 41,
+      "total": 134
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-035-17",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 5.1.",
+    "votos": [],
+    "totales": {
+      "favor": 64,
+      "contra": 55,
+      "abstencion": 15,
+      "total": 134
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-035-18",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 2.3.",
+    "votos": [],
+    "totales": {
+      "favor": 68,
+      "contra": 60,
+      "abstencion": 6,
+      "total": 134
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-035-19",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 4.2.",
+    "votos": [],
+    "totales": {
+      "favor": 121,
+      "contra": 11,
+      "abstencion": 2,
+      "total": 134
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-035-2",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 123,
+      "contra": 0,
+      "abstencion": 11,
+      "total": 134
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-035-20",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 61,
+      "contra": 53,
+      "abstencion": 20,
+      "total": 134
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-035-21",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 67,
+      "contra": 48,
+      "abstencion": 19,
+      "total": 134
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-035-22",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 81,
+      "contra": 11,
+      "abstencion": 42,
+      "total": 134
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-035-23",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 109,
+      "contra": 11,
+      "abstencion": 14,
+      "total": 134
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-035-24",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 135,
+      "contra": 0,
+      "abstencion": 0,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-035-3",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 2.1.",
+    "votos": [],
+    "totales": {
+      "favor": 40,
+      "contra": 38,
+      "abstencion": 56,
+      "total": 134
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-035-4",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 2.1.",
+    "votos": [],
+    "totales": {
+      "favor": 104,
+      "contra": 24,
+      "abstencion": 6,
+      "total": 134
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-035-5",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 2.3.",
+    "votos": [],
+    "totales": {
+      "favor": 79,
+      "contra": 35,
+      "abstencion": 20,
+      "total": 134
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-035-6",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 2.3.",
+    "votos": [],
+    "totales": {
+      "favor": 68,
+      "contra": 43,
+      "abstencion": 23,
+      "total": 134
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-035-7",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 3.3.",
+    "votos": [],
+    "totales": {
+      "favor": 67,
+      "contra": 25,
+      "abstencion": 42,
+      "total": 134
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-035-8",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 4.1.",
+    "votos": [],
+    "totales": {
+      "favor": 70,
+      "contra": 2,
+      "abstencion": 62,
+      "total": 134
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-035-9",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 4.3.",
+    "votos": [],
+    "totales": {
+      "favor": 109,
+      "contra": 0,
+      "abstencion": 25,
+      "total": 134
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-053-1",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 74,
+      "contra": 26,
+      "abstencion": 35,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-053-10",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 3.2.",
+    "votos": [],
+    "totales": {
+      "favor": 123,
+      "contra": 0,
+      "abstencion": 12,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-053-11",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 3.2.",
+    "votos": [],
+    "totales": {
+      "favor": 61,
+      "contra": 32,
+      "abstencion": 42,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-053-12",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 3.3.",
+    "votos": [],
+    "totales": {
+      "favor": 76,
+      "contra": 4,
+      "abstencion": 55,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-053-13",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 4.2.",
+    "votos": [],
+    "totales": {
+      "favor": 70,
+      "contra": 0,
+      "abstencion": 65,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-053-14",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 28,
+      "contra": 10,
+      "abstencion": 97,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-053-15",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 5.2.",
+    "votos": [],
+    "totales": {
+      "favor": 105,
+      "contra": 10,
+      "abstencion": 20,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-053-16",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 2.1 i 2.2.",
+    "votos": [],
+    "totales": {
+      "favor": 30,
+      "contra": 26,
+      "abstencion": 79,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-053-17",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 3.2.",
+    "votos": [],
+    "totales": {
+      "favor": 102,
+      "contra": 2,
+      "abstencion": 31,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-053-18",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 4.1.",
+    "votos": [],
+    "totales": {
+      "favor": 27,
+      "contra": 0,
+      "abstencion": 108,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-053-19",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 5.1.",
+    "votos": [],
+    "totales": {
+      "favor": 135,
+      "contra": 0,
+      "abstencion": 0,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-053-2",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 2.1.",
+    "votos": [],
+    "totales": {
+      "favor": 87,
+      "contra": 0,
+      "abstencion": 48,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-053-20",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 2.2.",
+    "votos": [],
+    "totales": {
+      "favor": 131,
+      "contra": 0,
+      "abstencion": 4,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-053-21",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 2.2.",
+    "votos": [],
+    "totales": {
+      "favor": 120,
+      "contra": 11,
+      "abstencion": 4,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-053-22",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 3.1.",
+    "votos": [],
+    "totales": {
+      "favor": 57,
+      "contra": 30,
+      "abstencion": 48,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-053-23",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 3.3.",
+    "votos": [],
+    "totales": {
+      "favor": 94,
+      "contra": 10,
+      "abstencion": 31,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-053-24",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 3.3.",
+    "votos": [],
+    "totales": {
+      "favor": 52,
+      "contra": 41,
+      "abstencion": 42,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-053-25",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 4.2.",
+    "votos": [],
+    "totales": {
+      "favor": 105,
+      "contra": 10,
+      "abstencion": 20,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-053-26",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 4.3.",
+    "votos": [],
+    "totales": {
+      "favor": 135,
+      "contra": 0,
+      "abstencion": 0,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-053-27",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 4.3.",
+    "votos": [],
+    "totales": {
+      "favor": 89,
+      "contra": 0,
+      "abstencion": 46,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-053-28",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 3.2.",
+    "votos": [],
+    "totales": {
+      "favor": 100,
+      "contra": 0,
+      "abstencion": 35,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-053-29",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 3.2.",
+    "votos": [],
+    "totales": {
+      "favor": 80,
+      "contra": 0,
+      "abstencion": 55,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-053-3",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 2.1.",
+    "votos": [],
+    "totales": {
+      "favor": 45,
+      "contra": 11,
+      "abstencion": 79,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-053-30",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 116,
+      "contra": 0,
+      "abstencion": 19,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-053-31",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 4.2.",
+    "votos": [],
+    "totales": {
+      "favor": 115,
+      "contra": 11,
+      "abstencion": 8,
+      "total": 134
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-053-32",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 5.2.",
+    "votos": [],
+    "totales": {
+      "favor": 70,
+      "contra": 61,
+      "abstencion": 4,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-053-33",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 1.2.",
+    "votos": [],
+    "totales": {
+      "favor": 45,
+      "contra": 0,
+      "abstencion": 90,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-053-34",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 109,
+      "contra": 15,
+      "abstencion": 11,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-053-35",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 3.2.",
+    "votos": [],
+    "totales": {
+      "favor": 68,
+      "contra": 65,
+      "abstencion": 2,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-053-36",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 67,
+      "contra": 26,
+      "abstencion": 42,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-053-37",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 4.2.",
+    "votos": [],
+    "totales": {
+      "favor": 100,
+      "contra": 0,
+      "abstencion": 35,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-053-38",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 4.2.",
+    "votos": [],
+    "totales": {
+      "favor": 89,
+      "contra": 0,
+      "abstencion": 46,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-053-39",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 4.3.",
+    "votos": [],
+    "totales": {
+      "favor": 120,
+      "contra": 11,
+      "abstencion": 4,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-053-4",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 2.3.",
+    "votos": [],
+    "totales": {
+      "favor": 109,
+      "contra": 0,
+      "abstencion": 26,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-053-40",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 5.3.",
+    "votos": [],
+    "totales": {
+      "favor": 127,
+      "contra": 4,
+      "abstencion": 4,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-053-5",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 3.1.",
+    "votos": [],
+    "totales": {
+      "favor": 72,
+      "contra": 28,
+      "abstencion": 35,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-053-6",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 4.2.",
+    "votos": [],
+    "totales": {
+      "favor": 30,
+      "contra": 11,
+      "abstencion": 94,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-053-7",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 5.1.",
+    "votos": [],
+    "totales": {
+      "favor": 83,
+      "contra": 11,
+      "abstencion": 41,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-053-8",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 5.2.",
+    "votos": [],
+    "totales": {
+      "favor": 83,
+      "contra": 0,
+      "abstencion": 52,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-053-9",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 123,
+      "contra": 4,
+      "abstencion": 8,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-1",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 61,
+      "contra": 30,
+      "abstencion": 44,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-10",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 20.3.",
+    "votos": [],
+    "totales": {
+      "favor": 69,
+      "contra": 24,
+      "abstencion": 41,
+      "total": 134
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-11",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 3.1.",
+    "votos": [],
+    "totales": {
+      "favor": 62,
+      "contra": 19,
+      "abstencion": 54,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-12",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 60,
+      "contra": 14,
+      "abstencion": 61,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-13",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 4.3.",
+    "votos": [],
+    "totales": {
+      "favor": 42,
+      "contra": 16,
+      "abstencion": 77,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-14",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 5.1.",
+    "votos": [],
+    "totales": {
+      "favor": 85,
+      "contra": 4,
+      "abstencion": 46,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-15",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 5.2.",
+    "votos": [],
+    "totales": {
+      "favor": 102,
+      "contra": 31,
+      "abstencion": 2,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-16",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 78,
+      "contra": 26,
+      "abstencion": 30,
+      "total": 134
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-17",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 9.1.",
+    "votos": [],
+    "totales": {
+      "favor": 83,
+      "contra": 13,
+      "abstencion": 39,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-18",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 9.1.",
+    "votos": [],
+    "totales": {
+      "favor": 77,
+      "contra": 2,
+      "abstencion": 56,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-19",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 9.3, 11.2 i 19.3.",
+    "votos": [],
+    "totales": {
+      "favor": 59,
+      "contra": 35,
+      "abstencion": 41,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-2",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 6.3.",
+    "votos": [],
+    "totales": {
+      "favor": 70,
+      "contra": 30,
+      "abstencion": 35,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-20",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 13.1.",
+    "votos": [],
+    "totales": {
+      "favor": 92,
+      "contra": 0,
+      "abstencion": 43,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-21",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 13.3. 9",
+    "votos": [],
+    "totales": {
+      "favor": 68,
+      "contra": 65,
+      "abstencion": 2,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-22",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 15.3.",
+    "votos": [],
+    "totales": {
+      "favor": 70,
+      "contra": 61,
+      "abstencion": 4,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-23",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 15.3.",
+    "votos": [],
+    "totales": {
+      "favor": 72,
+      "contra": 61,
+      "abstencion": 2,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-24",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 17.2.",
+    "votos": [],
+    "totales": {
+      "favor": 98,
+      "contra": 0,
+      "abstencion": 37,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-25",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 8.1.",
+    "votos": [],
+    "totales": {
+      "favor": 80,
+      "contra": 11,
+      "abstencion": 44,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-26",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 8.1.",
+    "votos": [],
+    "totales": {
+      "favor": 65,
+      "contra": 53,
+      "abstencion": 17,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-27",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 10.3.",
+    "votos": [],
+    "totales": {
+      "favor": 65,
+      "contra": 55,
+      "abstencion": 15,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-28",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 72,
+      "contra": 28,
+      "abstencion": 35,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-29",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 3.2.",
+    "votos": [],
+    "totales": {
+      "favor": 68,
+      "contra": 28,
+      "abstencion": 39,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-3",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 6.3.",
+    "votos": [],
+    "totales": {
+      "favor": 52,
+      "contra": 43,
+      "abstencion": 40,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-30",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 4.2.",
+    "votos": [],
+    "totales": {
+      "favor": 68,
+      "contra": 61,
+      "abstencion": 6,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-31",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 67,
+      "contra": 42,
+      "abstencion": 26,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-32",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 9.1.",
+    "votos": [],
+    "totales": {
+      "favor": 91,
+      "contra": 0,
+      "abstencion": 44,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-33",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 9.1.",
+    "votos": [],
+    "totales": {
+      "favor": 65,
+      "contra": 53,
+      "abstencion": 13,
+      "total": 131
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-34",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 74,
+      "contra": 11,
+      "abstencion": 50,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-35",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 16.3.",
+    "votos": [],
+    "totales": {
+      "favor": 78,
+      "contra": 15,
+      "abstencion": 42,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-36",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 16.3.",
+    "votos": [],
+    "totales": {
+      "favor": 67,
+      "contra": 11,
+      "abstencion": 57,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-37",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 18.2.",
+    "votos": [],
+    "totales": {
+      "favor": 106,
+      "contra": 11,
+      "abstencion": 17,
+      "total": 134
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-38",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 18.2.",
+    "votos": [],
+    "totales": {
+      "favor": 66,
+      "contra": 61,
+      "abstencion": 8,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-39",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 19.3.",
+    "votos": [],
+    "totales": {
+      "favor": 72,
+      "contra": 27,
+      "abstencion": 36,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-4",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 12.1.",
+    "votos": [],
+    "totales": {
+      "favor": 63,
+      "contra": 4,
+      "abstencion": 68,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-40",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 7.2 i 7.3.",
+    "votos": [],
+    "totales": {
+      "favor": 74,
+      "contra": 26,
+      "abstencion": 35,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-41",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 12.1.",
+    "votos": [],
+    "totales": {
+      "favor": 107,
+      "contra": 11,
+      "abstencion": 17,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-42",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 12.1.",
+    "votos": [],
+    "totales": {
+      "favor": 65,
+      "contra": 26,
+      "abstencion": 44,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-43",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 67,
+      "contra": 26,
+      "abstencion": 42,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-44",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 15.3.",
+    "votos": [],
+    "totales": {
+      "favor": 65,
+      "contra": 28,
+      "abstencion": 41,
+      "total": 134
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-45",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 17.1.",
+    "votos": [],
+    "totales": {
+      "favor": 107,
+      "contra": 26,
+      "abstencion": 2,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-46",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 18.1.",
+    "votos": [],
+    "totales": {
+      "favor": 67,
+      "contra": 11,
+      "abstencion": 57,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-47",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 109,
+      "contra": 11,
+      "abstencion": 15,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-48",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 88,
+      "contra": 27,
+      "abstencion": 20,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-49",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 99,
+      "contra": 32,
+      "abstencion": 4,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-5",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 67,
+      "contra": 62,
+      "abstencion": 6,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-50",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 5.2. 9",
+    "votos": [],
+    "totales": {
+      "favor": 74,
+      "contra": 59,
+      "abstencion": 2,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-51",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 89,
+      "contra": 11,
+      "abstencion": 35,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-52",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 6.3, 12.3 i 22.1.",
+    "votos": [],
+    "totales": {
+      "favor": 77,
+      "contra": 26,
+      "abstencion": 28,
+      "total": 131
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-53",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 12.2.",
+    "votos": [],
+    "totales": {
+      "favor": 79,
+      "contra": 36,
+      "abstencion": 20,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-54",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 13.1.",
+    "votos": [],
+    "totales": {
+      "favor": 128,
+      "contra": 0,
+      "abstencion": 7,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-55",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 17.1.",
+    "votos": [],
+    "totales": {
+      "favor": 105,
+      "contra": 11,
+      "abstencion": 19,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-56",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 113,
+      "contra": 11,
+      "abstencion": 11,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-57",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 20.3.",
+    "votos": [],
+    "totales": {
+      "favor": 105,
+      "contra": 26,
+      "abstencion": 4,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-6",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 125,
+      "contra": 0,
+      "abstencion": 10,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-7",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 17.2.",
+    "votos": [],
+    "totales": {
+      "favor": 90,
+      "contra": 6,
+      "abstencion": 38,
+      "total": 134
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-8",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 17.3.",
+    "votos": [],
+    "totales": {
+      "favor": 72,
+      "contra": 46,
+      "abstencion": 17,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-061-9",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 68,
+      "contra": 30,
+      "abstencion": 37,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-070-1",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 94,
+      "contra": 31,
+      "abstencion": 10,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-070-2",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 72,
+      "contra": 28,
+      "abstencion": 35,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-070-3",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 107,
+      "contra": 26,
+      "abstencion": 2,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-070-4",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 1.3.",
+    "votos": [],
+    "totales": {
+      "favor": 45,
+      "contra": 28,
+      "abstencion": 62,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-070-5",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 65,
+      "contra": 11,
+      "abstencion": 59,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-080-1",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 1.2.",
+    "votos": [],
+    "totales": {
+      "favor": 52,
+      "contra": 46,
+      "abstencion": 37,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-080-10",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 68,
+      "contra": 65,
+      "abstencion": 2,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-080-11",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 3.1, 4.1 i 5.3.",
+    "votos": [],
+    "totales": {
+      "favor": 73,
+      "contra": 28,
+      "abstencion": 34,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-080-12",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 3.3.",
+    "votos": [],
+    "totales": {
+      "favor": 107,
+      "contra": 13,
+      "abstencion": 15,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-080-13",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 72,
+      "contra": 61,
+      "abstencion": 2,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-080-14",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 1.2.",
+    "votos": [],
+    "totales": {
+      "favor": 68,
+      "contra": 63,
+      "abstencion": 4,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-080-15",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 1.2.",
+    "votos": [],
+    "totales": {
+      "favor": 72,
+      "contra": 35,
+      "abstencion": 28,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-080-16",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 3.2.",
+    "votos": [],
+    "totales": {
+      "favor": 74,
+      "contra": 46,
+      "abstencion": 15,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-080-17",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 5.2",
+    "votos": [],
+    "totales": {
+      "favor": 89,
+      "contra": 35,
+      "abstencion": 11,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-080-18",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 100,
+      "contra": 31,
+      "abstencion": 4,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-080-19",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 4.2.",
+    "votos": [],
+    "totales": {
+      "favor": 72,
+      "contra": 11,
+      "abstencion": 42,
+      "total": 125
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-080-2",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 1.2.",
+    "votos": [],
+    "totales": {
+      "favor": 73,
+      "contra": 35,
+      "abstencion": 27,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-080-20",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 84,
+      "contra": 17,
+      "abstencion": 24,
+      "total": 125
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-080-3",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 54,
+      "contra": 35,
+      "abstencion": 46,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-080-4",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 59,
+      "contra": 35,
+      "abstencion": 41,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-080-5",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 71,
+      "contra": 35,
+      "abstencion": 28,
+      "total": 134
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-080-6",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 67,
+      "contra": 0,
+      "abstencion": 68,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-080-7",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 5.1.",
+    "votos": [],
+    "totales": {
+      "favor": 129,
+      "contra": 0,
+      "abstencion": 6,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-080-8",
+    "fecha": "Desconeguda",
+    "titulo": "Votació 5.1.",
+    "votos": [],
+    "totales": {
+      "favor": 130,
+      "contra": 0,
+      "abstencion": 4,
+      "total": 134
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  },
+  {
+    "id": "CAT-15-080-9",
+    "fecha": "Desconeguda",
+    "titulo": "Votació ",
+    "votos": [],
+    "totales": {
+      "favor": 48,
+      "contra": 4,
+      "abstencion": 83,
+      "total": 135
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentit del vot deduït pel resultat de la cambra i disciplina de grup (estimat)."
+    }
+  }
+]
