@@ -5,17 +5,30 @@ import { pct, dipPhotoUrl, avatarInitials, avatarStyle, getGroupInfo } from '../
 
 const { diputados, grupos, dipStats, dipFotos, currentScopeId, loading } = useData()
 
-const minVotes = 20
-
 const rankings = computed(() => {
   if (loading.value || !diputados.value.length) return { rebels: [], absents: [] }
+
+  // Calculate the maximum possible votes any deputy has in the current dataset
+  // to establish a dynamic baseline.
+  let maxPossibleVotes = 0
+  for (let i = 0; i < diputados.value.length; i++) {
+    const ds = dipStats.value[i]
+    if (!ds) continue
+    const possible = ds.total + (ds.no_vota || 0)
+    if (possible > maxPossibleVotes) maxPossibleVotes = possible
+  }
+
+  // Require at least 15% of the max votes (or 30 votes, whichever is higher)
+  // This filters out deputies who were only in office very briefly before resigning.
+  const dynamicMinVotes = Math.max(30, maxPossibleVotes * 0.15)
 
   const data = []
   for (let i = 0; i < diputados.value.length; i++) {
     const ds = dipStats.value[i]
     if (!ds) continue
     const allPossibleVotes = ds.total + (ds.no_vota || 0)
-    if (allPossibleVotes < minVotes) continue
+    
+    if (allPossibleVotes < dynamicMinVotes) continue
 
     const gName = ds.mainGrupo >= 0 ? grupos.value[ds.mainGrupo] : 'Sin grupo'
     const gInfo = getGroupInfo(gName)
@@ -121,7 +134,7 @@ const rankings = computed(() => {
     </div>
 
     <div class="mt-4 p-3 bg-light rounded small text-muted">
-      <strong>Nota sobre los ránkings:</strong> Solo se incluyen diputados con al menos {{ minVotes }} votaciones registradas en el ámbito actual. El absentismo incluye tanto ausencias justificadas como no justificadas, ya que los datos abiertos no distinguen el motivo de la falta de voto.
+      <strong>Nota sobre los ránkings:</strong> Solo se incluyen diputados con una participación mínima (al menos el 15% del total de votaciones del periodo) para evitar distorsiones por bajas o sustituciones prematuras. El absentismo incluye tanto ausencias justificadas como no justificadas, ya que los datos abiertos no distinguen el motivo de la falta de voto.
     </div>
   </div>
 </template>
