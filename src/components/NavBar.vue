@@ -4,7 +4,7 @@ import { useRoute } from 'vue-router'
 import HeroSearch from './HeroSearch.vue'
 import { useData } from '../composables/useData'
 
-const { ambitos, currentScopeId, setScope } = useData()
+const { ambitos, currentScopeId, setScope, manifest } = useData()
 const route = useRoute()
 const menuOpen = ref(false)
 const isDark = ref(false)
@@ -13,6 +13,21 @@ const baseUrl = import.meta.env.BASE_URL
 
 const currentScope = computed(() => {
   return ambitos.value.find(a => a.id === currentScopeId.value) || ambitos.value[0]
+})
+
+const lastUpdate = computed(() => {
+  if (!manifest.value?.updatedAt) return null
+  try {
+    const date = new Date(manifest.value.updatedAt)
+    return new Intl.DateTimeFormat('es-ES', {
+      day: 'numeric',
+      month: 'short',
+      hour: '2-digit',
+      minute: '2-digit'
+    }).format(date)
+  } catch (e) {
+    return null
+  }
 })
 
 function initTheme() {
@@ -73,7 +88,10 @@ initTheme()
         <div class="scope-dropdown" v-if="ambitos.length > 1">
           <button class="scope-btn" @click="toggleScopeMenu" :aria-expanded="scopeMenuOpen">
             <img :src="`${baseUrl}assets/flags/${currentScope?.id || 'nacional'}.svg`" class="scope-flag" :alt="currentScope?.nombre" />
-            <span class="scope-label">{{ currentScope?.nombre || 'Cargando...' }}</span>
+            <div class="scope-info">
+              <span class="scope-label">{{ currentScope?.nombre || 'Cargando...' }}</span>
+              <span v-if="lastUpdate" class="last-update">Act: {{ lastUpdate }}</span>
+            </div>
             <span class="scope-chevron">&#9662;</span>
           </button>
           
@@ -235,6 +253,22 @@ initTheme()
   max-width: 160px;
   overflow: hidden;
   text-overflow: ellipsis;
+  line-height: 1.1;
+}
+
+.scope-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 0.1rem;
+}
+
+.last-update {
+  font-size: 0.65rem;
+  color: var(--color-muted);
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
 }
 
 .scope-chevron {

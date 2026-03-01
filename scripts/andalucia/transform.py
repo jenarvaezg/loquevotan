@@ -321,6 +321,7 @@ def transform():
                 break
 
     manifest = {
+        "updatedAt": datetime.datetime.now().isoformat(),
         "stats": {
             "diputados": len(diputados_list),
             "votaciones": len(votaciones_meta_list),

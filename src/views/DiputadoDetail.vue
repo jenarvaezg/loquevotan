@@ -8,6 +8,7 @@ import ResultBadge from '../components/ResultBadge.vue'
 import ShareBar from '../components/ShareBar.vue'
 import Pagination from '../components/Pagination.vue'
 import AccountabilityCard from '../components/AccountabilityCard.vue'
+import GlossaryTooltip from '../components/GlossaryTooltip.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -153,6 +154,10 @@ const dipRecords = computed(() => {
       return { votIdx: v[0], code: v[3], grpIdx: v[2] }
     })
     .sort((a, b) => votaciones.value[b.votIdx].fecha.localeCompare(votaciones.value[a.votIdx].fecha))
+})
+
+const rebelRecords = computed(() => {
+  return dipRecords.value.filter(r => isRebel(r.votIdx, r.code, r.grpIdx))
 })
 
 const filteredHistory = computed(() => {
@@ -420,6 +425,47 @@ watch(name, (n) => {
         <div class="loading-wrap" style="padding:2rem"><div class="loading-spinner"></div></div>
       </div>
 
+      <!-- Rebel votes detail -->
+      <template v-if="allVotosReady && rebelRecords.length > 0">
+        <div class="detail-section rebel-section">
+          <h2 style="color:var(--color-contra)">Votos discordantes ({{ rebelRecords.length }})</h2>
+          <p class="hint-text">Votaciones donde este representante votó de forma distinta a la mayoría de su grupo parlamentario.</p>
+          
+          <div class="table-wrap">
+            <table class="responsive-table">
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Voto</th>
+                  <th>Asunto</th>
+                  <th>Mayoría Grupo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="r in rebelRecords" :key="r.votIdx">
+                  <td data-label="Fecha">{{ votaciones[r.votIdx].fecha }}</td>
+                  <td data-label="Voto">
+                    <span class="voto-pill" :class="votoPillClass(r.code)">
+                      {{ VOTO_LABELS[r.code] }}
+                    </span>
+                  </td>
+                  <td data-label="Asunto">
+                    <router-link :to="'/votacion/' + votaciones[r.votIdx].id">
+                      {{ votaciones[r.votIdx].titulo_ciudadano }}
+                    </router-link>
+                  </td>
+                  <td data-label="Mayoría Grupo">
+                    <span class="voto-pill" :class="votoPillClass(votacionDetail[r.votIdx]?.group_majority[grupos[r.grpIdx]])">
+                      {{ VOTO_LABELS[votacionDetail[r.votIdx]?.group_majority[grupos[r.grpIdx]]] }}
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </template>
+
       <!-- Vote history (works with partial votos) -->
       <template v-if="votosReady">
         <div class="detail-section">
@@ -498,12 +544,16 @@ watch(name, (n) => {
                           <router-link :to="'/votacion/' + votaciones[item.record.votIdx].id">
                             {{ votaciones[item.record.votIdx].titulo_ciudadano }}
                           </router-link>
-                          <span
+                          <GlossaryTooltip
                             v-if="votaciones[item.record.votIdx].subTipo"
-                            class="badge badge--sm"
-                            :class="subTipoBadgeClass(votaciones[item.record.votIdx].subTipo)"
-                            style="margin-left:0.35rem"
-                          >{{ subTipoLabel(votaciones[item.record.votIdx].subTipo) }}</span>
+                            :term="votaciones[item.record.votIdx].subTipo"
+                          >
+                            <span
+                              class="badge badge--sm"
+                              :class="subTipoBadgeClass(votaciones[item.record.votIdx].subTipo)"
+                              style="margin-left:0.35rem"
+                            >{{ subTipoLabel(votaciones[item.record.votIdx].subTipo) }}</span>
+                          </GlossaryTooltip>
                         </td>
                         <td data-label="Legislatura">
                           <span v-if="votaciones[item.record.votIdx].legislatura" class="badge badge--leg">
@@ -533,12 +583,16 @@ watch(name, (n) => {
                           <router-link :to="'/votacion/' + votaciones[rec.votIdx].id">
                             {{ votaciones[rec.votIdx].titulo_ciudadano }}
                           </router-link>
-                          <span
+                          <GlossaryTooltip
                             v-if="votaciones[rec.votIdx].subTipo"
-                            class="badge badge--sm"
-                            :class="subTipoBadgeClass(votaciones[rec.votIdx].subTipo)"
-                            style="margin-left:0.35rem"
-                          >{{ subTipoLabel(votaciones[rec.votIdx].subTipo) }}</span>
+                            :term="votaciones[rec.votIdx].subTipo"
+                          >
+                            <span
+                              class="badge badge--sm"
+                              :class="subTipoBadgeClass(votaciones[rec.votIdx].subTipo)"
+                              style="margin-left:0.35rem"
+                            >{{ subTipoLabel(votaciones[rec.votIdx].subTipo) }}</span>
+                          </GlossaryTooltip>
                         </td>
                         <td data-label="Legislatura">
                           <span v-if="votaciones[rec.votIdx].legislatura" class="badge badge--leg">
@@ -568,12 +622,16 @@ watch(name, (n) => {
                           <router-link :to="'/votacion/' + votaciones[item.primary.votIdx].id">
                             {{ votaciones[item.primary.votIdx].titulo_ciudadano }}
                           </router-link>
-                          <span
+                          <GlossaryTooltip
                             v-if="votaciones[item.primary.votIdx].subTipo"
-                            class="badge badge--sm"
-                            :class="subTipoBadgeClass(votaciones[item.primary.votIdx].subTipo)"
-                            style="margin-left:0.35rem"
-                          >{{ subTipoLabel(votaciones[item.primary.votIdx].subTipo) }}</span>
+                            :term="votaciones[item.primary.votIdx].subTipo"
+                          >
+                            <span
+                              class="badge badge--sm"
+                              :class="subTipoBadgeClass(votaciones[item.primary.votIdx].subTipo)"
+                              style="margin-left:0.35rem"
+                            >{{ subTipoLabel(votaciones[item.primary.votIdx].subTipo) }}</span>
+                          </GlossaryTooltip>
                         </td>
                         <td data-label="Legislatura">
                           <span v-if="votaciones[item.primary.votIdx].legislatura" class="badge badge--leg">
@@ -683,6 +741,15 @@ watch(name, (n) => {
 
 .detail-section {
   margin-top: 2rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+}
+
+.rebel-section {
+  border-color: rgba(220, 38, 38, 0.3);
+  background: rgba(220, 38, 38, 0.02);
 }
 
 .detail-section h2 {

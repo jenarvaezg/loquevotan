@@ -7,6 +7,7 @@ import VoteBar from '../components/VoteBar.vue'
 import ResultBadge from '../components/ResultBadge.vue'
 import ShareBar from '../components/ShareBar.vue'
 import ViewState from '../components/ViewState.vue'
+import GlossaryTooltip from '../components/GlossaryTooltip.vue'
 
 const route = useRoute()
 const { votaciones, votResults, votos, votosByVotacion, votsByExp, categorias, grupos, diputados, loadVotosForLeg, votosLoaded, votacionDetail, votIdById, loaded } = useData()
@@ -202,7 +203,9 @@ watch(vot, (v) => {
         <div class="detail-meta" style="margin-top:0.75rem">
           <ResultBadge :result="r.result" large />
           <span class="result-margin">{{ resultMarginText(r) }}</span>
-          <span v-if="vot.subTipo" class="badge" :class="subTipoBadgeClass(vot.subTipo)">{{ subTipoLabel(vot.subTipo) }}</span>
+          <GlossaryTooltip v-if="vot.subTipo" :term="vot.subTipo">
+            <span class="badge" :class="subTipoBadgeClass(vot.subTipo)">{{ subTipoLabel(vot.subTipo) }}</span>
+          </GlossaryTooltip>
           <span class="detail-meta-item">{{ vot.fecha }}</span>
           <span v-if="vot.legislatura" class="badge badge--leg">{{ vot.legislatura }}</span>
           <span v-if="vot.proponente" class="badge badge--proponente">{{ vot.proponente }}</span>

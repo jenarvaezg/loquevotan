@@ -4,6 +4,7 @@ import { useData } from '../composables/useData'
 import { fmt, subTipoLabel, subTipoBadgeClass, getGroupInfo } from '../utils'
 import VoteBar from './VoteBar.vue'
 import ResultBadge from './ResultBadge.vue'
+import GlossaryTooltip from './GlossaryTooltip.vue'
 
 const props = defineProps({
   idx: Number,
@@ -35,7 +36,9 @@ const proponenteInfo = computed(() => {
     </div>
     <div class="vote-card-meta">
       <span>{{ vot.fecha }}</span>
-      <span v-if="vot.subTipo" class="badge badge--sm" :class="subTipoBadgeClass(vot.subTipo)">{{ subTipoLabel(vot.subTipo) }}</span>
+      <GlossaryTooltip v-if="vot.subTipo" :term="vot.subTipo">
+        <span class="badge badge--sm" :class="subTipoBadgeClass(vot.subTipo)">{{ subTipoLabel(vot.subTipo) }}</span>
+      </GlossaryTooltip>
       <span class="badge badge--cat">{{ fmt(catLabel) }}</span>
       <span v-if="proponenteInfo" class="badge" :style="{ backgroundColor: proponenteInfo.color, color: 'white' }">{{ proponenteInfo.label }}</span>
     </div>

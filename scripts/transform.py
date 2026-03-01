@@ -9,6 +9,7 @@ import hashlib
 import json
 import os
 import sys
+from datetime import datetime
 from google import genai
 from google.genai import types
 import ai_utils
@@ -429,6 +430,7 @@ def main():
                 break
 
     manifest = {
+        "updatedAt": datetime.now().isoformat(),
         "stats": {
             "diputados": len(sorted_dips),
             "votaciones": len(vot_meta_list),

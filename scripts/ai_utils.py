@@ -161,7 +161,7 @@ def _categorize_batch_sdk(texts_with_ids, api_key, prompt_text):
     
     try:
         response = client.models.generate_content(
-            model="gemini-1.5-flash",
+            model="gemini-3-flash-preview",
             config=types.GenerateContentConfig(
                 response_mime_type="application/json",
                 response_schema={
@@ -203,7 +203,7 @@ def _categorize_batch_cli(texts_with_ids, prompt_text):
     try:
         # Simple call without extra flags that trigger "thinking"
         process = subprocess.Popen(
-            ["gemini", "-y", "-m", "gemini-1.5-flash", "-p", "Sigue las instrucciones enviadas por stdin para procesar los datos."],
+            ["gemini", "-y", "-m", "gemini-3-flash-preview", "-p", "Sigue las instrucciones enviadas por stdin para procesar los datos."],
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,

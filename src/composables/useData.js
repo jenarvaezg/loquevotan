@@ -12,6 +12,7 @@ const grupos = shallowRef([]);
 const categorias = shallowRef([]);
 const votaciones = shallowRef([]);
 const votos = shallowRef([]);
+const manifest = ref(null);
 
 const votosByVotacion = shallowRef({});
 const votosByDiputado = shallowRef({});
@@ -135,13 +136,22 @@ async function _doLoad() {
     }
 
     const scopePath = currentScopeId.value === "nacional" ? "" : `${currentScopeId.value}/`;
-    const raw = await fetchJsonWithRetry(`data/${scopePath}votaciones_meta.json`, {
-      attempts: 4,
-      timeoutMs: 15000,
-      scope: currentScopeId.value,
-      critical: true,
-    });
+    const [raw, manifestData] = await Promise.all([
+      fetchJsonWithRetry(`data/${scopePath}votaciones_meta.json`, {
+        attempts: 4,
+        timeoutMs: 15000,
+        scope: currentScopeId.value,
+        critical: true,
+      }),
+      fetchJsonWithRetry(`data/${scopePath}manifest_home.json`, {
+        attempts: 3,
+        timeoutMs: 10000,
+        scope: currentScopeId.value,
+        critical: false,
+      }).catch(() => null)
+    ]);
 
+    manifest.value = manifestData;
     diputados.value = raw.diputados;
     grupos.value = raw.grupos;
     categorias.value = raw.categorias;
@@ -268,6 +278,7 @@ export function useData() {
     categorias,
     votaciones,
     votos,
+    manifest,
     votosByVotacion,
     votosByDiputado,
     votResults,
