@@ -23,11 +23,12 @@ const r = computed(() => votResults.value[idx.value])
 const dipSearch = ref('')
 const highlightedDip = ref('')
 const showEmbed = ref(false)
+const copiedEmbed = ref(false)
 
 const embedCode = computed(() => {
   if (!vot.value) return ''
-  const url = location.origin + location.pathname + `#/widget/${vot.value.id}`
-  return `<iframe src="${url}" width="100%" height="250" frameborder="0" style="border:1px solid #e2e8f0; border-radius:8px;"></iframe>`
+  const url = location.origin + location.pathname + `#/widget/${vot.value.id}?embed=true`
+  return `<iframe src="${url}" width="100%" height="280" frameborder="0" style="border:1px solid #e2e8f0; border-radius:12px; max-width:550px;"></iframe>`
 })
 
 function toggleEmbed() {
@@ -36,6 +37,10 @@ function toggleEmbed() {
 
 function copyEmbed() {
   navigator.clipboard.writeText(embedCode.value)
+  copiedEmbed.value = true
+  setTimeout(() => {
+    copiedEmbed.value = false
+  }, 2000)
 }
 
 const votosReady = computed(() => {
@@ -99,54 +104,46 @@ const filteredVotes = computed(() => {
 })
 
 const copiedVi = ref(null)
-
-function shareVote(vi) {
-  const v = votos.value[vi]
-  const dipName = diputados.value[v[1]]
-  const votoText = VOTO_LABELS[v[3]]
-  const titulo = vot.value.titulo_ciudadano
-  const url = window.location.origin + import.meta.env.BASE_URL + '#/votacion/' + vot.value.id + '?dip=' + encodeURIComponent(dipName)
-  const text = `${dipName} voto ${votoText.toLowerCase()} en: "${titulo}" - ${url}`
-
-  navigator.clipboard.writeText(text).then(() => {
-    copiedVi.value = vi
-    setTimeout(() => { copiedVi.value = null }, 2000)
-  })
+function copyVoteLink(vi) {
+  const dipName = diputados.value[votos.value[vi][1]]
+  const url = `${location.origin}${location.pathname}#/votacion/${vot.value.id}?dip=${encodeURIComponent(dipName)}`
+  navigator.clipboard.writeText(url)
+  copiedVi.value = vi
+  setTimeout(() => { if (copiedVi.value === vi) copiedVi.value = null }, 2000)
 }
 
-// All votaciones in same expediente (including current)
+// Exp / Dossier logic
 const expGroup = computed(() => {
-  if (!vot.value?.exp) return []
+  if (!votsByExp.value || !vot.value?.exp) return null
   const indices = votsByExp.value[vot.value.exp] || []
-  return indices.map(i => ({ idx: i, vot: votaciones.value[i], r: votResults.value[i] }))
-})
+  if (indices.length <= 1) return null
 
-// Summary stats for the expediente
-const expSummary = computed(() => {
-  const group = expGroup.value
-  if (group.length <= 1) return null
+  const group = indices.map(i => ({
+    idx: i,
+    vot: votaciones.value[i],
+    res: votResults.value[i]
+  }))
+
+  // Sort by date then index
+  group.sort((a, b) => a.vot.fecha.localeCompare(b.vot.fecha) || a.idx - b.idx)
 
   const total = group.length
-  const aprobadas = group.filter(g => g.r.result === 'Aprobada').length
+  const aprobadas = group.filter(g => g.res.result === 'Aprobada').length
   const rechazadas = total - aprobadas
 
-  // Group by subTipo
+  // Group by tipo
   const byTipo = {}
-  const TIPO_ORDER = ['final', 'dictamen', 'totalidad', 'enmienda', 'transaccional', 'particular', 'separada', 'propuesta', 'otro', '']
-  for (const g of group) {
-    const tipo = g.vot.subTipo || ''
-    if (!byTipo[tipo]) byTipo[tipo] = { items: [], aprobadas: 0 }
-    byTipo[tipo].items.push(g)
-    if (g.r.result === 'Aprobada') byTipo[tipo].aprobadas++
-  }
+  group.forEach(g => {
+    const t = g.vot.subTipo || 'otro'
+    if (!byTipo[t]) byTipo[t] = { label: subTipoLabel(t) || 'Otras votaciones', items: [] }
+    byTipo[t].items.push(g)
+  })
 
-  const tipos = TIPO_ORDER
-    .filter(t => byTipo[t])
+  const tipos = Object.keys(byTipo)
+    .sort((a, b) => (a === 'final' ? -1 : b === 'final' ? 1 : 0))
     .map(t => ({
-      tipo: t,
-      label: subTipoLabel(t) || 'Otras votaciones',
-      total: byTipo[t].items.length,
-      aprobadas: byTipo[t].aprobadas,
+      id: t,
+      label: byTipo[t].label,
       items: byTipo[t].items,
     }))
 
@@ -187,7 +184,9 @@ watch(vot, (v) => {
           <p class="small mb-1">Copia este código para insertar el gráfico en tu web o blog:</p>
           <div class="embed-code-wrap">
             <textarea readonly class="embed-code" @click="$event.target.select()">{{ embedCode }}</textarea>
-            <button class="btn btn--primary btn--sm" @click="copyEmbed">Copiar código</button>
+            <button class="btn btn--primary btn--sm" @click="copyEmbed">
+              {{ copiedEmbed ? '¡Copiado!' : 'Copiar código' }}
+            </button>
           </div>
         </div>
 
@@ -221,195 +220,179 @@ watch(vot, (v) => {
         <a v-if="vot.urlCongreso" :href="vot.urlCongreso" target="_blank" rel="noopener" class="link-external">
           Ver en congreso.es &nearr;
         </a>
-        <a v-else-if="vot.urlAndalucia" :href="vot.urlAndalucia" target="_blank" rel="noopener" class="link-external">
-          Ver en parlamentodeandalucia.es &nearr;
-        </a>
         <a v-else-if="vot.urlCyL" :href="vot.urlCyL" target="_blank" rel="noopener" class="link-external">
           Ver en ccyl.es &nearr;
         </a>
-        <a v-else-if="vot.urlMadrid" :href="vot.urlMadrid" target="_blank" rel="noopener" class="link-external">
-          Ver en asambleamadrid.es &nearr;
-        </a>
       </div>
 
-      <ShareBar :title="vot.titulo_ciudadano" :result="r.result" />
-
-      <div class="detail-section">
-        <h2>Resultado</h2>
-        <VoteBar :favor="r.favor" :contra="r.contra" :abstencion="r.abstencion" :total="r.total" />
-        <div class="vote-totals">
-          <span class="vote-total-item vote-total-item--favor">{{ r.favor }} a favor</span>
-          <span class="vote-total-item vote-total-item--contra">{{ r.contra }} en contra</span>
-          <span class="vote-total-item vote-total-item--abstencion">{{ r.abstencion }} abstenciones</span>
-          <span class="vote-total-item vote-total-item--total">{{ r.total }} votos totales</span>
-        </div>
-      </div>
-
-      <template v-if="votosReady">
-        <div class="detail-section">
-          <h2>Votos por grupo parlamentario</h2>
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>Grupo</th>
-                  <th>A favor</th>
-                  <th>En contra</th>
-                  <th>Abstenciones</th>
-                  <th>Total</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="gIdx in sortedGroups" :key="gIdx">
-                  <td>
-                    <router-link :to="{ path: '/diputados', query: { grupo: grupos[gIdx] } }" class="badge" :style="{ backgroundColor: getGroupInfo(grupos[gIdx]).color, color: 'white' }">
-                      {{ getGroupInfo(grupos[gIdx]).label }}
-                    </router-link>
-                  </td>
-                  <td>{{ byGroup[gIdx][1] }}</td>
-                  <td>{{ byGroup[gIdx][2] }}</td>
-                  <td>{{ byGroup[gIdx][3] }}</td>
-                  <td>{{ byGroup[gIdx].total }}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </template>
-      <div v-else class="detail-section">
-        <h2>Votos por grupo parlamentario</h2>
-        <div class="loading-wrap" style="padding:2rem"><div class="loading-spinner"></div></div>
-      </div>
-
-      <!-- Expediente summary -->
-      <div v-if="expSummary" class="detail-section">
-        <h2>Contexto del expediente</h2>
-        <div class="exp-summary-card">
-          <p class="exp-summary-intro">
-            Este asunto se tramitó con <strong>{{ expSummary.total }} votaciones</strong> separadas (enmiendas de cada grupo, votos particulares, etc.).
-            Esta es una de ellas.
-          </p>
-
-          <!-- Final vote highlight -->
-          <div v-if="expSummary.finalItem" class="exp-final-result">
-            <span class="exp-final-label">Resultado final:</span>
-            <ResultBadge :result="expSummary.finalItem.r.result" large />
-            <router-link v-if="expSummary.finalItem.idx !== idx" :to="'/votacion/' + expSummary.finalItem.vot.id" class="exp-final-link">
-              Ver votacion final &rarr;
-            </router-link>
-            <span v-else class="badge badge--final">Estás viéndola</span>
-          </div>
-          <div v-else class="exp-no-final">
-            No se registró votación final en el pleno (pudo aprobarse por asentimiento o en otra sesión).
-          </div>
-
-          <!-- Approval ratio bar -->
-          <div class="exp-ratio">
-            <div class="exp-ratio-bar">
-              <div class="exp-ratio-seg exp-ratio-seg--aprobada" :style="{ width: (expSummary.aprobadas / expSummary.total * 100) + '%' }"></div>
+      <div class="vote-detail-grid">
+        <div class="vote-results-main">
+          <!-- Main results -->
+          <div class="detail-section">
+            <h2>Resultado de la votación</h2>
+            <VoteBar :favor="r.favor" :contra="r.contra" :abstencion="r.abstencion" :total="r.total" large show-labels />
+            
+            <div class="vote-totals">
+              <span class="vote-total-item vote-total-item--favor">{{ r.favor }} a favor</span>
+              <span class="vote-total-item vote-total-item--contra">{{ r.contra }} en contra</span>
+              <span class="vote-total-item vote-total-item--abstencion">{{ r.abstencion }} abstenciones</span>
+              <span class="vote-total-item vote-total-item--total">Total: {{ r.total }} votos</span>
             </div>
-            <span class="exp-ratio-text">{{ expSummary.aprobadas }} aprobadas / {{ expSummary.rechazadas }} rechazadas</span>
           </div>
 
-          <!-- Grouped by tipo -->
-          <div class="exp-tipos">
-            <div v-for="t in expSummary.tipos" :key="t.tipo" class="exp-tipo-group">
-              <button class="exp-tipo-header" @click="toggleTipo(t.tipo)">
-                <span class="exp-tipo-arrow">{{ expandedTipos[t.tipo] ? '&#9660;' : '&#9654;' }}</span>
-                <span class="badge badge--sm" :class="subTipoBadgeClass(t.tipo)">{{ t.label }}</span>
-                <span class="exp-tipo-count">{{ t.total }} votaciones</span>
-                <span class="exp-tipo-result">{{ t.aprobadas }} aprobadas</span>
-              </button>
-              <div v-if="expandedTipos[t.tipo]" class="exp-tipo-items">
-                <router-link
-                  v-for="item in t.items"
-                  :key="item.idx"
-                  :to="'/votacion/' + item.vot.id"
-                  class="exp-tipo-item"
-                  :class="{ 'exp-tipo-item--current': item.idx === idx }"
+          <!-- Group breakdown -->
+          <div class="detail-section">
+            <h2>Por grupos parlamentarios</h2>
+            <div v-if="votosReady" class="groups-grid">
+              <div v-for="gIdx in sortedGroups" :key="gIdx" class="group-result-card">
+                <div class="group-result-header">
+                  <router-link :to="'/grupo/' + encodeURIComponent(grupos[gIdx])" class="group-name">
+                    {{ getGroupInfo(grupos[gIdx]).label }}
+                  </router-link>
+                  <span class="group-total">{{ byGroup[gIdx].total }} diputados</span>
+                </div>
+                <VoteBar 
+                  :favor="byGroup[gIdx][1]" 
+                  :contra="byGroup[gIdx][2]" 
+                  :abstencion="byGroup[gIdx][3]" 
+                  :total="byGroup[gIdx].total" 
+                  small 
+                />
+              </div>
+            </div>
+            <div v-else class="loading-wrap"><div class="loading-spinner"></div></div>
+          </div>
+
+          <!-- Individual votes -->
+          <div class="detail-section">
+            <div class="votes-header">
+              <h2>Votos individuales</h2>
+              <div class="votes-search-wrap">
+                <input 
+                  v-model="dipSearch" 
+                  type="search" 
+                  class="filter-input" 
+                  placeholder="Buscar diputado..."
                 >
-                  <ResultBadge :result="item.r.result" />
-                  <span class="exp-tipo-item-text">{{ item.vot.subgrupo || item.vot.titulo_ciudadano }}</span>
-                </router-link>
+              </div>
+            </div>
+
+            <div v-if="votosReady" class="table-wrap">
+              <table class="responsive-table">
+                <thead>
+                  <tr>
+                    <th>Representante</th>
+                    <th>Grupo</th>
+                    <th>Voto</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr 
+                    v-for="vi in filteredVotes" 
+                    :key="vi"
+                    :class="{ 'tr--highlighted': diputados[votos[vi][1]] === highlightedDip }"
+                  >
+                    <td data-label="Representante">
+                      <router-link :to="'/diputado/' + encodeURIComponent(diputados[votos[vi][1]])">
+                        {{ diputados[votos[vi][1]] }}
+                      </router-link>
+                    </td>
+                    <td data-label="Grupo">
+                      {{ getGroupInfo(grupos[votos[vi][2]]).label }}
+                    </td>
+                    <td data-label="Voto">
+                      <span class="voto-pill" :class="votoPillClass(votos[vi][3])">
+                        {{ VOTO_LABELS[votos[vi][3]] }}
+                      </span>
+                    </td>
+                    <td class="text-right">
+                      <button 
+                        class="btn-share-vote" 
+                        title="Copiar enlace a este voto"
+                        @click="copyVoteLink(vi)"
+                      >
+                        {{ copiedVi === vi ? '✅' : '🔗' }}
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <p v-if="filteredVotes.length === 0" class="empty-state-text" style="padding:2rem">
+                No se encontraron representantes con ese nombre.
+              </p>
+            </div>
+            <div v-else class="loading-wrap"><div class="loading-spinner"></div></div>
+          </div>
+        </div>
+
+        <aside class="vote-sidebar">
+          <!-- Expediente / Dossier Summary -->
+          <div v-if="expGroup" class="exp-summary-card">
+            <h3 class="mb-2">Dossier Legislativo</h3>
+            <p class="exp-summary-intro">
+              Esta votación forma parte de un expediente con <strong>{{ expGroup.total }}</strong> votaciones.
+            </p>
+
+            <div v-if="expGroup.finalItem" class="exp-final-result">
+              <div class="exp-final-info">
+                <span class="exp-final-label">Resultado Final:</span>
+                <ResultBadge :result="expGroup.finalItem.res.result" size="sm" />
+              </div>
+              <router-link :to="'/votacion/' + expGroup.finalItem.vot.id" class="exp-final-link">
+                Ver ley final &rarr;
+              </router-link>
+            </div>
+            <div v-else class="exp-no-final">
+              Todavía no hay una votación final registrada para este expediente.
+            </div>
+
+            <div class="exp-ratio">
+              <div class="exp-ratio-bar">
+                <div class="exp-ratio-seg exp-ratio-seg--aprobada" :style="{ width: (expGroup.aprobadas / expGroup.total * 100) + '%' }"></div>
+              </div>
+              <div class="exp-ratio-text">
+                {{ expGroup.aprobadas }} aprobadas, {{ expGroup.rechazadas }} rechazadas
+              </div>
+            </div>
+
+            <div class="exp-tipos">
+              <div v-for="t in expGroup.tipos" :key="t.id" class="exp-tipo-group">
+                <button class="exp-tipo-header" @click="toggleTipo(t.id)">
+                  <span class="exp-tipo-arrow">{{ expandedTipos[t.id] ? '▼' : '▶' }}</span>
+                  <span class="exp-tipo-label">{{ t.label }}</span>
+                  <span class="exp-tipo-count">({{ t.items.length }})</span>
+                </button>
+                <div v-if="expandedTipos[t.id]" class="exp-tipo-items">
+                  <router-link 
+                    v-for="item in t.items" 
+                    :key="item.idx"
+                    :to="'/votacion/' + item.vot.id"
+                    class="exp-tipo-item"
+                    :class="{ 'exp-tipo-item--current': item.idx === idx }"
+                  >
+                    <span class="exp-tipo-item-text" :title="item.vot.titulo_ciudadano">
+                      {{ item.vot.titulo_ciudadano }}
+                    </span>
+                    <span class="exp-tipo-result">
+                      {{ item.res.result === 'Aprobada' ? '✅' : '❌' }}
+                    </span>
+                  </router-link>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      <template v-if="votosReady">
-        <div class="detail-section">
-          <h2>Votos individuales</h2>
-          <input
-            v-model="dipSearch"
-            type="search"
-            class="filter-input"
-            placeholder="Buscar diputado/a..."
-            style="max-width:350px;margin-bottom:0.75rem"
-          >
-          <div class="table-wrap">
-            <table class="responsive-table">
-              <thead>
-                <tr>
-                  <th>Diputado/a</th>
-                  <th>Grupo</th>
-                  <th>Voto</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="vi in filteredVotes" :key="vi" :class="{ 'tr--highlighted': highlightedDip && diputados[votos[vi][1]] === highlightedDip }">
-                  <td data-label="Diputado/a">
-                    <router-link :to="'/diputado/' + encodeURIComponent(diputados[votos[vi][1]])">
-                      {{ diputados[votos[vi][1]] }}
-                    </router-link>
-                  </td>
-                  <td data-label="Grupo">
-                    <router-link :to="{ path: '/diputados', query: { grupo: grupos[votos[vi][2]] } }" class="badge" :style="{ backgroundColor: getGroupInfo(grupos[votos[vi][2]]).color, color: 'white' }">
-                      {{ getGroupInfo(grupos[votos[vi][2]]).label }}
-                    </router-link>
-                  </td>
-                  <td data-label="Voto">
-                    <span class="voto-pill" :class="votoPillClass(votos[vi][3])">
-                      {{ VOTO_LABELS[votos[vi][3]] || '?' }}
-                    </span>
-                  </td>
-                  <td>
-                    <button class="btn-share-vote" :title="copiedVi === vi ? 'Copiado!' : 'Compartir voto'" @click.prevent="shareVote(vi)">
-                      {{ copiedVi === vi ? '&#10003;' : '&#128279;' }}
-                    </button>
-                  </td>
-                </tr>
-                <tr v-if="!filteredVotes.length">
-                  <td colspan="4" class="text-center" style="padding:1.5rem;color:var(--color-muted)">
-                    Sin resultados
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="detail-section sticky-sidebar">
+            <h3>Compartir</h3>
+            <p class="small text-muted mb-3">Ayuda a difundir la actividad parlamentaria compartiendo esta votación.</p>
+            <ShareBar :title="vot.titulo_ciudadano" />
           </div>
-        </div>
-      </template>
-      <div v-else class="detail-section">
-        <h2>Votos individuales</h2>
-        <div class="loading-wrap" style="padding:2rem"><div class="loading-spinner"></div></div>
+        </aside>
       </div>
     </div>
   </section>
-
-  <section v-else-if="notFound">
-    <div class="container" style="padding-top:2rem">
-      <ViewState
-        type="empty"
-        icon="&#128269;"
-        title="Votación no encontrada"
-        message="El identificador no existe en el ámbito actual o la votación ya no está disponible."
-        action-label="Ver listado de votaciones"
-        action-to="/votaciones"
-      />
-    </div>
-  </section>
-
+  <ViewState v-else-if="notFound" type="404" />
   <ViewState v-else type="loading" />
 </template>
 
@@ -420,7 +403,36 @@ watch(vot, (v) => {
   border-bottom: 1px solid var(--color-border);
 }
 
-.detail-header h1 { margin-bottom: 0.35rem; }
+.embed-box {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.embed-code-wrap {
+  display: flex;
+  gap: 0.5rem;
+  align-items: stretch;
+}
+
+.embed-code {
+  flex: 1;
+  font-family: monospace;
+  font-size: 0.75rem;
+  padding: 0.5rem;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  resize: none;
+  height: 60px;
+}
+
+.embed-code:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
 
 .detail-summary {
   font-size: 1rem;
@@ -469,6 +481,10 @@ watch(vot, (v) => {
 
 .detail-section {
   margin-top: 2rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
 }
 
 .detail-section h2 {
@@ -488,31 +504,6 @@ watch(vot, (v) => {
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   font-size: 0.88rem;
   line-height: 1.6;
-}
-
-.embed-box {
-  margin: 1rem 0;
-  padding: 1rem;
-  background: var(--color-surface-muted);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-}
-
-.embed-code-wrap {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.embed-code {
-  flex: 1;
-  font-family: monospace;
-  font-size: 0.75rem;
-  padding: 0.5rem;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  background: var(--color-bg);
-  height: 60px;
-  resize: none;
 }
 
 .link-external {
