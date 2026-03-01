@@ -64,6 +64,11 @@ const router = createRouter({
       component: () => import("./views/QuizView.vue"),
     },
     {
+      path: "/metodologia",
+      name: "metodologia",
+      component: () => import("./views/MethodologyView.vue"),
+    },
+    {
       path: "/:pathMatch(.*)*",
       name: "not-found",
       component: () => import("./views/NotFoundView.vue"),

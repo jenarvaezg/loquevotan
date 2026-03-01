@@ -899,6 +899,7 @@ function axisToBoardPercent(axisValue) {
               Calibración: <strong>{{ compassData.quality.confidenceLabel }}</strong>
               ({{ compassData.quality.confidenceScore }}%).
               Cobertura de respuestas: {{ compassData.quality.responseCoverage }}%.
+              <router-link to="/metodologia" class="methodology-link">¿Cómo se calcula esto?</router-link>
             </p>
             <p class="compass-quality compass-quality--uncertainty">
               Rango orientativo: ±{{ compassData.quality.axisUncertainty.economic }} en eje económico y
@@ -1460,6 +1461,20 @@ function axisToBoardPercent(axisValue) {
   text-align: center;
   color: var(--color-text-secondary);
   font-size: 0.88rem;
+}
+
+.methodology-link {
+  display: inline-block;
+  margin-top: 0.35rem;
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: underline;
+  transition: opacity 0.2s;
+  font-size: 0.85rem;
+}
+
+.methodology-link:hover {
+  opacity: 0.8;
 }
 
 .compass-quality--uncertainty {
