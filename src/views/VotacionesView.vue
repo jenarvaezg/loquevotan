@@ -16,12 +16,24 @@ const search = ref('')
 const catFilter = ref('')
 const resultFilter = ref('')
 const proponenteFilter = ref('')
-const legFilter = ref('XV')
+const legFilter = ref('') // Will be set on mount/change
 const sortMode = ref('recent')
 const selectedTags = ref([])
 const page = ref(1)
 const groupByExp = ref(true)
 const expandedExps = ref({})
+
+const currentScopeLegs = computed(() => {
+  const scope = ambitos.value.find(a => a.id === currentScopeId.value)
+  return scope ? scope.legislaturas : []
+})
+
+// Update legFilter when scope changes or on mount
+watch(currentScopeLegs, (legs) => {
+  if (legs.length > 0 && !legs.includes(legFilter.value)) {
+    legFilter.value = legs[0]
+  }
+}, { immediate: true })
 
 // Populate filter options
 const sortedCategorias = computed(() => [...categorias.value].sort())
@@ -182,7 +194,9 @@ function goToPage(p) {
           <label>Legislatura</label>
           <select v-model="legFilter" class="filter-select" data-testid="vot-filter-legislatura" @change="page = 1">
             <option value="">Todas las legislaturas</option>
-            <option v-for="l in LEGISLATURAS" :key="l.id" :value="l.id">{{ l.nombre }}</option>
+            <option v-for="l in currentScopeLegs" :key="l" :value="l">
+              Legislatura {{ l }}
+            </option>
           </select>
         </div>
         <div class="filter-group">
