@@ -6284,249 +6284,327 @@
     "proponente": "Podemos"
   },
   "Candidaturas a las que se acaban de dar lectura": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Lectura de las candidaturas presentadas para un cargo público",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa dar por leídas y presentadas oficialmente las candidaturas para cubrir un puesto o cargo.",
+    "proponente": "Desconocido"
   },
   "Palabra": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Concesión del turno de palabra a un diputado",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa permitir que un diputado intervenga y haga uso de la palabra durante el debate.",
+    "proponente": "Desconocido"
   },
   "Puntos A: 5, 7, 11, 12, 14 y 15": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votación de varios puntos técnicos del orden del día",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar de forma conjunta varios puntos específicos y técnicos recogidos en la agenda de la sesión.",
+    "proponente": "Desconocido"
   },
   "Gobierno de España, y también la Junta de Castilla y León, comience realmente a cambiar los criterios y que todos, no por cuestión de cómo está su bolsillo y de la riqueza o la pobreza de cada familia": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Eliminar la riqueza familiar como criterio para acceder a servicios públicos",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "combatir_pobreza",
+      "proteger_derechos_humanos"
+    ],
+    "resumen_sencillo": "Votar a favor significa pedir que las administraciones no utilicen el nivel económico de las familias como barrera para acceder a ciertos servicios o derechos.",
+    "proponente": "Desconocido"
   },
   "Puntos con la redacción dada por su proponente": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votación de la propuesta según el texto original presentado",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar los puntos de la iniciativa tal y como fueron redactados por quien los propuso, sin cambios.",
+    "proponente": "Desconocido"
   },
   "Proposición no de ley presentada por el Grupo Mixto, a instancia del señor Sarrión Andaluz, instando a la Junta de Castilla y León a modificar la orden de Sanidad por la que se modifica otra Orden de ": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Modificar normativas técnicas del sistema de salud regional",
+    "categoria_principal": "Sanidad",
+    "etiquetas": [
+      "proteger_sanidad_publica"
+    ],
+    "resumen_sencillo": "Votar a favor significa pedir a la Junta que cambie reglamentos específicos de sanidad para mejorar el funcionamiento del servicio.",
+    "proponente": "Grupo Mixto"
   },
   "Términos fijados por su proponente, la proposición no de ley presentada por los Grupos Parlamentarios Popular, Socialista, Podemos, Ciudadanos y Mixto, instando a la Junta de Castilla y León a que se ": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Aprobar un acuerdo consensuado por la mayoría de los partidos",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar una iniciativa que ha sido acordada por casi todos los grupos de las Cortes.",
+    "proponente": "Varios grupos"
   },
   "Términos fijados por su proponente, la proposición no de ley presentada por el Grupo Ciudadanos, instando a la Junta de Castilla y León a reclamar del Gobierno de la Nación la adopción de medidas para": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Exigir al Gobierno de España medidas para el territorio",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "controlar_gobierno"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar que la Junta de Castilla y León pida formalmente acciones o inversiones al Gobierno central.",
+    "proponente": "Ciudadanos"
   },
   "Puntos 3 y 8": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votación de los apartados 3 y 8 del debate",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar específicamente estos dos puntos de la propuesta que se está discutiendo.",
+    "proponente": "Desconocido"
   },
   "Términos fijados por sus proponentes, la proposición no de ley presentada por la señora González Guerrero y Pascual Álvarez, para instar a la Junta a incluir en la oferta de empleo público para dos mi": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Aumentar las plazas de trabajo en la oferta de empleo público",
+    "categoria_principal": "Trabajo_y_Pensiones",
+    "etiquetas": [
+      "crear_empleo"
+    ],
+    "resumen_sencillo": "Votar a favor significa pedir a la Junta que incluya más plazas para nuevos trabajadores en la administración pública.",
+    "proponente": "Desconocido"
   },
   "Puntos 4, 9 y 10": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votación de los apartados 4, 9 y 10 de la iniciativa",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa dar el visto bueno a estos tres puntos concretos de la iniciativa parlamentaria.",
+    "proponente": "Desconocido"
   },
   "Proposición no de ley presentada por el Grupo Popular, instando a la Junta de Castilla y León a solicitar a todos los grupos parlamentarios del Congreso de los Diputados que retomen los trabajos de la": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Pedir al Congreso de los Diputados que reactive tareas pendientes",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa pedir a los partidos nacionales en Madrid que vuelvan a trabajar en leyes o comisiones que están paradas.",
+    "proponente": "PP"
   },
   "Términos fijados por su proponente, la proposición no de ley presentada por el Grupo Popular, instando a la Junta de Castilla y León a elaborar un nuevo Plan de Inspección Turística": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Crear un nuevo plan para vigilar y controlar el turismo",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "impulsar_crecimiento_economico"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar que se cree un plan para inspeccionar que los servicios turísticos cumplan con la ley y la calidad.",
+    "proponente": "PP"
   },
   "Términos fijados por sus proponentes, la proposición no de ley presentada por los señores Castaño Sequeros, Delgado Palacios, indicando a la Junta de Castilla y León a desarrollar las actuaciones nece": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Instar a la Junta a realizar actuaciones necesarias en un área",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa pedir al gobierno autonómico que tome medidas concretas para solucionar un problema pendiente.",
+    "proponente": "Desconocido"
   },
   "Totalidad PPL/000005": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votación completa de una proposición de ley",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar el texto completo de un proyecto de ley en lugar de hacerlo por partes separadas.",
+    "proponente": "Desconocido"
   },
   "Procurador de Ciudadanos, porque creo que tiene un pequeño problema de": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Cuestión de orden sobre la intervención de Ciudadanos",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor en este contexto suele referirse a una decisión sobre los turnos de palabra o el orden del debate.",
+    "proponente": "Ciudadanos"
   },
   "Resultado total de la votación, omitiendo la identificación de los votantes, indicando sí, si están a favor de la candidatura propuesta; no, si se está en contra de la misma; o abstención": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Anuncio del resultado de una votación secreta",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar la elección de la persona o propuesta que se ha votado de forma anónima.",
+    "proponente": "Desconocido"
   },
   "Punto 4": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votación del apartado 4 del orden del día",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar este punto específico que se está tratando en la sesión.",
+    "proponente": "Desconocido"
   },
   "Términos fijados por su proponente, la proposición no de ley presentada por el Grupo Socialista para instar a la Junta a recuperar la dotación económica de los Premios Castilla y León, al menos en las": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Volver a dar dinero a los ganadores de los Premios Castilla y León",
+    "categoria_principal": "Cultura",
+    "etiquetas": [
+      "impulsar_cultura"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar que se recupere el premio en metálico para los galardonados en estos premios culturales.",
+    "proponente": "PSOE"
   },
   "Términos fijados por sus proponentes, la proposición no de ley presentada por los señores Martín Martínez, Izquierdo Roncero, Cepa Álvarez, Briones Martínez y señora Acevedo Rodríguez, instando a la J": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Iniciativa para instar a la Junta a tomar medidas de gobierno",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa pedir a la Junta que realice las acciones propuestas por el grupo de diputados.",
+    "proponente": "PSOE"
   },
   "Proposición no de ley presentada por los señores Martín Martínez e Izquierdo Roncero, instando a la Junta de Castilla y León a introducir en el Proyecto de Ley de Medidas Tributarias la eliminación de": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Eliminar ciertos impuestos en la nueva ley tributaria regional",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "bajar_impuestos",
+      "combatir_fraude_fiscal"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar que se supriman tributos específicos para rebajar la carga fiscal de los ciudadanos.",
+    "proponente": "PSOE"
   },
   "Secciones 04, 05, 07 y 08 del Proyecto de Ley de Presupuestos Generales de la Comunidad de Castilla y León para dos mil doce": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Aprobar el gasto de varias consejerías en los presupuestos de 2012",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "aprobar_presupuestos"
+    ],
+    "resumen_sencillo": "Votar a favor significa dar luz verde al presupuesto de gasto para diferentes departamentos del gobierno regional.",
+    "proponente": "Gobierno"
   },
   "Proposiciones no de ley en el orden en que han sido debatidas": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar las propuestas en el mismo orden en que se debatieron",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aceptar el orden establecido para realizar las votaciones de la sesión.",
+    "proponente": "Desconocido"
   },
   "Términos fijados por su Proponente, la Proposición No de Ley número 38, presentada por el Grupo Parlamentario Popular, instando a la Junta de Castilla y León a que se dirija al Gobierno de España para": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Instar al Gobierno de España a actuar en un asunto concreto",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "controlar_gobierno"
+    ],
+    "resumen_sencillo": "Votar a favor significa que la Junta debe pedir al Gobierno central que tome medidas en temas de su competencia.",
+    "proponente": "PP"
   },
   "Dos mociones, de forma conjunta": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votación unificada de dos propuestas de control al gobierno",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar o rechazar dos mociones diferentes en un mismo acto de votación.",
+    "proponente": "Desconocido"
   },
   "Cinco proposiciones no de ley": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Trámite de cinco iniciativas parlamentarias sobre temas de actualidad regional",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa avanzar en la tramitación de cinco propuestas de resolución presentadas por distintos grupos políticos.",
+    "proponente": "Varios grupos"
   },
   "Proposición No de Ley número 112, Grupo Parlamentario Socialista, sobre presentación de un proyecto de ley de publicidad institucional": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Crear una ley para regular el gasto en publicidad oficial",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "aumentar_transparencia"
+    ],
+    "resumen_sencillo": "Votar a favor significa pedir al Gobierno una ley que controle cómo se gasta el dinero público en anuncios y comunicación.",
+    "proponente": "PSOE"
   },
   "Proposición No de Ley número 113, Grupo Parlamentario Socialista, relativa a la reconversión de los centros del Programa Crecemos en escuelas infantiles al amparo de la LOE": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Convertir centros infantiles rurales en escuelas regladas del sistema educativo",
+    "categoria_principal": "Educacion",
+    "etiquetas": [
+      "proteger_educacion_publica",
+      "reformar_educacion"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar que los centros infantiles del programa rural 'Crecemos' se integren formalmente en el sistema educativo.",
+    "proponente": "PSOE"
   },
   "Proposición de ley": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votación para tramitar o aprobar una propuesta de ley",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar que la iniciativa legislativa continúe su proceso para convertirse en norma vigente.",
+    "proponente": "Desconocido"
   },
   "PRESIDENTE (SEÑOR FERNÁNDEZ SANTIAGO):\nMuchas gracias": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Agradecimiento e intervenciones de la Presidencia de la cámara",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor en este contexto procedimental no tiene un contenido político de fondo, se refiere a la gestión del pleno.",
+    "proponente": "Desconocido"
   },
   "Junta de Castilla y León a la presentación del Plan Regional de Instalaciones Deportivas antes de junio del dos mil diez": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Exigir un plan para construir y mejorar instalaciones deportivas regionales",
+    "categoria_principal": "Cultura",
+    "etiquetas": [
+      "financiar_infraestructuras",
+      "impulsar_cultura"
+    ],
+    "resumen_sencillo": "Votar a favor significa obligar al Gobierno a presentar un plan de inversiones en centros deportivos antes de la fecha límite.",
+    "proponente": "Desconocido"
   },
   "Proposición No de Ley número 1173, del Grupo Parlamentario Socialista, relativa a actuaciones en favor del leonés, conforme a la enmienda transaccionada que se ha admitido en esta Mesa": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Impulsar medidas para proteger y fomentar el uso del leonés",
+    "categoria_principal": "Cultura",
+    "etiquetas": [
+      "proteger_lenguas_cooficiales",
+      "impulsar_cultura"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar acciones específicas para conservar y promover el patrimonio lingüístico del leonés en la comunidad.",
+    "proponente": "PSOE"
   },
   "Proposición de ley por la que se modifica el Texto Refundido de la Ley de Cajas de Ahorro de Castilla y León, aprobada por el Decreto Legislativo 1/2005, de veintiuno de julio": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Reformar las normas que regulan las cajas de ahorros regionales",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "regular_sector_financiero",
+      "impulsar_crecimiento_economico"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar cambios legales en el control y gestión de las entidades financieras de ahorro de la región.",
+    "proponente": "Desconocido"
   },
   "Procedimiento de lectura única la proposición de ley de declaración del Proyecto Regional del Complejo de Ocio y Aventura Meseta-Ski, presentada por el Grupo Parlamentario Popular,": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Tramitar por la vía rápida el proyecto de ocio Meseta-Ski",
+    "categoria_principal": "Infraestructuras",
+    "etiquetas": [
+      "tramitar_ley_urgencia",
+      "financiar_infraestructuras"
+    ],
+    "resumen_sencillo": "Votar a favor significa autorizar que el proyecto del complejo de esquí se apruebe de forma urgente sin debate en comisión.",
+    "proponente": "PP"
   },
   "Proposición de Ley de declaración de Proyecto Regional del Complejo de Ocio y Aventura Meseta-Ski, presentada por el Grupo Parlamentario Popular y": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Declarar el complejo Meseta-Ski como proyecto de especial interés regional",
+    "categoria_principal": "Infraestructuras",
+    "etiquetas": [
+      "financiar_infraestructuras",
+      "impulsar_crecimiento_economico"
+    ],
+    "resumen_sencillo": "Votar a favor significa otorgar al complejo de ocio un estatus especial para facilitar su construcción y desarrollo.",
+    "proponente": "PP"
   },
   "Procedimiento de lectura única la Proposición de Ley de modificación de la Ley 4/2000, de veintisiete de junio, de Declaración del Parque Natural de Fuentes Carrionas y Fuente Cobre-Montaña Palentina,": {
     "titulo_ciudadano": "Asunto parlamentario sin clasificar",
@@ -6536,102 +6614,136 @@
     "proponente": ""
   },
   "1247, presentada por el Grupo Parlamentario Socialista, instando a la Junta de Castilla y León a realizar actuaciones en relación al sector resinero, conforme a la enmienda que ha sido": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Apoyar al sector de la resina para crear empleo rural",
+    "categoria_principal": "Agricultura",
+    "etiquetas": [
+      "proteger_sector_primario",
+      "crear_empleo"
+    ],
+    "resumen_sencillo": "Votar a favor significa pedir ayudas y planes de apoyo para los trabajadores y empresas dedicados a la extracción de resina.",
+    "proponente": "PSOE"
   },
   "1263, presentada por el Grupo Parlamentario Socialista, instando a la Junta de Castilla y León a modificar el Orden anual de ayudas para promover y fomentar el cooperativismo agrario": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Aumentar las subvenciones para fomentar cooperativas entre los agricultores",
+    "categoria_principal": "Agricultura",
+    "etiquetas": [
+      "proteger_sector_primario",
+      "apoyar_emprendedores"
+    ],
+    "resumen_sencillo": "Votar a favor significa mejorar el sistema de ayudas para que los profesionales del campo se unan en cooperativas.",
+    "proponente": "PSOE"
   },
   "Totalidad PL 27": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Decidir si se rechaza o continúa la tramitación de una ley",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa permitir que el proyecto de ley siga adelante o rechazar las críticas iniciales de la oposición.",
+    "proponente": "Desconocido"
   },
   "Votos afirmativos se entenderán favorables a la convalidación; los votos negativos se entenderán favorables a su derogación": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Convalidar un decreto del Gobierno para que mantenga su vigencia",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "procedimiento_parlamentario",
+      "controlar_gobierno"
+    ],
+    "resumen_sencillo": "Votar a favor significa ratificar una norma aprobada por el Gobierno para que se convierta definitivamente en ley.",
+    "proponente": "Gobierno"
   },
   "Idea de que su respuesta y nuestra respuesta es \"depende de lo mejor para los intereses de Castilla y León\", estamos en la buena senda": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Declaración política sobre la defensa de los intereses regionales",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "controlar_gobierno"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar un posicionamiento sobre la gestión de los asuntos públicos en beneficio de la comunidad.",
+    "proponente": "Desconocido"
   },
   "PRESIDENTE (SEÑOR FERNÁNDEZ SANTIAGO):\nDebía de haber trasladado a la Mesa antes, por eso digo que si lo hubiera facilitado": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Gestión de trámites internos de la Mesa del Parlamento regional",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor en este contexto se refiere a cuestiones de organización y entrega de documentos entre los grupos.",
+    "proponente": "Desconocido"
   },
   "Enmiendas número 2, 4, 9, 15, 17, 23 y 28": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votación de un bloque de cambios técnicos a una ley",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aceptar un grupo de modificaciones específicas propuestas para mejorar o cambiar el texto de una ley.",
+    "proponente": "Desconocido"
   },
   "10": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votación del décimo punto específico de una propuesta parlamentaria",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar el contenido concreto que figura en el apartado número diez de la iniciativa.",
+    "proponente": "Desconocido"
   },
   "29, con el texto igualmente transaccionado": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votación de un acuerdo pactado entre varios grupos políticos",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar un texto que ha sido negociado y modificado para alcanzar un consenso.",
+    "proponente": "Varios grupos"
   },
   "Enmiendas parciales del Grupo Parlamentario Socialista al Proyecto de Ley de Ordenación del Sistema de Salud de Castilla y León": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Proponer mejoras en la organización del sistema público de salud",
+    "categoria_principal": "Sanidad",
+    "etiquetas": [
+      "proteger_sanidad_publica"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar los cambios propuestos por la oposición para modificar cómo funciona la sanidad regional.",
+    "proponente": "PSOE"
   },
   "Vivienda de la Comunidad de Castilla y León": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Decidir sobre las políticas regionales de acceso a la vivienda",
+    "categoria_principal": "Vivienda",
+    "etiquetas": [
+      "facilitar_acceso_vivienda",
+      "proteger_inquilinos"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar propuestas o planes públicos destinados a gestionar la vivienda en el territorio.",
+    "proponente": "Desconocido"
   },
   "Que se regula la Renta Garantía de Ciudadanía de Castilla y León": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Regular la ayuda económica mínima para ciudadanos sin recursos",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "combatir_pobreza",
+      "proteger_familias"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar las normas que definen quién puede recibir la renta mínima de subsistencia de la región.",
+    "proponente": "Desconocido"
   },
   "Mociones en el orden en que han sido debatidas": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Votación consecutiva de propuestas para instar acciones al Gobierno",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "controlar_gobierno",
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar las resoluciones que piden al Ejecutivo realizar medidas concretas tras los debates.",
+    "proponente": "Desconocido"
   },
   "Dos puntos de la propuesta": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votación separada de dos apartados de una misma iniciativa",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar únicamente los dos puntos seleccionados de la propuesta original.",
+    "proponente": "Desconocido"
   },
   "1326, del Grupo Parlamentario Popular, instando a la Junta de Castilla y León para que demande al Gobierno de la Nación la actualización de las pensiones no contributivas de invalidez y jubilación": {
     "titulo_ciudadano": "Asunto parlamentario sin clasificar",
@@ -6648,53 +6760,71 @@
     "proponente": ""
   },
   "Puertas": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Trámite técnico sobre el protocolo de las puertas del hemiciclo",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa validar una cuestión técnica de funcionamiento interno de las Cortes sin contenido político.",
+    "proponente": "Desconocido"
   },
   "Totalidad PL 38": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Continuar con la tramitación de un nuevo proyecto de ley regional",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa permitir que una nueva ley siga su curso en el Parlamento tras superar las objeciones iniciales.",
+    "proponente": "Desconocido"
   },
   "Enmiendas parciales del Grupo Parlamentario Socialista al Proyecto de Ley de Salud Pública y Seguridad Alimentaria de Castilla y León": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Mejorar la ley de salud pública y seguridad alimentaria con nuevas propuestas",
+    "categoria_principal": "Sanidad",
+    "etiquetas": [
+      "proteger_sanidad_publica",
+      "proteger_enfermos"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar cambios específicos en la ley para reforzar la salud ciudadana y el control de los alimentos.",
+    "proponente": "PSOE"
   },
   "Enmiendas a la Totalidad de Devolución presentadas por el Proyecto de Ley de Presupuestos Generales de la Comunidad de Castilla y León, y, de conformidad con el parecer expresado por la Junta de Porta": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Rechazar el proyecto de presupuestos y pedir que se elaboren unos nuevos",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "controlar_gasto_publico"
+    ],
+    "resumen_sencillo": "Votar a favor significa oponerse a las cuentas generales propuestas por el gobierno y exigir una alternativa diferente.",
+    "proponente": "Desconocido"
   },
   "Dos mociones que han sido debatidas": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar dos propuestas de control al gobierno debatidas previamente",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario",
+      "controlar_gobierno"
+    ],
+    "resumen_sencillo": "Votar a favor significa validar el trámite de votación de dos iniciativas que ya han sido discutidas por los grupos.",
+    "proponente": "Desconocido"
   },
   "Orden en que han sido debatidas": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar las propuestas siguiendo el orden de debate establecido",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aceptar la organización de las votaciones tal y como se han desarrollado durante la sesión.",
+    "proponente": "Desconocido"
   },
   "Realización y finalización de obras de la Junta de Castilla y León": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Garantizar que se terminen las obras públicas iniciadas en la comunidad",
+    "categoria_principal": "Infraestructuras",
+    "etiquetas": [
+      "financiar_infraestructuras",
+      "mejorar_carreteras"
+    ],
+    "resumen_sencillo": "Votar a favor significa instar a la administración a que finalice todas las infraestructuras que tiene pendientes de ejecutar.",
+    "proponente": "Desconocido"
   },
   "1336, presentada por el Grupo Parlamentario Socialista, relativa a reestructuración de la estructura político-administrativa": {
     "titulo_ciudadano": "Asunto parlamentario sin clasificar",
@@ -6704,18 +6834,22 @@
     "proponente": ""
   },
   "Junta de Portavoces, procedemos a someter la votación este Proyecto": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar el proyecto de ley según lo acordado por los portavoces",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa proceder a la votación final de una ley siguiendo el acuerdo técnico de los grupos políticos.",
+    "proponente": "Gobierno"
   },
   "Orden en que han sido debatidas, teniendo en cuenta que hay dos que tienen un texto conjunto alternativo y que, por tanto, votaremos conjuntamente": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar de forma conjunta varias propuestas que tienen un texto acordado",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aceptar que se voten a la vez varias iniciativas que se han unido en un solo texto.",
+    "proponente": "Varios grupos"
   },
   "1335, de Grupo Parlamentario Socialista, relativa a publicación del mapa de cobertura de banda ancha en la Comunidad,": {
     "titulo_ciudadano": "Asunto parlamentario sin clasificar",
@@ -6725,39 +6859,51 @@
     "proponente": ""
   },
   "Proposiciones No de Ley 1360 y 1361, conforme al nuevo texto alternativo que me ha llegado a esta Mesa, que si desean leo y, si no, no es necesario leer": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar propuestas legislativas bajo un nuevo texto de consenso parlamentario",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar el trámite de votación de estas propuestas según la nueva redacción presentada.",
+    "proponente": "Desconocido"
   },
   "Que se modifica la Ley 3/2003, de veintiocho de marzo, de Universidades de Castilla y León": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Actualizar la ley de universidades para mejorar la educación superior",
+    "categoria_principal": "Educacion",
+    "etiquetas": [
+      "reformar_educacion",
+      "financiar_universidad"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar cambios en la normativa universitaria para adaptarla a las necesidades actuales de alumnos y docentes.",
+    "proponente": "Desconocido"
   },
   "Totalidad PL 40": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votación de totalidad para seguir tramitando un proyecto de ley",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa permitir que la ley continúe su proceso en el Parlamento tras superar las enmiendas de rechazo.",
+    "proponente": "Desconocido"
   },
   "PRESIDENTE (SEÑOR FERNÁNDEZ SANTIAGO):\nVamos a proceder a la votación de las dos mociones en el orden en que han sido debatidas": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar dos mociones de control siguiendo el orden del debate",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario",
+      "controlar_gobierno"
+    ],
+    "resumen_sencillo": "Votar a favor significa seguir con el protocolo establecido por la presidencia para votar las iniciativas pendientes.",
+    "proponente": "Desconocido"
   },
   "PRESIDENTE (SEÑOR FERNÁNDEZ SANTIAGO):\nGracias": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Trámite de cierre de intervención de la presidencia",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor representa un acto meramente protocolario de gestión de la sesión por parte del presidente.",
+    "proponente": "Desconocido"
   },
   "1386, del Grupo Parlamentario Socialista, instando a la Junta de Castilla y León a aprobar con carácter urgente las normas reglamentarias de desarrollo de la Ley 4/2009, de veintiocho de mayo, de Publ": {
     "titulo_ciudadano": "Asunto parlamentario sin clasificar",
@@ -6774,25 +6920,32 @@
     "proponente": ""
   },
   "Vo": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Trámite inconcluso o error en el registro de la votación",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Esta votación no contiene información temática suficiente para ser analizada.",
+    "proponente": "Desconocido"
   },
   "Proposición No de Ley 1390, presentada por el Grupo Parlamentario Mixto, con el nuevo texto, que creo que no hace falta que lea a Sus Señorías, ¿o sí? [Murmullos]": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar una propuesta del grupo Mixto con un nuevo texto acordado",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar la iniciativa del grupo Mixto según la última redacción pactada entre los partidos.",
+    "proponente": "Mixto"
   },
   "Contaminación lumínica y del fomento del ahorro y eficiencia energéticos derivados de instalaciones de iluminación": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Reducir el exceso de luz nocturna y ahorrar energía en iluminación",
+    "categoria_principal": "Medio_Ambiente",
+    "etiquetas": [
+      "proteger_medio_ambiente",
+      "combatir_cambio_climatico"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar medidas para gastar menos electricidad y proteger el medio ambiente de la luz excesiva.",
+    "proponente": "Desconocido"
   },
   "1371, del Grupo Parlamentario Socialista, instando a la Junta de Castilla y León a poner en marcha la Estrategia Regional en Diabetes": {
     "titulo_ciudadano": "Asunto parlamentario sin clasificar",
@@ -6809,137 +6962,183 @@
     "proponente": ""
   },
   "Enmienda a la totalidad a la Ley": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Rechazar un proyecto de ley en su conjunto",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa rechazar por completo la propuesta de ley actual para que sea devuelta a quien la presentó.",
+    "proponente": "Desconocido"
   },
   "Número 17, 82, 91, 96 y 132, de las presentadas por el Grupo Parlamentario Socialista al Proyecto de Ley de Servicios Sociales y": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Cambiar la ley de servicios sociales con propuestas del PSOE",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "procedimiento_parlamentario",
+      "combatir_pobreza"
+    ],
+    "resumen_sencillo": "Votar a favor significa incluir modificaciones específicas planteadas por los socialistas en la futura ley que regula las ayudas sociales.",
+    "proponente": "PSOE"
   },
   "Enmiendas que han sido debatidas del Grupo Parlamentario Socialista y votos particulares": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar el bloque de mejoras propuesto por el PSOE",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar el conjunto de cambios y opiniones técnicas que el Grupo Socialista ha defendido durante el debate.",
+    "proponente": "PSOE"
   },
   "Enmienda transaccional que se propone al apartado dos del Anexo": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Aprobar un acuerdo de consenso entre varios partidos",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aceptar un texto acordado entre distintos grupos para modificar una parte técnica de la norma.",
+    "proponente": "Varios grupos"
   },
   "Enmiendas números 696 a 717 del Grupo Parlamentario Socialista, al articulado de la Ley": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Introducir un bloque de cambios del PSOE en la ley",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar una serie de artículos corregidos y propuestos por el Grupo Socialista para mejorar el texto legal.",
+    "proponente": "PSOE"
   },
   "Artículos, a excepción del Artículo 2, las Disposiciones Adicionales, Disposiciones Transitorias, Disposiciones Finales, la Exposición de Motivos y el Título del Proyecto de Ley": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Aprobar el cuerpo principal de la nueva ley",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar la mayor parte de los artículos de la ley, dejando fuera algunos puntos concretos para votarse aparte.",
+    "proponente": "Desconocido"
   },
   "Enmiendas a la Sección número 01, Consejería de Presidencia": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Decidir cambios en el presupuesto del departamento de Presidencia",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "controlar_gasto_publico"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar modificaciones en el dinero destinado a la gestión directa del gobierno regional.",
+    "proponente": "Desconocido"
   },
   "Sección": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votación de una parte específica de los presupuestos",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa dar el visto bueno a una sección concreta del plan de gastos de la comunidad autónoma.",
+    "proponente": "Desconocido"
   },
   "Sección 03, Consejería de Agricultura y Ganadería": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Aprobar fondos para el apoyo a agricultores y ganaderos",
+    "categoria_principal": "Agricultura",
+    "etiquetas": [
+      "proteger_sector_primario",
+      "aprobar_presupuestos"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar el presupuesto y las políticas destinadas a mejorar el campo y la ganadería.",
+    "proponente": "Desconocido"
   },
   "Secciones que han sido debatidas en la tarde de hoy": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Validar en bloque los temas discutidos en la jornada",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar conjuntamente todas las partes de la ley que se han analizado durante la sesión de esta tarde.",
+    "proponente": "Desconocido"
   },
   "Enmiendas número 12, 13, 14 y 31 del Grupo Parlamentario Mixto a la Sección 05, Consejería de Sanidad": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Mejorar el presupuesto de Sanidad con propuestas del Grupo Mixto",
+    "categoria_principal": "Sanidad",
+    "etiquetas": [
+      "proteger_sanidad_publica",
+      "controlar_gasto_publico"
+    ],
+    "resumen_sencillo": "Votar a favor significa aceptar los cambios planteados por el Grupo Mixto para reforzar el sistema público de salud.",
+    "proponente": "Grupo Mixto"
   },
   "Enmienda número 32 del Grupo Parlamentario Mixto a esta misma Sección": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Añadir otra mejora sanitaria propuesta por el Grupo Mixto",
+    "categoria_principal": "Sanidad",
+    "etiquetas": [
+      "proteger_sanidad_publica"
+    ],
+    "resumen_sencillo": "Votar a favor significa sumar una propuesta adicional de cambio en las cuentas de sanidad presentada por el Grupo Mixto.",
+    "proponente": "Grupo Mixto"
   },
   "Enmiendas número 19, 20, 21 y 22 del Grupo Parlamentario Mixto a esta misma Sección": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Respaldar varias correcciones sanitarias del Grupo Mixto",
+    "categoria_principal": "Sanidad",
+    "etiquetas": [
+      "proteger_sanidad_publica"
+    ],
+    "resumen_sencillo": "Votar a favor significa incluir un nuevo grupo de propuestas del Grupo Mixto para mejorar la atención sanitaria regional.",
+    "proponente": "Grupo Mixto"
   },
   "Sección 09, Consejería de Familia e Igualdad de Oportunidades": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Garantizar fondos para familias e igualdad de oportunidades",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "proteger_familias",
+      "impulsar_igualdad_genero"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar el presupuesto destinado a servicios sociales, apoyo a familias y políticas de igualdad.",
+    "proponente": "Desconocido"
   },
   "Sección 20 -a la que no se han presentado ninguna enmienda-, Cortes de Castilla y León": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Aprobar el gasto para el funcionamiento del Parlamento regional",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "procedimiento_parlamentario",
+      "controlar_gasto_publico"
+    ],
+    "resumen_sencillo": "Votar a favor significa autorizar el presupuesto que permite trabajar a los diputados y mantener la sede parlamentaria.",
+    "proponente": "Desconocido"
   },
   "Proposiciones no de ley, en el orden en que han sido debatidas": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar iniciativas para que el gobierno realice acciones concretas",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar peticiones políticas que instan al gobierno a actuar sobre diversos temas de interés.",
+    "proponente": "Desconocido"
   },
   "1424, del Grupo Parlamentario Popular, relativa a la Comisión Interinstitucional creada para la conmemoración en dos mil dieciocho del VIII Centenario de la Universidad de Salamanca": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Impulsar la celebración de los 800 años de la Universidad",
+    "categoria_principal": "Cultura",
+    "etiquetas": [
+      "impulsar_cultura",
+      "financiar_universidad"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar las actividades y la organización del octavo centenario de la Universidad de Salamanca.",
+    "proponente": "PP"
   },
   "1419, del Grupo Parlamentario Socialista, instando a la Junta de Castilla y León a liquidación de cuentas con las empresas suministradoras de material sanitario": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Pagar las deudas pendientes a los proveedores de los hospitales",
+    "categoria_principal": "Sanidad",
+    "etiquetas": [
+      "proteger_sanidad_publica",
+      "controlar_gasto_publico"
+    ],
+    "resumen_sencillo": "Votar a favor significa exigir al gobierno que abone las facturas que debe a las empresas que venden suministros médicos.",
+    "proponente": "PSOE"
   },
   "1420, del Grupo Parlamentario Socialista, instando a la Junta de Castilla y León a exigir a la Xunta de Galicia y a las compañías eléctricas la retirada del recurso en relación con el Real Decreto 134": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Retirar bloqueos legales contra las ayudas al sector eléctrico nacional",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "garantizar_suministro_electrico"
+    ],
+    "resumen_sencillo": "Votar a favor significa pedir que dejen de recurrirse judicialmente las normativas que apoyan la producción eléctrica en España.",
+    "proponente": "PSOE"
   },
   "PRESIDENTE (SEÑOR FERNÁNDEZ SANTIAGO):\nMuchas gracias, Señoría": {
     "titulo_ciudadano": "Asunto parlamentario sin clasificar",
@@ -6949,46 +7148,62 @@
     "proponente": ""
   },
   "Vota": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Inicio oficial del proceso de votación en el pleno",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Indica el momento en el que los parlamentarios emiten su voto sobre el tema debatido.",
+    "proponente": "Desconocido"
   },
   "Puertas)": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Cierre de puertas para garantizar la validez del recuento",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Se cierran los accesos para evitar que entre o salga gente mientras se cuentan los votos emitidos.",
+    "proponente": "Desconocido"
   },
   "1438 del Grupo Parlamentario Popular, instando a la Junta de Castilla y León a que solicite al Gobierno de la Nación un informe sobre el nivel de cumplimiento de los compromisos adquiridos en el Proto": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Vigilar que el Gobierno central cumpla sus acuerdos con la región",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "controlar_gobierno",
+      "aumentar_transparencia"
+    ],
+    "resumen_sencillo": "Votar a favor significa pedir un informe oficial para comprobar si el Estado está cumpliendo lo que prometió por escrito.",
+    "proponente": "PP"
   },
   "Junta de Castilla y León a manifestar su posición favorable a la organización de debates entre los candidatos a la Presidencia de la Junta de Castilla y León en la televisión financiada con fondos púb": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Promover debates electorales entre candidatos en la televisión pública",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "aumentar_transparencia",
+      "reformar_ley_electoral"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar que los aspirantes a presidente deban debatir ante los ciudadanos en el canal público regional.",
+    "proponente": "Desconocido"
   },
   "Que se reconoce como Universidad Privada a la Universidad Internacional de Castilla y León, con sede en Burgos": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Autorizar una nueva universidad privada en la ciudad de Burgos",
+    "categoria_principal": "Educacion",
+    "etiquetas": [
+      "reformar_educacion",
+      "financiar_universidad"
+    ],
+    "resumen_sencillo": "Votar a favor significa dar permiso legal para que una nueva institución privada empiece a impartir clases universitarias.",
+    "proponente": "Desconocido"
   },
   "Directrices de Ordenación del Ámbito Subregional de la Montaña Cantábrica Central en Castilla y León": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Plan para regular el desarrollo y protección de la Montaña Cantábrica",
+    "categoria_principal": "Politica_Territorial",
+    "etiquetas": [
+      "proteger_medio_ambiente",
+      "combatir_despoblacion"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar las normas que organizan el uso del suelo y la protección natural en la zona central de la Montaña Cantábrica.",
+    "proponente": "Gobierno"
   },
   "PRESIDENTE (SEÑOR FERNÁNDEZ SANTIAGO):\nSometemos ahora": {
     "titulo_ciudadano": "Asunto parlamentario sin clasificar",
@@ -6998,515 +7213,699 @@
     "proponente": ""
   },
   "Dos mociones": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Votar dos propuestas de control al Gobierno regional",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "controlar_gobierno",
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar dos iniciativas que piden explicaciones o acciones concretas a la Junta de Castilla y León.",
+    "proponente": "Desconocido"
   },
   "Proposiciones no de ley por el orden en que han sido debatidas, empezando con la votación de la Proposición No de Ley número 122": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votación de iniciativas ciudadanas y políticas según el orden establecido",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor permite avanzar en la aprobación de las propuestas no legislativas que los grupos han discutido previamente.",
+    "proponente": "Desconocido"
   },
   "Proposición No de Ley número 146, del Grupo Parlamentario Popular, instando al Gobierno de la Nación la adopción urgente de un plan nacional de apoyo al sector ganadero": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Pedir un plan nacional urgente de apoyo económico a los ganaderos",
+    "categoria_principal": "Agricultura",
+    "etiquetas": [
+      "proteger_sector_primario",
+      "apoyar_emprendedores"
+    ],
+    "resumen_sencillo": "Votar a favor significa solicitar al Gobierno central que cree medidas de ayuda específicas para mejorar la situación de los ganaderos.",
+    "proponente": "PP"
   },
   "Proposición No de Ley número 148, presentada por el Grupo Parlamentario Popular, instando a la Junta de Castilla y León a solicitar al Gobierno de la Nación su apoyo en la negociación de la Unión Euro": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Solicitar que el Gobierno defienda los intereses regionales ante Europa",
+    "categoria_principal": "Asuntos_Exteriores",
+    "etiquetas": [
+      "impulsar_cooperacion_internacional",
+      "proteger_sector_primario"
+    ],
+    "resumen_sencillo": "Votar a favor significa pedir que el Gobierno de España colabore con la región para conseguir mejores condiciones en las negociaciones europeas.",
+    "proponente": "PP"
   },
   "Votación de las enmiendas y voto particular, Enmiendas número 1": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar cambios específicos y una propuesta alternativa a una ley",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aceptar la primera modificación propuesta y considerar una opción distinta a la principal presentada por un grupo.",
+    "proponente": "Desconocido"
   },
   "Artículos de la Ley, a excepción del Artículo 2, Disposiciones Adicionales, Disposiciones Transitorias, Disposiciones Finales, Exposición de Motivos y Título del Proyecto de Ley": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Aprobar la estructura principal de la nueva ley en debate",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa dar validez a la mayoría de los artículos que componen la ley, permitiendo que su tramitación avance.",
+    "proponente": "Gobierno"
   },
   "Enmiendas de la 8 a la 23 del Grupo Parlamentario Socialista a la Sección 02, Consejería de Hacienda": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Propuestas del PSOE para modificar el presupuesto de Hacienda",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "controlar_gasto_publico",
+      "aprobar_presupuestos"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar los cambios propuestos por el PSOE en las cuentas de la Consejería de Hacienda para el próximo año.",
+    "proponente": "PSOE"
   },
   "Enmiendas 1, 3, 4, 5 y 6, a la Sección 02, del Grupo Mixto": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Cambios planteados por el Grupo Mixto al presupuesto de Hacienda",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "controlar_gasto_publico",
+      "aprobar_presupuestos"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar las modificaciones sugeridas por los partidos pequeños sobre cómo debe gastar el dinero la Consejería de Hacienda.",
+    "proponente": "Grupo Mixto"
   },
   "Enmienda 2, en solitario, del Grupo Parlamentario Mixto, a la Sección 02, de la Consejería de Hacienda": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Modificación individual del Grupo Mixto para las cuentas de Hacienda",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "controlar_gasto_publico"
+    ],
+    "resumen_sencillo": "Votar a favor significa aceptar un cambio concreto y específico propuesto por el Grupo Mixto en el presupuesto de Hacienda.",
+    "proponente": "Grupo Mixto"
   },
   "Enmiendas 45 y 46": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar dos correcciones específicas al texto legal en discusión",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa incluir las modificaciones número 45 y 46 en el proyecto de ley que se está tramitando.",
+    "proponente": "Desconocido"
   },
   "Enmiendas del Grupo Parlamentario Mixto a la Sección 03": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Propuestas del Grupo Mixto para el presupuesto de la Presidencia",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "aumentar_transparencia"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar las variaciones de gasto propuestas por el Grupo Mixto para el área de Presidencia del gobierno regional.",
+    "proponente": "Grupo Mixto"
   },
   "Enmiendas del Grupo Parlamentario Mixto, también con votación separada": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar propuestas del Grupo Mixto de forma independiente",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa validar este bloque de cambios del Grupo Mixto que se han decidido votar aparte del resto.",
+    "proponente": "Grupo Mixto"
   },
   "Enmiendas de la Sección 05, Consejería de Sanidad": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Modificaciones al presupuesto destinado a la sanidad pública regional",
+    "categoria_principal": "Sanidad",
+    "etiquetas": [
+      "proteger_sanidad_publica",
+      "aprobar_presupuestos"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar los cambios en la distribución del dinero público para los hospitales y centros de salud.",
+    "proponente": "Desconocido"
   },
   "Enmiendas 273 y 287 del Grupo Parlamentario Socialista a esta Sección": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Propuestas del PSOE para mejorar la inversión en sanidad pública",
+    "categoria_principal": "Sanidad",
+    "etiquetas": [
+      "proteger_sanidad_publica",
+      "mejorar_salud_mental"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar dos cambios concretos del PSOE para aumentar recursos en la sanidad de la región.",
+    "proponente": "PSOE"
   },
   "Enmiendas del Grupo Parlamentario Mixto a la Sección 05, Consejería de Sanidad": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Cambios del Grupo Mixto para la gestión sanitaria regional",
+    "categoria_principal": "Sanidad",
+    "etiquetas": [
+      "proteger_sanidad_publica",
+      "mejorar_salud_mental"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar las enmiendas de los partidos minoritarios para modificar el presupuesto de salud.",
+    "proponente": "Grupo Mixto"
   },
   "Secciones que han sido debatidas a lo largo de esta tarde": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Votación de diversos bloques del presupuesto regional",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "controlar_gasto_publico"
+    ],
+    "resumen_sencillo": "Votar a favor significa dar luz verde a varias partes del presupuesto que ya han sido analizadas por los diputados.",
+    "proponente": "Gobierno"
   },
   "Enmiendas número 63, 64, 65, 66, 67 y 68 del Grupo Parlamentario Mixto a esta Sección 06, Consejería de Medio Ambiente": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Propuestas del Grupo Mixto para proteger el medio ambiente regional",
+    "categoria_principal": "Medio_Ambiente",
+    "etiquetas": [
+      "proteger_medio_ambiente",
+      "combatir_cambio_climatico"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar una serie de mejoras en el presupuesto destinadas a la conservación de la naturaleza.",
+    "proponente": "Grupo Mixto"
   },
   "Enmiendas 56, 57, 58, 59, 60, 61, 62, asimismo del Grupo Mixto a esta Sección 06": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Más cambios del Grupo Mixto para la política ambiental",
+    "categoria_principal": "Medio_Ambiente",
+    "etiquetas": [
+      "proteger_medio_ambiente",
+      "gestionar_recursos_hidricos"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar este conjunto de medidas adicionales para mejorar la gestión del entorno natural.",
+    "proponente": "Grupo Mixto"
   },
   "Sección 06, Consejería de Medio Ambiente": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Aprobar el presupuesto total para protección del Medio Ambiente",
+    "categoria_principal": "Medio_Ambiente",
+    "etiquetas": [
+      "proteger_medio_ambiente",
+      "aprobar_presupuestos"
+    ],
+    "resumen_sencillo": "Votar a favor significa autorizar todo el gasto previsto por el Gobierno para cuidar la naturaleza el próximo año.",
+    "proponente": "Gobierno"
   },
   "Sección 08, Consejería de Economía y Empleo": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Aprobar fondos para fomentar el empleo y la economía regional",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "crear_empleo",
+      "impulsar_crecimiento_economico"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar el dinero destinado a crear puestos de trabajo y ayudar al crecimiento de las empresas.",
+    "proponente": "Gobierno"
   },
   "Enmiendas del Grupo Parlamentario Mixto, empezando por la Enmienda número 98": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Bloque de cambios del Grupo Mixto a un área presupuestaria",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aceptar una serie de modificaciones técnicas propuestas por los partidos minoritarios.",
+    "proponente": "Grupo Mixto"
   },
   "Enmiendas número 1": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar la primera propuesta de modificación a un texto legal",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aceptar el primer cambio sugerido durante el proceso de elaboración de una ley.",
+    "proponente": "Desconocido"
   },
   "Enmiendas del Grupo Parlamentario Mixto a esta Sección 11, teniendo en cuenta que a esta Mesa ha llegado la retirada de la Enmienda 104": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar cambios del Grupo Mixto excluyendo la propuesta retirada voluntariamente",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar las modificaciones del Grupo Mixto tras anular ellos mismos una de sus peticiones.",
+    "proponente": "Grupo Mixto"
   },
   "Enmiendas 106, 110, 111, 112 y 113 del Grupo Parlamentario Mixto, a esta Sección 12": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Modificar el presupuesto destinado a Justicia e Interior en la región",
+    "categoria_principal": "Justicia",
+    "etiquetas": [
+      "reformar_poder_judicial",
+      "controlar_gasto_publico"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar las propuestas de cambio del Grupo Mixto al presupuesto de la Consejería de Justicia e Interior.",
+    "proponente": "Grupo Mixto"
   },
   "Enmiendas 107, 108 y 109, asimismo del Grupo Mixto a esta Sección 12": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Cambiar partidas presupuestarias de la Consejería de Interior y Justicia",
+    "categoria_principal": "Justicia",
+    "etiquetas": [
+      "reformar_poder_judicial",
+      "controlar_gasto_publico"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar las enmiendas adicionales del Grupo Mixto para ajustar el gasto en justicia e interior.",
+    "proponente": "Grupo Mixto"
   },
   "Sección: Sección 12, Consejería de Interior y Justicia": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Aprobar los presupuestos para Justicia e Interior en la comunidad",
+    "categoria_principal": "Justicia",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "aumentar_seguridad_ciudadana"
+    ],
+    "resumen_sencillo": "Votar a favor significa dar luz verde a la partida económica destinada a los servicios de justicia e interior.",
+    "proponente": "Gobierno"
   },
   "Sección número 21": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Aprobar el presupuesto asignado a la sección número 21",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "aprobar_presupuestos"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar el presupuesto asignado a esta sección específica de la administración regional.",
+    "proponente": "Gobierno"
   },
   "Sección 22, Consejo Consultivo de Castilla y León, donde": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Financiar el funcionamiento del Consejo Consultivo regional",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "aumentar_transparencia"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar el presupuesto para que el órgano consultivo de la región pueda seguir operando.",
+    "proponente": "Gobierno"
   },
   "Enmienda número 11 presentada por el Grupo Parlamentario Socialista a este Proyecto de Ley de Medidas Financieras": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Introducir cambios del PSOE en la ley de medidas financieras",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "controlar_gasto_publico",
+      "subir_impuestos"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar la modificación propuesta por el PSOE a la ley que regula las finanzas de la comunidad.",
+    "proponente": "PSOE"
   },
   "Proposiciones no de ley en el orden que han sido debatidas": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar las iniciativas parlamentarias según el orden de su discusión",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aceptar el orden establecido para proceder a la votación de las propuestas debatidas.",
+    "proponente": "Desconocido"
   },
   "Que ha sido en primer lugar debatida, sobre un mapa de ordenación de los recursos para la promoción de la autonomía personal y atención a las personas en situación de dependencia": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Organizar recursos para atender mejor a las personas con dependencia",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "proteger_personas_discapacidad",
+      "combatir_pobreza"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar un plan para ordenar y mejorar la ayuda a personas que no pueden valerse por sí mismas.",
+    "proponente": "Desconocido"
   },
   "Proposición No de Ley número 176, relativa a Auditorio y Palacio de Congresos y Exposiciones de Burgos": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Apoyar la promoción del Auditorio y Palacio de Congresos de Burgos",
+    "categoria_principal": "Cultura",
+    "etiquetas": [
+      "impulsar_cultura",
+      "financiar_infraestructuras"
+    ],
+    "resumen_sencillo": "Votar a favor significa apostar por el mantenimiento y la actividad cultural de este centro de eventos en Burgos.",
+    "proponente": "Desconocido"
   },
   "Proposición No de Ley número 177, relativa al convenio de colaboración con el Gobierno en materia de empleo": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Firmar un acuerdo estatal para fomentar el empleo en la región",
+    "categoria_principal": "Trabajo_y_Pensiones",
+    "etiquetas": [
+      "crear_empleo",
+      "mejorar_condiciones_laborales"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar un convenio con el Estado para aplicar políticas que ayuden a crear puestos de trabajo.",
+    "proponente": "Desconocido"
   },
   "Proposición No de Ley número 212, sobre la puesta en funcionamiento del número del teléfono 900 333 888": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Crear una línea telefónica gratuita para atención social a ciudadanos",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "proteger_derechos_humanos",
+      "proteger_familias"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar la puesta en marcha de un teléfono gratuito para informar y ayudar en materia de servicios sociales.",
+    "proponente": "Desconocido"
   },
   "PRESIDENTE (SEÑOR FERNÁNDEZ SANTIAGO):\nMuchas gracias, señor Ramos": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Trámite protocolario de agradecimiento tras una intervención parlamentaria",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa validar este punto puramente formal de la sesión del Parlamento.",
+    "proponente": "Desconocido"
   },
   "Dos mociones que dejamos, una de ellas enmendada, y, a continuación, de todas las proposiciones no de ley por el orden que han sido debatidas": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar mociones y propuestas pendientes según el orden debatido",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa continuar con el proceso de votación de los asuntos que ya han sido discutidos en la cámara.",
+    "proponente": "Desconocido"
   },
   "Moción número 29 según el texto que ha sido remitido ya a esta Mesa": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar la moción número 29 conforme al texto presentado",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar el contenido de la propuesta número 29 enviada formalmente a la mesa del Parlamento.",
+    "proponente": "Desconocido"
   },
   "Puntos dos y tres, conforme al texto que tenemos aquí": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar los puntos segundo y tercero del orden del día",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar los puntos correlativos que se están sometiendo a votación en este momento.",
+    "proponente": "Desconocido"
   },
   "Proposición No de Ley número 203, sobre la adopción de medidas relativas al 1% Cultural,": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Garantizar que las obras públicas financien la conservación del patrimonio",
+    "categoria_principal": "Cultura",
+    "etiquetas": [
+      "impulsar_cultura",
+      "proteger_medio_ambiente"
+    ],
+    "resumen_sencillo": "Votar a favor significa asegurar que el uno por ciento del presupuesto de obras públicas se destine a proteger la cultura.",
+    "proponente": "Desconocido"
   },
   "265, sobre la supresión de los peajes de autopistas en la provincia de León": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Eliminar el pago de peajes en las autopistas de León",
+    "categoria_principal": "Infraestructuras",
+    "etiquetas": [
+      "mejorar_carreteras",
+      "fomentar_transporte_publico"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar que los ciudadanos dejen de pagar peajes por circular por las autopistas leonesas.",
+    "proponente": "Desconocido"
   },
   "Mociones que han sido debatidas, en el orden que lo han sido": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar las mociones parlamentarias siguiendo el orden de su debate",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa seguir el reglamento para votar las propuestas que ya han sido analizadas por los grupos.",
+    "proponente": "Desconocido"
   },
   "Siguiente proposición no de ley, Proposición No de Ley número 263, presentada por el Grupo Parlamentario Socialista, sobre la creación en la Comunidad Autónoma, antes del año dos mil diez, de un centr": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Crear un nuevo centro de servicios públicos en la comunidad",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "proteger_derechos_humanos",
+      "combatir_pobreza"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar la apertura de un nuevo centro de atención ciudadana antes de que acabe el año 2010.",
+    "proponente": "PSOE"
   },
   "Dos mociones que han sido debatidas, en el orden que lo han sido": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Proceder a la votación ordenada de las dos mociones debatidas",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa validar el proceso para someter a voto las dos iniciativas discutidas previamente.",
+    "proponente": "Desconocido"
   },
   "Moción número 19, relativa a política general en materia de urbanismo": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Mejorar las normas que regulan el crecimiento de las ciudades",
+    "categoria_principal": "Vivienda",
+    "etiquetas": [
+      "facilitar_acceso_vivienda",
+      "proteger_medio_ambiente"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar un cambio en la política general para planificar mejor el desarrollo urbano.",
+    "proponente": "Desconocido"
   },
   "Proposiciones no de ley por el orden en que han sido debatidas": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar las propuestas legislativas según el orden de debate establecido",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa continuar con el trámite de votación de las iniciativas presentadas por los grupos.",
+    "proponente": "Desconocido"
   },
   "Presentada por el Grupo Parlamentario Socialista relativa a competencias en materia de actividades complementarias y extraescolares": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Regular y mejorar la gestión de las actividades extraescolares",
+    "categoria_principal": "Educacion",
+    "etiquetas": [
+      "reformar_educacion",
+      "impulsar_conciliacion"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar que la comunidad asuma competencias para mejorar las actividades fuera del horario escolar.",
+    "proponente": "PSOE"
   },
   "332, instando a la Junta de Castilla y León a presentar ante las Cortes un nuevo programa de actuación en las comarcas mineras para el periodo dos mil ocho al dos mil once": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Lanzar un plan de inversiones para reactivar las comarcas mineras",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "impulsar_crecimiento_economico",
+      "crear_empleo"
+    ],
+    "resumen_sencillo": "Votar a favor significa exigir un nuevo programa de ayudas públicas para las zonas afectadas por la crisis de la minería.",
+    "proponente": "Desconocido"
   },
   "Dos mociones en el orden en que han sido debatidas": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar las dos mociones pendientes siguiendo el orden establecido",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aceptar el orden de votación de las dos propuestas tratadas en la sesión.",
+    "proponente": "Desconocido"
   },
   "Proposiciones no de ley en el orden en que han sido debatidas, y con ello terminaremos este Pleno": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar las propuestas finales siguiendo el orden en que se debatieron",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar que las propuestas se voten en el mismo orden cronológico en el que fueron discutidas anteriormente.",
+    "proponente": "Desconocido"
   },
   "Planes diseñados para dar solución a la falta de agua potable en los pueblos de la Comunidad": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Garantizar el acceso a agua potable en todos los pueblos rurales",
+    "categoria_principal": "Medio_Ambiente",
+    "etiquetas": [
+      "gestionar_recursos_hidricos",
+      "combatir_despoblacion"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar planes e inversiones para que ningún municipio de la región sufra cortes o falta de agua potable.",
+    "proponente": "Desconocido"
   },
   "Junta de Castilla y León para adoptar determinados criterios para la participación de la Comunidad Autónoma en el Comité de las Regiones": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Definir cómo participará la comunidad autónoma en los organismos de la Unión Europea",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "adaptar_normativa_europea"
+    ],
+    "resumen_sencillo": "Votar a favor significa establecer las normas y requisitos para que la región tenga voz en el Comité de las Regiones de Europa.",
+    "proponente": "Gobierno"
   },
   "Grupo Parlamentario Mixto, sobre San Glorio": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Impulsar el desarrollo económico y turístico en la zona de San Glorio",
+    "categoria_principal": "Medio_Ambiente",
+    "etiquetas": [
+      "impulsar_crecimiento_economico",
+      "proteger_medio_ambiente"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar las propuestas relativas al proyecto de desarrollo y gestión de la zona natural de San Glorio.",
+    "proponente": "Grupo Mixto"
   },
   "Dos mociones que han sido debatidas por el orden que": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Proceder a la votación de dos mociones parlamentarias ya debatidas",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa validar el procedimiento para votar las dos mociones presentadas tras finalizar su discusión en el Pleno.",
+    "proponente": "Desconocido"
   },
   "Proposiciones no de ley, por el orden en que han sido debatidas": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar las iniciativas ciudadanas en el orden de su discusión parlamentaria",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aceptar la secuencia establecida para votar las propuestas no legislativas que se han debatido durante la sesión.",
+    "proponente": "Desconocido"
   },
   "Proposición No de Ley 268, relativa a la construcción de la carretera de conexión entre la provincia de León y la proyectada por Portugal, entre Bragança y el Río Onor": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Construir una nueva carretera para conectar León con Braganza en Portugal",
+    "categoria_principal": "Infraestructuras",
+    "etiquetas": [
+      "mejorar_carreteras",
+      "impulsar_cooperacion_internacional"
+    ],
+    "resumen_sencillo": "Votar a favor significa impulsar la construcción de una infraestructura vial transfronteriza para mejorar la conexión terrestre con el país vecino.",
+    "proponente": "Desconocido"
   },
   "Dos mociones que han sido debatidas en el orden que lo han sido": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Realizar la votación de las mociones tras su debate parlamentario",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa autorizar que se vote sobre las mociones debatidas siguiendo el orden fijado en el orden del día.",
+    "proponente": "Desconocido"
   },
   "Proposiciones no de ley, ahora, en el orden en que han sido debatidas": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Iniciar la votación de las propuestas no de ley del Pleno",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa dar el visto bueno para comenzar el proceso de votación de las iniciativas que acaban de ser discutidas.",
+    "proponente": "Desconocido"
   },
   "Proposición No de Ley, en sus propios términos, 305": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Aprobar la propuesta legislativa número 305 sin cambios en el texto",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa ratificar el contenido original de la proposición número 305 tal como fue presentada por su autor.",
+    "proponente": "Desconocido"
   },
   "Proposición No de Ley número 352": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar la iniciativa parlamentaria número 352 presentada ante la cámara",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa dar apoyo formal al contenido de la propuesta identificada con el número 352.",
+    "proponente": "Desconocido"
   },
   "Proposiciones no de ley debatidas en el día de ayer, en la tarde de ayer, y también en la mañana de hoy, en el orden en que fueron debatidas": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar todas las propuestas discutidas en las últimas sesiones del Pleno",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa proceder a la votación conjunta de todos los temas debatidos ayer y hoy en las Cortes.",
+    "proponente": "Desconocido"
   },
   "Proposición No de Ley número 286, relativa a instar a la Junta a renovar y firmar convenios con las Diputaciones Provinciales para financiación de instalaciones deportivas": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Financiar centros deportivos mediante convenios entre la Junta y diputaciones",
+    "categoria_principal": "Cultura",
+    "etiquetas": [
+      "financiar_ayuntamientos",
+      "impulsar_cultura"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar que el gobierno regional y las diputaciones firmen acuerdos para pagar la construcción o reforma de gimnasios y polideportivos.",
+    "proponente": "Desconocido"
   },
   "Proposición No de Ley número 351, relativa a la creación centros de promoción industrial, fomento del empleo y desarrollo integral": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Crear centros industriales para atraer empresas y crear nuevos empleos",
+    "categoria_principal": "Trabajo_y_Pensiones",
+    "etiquetas": [
+      "crear_empleo",
+      "impulsar_crecimiento_economico"
+    ],
+    "resumen_sencillo": "Votar a favor significa impulsar la apertura de espacios destinados a fomentar la industria y ayudar a que los ciudadanos encuentren trabajo.",
+    "proponente": "Desconocido"
   },
   "PRESIDENTE (SEÑOR FERNÁNDEZ SANTIAGO):\nMuchas gracias, señora Ayala": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Finalización de la intervención de una procuradora por parte del Presidente",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Se trata de un comentario protocolario del Presidente de las Cortes para agradecer y cerrar el turno de palabra de una diputada.",
+    "proponente": "Desconocido"
   },
   "Directrices Esenciales de Ordenación del Territorio de Castilla y León que acaban de ser debatidas, empezando, en primer lugar, con las Enmiendas del Grupo Parlamentario Socialista": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Aprobar el plan general para organizar el territorio de la región",
+    "categoria_principal": "Politica_Territorial",
+    "etiquetas": [
+      "combatir_despoblacion"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar las normas que decidirán cómo se desarrolla y organiza el suelo en Castilla y León en el futuro.",
+    "proponente": "PSOE"
   },
   "Enmienda número 2 del Grupo Parlamentario Socialista: \"Las Cortes de Castilla y León instan a la Junta de Castilla y León a elaborar un marco normativo para promover la accesibilidad laboral\"": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Elaborar leyes para que más personas puedan acceder a un empleo",
+    "categoria_principal": "Trabajo_y_Pensiones",
+    "etiquetas": [
+      "crear_empleo",
+      "proteger_personas_discapacidad"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar la creación de normas que faciliten el acceso al trabajo, especialmente eliminando barreras para colectivos vulnerables.",
+    "proponente": "PSOE"
   },
   "Propuestas de Resolución números 7, 9, 10 y 11": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votación conjunta de un bloque de cuatro resoluciones parlamentarias",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar el grupo de medidas y acuerdos presentados bajo estos cuatro números identificativos.",
+    "proponente": "Desconocido"
   },
   "Número 19, transaccionada asimismo: \"Que las Cortes se muestren favorables e insten a la Junta de Castilla y León a presentar en el primer trimestre del próximo año, al menos, un avance del programa o": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Exigir al Gobierno regional que informe sobre el avance de programas",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "controlar_gobierno",
+      "aumentar_transparencia"
+    ],
+    "resumen_sencillo": "Votar a favor significa obligar a la Junta a presentar informes públicos sobre el progreso de sus planes en un plazo máximo de tres meses.",
+    "proponente": "Desconocido"
   },
   "Propuestas de Resolución número 12, 20, 21, 24 y 28": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar un conjunto de medidas debatidas durante el Pleno",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa ratificar las propuestas de resolución presentadas por los grupos parlamentarios en este bloque específico.",
+    "proponente": "Desconocido"
   },
   "Orden en que han sido debatidas en este Pleno": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Mantener el orden de debate para realizar las votaciones finales",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aceptar la organización de los turnos de voto tal y como se produjeron los debates en la sesión.",
+    "proponente": "Desconocido"
   },
   "Proposición No de Ley número 372, presentada por el Grupo Parlamentario Mixto, mostrando su apoyo a la organización de actividades de conmemoración del bicentenario de la Diputación de León, del milen": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Organizar actos culturales para celebrar los 200 años de historia leonesa",
+    "categoria_principal": "Cultura",
+    "etiquetas": [
+      "impulsar_cultura",
+      "recuperar_memoria_historica"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar actividades para conmemorar el bicentenario de la creación de la Diputación de León y su relevancia histórica.",
+    "proponente": "Grupo Mixto"
   },
   "Proposición No de Ley número 463, sobre infraestructuras tecnológicas en Castilla y León": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Impulsar nuevas infraestructuras de telecomunicaciones y tecnología en la región",
+    "categoria_principal": "Infraestructuras",
+    "etiquetas": [
+      "impulsar_telecomunicaciones",
+      "impulsar_ciencia"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar inversiones para que todos los rincones de la comunidad tengan mejor acceso a internet y tecnología moderna.",
+    "proponente": "Desconocido"
   },
   "PRESIDENTE (SEÑOR FERNÁNDEZ SANTIAGO):\nMuchas gracias, señor Encabo Terry": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Cierre de intervención y agradecimiento por parte de la Presidencia",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Se trata de un aviso del Presidente de la cámara indicando que el tiempo de intervención de un diputado ha concluido.",
+    "proponente": "Desconocido"
   },
   "Resto de las enmiendas, es decir, la 2, la 3, la 4, la 5, la 7, la 8, la 9, la 10, la 11, 12, 13, 14, 15, 16, 17, 19, 20, 21, 22, 24, 25, 26, 29, 31, 32, 33 y 34 del Grupo Parlamentario Socialista": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar en bloque todas las modificaciones propuestas por el grupo socialista",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar de una sola vez todo el conjunto de enmiendas al texto que ha presentado el PSOE.",
+    "proponente": "PSOE"
   },
   "Dos mociones, en el orden que han sido debatidas": {
     "titulo_ciudadano": "Asunto parlamentario sin clasificar",
@@ -7551,25 +7950,34 @@
     "proponente": ""
   },
   "Número 516, del Grupo Parlamentario Socialista, instando a la Junta de Castilla y León a la adopción de medidas paliativas de la desaceleración del sector inmobiliario": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Ayudar al sector inmobiliario ante la bajada de ventas de pisos",
+    "categoria_principal": "Vivienda",
+    "etiquetas": [
+      "facilitar_acceso_vivienda",
+      "impulsar_crecimiento_economico"
+    ],
+    "resumen_sencillo": "Votar a favor significa pedir al gobierno regional que tome medidas para evitar la crisis en la construcción y venta de viviendas.",
+    "proponente": "PSOE"
   },
   "592, del Grupo Parlamentario Mixto, instando a la Junta de Castilla y León a dirigirse al Gobierno de la Nación para que contemple presupuestariamente la obra de rehabilitación de las vías del tramo f": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Pedir dinero al Estado para arreglar tramos de vía de tren",
+    "categoria_principal": "Infraestructuras",
+    "etiquetas": [
+      "mejorar_red_ferroviaria",
+      "financiar_infraestructuras"
+    ],
+    "resumen_sencillo": "Votar a favor significa solicitar al Gobierno central que pague las obras necesarias para modernizar las líneas ferroviarias.",
+    "proponente": "Mixto"
   },
   "593, del Grupo Parlamentario Mixto, instando a la Junta de Castilla y León a la creación de una línea de ayuda para la instalación de elementos de seguridad en los vehículos destinados a taxi con lice": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Ayudar a los taxistas a instalar medidas de seguridad en sus coches",
+    "categoria_principal": "Interior_y_Seguridad",
+    "etiquetas": [
+      "aumentar_seguridad_ciudadana",
+      "fomentar_transporte_publico"
+    ],
+    "resumen_sencillo": "Votar a favor significa crear subvenciones para que los taxistas puedan poner mamparas o sistemas de protección frente a robos.",
+    "proponente": "Mixto"
   },
   "SEÑORA LÓPEZ-MOLINA LÓPEZ:\n(Termino ya, señor Presidente)": {
     "titulo_ciudadano": "Asunto parlamentario sin clasificar",
@@ -7586,11 +7994,13 @@
     "proponente": ""
   },
   "533, relativa a actuación en materia de seguridad vial": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Mejorar la seguridad en las carreteras para evitar accidentes",
+    "categoria_principal": "Interior_y_Seguridad",
+    "etiquetas": [
+      "mejorar_seguridad_vial"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar planes de actuación en las vías para que circular sea más seguro para todos.",
+    "proponente": "Desconocido"
   },
   "590, instando": {
     "titulo_ciudadano": "Asunto parlamentario sin clasificar",
@@ -7614,25 +8024,34 @@
     "proponente": ""
   },
   "Número 462, relativa al Plan de Apoyo a la modernización del comercio rural": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Apoyar la modernización de los comercios en los pequeños pueblos",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "apoyar_emprendedores",
+      "combatir_despoblacion"
+    ],
+    "resumen_sencillo": "Votar a favor significa ayudar a las tiendas de los pueblos a renovarse para que no tengan que cerrar sus puertas.",
+    "proponente": "Desconocido"
   },
   "Número 519, relativa a medidas relativas a abastecimiento de agua potable y la depuración de aguas residuales": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Garantizar agua potable y mejorar el tratamiento de residuos",
+    "categoria_principal": "Medio_Ambiente",
+    "etiquetas": [
+      "gestionar_recursos_hidricos",
+      "proteger_medio_ambiente"
+    ],
+    "resumen_sencillo": "Votar a favor significa invertir en tuberías y depuradoras para asegurar agua limpia en todos los hogares.",
+    "proponente": "Desconocido"
   },
   "613, relativa a potencialidades de nuevos yacimientos de empleo en las comarcas afectadas por la despoblación, cierres o deslocalizaciones de empresas": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Crear nuevos empleos en zonas que pierden habitantes y empresas",
+    "categoria_principal": "Trabajo_y_Pensiones",
+    "etiquetas": [
+      "crear_empleo",
+      "combatir_despoblacion"
+    ],
+    "resumen_sencillo": "Votar a favor significa fomentar nuevas industrias y trabajos en comarcas afectadas por el cierre de fábricas y la falta de gente.",
+    "proponente": "Desconocido"
   },
   "PRESIDENTE (SEÑOR FERNÁNDEZ SANTIAGO):\nMuchas gracias, señor Procurador": {
     "titulo_ciudadano": "Asunto parlamentario sin clasificar",
@@ -7642,11 +8061,13 @@
     "proponente": ""
   },
   "Transaccional a la Enmienda 295": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Acuerdo entre grupos para modificar una propuesta concreta",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aceptar una redacción de consenso acordada por varios partidos sobre un cambio específico.",
+    "proponente": "Varios grupos"
   },
   "Resto de las enmiendas, excluidos los votos particulares a las Enmiendas números 13 y 14, tal como se ha establecido": {
     "titulo_ciudadano": "Asunto parlamentario sin clasificar",
@@ -7663,11 +8084,13 @@
     "proponente": ""
   },
   "Sección Primera, Consejería de la Presidencia": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Aprobar el presupuesto y gestión de la Consejería de Presidencia",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "aprobar_presupuestos"
+    ],
+    "resumen_sencillo": "Votar a favor significa dar el visto bueno a las cuentas y planes de actuación del departamento de Presidencia.",
+    "proponente": "Gobierno"
   },
   "Sección Segunda": {
     "titulo_ciudadano": "Asunto parlamentario sin clasificar",
@@ -7684,354 +8107,476 @@
     "proponente": ""
   },
   "Restantes enmiendas del Grupo Parlamentario Socialista entre la 21 y la 49, a excepción de la 30, 32 y 33": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar las enmiendas pendientes presentadas por el Grupo Socialista",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar las propuestas de cambio presentadas por el PSOE a este proyecto legislativo.",
+    "proponente": "PSOE"
   },
   "Sección número 04, Consejería de Fomento": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Aprobar el presupuesto para infraestructuras y obras públicas",
+    "categoria_principal": "Infraestructuras",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "financiar_infraestructuras"
+    ],
+    "resumen_sencillo": "Votar a favor significa autorizar el gasto previsto para la Consejería de Fomento en el próximo ejercicio.",
+    "proponente": "Gobierno"
   },
   "Sección 04, Consejería de Fomento": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Aprobar el presupuesto para infraestructuras y obras públicas",
+    "categoria_principal": "Infraestructuras",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "financiar_infraestructuras"
+    ],
+    "resumen_sencillo": "Votar a favor significa autorizar el gasto previsto para la Consejería de Fomento en el próximo ejercicio.",
+    "proponente": "Gobierno"
   },
   "Enmiendas que han sido debatidas esta tarde, es decir las correspondientes a las Secciones 6, 7, 8 y 9": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar en bloque las enmiendas debatidas de varias consejerías",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario",
+      "aprobar_presupuestos"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar el conjunto de modificaciones propuestas a las secciones de Agricultura, Economía, Hacienda y Sanidad.",
+    "proponente": "Varios grupos"
   },
   "Enmiendas 36": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar la enmienda número 36 al texto legislativo",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aceptar el cambio propuesto en la enmienda 36 del documento en debate.",
+    "proponente": "Desconocido"
   },
   "Sección número 8, Consejería de Economía y Empleo": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Aprobar el presupuesto para políticas de empleo y economía",
+    "categoria_principal": "Trabajo_y_Pensiones",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "crear_empleo"
+    ],
+    "resumen_sencillo": "Votar a favor significa dar luz verde a los fondos destinados a fomentar el trabajo y la actividad económica.",
+    "proponente": "Gobierno"
   },
   "Que han sido debatidas y las restantes, incluido el Artículo 2": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar el artículo 2 y las enmiendas pendientes del debate",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar una parte específica del texto legal junto a sus modificaciones propuestas.",
+    "proponente": "Desconocido"
   },
   "Enmiendas del Grupo Mixto a esta sección": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar las propuestas de cambio presentadas por el Grupo Mixto",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar las enmiendas que los partidos del Grupo Mixto han propuesto para esta sección.",
+    "proponente": "Grupo Mixto"
   },
   "Enmiendas que han pedido votar": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar las enmiendas que se han sometido a votación individual",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aceptar los cambios al texto que han sido expresamente seleccionados para su votación.",
+    "proponente": "Desconocido"
   },
   "Restantes enmiendas del Grupo Mixto que quedan para esta sección": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar el resto de enmiendas pendientes del Grupo Mixto",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar las últimas propuestas de modificación del Grupo Mixto en este apartado.",
+    "proponente": "Grupo Mixto"
   },
   "Sección 12, Consejería de Interior y Justicia, Enmiendas número 264 a 272 del Grupo Parlamentario Socialista": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Votar las enmiendas socialistas sobre seguridad interior y justicia",
+    "categoria_principal": "Justicia",
+    "etiquetas": [
+      "procedimiento_parlamentario",
+      "reformar_codigo_penal"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar las mejoras propuestas por el PSOE en el área de seguridad y tribunales.",
+    "proponente": "PSOE"
   },
   "Enmiendas 56 y 58, la 57 ha sido retirada, del Grupo Mixto a esta Sección 12, Consejería de Interior y Justicia": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Votar enmiendas del Grupo Mixto sobre justicia e interior",
+    "categoria_principal": "Justicia",
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar las propuestas de cambio del Grupo Mixto para la consejería de Justicia e Interior.",
+    "proponente": "Grupo Mixto"
   },
   "Sección 20, Cortes de Castilla y León": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Aprobar el presupuesto para el funcionamiento del Parlamento regional",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "aumentar_transparencia"
+    ],
+    "resumen_sencillo": "Votar a favor significa autorizar los fondos necesarios para la actividad y gestión de las Cortes de Castilla y León.",
+    "proponente": "Gobierno"
   },
   "Que tampoco se han presentado enmiendas": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Aprobar secciones del texto que no han recibido propuestas de cambio",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa validar partes del documento original al no existir discrepancias o enmiendas de los grupos.",
+    "proponente": "Desconocido"
   },
   "Sección 22, Consejo Consultivo de Castilla y León, al que tampoco se han presentado enmiendas": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Aprobar el presupuesto del Consejo Consultivo regional",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "aprobar_presupuestos"
+    ],
+    "resumen_sencillo": "Votar a favor significa dotar de fondos al órgano encargado del asesoramiento legal de la comunidad autónoma.",
+    "proponente": "Gobierno"
   },
   "Términos fijados, la Proposición No de Ley número 521, del Grupo Parlamentario Socialista, respecto a instar al go": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Pedir al Gobierno que tome medidas según la propuesta socialista",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "controlar_gobierno"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar que el Parlamento exija al Ejecutivo realizar una acción concreta planteada por el PSOE.",
+    "proponente": "PSOE"
   },
   "638, del Grupo Parlamentario Popular, relativa a creación de un fondo nacional para desarrollo rural": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Crear un fondo nacional para impulsar el desarrollo del mundo rural",
+    "categoria_principal": "Agricultura",
+    "etiquetas": [
+      "proteger_sector_primario",
+      "combatir_despoblacion"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar la creación de ayudas económicas para mejorar la vida y economía en los pueblos.",
+    "proponente": "PP"
   },
   "670, presentada por el Grupo Parlamentario Socialista, relativa a impulsar la producción de productos ecológicos": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Fomentar la producción y el consumo de alimentos ecológicos",
+    "categoria_principal": "Agricultura",
+    "etiquetas": [
+      "proteger_sector_primario",
+      "proteger_medio_ambiente"
+    ],
+    "resumen_sencillo": "Votar a favor significa apostar por un modelo agrícola más sostenible y respetuoso con el entorno natural.",
+    "proponente": "PSOE"
   },
   "Mociones, en el orden en que han sido debatidas": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar las mociones de control al Gobierno presentadas por los grupos",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "controlar_gobierno",
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar las propuestas de los partidos para fiscalizar la acción del Ejecutivo regional.",
+    "proponente": "Varios grupos"
   },
   "Número 656, del Grupo Parlamentario Popular, sobre creación del Consejo Asesor de Salud Mental": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Crear un consejo de expertos para mejorar la salud mental",
+    "categoria_principal": "Sanidad",
+    "etiquetas": [
+      "mejorar_salud_mental",
+      "proteger_sanidad_publica"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar la creación de un órgano especializado para asesorar sobre políticas de bienestar emocional.",
+    "proponente": "PP"
   },
   "676, asimismo del Grupo Parlamentario Socialista, relativa a trastorno del déficit de atención e hiperactividad": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Mejorar la atención y apoyo a personas con TDAH",
+    "categoria_principal": "Sanidad",
+    "etiquetas": [
+      "proteger_enfermos",
+      "proteger_infancia"
+    ],
+    "resumen_sencillo": "Votar a favor significa impulsar medidas para que los afectados reciban mejores diagnósticos y tratamientos sanitarios.",
+    "proponente": "PSOE"
   },
   "Número 723, del Grupo Parlamentario Mixto, que, a petición suya, vamos a dividir en dos votaciones: la primera, que quedará, conforme ha dicho el Proponente, con la palabra \"instigar\"; es decir, queda": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar una propuesta del Grupo Mixto dividida en varias partes",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aceptar la primera parte de la iniciativa legislativa planteada por el Grupo Mixto.",
+    "proponente": "Grupo Mixto"
   },
   "PRESIDENTE (SEÑOR FERNÁNDEZ SANTIAGO):\nMuchas gracias, doña Cristina Ayala Santamaría": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Intervención de cortesía de la Presidencia de la Cámara",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Este registro corresponde a un saludo formal del Presidente y no constituye una propuesta temática para votar.",
+    "proponente": "Desconocido"
   },
   "Junta de Castilla y León a realizar los trámites necesarios para la constitución de un fondo autonómico extraordinario de inversión local": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Crear un fondo extra para que los ayuntamientos puedan invertir",
+    "categoria_principal": "Politica_Territorial",
+    "etiquetas": [
+      "financiar_ayuntamientos"
+    ],
+    "resumen_sencillo": "Votar a favor significa obligar a la Junta a dar más dinero a los ayuntamientos para obras locales.",
+    "proponente": "Desconocido"
   },
   "Proposiciones no de ley, en el orden que han sido debatidas; y, asimismo, las dos que se han debatido de forma agrupada se votarán de forma separada": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar el conjunto de propuestas de resolución debatidas en el pleno",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar las diferentes iniciativas no legislativas que se han presentado en esta sesión.",
+    "proponente": "Varios grupos"
   },
   "Proposición No de Ley número 740, del Grupo Parlamentario Socialista, instando a la Junta para velar por el cumplimiento de la Ley Orgánica de Educación en cuanto a los requisitos para la admisión de ": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Garantizar que la admisión en centros educativos cumpla siempre la ley",
+    "categoria_principal": "Educacion",
+    "etiquetas": [
+      "proteger_educacion_publica",
+      "reformar_educacion"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar que la Junta supervise y asegure que todos los colegios respeten las normas legales de entrada de alumnos.",
+    "proponente": "PSOE"
   },
   "Proposición No de Ley número 741, presentada por el Grupo Parlamentario Popular, relativa a ampliación de la capacidad de la Autovía A-62 entre Venta de Baños y Tordesillas": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Ampliar el número de carriles en la autovía A-62 para evitar atascos",
+    "categoria_principal": "Infraestructuras",
+    "etiquetas": [
+      "mejorar_carreteras",
+      "financiar_infraestructuras"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar las obras para aumentar la capacidad de tráfico en el tramo de autovía entre Palencia y Valladolid.",
+    "proponente": "PP"
   },
   "PRESIDENTE (SEÑOR FERNÁNDEZ SANTIAGO):\nMuchas gracias, señor Reguera": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Trámite de agradecimiento del Presidente tras una intervención parlamentaria",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor representa un acto de cortesía institucional que marca el fin de la palabra de un representante.",
+    "proponente": "Desconocido"
   },
   "Restantes, es decir, la Enmienda número 1, 2, 4, 5, 9, 11, 15, 18, 21 y 22 del Grupo Parlamentario Mixto": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar conjuntamente varias propuestas de modificación del Grupo Mixto",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar en bloque una serie de cambios técnicos propuestos por los partidos minoritarios.",
+    "proponente": "Varios grupos"
   },
   "PRESIDENTE (SEÑOR FERNÁNDEZ SANTIAGO):\nMuchas gracias, señor Portavoz": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Cierre protocolario de la intervención de un portavoz",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor es una formalidad de la presidencia para dar paso al siguiente punto del debate.",
+    "proponente": "Desconocido"
   },
   "Proposiciones no de ley en el orden en que han sido debatidas en la mañana de hoy": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Establecer el orden secuencial de las votaciones del día",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aceptar que las propuestas se voten siguiendo el mismo orden en que se discutieron.",
+    "proponente": "Desconocido"
   },
   "Proposición No de Ley número 720, del Grupo Parlamentario Socialista, relativa a elaboración de un proyecto de ley sobre prevención y lucha contra incendios forestales": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Crear una nueva ley para mejorar la lucha contra incendios forestales",
+    "categoria_principal": "Medio_Ambiente",
+    "etiquetas": [
+      "proteger_medio_ambiente",
+      "combatir_cambio_climatico"
+    ],
+    "resumen_sencillo": "Votar a favor significa impulsar una normativa específica para proteger mejor nuestros bosques y prevenir fuegos.",
+    "proponente": "PSOE"
   },
   "732, del Grupo Parlamentario Socialista, relativa a ayuda": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Aprobar concesión de ayudas para un fin institucional",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa autorizar una partida de ayuda económica, aunque el texto no detalla el destino concreto.",
+    "proponente": "PSOE"
   },
   "Votación de la primera proposición no de ley, aquella que afectaba a la actuación en relación con las instalaciones de las dependencias judiciales en la ciudad de Valladolid": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Invertir en mejorar y renovar los edificios de juzgados en Valladolid",
+    "categoria_principal": "Justicia",
+    "etiquetas": [
+      "financiar_infraestructuras"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar la modernización de las oficinas y sedes donde se imparte justicia en la ciudad.",
+    "proponente": "Desconocido"
   },
   "Proposición No de Ley número 67, presentada por el Grupo Parlamentario Popular, sobre requerir al Gobierno de la Nación a dejar sin efecto el Acuerdo del Consejo de Ministros de veintisiete de julio d": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Anular decisiones del Gobierno nacional que perjudican a la región",
+    "categoria_principal": "Politica_Territorial",
+    "etiquetas": [
+      "controlar_gobierno"
+    ],
+    "resumen_sencillo": "Votar a favor significa exigir al Ejecutivo central que retire un acuerdo ministerial que se considera dañino para la comunidad.",
+    "proponente": "PP"
   },
   "Dos mociones que han sido debatidas en la mañana de hoy": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar propuestas de control sobre la gestión del Gobierno regional",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario",
+      "controlar_gobierno"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar dos iniciativas que exigen explicaciones o cambios en la gestión de la Junta.",
+    "proponente": "Desconocido"
   },
   "Proposición No de Ley número 667, del Grupo Parlamentario Popular, relativa a medidas en el sector lácteo": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Impulsar ayudas y medidas de apoyo para los productores de leche",
+    "categoria_principal": "Agricultura",
+    "etiquetas": [
+      "proteger_sector_primario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar un paquete de acciones para mejorar la rentabilidad de las granjas de leche.",
+    "proponente": "PP"
   },
   "804, del Grupo Parlamentario Socialista, relativa al cumplimiento del compromiso de recogida de leche, y poner en marcha, inspeccionar y fomentar contratos estables del sector lácteo": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Garantizar la recogida de leche y contratos estables para ganaderos",
+    "categoria_principal": "Agricultura",
+    "etiquetas": [
+      "proteger_sector_primario",
+      "proteger_consumidores"
+    ],
+    "resumen_sencillo": "Votar a favor significa exigir que no se quede leche sin recoger y que los ganaderos tengan contratos seguros a largo plazo.",
+    "proponente": "PSOE"
   },
   "Del Grupo Parlamentario Socialista número 832, instando a la Junta de Castilla y León a aprobar con carácter urgente un plan autonómico de apoyo al sector textil": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Aprobar un plan de rescate urgente para la industria textil",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "impulsar_crecimiento_economico",
+      "apoyar_emprendedores"
+    ],
+    "resumen_sencillo": "Votar a favor significa crear ayudas inmediatas para salvar empleos y empresas que fabrican ropa y tejidos en la región.",
+    "proponente": "PSOE"
   },
   "Punto primero de dicha proposición no de ley": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar el primer apartado específico de una propuesta legislativa",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor permite validar la primera parte de una iniciativa de forma separada al resto del texto.",
+    "proponente": "Desconocido"
   },
   "Texto del segundo punto, tal como tiene": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar el segundo apartado de la iniciativa que se debate",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa dar el visto bueno al contenido concreto redactado para el segundo punto de la propuesta.",
+    "proponente": "Desconocido"
   },
   "854 del Grupo Parlamentario Popular, instando a la Junta de Castilla y León a dirigirse al Gobierno de España para que establezca de forma inmediata un plan de ayuda directa a la adquisición de vehícu": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Dar ayudas directas a ciudadanos para comprar coches nuevos inmediatamente",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "proteger_consumidores",
+      "apoyar_emprendedores"
+    ],
+    "resumen_sencillo": "Votar a favor significa pedir al Gobierno dinero directo para facilitar que la gente pueda renovar su vehículo de forma ágil.",
+    "proponente": "PP"
   },
   "Moción número 61": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Propuesta para controlar la gestión de una consejería del Gobierno",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "controlar_gobierno"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar una iniciativa que exige cambios o mejoras en una política pública concreta.",
+    "proponente": "Desconocido"
   },
   "863, presentada por el Grupo Parlamentario Popular, relativa a reforma del sistema de financiación autonómico": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Reformar el sistema de financiación para recibir más dinero del Estado",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "aumentar_transparencia"
+    ],
+    "resumen_sencillo": "Votar a favor significa exigir un nuevo reparto de impuestos que dé más recursos y autonomía económica a la región.",
+    "proponente": "PP"
   },
   "864, del Grupo Parlamentario Popular, relativa a la definición de un marco normativo de los estudios superiores de Ingeniería Informática": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Regular por ley los títulos universitarios de Ingeniería Informática",
+    "categoria_principal": "Educacion",
+    "etiquetas": [
+      "reformar_educacion",
+      "financiar_universidad"
+    ],
+    "resumen_sencillo": "Votar a favor significa establecer normas claras para que los estudios de informática tengan un reconocimiento y contenidos definidos por ley.",
+    "proponente": "PP"
   },
   "Número 802, presentada por el Grupo Parlamentario Popular, relativa a la creación de un observatorio integrado de precios de mercado, con el texto del punto 1 que ha sido modificada a propuesta del Gr": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Vigilar que los precios de los productos no suban injustificadamente",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "proteger_consumidores",
+      "aumentar_transparencia"
+    ],
+    "resumen_sencillo": "Votar a favor significa crear un organismo para controlar el mercado y evitar abusos en los precios de venta al público.",
+    "proponente": "PP"
   },
   "Proposición No de Ley número 803, presentada por el Grupo Parlamentario Socialista, relativa a la constitución de un Observatorio de Precios con la presencia de organizaciones profesionales": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Vigilar los precios con participación de agricultores y sindicatos",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "proteger_consumidores",
+      "aumentar_transparencia"
+    ],
+    "resumen_sencillo": "Votar a favor significa crear un control de precios donde también estén representados los profesionales del sector afectado.",
+    "proponente": "PSOE"
   },
   "862, presentada por el Grupo Parlamentario Popular, relativa al desdoblamiento de la M-501,": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Convertir la carretera M-501 en una autovía de doble carril",
+    "categoria_principal": "Infraestructuras",
+    "etiquetas": [
+      "mejorar_carreteras",
+      "financiar_infraestructuras"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar las obras para ampliar la calzada y mejorar la seguridad de los conductores en esta vía.",
+    "proponente": "PP"
   },
   "PRESIDENTE (SEÑOR FERNÁNDEZ SANTIAGO):\nProcedemos a la votación": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Inicio formal del proceso de voto electrónico en el pleno",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor es la señal formal para que los diputados empiecen a registrar su voto en el sistema.",
+    "proponente": "Desconocido"
   },
   "PRESIDENTE (SEÑOR FERNÁNDEZ SANTIAGO):\nMuchas gracias, señor García-Prieto": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Cortesía institucional tras la intervención de un representante político",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa concluir formalmente el debate de un asunto con un agradecimiento oficial.",
+    "proponente": "Desconocido"
   },
   "PRESIDENTE (SEÑOR FERNÁNDEZ SANTIAGO):\nMire, la complejidad de las votaciones de las del Grupo Mixto es tal que, si lo complicamos más, votaremos una a una todas las propuestas de resolución": {
     "titulo_ciudadano": "Asunto parlamentario sin clasificar",
@@ -8041,102 +8586,134 @@
     "proponente": ""
   },
   "Propuesta del Grupo Mixto, las número 1, 2, 4 y 18 del Grupo Socialista": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar conjuntamente varias propuestas del Grupo Mixto y Socialista",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar el bloque de iniciativas presentadas por estos dos grupos parlamentarios.",
+    "proponente": "Varios grupos"
   },
   "Resto de las propuestas de resolución del Grupo Parlamentario Socialista": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar las iniciativas restantes presentadas por el Grupo Socialista",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa dar el visto bueno al resto de propuestas que aún no se habían votado del PSOE.",
+    "proponente": "PSOE"
   },
   "Número 8, 13 y 18": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votación de las propuestas números 8, 13 y 18",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar las iniciativas identificadas con estos números específicos en el orden del día.",
+    "proponente": "Desconocido"
   },
   "25? ¿Junta o por separado?": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Decidir la forma de votar la propuesta número 25",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aceptar el método de votación (conjunto o separado) propuesto para esta iniciativa.",
+    "proponente": "Desconocido"
   },
   "UPL se ha agrupado la 8, la 13 y la 18": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Agrupar tres propuestas de la Unión del Pueblo Leonés",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aceptar que estas tres iniciativas de la UPL se voten de manera conjunta.",
+    "proponente": "UPL"
   },
   "Votación de las proposiciones no de ley, en el orden en que han sido debatidas": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar las iniciativas siguiendo el orden en que se discutieron",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aceptar el orden cronológico propuesto por la presidencia para realizar las votaciones.",
+    "proponente": "Desconocido"
   },
   "Número 895, del Grupo Parlamentario Socialista, instando a la modificación de la Orden EYE/1095 de dos mil nueve, de diecinueve de mayo, para incorporar como beneficiarios de la misma a los autónomos ": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Incluir a los autónomos como beneficiarios de ayudas regionales",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "apoyar_emprendedores",
+      "proteger_consumidores"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar que los trabajadores autónomos puedan recibir las mismas ayudas que otros colectivos económicos.",
+    "proponente": "PSOE"
   },
   "Junta de Castilla y León a crear un Servicio Público de Investigación de Incendios Forestales": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Crear un servicio público para investigar el origen de incendios",
+    "categoria_principal": "Medio_Ambiente",
+    "etiquetas": [
+      "proteger_medio_ambiente",
+      "combatir_cambio_climatico"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar la creación de un cuerpo especializado en descubrir las causas de los fuegos en los montes.",
+    "proponente": "Desconocido"
   },
   "Proposición No de Ley 787, presentada por el Grupo Parlamentario Popular, relativa a prestación, atención y protección a los castellanoleoneses en el exterior": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Mejorar la atención y protección de ciudadanos en el extranjero",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "proteger_derechos_humanos",
+      "proteger_familias"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar medidas para ayudar y proteger a los ciudadanos de la comunidad que viven fuera de España.",
+    "proponente": "PP"
   },
   "Proposición No de Ley 985, del Grupo Parlamentario Socialista, pero con el nuevo texto consensuado, que no es necesario leer": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Aprobar el nuevo texto acordado de la propuesta socialista",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar la redacción pactada entre los grupos para esta iniciativa del PSOE.",
+    "proponente": "PSOE"
   },
   "Proposición No de Ley número 986, del Grupo Parlamentario Popular, relativa a tarjeta de gasóleo profesional agrario,": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Facilitar una tarjeta de combustible más barato para agricultores",
+    "categoria_principal": "Agricultura",
+    "etiquetas": [
+      "proteger_sector_primario"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar medidas para reducir el coste del gasóleo para los profesionales del sector agrario.",
+    "proponente": "PP"
   },
   "Ratificación exige el voto favorable de la mayoría absoluta de los miembros de las Cortes de Castilla y León": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Exigencia de mayoría absoluta para validar la decisión parlamentaria",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa dar el respaldo necesario para alcanzar el número mínimo de votos que exige la ley.",
+    "proponente": "Desconocido"
   },
   "Orden en que han sido todas ellas debatidas": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Mantener el orden de debate para realizar las votaciones",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aceptar que las iniciativas se voten en la misma secuencia en que fueron discutidas por los diputados.",
+    "proponente": "Desconocido"
   },
   "855, presentada por el Grupo Parlamentario Socialista, instando a la Junta de Castilla y León a modificar la Resolución de cuatro de marzo de dos mil nueve del Servicio Público de Empleo de Castilla y": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Modificar normas del servicio de empleo para mejorar la atención",
+    "categoria_principal": "Trabajo_y_Pensiones",
+    "etiquetas": [
+      "crear_empleo",
+      "mejorar_condiciones_laborales"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar cambios en el servicio público de empleo para optimizar la búsqueda de trabajo de los ciudadanos.",
+    "proponente": "PSOE"
   },
   "PRESIDENTE (SEÑOR FERNÁNDEZ SANTIAGO):\nSeñorías, procedemos a someter a votación el Dictamen sobre la Situación del Deporte en Castilla y León elaborado por la Comisión No Permanente para el Estudio d": {
     "titulo_ciudadano": "Asunto parlamentario sin clasificar",
@@ -8146,74 +8723,97 @@
     "proponente": ""
   },
   "Orden en el que han sido debatidas": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Seguir la secuencia de debate para las votaciones finales",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa confirmar que se siga el orden establecido de discusión para votar cada punto.",
+    "proponente": "Desconocido"
   },
   "Proposiciones no de ley en el Orden del Día establecido, es decir, para aclarar": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votación de iniciativas siguiendo el listado oficial del día",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aceptar la organización de las votaciones según lo previsto en el orden del día.",
+    "proponente": "Desconocido"
   },
   "995": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votación de la propuesta parlamentaria número 995",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar el contenido de la iniciativa registrada con este número identificativo.",
+    "proponente": "Desconocido"
   },
   "Proposición No de Ley 1005, relativa a modificación de la normativa reguladora de la cooperación económica local": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Actualizar las normas que regulan las ayudas a ayuntamientos",
+    "categoria_principal": "Politica_Territorial",
+    "etiquetas": [
+      "financiar_ayuntamientos"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar cambios en cómo se reparte el dinero público entre los municipios de la región.",
+    "proponente": "Desconocido"
   },
   "Propuesta de resolución, aceptada conjuntamente por el Grupo Popular y Socialista, relativa a las Proposiciones No de Ley 1030 y 1037, es decir, las que se refieren a la modificación de la Ley de Come": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Modificar la Ley de Comercio con el acuerdo de los grandes partidos",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "impulsar_crecimiento_economico",
+      "proteger_consumidores"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar los cambios en la ley comercial pactados por el Partido Popular y el Partido Socialista.",
+    "proponente": "Varios grupos"
   },
   "Proposición No de Ley número 1044, del Grupo Parlamentario Mixto, instando a la Junta de Castilla y León a dirigirse al Gobierno Central con el fin de exigir el mismo trato a los peajes de las autopis": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Exigir igualdad de trato en los peajes de las autopistas",
+    "categoria_principal": "Infraestructuras",
+    "etiquetas": [
+      "mejorar_carreteras",
+      "financiar_infraestructuras"
+    ],
+    "resumen_sencillo": "Votar a favor significa pedir al Gobierno central que los peajes de la región tengan las mismas condiciones que en el resto del país.",
+    "proponente": "Grupo Mixto"
   },
   "Proposición No de Ley número 65": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votación de la propuesta parlamentaria número 65",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar la iniciativa legislativa que tiene asignado este número de registro.",
+    "proponente": "Desconocido"
   },
   "Términos fijados por el proponente, la Proposición No de Ley número 98": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar la propuesta 98 tal como fue redactada originalmente",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar la iniciativa sin cambios, respetando el texto inicial presentado por su autor.",
+    "proponente": "Desconocido"
   },
   "Proposición No de Ley número 115, presentada por el Grupo Parlamentario Popular, instando a la Junta de Castilla y León a que exija al Gobierno de la Nación la ejecución de la Autovía León-Valladolid": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Reclamar al Estado que termine pronto la autovía León-Valladolid",
+    "categoria_principal": "Infraestructuras",
+    "etiquetas": [
+      "mejorar_carreteras",
+      "financiar_infraestructuras"
+    ],
+    "resumen_sencillo": "Votar a favor significa exigir al Gobierno de España que acelere y finalice las obras de esta carretera estratégica.",
+    "proponente": "PP"
   },
   "Candidatura propuesta": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Elegir a los candidatos propuestos para un cargo público",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar la lista de personas propuestas para ocupar un puesto de responsabilidad en una institución pública.",
+    "proponente": "Desconocido"
   },
   "PRESIDENTE (SEÑOR FERNÁNDEZ SANTIAGO):\nSeñorías, vamos a proceder a la votación": {
     "titulo_ciudadano": "Asunto parlamentario sin clasificar",
@@ -8223,88 +8823,117 @@
     "proponente": ""
   },
   "996, del Grupo Parlamentario Popular, instando a la Junta de Castilla y León para que elabore y apruebe un protocolo de actuación para las situaciones de emergencia": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Crear un plan oficial de respuesta ante situaciones de emergencia",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "procedimiento_parlamentario",
+      "aprobar_ayudas_emergencia"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar que el Gobierno regional diseñe un protocolo coordinado para actuar con rapidez ante catástrofes o crisis.",
+    "proponente": "PP"
   },
   "1023, del Grupo Parlamentario Socialista, instando a la Junta a promover ayudas a municipios madereros": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Dar ayudas económicas a los pueblos con industria de la madera",
+    "categoria_principal": "Agricultura",
+    "etiquetas": [
+      "proteger_sector_primario",
+      "financiar_ayuntamientos"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar la creación de subvenciones para los municipios cuya economía depende directamente de la explotación forestal.",
+    "proponente": "PSOE"
   },
   "Enmiendas al articulado": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar cambios específicos en el texto de una ley",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aceptar las modificaciones propuestas a los diferentes artículos que componen la ley en discusión.",
+    "proponente": "Varios grupos"
   },
   "Artículos de la ley, a excepción del Artículo 2, Disposiciones Adicionales, Disposiciones Transitorias y Disposiciones Finales, Exposición de Motivos y Título del Proyecto de Ley": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Aprobar el bloque principal de artículos de la ley",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa dar el visto bueno a la mayor parte del texto legal, dejando fuera los puntos que se votarán aparte.",
+    "proponente": "Varios grupos"
   },
   "Enmiendas a la Sección 01, Consejería de la Presidencia, Enmiendas número 1 al 11 del Grupo Parlamentario Socialista": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Modificar el presupuesto de la Consejería de la Presidencia",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "controlar_gasto_publico"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar los cambios propuestos por el PSOE en las cuentas y gastos del departamento del presidente regional.",
+    "proponente": "PSOE"
   },
   "Sección número 2, Consejería de Hacienda, las Enmiendas número 12 a 22, del Grupo Parlamentario Socialista": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Modificar el gasto previsto para la Consejería de Hacienda",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "controlar_gasto_publico"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar las propuestas del PSOE para cambiar cómo gasta su dinero el departamento encargado de las finanzas regionales.",
+    "proponente": "PSOE"
   },
   "Enmiendas del Grupo Mixto, de forma separada": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar individualmente los cambios propuestos por el Grupo Mixto",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aceptar una a una las modificaciones planteadas por los partidos pequeños integrados en el Grupo Mixto.",
+    "proponente": "Grupo Mixto"
   },
   "Enmienda número 10, del Grupo Parlamentario Mixto": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Aprobar una propuesta de cambio específica del Grupo Mixto",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa validar una modificación concreta presentada por el Grupo Mixto al texto que se está debatiendo.",
+    "proponente": "Grupo Mixto"
   },
   "Del Grupo Mixto, por separado": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar de forma independiente las iniciativas del Grupo Mixto",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar las propuestas de los representantes del Grupo Mixto de manera aislada al resto de la votación.",
+    "proponente": "Grupo Mixto"
   },
   "Puertas), las que afectan a la Sección 07, Consejería de Educación": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Cambios en el presupuesto destinado a Educación",
+    "categoria_principal": "Educacion",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "proteger_educacion_publica"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar modificaciones en el dinero que la región gasta en colegios, institutos y profesorado.",
+    "proponente": "Desconocido"
   },
   "Enmiendas del Grupo Parlamentario Mixto, de forma separada": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar uno por uno los cambios planteados por el Grupo Mixto",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aceptar las enmiendas que el Grupo Mixto ha pedido votar de forma independiente.",
+    "proponente": "Grupo Mixto"
   },
   "Enmiendas del Grupo Mixto, es decir, la 28, 29, 30 y 32": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Aprobar un grupo de cuatro cambios concretos del Grupo Mixto",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa dar validez a las modificaciones numeradas 28, 29, 30 y 32 presentadas por el Grupo Mixto.",
+    "proponente": "Grupo Mixto"
   },
   "Secciones, en el orden en que han sido debatidas": {
     "titulo_ciudadano": "Asunto parlamentario sin clasificar",
@@ -8314,74 +8943,100 @@
     "proponente": ""
   },
   "Enmiendas número 39 y 40 del Grupo Parlamentario Mixto a esta Sección 10": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Aprobar dos cambios del Grupo Mixto en la Sección 10 presupuestaria",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar estas dos propuestas específicas para modificar una parte concreta del presupuesto regional.",
+    "proponente": "Grupo Mixto"
   },
   "Transaccional a la Enmienda número 26": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Aprobar un acuerdo de consenso sobre una propuesta de cambio",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar un texto intermedio acordado entre varios partidos para modificar el proyecto original.",
+    "proponente": "Varios grupos"
   },
   "Votos afirmativos se entenderán favorables a la convalidación y los votos negativos se entenderán favorables a su derogación": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Decidir si se mantiene o se anula un decreto urgente del Gobierno",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario",
+      "controlar_gobierno"
+    ],
+    "resumen_sencillo": "Votar a favor significa confirmar la validez de una norma dictada por el Gobierno para que siga aplicándose.",
+    "proponente": "Gobierno"
   },
   "Cambio": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Votar una modificación puntual en el texto que se debate",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aceptar la variación específica que se ha planteado en este momento del pleno.",
+    "proponente": "Desconocido"
   },
   "Proposición No de Ley 1045, estableciendo de nuevo": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Aprobar la iniciativa política número 1045",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar esta propuesta que insta al Gobierno regional a tomar una medida determinada.",
+    "proponente": "Desconocido"
   },
   "Del Grupo Parlamentario Popular, 1079, sobre dirigirse al Gobierno de España para que, tomando como referencia el documento remitido por la misma al Presidente del Gobierno, se alcance un gran pacto n": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Pedir al Gobierno central un gran pacto de Estado para el país",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar que la región exija al Gobierno de España un acuerdo nacional amplio sobre temas fundamentales.",
+    "proponente": "PP"
   },
   "Del Grupo Parlamentario Mixto, 1081, instando a la Junta de Castilla y León a trasladar a la empresa pública FEVE el interés de la Comunidad Autónoma para que realice un estudio de viabilidad sobre la": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Analizar la viabilidad de mejorar el servicio ferroviario de FEVE",
+    "categoria_principal": "Infraestructuras",
+    "etiquetas": [
+      "mejorar_red_ferroviaria",
+      "fomentar_transporte_publico"
+    ],
+    "resumen_sencillo": "Votar a favor significa pedir a la empresa de trenes que estudie cómo mejorar o ampliar sus rutas en el territorio regional.",
+    "proponente": "Grupo Mixto"
   },
   "1120 del Grupo Parlamentario Socialista, para modificar la Ley 7/2000, de once de julio, y crear un Instituto de Estadística en la Comunidad": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Crear un organismo público oficial de estadística para la región",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "aumentar_transparencia",
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar la fundación de un instituto encargado de recoger y analizar datos sobre la realidad de la comunidad.",
+    "proponente": "PSOE"
   },
   "Siguientes: la 1138, en primer lugar, del Grupo Parlamentario Mixto, sobre la ubicación de almacén temporal centralizado en la Comunidad": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Decidir sobre la instalación de un almacén de residuos nucleares",
+    "categoria_principal": "Medio_Ambiente",
+    "etiquetas": [
+      "proteger_medio_ambiente",
+      "impulsar_energia_renovable"
+    ],
+    "resumen_sencillo": "Votar a favor significa posicionarse sobre si la región debe albergar un depósito para guardar desechos radioactivos de forma temporal.",
+    "proponente": "Grupo Mixto"
   },
   "Mociones en el orden en el que han sido debatidas": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Votar las propuestas de control al Gobierno tras los debates",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "controlar_gobierno",
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar las medidas que la oposición exige al Gobierno regional después de haberlo interrogado sobre su gestión.",
+    "proponente": "Desconocido"
   },
   "1024, del Grupo Parlamentario Socialista, instando a la Junta de Castilla y León a contar con planes de ordenación en relación con aprovechamientos micológicos": {
     "titulo_ciudadano": "Asunto parlamentario sin clasificar",
@@ -8391,11 +9046,13 @@
     "proponente": ""
   },
   "1023": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Asunto procedimental sin contenido temático específico",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar este punto del orden del día de carácter puramente técnico o administrativo.",
+    "proponente": "Desconocido"
   },
   "1125, del Grupo Parlamentario Popular, relativa al apoyo al documento que contempla una posición común respecto a la situación del sector agrario": {
     "titulo_ciudadano": "Asunto parlamentario sin clasificar",
@@ -8572,5 +9229,381 @@
     ],
     "resumen_sencillo": "Votar a favor significa apoyar que la Junta destine más recursos y medidas para mejorar la situación de agricultores y ganaderos.",
     "proponente": "PP"
+  },
+  "Procedimiento de lectura única la Proposición de Ley de modification de la Ley 4/2000, de veintisiete de junio, de Declaración del Parque Natural de Fuentes Carrionas y Fuente Cobre-Montaña Palentina,": {
+    "titulo_ciudadano": "Aprobar por vía urgente cambios en el Parque Natural de Fuentes Carrionas",
+    "categoria_principal": "Medio_Ambiente",
+    "etiquetas": [
+      "proteger_medio_ambiente",
+      "tramitar_ley_urgencia"
+    ],
+    "resumen_sencillo": "Votar a favor significa validar rápidamente modificaciones legales que afectan a la protección y gestión de este espacio natural.",
+    "proponente": "Desconocido"
+  },
+  "1326": {
+    "titulo_ciudadano": "Actualizar las pensiones de jubilación e invalidez para personas con menos recursos",
+    "categoria_principal": "Trabajo_y_Pensiones",
+    "etiquetas": [
+      "subir_pensiones",
+      "garantizar_pensiones"
+    ],
+    "resumen_sencillo": "Votar a favor significa pedir al Gobierno que suba las pensiones no contributivas para que los beneficiarios no pierdan poder adquisitivo.",
+    "proponente": "PP"
+  },
+  "1327": {
+    "titulo_ciudadano": "Hacer pública la lista de obras que se están realizando en la región",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "aumentar_transparencia",
+      "financiar_infraestructuras"
+    ],
+    "resumen_sencillo": "Votar a favor significa exigir que se informe con claridad sobre qué obras públicas se están ejecutando y su estado actual.",
+    "proponente": "PP"
+  },
+  "1336": {
+    "titulo_ciudadano": "Reorganizar la administración para hacerla más eficiente y sencilla",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "aumentar_transparencia",
+      "controlar_gasto_publico"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar un cambio en la estructura del gobierno regional para buscar un mejor funcionamiento administrativo.",
+    "proponente": "PSOE"
+  },
+  "1335": {
+    "titulo_ciudadano": "Publicar el mapa real de cobertura de internet en toda la comunidad",
+    "categoria_principal": "Infraestructuras",
+    "etiquetas": [
+      "impulsar_telecomunicaciones",
+      "combatir_despoblacion"
+    ],
+    "resumen_sencillo": "Votar a favor significa exigir que se haga público dónde hay buena conexión a internet y dónde falla el servicio.",
+    "proponente": "PSOE"
+  },
+  "1386": {
+    "titulo_ciudadano": "Aprobar urgentemente las normas que regulan la publicidad oficial",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "aumentar_transparencia",
+      "reformar_medios_comunicacion"
+    ],
+    "resumen_sencillo": "Votar a favor significa exigir al gobierno que ponga en marcha las reglas para controlar el gasto en publicidad institucional.",
+    "proponente": "PSOE"
+  },
+  "1387": {
+    "titulo_ciudadano": "Estudiar la posible creación de una nueva entidad o servicio público",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "aumentar_transparencia",
+      "controlar_gasto_publico"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar que se analice si es viable y necesario crear un nuevo organismo regional.",
+    "proponente": "Varios grupos"
+  },
+  "1371": {
+    "titulo_ciudadano": "Poner en marcha un plan regional para mejorar la atención en diabetes",
+    "categoria_principal": "Sanidad",
+    "etiquetas": [
+      "proteger_enfermos",
+      "proteger_sanidad_publica"
+    ],
+    "resumen_sencillo": "Votar a favor significa impulsar una estrategia que coordine mejor los recursos y el tratamiento para los pacientes con diabetes.",
+    "proponente": "PSOE"
+  },
+  "1403": {
+    "titulo_ciudadano": "Exigir medidas al Gobierno central sobre el Centro de la Memoria Histórica",
+    "categoria_principal": "Justicia",
+    "etiquetas": [
+      "recuperar_memoria_historica",
+      "proteger_derechos_humanos"
+    ],
+    "resumen_sencillo": "Votar a favor significa solicitar que se cumplan los acuerdos sobre la gestión y los archivos de la memoria histórica.",
+    "proponente": "PP"
+  },
+  "PRESIDENTE (SEÑOR FERNÁNDEZ SANTIAGO): Muchas gracias, Señoría": {
+    "titulo_ciudadano": "Intervención protocolaria de la presidencia durante el debate",
+    "categoria_principal": "Otros",
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Este texto es un saludo formal del presidente y no representa una propuesta política para votar.",
+    "proponente": "Desconocido"
+  },
+  "PRESIDENTE (SEÑOR FERNÁNDEZ SANTIAGO): Sometemos ahora": {
+    "titulo_ciudadano": "Continuación de la sesión de votaciones en el Parlamento",
+    "categoria_principal": "Otros",
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor es un acto procedimental para dar paso a la siguiente votación programada en el orden del día.",
+    "proponente": "Desconocido"
+  },
+  "607, para la integración de la mujer en el sistema agrario y ganadero": {
+    "titulo_ciudadano": "Facilitar que las mujeres se incorporen al trabajo en el campo",
+    "categoria_principal": "Agricultura",
+    "etiquetas": [
+      "proteger_sector_primario",
+      "impulsar_igualdad_genero"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar medidas que ayuden a las mujeres a trabajar y liderar explotaciones agrícolas y ganaderas.",
+    "proponente": "Desconocido"
+  },
+  "PRESIDENTE (SEÑOR FERNÁNDEZ SANTIAGO): Muchas gracias, señor Pascual Fernández": {
+    "titulo_ciudadano": "Gestión de los turnos de palabra en el pleno",
+    "categoria_principal": "Otros",
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa dar por concluida la intervención de un procurador para continuar con el debate.",
+    "proponente": "Desconocido"
+  },
+  "Moción número 65, relativa a política general en materia de conservación y gestión del patrimonio cultural": {
+    "titulo_ciudadano": "Mejorar la protección y el cuidado de los bienes culturales",
+    "categoria_principal": "Cultura",
+    "etiquetas": [
+      "impulsar_cultura"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar que se cuide mejor el patrimonio histórico y artístico de nuestra comunidad.",
+    "proponente": "Desconocido"
+  },
+  "Sección número 03 de la Consejería de Agricultura y Ganadería": {
+    "titulo_ciudadano": "Aprobar el dinero destinado al apoyo del campo y la ganadería",
+    "categoria_principal": "Agricultura",
+    "etiquetas": [
+      "proteger_sector_primario",
+      "aprobar_presupuestos"
+    ],
+    "resumen_sencillo": "Votar a favor significa autorizar el presupuesto para agricultura y las enmiendas que buscan mejorar el sector primario.",
+    "proponente": "Gobierno"
+  },
+  "PRESIDENTE (SEÑOR FERNÁNDEZ SANTIAGO): Mire, la complejidad de las votaciones de las del Grupo Mixto es tal que, si lo complicamos más, votaremos una a una todas las propuestas de resolución": {
+    "titulo_ciudadano": "Procedimiento para votar individualmente las propuestas del Grupo Mixto",
+    "categoria_principal": "Otros",
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aceptar que las propuestas del Grupo Mixto se voten una por una para evitar confusiones.",
+    "proponente": "Desconocido"
+  },
+  "PRESIDENTE (SEÑOR FERNÁNDEZ SANTIAGO): \nSeñorías, procedemos a someter a votación el Dictamen sobre la Situación del Deporte en Castilla y León elaborado por la Comisión No Permanente para el Estudio d": {
+    "titulo_ciudadano": "Aprobar el informe oficial sobre el estado del deporte regional",
+    "categoria_principal": "Cultura",
+    "etiquetas": [
+      "impulsar_cultura"
+    ],
+    "resumen_sencillo": "Votar a favor significa dar el visto bueno al análisis realizado por las Cortes sobre cómo se encuentra el deporte en la comunidad.",
+    "proponente": "Desconocido"
+  },
+  "PRESIDENTE (SEÑOR FERNÁNDEZ SANTIAGO): Señorías, vamos a proceder a la votación": {
+    "titulo_ciudadano": "Inicio del procedimiento de votación en el pleno",
+    "categoria_principal": "Otros",
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Se trata de un aviso formal del presidente para que los diputados comiencen a emitir su voto sobre el asunto debatido.",
+    "proponente": "Desconocido"
+  },
+  "Secciones, en el order en que han sido debatidas": {
+    "titulo_ciudadano": "Votar las partes del presupuesto según el orden del debate",
+    "categoria_principal": "Otros",
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa ir aprobando los diferentes bloques de las cuentas regionales siguiendo la secuencia establecida en la sesión.",
+    "proponente": "Desconocido"
+  },
+  "1024": {
+    "titulo_ciudadano": "Crear planes para regular la recolección de setas y hongos",
+    "categoria_principal": "Agricultura",
+    "etiquetas": [
+      "proteger_sector_primario",
+      "proteger_medio_ambiente"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar la creación de normas para organizar y regular la recogida de setas en los montes de la región.",
+    "proponente": "PSOE"
+  },
+  "1125": {
+    "titulo_ciudadano": "Apoyar una posición común en defensa del sector agrícola",
+    "categoria_principal": "Agricultura",
+    "etiquetas": [
+      "proteger_sector_primario"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar un documento conjunto de los partidos para defender los intereses de los agricultores.",
+    "proponente": "PP"
+  },
+  "1136": {
+    "titulo_ciudadano": "Prorrogar las ayudas para trabajadores afectados por despidos colectivos",
+    "categoria_principal": "Trabajo_y_Pensiones",
+    "etiquetas": [
+      "mejorar_condiciones_laborales",
+      "combatir_pobreza"
+    ],
+    "resumen_sencillo": "Votar a favor significa ampliar el tiempo durante el cual los trabajadores en ERE reciben apoyo económico de la Junta.",
+    "proponente": "PSOE"
+  },
+  "Enmiendas Transaccionales": {
+    "titulo_ciudadano": "Retirar diversas enmiendas tras alcanzar acuerdos entre los grupos",
+    "categoria_principal": "Otros",
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aceptar la retirada de varias propuestas de cambio tras haber pactado un texto común entre los partidos.",
+    "proponente": "Varios grupos"
+  },
+  "880": {
+    "titulo_ciudadano": "Crear nueva normativa y asignar fondos para servicios públicos",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "aumentar_transparencia"
+    ],
+    "resumen_sencillo": "Votar a favor significa instar a la elaboración de leyes y a la inversión de dinero para mejorar medios y servicios necesarios.",
+    "proponente": "PSOE"
+  },
+  "1020": {
+    "titulo_ciudadano": "Exigir el pago de deudas o ayudas pendientes de abono",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "controlar_gasto_publico"
+    ],
+    "resumen_sencillo": "Votar a favor significa presionar a la administración para que pague las cantidades que debe legalmente a los ciudadanos.",
+    "proponente": "PSOE"
+  },
+  "1031": {
+    "titulo_ciudadano": "Evaluar los resultados de las medidas económicas contra la crisis",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "impulsar_crecimiento_economico",
+      "controlar_gasto_publico"
+    ],
+    "resumen_sencillo": "Votar a favor significa analizar si el plan de choque económico aprobado en 2008 ha servido para mejorar la situación.",
+    "proponente": "PSOE"
+  },
+  "1165": {
+    "titulo_ciudadano": "Mejorar la atención sanitaria y educativa a familias con enfermedades",
+    "categoria_principal": "Sanidad",
+    "etiquetas": [
+      "proteger_enfermos",
+      "proteger_familias",
+      "proteger_personas_discapacidad"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar medidas de ayuda específica en colegios y centros de salud para familias con pacientes de trastornos graves.",
+    "proponente": "Varios grupos"
+  },
+  "Proposición No de Ley Ciencia": {
+    "titulo_ciudadano": "Impulsar medidas para fomentar la investigación científica y tecnológica",
+    "categoria_principal": "Educacion",
+    "etiquetas": [
+      "impulsar_ciencia"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar que la Junta realice acciones concretas para mejorar el desarrollo de la ciencia en la región.",
+    "proponente": "PSOE"
+  },
+  "1198": {
+    "titulo_ciudadano": "Desarrollar un plan de apoyo económico para la industria del mueble",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "apoyar_emprendedores",
+      "impulsar_crecimiento_economico"
+    ],
+    "resumen_sencillo": "Votar a favor significa crear un programa de ayudas y fomento para las empresas del sector del mueble de la comunidad.",
+    "proponente": "PSOE"
+  },
+  "1210": {
+    "titulo_ciudadano": "Exigir que se mantengan las obras del tren de alta velocidad",
+    "categoria_principal": "Infraestructuras",
+    "etiquetas": [
+      "mejorar_red_ferroviaria",
+      "financiar_infraestructuras"
+    ],
+    "resumen_sencillo": "Votar a favor significa pedir al Gobierno central que no recorte ni paralice las obras del AVE comprometidas para León y El Bierzo.",
+    "proponente": "PP"
+  },
+  "1211": {
+    "titulo_ciudadano": "Requerir al Gobierno nacional que tome medidas necesarias para la región",
+    "categoria_principal": "Politica_Territorial",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor significa exigir al Estado que cumpla con sus compromisos y responsabilidades de inversión en Castilla y León.",
+    "proponente": "PP"
+  },
+  "PRESIDENTE": {
+    "titulo_ciudadano": "Intervención de la presidencia para organizar el turno de palabra",
+    "categoria_principal": "Otros",
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa seguir el curso normal de la sesión tras las palabras de orden y agradecimiento del Presidente.",
+    "proponente": "Desconocido"
+  },
+  "1122": {
+    "titulo_ciudadano": "Crear una red regional de estaciones de esquí y montaña",
+    "categoria_principal": "Infraestructuras",
+    "etiquetas": [
+      "financiar_infraestructuras"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar la creación de instalaciones deportivas y puntos de nieve para fomentar el turismo de montaña.",
+    "proponente": "PSOE"
+  },
+  "1176": {
+    "titulo_ciudadano": "Apoyar las reivindicaciones de los ayuntamientos ante el Gobierno central",
+    "categoria_principal": "Politica_Territorial",
+    "etiquetas": [
+      "financiar_ayuntamientos"
+    ],
+    "resumen_sencillo": "Votar a favor significa que la Junta se sume a las peticiones de los municipios para mejorar su financiación y competencias.",
+    "proponente": "PP"
+  },
+  "Fondo Cooperación": {
+    "titulo_ciudadano": "Permitir que los pueblos paguen menos para recibir ayudas regionales",
+    "categoria_principal": "Politica_Territorial",
+    "etiquetas": [
+      "financiar_ayuntamientos"
+    ],
+    "resumen_sencillo": "Votar a favor significa mantener la rebaja en el dinero que deben aportar los ayuntamientos para acceder a los fondos de cooperación.",
+    "proponente": "PP"
+  },
+  "Sector caprino": {
+    "titulo_ciudadano": "Poner en marcha un plan de salvación para el sector caprino",
+    "categoria_principal": "Agricultura",
+    "etiquetas": [
+      "proteger_sector_primario"
+    ],
+    "resumen_sencillo": "Votar a favor significa crear medidas de emergencia para evitar la crisis de los productores de leche de cabra.",
+    "proponente": "PSOE"
+  },
+  "Medidas sector": {
+    "titulo_ciudadano": "Solicitar al Gobierno nacional medidas de apoyo para el sector primario",
+    "categoria_principal": "Agricultura",
+    "etiquetas": [
+      "proteger_sector_primario"
+    ],
+    "resumen_sencillo": "Votar a favor significa pedir al Estado que incluya ayudas y medidas concretas para los productores del campo de la comunidad.",
+    "proponente": "PP"
+  },
+  "Objeto": {
+    "titulo_ciudadano": "Propuesta sobre un tema específico del orden del día",
+    "categoria_principal": "Otros",
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa avanzar en la tramitación de esta propuesta legislativa presentada por el grupo popular.",
+    "proponente": "PP"
+  },
+  "1171": {
+    "titulo_ciudadano": "Dotar de personal y materiales a la nueva Oficina Judicial",
+    "categoria_principal": "Justicia",
+    "etiquetas": [
+      "reformar_poder_judicial"
+    ],
+    "resumen_sencillo": "Votar a favor significa proporcionar los recursos necesarios para que el nuevo sistema de gestión de la justicia funcione correctamente.",
+    "proponente": "PP"
+  },
+  "Cajas de Ahorro": {
+    "titulo_ciudadano": "Modificar la ley que regula las cajas de ahorro regionales",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "regular_sector_financiero"
+    ],
+    "resumen_sencillo": "Votar a favor significa actualizar las normas que rigen el funcionamiento y control de las cajas de ahorro de la comunidad.",
+    "proponente": "Varios grupos"
   }
 }
