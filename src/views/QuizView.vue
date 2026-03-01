@@ -22,18 +22,18 @@ const TERRITORIAL_AXIS_THRESHOLD = 15
 const COMPASS_MIN_QUESTIONS_FOR_HIGH_CONFIDENCE = 14
 const COMPASS_DISPLAY_MARGIN = 8
 const COMPASS_DISPLAY_SOFTNESS = 0.55
-const COMPASS_EMPIRICAL_SCALE = 24
-const COMPASS_EMPIRICAL_BLEND_BASE = 0.44
-const COMPASS_SPREAD_FLOOR_FACTOR = 0.26
-const COMPASS_SPREAD_FLOOR_MIN = 4.5
+const COMPASS_EMPIRICAL_SCALE = 30
+const COMPASS_EMPIRICAL_BLEND_BASE = 0.40
+const COMPASS_SPREAD_FLOOR_FACTOR = 0.20
+const COMPASS_SPREAD_FLOOR_MIN = 3.5
 
 // Territorial axis: -100 (Centralista) to +100 (Regionalista/Nacionalista)
 const PARTY_ANCHORS = {
-  PSOE: { economic: -18, social: -22, territorial: -10, color: '#ef4444' },
-  PP: { economic: 28, social: 24, territorial: -35, color: '#2563eb' },
-  VOX: { economic: 52, social: 55, territorial: -85, color: '#16a34a' },
-  SUMAR: { economic: -38, social: -44, territorial: 15, color: '#db2777' },
-  PODEMOS: { economic: -48, social: -52, territorial: 25, color: '#7c3aed' },
+  PSOE: { economic: -22, social: -16, territorial: -10, color: '#ef4444' },
+  PP: { economic: 24, social: 14, territorial: -35, color: '#2563eb' },
+  VOX: { economic: 62, social: 70, territorial: -88, color: '#16a34a' },
+  SUMAR: { economic: -44, social: -54, territorial: 15, color: '#db2777' },
+  PODEMOS: { economic: -62, social: -65, territorial: 25, color: '#7c3aed' },
   ERC: { economic: -30, social: -40, territorial: 95, color: '#f59e0b' },
   JUNTS: { economic: 8, social: -4, territorial: 98, color: '#0ea5e9' },
   PNV: { economic: 6, social: -8, territorial: 92, color: '#14b8a6' },
@@ -45,15 +45,15 @@ const PARTY_ANCHORS = {
   'SORIA ¡YA!': { economic: -5, social: -10, territorial: 70, color: '#334155' },
   XAV: { economic: 12, social: 4, territorial: 65, color: '#ffee00' },
   'POR ÁVILA': { economic: 12, social: 4, territorial: 65, color: '#ffee00' },
-  'POR ANDALUCÍA': { economic: -40, social: -46, territorial: 25, color: '#ec4899' },
-  ADELANTE: { economic: -45, social: -35, territorial: 80, color: '#8b5cf6' },
+  'POR ANDALUCÍA': { economic: -46, social: -56, territorial: 25, color: '#ec4899' },
+  ADELANTE: { economic: -54, social: -44, territorial: 80, color: '#8b5cf6' },
 
-  'PSOE DE ANDALUCÍA': { economic: -18, social: -22, territorial: 5, color: '#ef4444' },
-  'POPULAR ANDALUZ': { economic: 28, social: 24, territorial: -15, color: '#2563eb' },
-  'VOX EN ANDALUCÍA': { economic: 52, social: 55, territorial: -85, color: '#16a34a' },
-  'UNIDAS PODEMOS POR ANDALUCÍA': { economic: -46, social: -50, territorial: 25, color: '#7c3aed' },
-  'ADELANTE ANDALUCÍA': { economic: -45, social: -35, territorial: 85, color: '#8b5cf6' },
-  'MIXTO-ADELANTE ANDALUCÍA': { economic: -45, social: -35, territorial: 85, color: '#8b5cf6' },
+  'PSOE DE ANDALUCÍA': { economic: -22, social: -16, territorial: 5, color: '#ef4444' },
+  'POPULAR ANDALUZ': { economic: 24, social: 14, territorial: -15, color: '#2563eb' },
+  'VOX EN ANDALUCÍA': { economic: 62, social: 70, territorial: -88, color: '#16a34a' },
+  'UNIDAS PODEMOS POR ANDALUCÍA': { economic: -56, social: -60, territorial: 25, color: '#7c3aed' },
+  'ADELANTE ANDALUCÍA': { economic: -54, social: -44, territorial: 85, color: '#8b5cf6' },
+  'MIXTO-ADELANTE ANDALUCÍA': { economic: -54, social: -44, territorial: 85, color: '#8b5cf6' },
   CIUDADANOS: { economic: 24, social: 6, territorial: -70, color: '#f97316' }
 }
 
@@ -528,7 +528,7 @@ const compassData = computed(() => {
     social: Math.round(clamp((100 - confidenceScore) * 0.26 + (1 - spreadReliability) * 10 + (1 - avgStrength) * 8, 6, 34)),
     territorial: Math.round(clamp((100 - confidenceScore) * 0.26 + (1 - spreadReliability) * 10 + (1 - avgStrength) * 8, 6, 34))
   }
-  const displayScale = clamp(0.62 + (confidenceScore * 0.0026), 0.62, 0.88)
+  const displayScale = clamp(0.70 + (confidenceScore * 0.0022), 0.70, 0.92)
 
   const userForDisplay = {
     ...user,
