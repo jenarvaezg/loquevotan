@@ -1,0 +1,5 @@
+[     170ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ https://www.parlament.cat/css/siap/pcat_siap.css:0
+[     193ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ https://www.parlament.cat/css/siap/pcat_apex.css:0
+[     193ms] TypeError: Cannot read properties of null (reading 'addEventListener')
+    at https://www.parlament.cat/ext/f?p=SIAP-CERCA:ESCRIPTORI:60:128
+[     309ms] [WARNING] Unrecognized feature: 'speaker'. @ https://www--parlament--cat.insuit.net/i4tservice/insuit-app.js:0

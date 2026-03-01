@@ -4,8 +4,7 @@
     "categoria_principal": "Agricultura",
     "etiquetas": [
       "proteger_sector_primario",
-      "defender_agricultores",
-      "cyl"
+      "defender_agricultores"
     ],
     "resumen_sencillo": "Votar a favor significa reducir el coste de las tasas veterinarias para aliviar la carga económica del sector ganadero.",
     "proponente": "Gobierno"
@@ -15,8 +14,7 @@
     "categoria_principal": "Economia_y_Hacienda",
     "etiquetas": [
       "aprobar_presupuestos",
-      "controlar_gasto_publico",
-      "cyl"
+      "controlar_gasto_publico"
     ],
     "resumen_sencillo": "Votar a favor significa dar luz verde a las cuentas regionales y al plan de gasto para el año 2023.",
     "proponente": "Gobierno"
@@ -27,8 +25,7 @@
     "etiquetas": [
       "proteger_medio_ambiente",
       "proteger_biodiversidad",
-      "mejorar_atencion_dependencia",
-      "cyl"
+      "mejorar_atencion_dependencia"
     ],
     "resumen_sencillo": "Votar a favor significa proteger legalmente el entorno natural de Sabinares del Arlanza y actualizar la normativa de servicios sociales.",
     "proponente": "Varios grupos"
@@ -38,8 +35,7 @@
     "categoria_principal": "Cultura",
     "etiquetas": [
       "impulsar_cultura",
-      "proteger_patrimonio_historico",
-      "cyl"
+      "proteger_patrimonio_historico"
     ],
     "resumen_sencillo": "Votar a favor significa aprobar una nueva normativa para mejorar la gestión, conservación y difusión de la riqueza cultural regional.",
     "proponente": "Gobierno"
@@ -49,8 +45,7 @@
     "categoria_principal": "Economia_y_Hacienda",
     "etiquetas": [
       "controlar_gasto_publico",
-      "limitar_deuda_publica",
-      "cyl"
+      "limitar_deuda_publica"
     ],
     "resumen_sencillo": "Votar a favor significa establecer la cantidad máxima que el gobierno regional puede gastar el próximo año.",
     "proponente": "Gobierno"
@@ -60,8 +55,7 @@
     "categoria_principal": "Sanidad",
     "etiquetas": [
       "controlar_gobierno",
-      "proteger_sanidad_publica",
-      "cyl"
+      "proteger_sanidad_publica"
     ],
     "resumen_sencillo": "Votar a favor significa respaldar las explicaciones y medidas tomadas por la Junta durante la emergencia sanitaria.",
     "proponente": "Gobierno"
@@ -70,8 +64,7 @@
     "titulo_ciudadano": "Elección del Presidente de la Junta de Castilla y León",
     "categoria_principal": "Gobernanza",
     "etiquetas": [
-      "procedimiento_parlamentario",
-      "cyl"
+      "procedimiento_parlamentario"
     ],
     "resumen_sencillo": "Votar a favor significa otorgar la confianza al candidato para que se convierta en el nuevo Presidente regional.",
     "proponente": "Varios grupos"
@@ -81,8 +74,7 @@
     "categoria_principal": "Derechos_Sociales",
     "etiquetas": [
       "proteger_derechos_lgbti",
-      "impulsar_igualdad_genero",
-      "cyl"
+      "impulsar_igualdad_genero"
     ],
     "resumen_sencillo": "Votar a favor significa apoyar la creación de una ley regional para proteger la diversidad sexual y combatir la homofobia.",
     "proponente": "PSOE"
@@ -92,8 +84,7 @@
     "categoria_principal": "Gobernanza",
     "etiquetas": [
       "controlar_gobierno",
-      "reprobar_gestion_gobierno",
-      "cyl"
+      "reprobar_gestion_gobierno"
     ],
     "resumen_sencillo": "Votar a favor significa retirar el apoyo al gobierno actual para forzar un cambio de Presidente.",
     "proponente": "PSOE"
@@ -103,8 +94,7 @@
     "categoria_principal": "Politica_Territorial",
     "etiquetas": [
       "reformar_estatuto_autonomia",
-      "reclamar_competencias",
-      "cyl"
+      "reclamar_competencias"
     ],
     "resumen_sencillo": "Votar a favor significa apoyar la modificación de la 'norma fundamental' de la Comunidad para actualizar sus competencias.",
     "proponente": "Varios grupos"
@@ -114,8 +104,7 @@
     "categoria_principal": "Sanidad",
     "etiquetas": [
       "proteger_enfermos",
-      "proteger_derechos_humanos",
-      "cyl"
+      "proteger_derechos_humanos"
     ],
     "resumen_sencillo": "Votar a favor significa asegurar legalmente que los ciudadanos reciban una muerte digna y cuidados adecuados.",
     "proponente": "PSOE"
@@ -125,8 +114,7 @@
     "categoria_principal": "Derechos_Sociales",
     "etiquetas": [
       "combatir_violencia_machista",
-      "impulsar_igualdad_genero",
-      "cyl"
+      "impulsar_igualdad_genero"
     ],
     "resumen_sencillo": "Votar a favor significa actualizar la ley regional para ampliar la protección a las víctimas de violencia machista.",
     "proponente": "PSOE"
@@ -135,8 +123,7 @@
     "titulo_ciudadano": "Mejorar la transparencia y el acceso a la información pública",
     "categoria_principal": "Gobernanza",
     "etiquetas": [
-      "aumentar_transparencia",
-      "cyl"
+      "aumentar_transparencia"
     ],
     "resumen_sencillo": "Votar a favor significa obligar a la administración a ser más abierta y facilitar el acceso ciudadano a los datos.",
     "proponente": "Ciudadanos"
@@ -146,8 +133,7 @@
     "categoria_principal": "Medio_Ambiente",
     "etiquetas": [
       "proteger_medio_ambiente",
-      "proteger_biodiversidad",
-      "cyl"
+      "proteger_biodiversidad"
     ],
     "resumen_sencillo": "Votar a favor significa mejorar las funciones y condiciones de los agentes encargados de cuidar los montes y la fauna.",
     "proponente": "Varios grupos"
@@ -157,8 +143,7 @@
     "categoria_principal": "Sanidad",
     "etiquetas": [
       "proteger_sanidad_publica",
-      "proteger_enfermos",
-      "cyl"
+      "proteger_enfermos"
     ],
     "resumen_sencillo": "Votar a favor significa crear incentivos para que haya sanitarios en los pueblos y zonas más alejadas.",
     "proponente": "PP"
@@ -168,8 +153,7 @@
     "categoria_principal": "Medio_Ambiente",
     "etiquetas": [
       "proteger_medio_ambiente",
-      "aumentar_seguridad_ciudadana",
-      "cyl"
+      "aumentar_seguridad_ciudadana"
     ],
     "resumen_sencillo": "Votar a favor significa endurecer o clarificar las normas contra la contaminación acústica en la Comunidad.",
     "proponente": "PP"
@@ -178,8 +162,7 @@
     "titulo_ciudadano": "Aprobación definitiva de los presupuestos regionales 2023",
     "categoria_principal": "Economia_y_Hacienda",
     "etiquetas": [
-      "aprobar_presupuestos",
-      "cyl"
+      "aprobar_presupuestos"
     ],
     "resumen_sencillo": "Votar a favor significa ratificar las cuentas públicas tras el debate de enmiendas.",
     "proponente": "Gobierno"
@@ -189,8 +172,7 @@
     "categoria_principal": "Gobernanza",
     "etiquetas": [
       "procedimiento_parlamentario",
-      "politica_territorial",
-      "cyl"
+      "politica_territorial"
     ],
     "resumen_sencillo": "Votar a favor significa aprobar la designación de las personas que representarán a la Comunidad ante el Estado.",
     "proponente": "Varios grupos"
@@ -199,8 +181,7 @@
     "titulo_ciudadano": "Apoyo institucional a Marruecos y Libia por catástrofes naturales",
     "categoria_principal": "Asuntos_Exteriores",
     "etiquetas": [
-      "impulsar_cooperacion_internacional",
-      "cyl"
+      "impulsar_cooperacion_internacional"
     ],
     "resumen_sencillo": "Votar a favor significa expresar la solidaridad unánime de las Cortes con las víctimas de los terremotos e inundaciones.",
     "proponente": "Varios grupos"
@@ -209,8 +190,7 @@
     "titulo_ciudadano": "Debate del estado de la Región (Legislatura XI)",
     "categoria_principal": "Gobernanza",
     "etiquetas": [
-      "controlar_gobierno",
-      "cyl"
+      "controlar_gobierno"
     ],
     "resumen_sencillo": "Votar a favor significa respaldar las propuestas de resolución presentadas tras el debate de política general.",
     "proponente": "Varios grupos"
@@ -219,8 +199,7 @@
     "titulo_ciudadano": "Investidura definitiva del Presidente de la Junta",
     "categoria_principal": "Gobernanza",
     "etiquetas": [
-      "procedimiento_parlamentario",
-      "cyl"
+      "procedimiento_parlamentario"
     ],
     "resumen_sencillo": "Votar a favor significa confirmar el nombramiento del candidato como jefe del ejecutivo regional.",
     "proponente": "Varios grupos"
@@ -229,8 +208,7 @@
     "titulo_ciudadano": "Debate del estado de la Región (Legislatura X)",
     "categoria_principal": "Gobernanza",
     "etiquetas": [
-      "controlar_gobierno",
-      "cyl"
+      "controlar_gobierno"
     ],
     "resumen_sencillo": "Votar a favor significa respaldar la gestión del gobierno autonómico durante el gran debate anual.",
     "proponente": "Varios grupos"
@@ -240,8 +218,7 @@
     "categoria_principal": "Sanidad",
     "etiquetas": [
       "proteger_familias",
-      "proteger_sanidad_publica",
-      "cyl"
+      "proteger_sanidad_publica"
     ],
     "resumen_sencillo": "Votar a favor significa ratificar las ayudas económicas a familias y adaptar las normas de ocio a la situación de pandemia.",
     "proponente": "Gobierno"
@@ -251,8 +228,7 @@
     "categoria_principal": "Sanidad",
     "etiquetas": [
       "controlar_gobierno",
-      "proteger_sanidad_publica",
-      "cyl"
+      "proteger_sanidad_publica"
     ],
     "resumen_sencillo": "Votar a favor significa dar por buenas las explicaciones del ejecutivo sobre cómo se afrontará el futuro tras la pandemia.",
     "proponente": "Gobierno"
@@ -261,8 +237,7 @@
     "titulo_ciudadano": "Votación por bloques de una iniciativa legislativa",
     "categoria_principal": "Otros",
     "etiquetas": [
-      "procedimiento_parlamentario",
-      "cyl"
+      "procedimiento_parlamentario"
     ],
     "resumen_sencillo": "Votar a favor significa aprobar un conjunto de artículos o puntos de una ley agrupados por su temática.",
     "proponente": "Varios grupos"
@@ -271,8 +246,7 @@
     "titulo_ciudadano": "Debate de totalidad de los Presupuestos 2022",
     "categoria_principal": "Economia_y_Hacienda",
     "etiquetas": [
-      "aprobar_presupuestos",
-      "cyl"
+      "aprobar_presupuestos"
     ],
     "resumen_sencillo": "Votar a favor significa rechazar las enmiendas a la totalidad y permitir que el presupuesto siga su tramitación.",
     "proponente": "Gobierno"
@@ -281,8 +255,7 @@
     "titulo_ciudadano": "Inauguración de la X Legislatura regional",
     "categoria_principal": "Otros",
     "etiquetas": [
-      "procedimiento_parlamentario",
-      "cyl"
+      "procedimiento_parlamentario"
     ],
     "resumen_sencillo": "Votar a favor significa validar el inicio oficial de la legislatura 2015-2019.",
     "proponente": "Varios grupos"

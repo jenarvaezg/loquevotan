@@ -5,7 +5,8 @@ PASO 1: Categoriza en UNA categoria principal de esta lista CERRADA:
 
 IMPORTANTE sobre "Otros": SOLO usar cuando el texto sea puramente procedimental sin contenido tematico (ej: "aprobacion del acta de la sesion anterior", "eleccion de mesa"). Si el texto menciona CUALQUIER tema de fondo, usar la categoria correspondiente.
 
-PASO 2: Asigna de 1 a 4 etiquetas de este VOCABULARIO CERRADO. NO inventes etiquetas nuevas. Usa SOLO las de esta lista:
+PASO 2: Asigna de 1 a 4 etiquetas de este VOCABULARIO CERRADO. NO inventes etiquetas nuevas. Usa SOLO las de esta lista.
+IMPORTANTE: NO incluyas nunca el nombre de la comunidad autonoma o region (ej: "andalucia", "cyl", "madrid", "nacional") como etiqueta. Ya sabemos en que ambito estamos.
 
 --- VOCABULARIO DE ETIQUETAS ---
 # Procedimiento parlamentario

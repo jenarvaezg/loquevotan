@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test:data-integrity": "node scripts/qa/check_data_integrity.mjs"
+    "test:data-integrity": "node scripts/qa/check_data_integrity.mjs",
+    "test:unit": "vitest run",
+    "test": "npm run test:unit && npm run test:data-integrity && npx playwright test"
   },
   "dependencies": {
     "html2canvas": "^1.4.1",
@@ -15,8 +17,12 @@
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.11.1",
     "@playwright/test": "^1.58.2",
     "@vitejs/plugin-vue": "^5.2.3",
-    "vite": "^6.2.0"
+    "@vue/test-utils": "^2.4.6",
+    "jsdom": "^28.1.0",
+    "vite": "^6.2.0",
+    "vitest": "^4.0.18"
   }
 }
