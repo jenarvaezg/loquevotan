@@ -101,8 +101,9 @@ function goToPage(p) {
 
       <FilterBar>
         <div class="filter-group">
-          <label>Nombre</label>
+          <label for="dip-search-input">Nombre</label>
           <input
+            id="dip-search-input"
             v-model="search"
             type="search"
             class="filter-input"
@@ -111,22 +112,22 @@ function goToPage(p) {
           >
         </div>
         <div class="filter-group">
-          <label>Grupo</label>
-          <select v-model="grupoFilter" class="filter-select" @change="page = 1">
+          <label for="dip-grupo-select">Grupo</label>
+          <select id="dip-grupo-select" v-model="grupoFilter" class="filter-select" @change="page = 1">
             <option value="">Todos</option>
             <option v-for="g in sortedGrupos" :key="g.value" :value="g.value">{{ g.label }}</option>
           </select>
         </div>
         <div class="filter-group">
-          <label>Provincia</label>
-          <select v-model="provinciaFilter" class="filter-select" @change="page = 1">
+          <label for="dip-prov-select">Provincia</label>
+          <select id="dip-prov-select" v-model="provinciaFilter" class="filter-select" @change="page = 1">
             <option value="">Todas</option>
             <option v-for="p in availableProvincias" :key="p" :value="p">{{ p }}</option>
           </select>
         </div>
         <div class="filter-group">
-          <label>Ordenar</label>
-          <select v-model="sortMode" class="filter-select" @change="page = 1">
+          <label for="dip-sort-select">Ordenar</label>
+          <select id="dip-sort-select" v-model="sortMode" class="filter-select" @change="page = 1">
             <option value="name">Nombre</option>
             <option value="active">Más activo</option>
             <option value="loyalty-low">Menor lealtad</option>

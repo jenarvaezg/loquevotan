@@ -80,7 +80,7 @@ initTheme()
 </script>
 
 <template>
-  <nav class="nav-bar">
+  <nav class="nav-bar" aria-label="Navegación principal">
     <div class="nav-inner">
       <div class="nav-left">
         <router-link to="/" class="nav-brand" @click="closeMenu">Lo Que Votan</router-link>

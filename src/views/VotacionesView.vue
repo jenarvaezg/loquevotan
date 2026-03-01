@@ -157,8 +157,9 @@ function goToPage(p) {
 
       <FilterBar>
         <div class="filter-group">
-          <label>Buscar</label>
+          <label for="vot-search-input">Buscar</label>
           <input
+            id="vot-search-input"
             v-model="search"
             type="search"
             class="filter-input"
@@ -168,15 +169,15 @@ function goToPage(p) {
           >
         </div>
         <div class="filter-group">
-          <label>Categoria</label>
-          <select v-model="catFilter" class="filter-select" data-testid="vot-filter-category" @change="page = 1">
+          <label for="vot-category-select">Categoria</label>
+          <select id="vot-category-select" v-model="catFilter" class="filter-select" data-testid="vot-filter-category" @change="page = 1">
             <option value="">Todas</option>
             <option v-for="c in sortedCategorias" :key="c" :value="c">{{ fmt(c) }}</option>
           </select>
         </div>
         <div class="filter-group">
-          <label>Resultado</label>
-          <select v-model="resultFilter" class="filter-select" data-testid="vot-filter-result" @change="page = 1">
+          <label for="vot-result-select">Resultado</label>
+          <select id="vot-result-select" v-model="resultFilter" class="filter-select" data-testid="vot-filter-result" @change="page = 1">
             <option value="">Todos</option>
             <option value="Aprobada">Aprobada</option>
             <option value="Rechazada">Rechazada</option>
@@ -184,15 +185,15 @@ function goToPage(p) {
           </select>
         </div>
         <div v-if="allProponentes.length > 0" class="filter-group">
-          <label>Proponente</label>
-          <select v-model="proponenteFilter" class="filter-select" data-testid="vot-filter-proponente" @change="page = 1">
+          <label for="vot-proponente-select">Proponente</label>
+          <select id="vot-proponente-select" v-model="proponenteFilter" class="filter-select" data-testid="vot-filter-proponente" @change="page = 1">
             <option value="">Todos</option>
             <option v-for="p in allProponentes" :key="p" :value="p">{{ p }}</option>
           </select>
         </div>
         <div class="filter-group">
-          <label>Legislatura</label>
-          <select v-model="legFilter" class="filter-select" data-testid="vot-filter-legislatura" @change="page = 1">
+          <label for="vot-leg-select">Legislatura</label>
+          <select id="vot-leg-select" v-model="legFilter" class="filter-select" data-testid="vot-filter-legislatura" @change="page = 1">
             <option value="">Todas las legislaturas</option>
             <option v-for="l in currentScopeLegs" :key="l" :value="l">
               Legislatura {{ l }}
@@ -204,8 +205,8 @@ function goToPage(p) {
           <TagSelect :tags="allTags" v-model="selectedTags" @update:model-value="page = 1" />
         </div>
         <div class="filter-group">
-          <label>Ordenar</label>
-          <select v-model="sortMode" class="filter-select" data-testid="vot-filter-sort" @change="page = 1">
+          <label for="vot-sort-select">Ordenar</label>
+          <select id="vot-sort-select" v-model="sortMode" class="filter-select" data-testid="vot-filter-sort" @change="page = 1">
             <option value="recent">Más recientes</option>
             <option value="closest">Más ajustadas</option>
           </select>

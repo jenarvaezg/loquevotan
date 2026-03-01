@@ -85,8 +85,8 @@ function cellData(ga, gb) {
 
       <div class="filter-bar" style="margin-bottom:1.25rem">
         <div class="filter-group">
-          <label>Legislatura</label>
-          <select v-model="legFilter" class="filter-select">
+          <label for="grupos-leg-select">Legislatura</label>
+          <select id="grupos-leg-select" v-model="legFilter" class="filter-select">
             <option value="">Todas las legislaturas</option>
             <option v-for="l in LEGISLATURAS" :key="l.id" :value="l.id">{{ l.nombre }}</option>
           </select>
@@ -99,10 +99,10 @@ function cellData(ga, gb) {
           <table class="affinity-table">
             <thead>
               <tr>
-                <th></th>
-                <th v-for="g in affinityData.validGroups" :key="g" class="affinity-th-col">
+                <th aria-label="Grupos"><span style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;">Grupos</span></th>
+                <th v-for="g in affinityData.validGroups" :key="g" class="affinity-th-col" :aria-label="getGroupInfo(grupos[g]).label || 'Grupo'">
                   <div class="affinity-th-label" :style="{ color: getGroupInfo(grupos[g]).color }">
-                    {{ getGroupInfo(grupos[g]).label }}
+                    {{ getGroupInfo(grupos[g]).label || 'Grupo' }}
                   </div>
                 </th>
               </tr>
@@ -110,8 +110,9 @@ function cellData(ga, gb) {
             <tbody>
               <tr v-for="ga in affinityData.validGroups" :key="ga">
                 <td class="affinity-row-label">
-                  <router-link :to="'/grupo/' + encodeURIComponent(grupos[ga])" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:0.5rem">
+                  <router-link :to="'/grupo/' + encodeURIComponent(grupos[ga])" :aria-label="getGroupInfo(grupos[ga]).label || 'Grupo'" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:0.5rem">
                     <span class="group-dot" :style="{ backgroundColor: getGroupInfo(grupos[ga]).color }"></span>
+                    <span class="sr-only" v-if="!getGroupInfo(grupos[ga]).label">Grupo</span>
                     {{ getGroupInfo(grupos[ga]).label }}
                   </router-link>
                 </td>
@@ -134,8 +135,8 @@ function cellData(ga, gb) {
         <!-- Mobile: ranked list per group -->
         <div class="affinity-mobile">
           <div class="filter-group" style="margin-bottom:1rem">
-            <label>Grupo</label>
-            <select v-model="mobileGroup" class="filter-select">
+            <label for="grupos-mobile-select">Grupo</label>
+            <select id="grupos-mobile-select" v-model="mobileGroup" class="filter-select">
               <option v-for="g in affinityData.validGroups" :key="g" :value="grupos[g]">{{ getGroupInfo(grupos[g]).label }}</option>
             </select>
           </div>

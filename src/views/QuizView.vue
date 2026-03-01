@@ -737,7 +737,7 @@ function axisToBoardPercent(axisValue) {
         <p class="lead-text">{{ activeQuiz.description }}</p>
 
         <div class="methodology-box">
-          <h3>¿Cómo funciona?</h3>
+          <h2>¿Cómo funciona?</h2>
           <ul>
             <li>Te mostraremos <strong>{{ activeQuiz.questions.length }} votaciones reales</strong> que tuvieron lugar en el parlamento.</li>
             <li>No te diremos quién propuso la ley para evitar sesgos.</li>

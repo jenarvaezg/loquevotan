@@ -24,7 +24,7 @@ const pages = computed(() => getPageRange(props.current, props.totalPages))
 </script>
 
 <template>
-  <nav v-if="totalPages > 1" class="pagination">
+  <nav v-if="totalPages > 1" class="pagination" aria-label="Paginación">
     <button class="page-btn" :disabled="current <= 1" @click="emit('page', current - 1)">
       &larr;
     </button>

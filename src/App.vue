@@ -13,7 +13,9 @@ loadData()
 
   <ErrorBanner v-if="error" :message="error" @retry="retryLoad" />
 
-  <router-view id="main-content" />
+  <main id="main-content">
+    <router-view />
+  </main>
 
   <footer class="site-footer">
     <div class="container footer-content">
