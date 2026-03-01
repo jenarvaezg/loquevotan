@@ -17,7 +17,7 @@ MANIFEST_FILE = f"{OUTPUT_DIR}/manifest_home.json"
 AMBITOS_CONFIG = "public/data/ambitos.json"
 PROMPT_FILE = "scripts/prompt_categorizacion.txt"
 
-LEGISLATURAS = ["XI", "X"]
+LEGISLATURAS = ["XI", "X", "IX", "VIII", "VII"]
 
 def transform():
     os.makedirs(OUTPUT_DIR, exist_ok=True)
@@ -119,7 +119,7 @@ def transform():
     # Sort all votes by date descending
     all_raw_votes.sort(key=lambda x: x["fecha"], reverse=True)
     
-    leg_map_id = {"11": "XI", "10": "X"}
+    leg_map_id = {"11": "XI", "10": "X", "9": "IX", "8": "VIII", "7": "VII"}
     
     for i, v in enumerate(all_raw_votes):
         cat_info = cache.get(v["titulo"], {

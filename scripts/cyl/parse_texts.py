@@ -157,9 +157,10 @@ def main():
             print(f"  Error parsing {txt_path}: {e}")
             
     os.makedirs("data/cyl", exist_ok=True)
-    for legis in ["11", "10"]:
+    for legis in ["11", "10", "9", "8", "7"]:
         leg_votes = [v for v in all_votes if v["id"].startswith(f"CYL-{legis}")]
-        roman = "XI" if legis == "11" else "X"
+        roman_map = {"11": "XI", "10": "X", "9": "IX", "8": "VIII", "7": "VII"}
+        roman = roman_map.get(legis, legis)
         with open(f"data/cyl/votos_{roman}_raw.json", "w") as f:
             json.dump(leg_votes, f, indent=2, ensure_ascii=False)
 

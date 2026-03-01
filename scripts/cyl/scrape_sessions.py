@@ -7,7 +7,7 @@ from datetime import datetime
 
 def get_cyl_session_links():
     base_url = "https://www.ccyl.es/RecursosInformacion/DiarioDeSesiones?SeriePublicacion=DS(P)"
-    legislaturas = ["11", "10"]
+    legislaturas = ["11", "10", "9", "8", "7"]
     all_sessions = []
     
     headers = {"User-Agent": "Mozilla/5.0"}
