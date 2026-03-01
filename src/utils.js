@@ -194,6 +194,14 @@ const GROUP_MAP = {
   // Madrid
   'PSOE-M': { label: 'PSOE', color: '#ef1c27' },
   'Más Madrid': { label: 'Más Madrid', color: '#00dec5' },
+
+  // Catalunya
+  'PSC': { label: 'PSC-PSOE', color: '#ef1c27' },
+  'Junts': { label: 'Junts', color: '#00c3b2' },
+  'ERC': { label: 'ERC', color: '#ffb232' },
+  'Comuns': { label: 'Comuns', color: '#673ab7' },
+  'CUP': { label: 'CUP', color: '#fff200' },
+  'Mixt': { label: 'Mixt', color: '#64748b' },
 };
 
 export function getGroupInfo(groupName) {

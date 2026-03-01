@@ -97,9 +97,16 @@ def parse_andalucia_voto_pdf(pdf_path, diputados_map, session_info):
             line = line.strip()
             if not line: continue
             
-            sense_match = re.search(r'\*\*\* (SI|NO|ABSTENCIONES|AUSENTE) \*\*\*', line)
+            sense_match = re.search(r'\*\*\* (S[IÍ]|NO|ABSTENCIONES?|AUSENTE) \*\*\*', line)
             if sense_match:
-                current_sense = sense_match.group(1)
+                # Normalize sense
+                raw_sense = sense_match.group(1)
+                if raw_sense in ["SI", "SÍ"]:
+                    current_sense = "SI"
+                elif raw_sense in ["ABSTENCION", "ABSTENCIONES"]:
+                    current_sense = "ABSTENCIONES"
+                else:
+                    current_sense = raw_sense
                 continue
                 
             if (line.startswith('G.P.') or line.startswith('GRUPO')) and '***' not in line:

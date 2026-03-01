@@ -39,6 +39,13 @@
       "legislaturas": [
         "XIII"
       ]
+    },
+    {
+      "id": "catalunya",
+      "nombre": "Parlament de Catalunya",
+      "legislaturas": [
+        "XV"
+      ]
     }
   ]
 }
