@@ -6,6 +6,7 @@ import { pct, normalize, dipPhotoUrl, avatarStyle, avatarInitials, VOTO_LABELS, 
 import VoteBar from '../components/VoteBar.vue'
 import ResultBadge from '../components/ResultBadge.vue'
 import Pagination from '../components/Pagination.vue'
+import ViewState from '../components/ViewState.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -353,9 +354,7 @@ const pageItems = computed(() => {
         <div class="detail-section">
           <h2>Votaciones compartidas</h2>
 
-          <div v-if="!votosReady" class="loading-wrap" style="padding:2rem">
-            <div class="loading-spinner"></div>
-          </div>
+          <ViewState v-if="!votosReady" type="loading" :padded="false" />
 
           <template v-else>
             <!-- Filter chips -->
@@ -431,9 +430,13 @@ const pageItems = computed(() => {
       </template>
 
       <!-- Placeholder when not both selected -->
-      <div v-else-if="!sameSelected" class="empty-state" style="margin-top:3rem">
-        <div class="empty-state-icon">&#9878;</div>
-        <p class="empty-state-text">Selecciona dos diputados para comparar su historial de votos</p>
+      <div v-else-if="!sameSelected" style="margin-top:3rem">
+        <ViewState
+          type="empty"
+          icon="&#9878;"
+          message="Selecciona dos diputados para comparar su historial de votos"
+          :padded="false"
+        />
       </div>
     </div>
   </section>

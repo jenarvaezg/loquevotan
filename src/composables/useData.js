@@ -30,37 +30,117 @@ const votacionDetail = shallowRef({});
 const votIdById = shallowRef({});
 
 const globalDiputados = shallowRef({});
+const loadTelemetry = ref([]);
 
 const votosLoaded = ref(new Set());
 
 let _loadPromise = null;
 const _legLoadPromises = {};
+const FETCH_TIMEOUT_MS = 12000;
+const MAX_TELEMETRY_EVENTS = 120;
 
-async function _doLoad(retryCount = 0) {
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function pushTelemetry(event) {
+  const next = [...loadTelemetry.value, { ts: new Date().toISOString(), ...event }];
+  loadTelemetry.value = next.length > MAX_TELEMETRY_EVENTS ? next.slice(-MAX_TELEMETRY_EVENTS) : next;
+}
+
+async function fetchJsonWithRetry(path, options = {}) {
+  const {
+    attempts = 3,
+    timeoutMs = FETCH_TIMEOUT_MS,
+    scope = currentScopeId.value,
+    critical = true,
+  } = options;
+
+  const url = import.meta.env.BASE_URL + path;
+  let lastErr = null;
+
+  for (let attempt = 1; attempt <= attempts; attempt++) {
+    const startedAt = Date.now();
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const resp = await fetch(url, { signal: controller.signal });
+      if (!resp.ok) throw new Error("HTTP " + resp.status);
+      const data = await resp.json();
+      pushTelemetry({
+        scope,
+        path,
+        attempt,
+        ok: true,
+        critical,
+        status: resp.status,
+        durationMs: Date.now() - startedAt,
+      });
+      return data;
+    } catch (err) {
+      lastErr = err;
+      const msg = err?.name === "AbortError" ? "TIMEOUT" : String(err?.message || err);
+      pushTelemetry({
+        scope,
+        path,
+        attempt,
+        ok: false,
+        critical,
+        error: msg,
+        durationMs: Date.now() - startedAt,
+      });
+      if (attempt < attempts) {
+        // Exponential backoff + slight jitter to smooth retries across scopes.
+        const backoff = Math.round((450 * (2 ** (attempt - 1))) + (Math.random() * 180));
+        await sleep(backoff);
+      }
+    } finally {
+      clearTimeout(timeout);
+    }
+  }
+
+  throw lastErr;
+}
+
+async function _doLoad() {
   loading.value = true;
   error.value = null;
 
   try {
     // Load ambitos config first
-    const ambitosResp = await fetch(import.meta.env.BASE_URL + "data/ambitos.json");
-    if (ambitosResp.ok) {
-      const config = await ambitosResp.json();
+    try {
+      const config = await fetchJsonWithRetry("data/ambitos.json", {
+        attempts: 2,
+        timeoutMs: 7000,
+        scope: "global",
+        critical: false,
+      });
       ambitos.value = config.ambitos || [];
+    } catch (err) {
+      console.warn("Could not load ambitos config:", err);
     }
 
     // Load global diputados index
     if (Object.keys(globalDiputados.value).length === 0) {
-      const gResp = await fetch(import.meta.env.BASE_URL + "data/global_diputados.json");
-      if (gResp.ok) {
-        globalDiputados.value = await gResp.json();
+      try {
+        globalDiputados.value = await fetchJsonWithRetry("data/global_diputados.json", {
+          attempts: 2,
+          timeoutMs: 9000,
+          scope: "global",
+          critical: false,
+        });
+      } catch (err) {
+        console.warn("Could not load global diputados index:", err);
       }
     }
 
     const scopePath = currentScopeId.value === "nacional" ? "" : `${currentScopeId.value}/`;
-    const url = import.meta.env.BASE_URL + `data/${scopePath}votaciones_meta.json`;
-    const resp = await fetch(url);
-    if (!resp.ok) throw new Error("HTTP " + resp.status);
-    const raw = await resp.json();
+    const raw = await fetchJsonWithRetry(`data/${scopePath}votaciones_meta.json`, {
+      attempts: 4,
+      timeoutMs: 15000,
+      scope: currentScopeId.value,
+      critical: true,
+    });
 
     diputados.value = raw.diputados;
     grupos.value = raw.grupos;
@@ -79,12 +159,9 @@ async function _doLoad(retryCount = 0) {
 
     loaded.value = true;
   } catch (err) {
-    if (retryCount < 2) {
-      await new Promise((r) => setTimeout(r, 1000 * (retryCount + 1)));
-      return _doLoad(retryCount + 1);
-    }
+    console.error(`[useData] load failed for scope "${currentScopeId.value}"`, err);
     error.value =
-      "Error cargando datos. Comprueba tu conexión e inténtalo de nuevo.";
+      `Error cargando datos de ${currentScopeId.value}. Comprueba tu conexión e inténtalo de nuevo.`;
   } finally {
     loading.value = false;
   }
@@ -120,10 +197,12 @@ async function loadVotosForLeg(legId) {
   _legLoadPromises[legId] = (async () => {
     try {
       const scopePath = currentScopeId.value === "nacional" ? "" : `${currentScopeId.value}/`;
-      const url = import.meta.env.BASE_URL + `data/${scopePath}votos_${legId}.json`;
-      const resp = await fetch(url);
-      if (!resp.ok) throw new Error("HTTP " + resp.status);
-      const data = await resp.json();
+      const data = await fetchJsonWithRetry(`data/${scopePath}votos_${legId}.json`, {
+        attempts: 3,
+        timeoutMs: 18000,
+        scope: `${currentScopeId.value}:${legId}`,
+        critical: true,
+      });
       const legVotos = data.votos;
       const legDetail = data.detail || {};
 
@@ -206,5 +285,6 @@ export function useData() {
     globalDiputados,
     loadVotosForLeg,
     retryLoad,
+    loadTelemetry,
   };
 }

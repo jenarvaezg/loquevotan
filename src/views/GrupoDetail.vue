@@ -5,6 +5,7 @@ import { useData } from '../composables/useData'
 import { fmt, pct, normalize, dipPhotoUrl, avatarStyle, avatarInitials, LEGISLATURAS, DIPS_PER_PAGE, getGroupInfo } from '../utils'
 import VoteBar from '../components/VoteBar.vue'
 import Pagination from '../components/Pagination.vue'
+import ViewState from '../components/ViewState.vue'
 
 const route = useRoute()
 const { grupos, diputados, dipStats, dipFotos, votaciones, votResults, groupAffinityByLeg, categorias, loaded } = useData()
@@ -222,18 +223,18 @@ watch(grupoRawName, (n) => {
     </div>
   </section>
 
-  <div v-else-if="!loaded" class="loading-wrap">
-    <div class="loading-spinner"></div>
-  </div>
+  <ViewState v-else-if="!loaded" type="loading" />
 
   <section v-else>
     <div class="container" style="padding-top:3rem">
-      <div class="empty-state">
-        <div class="empty-state-icon">&#128202;</div>
-        <h1 style="margin-bottom:0.5rem">Grupo no encontrado</h1>
-        <p class="empty-state-text">El grupo parlamentario que buscas no existe.</p>
-        <router-link to="/grupos" class="btn btn--primary" style="margin-top:1.5rem">Ver partidos</router-link>
-      </div>
+      <ViewState
+        type="empty"
+        icon="&#128202;"
+        title="Grupo no encontrado"
+        message="El grupo parlamentario que buscas no existe."
+        action-label="Ver partidos"
+        action-to="/grupos"
+      />
     </div>
   </section>
 </template>

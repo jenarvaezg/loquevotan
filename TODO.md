@@ -68,16 +68,16 @@
   - [x] Añadir checks de contrato mínimo por vista para evitar regresiones silenciosas.
 
 ### ⚙️ Técnicos (rendimiento y mantenibilidad)
-- [ ] **Optimizar computeds pesados:** Evitar `Set/Map` recreados dentro de bucles en vistas con históricos grandes (`Votaciones`, `DiputadoDetail`).
+- [x] **Optimizar computeds pesados:** Evitar `Set/Map` recreados dentro de bucles en vistas con históricos grandes (`Votaciones`, `DiputadoDetail`).
 - [ ] **Homogeneizar pipelines `run_update.py`:** Política fail-fast consistente (Andalucía/CyL/Madrid) para no publicar datasets parciales.
-- [ ] **Resiliencia de carga por ámbito:** añadir timeout + retry con backoff y telemetría de error por `scope`.
-- [ ] **Cobertura de tests de datos:** tests de integridad de `votaciones_meta.json`, `votIdById`, y `groupAffinityByLeg`.
+- [x] **Resiliencia de carga por ámbito:** añadir timeout + retry con backoff y telemetría de error por `scope`.
+- [x] **Cobertura de tests de datos:** tests de integridad de `votaciones_meta.json`, `votIdById`, y `groupAffinityByLeg`.
 
 ### 🎨 UX/UI (claridad para usuario de a pie)
 - [x] **Revisar copy prescriptivo del Quiz:** cambiar “¿A quién deberías votar?” por wording menos normativo (“¿Con quién coincide más tu voto?”).
 - [ ] **Glosario contextual institucional:** microayudas para términos como “dictamen”, “voto particular”, “transaccional”, “deducción grupal”.
 - [x] **Consistencia de fuentes en footer:** reflejar explícitamente que hay datos de Congreso + Parlamentos autonómicos (no solo Congreso).
-- [ ] **Estados vacíos/error unificados:** patrón visual y textual común en Home, Quiz, Votación, Grupo y Comparador.
+- [x] **Estados vacíos/error unificados:** patrón visual y textual común en Home, Votación, Grupo, Afinidad, Comparador y 404 (quiz pendiente aparte).
 
 ### 🧭 Metodología política (rigor)
 - [ ] **Ficha metodológica pública (afinidad + compass):** supuestos, límites, sesgos y casos donde el modelo no discrimina bien.

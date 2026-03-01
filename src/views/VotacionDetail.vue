@@ -6,6 +6,7 @@ import { fmt, normalize, VOTO_LABELS, resultMarginText, subTipoLabel, subTipoBad
 import VoteBar from '../components/VoteBar.vue'
 import ResultBadge from '../components/ResultBadge.vue'
 import ShareBar from '../components/ShareBar.vue'
+import ViewState from '../components/ViewState.vue'
 
 const route = useRoute()
 const { votaciones, votResults, votos, votosByVotacion, votsByExp, categorias, grupos, diputados, loadVotosForLeg, votosLoaded, votacionDetail, votIdById, loaded } = useData()
@@ -395,18 +396,18 @@ watch(vot, (v) => {
 
   <section v-else-if="notFound">
     <div class="container" style="padding-top:2rem">
-      <div class="empty-state">
-        <div class="empty-state-icon">&#128269;</div>
-        <h2>Votación no encontrada</h2>
-        <p class="empty-state-text">El identificador no existe en el ámbito actual o la votación ya no está disponible.</p>
-        <router-link to="/votaciones" class="btn btn--primary mt-2">Ver listado de votaciones</router-link>
-      </div>
+      <ViewState
+        type="empty"
+        icon="&#128269;"
+        title="Votación no encontrada"
+        message="El identificador no existe en el ámbito actual o la votación ya no está disponible."
+        action-label="Ver listado de votaciones"
+        action-to="/votaciones"
+      />
     </div>
   </section>
 
-  <div v-else class="loading-wrap">
-    <div class="loading-spinner"></div>
-  </div>
+  <ViewState v-else type="loading" />
 </template>
 
 <style scoped>

@@ -1,10 +1,11 @@
 <script setup>
 import { ref, onMounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
-import { fmt, avatarStyle, avatarInitials } from '../utils'
+import { fmt } from '../utils'
 import { useData } from '../composables/useData'
 import VoteCard from '../components/VoteCard.vue'
 import HeroSearch from '../components/HeroSearch.vue'
+import ViewState from '../components/ViewState.vue'
 
 const { currentScopeId } = useData()
 const router = useRouter()
@@ -133,17 +134,16 @@ function goToTag(tag) {
   </section>
 
   <div v-else-if="manifestError" class="container" style="padding-top:2rem">
-    <div class="empty-state">
-      <div class="empty-state-icon">&#9888;</div>
-      <h2>No pudimos cargar la portada</h2>
-      <p class="empty-state-text">{{ manifestError }}</p>
-      <button class="btn btn--primary mt-2" @click="loadManifest">Reintentar</button>
-    </div>
+    <ViewState
+      type="error"
+      title="No pudimos cargar la portada"
+      :message="manifestError"
+      action-label="Reintentar"
+      @action="loadManifest"
+    />
   </div>
 
-  <div v-else-if="manifestLoading" class="loading-wrap">
-    <div class="loading-spinner"></div>
-  </div>
+  <ViewState v-else-if="manifestLoading" type="loading" />
 </template>
 
 <style scoped>

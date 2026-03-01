@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test:data-integrity": "node scripts/qa/check_data_integrity.mjs"
   },
   "dependencies": {
     "html2canvas": "^1.4.1",

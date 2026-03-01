@@ -87,12 +87,15 @@ const pageItems = computed(() => {
   return filtered.value.slice(start, start + VOTES_PER_PAGE)
 })
 
+const filteredSet = computed(() => new Set(filtered.value))
+
 // Group page items by expediente
 const groupedPageItems = computed(() => {
   if (!groupByExp.value) return pageItems.value.map(i => ({ type: 'single', idx: i }))
 
   const items = []
   const seen = new Set()
+  const currentFilteredSet = filteredSet.value
   for (const idx of pageItems.value) {
     const exp = votaciones.value[idx].exp
     if (!exp || !votsByExp.value[exp] || votsByExp.value[exp].length <= 1) {
@@ -102,8 +105,7 @@ const groupedPageItems = computed(() => {
     if (seen.has(exp)) continue
     seen.add(exp)
     // Find all votaciones in this exp that are also in the current filtered set
-    const filteredSet = new Set(filtered.value)
-    const expIndices = votsByExp.value[exp].filter(i => filteredSet.has(i))
+    const expIndices = votsByExp.value[exp].filter(i => currentFilteredSet.has(i))
     if (expIndices.length <= 1) {
       items.push({ type: 'single', idx })
       continue

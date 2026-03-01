@@ -2,6 +2,7 @@
 import { ref, computed } from 'vue'
 import { useData } from '../composables/useData'
 import { LEGISLATURAS, affinityColor, getGroupInfo } from '../utils'
+import ViewState from '../components/ViewState.vue'
 
 const { grupos, groupAffinityByLeg, loaded } = useData()
 
@@ -179,14 +180,18 @@ function cellData(ga, gb) {
         </div>
       </template>
 
-      <div v-else-if="!loaded" class="loading-wrap" style="padding:2rem">
-        <div class="loading-spinner"></div>
-      </div>
+      <ViewState
+        v-else-if="!loaded"
+        type="loading"
+        :padded="false"
+      />
 
-      <div v-else class="empty-state">
-        <div class="empty-state-icon">&#128202;</div>
-        <p class="empty-state-text">No hay datos suficientes para esta legislatura.</p>
-      </div>
+      <ViewState
+        v-else
+        type="empty"
+        icon="&#128202;"
+        message="No hay datos suficientes para esta legislatura."
+      />
     </div>
   </section>
 </template>

@@ -5,6 +5,7 @@ import { useData } from '../composables/useData'
 import { fmt, VOTO_LABELS, VOTES_PER_PAGE, votoPillClass, getGroupInfo } from '../utils'
 import ResultBadge from '../components/ResultBadge.vue'
 import Pagination from '../components/Pagination.vue'
+import ViewState from '../components/ViewState.vue'
 
 const route = useRoute()
 const { grupos, votaciones, votos, votosByVotacion, votResults, categorias, loadVotosForLeg, votosLoaded } = useData()
@@ -125,10 +126,13 @@ const pageItems = computed(() => {
           >{{ tab[1] }}</button>
         </div>
 
-        <div v-if="filtered.length === 0" class="empty-state">
-          <div class="empty-state-icon">&#128202;</div>
-          <p class="empty-state-text">No hay votaciones para mostrar.</p>
-        </div>
+        <ViewState
+          v-if="filtered.length === 0"
+          type="empty"
+          icon="&#128202;"
+          message="No hay votaciones para mostrar."
+          :padded="false"
+        />
 
         <div v-for="item in pageItems" :key="item.votIdx" class="vot-card">
           <div class="vot-card-header">
@@ -152,18 +156,18 @@ const pageItems = computed(() => {
     </div>
   </section>
 
-  <div v-else-if="!votosReady && valid" class="loading-wrap">
-    <div class="loading-spinner"></div>
-  </div>
+  <ViewState v-else-if="!votosReady && valid" type="loading" />
 
   <section v-else>
     <div class="container" style="padding-top:3rem">
-      <div class="empty-state">
-        <div class="empty-state-icon">&#128202;</div>
-        <h1 style="margin-bottom:0.5rem">Grupos no encontrados</h1>
-        <p class="empty-state-text">Los grupos parlamentarios o la legislatura indicados no existen.</p>
-        <router-link to="/grupos" class="btn btn--primary" style="margin-top:1.5rem">Ver partidos</router-link>
-      </div>
+      <ViewState
+        type="empty"
+        icon="&#128202;"
+        title="Grupos no encontrados"
+        message="Los grupos parlamentarios o la legislatura indicados no existen."
+        action-label="Ver partidos"
+        action-to="/grupos"
+      />
     </div>
   </section>
 </template>

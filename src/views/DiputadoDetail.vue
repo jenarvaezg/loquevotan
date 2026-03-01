@@ -178,12 +178,26 @@ const histPageItems = computed(() => {
   return filteredHistory.value.slice(start, start + VOTES_PER_PAGE)
 })
 
+const filteredHistoryIdsSet = computed(() => {
+  const set = new Set()
+  for (const record of filteredHistory.value) set.add(record.votIdx)
+  return set
+})
+
+const filteredHistoryMapByVotIdx = computed(() => {
+  const map = new Map()
+  for (const record of filteredHistory.value) map.set(record.votIdx, record)
+  return map
+})
+
 // Group page items by expediente
 const groupedHistoryItems = computed(() => {
   if (!groupByExp.value) return histPageItems.value.map(r => ({ type: 'single', record: r }))
 
   const items = []
   const seen = new Set()
+  const filteredIdsSet = filteredHistoryIdsSet.value
+  const recordsByVotIdx = filteredHistoryMapByVotIdx.value
   for (const record of histPageItems.value) {
     const vot = votaciones.value[record.votIdx]
     const exp = vot.exp
@@ -194,15 +208,13 @@ const groupedHistoryItems = computed(() => {
     if (seen.has(exp)) continue
     seen.add(exp)
     // Find all votaciones in this exp that are also in the current filtered set
-    const filteredIdsSet = new Set(filteredHistory.value.map(r => r.votIdx))
     const expIndices = votsByExp.value[exp].filter(i => filteredIdsSet.has(i))
     if (expIndices.length <= 1) {
       items.push({ type: 'single', record })
       continue
     }
     // Need to find the records for these indices to get the votes
-    const filteredRecordsMap = new Map(filteredHistory.value.map(r => [r.votIdx, r]))
-    const expRecords = expIndices.map(i => filteredRecordsMap.get(i))
+    const expRecords = expIndices.map(i => recordsByVotIdx.get(i))
     items.push({ type: 'group', exp, records: expRecords, primary: record })
   }
   return items
