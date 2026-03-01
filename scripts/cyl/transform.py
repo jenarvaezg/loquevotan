@@ -137,29 +137,38 @@ def transform():
         favor, contra, abstencion, no_vota = 0, 0, 0, 0
         by_group = {}
         
-        for voto in v["votos"]:
-            s = voto["voto"].lower()
-            code = 4
-            if s == "si" or s == "sí": 
-                favor += 1; code = 1
-            elif s == "no": 
-                contra += 1; code = 2
-            elif s == "abstencion" or s == "abstención": 
-                abstencion += 1; code = 3
-            else: 
-                no_vota += 1; code = 4
-            
-            grp_name = voto["grupo"]
-            if grp_name not in by_group:
-                by_group[grp_name] = {1: 0, 2: 0, 3: 0, 4: 0}
-            by_group[grp_name][code] += 1
-            
-            votos_by_leg[leg_key].append([
-                vot_idx,
-                dip_id_to_idx[voto["diputadoId"]],
-                grupo_to_idx[grp_name],
-                code
-            ])
+        if v.get("votos"):
+            for voto in v["votos"]:
+                s = voto["voto"].lower()
+                code = 4
+                if s == "si" or s == "sí": 
+                    favor += 1; code = 1
+                elif s == "no": 
+                    contra += 1; code = 2
+                elif s == "abstencion" or s == "abstención": 
+                    abstencion += 1; code = 3
+                else: 
+                    no_vota += 1; code = 4
+                
+                grp_name = voto["grupo"]
+                if grp_name not in by_group:
+                    by_group[grp_name] = {1: 0, 2: 0, 3: 0, 4: 0}
+                by_group[grp_name][code] += 1
+                
+                votos_by_leg[leg_key].append([
+                    vot_idx,
+                    dip_id_to_idx[voto["diputadoId"]],
+                    grupo_to_idx[grp_name],
+                    code
+                ])
+        elif v.get("totales"):
+            # Use totals for ordinary votes where individual votes are missing
+            t = v["totales"]
+            favor = t.get("favor", 0)
+            contra = t.get("contra", 0)
+            abstencion = t.get("abstencion", 0)
+            total_emit = t.get("total", 0)
+            no_vota = max(0, total_emit - (favor + contra + abstencion))
             
         vot_meta_list.append({
             "id": v["id"],
@@ -167,7 +176,8 @@ def transform():
             "fecha": v["fecha"],
             "titulo_ciudadano": cat_info.get("titulo_ciudadano", v["titulo"]),
             "categoria": cat_to_idx.get(cat_info.get("categoria_principal", cat_info.get("categoria", "Otros")), cat_to_idx["Otros"]),
-            "etiquetas": cat_info.get("etiquetas", []) + ["cyl"]
+            "etiquetas": cat_info.get("etiquetas", []) + ["cyl"],
+            "proponente": v.get("proponente", "")
         })
         
         total = favor + contra + abstencion

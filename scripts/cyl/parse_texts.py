@@ -25,115 +25,163 @@ def clean_group(group):
     if "adscrito" in g: return "No Adscrito"
     return group
 
-def parse_cyl_session(file_path, diputados_map, session_info):
+def spanish_to_int(text):
+    if not text: return 0
+    text = text.lower().strip()
+    # Handle direct numbers
+    if text.isdigit(): return int(text)
+    
+    units = {
+        "cero": 0, "un": 1, "uno": 1, "dos": 2, "tres": 3, "cuatro": 4, "cinco": 5, "seis": 6, "siete": 7, "ocho": 8, "nueve": 9, "diez": 10,
+        "once": 11, "doce": 12, "trece": 13, "catorce": 14, "quince": 15, "dieciséis": 16, "diecisiete": 17, "dieciocho": 18, "diecinueve": 19, "veinte": 20,
+        "veintiuno": 21, "veintidós": 22, "veintitrés": 23, "veinticuatro": 24, "veinticinco": 25, "veintiséis": 26, "veintisiete": 27, "veintiocho": 28, "veintinueve": 29,
+        "treinta": 30, "cuarenta": 40, "cincuenta": 50, "sesenta": 60, "setenta": 70, "ochenta": 80, "noventa": 90,
+        "una": 1, "ninguna": 0, "ninguno": 0
+    }
+    if text in units: return units[text]
+    
+    parts = text.split(" y ")
+    if len(parts) == 2:
+        return units.get(parts[0], 0) + units.get(parts[1], 0)
+    
+    return 0
+
+def parse_cyl_session(file_path, diputados_by_leg, session_info):
     with open(file_path, 'r') as f:
         text = f.read()
     
     # Pre-clean text from HTML noise
     text = text.replace('&nbsp;', ' ').replace('&nbsp', ' ')
     text = text.replace('**', '')
-    # Remove excessive empty lines
     text = re.sub(r'\n\s*\n', '\n\n', text)
         
-    votes = []
+    leg_id = session_info['legis_id']
+    all_votations = []
     
-    # Simple approach for Proof of Concept: focus on NOMINAL calls first
+    # 1. Look for NOMINAL votes (llamamiento)
     calls = list(re.finditer(r'(?:Votación|Votaciones)\s+.*?(?:llamamiento|sorteo)', text, re.DOTALL | re.IGNORECASE))
     
     for i, match in enumerate(calls):
         start_idx = match.start()
-        # Search for title in a larger context before the vote (3000 chars)
-        pre_text = text[max(0, start_idx-3000):start_idx]
+        pre_text = text[max(0, start_idx-2000):start_idx]
         
-        # Look for the sentence that describes the vote
-        # Pattern: Someter a votación [X]
         title = "Votación nominal"
-        # Try to find the most specific description
-        # 1. Look for "somete a votación"
-        title_match = re.search(r'somete a votación\s+(.*?)(?:\.|\n\n|\s{3,}|\[)', pre_text, re.DOTALL | re.IGNORECASE)
-        if not title_match:
-            # 2. Look for "proceder a la votación"
-            title_match = re.search(r'proceder\s+.*?votación\s+(?:de|a|para)\s+(.*?)(?:\.|\n\n|\s{3,}|\[)', pre_text, re.DOTALL | re.IGNORECASE)
-            
+        title_match = re.search(r'(?:somete a votación|proceder\s+.*?votación\s+(?:de|a|para))\s+(.*?)(?:\.|\n\n|\s{3,}|\[)', pre_text, re.DOTALL | re.IGNORECASE)
         if title_match:
             candidate = title_match.group(1).strip()
-            # Remove common lead-ins
             candidate = re.sub(r'^(?:la|el|los|las|de|del|a|en)\s+', '', candidate, flags=re.IGNORECASE)
-            # Remove trailing fragments
-            candidate = re.sub(r'\s+en\s+los\s+términos.*$', '', candidate, flags=re.IGNORECASE)
-            title = candidate.strip()
-        else:
-            # Fallback to session title but shorten it if it's too long
-            s_title = session_info.get('title', 'Votación nominal')
-            if len(s_title) > 100:
-                # Try to take only the first point if it's a list
-                s_title = s_title.split('--')[0].split(';')[0].strip()
-            title = s_title
+            title = candidate[0].upper() + candidate[1:]
         
-        # Ensure title is not empty
-        if not title: title = "Votación nominal"
-        # Capitalize first letter
-        title = title[0].upper() + title[1:] if title else "Votación nominal"
-        
-        next_call = calls[i+1].start() if i+1 < len(calls) else len(text)
-        end_match = re.search(r'El resultado de la votación es el siguiente', text[start_idx:], re.IGNORECASE)
-        end_idx = start_idx + end_match.end() + 1000 if end_match else next_call
-        
-        content = text[start_idx:end_idx]
+        content_after = text[start_idx:start_idx+15000] # Large enough for names
+        end_match = re.search(r'El resultado de la votación es el siguiente', content_after, re.IGNORECASE)
+        end_idx = end_match.end() + 1000 if end_match else 5000
+        content = content_after[:end_idx]
         
         results = {
-            "id": f"CYL-{session_info['legis_id']}-{session_info['pub_num']}-{i+1}",
+            "id": f"CYL-{leg_id}-{session_info['pub_num']}-NOM-{i+1}",
             "fecha": session_info['date'],
             "titulo": title[:200],
             "votos": [],
             "tipo": "nominal"
         }
         
-        # Search for patterns like "EL SEÑOR ...:\nSí."
-        # The name might include hyphens or spaces
         vote_matches = re.finditer(r'(?:EL SEÑOR|LA SEÑORA)\s+([A-Z\sÁÉÍÓÚÑ\-]+):\s*\n\s*(Sí|No|Abstención)\.', content, re.IGNORECASE)
-        
         found_any = False
         for v_m in vote_matches:
             found_any = True
             raw_name = v_m.group(1).strip()
             sense = v_m.group(2).strip().lower()
-            
             norm_name = normalize_text(raw_name)
+            
             found_deputy = None
+            for d in diputados_by_leg.get(leg_id, []):
+                if normalize_text(d["nombre"]) == norm_name or norm_name in normalize_text(d["nombre"]):
+                    found_deputy = d
+                    break
             
-            # Fuzzy match in diputados_map
-            for d_norm, d_data in diputados_map.items():
-                if d_norm in norm_name or norm_name in d_norm:
-                    if d_data["nlegis"] == session_info['legis_id']:
-                        found_deputy = d_data
-                        break
-            
-            if found_deputy:
-                results["votos"].append({
-                    "diputado": found_deputy["nombre"],
-                    "diputadoId": found_deputy["id"],
-                    "grupo": clean_group(found_deputy["grupo"]),
-                    "voto": sense
-                })
-            else:
-                results["votos"].append({
-                    "diputado": raw_name,
-                    "diputadoId": f"CYL-UNK-{normalize_text(raw_name)[:10]}",
-                    "grupo": "Unknown",
-                    "voto": sense
-                })
+            results["votos"].append({
+                "diputado": found_deputy["nombre"] if found_deputy else raw_name,
+                "diputadoId": found_deputy["id"] if found_deputy else f"CYL-UNK-{normalize_text(raw_name)[:10]}",
+                "grupo": clean_group(found_deputy["grupo"]) if found_deputy else "Unknown",
+                "voto": "si" if sense == "sí" else sense
+            })
         
         if found_any:
-            votes.append(results)
+            all_votations.append(results)
+
+    # 2. Look for ORDINARY votes with totals
+    # Pattern: Votos emitidos: [X]. A favor: [Y]. En contra: [Z]. [Abstención: [W]]
+    results_pattern = r'Votos emitidos:\s*(.*?)\.\s*A favor:\s*(.*?)\.(?:\s*En contra:\s*(.*?)\.)?(?:\s*Abstención:\s*(.*?)\.)?'
+    res_matches = list(re.finditer(results_pattern, text, re.IGNORECASE))
+    
+    for i, match in enumerate(res_matches):
+        start_idx = match.start()
+        # Find the context/title BEFORE the results
+        pre_context = text[max(0, start_idx-1500):start_idx]
         
-    return votes
+        # Look for IDs like PNL/000089 or M/000003
+        id_match = re.search(r'([A-Z]+/\d+)', pre_context)
+        ref_id = id_match.group(1) if id_match else f"ORD-{i+1}"
+        
+        # Look for proponente
+        proponente = ""
+        prop_match = re.search(r'presentada por el (Grupo Parlamentario [^,]+)', pre_context, re.I)
+        if prop_match:
+            proponente = clean_group(prop_match.group(1))
+            
+        # Look for title
+        title = "Votación ordinaria"
+        title_match = re.search(r'(?:votamos|votación)\s+.*?\s+(?:la|el|los|las)\s+(.*?)(?:\.|admitida|publicada|consecuencia|\n\n)', pre_context, re.DOTALL | re.IGNORECASE)
+        if title_match:
+            title = title_match.group(1).strip()
+            title = title[0].upper() + title[1:]
+        
+        v_emit = spanish_to_int(match.group(1))
+        v_favor = spanish_to_int(match.group(2))
+        v_contra = spanish_to_int(match.group(3)) if match.group(3) else 0
+        v_abst = spanish_to_int(match.group(4)) if match.group(4) else 0
+        
+        # If we have no numbers, skip
+        if v_emit == 0 and v_favor == 0: continue
+        
+        # Check if already added via nominal (approx check)
+        if any(v["fecha"] == session_info['date'] and abs(len(v["votos"]) - v_emit) < 2 for v in all_votations if v["tipo"] == "nominal"):
+            continue
+
+        results = {
+            "id": f"CYL-{leg_id}-{session_info['pub_num']}-{ref_id.replace('/', '-')}",
+            "fecha": session_info['date'],
+            "titulo": title[:200],
+            "votos": [],
+            "tipo": "ordinaria",
+            "totales": {"favor": v_favor, "contra": v_contra, "abstencion": v_abst, "total": v_emit},
+            "proponente": proponente
+        }
+        
+        # UNANIMOUS DEDUCTION: If A Favor == Votos Emitidos
+        if v_favor == v_emit and v_emit > 0:
+            for d in diputados_by_leg.get(leg_id, []):
+                results["votos"].append({
+                    "diputado": d["nombre"],
+                    "diputadoId": d["id"],
+                    "grupo": clean_group(d["grupo"]),
+                    "voto": "si"
+                })
+            results["metadatos"] = {"tipo": "deduccion_grupal", "nota": "Voto unánime deducido por el resultado de la cámara."}
+        
+        all_votations.append(results)
+        
+    return all_votations
 
 def main():
     with open("data/cyl/diputados_raw.json", "r") as f:
         diputados_list = json.load(f)
     
-    diputados_map = {normalize_text(d["nombre"]): d for d in diputados_list}
+    diputados_by_leg = {}
+    for d in diputados_list:
+        leg = d["nlegis"]
+        if leg not in diputados_by_leg: diputados_by_leg[leg] = []
+        diputados_by_leg[leg].append(d)
     
     with open("data/cyl/sessions_index.json", "r") as f:
         sessions = json.load(f)
@@ -149,10 +197,10 @@ def main():
         
         print(f"Parsing {txt_path}...")
         try:
-            votes = parse_cyl_session(txt_path, diputados_map, session_info)
+            votes = parse_cyl_session(txt_path, diputados_by_leg, session_info)
             if votes:
                 all_votes.extend(votes)
-                print(f"  Found {len(votes)} nominal votes")
+                print(f"  Found {len(votes)} votations")
         except Exception as e:
             print(f"  Error parsing {txt_path}: {e}")
             
