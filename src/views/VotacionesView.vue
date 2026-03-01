@@ -10,7 +10,7 @@ import TagSelect from '../components/TagSelect.vue'
 
 const route = useRoute()
 const router = useRouter()
-const { votaciones, votResults, categorias, tagCounts, sortedVotIdxByDate, votsByExp } = useData()
+const { votaciones, votResults, categorias, tagCounts, sortedVotIdxByDate, votsByExp, ambitos, currentScopeId } = useData()
 
 const search = ref('')
 const catFilter = ref('')

@@ -187,179 +187,247 @@
     "proponente": "Gobierno"
   },
   "12-22/PNLP-000003, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A ACTUACIONES DEL ESTADO EN MATERIA DE POLÍTICA DE AGUA QUE ANDALUCÍA NECESITA CON CARÁCTER URGENTE": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Pedir al Estado obras hidráulicas urgentes para Andalucía",
+    "categoria_principal": "Agricultura",
+    "etiquetas": [
+      "gestionar_recursos_hidricos_locales",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa exigir al Gobierno de España que ejecute las obras de agua pendientes en la región.",
+    "proponente": "PP"
   },
   "12-22/PNLP-000005, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A MEDIDAS FRENTE A LOS EFECTOS DE LA INFLACIÓN Y LA CRISIS SOCIOECONÓMICA ACTUAL": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Medidas contra la subida de precios y la crisis económica",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "reducir_deficit",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar un paquete de ayudas para paliar el encarecimiento del coste de la vida.",
+    "proponente": "Vox"
   },
   "12-22/PNLP-000006, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A ACUERDO PARA AYUDAR A LAS FAMILIAS ANDALUZAS Y PROTEGER EL MANTENIMIENTO DEL EMPLEO ANTE LAS CONSECUENCIAS DE LA INFLACIÓN": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Ayudas a familias y protección del empleo frente a la inflación",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "proteger_empleo",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa impulsar acuerdos para que las familias sufran menos el impacto de los precios.",
+    "proponente": "PP"
   },
   "12-22/PNLP-000002, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A SOBERANÍA ENERGÉTICA Y ENERGÍA NUCLEAR": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Debatir sobre la energía nuclear y la soberanía energética",
+    "categoria_principal": "Energia",
+    "etiquetas": [
+      "soberania_energetica",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa defender el uso de todas las fuentes de energía, incluida la nuclear, para bajar la factura.",
+    "proponente": "Vox"
   },
   "12-22/PNLP-000010, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A MÁS FONDOS NEXT GENERATION PARA EL AGUA Y LA SEQUÍA": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Reclamar más fondos europeos para combatir la sequía",
+    "categoria_principal": "Agricultura",
+    "etiquetas": [
+      "gestionar_recursos_hidricos_locales",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa pedir que el dinero de Europa se use prioritariamente en infraestructuras de agua.",
+    "proponente": "PP"
   },
   "12-22/PNLP-000011, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A AVANZAR EN LA GRATUIDAD DEL PRIMER CICLO DE INFANTIL 0-3 Y PROTEGER AL SECTOR Y EL EMPLEO EN ANDALUCÍA": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Avanzar hacia la educación gratuita de 0 a 3 años",
+    "categoria_principal": "Educacion",
+    "etiquetas": [
+      "proteger_educacion_publica",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar que las guarderías sean gratuitas para las familias andaluzas.",
+    "proponente": "PP"
   },
   "12-22/PNLP-000013, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A REGULACIÓN DE LAS CONDICIONES DE LAS TRABAJADORAS Y LOS TRABAJADORES DEL SERVICIO DE AYUDA A DOMICILIO EN ANDALUCÍA": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Mejorar las condiciones laborales en la ayuda a domicilio",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "mejorar_atencion_dependencia",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa exigir mejores salarios y turnos para quienes cuidan a dependientes en casa.",
+    "proponente": "Por Andalucía"
   },
   "12-22/M-000002, MOCIÓN RELATIVA A ORDENACIÓN, INCLUSIÓN, PARTICIPACIÓN Y EVALUACIÓN EDUCATIVA": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Reformar los criterios de evaluación e inclusión educativa",
+    "categoria_principal": "Educacion",
+    "etiquetas": [
+      "proteger_educacion_publica",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa proponer cambios en cómo se evalúa y se incluye al alumnado en los centros.",
+    "proponente": "PSOE"
   },
   "12-22/PNLP-000018, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A RESPETO DE LA AUTONOMÍA FINANCIERA Y LA CAPACIDAD NORMATIVA DE LAS COMPETENCIAS DE ANDALUCÍA": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Defender la autonomía fiscal de Andalucía frente al Estado",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa rechazar que el Gobierno central interfiera en las bajadas de impuestos autonómicos.",
+    "proponente": "PP"
   },
   "12-22/PNLP-000019, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A MEDIDAS URGENTES PARA LUCHAR CONTRA LA OCUPACIÓN ILEGAL Y MEJORAR LA CONVIVENCIA VECINAL Y LA PROTECCIÓN DE LA SEGURIDAD DE LAS PERSONAS Y COSAS EN LAS COMUNIDADES DE PROPIETARIOS": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Medidas contra la ocupación ilegal de viviendas",
+    "categoria_principal": "Seguridad_y_Justicia",
+    "etiquetas": [
+      "vivienda",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa endurecer las medidas para desalojar ocupas y proteger a los vecinos.",
+    "proponente": "Vox"
   },
   "12-22/PNLP-000020, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A ALUMNADO CON NECESIDADES EDUCATIVAS ESPECIALES Y NECESIDADES ESPECÍFICAS DE APOYO EDUCATIVO EN ANDALUCÍA": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Más recursos para alumnos con necesidades especiales",
+    "categoria_principal": "Educacion",
+    "etiquetas": [
+      "proteger_infancia",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa exigir más monitores y medios para niños que requieren apoyo extra en clase.",
+    "proponente": "PSOE"
   },
   "12-22/DL-000004, CONVALIDACIÓN O DEROGACIÓN DEL DECRETO-LEY 9/2022, DE 18 DE OCTUBRE, POR EL QUE SE MODIFICAN LA LEY 9/2021, DE 23 DE DICIEMBRE, POR LA QUE SE CREAN LA AGENCIA EMPRESARIAL PARA LA TRANSFORMACIÓN Y EL DESARROLLO ECONÓMICO (TRADE) Y LA AGENCIA PARA LA CALIDAD CIENTÍFICA Y UNIVERSITARIA DE ANDALUCÍA (ACCUA), Y LA LEY 3/2018, DE 8 DE MAYO, ANDALUZA DE FOMENTO DEL EMPRENDIMIENTO": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Consolidar la Agencia TRADE para el desarrollo económico",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "mejorar_carreteras",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa simplificar la administración creando una gran agencia para empresas y autónomos.",
+    "proponente": "Gobierno"
   },
   "12-22/PNLP-000015, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A DOBLE TARIFA ELÉCTRICA PARA EL REGADÍO ANDALUZ": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Pedir una tarifa eléctrica más barata para los regantes",
+    "categoria_principal": "Agricultura",
+    "etiquetas": [
+      "proteger_sector_primario",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa exigir que el campo pague menos luz para poder regar sus cultivos.",
+    "proponente": "Vox"
   },
   "12-22/PNLP-000022, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A REPERCUSIÓN EN ANDALUCÍA DEL PROYECTO DE LEY DE PRESUPUESTOS GENERALES DEL ESTADO PARA 2023 Y MEDIDAS ECONÓMICAS Y FISCALES ANUNCIADAS": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Rechazo a la falta de inversión del Estado en Andalucía",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa criticar que los presupuestos nacionales no dan suficiente dinero a la comunidad.",
+    "proponente": "PP"
   },
   "12-22/PNLP-000025, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A DÉFICIT DE PROFESIONALES SANITARIOS EN ANDALUCÍA": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Soluciones ante la falta de médicos y enfermeros",
+    "categoria_principal": "Sanidad",
+    "etiquetas": [
+      "proteger_sanidad_publica",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa pedir medidas urgentes para contratar y retener personal sanitario.",
+    "proponente": "PSOE"
   },
   "12-22/PL-000007, DEBATE DE TOTALIDAD DEL PROYECTO DE LEY DE ECONOMÍA CIRCULAR DE ANDALUCÍA": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Ley de Economía Circular: primer paso para su aprobación",
+    "categoria_principal": "Medio_Ambiente",
+    "etiquetas": [
+      "proteger_medio_ambiente",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa permitir que siga adelante la ley que obliga a reciclar y reutilizar más.",
+    "proponente": "Gobierno"
   },
   "12-22/M-000004, MOCIÓN RELATIVA A SUMINISTRO DE ENERGÍA ELÉCTRICA": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Garantizar el suministro eléctrico y evitar cortes de luz",
+    "categoria_principal": "Energia",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa exigir soluciones a los cortes de luz que sufren varios barrios andaluces.",
+    "proponente": "PSOE"
   },
   "12-22/COM-000025, SOLICITUD DE CREACIÓN DE UNA COMISIÓN PERMANENTE NO LEGISLATIVA SOBRE LOS DERECHOS Y ATENCIÓN A LAS PERSONAS CON DISCAPACIDAD": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Crear una comisión específica para la discapacidad",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa tener un grupo de trabajo fijo en el Parlamento para temas de discapacidad.",
+    "proponente": "Varios grupos"
   },
   "12-22/PNLP-000029, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A MEDIDAS PARA EL AUXILIO DEL SECTOR DE LA CONSTRUCCIÓN Y EL IMPULSO DE LAS INFRAESTRUCTURAS EN ANDALUCÍA": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Ayudas al sector de la construcción e infraestructuras",
+    "categoria_principal": "Infraestructuras",
+    "etiquetas": [
+      "mejorar_carreteras",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar al sector ante el encarecimiento de los materiales de obra.",
+    "proponente": "Vox"
   },
   "12-22/PL-000008, DEBATE DE TOTALIDAD DEL PROYECTO DE LEY DEL PRESUPUESTO DE LA COMUNIDAD AUTÓNOMA DE ANDALUCÍA PARA EL AÑO 2023": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Debate inicial de los presupuestos de la Junta para 2023",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa rechazar las enmiendas a la totalidad y dejar que el presupuesto se siga tramitando.",
+    "proponente": "Gobierno"
   },
   "12-22/M-000005, MOCIÓN RELATIVA A POLÍTICA GENERAL EN MATERIA DE VIOLENCIA DE GÉNERO": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Exigir más recursos contra la violencia de género",
+    "categoria_principal": "Igualdad",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa pedir al Gobierno medidas más contundentes para proteger a las mujeres víctimas de violencia.",
+    "proponente": "PSOE"
   },
   "2-22/PNLP-000016, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A MEDIDAS PARA LA MEJORA DE LA FORMACIÓN MIR Y PARA PALIAR EL DÉFICIT DE PROFESIONALES SANITARIOS": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Mejorar las condiciones de los médicos residentes (MIR)",
+    "categoria_principal": "Sanidad",
+    "etiquetas": [
+      "proteger_sanidad_publica",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar mejores sueldos y formación para que los nuevos médicos se queden en Andalucía.",
+    "proponente": "PP"
   },
   "12-22/PNLP-000031, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A DESCLASIFICACIÓN DE LOS ARCHIVOS DEL ASESINATO DE MANUEL JOSÉ GARCÍA CAPARRÓS": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Pedir acceso a los archivos del asesinato de García Caparrós",
+    "categoria_principal": "Cultura",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa solicitar al Estado que haga públicos los documentos secretos sobre la muerte del joven andaluz en 1977.",
+    "proponente": "Adelante Andalucía"
   },
   "12-22/PNLP-000033, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A UNIVERSALIZACIÓN Y GRATUIDAD DE LOS COMEDORES ESCOLARES": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Comedores escolares gratuitos para todos los alumnos",
+    "categoria_principal": "Educacion",
+    "etiquetas": [
+      "proteger_infancia",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa defender que el servicio de comedor no cueste dinero a ninguna familia.",
+    "proponente": "Por Andalucía"
   },
   "12-22/PNLP-000035, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A NO REVISIÓN DE LOS DELITOS DE SEDICIÓN Y MALVERSACIÓN": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Rechazo a la reforma de los delitos de sedición y malversación",
+    "categoria_principal": "Seguridad_y_Justicia",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa oponerse a que el Gobierno de España baje las penas por estos delitos en el Código Penal.",
+    "proponente": "PP"
   },
   "12-22/DL-000007, CONVALIDACIÓN O DEROGACIÓN DEL DECRETO-LEY 12/2022, DE 29 DE NOVIEMBRE, POR EL QUE SE REGULAN LOS PROCESOS SELECTIVOS DERIVADOS DE LA LEY 20/2021, DE 28 DE DICIEMBRE, DE MEDIDAS URGENTES PARA LA REDUCCIÓN DE LA TEMPORALIDAD EN EL EMPLEO PÚBLICO, SE ESTABLECEN MEDIDAS DE AGILIZACIÓN DE DICHOS PROCEDIMIENTOS Y SE ADOPTAN, CON CARÁCTER TEMPORAL, MEDIDAS EN MATERIA DE SELECCIÓN DE PERSONAL FUNCIONARIO INTERINO EN LA ADMINISTRACIÓN GENERAL DE LA JUNTA DE ANDALUCÍA": {
     "titulo_ciudadano": "Asunto parlamentario sin clasificar",
@@ -397,32 +465,42 @@
     "proponente": ""
   },
   "12-22/COM-000026, SOLICITUD DE CREACIÓN DE COMISIÓN PERMANENTE NO LEGISLATIVA SOBRE LA INFANCIA Y ADOLESCENCIA": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Crear una comisión parlamentaria de protección a la infancia",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "proteger_infancia",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa tener un grupo de trabajo específico para vigilar los derechos de los menores andaluces.",
+    "proponente": "Varios grupos"
   },
   "12-22/PNLP-000034, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A MEJORA EN LA ATENCIÓN A LOS CENTROS RESIDENCIALES Y DE DÍA EN ANDALUCÍA": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Subir la financiación de las residencias de mayores y centros de día",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "mejorar_atencion_dependencia",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa instar a la Junta a pagar más por cada plaza en residencias para mejorar el servicio.",
+    "proponente": "PP"
   },
   "12-22/PNLP-000036, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A PROTEGER A LA FAMILIA Y TODOS SUS MIEMBROS Y A TERMINAR CON LAS LEYES DE GÉNERO": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Derogar las leyes de género y reforzar ayudas a familias",
+    "categoria_principal": "Igualdad",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa apostar por eliminar las normas actuales de igualdad y sustituirlas por una ley de protección a la familia.",
+    "proponente": "Vox"
   },
   "12-22/PNLP-000038, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A CIERRE DE EL CABRIL": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Pedir el cierre del cementerio nuclear de El Cabril (Córdoba)",
+    "categoria_principal": "Medio_Ambiente",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa exigir que no se amplíe y se planifique el cierre del único almacén de residuos radiactivos de España.",
+    "proponente": "PSOE"
   },
   "11-22/ILPA-000003, PROPUESTA DE TOMA EN CONSIDERACIÓN DE LA PROPOSICIÓN DE LEY, DE INICIATIVA LEGISLATIVA DE LOS AYUNTAMIENTOS, EN DEFENSA DE LOS ESPACIOS PROTEGIDOS Y EN PRO DE UNA PLANIFICACIÓN ANTE LAS ENERGÍAS RENOVABLES": {
     "titulo_ciudadano": "Asunto parlamentario sin clasificar",
@@ -432,67 +510,88 @@
     "proponente": ""
   },
   "2-23/PNLP-000001, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A TRASVASE TAJO-SEGURA": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Defender el trasvase Tajo-Segura para los agricultores de Almería",
+    "categoria_principal": "Agricultura",
+    "etiquetas": [
+      "gestionar_recursos_hidricos_locales",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa rechazar los recortes de agua del Tajo que llegan al Levante y al norte de Almería.",
+    "proponente": "Vox"
   },
   "12-23/PNLP-000003, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A NUEVO CONVENIO PARA LA UNIDAD DEL CUERPO NACIONAL DE POLICÍA ADSCRITA A LA COMUNIDAD AUTÓNOMA DE ANDALUCÍA": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Pedir más agentes para la Policía Autonómica",
+    "categoria_principal": "Seguridad_y_Justicia",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa exigir al Estado que rellene las vacantes de la policía que depende de la Junta.",
+    "proponente": "PP"
   },
   "12-23/PNLP-000005, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A PLAN DE IMPULSO Y MEJORA DE LA SITUACIÓN DE LAS RESIDENCIAS DE MAYORES EN ANDALUCÍA Y COMEDORES DE LOS CENTROS DE PARTICIPACIÓN ACTIVA": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Plan de choque para reformar las residencias de mayores",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "mejorar_atencion_dependencia",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa proponer un cambio en el modelo de cuidados para que las residencias parezcan más hogares.",
+    "proponente": "PSOE"
   },
   "12-23/PNLP-000006, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A GARANTÍA DEL EJERCICIO DEL DERECHO AL ABORTO": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Garantizar que se pueda abortar en los hospitales públicos",
+    "categoria_principal": "Igualdad",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa asegurar por ley que la interrupción voluntaria del embarazo se realice en el sistema público andaluz.",
+    "proponente": "PSOE"
   },
   "12-22/PL-000009, DEBATE DE TOTALIDAD DEL PROYECTO DE LEY POR LA QUE SE APRUEBA EL PLAN ESTADÍSTICO Y CARTOGRÁFICO DE ANDALUCÍA 2023-2029": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Primer paso para el nuevo Plan Estadístico de Andalucía",
+    "categoria_principal": "Institucional",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa permitir que se tramite la ley que organiza cómo se recogen los datos oficiales de la comunidad.",
+    "proponente": "Gobierno"
   },
   "12-23/M-000001, MOCIÓN RELATIVA A DIÁLOGO SOCIAL CON LOS REPRESENTANTES DE LAS ENTIDADES LOCALES EN ANDALUCÍA": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Mejorar la colaboración entre la Junta y los ayuntamientos",
+    "categoria_principal": "Institucional",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa pedir que el Gobierno andaluz escuche más a los municipios para tomar decisiones.",
+    "proponente": "PSOE"
   },
   "12-22/COM-000027, SOLICITUD DE CREACIÓN DE UNA COMISIÓN DE INVESTIGACIÓN RELATIVA A LA FUNDACIÓN ANDALUZA FONDO DE FORMACIÓN Y EMPLEO (FAFFE)": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Investigar las presuntas irregularidades en la fundación FAFFE",
+    "categoria_principal": "Institucional",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa reabrir la investigación sobre el uso de dinero público en esta fundación de empleo.",
+    "proponente": "PP"
   },
   "12-23/PNLP-000012, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A CANALIZACIONES PRESA DE RULES": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Acelerar las tuberías de la Presa de Rules (Granada)",
+    "categoria_principal": "Agricultura",
+    "etiquetas": [
+      "gestionar_recursos_hidricos_locales",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa exigir que se terminen de una vez las obras para llevar agua de la presa a los cultivos de la costa granadina.",
+    "proponente": "PP"
   },
   "12-23/PNLP-000015, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A NUEVO MODELO DE FINANCIACIÓN AUTONÓMICA Y DEFENSA DE LAS COMPETENCIAS DE ANDALUCÍA": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Exigir un modelo de financiación que no perjudique a Andalucía",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa reclamar al Estado que Andalucía reciba el dinero que le corresponde por su población.",
+    "proponente": "PP"
   },
   "12-22/PL-000003, DEBATE FINAL DEL PROYECTO DE LEY POR LA QUE SE MODIFICA LA LEY 2/2002, DE 11 DE NOVIEMBRE, DE GESTIÓN DE EMERGENCIAS EN ANDALUCÍA": {
     "titulo_ciudadano": "Asunto parlamentario sin clasificar",
@@ -502,11 +601,14 @@
     "proponente": ""
   },
   "12-23/M-000002, MOCIÓN RELATIVA A POLÍTICA GENERAL EN MATERIA DE FONDOS AGRARIOS Y DESARROLLO RURAL": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Mejorar el reparto de fondos europeos para el campo",
+    "categoria_principal": "Agricultura",
+    "etiquetas": [
+      "proteger_sector_primario",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa proponer cambios en cómo se distribuyen las ayudas de la PAC en Andalucía.",
+    "proponente": "PSOE"
   },
   "12-23/COM-000001, SOLICITUD DE CREACIÓN DE COMISIÓN DE INVESTIGACIÓN RELATIVA A LA FUNDACIÓN ANDALUZA FONDO DE FORMACIÓN Y EMPLEO (FAFFE)": {
     "titulo_ciudadano": "Asunto parlamentario sin clasificar",
@@ -516,18 +618,23 @@
     "proponente": ""
   },
   "12-23/PNLP-000011, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A GASTO FARMACÉUTICO EN ANDALUCÍA": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Controlar y optimizar el dinero gastado en medicinas",
+    "categoria_principal": "Sanidad",
+    "etiquetas": [
+      "proteger_sanidad_publica",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa debatir medidas para reducir la factura de farmacia y reinvertir el ahorro en el SAS.",
+    "proponente": "Por Andalucía"
   },
   "12-23/PNLP-000017, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A CREACIÓN DE SUPERMERCADOS PÚBLICOS": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Crear una red de supermercados públicos andaluces",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa que la Junta gestione tiendas de alimentación para bajar los precios frente a las grandes cadenas.",
+    "proponente": "Por Andalucía"
   },
   "VOTACIÓN PARA DECIDIR SI SE REALIZA VOTACIÓN ORDINARIA O NO PARA LA ‘12-23/PNLP-000019, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A COMPROMISO CON LA IGUALDAD Y LA LUCHA CONTRA LA VIOLENCIA DE GÉNERO’": {
     "titulo_ciudadano": "Asunto parlamentario sin clasificar",
@@ -537,18 +644,22 @@
     "proponente": ""
   },
   "12-23/PNLP-000019, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A COMPROMISO CON LA IGUALDAD Y LA LUCHA CONTRA LA VIOLENCIA DE GÉNERO": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Renovar el pacto andaluz contra la violencia de género",
+    "categoria_principal": "Igualdad",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa reafirmar el apoyo político a las medidas de protección a las mujeres y la igualdad real.",
+    "proponente": "PSOE"
   },
   "12-23/M-000003, MOCIÓN RELATIVA A POLÍTICA GENERAL EN MATERIA DE IGUALDAD DE GÉNERO EN ANDALUCÍA": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Propuestas para impulsar la igualdad entre hombres y mujeres",
+    "categoria_principal": "Igualdad",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa exigir más políticas activas de igualdad en el empleo y la vida pública.",
+    "proponente": "PSOE"
   },
   "12-23/PNLP-000004, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A PROMOCIÓN DE LA PRÁCTICA DEPORTIVA E IMPULSO DE LAS INDUSTRIAS DEL TURISMO, LA CULTURA Y EL DEPORTE DE ANDALUCÍA": {
     "titulo_ciudadano": "Asunto parlamentario sin clasificar",
@@ -565,11 +676,14 @@
     "proponente": ""
   },
   "12-23/PNLP-000029, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A FINALIZACIÓN HASTA BAZA DE LA AUTOVÍA DEL ALMANZORA": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Terminar la Autovía del Almanzora hasta Baza (Granada)",
+    "categoria_principal": "Infraestructuras",
+    "etiquetas": [
+      "mejorar_carreteras",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa comprometerse a finalizar este eje clave de comunicación entre Almería y Granada.",
+    "proponente": "PP"
   },
   "12-23/PNLP-000030, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A ORDEN DE 23 DE FEBRERO DE 2023, DE PRESUPUESTACIÓN Y TARIFACIÓN DE CONVENIOS Y CONCIERTOS PARA LA PRESTACIÓN DE ASISTENCIA SANITARIA EN CENTROS SANITARIOS": {
     "titulo_ciudadano": "Asunto parlamentario sin clasificar",
@@ -593,18 +707,23 @@
     "proponente": ""
   },
   "12-23/M-000004, MOCIÓN RELATIVA A POLÍTICA EN MATERIA DE TURISMO": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Nuevas estrategias para un turismo de calidad en Andalucía",
+    "categoria_principal": "Turismo",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa proponer cambios en la promoción turística para atraer viajeros con más poder adquisitivo.",
+    "proponente": "PSOE"
   },
   "12-23/PNLP-000016, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A IMPULSO A LAS INFRAESTRUCTURAS FERROVIARIAS EN ANDALUCÍA": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Exigir al Estado mejores trenes y Cercanías en Andalucía",
+    "categoria_principal": "Infraestructuras",
+    "etiquetas": [
+      "fomentar_transporte_publico",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa reclamar inversiones urgentes en la red de ferrocarril andaluza.",
+    "proponente": "PP"
   },
   "12-23/PNLP-000035, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A IMPULSO A UN ACUERDO ENTRE LAS ADMINISTRACIONES IMPLICADAS SOBRE EL PLAN ESPECIAL DE LA CORONA NORTE DE DOÑANA, EN LÍNEA CON EL MARCO DE ACTUACIONES PARA LA RESTAURACIÓN ECOLÓGICA DEL ESPACIO, RECIENTEMENTE APROBADO": {
     "titulo_ciudadano": "Asunto parlamentario sin clasificar",
@@ -614,18 +733,23 @@
     "proponente": ""
   },
   "12-23/PNLP-000038, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A INSTALACIÓN DE MACROPARQUES EÓLICOS Y SOLARES EN ANDALUCÍA": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Regular y frenar la proliferación de macroparques renovables",
+    "categoria_principal": "Medio_Ambiente",
+    "etiquetas": [
+      "proteger_medio_ambiente",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa exigir una planificación que evite el impacto negativo de grandes plantas solares y eólicas en el paisaje.",
+    "proponente": "Vox"
   },
   "12-23/PNLP-000039, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A DEFENSA DEL ESTADO DE DERECHO Y DE LA INDEPENDENCIA Y TRANSPARENCIA DE SUS INSTITUCIONES COMO GARANTÍA DE CALIDAD DEMOCRÁTICA": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Defender la independencia de las instituciones del Estado",
+    "categoria_principal": "Institucional",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa pedir respeto a la división de poderes y rechazar injerencias políticas en la Justicia.",
+    "proponente": "PP"
   },
   "12-23/DL-000002, CONVALIDACIÓN O DEROGACIÓN DEL DECRETO-LEY 2/2023, DE 11 DE ABRIL, POR EL QUE SE ADOPTAN MEDIDAS EN MATERIA DE EMERGENCIAS Y GESTIÓN, PREVENCIÓN Y EXTINCIÓN DE INCENDIOS FORESTALES Y SE AUTORIZA LA CREACIÓN DE LA AGENCIA DE SEGURIDAD Y GESTIÓN INTEGRAL DE EMERGENCIAS DE ANDALUCÍA": {
     "titulo_ciudadano": "Asunto parlamentario sin clasificar",
@@ -635,60 +759,81 @@
     "proponente": ""
   },
   "12-23/M-000005, MOCIÓN RELATIVA A POLÍTICA GENERAL EN MATERIA FINANCIERA, ECONÓMICA Y FISCAL PARA RENTAS MEDIAS": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Propuestas fiscales para beneficiar a las familias de clase media",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "bajar_impuestos",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa proponer nuevas bajadas de impuestos para aliviar a los trabajadores con salarios medios.",
+    "proponente": "PSOE"
   },
   "12-23/PNLP-000036, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A REFUERZO Y RECUPERACIÓN DE LA ATENCIÓN PRIMARIA DE SALUD": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Plan de urgencia para mejorar la Atención Primaria",
+    "categoria_principal": "Sanidad",
+    "etiquetas": [
+      "proteger_sanidad_publica",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa exigir más médicos de familia y menos esperas en los centros de salud.",
+    "proponente": "PSOE"
   },
   "12-23/PNLP-000043, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A MEDIDAS DE APOYO A LA REACTIVACIÓN Y MEJORA DE LA COMPETITIVIDAD DE LA INDUSTRIA TURÍSTICA": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Ayudas para hacer más competitivas a las empresas turísticas",
+    "categoria_principal": "Turismo",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar la modernización de hoteles y servicios para atraer un turismo mejor.",
+    "proponente": "Vox"
   },
   "12-23/PNLP-000044, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A RECONOCIMIENTO Y DECLARACIÓN DE LA ZONA DEL CAMPO DE GIBRALTAR COMO ZONA DE ESPECIAL SINGULARIDAD": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Declarar el Campo de Gibraltar como zona de especial protección",
+    "categoria_principal": "Seguridad_y_Justicia",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa pedir más medios policiales y fiscales para luchar contra el narco en la comarca de Cádiz.",
+    "proponente": "PSOE"
   },
   "2-23/PNLP-000047, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A LA EJECUCIÓN DE OBRAS HIDRÁULICAS PENDIENTES": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Exigir la finalización de las obras de agua en toda Andalucía",
+    "categoria_principal": "Agricultura",
+    "etiquetas": [
+      "gestionar_recursos_hidricos_locales",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa denunciar los retrasos en las infraestructuras que deben garantizar el agua.",
+    "proponente": "Vox"
   },
   "12-23/M-000006, MOCIÓN RELATIVA A POLÍTICA GENERAL EN MATERIA EDUCATIVA": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Nuevas propuestas para mejorar la calidad de la educación pública",
+    "categoria_principal": "Educacion",
+    "etiquetas": [
+      "proteger_educacion_publica",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa instar al gobierno a mejorar las ratios y las condiciones de los docentes.",
+    "proponente": "PSOE"
   },
   "12-23/PNLP-000049, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A NECESIDAD DE NUEVAS UNIDADES JUDICIALES EN ANDALUCÍA Y MODERNIZACIÓN DE LA JUSTICIA": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Pedir más juzgados y modernizar la Justicia andaluza",
+    "categoria_principal": "Seguridad_y_Justicia",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa exigir al Estado que abra nuevos juzgados para reducir el atasco judicial.",
+    "proponente": "PP"
   },
   "12-23/PNLP-000050, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A IMPULSAR UN PACTO NACIONAL POR LA VIVIENDA": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Impulsar un gran pacto nacional para bajar el precio de la vivienda",
+    "categoria_principal": "Vivienda",
+    "etiquetas": [
+      "facilitar_acceso_vivienda",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa instar a todas las administraciones a acordar medidas que faciliten el alquiler y la compra.",
+    "proponente": "PP"
   },
   "12-23/PNLP-000051, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A IMPULSO A LA NEGOCIACIÓN DE LA FINANCIACIÓN DE LAS ENTIDADES LOCALES ANDALUZAS EN EL MARCO DEL SISTEMA PÚBLICO DE SERVICIOS SOCIALES DE ANDALUCÍA Y EN PARTICULAR DEL SERVICIO DE AYUDA A DOMICILIO": {
     "titulo_ciudadano": "Asunto parlamentario sin clasificar",
@@ -698,11 +843,13 @@
     "proponente": ""
   },
   "12-23/PNLP-000052, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A INFRAESTRUCTURAS EDUCATIVAS": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Acelerar la reforma y construcción de nuevos colegios e institutos",
+    "categoria_principal": "Educacion",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa exigir que se terminen las obras escolares pendientes en los municipios andaluces.",
+    "proponente": "PSOE"
   },
   "12-22/ICG-000001, DEBATE Y VOTACIÓN DEL DICTAMEN DE LA COMISIÓN DE ECONOMÍA, HACIENDA Y FONDOS EUROPEOS EN RELACIÓN AL INFORME DE FISCALIZACIÓN DE LA CUENTA GENERAL DE LA JUNTA DE ANDALUCÍA CORRESPONDIENTE AL EJERCICIO 2021": {
     "titulo_ciudadano": "Asunto parlamentario sin clasificar",
@@ -719,32 +866,41 @@
     "proponente": ""
   },
   "12-22/PL-000005, DEBATE FINAL DEL PROYECTO DE LEY DE LA FUNCIÓN PÚBLICA DE ANDALUCÍA": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Aprobar la nueva Ley de la Función Pública para los trabajadores de la Junta",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa dar luz verde a la norma que regula cómo se entra, se promociona y se organiza el personal de la Junta.",
+    "proponente": "Gobierno"
   },
   "12-23/PL-000002, PROYECTO DE LEY DE RECONOCIMIENTO DE LA UNIVERSIDAD PRIVADA CEU FERNANDO III": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Autorizar la creación de la Universidad privada CEU Fernando III",
+    "categoria_principal": "Educacion",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa permitir que esta entidad privada abra su propia universidad en Andalucía.",
+    "proponente": "Gobierno"
   },
   "12-23/PL-000003, PROYECTO DE LEY DE RECONOCIMIENTO DE LA UNIVERSIDAD PRIVADA UNIVERSIDAD TECNOLÓGICA ATLÁNTICO-MEDITERRÁNEA": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Autorizar la creación de la universidad privada tecnológica UTAM",
+    "categoria_principal": "Educacion",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa permitir la apertura de una nueva universidad privada enfocada en tecnología.",
+    "proponente": "Gobierno"
   },
   "2-23/M-000007, MOCIÓN RELATIVA A POLÍTICA GENERAL EN MATERIA DE INFRAESTRUCTURAS DE AGUA Y RECURSOS HÍDRICOS PARA PALIAR LA SEQUÍA EN ANDALUCÍA": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Plan general de grandes obras hidráulicas contra la sequía",
+    "categoria_principal": "Agricultura",
+    "etiquetas": [
+      "gestionar_recursos_hidricos_locales",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa proponer un calendario estricto para terminar presas, desaladoras y trasvases.",
+    "proponente": "Vox"
   },
   "12-23/PNLP-000037, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A APLICACIÓN DE LOS FONDOS EUROPEOS DEL PLAN DE RECUPERACIÓN, TRANSFORMACIÓN Y RESILIENCIA EN ANDALUCÍA": {
     "titulo_ciudadano": "Asunto parlamentario sin clasificar",
@@ -754,67 +910,90 @@
     "proponente": ""
   },
   "12-23/PNLP-000058, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A APOYO A LA REVISIÓN DEL REGLAMENTO DE LA RED TRANSEUROPEA DE TRANSPORTE FERROVIARIO": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Defender los corredores ferroviarios andaluces en Europa",
+    "categoria_principal": "Infraestructuras",
+    "etiquetas": [
+      "fomentar_transporte_publico",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa pedir que la Unión Europea priorice los trenes de mercancías y pasajeros que pasan por Andalucía.",
+    "proponente": "PP"
   },
   "12-23/PNLP-000061, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A PROGRAMA NACIONAL DE CLIMATIZACIÓN DE CENTROS EDUCATIVOS": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Instalar aire acondicionado y calefacción en todos los colegios",
+    "categoria_principal": "Educacion",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa pedir al Estado fondos para que las aulas andaluzas no sufran temperaturas extremas.",
+    "proponente": "PSOE"
   },
   "12-23/PNLP-000062, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A PLAN DE VERANO 2023 EN LA SANIDAD PÚBLICA": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Exigir que no se cierren plantas de hospital en verano",
+    "categoria_principal": "Sanidad",
+    "etiquetas": [
+      "proteger_sanidad_publica",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa pedir que se mantengan todos los servicios sanitarios abiertos durante las vacaciones.",
+    "proponente": "PSOE"
   },
   "12-23/M-000008, MOCIÓN RELATIVA A SALUD MENTAL": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Plan andaluz para mejorar la salud mental",
+    "categoria_principal": "Sanidad",
+    "etiquetas": [
+      "mejorar_salud_mental",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa proponer más psicólogos públicos y medidas contra el suicidio juvenil.",
+    "proponente": "PSOE"
   },
   "12-23/PNLP-000060, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A RECHAZO A LA LEY ORGÁNICA DEL SISTEMA UNIVERSITARIO": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Rechazo a la nueva ley de universidades del Estado (LOSU)",
+    "categoria_principal": "Educacion",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa oponerse a la reforma universitaria nacional por considerar que invade competencias andaluzas.",
+    "proponente": "PP"
   },
   "12-23/PNLP-000063, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A LA CAMPAÑA DE PUBLICIDAD CONTRA EL SECTOR FRESERO DE HUELVA": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Defender a los freseros de Huelva frente a boicots externos",
+    "categoria_principal": "Agricultura",
+    "etiquetas": [
+      "proteger_sector_primario",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa denunciar las campañas negativas alemanas contra la fresa andaluza y apoyar al sector.",
+    "proponente": "PP"
   },
   "12-23/PNLP-000068, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A FOMENTAR EL EMPLEO PRIVADO Y LA ACTIVIDAD EMPRESARIAL EN EL MARCO DEL DIÁLOGO SOCIAL": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Fomentar la creación de empresas y empleo privado",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "proteger_empleo",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa apostar por acuerdos con empresarios y sindicatos para reducir el paro.",
+    "proponente": "PP"
   },
   "12-23/PNLP-000069, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A GARANTIZAR LA NEUTRALIDAD Y EL PLURALISMO EN CANAL SUR": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Exigir más pluralidad y neutralidad en Canal Sur",
+    "categoria_principal": "Institucional",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa denunciar el uso partidista de la televisión pública y pedir una información más equilibrada.",
+    "proponente": "Vox"
   },
   "12-22/PL-000004, DEBATE FINAL DEL PROYECTO DE LEY DE POLICÍAS LOCALES DE ANDALUCÍA": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Aprobar la nueva Ley de Policías Locales",
+    "categoria_principal": "Seguridad_y_Justicia",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar la norma que moderniza y coordina a todos los agentes municipales de la comunidad.",
+    "proponente": "Gobierno"
   },
   "12-23/M-000009, MOCIÓN RELATIVA A POLÍTICA GENERAL EN MATERIA DE GESTIÓN DE LA DEPENDENCIA EN ANDALUCÍA": {
     "titulo_ciudadano": "Asunto parlamentario sin clasificar",
@@ -824,11 +1003,13 @@
     "proponente": ""
   },
   "12-23/PNLP-000071, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A PROTECCIÓN SOCIAL DE LA ABOGACÍA EN ANDALUCÍA": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Mejorar la jubilación y protección de los abogados mutualistas",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar que los abogados que no están en la Seguridad Social tengan pensiones dignas.",
+    "proponente": "PP"
   },
   "12-23/PNLP-000073, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A DEFENSA DE LOS DERECHOS CONQUISTADOS POR LOS ANDALUCES Y LAS ANDALUZAS PARA EL AVANCE SOCIAL BASADO EN LA IGUALDAD ENTRE MUJERES Y HOMBRES": {
     "titulo_ciudadano": "Asunto parlamentario sin clasificar",
@@ -838,18 +1019,23 @@
     "proponente": ""
   },
   "12-23/PNLP-000077, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A MEDIDAS PARA QUE LA PAC DE ANDALUCÍA SE QUEDE EN ANDALUCÍA": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Exigir que no se recorte el dinero de la PAC para el campo andaluz",
+    "categoria_principal": "Agricultura",
+    "etiquetas": [
+      "proteger_sector_primario",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa rechazar el nuevo reparto de ayudas europeas por considerarlo injusto para nuestra región.",
+    "proponente": "PP"
   },
   "12-23/PNLP-000078, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A AGRAVIOS DEL GOBIERNO DE ESPAÑA A LA COMUNIDAD AUTÓNOMA DE ANDALUCÍA": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Denunciar el supuesto maltrato del Estado a Andalucía",
+    "categoria_principal": "Institucional",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa criticar políticamente al Gobierno de España por sus decisiones sobre la comunidad.",
+    "proponente": "Vox"
   },
   "12-23/DL-000005, CONVALIDACIÓN O DEROGACIÓN DEL DECRETO-LEY 5/2023, DE 20 DE JUNIO, POR EL QUE SE DEROGA EL DECRETO 103/2022, DE 14 DE JUNIO, POR EL QUE SE APRUEBA EL REGLAMENTO DE AUTORIZACIÓN ADMINISTRATIVA, DECLARACIÓN RESPONSABLE, COMUNICACIÓN, ACREDITACIÓN Y REGISTRO DE ENTIDADES, CENTROS Y SERVICIOS SOCIALES DE ANDALUCÍA, Y SE MODIFICA EL RÉGIMEN TRANSITORIO DEL DECRETO-LEY 1/2020, DE 10 DE FEBRERO, PARA EL IMPULSO DEL PROCESO DE JUSTIFICACIÓN, COMPROBACIÓN, ADECUACIÓN DE LA INFORMACIÓN Y REINTEGRO DE LOS LIBRAMIENTOS CON JUSTIFICACIÓN POSTERIOR": {
     "titulo_ciudadano": "Asunto parlamentario sin clasificar",
@@ -915,18 +1101,24 @@
     "proponente": ""
   },
   "12-23/M-000011, MOCIÓN RELATIVA A POLÍTICA GENERAL EN MATERIA DE ATENCIÓN SANITARIA": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Nuevas propuestas para reducir todas las listas de espera sanitarias",
+    "categoria_principal": "Sanidad",
+    "etiquetas": [
+      "proteger_sanidad_publica",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa exigir un plan concreto para operar y atender antes a los pacientes.",
+    "proponente": "PSOE"
   },
   "12-23/M-000012, MOCIÓN RELATIVA A POLÍTICA GENERAL EN MATERIA DE JUVENTUD": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Plan de empleo y vivienda para los jóvenes andaluces",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "facilitar_acceso_vivienda",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa proponer medidas contra la precariedad y para facilitar la independencia de los jóvenes.",
+    "proponente": "PSOE"
   },
   "12-23/PNLP-000054, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A LA DEFENSA DEL MUNDO RURAL": {
     "titulo_ciudadano": "Asunto parlamentario sin clasificar",
@@ -1237,11 +1429,14 @@
     "proponente": ""
   },
   "12-23/PNLP-000131, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A ACTUACIONES PARA EL DESARROLLO TERRITORIAL SOSTENIBLE DEL ÁREA DE INFLUENCIA DEL ESPACIO NATURAL DE DOÑANA": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Acuerdo de inversión sostenible para los municipios de Doñana",
+    "categoria_principal": "Medio_Ambiente",
+    "etiquetas": [
+      "gestionar_recursos_hidricos_locales",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar el pacto entre Junta y Estado para invertir en la zona y proteger el agua del parque.",
+    "proponente": "PP"
   },
   "12-23/PNLP-000129, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A DEFENSA DEL ESTATUTO DE AUTONOMÍA Y LA CONSTITUCIÓN COMO GARANTÍA DE IGUALDAD": {
     "titulo_ciudadano": "Asunto parlamentario sin clasificar",
@@ -9012,5 +9207,234 @@
     "etiquetas": [],
     "resumen_sencillo": "",
     "proponente": ""
+  },
+  "12-22/DL-000007, CONVALIDACIÓN O DEROGACIÓN DEL DECRETO-LEY 12/2022... REDUCCIÓN DE LA TEMPORALIDAD EN EL EMPLEO PÚBLICO": {
+    "titulo_ciudadano": "Agilizar la fijeza de los interinos de la Junta",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "proteger_empleo",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar el proceso para que miles de interinos pasen a ser funcionarios fijos.",
+    "proponente": "Gobierno"
+  },
+  "12-22/DL-000008, CONVALIDACIÓN O DEROGACIÓN DEL DECRETO-LEY 13/2022... MEDIDAS DE EMPLEO PLAN DE RECUPERACIÓN": {
+    "titulo_ciudadano": "Aprobar fondos urgentes de empleo del Plan de Recuperación",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "proteger_empleo",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa activar ayudas para contratar a colectivos con dificultades usando fondos europeos.",
+    "proponente": "Gobierno"
+  },
+  "11-21/ILPA-000004, PROPUESTA DE TOMA EN CONSIDERACIÓN DE LA PROPOSICIÓN DE LEY... MODIFICACIÓN DE LA LEY DE EDUCACIÓN DE ANDALUCÍA": {
+    "titulo_ciudadano": "Debatir la iniciativa ciudadana para reformar la educación",
+    "categoria_principal": "Educacion",
+    "etiquetas": [
+      "proteger_educacion_publica",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa permitir que el Parlamento discuta una propuesta de ley impulsada por ciudadanos sobre educación.",
+    "proponente": "Ciudadanos (Iniciativa Popular)"
+  },
+  "12-22/OAPP-000005, AUTORIZACIÓN DEL ACUERDO TRANSACCIONAL... SAS Y JOSÉ MANUEL PASCUAL PASCUAL, S.A.": {
+    "titulo_ciudadano": "Autorizar el pago millonario a las clínicas Pascual",
+    "categoria_principal": "Sanidad",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar un acuerdo para cerrar los pleitos judiciales y pagar por los servicios prestados por estas clínicas privadas.",
+    "proponente": "Gobierno"
+  },
+  "12-22/PPL-000001, PROPUESTA DE TOMA EN CONSIDERACIÓN... MODIFICACIÓN DE LA LEY DE LA RTVA Y CONSEJO AUDIOVISUAL": {
+    "titulo_ciudadano": "Reformar Canal Sur y el Consejo Audiovisual",
+    "categoria_principal": "Institucional",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa iniciar los cambios legales para renovar la dirección y el control de la radio y televisión pública.",
+    "proponente": "Varios grupos"
+  },
+  "11-22/ILPA-000003, PROPUESTA DE TOMA EN CONSIDERACIÓN... LEY EN DEFENSA DE LOS ESPACIOS PROTEGIDOS Y ANTE LAS ENERGÍAS RENOVABLES": {
+    "titulo_ciudadano": "Frenar macroproyectos renovables en zonas protegidas",
+    "categoria_principal": "Medio_Ambiente",
+    "etiquetas": [
+      "proteger_medio_ambiente",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa tramitar una ley ciudadana para impedir que se instalen molinos o placas solares en parajes naturales.",
+    "proponente": "Ayuntamientos (Iniciativa Popular)"
+  },
+  "12-22/PL-000003, DEBATE FINAL DEL PROYECTO DE LEY... GESTIÓN DE EMERGENCIAS EN ANDALUCÍA": {
+    "titulo_ciudadano": "Aprobación definitiva de la nueva Ley de Emergencias",
+    "categoria_principal": "Seguridad_y_Justicia",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar la norma que organiza el 112 y la respuesta ante catástrofes en la comunidad.",
+    "proponente": "Gobierno"
+  },
+  "VOTACIÓN PARA DECIDIR SI SE REALIZA VOTACIÓN ORDINARIA O NO PARA LA ‘12-23/PNLP-000019... IGUALDAD Y LUCHA CONTRA LA VIOLENCIA DE GÉNERO’": {
+    "titulo_ciudadano": "Procedimiento: Votar en abierto sobre igualdad y violencia de género",
+    "categoria_principal": "Institucional",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa que cada diputado diga su voto en voz alta en lugar de usar el botón electrónico.",
+    "proponente": "PSOE"
+  },
+  "12-23/PNLP-000004, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A PROMOCIÓN DE LA PRÁCTICA DEPORTIVA E IMPULSO DE LAS INDUSTRIAS DEL TURISMO, LA CULTURA Y EL DEPORDE DE ANDALUCÍA": {
+    "titulo_ciudadano": "Impulsar el turismo deportivo y cultural en Andalucía",
+    "categoria_principal": "Turismo",
+    "etiquetas": [
+      "impulsar_cultura",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa fomentar eventos que mezclen deporte y visitas turísticas para atraer visitantes.",
+    "proponente": "PP"
+  },
+  "12-23/PNLP-000025, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A MEDIDAS FRENTE A LAS AGRESIONES A LOS PROFESIONALES DE LOS CENTROS SANITARIOS": {
+    "titulo_ciudadano": "Más seguridad para evitar agresiones a médicos y enfermeros",
+    "categoria_principal": "Sanidad",
+    "etiquetas": [
+      "proteger_sanidad_publica",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa endurecer las penas y mejorar la vigilancia en hospitales y centros de salud.",
+    "proponente": "PP"
+  },
+  "12-23/PNLP-000030, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A ORDEN DE 23 DE FEBRERO DE 2023... TARIFACIÓN DE CONVENIOS Y CONCIERTOS SANITARIOS": {
+    "titulo_ciudadano": "Rechazar la privatización encubierta de la atención primaria",
+    "categoria_principal": "Sanidad",
+    "etiquetas": [
+      "proteger_sanidad_publica",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa exigir la retirada de la norma que pone precio a que médicos privados atiendan en centros públicos.",
+    "proponente": "PSOE"
+  },
+  "12-23/DL-000001, CONVALIDACIÓN O DEROGACIÓN DEL DECRETO-LEY 1/2023... SUBVENCIONES AUTÓNOMOS Y EMPRESAS / CONCIERTOS EDUCATIVOS": {
+    "titulo_ciudadano": "Aprobar ayudas a autónomos y mejorar fondos para colegios concertados",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "proteger_educacion_publica",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa dar luz verde a un paquete de subvenciones para negocios y más dinero para la educación concertada.",
+    "proponente": "Gobierno"
+  },
+  "12-23/PPL-000001, PROPUESTA DE TOMA EN CONSIDERACIÓN... LEY PARA LA MEJORA DE LAS ZONAS AGRÍCOLAS DEL CONDADO DE HUELVA (DOÑANA)": {
+    "titulo_ciudadano": "Debatir la regularización de regadíos en el entorno de Doñana",
+    "categoria_principal": "Agricultura",
+    "etiquetas": [
+      "gestionar_recursos_hidricos_locales",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa permitir que se tramite la polémica ley para dar derechos de agua a agricultores cerca del parque natural.",
+    "proponente": "PP y Vox"
+  },
+  "12-23/DL-000002, CONVALIDACIÓN O DEROGACIÓN DEL DECRETO-LEY 2/2023... AGENCIA DE SEGURIDAD Y EMERGENCIAS": {
+    "titulo_ciudadano": "Crear la gran Agencia de Seguridad y Emergencias de Andalucía",
+    "categoria_principal": "Seguridad_y_Justicia",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa unificar todos los servicios de respuesta ante catástrofes en un solo organismo.",
+    "proponente": "Gobierno"
+  },
+  "12-23/PNLP-000051, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A IMPULSO A LA NEGOCIACIÓN DE LA FINANCIACIÓN DE LAS ENTIDADES LOCALES ANDALUZAS... SERVICIO DE AYUDA A DOMICILIO": {
+    "titulo_ciudadano": "Subir el pago a los ayuntamientos por la ayuda a domicilio",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "mejorar_atencion_dependencia",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa pedir que la Junta pague más a los municipios para que estos mejoren el servicio de cuidados en casa.",
+    "proponente": "PSOE"
+  },
+  "12-22/ICG-000001, DEBATE Y VOTACIÓN DEL DICTAMEN... INFORME DE FISCALIZACIÓN DE LA CUENTA GENERAL DE LA JUNTA 2021": {
+    "titulo_ciudadano": "Validar el informe de gasto de la Junta de Andalucía de 2021",
+    "categoria_principal": "Institucional",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar las conclusiones de la Cámara de Cuentas sobre cómo se usó el dinero público aquel año.",
+    "proponente": "Cámara de Cuentas"
+  },
+  "12-23/PNLP-000037, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A APLICACIÓN DE LOS FONDOS EUROPEOS DEL PLAN DE RECUPERACIÓN EN ANDALUCÍA": {
+    "titulo_ciudadano": "Mejorar la gestión y transparencia de los fondos europeos",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa criticar los retrasos en la llegada del dinero de Europa y pedir más agilidad.",
+    "proponente": "PP"
+  },
+  "12-23/M-000009, MOCIÓN RELATIVA A GESTIÓN DE LA DEPENDENCIA EN ANDALUCÍA": {
+    "titulo_ciudadano": "Reducir las listas de espera en dependencia",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "mejorar_atencion_dependencia",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa exigir que se tarde menos tiempo en dar las ayudas a las personas dependientes.",
+    "proponente": "PSOE"
+  },
+  "12-23/PNLP-000073, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A DEFENSA DE LOS DERECHOS CONQUISTADOS... IGUALDAD MUJERES Y HOMBRES": {
+    "titulo_ciudadano": "Blindar los derechos de las mujeres y la igualdad",
+    "categoria_principal": "Igualdad",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa rechazar cualquier retroceso en las leyes de protección a la mujer en Andalucía.",
+    "proponente": "PSOE"
+  },
+  "12-23/PNLP-000079, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A APOYO AL SECTOR DE LOS FRUTOS ROJOS DE HUELVA": {
+    "titulo_ciudadano": "Plan de excelencia y defensa de la fresa de Huelva",
+    "categoria_principal": "Agricultura",
+    "etiquetas": [
+      "proteger_sector_primario",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa impulsar una marca de calidad para los frutos rojos y proteger su fama internacional.",
+    "proponente": "PP"
+  },
+  "12-23/PNLP-000080, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A DEFENSA DE LOS DERECHOS DE CIUDADANÍA Y LIBERTADES PÚBLICAS": {
+    "titulo_ciudadano": "Alertar sobre el riesgo de retroceso en libertades públicas",
+    "categoria_principal": "Igualdad",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa denunciar pactos políticos que puedan recortar derechos sociales o de minorías.",
+    "proponente": "PSOE"
+  },
+  "12-23/PNLP-000083, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A APOYO FRENTE A LA ACTUAL CRISIS DE LA ASISTENCIA SANITARIA EN LA ATENCIÓN PRIMARIA": {
+    "titulo_ciudadano": "Medidas urgentes para rescatar los centros de salud",
+    "categoria_principal": "Sanidad",
+    "etiquetas": [
+      "proteger_sanidad_publica",
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa denunciar el colapso de las citas médicas y pedir una reforma inmediata.",
+    "proponente": "PSOE"
+  },
+  "12-23/DL-000006, CONVALIDACIÓN O DEROGACIÓN DEL DECRETO-LEY 6/2023... SOBRECOSTE ENERGÉTICO PYMES Y AUTÓNOMOS": {
+    "titulo_ciudadano": "Aprobar subvenciones para pagar la luz y el gas de pymes y autónomos",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa dar dinero directo a pequeños negocios para compensar la subida del precio de la energía.",
+    "proponente": "Gobierno"
+  },
+  "12-23/PL-000001, DEBATE FINAL DEL PROYECTO DE LEY... DERECHOS Y ATENCIÓN A LAS PERSONAS CON DISCAPACIDAD": {
+    "titulo_ciudadano": "Aprobar la reforma de la Ley de Discapacidad de Andalucía",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "andalucia"
+    ],
+    "resumen_sencillo": "Votar a favor significa actualizar la norma para dar más derechos y mejor atención a las personas con discapacidad.",
+    "proponente": "Gobierno"
   }
 }

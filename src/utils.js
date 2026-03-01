@@ -56,6 +56,7 @@ export function fmt(s) {
 }
 
 export function normalize(s) {
+  if (!s) return "";
   return s
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
