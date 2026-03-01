@@ -28,7 +28,7 @@ const proponenteInfo = computed(() => {
 </script>
 
 <template>
-  <router-link :to="'/votacion/' + linkId" class="card vote-card card-link">
+  <router-link :to="'/votacion/' + linkId" class="card vote-card card-link" data-testid="vote-card">
     <div class="vote-card-header">
       <span class="vote-card-title">{{ vot.titulo_ciudadano }}</span>
       <ResultBadge :result="r.result" />

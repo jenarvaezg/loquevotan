@@ -60,12 +60,12 @@
 ## Fase 3.1: Puntos de Ataque Detectados (Auditoría técnica + UX/UI + politología)
 
 ### 🚨 Críticos (producto y fiabilidad)
-- [ ] **Fallback de votación no encontrada:** En `VotacionDetail`, mostrar estado 404/empty en vez de pantalla en blanco cuando el ID no existe.
-- [ ] **Error-state real en Home:** Si falla `manifest_home.json`, mostrar mensaje + botón de reintento (evitar spinner infinito).
-- [ ] **Estabilizar suite E2E rota (3 tests):**
-  - Reemplazar selectores frágiles (`select.nth(2)`) por `data-testid`.
-  - Alinear tests de Home/Navigation con el layout actual (ya no existe bloque “rebels” en Home).
-  - Añadir checks de contrato mínimo por vista para evitar regresiones silenciosas.
+- [x] **Fallback de votación no encontrada:** En `VotacionDetail`, mostrar estado 404/empty en vez de pantalla en blanco cuando el ID no existe.
+- [x] **Error-state real en Home:** Si falla `manifest_home.json`, mostrar mensaje + botón de reintento (evitar spinner infinito).
+- [x] **Estabilizar suite E2E rota (3 tests):**
+  - [x] Reemplazar selectores frágiles (`select.nth(2)`) por `data-testid`.
+  - [x] Alinear tests de Home/Navigation con el layout actual (ya no existe bloque “rebels” en Home).
+  - [x] Añadir checks de contrato mínimo por vista para evitar regresiones silenciosas.
 
 ### ⚙️ Técnicos (rendimiento y mantenibilidad)
 - [ ] **Optimizar computeds pesados:** Evitar `Set/Map` recreados dentro de bucles en vistas con históricos grandes (`Votaciones`, `DiputadoDetail`).
@@ -74,14 +74,14 @@
 - [ ] **Cobertura de tests de datos:** tests de integridad de `votaciones_meta.json`, `votIdById`, y `groupAffinityByLeg`.
 
 ### 🎨 UX/UI (claridad para usuario de a pie)
-- [ ] **Revisar copy prescriptivo del Quiz:** cambiar “¿A quién deberías votar?” por wording menos normativo (“¿Con quién coincide más tu voto?”).
+- [x] **Revisar copy prescriptivo del Quiz:** cambiar “¿A quién deberías votar?” por wording menos normativo (“¿Con quién coincide más tu voto?”).
 - [ ] **Glosario contextual institucional:** microayudas para términos como “dictamen”, “voto particular”, “transaccional”, “deducción grupal”.
-- [ ] **Consistencia de fuentes en footer:** reflejar explícitamente que hay datos de Congreso + Parlamentos autonómicos (no solo Congreso).
+- [x] **Consistencia de fuentes en footer:** reflejar explícitamente que hay datos de Congreso + Parlamentos autonómicos (no solo Congreso).
 - [ ] **Estados vacíos/error unificados:** patrón visual y textual común en Home, Quiz, Votación, Grupo y Comparador.
 
 ### 🧭 Metodología política (rigor)
 - [ ] **Ficha metodológica pública (afinidad + compass):** supuestos, límites, sesgos y casos donde el modelo no discrimina bien.
-- [ ] **Incertidumbre explícita del compass:** mostrar intervalo o banda de confianza por eje, no solo porcentaje global.
+- [x] **Incertidumbre explícita del compass:** mostrar intervalo o banda de confianza por eje, no solo porcentaje global.
 - [ ] **Curación del banco de preguntas del quiz:** reducir preguntas de alto consenso transversal y subir peso a preguntas realmente discriminantes.
 - [ ] **Separar “coincidencia táctica” de “alineamiento ideológico”:** explicar cuándo una coincidencia de voto no implica cercanía doctrinal.
 

@@ -9,16 +9,24 @@ import HeroSearch from '../components/HeroSearch.vue'
 const { currentScopeId } = useData()
 const router = useRouter()
 const manifest = ref(null)
+const manifestLoading = ref(true)
+const manifestError = ref('')
 
 async function loadManifest() {
   manifest.value = null
+  manifestError.value = ''
+  manifestLoading.value = true
   try {
     const scopePath = currentScopeId.value === 'nacional' ? '' : `${currentScopeId.value}/`
     const url = `${import.meta.env.BASE_URL}data/${scopePath}manifest_home.json`
     const resp = await fetch(url)
-    if (resp.ok) manifest.value = await resp.json()
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`)
+    manifest.value = await resp.json()
   } catch (e) {
     console.error('Error loading manifest:', e)
+    manifestError.value = 'No se pudo cargar el resumen inicial para este ámbito.'
+  } finally {
+    manifestLoading.value = false
   }
 }
 
@@ -31,7 +39,7 @@ function goToTag(tag) {
 </script>
 
 <template>
-  <section v-if="manifest">
+  <section v-if="manifest" data-testid="home-manifest-loaded">
     <div class="hero">
       <h1>Lo Que Votan</h1>
       <p class="hero-tagline">Qué vota cada diputado en el Congreso, explicado para ciudadanos</p>
@@ -50,7 +58,7 @@ function goToTag(tag) {
     </div>
 
     <div class="container">
-      <div class="stats-banner">
+      <div class="stats-banner" data-testid="home-stats">
         <div class="stat-item">
           <span class="stat-number">{{ manifest.stats.diputados.toLocaleString('es-ES') }}</span>
           <span class="stat-label">diputados</span>
@@ -69,10 +77,10 @@ function goToTag(tag) {
       </div>
 
       <!-- QUIZ BANNER -->
-      <div class="quiz-banner">
+      <div class="quiz-banner" data-testid="home-quiz-banner">
         <div class="quiz-banner-content">
-          <h2>¿A quién deberías votar?</h2>
-          <p>Descubre qué partido vota más parecido a ti en temas clave haciendo nuestro test a ciegas.</p>
+          <h2>¿Con quién coincide más tu voto?</h2>
+          <p>Responde a ciegas y compara tu patrón con el voto real de los partidos en temas clave.</p>
         </div>
         <router-link to="/quiz" class="btn btn--primary btn--lg quiz-banner-btn">
           Hacer el test &rarr;
@@ -82,7 +90,7 @@ function goToTag(tag) {
       <div class="section-header">
         <h2>Temas populares</h2>
       </div>
-      <div class="topic-grid">
+      <div class="topic-grid" data-testid="home-top-tags">
         <a
           v-for="[tag, count] in manifest.topTags"
           :key="tag"
@@ -96,7 +104,7 @@ function goToTag(tag) {
       </div>
 
       <!-- FEATURED VOTES -->
-      <div v-if="manifest.featuredVotes && manifest.featuredVotes.length > 0" class="featured-section">
+      <div v-if="manifest.featuredVotes && manifest.featuredVotes.length > 0" class="featured-section" data-testid="home-featured-votes">
         <div class="section-header">
           <h2>Votaciones destacadas</h2>
           <span>Fiscaliza los temas clave</span>
@@ -110,7 +118,7 @@ function goToTag(tag) {
         <h2>Votaciones más ajustadas</h2>
         <router-link to="/votaciones">Ver todas &rarr;</router-link>
       </div>
-      <div class="vote-cards-grid">
+      <div class="vote-cards-grid" data-testid="home-tight-votes">
         <VoteCard v-for="v in manifest.tightVotes" :key="v.id" :votData="v" :votResult="v" />
       </div>
 
@@ -118,12 +126,22 @@ function goToTag(tag) {
         <h2>Últimas votaciones</h2>
         <router-link to="/votaciones">Ver todas &rarr;</router-link>
       </div>
-      <div class="vote-cards-grid">
+      <div class="vote-cards-grid" data-testid="home-latest-votes">
         <VoteCard v-for="v in manifest.latestVotes" :key="v.id" :votData="v" :votResult="v" />
       </div>
     </div>
   </section>
-  <div v-else class="loading-wrap">
+
+  <div v-else-if="manifestError" class="container" style="padding-top:2rem">
+    <div class="empty-state">
+      <div class="empty-state-icon">&#9888;</div>
+      <h2>No pudimos cargar la portada</h2>
+      <p class="empty-state-text">{{ manifestError }}</p>
+      <button class="btn btn--primary mt-2" @click="loadManifest">Reintentar</button>
+    </div>
+  </div>
+
+  <div v-else-if="manifestLoading" class="loading-wrap">
     <div class="loading-spinner"></div>
   </div>
 </template>

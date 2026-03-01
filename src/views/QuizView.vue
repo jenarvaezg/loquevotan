@@ -18,9 +18,11 @@ const SOCIAL_AXIS_THRESHOLD = 15
 const ECONOMIC_AXIS_THRESHOLD = 15
 const COMPASS_MIN_QUESTIONS_FOR_HIGH_CONFIDENCE = 14
 const COMPASS_DISPLAY_MARGIN = 8
-const COMPASS_DISPLAY_SOFTNESS = 1.12
-const COMPASS_EMPIRICAL_SCALE = 30
-const COMPASS_EMPIRICAL_BLEND_BASE = 0.58
+const COMPASS_DISPLAY_SOFTNESS = 0.62
+const COMPASS_EMPIRICAL_SCALE = 24
+const COMPASS_EMPIRICAL_BLEND_BASE = 0.44
+const COMPASS_SPREAD_FLOOR_FACTOR = 0.26
+const COMPASS_SPREAD_FLOOR_MIN = 4.5
 
 const PARTY_ANCHORS = {
   PSOE: { economic: -18, social: -22, color: '#ef4444' },
@@ -140,20 +142,24 @@ function normalizeAxisScore(score, maxScore) {
   return clamp(Math.round((score / maxScore) * 100), -100, 100)
 }
 
-function normalizeAxisScoreEmpirical(score, center, spread, empiricalScale = COMPASS_EMPIRICAL_SCALE) {
-  if (!spread) return 0
-  return clamp(Math.round(((score - center) / spread) * empiricalScale), -100, 100)
+function normalizeAxisScoreEmpirical(score, center, spread, spreadFloor = 0, empiricalScale = COMPASS_EMPIRICAL_SCALE) {
+  const effectiveSpread = Math.max(spread || 0, spreadFloor || 0)
+  if (!effectiveSpread) return 0
+  return clamp(Math.round(((score - center) / effectiveSpread) * empiricalScale), -100, 100)
 }
 
-function blendAxisScore(score, maxScore, center, spread, empiricalBlend) {
+function blendAxisScore(score, maxScore, center, spread, empiricalBlend, spreadFloor = 0) {
   const theoretical = normalizeAxisScore(score, maxScore)
-  if (!spread) return theoretical
-  const empirical = normalizeAxisScoreEmpirical(score, center, spread)
+  const empirical = normalizeAxisScoreEmpirical(score, center, spread, spreadFloor)
   return clamp(
     Math.round((theoretical * (1 - empiricalBlend)) + (empirical * empiricalBlend)),
     -100,
     100
   )
+}
+
+function dampenForDisplay(value, factor) {
+  return clamp(Math.round((Number(value) || 0) * factor), -100, 100)
 }
 
 function classifyCompassConfidence(confidence, answeredQuestions) {
@@ -398,15 +404,37 @@ const compassData = computed(() => {
   const socialCenter = mean(partySocialValues)
   const economicSpread = standardDeviation(partyEconomicValues)
   const socialSpread = standardDeviation(partySocialValues)
+  const economicSpreadFloor = Math.max(maxEconomic * COMPASS_SPREAD_FLOOR_FACTOR, COMPASS_SPREAD_FLOOR_MIN)
+  const socialSpreadFloor = Math.max(maxSocial * COMPASS_SPREAD_FLOOR_FACTOR, COMPASS_SPREAD_FLOOR_MIN)
+  const spreadReliability = mean([
+    clamp(economicSpread / (economicSpreadFloor || 1), 0, 1),
+    clamp(socialSpread / (socialSpreadFloor || 1), 0, 1)
+  ])
   const empiricalBlend = clamp(
-    COMPASS_EMPIRICAL_BLEND_BASE + ((8 - groups.length) * 0.06),
-    0.5,
-    0.82
+    COMPASS_EMPIRICAL_BLEND_BASE
+      + ((8 - groups.length) * 0.03)
+      + (spreadReliability * 0.14),
+    0.36,
+    0.62
   )
 
   const user = {
-    economic: blendAxisScore(userEconomic, maxEconomic, economicCenter, economicSpread, empiricalBlend),
-    social: blendAxisScore(userSocial, maxSocial, socialCenter, socialSpread, empiricalBlend)
+    economic: blendAxisScore(
+      userEconomic,
+      maxEconomic,
+      economicCenter,
+      economicSpread,
+      empiricalBlend,
+      economicSpreadFloor
+    ),
+    social: blendAxisScore(
+      userSocial,
+      maxSocial,
+      socialCenter,
+      socialSpread,
+      empiricalBlend,
+      socialSpreadFloor
+    )
   }
 
   const affinityOrder = affinities.value.map((result) => result.group)
@@ -418,24 +446,19 @@ const compassData = computed(() => {
         maxEconomic,
         economicCenter,
         economicSpread,
-        empiricalBlend
+        empiricalBlend,
+        economicSpreadFloor
       ),
       social: blendAxisScore(
         partyScores[group].social,
         maxSocial,
         socialCenter,
         socialSpread,
-        empiricalBlend
+        empiricalBlend,
+        socialSpreadFloor
       )
     }))
     .sort((a, b) => affinityOrder.indexOf(a.group) - affinityOrder.indexOf(b.group))
-
-  const partiesByDistance = partiesByAffinity
-    .map((party) => ({
-      ...party,
-      distance: Math.hypot(user.economic - party.economic, user.social - party.social)
-    }))
-    .sort((a, b) => a.distance - b.distance)
 
   const responseCoverage = totalModelWeight ? answeredDirectionalWeight / totalModelWeight : 0
   const avgStrength = totalModelWeight ? weightedStrength / totalModelWeight : 0
@@ -454,16 +477,39 @@ const compassData = computed(() => {
     100
   )
   const confidenceLabel = classifyCompassConfidence(confidenceScore, answeredQuestions)
+  const axisUncertainty = {
+    economic: Math.round(clamp((100 - confidenceScore) * 0.26 + (1 - spreadReliability) * 10 + (1 - avgConsistency) * 8, 6, 34)),
+    social: Math.round(clamp((100 - confidenceScore) * 0.26 + (1 - spreadReliability) * 10 + (1 - avgStrength) * 8, 6, 34))
+  }
+  const displayScale = clamp(0.62 + (confidenceScore * 0.0026), 0.62, 0.88)
+
+  const userForDisplay = {
+    ...user,
+    displayEconomic: dampenForDisplay(user.economic, displayScale),
+    displaySocial: dampenForDisplay(user.social, displayScale)
+  }
+  const partiesWithDisplay = partiesByAffinity.map((party) => ({
+    ...party,
+    displayEconomic: dampenForDisplay(party.economic, displayScale),
+    displaySocial: dampenForDisplay(party.social, displayScale)
+  }))
+  const partiesByDistanceForDisplay = partiesWithDisplay
+    .map((party) => ({
+      ...party,
+      distance: Math.hypot(user.economic - party.economic, user.social - party.social)
+    }))
+    .sort((a, b) => a.distance - b.distance)
 
   return {
-    user,
-    partiesByAffinity,
-    partiesByDistance,
+    user: userForDisplay,
+    partiesByAffinity: partiesWithDisplay,
+    partiesByDistance: partiesByDistanceForDisplay,
     quality: {
       confidenceScore,
       confidenceLabel,
       responseCoverage: Math.round(responseCoverage * 100),
-      modelStrength: Math.round(avgStrength * 100)
+      modelStrength: Math.round(avgStrength * 100),
+      axisUncertainty
     }
   }
 })
@@ -494,8 +540,15 @@ const userCompassLabel = computed(() => {
 })
 
 function pointStyle(point) {
-  const x = squashAxisForDisplay(Number(point?.economic) || 0)
-  const y = squashAxisForDisplay(Number(point?.social) || 0)
+  const rawEconomic = Number.isFinite(Number(point?.displayEconomic))
+    ? Number(point.displayEconomic)
+    : Number(point?.economic) || 0
+  const rawSocial = Number.isFinite(Number(point?.displaySocial))
+    ? Number(point.displaySocial)
+    : Number(point?.social) || 0
+
+  const x = squashAxisForDisplay(rawEconomic)
+  const y = squashAxisForDisplay(rawSocial)
 
   return {
     left: `${axisToBoardPercent(x)}%`,
@@ -747,8 +800,12 @@ function axisToBoardPercent(axisValue) {
               ({{ compassData.quality.confidenceScore }}%).
               Cobertura de respuestas: {{ compassData.quality.responseCoverage }}%.
             </p>
+            <p class="compass-quality compass-quality--uncertainty">
+              Rango orientativo: ±{{ compassData.quality.axisUncertainty.economic }} en eje económico y
+              ±{{ compassData.quality.axisUncertainty.social }} en eje social.
+            </p>
             <p class="compass-note">
-              Visualización con compresión de escala para evitar solapes en extremos. Los valores X/Y mostrados son los exactos.
+              El mapa resume patrones de voto observados; no sustituye la lectura ideológica completa de cada partido.
             </p>
           </div>
 
@@ -1216,6 +1273,11 @@ function axisToBoardPercent(axisValue) {
   text-align: center;
   color: var(--color-text-secondary);
   font-size: 0.88rem;
+}
+
+.compass-quality--uncertainty {
+  margin-top: 0.2rem;
+  font-size: 0.82rem;
 }
 
 .compass-note {

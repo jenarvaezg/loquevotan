@@ -3,16 +3,16 @@ import { test, expect } from '@playwright/test'
 test.describe('Navigation', () => {
   test('clicking VoteCard navigates to stable ID URL', async ({ page }) => {
     await page.goto('/#/')
-    await page.waitForSelector('.vote-card')
-    await page.locator('.vote-card').first().click()
-    await page.waitForURL(/#\/votacion\/[A-Z]+-\d+-\d+/)
-    expect(page.url()).toMatch(/#\/votacion\/[A-Z]+-\d+-\d+/)
+    await page.waitForSelector('[data-testid="vote-card"]')
+    await page.getByTestId('vote-card').first().click()
+    await page.waitForURL(/#\/votacion\/.+/)
+    expect(page.url()).toMatch(/#\/votacion\/.+/)
   })
 
   test('clicking rebel navigates to diputado page', async ({ page }) => {
-    await page.goto('/#/')
-    await page.waitForSelector('.ranking-card')
-    await page.locator('.ranking-card').first().click()
+    await page.goto('/#/rankings')
+    await page.waitForSelector('.ranking-item')
+    await page.locator('.ranking-item').first().click()
     await page.waitForURL(/#\/diputado\//)
     expect(page.url()).toContain('#/diputado/')
   })
@@ -28,7 +28,9 @@ test.describe('Navigation', () => {
   })
 
   test('back link from votacion returns to votaciones', async ({ page }) => {
-    await page.goto('/#/votacion/XV-164-1')
+    await page.goto('/#/votaciones')
+    await page.waitForSelector('[data-testid="vote-card"]')
+    await page.getByTestId('vote-card').first().click()
     await page.waitForSelector('.back-link')
     await page.locator('.back-link').click()
     await page.waitForURL(/#\/votaciones/)

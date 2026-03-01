@@ -8,7 +8,7 @@ import ResultBadge from '../components/ResultBadge.vue'
 import ShareBar from '../components/ShareBar.vue'
 
 const route = useRoute()
-const { votaciones, votResults, votos, votosByVotacion, votsByExp, categorias, grupos, diputados, loadVotosForLeg, votosLoaded, votacionDetail, votIdById } = useData()
+const { votaciones, votResults, votos, votosByVotacion, votsByExp, categorias, grupos, diputados, loadVotosForLeg, votosLoaded, votacionDetail, votIdById, loaded } = useData()
 
 const idx = computed(() => votIdById.value?.[route.params.id])
 const vot = computed(() => {
@@ -40,6 +40,8 @@ const votosReady = computed(() => {
   if (!vot.value?.legislatura) return false
   return votosLoaded.value.has(vot.value.legislatura)
 })
+
+const notFound = computed(() => loaded.value && !vot.value)
 
 // Load votos for this votacion's legislatura
 watch(vot, (v) => {
@@ -390,6 +392,21 @@ watch(vot, (v) => {
       </div>
     </div>
   </section>
+
+  <section v-else-if="notFound">
+    <div class="container" style="padding-top:2rem">
+      <div class="empty-state">
+        <div class="empty-state-icon">&#128269;</div>
+        <h2>Votación no encontrada</h2>
+        <p class="empty-state-text">El identificador no existe en el ámbito actual o la votación ya no está disponible.</p>
+        <router-link to="/votaciones" class="btn btn--primary mt-2">Ver listado de votaciones</router-link>
+      </div>
+    </div>
+  </section>
+
+  <div v-else class="loading-wrap">
+    <div class="loading-spinner"></div>
+  </div>
 </template>
 
 <style scoped>

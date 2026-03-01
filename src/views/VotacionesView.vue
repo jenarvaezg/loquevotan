@@ -148,20 +148,21 @@ function goToPage(p) {
             v-model="search"
             type="search"
             class="filter-input"
+            data-testid="vot-search"
             placeholder="Titulo..."
             @input="onSearchInput"
           >
         </div>
         <div class="filter-group">
           <label>Categoria</label>
-          <select v-model="catFilter" class="filter-select" @change="page = 1">
+          <select v-model="catFilter" class="filter-select" data-testid="vot-filter-category" @change="page = 1">
             <option value="">Todas</option>
             <option v-for="c in sortedCategorias" :key="c" :value="c">{{ fmt(c) }}</option>
           </select>
         </div>
         <div class="filter-group">
           <label>Resultado</label>
-          <select v-model="resultFilter" class="filter-select" @change="page = 1">
+          <select v-model="resultFilter" class="filter-select" data-testid="vot-filter-result" @change="page = 1">
             <option value="">Todos</option>
             <option value="Aprobada">Aprobada</option>
             <option value="Rechazada">Rechazada</option>
@@ -170,14 +171,14 @@ function goToPage(p) {
         </div>
         <div v-if="allProponentes.length > 0" class="filter-group">
           <label>Proponente</label>
-          <select v-model="proponenteFilter" class="filter-select" @change="page = 1">
+          <select v-model="proponenteFilter" class="filter-select" data-testid="vot-filter-proponente" @change="page = 1">
             <option value="">Todos</option>
             <option v-for="p in allProponentes" :key="p" :value="p">{{ p }}</option>
           </select>
         </div>
         <div class="filter-group">
           <label>Legislatura</label>
-          <select v-model="legFilter" class="filter-select" @change="page = 1">
+          <select v-model="legFilter" class="filter-select" data-testid="vot-filter-legislatura" @change="page = 1">
             <option value="">Todas las legislaturas</option>
             <option v-for="l in LEGISLATURAS" :key="l.id" :value="l.id">{{ l.nombre }}</option>
           </select>
@@ -188,7 +189,7 @@ function goToPage(p) {
         </div>
         <div class="filter-group">
           <label>Ordenar</label>
-          <select v-model="sortMode" class="filter-select" @change="page = 1">
+          <select v-model="sortMode" class="filter-select" data-testid="vot-filter-sort" @change="page = 1">
             <option value="recent">Más recientes</option>
             <option value="closest">Más ajustadas</option>
           </select>
@@ -199,7 +200,7 @@ function goToPage(p) {
       </FilterBar>
 
       <div style="display:flex;align-items:center;gap:1rem;margin-bottom:0.75rem">
-        <p style="font-size:0.85rem;color:var(--color-muted);margin:0">
+        <p style="font-size:0.85rem;color:var(--color-muted);margin:0" data-testid="vot-count">
           {{ filtered.length.toLocaleString('es-ES') }} votaciones
         </p>
         <label style="font-size:0.8rem;color:var(--color-muted);display:flex;align-items:center;gap:0.35rem;margin-left:auto;cursor:pointer">

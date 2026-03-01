@@ -17,9 +17,8 @@ loadData()
 
   <footer class="site-footer">
     Datos oficiales del
-    <a href="https://www.congreso.es/es/opendata/votaciones" target="_blank" rel="noopener">
-      Congreso de los Diputados (Datos Abiertos)
-    </a>.
-    Categorizacion automatica por IA. Proyecto de codigo abierto.
+    <a href="https://www.congreso.es/es/opendata/votaciones" target="_blank" rel="noopener">Congreso</a>
+    y de parlamentos autonómicos (fuentes institucionales enlazadas en cada votación).
+    Categorización automática por IA. Proyecto de código abierto.
   </footer>
 </template>
