@@ -143,7 +143,7 @@ function onBlur() {
   flex-wrap: wrap;
   gap: 0.3rem;
   margin-top: 0.4rem;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.2rem;
 }
 
 .tag-active {

@@ -151,8 +151,10 @@ def generate_diputados():
         party = parts[1].strip()
         
         # Simple ID generation based on name
+        import hashlib
         clean_name = name.replace(' ', '').replace(',', '').replace('.', '')
-        d_id = "MAD-13-" + clean_name[:10].upper()
+        name_hash = hashlib.md5(name.encode()).hexdigest()[:4].upper()
+        d_id = "MAD-13-" + clean_name[:15].upper() + "-" + name_hash
         
         diputados.append({
             "id": d_id,

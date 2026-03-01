@@ -35,13 +35,17 @@ const isOpen = ref(false)
 .filter-bar {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  align-items: flex-end;
+  gap: 1rem 0.75rem;
+  align-items: flex-start;
   margin-bottom: 1.25rem;
-  padding: 1rem;
+  padding: 1.25rem;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
+}
+
+:deep(.filter-actions) {
+  margin-top: 1.45rem;
 }
 
 @media (max-width: 768px) {

@@ -15,10 +15,13 @@ def main():
     # 1. Generate deputies from Wikipedia (Static for now)
     run_step("Generate Deputies", f"python3 {os.path.join(script_dir, 'generate_diputados.py')}")
     
-    # 2. Generate votes (Mock/Investiture for now)
-    run_step("Generate Votes", f"python3 {os.path.join(script_dir, 'generate_votes.py')}")
+    # 2. Download session diaries
+    run_step("Download PDFs", f"python3 {os.path.join(script_dir, 'download_pdfs.py')}")
     
-    # 3. Transform
+    # 3. Parse PDFs to extract votes
+    run_step("Parse PDFs", f"python3 {os.path.join(script_dir, 'parse_pdfs.py')}")
+    
+    # 4. Transform
     run_step("Transform Data", f"python3 {os.path.join(script_dir, 'transform.py')}")
 
 if __name__ == "__main__":
