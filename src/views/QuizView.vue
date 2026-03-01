@@ -1266,7 +1266,8 @@ function axisToBoardPercent(axisValue) {
 
 .compass-axis {
   position: absolute;
-  background: rgba(15, 23, 42, 0.22);
+  background: var(--color-border);
+  opacity: 0.6;
 }
 
 .compass-axis--horizontal {
@@ -1285,11 +1286,15 @@ function axisToBoardPercent(axisValue) {
 
 .compass-corner {
   position: absolute;
-  font-size: 0.64rem;
+  font-size: 0.68rem;
+  font-weight: 600;
   color: var(--color-text-secondary);
-  background: rgba(255, 255, 255, 0.75);
-  padding: 0.2rem 0.35rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  padding: 0.25rem 0.45rem;
   border-radius: 6px;
+  box-shadow: var(--shadow-sm);
+  z-index: 1;
 }
 
 .compass-corner--tl { left: 0.4rem; top: 0.4rem; }
@@ -1428,7 +1433,7 @@ function axisToBoardPercent(axisValue) {
   width: 0.62rem;
   height: 0.62rem;
   border-radius: 50%;
-  border: 1px solid rgba(15, 23, 42, 0.25);
+  border: 1px solid var(--color-border);
 }
 
 .compass-legend-swatch--user {
