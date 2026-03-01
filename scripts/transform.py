@@ -380,7 +380,7 @@ def main():
         "votResults": vot_results_list,
         "tagCounts": tag_counts,
         "topTags": sorted(tag_counts.items(), key=lambda x: x[1], reverse=True)[:30],
-        "sortedVotIdxByDate": list(range(len(vot_meta_list))),
+        "sortedVotIdxByDate": sorted(range(len(vot_meta_list)), key=lambda i: (vot_meta_list[i]["fecha"], i), reverse=True),
         "dipStats": dip_stats,
         "groupAffinityByLeg": group_affinity_by_leg,
         "votsByExp": {}, # Optional for now

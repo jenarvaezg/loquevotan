@@ -1,5 +1,3453 @@
 [
   {
+    "id": "MAD-10-OLGAABASOLOPOZA-CDAD",
+    "nombre": "Olga Abasolo Pozas",
+    "grupo": "Podemos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-SONSOLESTRINIDA-FF09",
+    "nombre": "Sonsoles Trinidad Aboín Aboín",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MARÍAACÍNCARRER-A8BB",
+    "nombre": "María Acín Carreras",
+    "grupo": "Podemos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MARÍAPALOMAADRA-D1DB",
+    "nombre": "María Paloma Adrados Gautier",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-IGNACIOJESÚSAGU-CF17",
+    "nombre": "Ignacio Jesús Aguado Crespo",
+    "grupo": "Ciudadanos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MARÍAJOSEFAAGUA-7E42",
+    "nombre": "María Josefa Aguado del Olmo",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MARÍAVICTORIAÁN-A1CF",
+    "nombre": "María Victoria Ángeles Alonso Márquez",
+    "grupo": "Ciudadanos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-DANIELÁLVAREZCA-9D73",
+    "nombre": "Daniel Álvarez Cabo",
+    "grupo": "Ciudadanos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MARÍANADIAÁLVAR-34B3",
+    "nombre": "María Nadia Álvarez Padilla",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MARÍACRISTINAÁL-2767",
+    "nombre": "María Cristina Álvarez Sánchez",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MARÍAISABELANDA-06A5",
+    "nombre": "María Isabel Andaluz Andaluz",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MIGUELARDANUYPI-2236",
+    "nombre": "Miguel Ardanuy Pizarro",
+    "grupo": "Podemos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MARÍAISABELARDI-F88A",
+    "nombre": "María Isabel Ardid Jiménez",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-JOSÉMARÍAARRIBA-FBAB",
+    "nombre": "José María Arribas del Barrio",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-ÁLVAROCÉSARBALL-314F",
+    "nombre": "Álvaro César Ballarín Valcárcel",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-ANABELÉNBARBERO-9D4D",
+    "nombre": "Ana Belén Barbero Martín",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-JAZMÍNBEIRAKULA-D7F4",
+    "nombre": "Jazmín Beirak Ulanosky",
+    "grupo": "Podemos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-JACOBORAMÓNBELT-7C80",
+    "nombre": "Jacobo Ramón Beltrán Pedreira",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MARÍAINÉSBERRIO-FFBA",
+    "nombre": "María Inés Berrio Fernández-Caballero",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-JOSÉMANUELBERZA-500D",
+    "nombre": "José Manuel Berzal Andrade",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-EVAMARÍABOROXMO-56D5",
+    "nombre": "Eva María Borox Montoro",
+    "grupo": "Ciudadanos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-PILARBUSÓBORÚS-4173",
+    "nombre": "Pilar Busó Borús",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-JOSÉCABRERAOREL-EC45",
+    "nombre": "José Cabrera Orellana",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-RAÚLCAMARGOFERN-D158",
+    "nombre": "Raúl Camargo Fernández",
+    "grupo": "Podemos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-ANACAMINSMARTÍN-F88A",
+    "nombre": "Ana Camins Martínez",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MARCOCANDELAPOK-235B",
+    "nombre": "Marco Candela Pokorna",
+    "grupo": "Podemos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MÓNICACARAZOGÓM-83CF",
+    "nombre": "Mónica Carazo Gómez",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MARÍAEUGENIACAR-20F9",
+    "nombre": "María Eugenia Carballedo Berlanga",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MARÍALUCÍAINMAC-12DE",
+    "nombre": "María Lucía Inmaculada Casares Díaz",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-JOSÉCARMELOCEPE-9B3B",
+    "nombre": "José Carmelo Cepeda García de León",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MARÍACRISTINACI-4D3B",
+    "nombre": "María Cristina Cifuentes Cuencas",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-DIEGOCRUZTORRIJ-BFB0",
+    "nombre": "Diego Cruz Torrijos",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-CARLADELGADOGÓM-FFEB",
+    "nombre": "Carla Delgado Gómez",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-EMILIODELGADOOR-2D76",
+    "nombre": "Emilio Delgado Orgaz",
+    "grupo": "Podemos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MARÍADELASMERCE-AE3F",
+    "nombre": "María de las Mercedes Delgado Robles Sanguino",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-ISABELNATIVIDAD-A133",
+    "nombre": "Isabel Natividad Díaz Ayuso",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-LAURADÍAZROMÁN-D4B2",
+    "nombre": "Laura Díaz Román",
+    "grupo": "Podemos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-JOSÉIGNACIOECHE-3A19",
+    "nombre": "José Ignacio Echeverría Echániz",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MARTAMARÍAESCUD-60CF",
+    "nombre": "Marta María Escudero Díaz-Tejeiro",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-RAMÓNESPINARMER-6E87",
+    "nombre": "Ramón Espinar Merino",
+    "grupo": "Podemos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MARÍAESPINOSADE-F210",
+    "nombre": "María Espinosa de la Llave",
+    "grupo": "Podemos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-JESÚSFERMOSELDÍ-03D4",
+    "nombre": "Jesús Fermosel Díaz",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-LUCÍAFERNÁNDEZF-7522",
+    "nombre": "Lucía Fernández Fernández",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-JOSÉLUISFERNÁND-DCB4",
+    "nombre": "José Luis Fernández-Quejo del Pozo",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-EDUARDOFERNÁNDE-E23A",
+    "nombre": "Eduardo Fernández Rubiño",
+    "grupo": "Podemos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-JOSÉMANUELFRANC-0CA5",
+    "nombre": "José Manuel Franco Pardo",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-JOSÉMANUELFREIR-D4A6",
+    "nombre": "José Manuel Freire Campo",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-ÁNGELGABILONDOP-B145",
+    "nombre": "Ángel Gabilondo Pujol",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-BEATRIZGALIANAB-A137",
+    "nombre": "Beatriz Galiana Blanco",
+    "grupo": "Podemos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MERCEDESGALLIZO-0FF5",
+    "nombre": "Mercedes Gallizo Llamas",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-ANAGARCÍAD'ATRI-022C",
+    "nombre": "Ana García D'Atri",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MÓNICAGARCÍAGÓM-79BE",
+    "nombre": "Mónica García Gómez",
+    "grupo": "Podemos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MARÍABEGOÑAGARC-2BFA",
+    "nombre": "María Begoña García Martín",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MARÍAJOSÉGARCÍA-1853",
+    "nombre": "María José García-Patrón Alcázar",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-PEDROPABLOGARCÍ-D942",
+    "nombre": "Pedro Pablo García-Rojo Garrido",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-JOSÉLUISGARCÍAS-15B8",
+    "nombre": "José Luis García Sánchez",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-IGNACIOGARCÍADE-A56D",
+    "nombre": "Ignacio García de Vinuesa Gardoqui",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-ÁNGELGARRIDOGAR-038B",
+    "nombre": "Ángel Garrido García",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-BEATRIZGIMENORE-F5CA",
+    "nombre": "Beatriz Gimeno Reinoso",
+    "grupo": "Podemos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-RAFAELGOMEZMONT-D175",
+    "nombre": "Rafael Gomez Montoya",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-JUANANTONIOGÓME-252B",
+    "nombre": "Juan Antonio Gómez-Angulo Rodríguez",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-JOSÉÁNGELGÓMEZ--BEBF",
+    "nombre": "José Ángel Gómez-Chamorro Torres",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-ISABELGEMAGONZÁ-64FD",
+    "nombre": "Isabel Gema González González",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MÓNICASILVANAGO-B4CC",
+    "nombre": "Mónica Silvana González González",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-BARTOLOMÉGONZÁL-F134",
+    "nombre": "Bartolomé González Jiménez",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MIGUELÁNGELGONZ-A1A4",
+    "nombre": "Miguel Ángel González Merino",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-DOLORESGONZÁLEZ-9E55",
+    "nombre": "Dolores González Pastor",
+    "grupo": "Ciudadanos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-JAIMEGONZÁLEZTA-DE69",
+    "nombre": "Jaime González Taboada",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-ANTONIOPABLOGON-945F",
+    "nombre": "Antonio Pablo González Terol",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-ELENAGONZÁLEZ-M-8054",
+    "nombre": "Elena González-Moñux Vázquez",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-ROSALÍAGONZALOL-3BDC",
+    "nombre": "Rosalía Gonzalo López",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-EDUARDOBENITOGU-E08A",
+    "nombre": "Eduardo Benito Gutiérrez",
+    "grupo": "Podemos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-RAQUELHUERTABRA-9210",
+    "nombre": "Raquel Huerta Bravo",
+    "grupo": "Podemos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MARÍATERESADELA-D8A3",
+    "nombre": "María Teresa de la Iglesia Vicente",
+    "grupo": "Ciudadanos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-CARLOSIZQUIERDO-8CE0",
+    "nombre": "Carlos Izquierdo Torres",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-RAFAELJOSÉVÉLEZ-BF04",
+    "nombre": "Rafael José Vélez",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-FEDERICOJIMÉNEZ-7C43",
+    "nombre": "Federico Jiménez de Parga Maseda",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-FRANCISCOLARACA-1563",
+    "nombre": "Francisco Lara Casanova",
+    "grupo": "Ciudadanos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MARÍAISAURALEAL-B3F8",
+    "nombre": "María Isaura Leal Fernández",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MARÍAPILARLIÉBA-B701",
+    "nombre": "María Pilar Liébana Montijano",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MARÍAPILARLLOPC-8AF8",
+    "nombre": "María Pilar Llop Cuenca",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-JUANLOBATOGANDA-7B75",
+    "nombre": "Juan Lobato Gandarias",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-ISIDROLÓPEZFERN-AE0A",
+    "nombre": "Isidro López Fernández",
+    "grupo": "Podemos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-JOSÉMANUELLÓPEZ-43B7",
+    "nombre": "José Manuel López Rodrigo",
+    "grupo": "Podemos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MARÍACARMENLÓPE-AA90",
+    "nombre": "María Carmen López Ruiz",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-DIEGOLOZANOPÉRE-690C",
+    "nombre": "Diego Lozano Pérez",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-TERESADEJESÚSLU-5F82",
+    "nombre": "Teresa de Jesús Luis Rico",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-EVAMARÍAMANGUÁN-6A65",
+    "nombre": "Eva María Manguán Valderrama",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MARTAMARBÁNDEFR-6AD9",
+    "nombre": "Marta Marbán de Frutos",
+    "grupo": "Ciudadanos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-TOMÁSMARCOSARIA-C5B0",
+    "nombre": "Tomás Marcos Arias",
+    "grupo": "Ciudadanos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-ANAISABELMARIÑO-7F28",
+    "nombre": "Ana Isabel Mariño Ortega",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MARÍAREYESMAROT-6D71",
+    "nombre": "María Reyes Maroto Illera",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MARÍAPAZMARTÍNL-B9A6",
+    "nombre": "María Paz Martín Lozano",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-HUGOMARTÍNEZABA-A444",
+    "nombre": "Hugo Martínez Abarca",
+    "grupo": "Podemos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-CARMENMARTÍNEZT-3390",
+    "nombre": "Carmen Martínez Ten",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MARÍAJULIAMARTÍ-F5D7",
+    "nombre": "María Julia Martínez Torales",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-JESÚSRICARDOMEG-E2C4",
+    "nombre": "Jesús Ricardo Megías Morales",
+    "grupo": "Ciudadanos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MARÍACARMENMENA-ED9B",
+    "nombre": "María Carmen Mena Romero",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-ANCATEODORAMOLD-F0E3",
+    "nombre": "Anca Teodora Moldovan Feier",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-ÁLVAROMORAGAVAL-B48E",
+    "nombre": "Álvaro Moraga Valiente",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-JACINTOMORANOGO-F02D",
+    "nombre": "Jacinto Morano González",
+    "grupo": "Podemos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-JUANJOSÉMORENON-BE58",
+    "nombre": "Juan José Moreno Navarro",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MARÍAENCARNACIÓ-2EB3",
+    "nombre": "María Encarnación Moya Nieto",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-PEDROMUÑOZABRIN-FDE6",
+    "nombre": "Pedro Muñoz Abrines",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-JOSEFANAVARROLA-CBFF",
+    "nombre": "Josefa Navarro Lanchas",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MODESTONOLLAEST-A8C3",
+    "nombre": "Modesto Nolla Estrada",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-JOSÉENRIQUENÚÑE-2C88",
+    "nombre": "José Enrique Núñez Guijarro",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-PEDRONÚÑEZ-MORG-621B",
+    "nombre": "Pedro Núñez-Morgades García de Leaniz",
+    "grupo": "Ciudadanos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-ROBERTONÚÑEZSÁN-5F47",
+    "nombre": "Roberto Núñez Sánchez",
+    "grupo": "Ciudadanos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-EDUARDOOFICIALD-4E71",
+    "nombre": "Eduardo Oficialdegui Alonso de Celada",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-ALBERTOOLIVERGÓ-2D61",
+    "nombre": "Alberto Oliver Gómez de la Vega",
+    "grupo": "Podemos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-LUISDELOLMOFLÓR-5B40",
+    "nombre": "Luis del Olmo Flórez",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MARÍAGÁDORONGIL-1CAA",
+    "nombre": "María Gádor Ongil Cores",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MIGUELONGILLÓPE-40AD",
+    "nombre": "Miguel Ongil López",
+    "grupo": "Podemos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-DANIELORTIZESPE-F6C5",
+    "nombre": "Daniel Ortiz Espejo",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-ENRIQUEMATÍASOS-AB05",
+    "nombre": "Enrique Matías Ossorio Crespo",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-PABLOPADILLAEST-D338",
+    "nombre": "Pablo Padilla Estrada",
+    "grupo": "Podemos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-JOSEFAPARDOORTI-71E9",
+    "nombre": "Josefa Pardo Ortiz",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-RICARDOVICENTEP-50FE",
+    "nombre": "Ricardo Vicente Peña Mari",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-LUISPERALGUERRA-47EE",
+    "nombre": "Luis Peral Guerra",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-ANAISABELPÉREZB-5E2D",
+    "nombre": "Ana Isabel Pérez Baos",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-DAVIDPÉREZGARCÍ-473A",
+    "nombre": "David Pérez García",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MARÍAREGINAPLAÑ-D8DB",
+    "nombre": "María Regina Plañiol de Lacalle",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-JOSÉQUINTANAVIA-6F01",
+    "nombre": "José Quintana Viar",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MANUELFRANCISCO-C209",
+    "nombre": "Manuel Francisco Quintanar Díez",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-EDUARDORABOSOGA-A902",
+    "nombre": "Eduardo Raboso García-Vaquero",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-ÁNGELRAMOSSÁNCH-A046",
+    "nombre": "Ángel Ramos Sánchez",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MARÍAISABELREDO-C753",
+    "nombre": "María Isabel Redondo Alcaide",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-ALBERTOREYEROZU-B5E1",
+    "nombre": "Alberto Reyero Zubiri",
+    "grupo": "Ciudadanos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-ENRIQUERICOGARC-6D7D",
+    "nombre": "Enrique Rico García-Hierro",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-ANARODRÍGUEZDUR-DD2F",
+    "nombre": "Ana Rodríguez Durán",
+    "grupo": "Ciudadanos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-NICOLÁSRODRÍGUE-59E7",
+    "nombre": "Nicolás Rodríguez García",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-BELÉNRODRÍGUEZP-5DF3",
+    "nombre": "Belén Rodríguez Palomino",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-PEDROMANUELROLL-E1B4",
+    "nombre": "Pedro Manuel Rollán Ojeda",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-JUANRAMÓNRUBIOR-9C1D",
+    "nombre": "Juan Ramón Rubio Ruiz",
+    "grupo": "Ciudadanos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-ESTHERRUIZFERNÁ-EB63",
+    "nombre": "Esther Ruiz Fernández",
+    "grupo": "Ciudadanos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-MIGUELÁNGELRUIZ-120B",
+    "nombre": "Miguel Ángel Ruiz López",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-LORENARUIZ-HUER-7276",
+    "nombre": "Lorena Ruiz-Huerta García de Viedma",
+    "grupo": "Podemos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-CECILIASALAZAR--B15A",
+    "nombre": "Cecilia Salazar-Alonso Revuelta",
+    "grupo": "Podemos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-PILARSÁNCHEZACE-12B1",
+    "nombre": "Pilar Sánchez Acera",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-ALEJANDROSÁNCHE-E962",
+    "nombre": "Alejandro Sánchez Fernández",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-ALEJANDROSÁNCHE-97FC",
+    "nombre": "Alejandro Sánchez Pérez",
+    "grupo": "Podemos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-CARMENSANJOSÉPÉ-FAD5",
+    "nombre": "Carmen San José Pérez",
+    "grupo": "Podemos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-DIEGOSANJUANBEN-BF79",
+    "nombre": "Diego Sanjuanbenito Bonal",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-PEDROSANTÍNFERN-33CF",
+    "nombre": "Pedro Santín Fernández",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-FRANCISCODEBORJ-4F8C",
+    "nombre": "Francisco de Borja Sarasola Jáudenes",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-JUANSEGOVIANORI-28F7",
+    "nombre": "Juan Segovia Noriega",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-CLARASERRASÁNCH-B77F",
+    "nombre": "Clara Serra Sánchez",
+    "grupo": "Podemos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-ISABELSERRASÁNC-7321",
+    "nombre": "Isabel Serra Sánchez",
+    "grupo": "Podemos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-JOSÉTOMÁSSERRAN-A3A5",
+    "nombre": "José Tomás Serrano Guio",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-ALFONSOCARLOSSE-43C9",
+    "nombre": "Alfonso Carlos Serrano Sánchez-Capuchino",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-ELENASEVILLANOD-E46B",
+    "nombre": "Elena Sevillano de las Heras",
+    "grupo": "Podemos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-JUANSOLER-ESPIA-7402",
+    "nombre": "Juan Soler-Espiauba Gallo",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-SUSANASOLÍSPÉRE-B954",
+    "nombre": "Susana Solís Pérez",
+    "grupo": "Ciudadanos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-LUCILATOLEDOMOR-5B65",
+    "nombre": "Lucila Toledo Moreno",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-EVATORMOMAIRENA-6480",
+    "nombre": "Eva Tormo Mairena",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-JOSÉTORTOSADELA-2BEE",
+    "nombre": "José Tortosa de la Iglesia",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-JUANTRINIDADMAR-3995",
+    "nombre": "Juan Trinidad Martos",
+    "grupo": "Ciudadanos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-JUANVAN-HALENAC-7CE4",
+    "nombre": "Juan Van-Halen Acedo",
+    "grupo": "PP",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-ENRIQUEVELOSOLO-D26E",
+    "nombre": "Enrique Veloso Lozano",
+    "grupo": "Ciudadanos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-DANIELVICENTEVI-6D51",
+    "nombre": "Daniel Vicente Viondi",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-AGUSTÍNVINAGREA-3885",
+    "nombre": "Agustín Vinagre Alcázar",
+    "grupo": "PSOE",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-10-CÉSARZAFRAFERNÁ-A73B",
+    "nombre": "César Zafra Fernández",
+    "grupo": "Ciudadanos",
+    "nlegis": "10",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-MARÍAACÍNCARRER-6845",
+    "nombre": "María Acín Carrera",
+    "grupo": "Más Madrid",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-MARÍAPALOMAADRA-D1DB",
+    "nombre": "María Paloma Adrados Gautier",
+    "grupo": "PP",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-IGNACIOAGUADOCR-B832",
+    "nombre": "Ignacio Aguado Crespo",
+    "grupo": "Ciudadanos",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-ROCÍOALBERTLÓPE-FC64",
+    "nombre": "Rocío Albert López",
+    "grupo": "PP",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-CAROLINAALONSOA-5100",
+    "nombre": "Carolina Alonso Alonso",
+    "grupo": "Podemos",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-VICTORIAALONSOM-E9CB",
+    "nombre": "Victoria Alonso Márquez",
+    "grupo": "Ciudadanos",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-MARÍANADIAÁLVAR-34B3",
+    "nombre": "María Nadia Álvarez Padilla",
+    "grupo": "PP",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-JOSÉIGNACIOARIA-491B",
+    "nombre": "José Ignacio Arias Moreno",
+    "grupo": "Vox",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-MIGUELLUISARRAN-F930",
+    "nombre": "Miguel Luis Arranz Sánchez",
+    "grupo": "PSOE-M",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-JOSÉMARÍAARRIBA-FBAB",
+    "nombre": "José María Arribas del Barrio",
+    "grupo": "PP",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-ISABELAYMERICHD-7B40",
+    "nombre": "Isabel Aymerich D'Olhaberriague",
+    "grupo": "PSOE-M",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-EVABAILÉNFERNÁN-C826",
+    "nombre": "Eva Bailén Fernández",
+    "grupo": "Ciudadanos",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-MARÍACARMENBARA-035D",
+    "nombre": "María Carmen Barahona Prol",
+    "grupo": "PSOE-M",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-JAZMÍNBEIRAKULA-D7F4",
+    "nombre": "Jazmín Beirak Ulanosky",
+    "grupo": "Más Madrid",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-JAIMEMARÍADEBER-3B9E",
+    "nombre": "Jaime María de Berenguer de Santiago",
+    "grupo": "Vox",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-MARTABERNARDOLL-CA8A",
+    "nombre": "Marta Bernardo Llorente",
+    "grupo": "PSOE-M",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-BORJALUISCABEZÓ-A268",
+    "nombre": "Borja Luis Cabezón Royo",
+    "grupo": "PSOE-M",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-SERGIOBRABEZOCA-1005",
+    "nombre": "Sergio Brabezo Carballo",
+    "grupo": "Ciudadanos",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-MARIANOCALABUIG-C31D",
+    "nombre": "Mariano Calabuig Martínez",
+    "grupo": "Vox",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-ANACAMINSMARTÍN-F88A",
+    "nombre": "Ana Camins Martínez",
+    "grupo": "PP",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-FRANCISCOJAVIER-3830",
+    "nombre": "Francisco Javier Cañadas Martín",
+    "grupo": "Podemos",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-MARÍAEUGENIACAR-20F9",
+    "nombre": "María Eugenia Carballedo Berlanga",
+    "grupo": "PP",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-MARÍAYOBANACARR-1E7E",
+    "nombre": "María Yobana Carril Antelo",
+    "grupo": "Vox",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-MARÍACARMENCAST-2017",
+    "nombre": "María Carmen Castell Díaz",
+    "grupo": "PP",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-MARÍALLANOSCAST-1C16",
+    "nombre": "María Llanos Castellanos Garijo",
+    "grupo": "PSOE-M",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-PURIFICACIÓNCAU-272E",
+    "nombre": "Purificación Causapié Lopesino",
+    "grupo": "PSOE-M",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-JOSÉCARMELOCEPE-9B3B",
+    "nombre": "José Carmelo Cepeda García de León",
+    "grupo": "PSOE-M",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-SONIACONEJEROPA-22A1",
+    "nombre": "Sonia Conejero Palero",
+    "grupo": "PSOE-M",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-DIEGOCRUZTORRIJ-BFB0",
+    "nombre": "Diego Cruz Torrijos",
+    "grupo": "PSOE-M",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-ANAMARÍACUARTER-A8E2",
+    "nombre": "Ana María Cuartero Lorenzo",
+    "grupo": "Vox",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-JORGEARTUROCUTI-6712",
+    "nombre": "Jorge Arturo Cutillas Cordón",
+    "grupo": "Vox",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-CARLADELGADOGÓM-FFEB",
+    "nombre": "Carla Delgado Gómez",
+    "grupo": "PSOE-M",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-EMILIODELGADOOR-2D76",
+    "nombre": "Emilio Delgado Orgaz",
+    "grupo": "Más Madrid",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-ISABELNATIVIDAD-A133",
+    "nombre": "Isabel Natividad Díaz Ayuso",
+    "grupo": "PP",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-CARLOSDÍAZ-PACH-7EFC",
+    "nombre": "Carlos Díaz-Pache Gosende",
+    "grupo": "PP",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-MIGUELDÍAZMARTÍ-9F48",
+    "nombre": "Miguel Díaz Martín",
+    "grupo": "Ciudadanos",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-MATILDEISABELDÍ-3FC6",
+    "nombre": "Matilde Isabel Díaz Ojeda",
+    "grupo": "PSOE-M",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-MACARENAELVIRAR-FA23",
+    "nombre": "Macarena Elvira Rubio",
+    "grupo": "PSOE-M",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-DAVIDERGUIDOCAN-B5E2",
+    "nombre": "David Erguido Cano",
+    "grupo": "PP",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-ÍÑIGOERREJÓNGAL-4679",
+    "nombre": "Íñigo Errejón Galván",
+    "grupo": "Más Madrid",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-MARÍAYOLANDAEST-F322",
+    "nombre": "María Yolanda Estrada Madrid",
+    "grupo": "PP",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-FERNANDOFERNÁND-0061",
+    "nombre": "Fernando Fernández Lara",
+    "grupo": "PSOE-M",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-EMYFERNÁNDEZ-LU-F18E",
+    "nombre": "Emy Fernández-Luna Abellán",
+    "grupo": "Ciudadanos",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-EDUARDOFERNÁNDE-E23A",
+    "nombre": "Eduardo Fernández Rubiño",
+    "grupo": "Más Madrid",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-DIEGOFIGUERAÁLV-6188",
+    "nombre": "Diego Figuera Álvarez",
+    "grupo": "Más Madrid",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-JOSÉMANUELFREIR-D4A6",
+    "nombre": "José Manuel Freire Campo",
+    "grupo": "PSOE-M",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-ÁNGELGABILONDOP-B145",
+    "nombre": "Ángel Gabilondo Pujol",
+    "grupo": "PSOE-M",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-ANAISABELGARCÍA-C4B3",
+    "nombre": "Ana Isabel García García",
+    "grupo": "Ciudadanos",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-MÓNICAGARCÍAGÓM-79BE",
+    "nombre": "Mónica García Gómez",
+    "grupo": "Más Madrid",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-JOSÉLUISGARCÍAS-15B8",
+    "nombre": "José Luis García Sánchez",
+    "grupo": "PSOE-M",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-ÁNGELGARRIDOGAR-038B",
+    "nombre": "Ángel Garrido García",
+    "grupo": "Ciudadanos",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-BEATRIZGIMENORE-F5CA",
+    "nombre": "Beatriz Gimeno Reinoso",
+    "grupo": "Podemos",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-ALICIAGÓMEZBENÍ-0FCE",
+    "nombre": "Alicia Gómez Benítez",
+    "grupo": "Más Madrid",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-JOSÉÁNGELGÓMEZC-4E65",
+    "nombre": "José Ángel Gómez Chamorro Torres",
+    "grupo": "PSOE-M",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-ARACELIGÓMEZGAR-6E0F",
+    "nombre": "Araceli Gómez García",
+    "grupo": "Ciudadanos",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-RAFAELGÓMEZMONT-42A5",
+    "nombre": "Rafael Gómez Montoya",
+    "grupo": "PSOE-M",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-PABLOGÓMEZPERPI-177A",
+    "nombre": "Pablo Gómez Perpiñá",
+    "grupo": "Más Madrid",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-CRISTINAGONZÁLE-75A4",
+    "nombre": "Cristina González Álvarez",
+    "grupo": "PSOE-M",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-JAVIERGUARDIOLA-DBF0",
+    "nombre": "Javier Guardiola Arévalo",
+    "grupo": "PSOE-M",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-SANTIAGOEDUARDO-1977",
+    "nombre": "Santiago Eduardo Gutiérrez Benito",
+    "grupo": "Más Madrid",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-PABLOGUTIÉRREZD-07C3",
+    "nombre": "Pablo Gutiérrez de Cabiedes Hidalgo de Caviedes",
+    "grupo": "Vox",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-ROBERTOHERNÁNDE-E828",
+    "nombre": "Roberto Hernández Blázquez",
+    "grupo": "Ciudadanos",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-JUANMIGUELHERNÁ-18CA",
+    "nombre": "Juan Miguel Hernández de León",
+    "grupo": "PSOE-M",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-ÍÑIGOHENRÍQUEZD-377B",
+    "nombre": "Íñigo Henríquez de Luna Losada",
+    "grupo": "Vox",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-RAQUELHUERTABRA-9210",
+    "nombre": "Raquel Huerta Bravo",
+    "grupo": "Más Madrid",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-MARÍAYOLANDAIBA-468E",
+    "nombre": "María Yolanda Ibarrola de la Fuente",
+    "grupo": "PP",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-CARLOSIZQUIERDO-8CE0",
+    "nombre": "Carlos Izquierdo Torres",
+    "grupo": "PP",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-HANAJALLOULMURO-6D5D",
+    "nombre": "Hana Jalloul Muro",
+    "grupo": "PSOE-M",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-GÁDORPILARJOYAV-E896",
+    "nombre": "Gádor Pilar Joya Verde",
+    "grupo": "Vox",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-PILARLIÉBANASOT-C1E0",
+    "nombre": "Pilar Liébana Soto",
+    "grupo": "Ciudadanos",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-VANESSALILLOGÓM-24AC",
+    "nombre": "Vanessa Lillo Gómez",
+    "grupo": "IU-Madrid",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-PILARLLOPCUENCA-AC0A",
+    "nombre": "Pilar Llop Cuenca",
+    "grupo": "PSOE-M",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-MARÍACARMENLÓPE-AA90",
+    "nombre": "María Carmen López Ruiz",
+    "grupo": "PSOE-M",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-JAVIERLUENGOVIC-49A9",
+    "nombre": "Javier Luengo Vicente",
+    "grupo": "Ciudadanos",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-MARTAMARBÁNDEFR-6AD9",
+    "nombre": "Marta Marbán de Frutos",
+    "grupo": "Ciudadanos",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-TOMÁSMARCOSARIA-C5B0",
+    "nombre": "Tomás Marcos Arias",
+    "grupo": "Ciudadanos",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-HUGOMARTÍNEZABA-A444",
+    "nombre": "Hugo Martínez Abarca",
+    "grupo": "Más Madrid",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-RICARDOMEGÍASMO-36DA",
+    "nombre": "Ricardo Megías Morales",
+    "grupo": "Ciudadanos",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-MARÍACARMENMENA-ED9B",
+    "nombre": "María Carmen Mena Romero",
+    "grupo": "PSOE-M",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-MARÍALUISAMERCA-59AB",
+    "nombre": "María Luisa Mercado Merino",
+    "grupo": "PSOE-M",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-ROCÍOMONASTERIO-F952",
+    "nombre": "Rocío Monasterio San Martín",
+    "grupo": "Vox",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-ÁLVAROMORAGAVAL-B48E",
+    "nombre": "Álvaro Moraga Valiente",
+    "grupo": "PP",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-LORENAMORALESPO-F2CF",
+    "nombre": "Lorena Morales Porro",
+    "grupo": "PSOE-M",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-JACINTOMORANOGO-F02D",
+    "nombre": "Jacinto Morano González",
+    "grupo": "Podemos",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-JUANJOSÉMORENON-BE58",
+    "nombre": "Juan José Moreno Navarro",
+    "grupo": "PSOE-M",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-JORGEMORUNODANZ-DB80",
+    "nombre": "Jorge Moruno Danzi",
+    "grupo": "Más Madrid",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-MARÍAENCARNACIÓ-2EB3",
+    "nombre": "María Encarnación Moya Nieto",
+    "grupo": "PSOE-M",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-PEDROMUÑOZABRIN-FDE6",
+    "nombre": "Pedro Muñoz Abrines",
+    "grupo": "PP",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-MARÍADOLORESNAV-D54D",
+    "nombre": "María Dolores Navarro Ruiz",
+    "grupo": "PP",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-ALMUDENANEGROKO-C84E",
+    "nombre": "Almudena Negro Konrad",
+    "grupo": "PP",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-MODESTONOLLAEST-A8C3",
+    "nombre": "Modesto Nolla Estrada",
+    "grupo": "PSOE-M",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-JOSÉENRIQUENÚÑE-2C88",
+    "nombre": "José Enrique Núñez Guijarro",
+    "grupo": "PP",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-ROBERTONÚÑEZSÁN-5F47",
+    "nombre": "Roberto Núñez Sánchez",
+    "grupo": "Ciudadanos",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-REGINAOTAOLAMUG-8AF8",
+    "nombre": "Regina Otaola Muguerza",
+    "grupo": "PP",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-ENRIQUEMATÍASOS-AB05",
+    "nombre": "Enrique Matías Ossorio Crespo",
+    "grupo": "PP",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-LUISPACHECOTORR-59BC",
+    "nombre": "Luis Pacheco Torres",
+    "grupo": "Ciudadanos",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-TAMARAPARDOBLÁZ-B958",
+    "nombre": "Tamara Pardo Blázquez",
+    "grupo": "Ciudadanos",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-MARÍAPASTORVALD-7764",
+    "nombre": "María Pastor Valdés",
+    "grupo": "Más Madrid",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-JAVIERPÉREZGALL-41FE",
+    "nombre": "Javier Pérez Gallardo",
+    "grupo": "Vox",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-DAVIDPÉREZGARCÍ-473A",
+    "nombre": "David Pérez García",
+    "grupo": "PP",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-ALODIAPÉREZMUÑO-9064",
+    "nombre": "Alodia Pérez Muñoz",
+    "grupo": "Más Madrid",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-DANIELPORTERODE-7958",
+    "nombre": "Daniel Portero de la Torre",
+    "grupo": "PP",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-EDUARDORABOSOGA-4EA5",
+    "nombre": "Eduardo Raboso García-Baquero",
+    "grupo": "PP",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-CLARARAMASSANMI-A68B",
+    "nombre": "Clara Ramas San Miguel",
+    "grupo": "Más Madrid",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-ALBERTOREYEROZU-B5E1",
+    "nombre": "Alberto Reyero Zubiri",
+    "grupo": "Ciudadanos",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-ENRIQUERICOGARC-07D2",
+    "nombre": "Enrique Rico García Hierro",
+    "grupo": "PSOE-M",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-PEDROMANUELROLL-E1B4",
+    "nombre": "Pedro Manuel Rollán Ojeda",
+    "grupo": "PP",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-JORGERODRIGODOM-D917",
+    "nombre": "Jorge Rodrigo Domínguez",
+    "grupo": "PP",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-ANARODRÍGUEZDUR-DD2F",
+    "nombre": "Ana Rodríguez Durán",
+    "grupo": "Ciudadanos",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-NICOLÁSRODRÍGUE-59E7",
+    "nombre": "Nicolás Rodríguez García",
+    "grupo": "PSOE-M",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-JOSÉMANUELRODRÍ-EE87",
+    "nombre": "José Manuel Rodríguez Uribes",
+    "grupo": "PSOE-M",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-ALICIAVERÓNICAR-32D7",
+    "nombre": "Alicia Verónica Rubio Calle",
+    "grupo": "Vox",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-JUANRUBIORUIZ-32E9",
+    "nombre": "Juan Rubio Ruiz",
+    "grupo": "Ciudadanos",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-ESTHERRUIZFERNÁ-EB63",
+    "nombre": "Esther Ruiz Fernández",
+    "grupo": "Ciudadanos",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-PILARSÁNCHEZACE-12B1",
+    "nombre": "Pilar Sánchez Acera",
+    "grupo": "PSOE-M",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-ALICIASÁNCHEZ-C-C508",
+    "nombre": "Alicia Sánchez-Camacho Pérez",
+    "grupo": "PP",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-SOLEDADSÁNCHEZM-ACEF",
+    "nombre": "Soledad Sánchez Maroto",
+    "grupo": "IU-Madrid",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-TANIASÁNCHEZMEL-45F6",
+    "nombre": "Tania Sánchez Melero",
+    "grupo": "Más Madrid",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-ALEJANDROSÁNCHE-97FC",
+    "nombre": "Alejandro Sánchez Pérez",
+    "grupo": "Más Madrid",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-JOSÉANTONIOSÁNC-F36C",
+    "nombre": "José Antonio Sánchez Serrano",
+    "grupo": "PP",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-DIEGOSANJUANBEN-BF79",
+    "nombre": "Diego Sanjuanbenito Bonal",
+    "grupo": "PP",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-CARLOTASANTIAGO-546B",
+    "nombre": "Carlota Santiago Camacho",
+    "grupo": "Ciudadanos",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-JAIMEMIGUELDELO-A66B",
+    "nombre": "Jaime Miguel de los Santos González",
+    "grupo": "PP",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-CLARASERRASÁNCH-B77F",
+    "nombre": "Clara Serra Sánchez",
+    "grupo": "Más Madrid",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-ISABELSERRASÁNC-7321",
+    "nombre": "Isabel Serra Sánchez",
+    "grupo": "Podemos",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-ALFONSOCARLOSSE-43C9",
+    "nombre": "Alfonso Carlos Serrano Sánchez-Capuchino",
+    "grupo": "PP",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-HÉCTORTEJEROFRA-E17F",
+    "nombre": "Héctor Tejero Franco",
+    "grupo": "Más Madrid",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-FRANCISCOTOMÁS--1A10",
+    "nombre": "Francisco Tomás-Valiente Lanuza",
+    "grupo": "PSOE-M",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-JUANTRINIDADMAR-3995",
+    "nombre": "Juan Trinidad Martos",
+    "grupo": "Ciudadanos",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-ENRIQUEVELOSOLO-D26E",
+    "nombre": "Enrique Veloso Lozano",
+    "grupo": "Ciudadanos",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-AGUSTÍNVINAGREA-3885",
+    "nombre": "Agustín Vinagre Alcázar",
+    "grupo": "PSOE-M",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-11-CÉSARZAFRAHERNÁ-C6E2",
+    "nombre": "César Zafra Hernández",
+    "grupo": "Ciudadanos",
+    "nlegis": "11",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-MARÍAACÍNCARRER-6845",
+    "nombre": "María Acín Carrera",
+    "grupo": "Más Madrid",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-MARÍAPALOMAADRA-D1DB",
+    "nombre": "María Paloma Adrados Gautier",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-CAROLINAALONSOA-5100",
+    "nombre": "Carolina Alonso Alonso",
+    "grupo": "Podemos",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-LORETOARENILLAS-D78D",
+    "nombre": "Loreto Arenillas Gómez",
+    "grupo": "Más Madrid",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-JOSÉIGNACIOARIA-491B",
+    "nombre": "José Ignacio Arias Moreno",
+    "grupo": "Vox",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-JOSÉMARÍAARRIBA-FBAB",
+    "nombre": "José María Arribas del Barrio",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-GONZALOBABÉROME-BF4C",
+    "nombre": "Gonzalo Babé Romero",
+    "grupo": "Vox",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-ÁLVAROBALLARÍNV-9311",
+    "nombre": "Álvaro Ballarín Valcárcel",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-MARÍACARMENBARA-035D",
+    "nombre": "María Carmen Barahona Prol",
+    "grupo": "PSOE-M",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-JAZMÍNBEIRAKULA-D7F4",
+    "nombre": "Jazmín Beirak Ulanosky",
+    "grupo": "Más Madrid",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-MANUELABERGEROT-1D08",
+    "nombre": "Manuela Bergerot Uncal",
+    "grupo": "Más Madrid",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-MARTABERNARDOLL-CA8A",
+    "nombre": "Marta Bernardo Llorente",
+    "grupo": "PSOE-M",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-MARÍADELMARBLAN-7648",
+    "nombre": "María del Mar Blanco Garrido",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-SERGIOBRABEZOCA-1005",
+    "nombre": "Sergio Brabezo Carballo",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-MIRIAMBRAVOSÁNC-DF3D",
+    "nombre": "Miriam Bravo Sánchez",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-TOMÁSBURGOSBETE-DF55",
+    "nombre": "Tomás Burgos Beteta",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-MARIANOCALABUIG-C31D",
+    "nombre": "Mariano Calabuig Martínez",
+    "grupo": "Vox",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-ANACAMINSMARTÍN-F88A",
+    "nombre": "Ana Camins Martínez",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-MARÍAEUGENIACAR-20F9",
+    "nombre": "María Eugenia Carballedo Berlanga",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-MARÍACARMENCAST-2017",
+    "nombre": "María Carmen Castell Díaz",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-IGNACIOCATALÁMA-3DF6",
+    "nombre": "Ignacio Catalá Martínez",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-JESÚSCELADAPÉRE-AFE6",
+    "nombre": "Jesús Celada Pérez",
+    "grupo": "PSOE-M",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-JOSÉCARMELOCEPE-9B3B",
+    "nombre": "José Carmelo Cepeda García de León",
+    "grupo": "PSOE-M",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-ORLANDOCHACÓNTA-D233",
+    "nombre": "Orlando Chacón Tabares",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-ANACOLLADOJIMÉN-2BA9",
+    "nombre": "Ana Collado Jiménez",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-SONIACONEJEROPA-22A1",
+    "nombre": "Sonia Conejero Palero",
+    "grupo": "PSOE-M",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-PEDROMARÍACORRA-1BBC",
+    "nombre": "Pedro María Corral Corral",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-MIRINACORTÉSORT-A22E",
+    "nombre": "Mirina Cortés Ortega",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-DIEGOCRUZTORRIJ-BFB0",
+    "nombre": "Diego Cruz Torrijos",
+    "grupo": "PSOE-M",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-ANAMARÍACUARTER-A8E2",
+    "nombre": "Ana María Cuartero Lorenzo",
+    "grupo": "Vox",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-JORGEARTUROCUTI-6712",
+    "nombre": "Jorge Arturo Cutillas Cordón",
+    "grupo": "Vox",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-ANADÁVILA-PONCE-BA3B",
+    "nombre": "Ana Dávila-Ponce de León Municio",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-JAIMEMARÍADEBER-3B9E",
+    "nombre": "Jaime María de Berenguer de Santiago",
+    "grupo": "Vox",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-JAIMEDELOSSANTO-2B8D",
+    "nombre": "Jaime de los Santos González",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-EMILIODELGADOOR-2D76",
+    "nombre": "Emilio Delgado Orgaz",
+    "grupo": "Más Madrid",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-ISABELNATIVIDAD-A133",
+    "nombre": "Isabel Natividad Díaz Ayuso",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-MATILDEISABELDÍ-3FC6",
+    "nombre": "Matilde Isabel Díaz Ojeda",
+    "grupo": "PSOE-M",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-ALBERTOESCRIBAN-7017",
+    "nombre": "Alberto Escribano García",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-MARÍAYOLANDAEST-F322",
+    "nombre": "María Yolanda Estrada Madrid",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-LUCÍASOLEDADFER-7631",
+    "nombre": "Lucía Soledad Fernández Alonso",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-FERNANDOFERNÁND-0061",
+    "nombre": "Fernando Fernández Lara",
+    "grupo": "PSOE-M",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-EDUARDOFERNÁNDE-E23A",
+    "nombre": "Eduardo Fernández Rubiño",
+    "grupo": "Más Madrid",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-JAVIERFERNÁNDEZ-79EA",
+    "nombre": "Javier Fernández-Lasquetty",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-DIEGOFIGUERAÁLV-6188",
+    "nombre": "Diego Figuera Álvarez",
+    "grupo": "Más Madrid",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-FRANCISCOGALEOT-FB5A",
+    "nombre": "Francisco Galeote Perea",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-MÓNICAGARCÍAGÓM-79BE",
+    "nombre": "Mónica García Gómez",
+    "grupo": "Más Madrid",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-JOSÉLUISGARCÍAS-15B8",
+    "nombre": "José Luis García Sánchez",
+    "grupo": "PSOE-M",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-PALOMAGARCÍAVIL-D0C1",
+    "nombre": "Paloma García Villa",
+    "grupo": "Podemos",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-BEATRIZGIMENORE-F5CA",
+    "nombre": "Beatriz Gimeno Reinoso",
+    "grupo": "Podemos",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-PABLOGÓMEZPERPI-177A",
+    "nombre": "Pablo Gómez Perpiñá",
+    "grupo": "Más Madrid",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-CRISTINAGONZÁLE-75A4",
+    "nombre": "Cristina González Álvarez",
+    "grupo": "PSOE-M",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-CARLOSGONZÁLEZM-2D94",
+    "nombre": "Carlos González Maestre",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-CARLOSGONZÁLEZP-9BBA",
+    "nombre": "Carlos González Pereira",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-CARLAISABELGREC-11E1",
+    "nombre": "Carla Isabel Greciano Barrado",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-JAVIERGUARDIOLA-DBF0",
+    "nombre": "Javier Guardiola Arévalo",
+    "grupo": "PSOE-M",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-SANTIAGOEDUARDO-1977",
+    "nombre": "Santiago Eduardo Gutiérrez Benito",
+    "grupo": "Más Madrid",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-PABLOGUTIÉRREZD-07C3",
+    "nombre": "Pablo Gutiérrez de Cabiedes Hidalgo de Caviedes",
+    "grupo": "Vox",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-ÍÑIGOHENRÍQUEZD-377B",
+    "nombre": "Íñigo Henríquez de Luna Losada",
+    "grupo": "Vox",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-LORENAHERASSEDA-AA3D",
+    "nombre": "Lorena Heras Sedano",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-RAQUELHUERTABRA-9210",
+    "nombre": "Raquel Huerta Bravo",
+    "grupo": "Más Madrid",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-CARLOSIZQUIERDO-8CE0",
+    "nombre": "Carlos Izquierdo Torres",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-ALEJANDRAJACINT-4381",
+    "nombre": "Alejandra Jacinto Uranga",
+    "grupo": "Podemos",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-HANAJALLOULMURO-6D5D",
+    "nombre": "Hana Jalloul Muro",
+    "grupo": "PSOE-M",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-GÁDORPILARJOYAV-E896",
+    "nombre": "Gádor Pilar Joya Verde",
+    "grupo": "Vox",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-VANESSALILLOGÓM-24AC",
+    "nombre": "Vanessa Lillo Gómez",
+    "grupo": "IU-Madrid",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-JUANLOBATOGANDA-7B75",
+    "nombre": "Juan Lobato Gandarias",
+    "grupo": "PSOE-M",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-ENRIQUELÓPEZLÓP-8B82",
+    "nombre": "Enrique López López",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-MARÍADELCARMENL-700F",
+    "nombre": "María del Carmen López Ruiz",
+    "grupo": "PSOE-M",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-MARTAMARBÁNDEFR-6AD9",
+    "nombre": "Marta Marbán de Frutos",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-PALOMAMARTÍNMAR-AA79",
+    "nombre": "Paloma Martín Martín",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-HUGOMARTÍNEZABA-A444",
+    "nombre": "Hugo Martínez Abarca",
+    "grupo": "Más Madrid",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-SERIGNEMBAYEDIO-7105",
+    "nombre": "Serigne Mbaye Diouf",
+    "grupo": "Podemos",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-MARÍACARMENMENA-ED9B",
+    "nombre": "María Carmen Mena Romero",
+    "grupo": "PSOE-M",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-JOSÉVIRGILIOMEN-9E69",
+    "nombre": "José Virgilio Menéndez Medrano",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-ROCÍOMONASTERIO-F952",
+    "nombre": "Rocío Monasterio San Martín",
+    "grupo": "Vox",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-SILVIAMONTERRUB-D58C",
+    "nombre": "Silvia Monterrubio Hernando",
+    "grupo": "PSOE-M",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-ÁLVAROMORAGAVAL-B48E",
+    "nombre": "Álvaro Moraga Valiente",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-LORENAMORALESPO-F2CF",
+    "nombre": "Lorena Morales Porro",
+    "grupo": "PSOE-M",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-JACINTOMORANOGO-F02D",
+    "nombre": "Jacinto Morano González",
+    "grupo": "Podemos",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-AGUSTÍNMORENOGA-A7D8",
+    "nombre": "Agustín Moreno García",
+    "grupo": "Podemos",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-JORGEMORUNODANZ-DB80",
+    "nombre": "Jorge Moruno Danzi",
+    "grupo": "Más Madrid",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-PEDROMUÑOZABRIN-FDE6",
+    "nombre": "Pedro Muñoz Abrines",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-ALMUDENANEGROKO-C84E",
+    "nombre": "Almudena Negro Konrad",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-MARÍADELMARNICO-001D",
+    "nombre": "María del Mar Nicolás Robledano",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-JANETTENOVOCAST-0731",
+    "nombre": "Janette Novo Castillo",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-NOELIANÚÑEZGONZ-74E1",
+    "nombre": "Noelia Núñez González",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-JOSÉENRIQUENÚÑE-2C88",
+    "nombre": "José Enrique Núñez Guijarro",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-ALBERTOOLIVERGÓ-2D61",
+    "nombre": "Alberto Oliver Gómez de la Vega",
+    "grupo": "Más Madrid",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-ENRIQUEMATÍASOS-AB05",
+    "nombre": "Enrique Matías Ossorio Crespo",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-JAVIERPADILLABE-1DDE",
+    "nombre": "Javier Padilla Bernáldez",
+    "grupo": "Más Madrid",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-GONZALOPASTORBA-4278",
+    "nombre": "Gonzalo Pastor Barahona",
+    "grupo": "PSOE-M",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-MARÍAPASTORVALD-7764",
+    "nombre": "María Pastor Valdés",
+    "grupo": "Más Madrid",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-JUANANTONIOPEÑA-75E3",
+    "nombre": "Juan Antonio Peña Ochoa",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-JUANABEATRIZPÉR-7FCB",
+    "nombre": "Juana Beatriz Pérez Abraham",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-JAVIERPÉREZGALL-41FE",
+    "nombre": "Javier Pérez Gallardo",
+    "grupo": "Vox",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-DAVIDPÉREZGARCÍ-473A",
+    "nombre": "David Pérez García",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-ALODIAPÉREZMUÑO-9064",
+    "nombre": "Alodia Pérez Muñoz",
+    "grupo": "Más Madrid",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-IGNACIOJOSÉPEZU-3008",
+    "nombre": "Ignacio José Pezuela Cabañes",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-JUDITPIQUETFLOR-82D7",
+    "nombre": "Judit Piquet Flores",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-ESTHERPLATEROSA-C2F3",
+    "nombre": "Esther Platero San Román",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-DANIELPORTERODE-7958",
+    "nombre": "Daniel Portero de la Torre",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-MIRIAMRABANEDAG-7B85",
+    "nombre": "Miriam Rabaneda Gudiel",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-EDUARDORABOSOGA-4EA5",
+    "nombre": "Eduardo Raboso García-Baquero",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-ÁNGELRAMOSSÁNCH-A046",
+    "nombre": "Ángel Ramos Sánchez",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-MIGUELÁNGELRECU-1629",
+    "nombre": "Miguel Ángel Recuenco Checa",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-MARÍAISABELREDO-C753",
+    "nombre": "María Isabel Redondo Alcaide",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-ENRIQUERICOGARC-07D2",
+    "nombre": "Enrique Rico García Hierro",
+    "grupo": "PSOE-M",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-SANTIAGOJOSÉRIV-9B94",
+    "nombre": "Santiago José Rivero Cruz",
+    "grupo": "PSOE-M",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-ENCARNACIÓNRIVE-DEBB",
+    "nombre": "Encarnación Rivero Flor",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-JORGERODRIGODOM-D917",
+    "nombre": "Jorge Rodrigo Domínguez",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-ESTHERRODRÍGUEZ-6776",
+    "nombre": "Esther Rodríguez Moreno",
+    "grupo": "Más Madrid",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-ALICIAVERÓNICAR-32D7",
+    "nombre": "Alicia Verónica Rubio Calle",
+    "grupo": "Vox",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-JOSÉLUISRUIZBAR-826A",
+    "nombre": "José Luis Ruiz Bartolomé",
+    "grupo": "Vox",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-ENRIQUERUIZESCU-D8E3",
+    "nombre": "Enrique Ruiz Escudero",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-PILARSÁNCHEZACE-12B1",
+    "nombre": "Pilar Sánchez Acera",
+    "grupo": "PSOE-M",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-ANTONIOSÁNCHEZD-1201",
+    "nombre": "Antonio Sánchez Domínguez",
+    "grupo": "Más Madrid",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-SOLEDADSÁNCHEZM-ACEF",
+    "nombre": "Soledad Sánchez Maroto",
+    "grupo": "IU-Madrid",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-TANIASÁNCHEZMEL-45F6",
+    "nombre": "Tania Sánchez Melero",
+    "grupo": "Más Madrid",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-ALEJANDROSÁNCHE-97FC",
+    "nombre": "Alejandro Sánchez Pérez",
+    "grupo": "Más Madrid",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-ALICIASÁNCHEZ-C-C508",
+    "nombre": "Alicia Sánchez-Camacho Pérez",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-DIEGOSANJUANBEN-BF79",
+    "nombre": "Diego Sanjuanbenito Bonal",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-JESÚSSANTOSGIME-596C",
+    "nombre": "Jesús Santos Gimeno",
+    "grupo": "Podemos",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-CARLOSSEGURAGUT-310B",
+    "nombre": "Carlos Segura Gutiérrez",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-ALEJANDRASERRAN-5DF0",
+    "nombre": "Alejandra Serrano Fernández",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-ALFONSOCARLOSSE-43C9",
+    "nombre": "Alfonso Carlos Serrano Sánchez-Capuchino",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-ENRIQUESERRANOS-91DD",
+    "nombre": "Enrique Serrano Sánchez-Tembleque",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-JUANSOLER-ESPIA-7402",
+    "nombre": "Juan Soler-Espiauba Gallo",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-BEGOÑAESTEFANÍA-4F47",
+    "nombre": "Begoña Estefanía Suárez Menéndez",
+    "grupo": "PSOE-M",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-HÉCTORTEJEROFRA-E17F",
+    "nombre": "Héctor Tejero Franco",
+    "grupo": "Más Madrid",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-PALOMATEJEROTOL-7766",
+    "nombre": "Paloma Tejero Toledo",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-ALICIATORIJALÓP-6CDC",
+    "nombre": "Alicia Torija López",
+    "grupo": "Más Madrid",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-ELISAADELAVIGIL-F407",
+    "nombre": "Elisa Adela Vigil González",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-MANUELAVILLAACO-6418",
+    "nombre": "Manuela Villa Acosta",
+    "grupo": "PSOE-M",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-AGUSTÍNVINAGREA-3885",
+    "nombre": "Agustín Vinagre Alcázar",
+    "grupo": "PSOE-M",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-JOSÉMANUELZARZO-23C2",
+    "nombre": "José Manuel Zarzoso Revenga",
+    "grupo": "PP",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
+    "id": "MAD-12-TERESADEJESÚSZU-F693",
+    "nombre": "Teresa de Jesús Zurita Ramón",
+    "grupo": "Más Madrid",
+    "nlegis": "12",
+    "foto": null,
+    "provincia": "Madrid"
+  },
+  {
     "id": "MAD-13-MARÍAACÍNCARRER-6845",
     "nombre": "María Acín Carrera",
     "grupo": "Más Madrid",
