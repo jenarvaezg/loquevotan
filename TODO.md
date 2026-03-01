@@ -3,6 +3,37 @@
 ## 🎯 OBJETIVO PRINCIPAL: Especial Elecciones CyL (Viralidad & Engagement)
 *Foco: Atraer, retener y hacer que los usuarios compartan la app durante la campaña.*
 
+## Priorización Ejecutiva (Pendientes)
+*Esta priorización reordena tareas ya listadas abajo.*
+
+### P0 (hacer ahora)
+1. **Pipeline CI de datos** (`test:data-integrity` + checks de estructura/tamaño en PR).
+2. **Homogeneizar `run_update.py` con fail-fast** (evitar publicar datasets parciales).
+3. **Fecha de actualización por ámbito visible** (transparencia operativa inmediata).
+4. **Diff automático entre actualizaciones** (QA rápido y trazable).
+5. **Tarjetas sociales dinámicas (OG)** (impacto directo en distribución/viralidad).
+6. **Soporte widgets/embeds** (distribución en medios locales y terceros).
+
+### P1 (siguiente bloque)
+1. **Madrid datos**: bypass scraping + histórico XII/XI/X + AI pass de títulos.
+2. **AI Full-Pass Andalucía** (limpieza de títulos crípticos de BOPA).
+3. **Filtros combinados / buscador avanzado** (etiqueta + fecha + proponente).
+4. **Cobertura de tests E2E/unitarios** en flujos críticos.
+5. **Trazabilidad por votación** (`source_url` + `source_hash`).
+6. **Accesibilidad automatizada en CI** (`axe` en vistas clave).
+7. **Detalle de rebeldía/tránsfugas** completo en perfil de diputado.
+8. **Glosario institucional contextual** (dictamen, voto particular, transaccional, etc.).
+
+### P2 (después)
+1. **Rendimiento de listados grandes** (virtualización + presupuesto LCP/INP).
+2. **Changelog público de metodología y datos** por release.
+3. **Separar coincidencia táctica vs alineamiento ideológico** en explicaciones públicas.
+4. **Ficha metodológica pública completa** (afinidad + compass).
+5. **Alertas de cambio de postura por partido** entre legislaturas.
+6. **Watchlist ciudadana** (diputados/temas).
+7. **Migrar CSS monolítico** a `scoped`.
+8. **Backlog largo plazo**: otras CCAA, RSS, favoritos, histórico I-IX.
+
 ### 1. Motor de Viralidad (Prioridad Absoluta)
 - [x] **Quiz de Afinidad Cívica ("¿A quién voto en CyL?"):**
   - Seleccionar 10-15 votaciones clave y polarizantes de la última legislatura en CyL.
@@ -84,6 +115,20 @@
 - [x] **Incertidumbre explícita del compass:** mostrar intervalo o banda de confianza por eje, no solo porcentaje global.
 - [ ] **Curación del banco de preguntas del quiz:** reducir preguntas de alto consenso transversal y subir peso a preguntas realmente discriminantes.
 - [ ] **Separar “coincidencia táctica” de “alineamiento ideológico”:** explicar cuándo una coincidencia de voto no implica cercanía doctrinal.
+
+---
+
+## Fase 3.2: Mejoras de Alto Impacto (operación + confianza pública)
+
+- [ ] **Fecha de actualización por ámbito visible:** mostrar “última actualización” y avisar cuando un ámbito esté desfasado.
+- [ ] **Diff automático entre actualizaciones de datos:** resumen de cambios (votaciones nuevas, diputados nuevos, recategorizaciones) para QA y transparencia.
+- [ ] **Trazabilidad por votación (fuente + hash):** persistir y exponer `source_url` + `source_hash` para auditoría reproducible.
+- [ ] **Pipeline CI de datos:** ejecutar `npm run test:data-integrity` + checks de estructura/tamaño en cada PR.
+- [ ] **Rendimiento en listados grandes:** virtualización de tablas/listas y presupuesto de rendimiento (LCP/INP) con alertas.
+- [ ] **Accesibilidad automatizada en CI:** incorporar tests `axe` en vistas clave (home, votación, diputado, grupos).
+- [ ] **Alertas de cambio de postura por partido:** detectar y mostrar cambios de posición por tema entre legislaturas.
+- [ ] **Watchlist ciudadana (diputados/temas):** seguimiento de entidades con vista de novedades.
+- [ ] **Changelog público de metodología y datos:** versionado por release para explicar cambios y reforzar confianza.
 
 ---
 

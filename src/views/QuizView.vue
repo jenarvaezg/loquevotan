@@ -7,6 +7,7 @@ const { currentScopeId } = useData()
 
 const quizSets = ref({ basic: null, advanced: null })
 const selectedMode = ref('basic')
+const selectedYAxis = ref('social') // 'social' | 'territorial'
 const loading = ref(true)
 const error = ref(null)
 const captureArea = ref(null)
@@ -17,6 +18,7 @@ const answers = ref({}) // qId -> 'si' | 'no' | 'abstencion'
 const PARTIAL_MATCH_FACTOR = 0.35
 const SOCIAL_AXIS_THRESHOLD = 15
 const ECONOMIC_AXIS_THRESHOLD = 15
+const TERRITORIAL_AXIS_THRESHOLD = 15
 const COMPASS_MIN_QUESTIONS_FOR_HIGH_CONFIDENCE = 14
 const COMPASS_DISPLAY_MARGIN = 8
 const COMPASS_DISPLAY_SOFTNESS = 0.55
@@ -25,33 +27,34 @@ const COMPASS_EMPIRICAL_BLEND_BASE = 0.44
 const COMPASS_SPREAD_FLOOR_FACTOR = 0.26
 const COMPASS_SPREAD_FLOOR_MIN = 4.5
 
+// Territorial axis: -100 (Centralista) to +100 (Regionalista/Nacionalista)
 const PARTY_ANCHORS = {
-  PSOE: { economic: -18, social: -22, color: '#ef4444' },
-  PP: { economic: 28, social: 24, color: '#2563eb' },
-  VOX: { economic: 52, social: 55, color: '#16a34a' },
-  SUMAR: { economic: -38, social: -44, color: '#db2777' },
-  PODEMOS: { economic: -48, social: -52, color: '#7c3aed' },
-  ERC: { economic: -30, social: -40, color: '#f59e0b' },
-  JUNTS: { economic: 8, social: -4, color: '#0ea5e9' },
-  PNV: { economic: 6, social: -8, color: '#14b8a6' },
+  PSOE: { economic: -18, social: -22, territorial: -10, color: '#ef4444' },
+  PP: { economic: 28, social: 24, territorial: -35, color: '#2563eb' },
+  VOX: { economic: 52, social: 55, territorial: -85, color: '#16a34a' },
+  SUMAR: { economic: -38, social: -44, territorial: 15, color: '#db2777' },
+  PODEMOS: { economic: -48, social: -52, territorial: 25, color: '#7c3aed' },
+  ERC: { economic: -30, social: -40, territorial: 95, color: '#f59e0b' },
+  JUNTS: { economic: 8, social: -4, territorial: 98, color: '#0ea5e9' },
+  PNV: { economic: 6, social: -8, territorial: 92, color: '#14b8a6' },
 
-  CS: { economic: 24, social: 6, color: '#f97316' },
-  'UPL-SY': { economic: -8, social: -12, color: '#a855f7' },
-  UPL: { economic: -12, social: -15, color: '#a855f7' },
-  SY: { economic: -5, social: -10, color: '#334155' },
-  'SORIA ¡YA!': { economic: -5, social: -10, color: '#334155' },
-  XAV: { economic: 12, social: 4, color: '#ffee00' },
-  'POR ÁVILA': { economic: 12, social: 4, color: '#ffee00' },
-  'POR ANDALUCÍA': { economic: -40, social: -46, color: '#ec4899' },
-  ADELANTE: { economic: -45, social: -35, color: '#8b5cf6' },
+  CS: { economic: 24, social: 6, territorial: -70, color: '#f97316' },
+  'UPL-SY': { economic: -8, social: -12, territorial: 75, color: '#a855f7' },
+  UPL: { economic: -12, social: -15, territorial: 85, color: '#a855f7' },
+  SY: { economic: -5, social: -10, territorial: 70, color: '#334155' },
+  'SORIA ¡YA!': { economic: -5, social: -10, territorial: 70, color: '#334155' },
+  XAV: { economic: 12, social: 4, territorial: 65, color: '#ffee00' },
+  'POR ÁVILA': { economic: 12, social: 4, territorial: 65, color: '#ffee00' },
+  'POR ANDALUCÍA': { economic: -40, social: -46, territorial: 25, color: '#ec4899' },
+  ADELANTE: { economic: -45, social: -35, territorial: 80, color: '#8b5cf6' },
 
-  'PSOE DE ANDALUCÍA': { economic: -18, social: -22, color: '#ef4444' },
-  'POPULAR ANDALUZ': { economic: 28, social: 24, color: '#2563eb' },
-  'VOX EN ANDALUCÍA': { economic: 52, social: 55, color: '#16a34a' },
-  'UNIDAS PODEMOS POR ANDALUCÍA': { economic: -46, social: -50, color: '#7c3aed' },
-  'ADELANTE ANDALUCÍA': { economic: -45, social: -35, color: '#8b5cf6' },
-  'MIXTO-ADELANTE ANDALUCÍA': { economic: -45, social: -35, color: '#8b5cf6' },
-  CIUDADANOS: { economic: 24, social: 6, color: '#f97316' }
+  'PSOE DE ANDALUCÍA': { economic: -18, social: -22, territorial: 5, color: '#ef4444' },
+  'POPULAR ANDALUZ': { economic: 28, social: 24, territorial: -15, color: '#2563eb' },
+  'VOX EN ANDALUCÍA': { economic: 52, social: 55, territorial: -85, color: '#16a34a' },
+  'UNIDAS PODEMOS POR ANDALUCÍA': { economic: -46, social: -50, territorial: 25, color: '#7c3aed' },
+  'ADELANTE ANDALUCÍA': { economic: -45, social: -35, territorial: 85, color: '#8b5cf6' },
+  'MIXTO-ADELANTE ANDALUCÍA': { economic: -45, social: -35, territorial: 85, color: '#8b5cf6' },
+  CIUDADANOS: { economic: 24, social: 6, territorial: -70, color: '#f97316' }
 }
 
 const PARTY_ALIAS = {
@@ -178,13 +181,17 @@ function calibrateQuestionForCompass(question, groups) {
   const manualAxis = question?.axis || {}
   const hasManualAxis =
     Number.isFinite(Number(manualAxis.economic)) ||
-    Number.isFinite(Number(manualAxis.social))
+    Number.isFinite(Number(manualAxis.social)) ||
+    Number.isFinite(Number(manualAxis.territorial))
 
   const manualEconomic = Number.isFinite(Number(manualAxis.economic))
     ? clamp(Number(manualAxis.economic), -1, 1)
     : 0
   const manualSocial = Number.isFinite(Number(manualAxis.social))
     ? clamp(Number(manualAxis.social), -1, 1)
+    : 0
+  const manualTerritorial = Number.isFinite(Number(manualAxis.territorial))
+    ? clamp(Number(manualAxis.territorial), -1, 1)
     : 0
 
   const samples = groups
@@ -195,7 +202,8 @@ function calibrateQuestionForCompass(question, groups) {
       return {
         vote,
         economic: anchor.economic / 100,
-        social: anchor.social / 100
+        social: anchor.social / 100,
+        territorial: (anchor.territorial || 0) / 100
       }
     })
     .filter(Boolean)
@@ -203,10 +211,13 @@ function calibrateQuestionForCompass(question, groups) {
   const votes = samples.map((sample) => sample.vote)
   const economicAnchors = samples.map((sample) => sample.economic)
   const socialAnchors = samples.map((sample) => sample.social)
+  const territorialAnchors = samples.map((sample) => sample.territorial)
 
   const inferredEconomic = pearsonCorrelation(votes, economicAnchors)
   const inferredSocial = pearsonCorrelation(votes, socialAnchors)
-  const inferredStrength = clamp((Math.abs(inferredEconomic) + Math.abs(inferredSocial)) / 1.6, 0, 1)
+  const inferredTerritorial = pearsonCorrelation(votes, territorialAnchors)
+
+  const inferredStrength = clamp((Math.abs(inferredEconomic) + Math.abs(inferredSocial) + Math.abs(inferredTerritorial)) / 2.2, 0, 1)
   const coverage = groups.length ? clamp(samples.length / groups.length, 0, 1) : 0
   const voteSpread = clamp(standardDeviation(votes) / 0.9, 0, 1)
 
@@ -214,9 +225,10 @@ function calibrateQuestionForCompass(question, groups) {
   const blendInferred = hasManualAxis ? 0.35 : 1
   const blendedEconomic = (manualEconomic * blendManual) + (inferredEconomic * blendInferred)
   const blendedSocial = (manualSocial * blendManual) + (inferredSocial * blendInferred)
+  const blendedTerritorial = (manualTerritorial * blendManual) + (inferredTerritorial * blendInferred)
 
   const consistency = hasManualAxis
-    ? clamp(1 - ((Math.abs(manualEconomic - inferredEconomic) + Math.abs(manualSocial - inferredSocial)) / 4), 0, 1)
+    ? clamp(1 - ((Math.abs(manualEconomic - inferredEconomic) + Math.abs(manualSocial - inferredSocial) + Math.abs(manualTerritorial - inferredTerritorial)) / 6), 0, 1)
     : inferredStrength
 
   const discriminationBase = Number(question?.discrimination)
@@ -234,7 +246,8 @@ function calibrateQuestionForCompass(question, groups) {
   return {
     axis: {
       economic: clamp(blendedEconomic, -1, 1),
-      social: clamp(blendedSocial, -1, 1)
+      social: clamp(blendedSocial, -1, 1),
+      territorial: clamp(blendedTerritorial, -1, 1)
     },
     discrimination,
     inferredStrength,
@@ -361,13 +374,15 @@ const compassData = computed(() => {
   const groups = activeQuiz.value.groups
   const partyScores = {}
   groups.forEach((group) => {
-    partyScores[group] = { economic: 0, social: 0 }
+    partyScores[group] = { economic: 0, social: 0, territorial: 0 }
   })
 
   let userEconomic = 0
   let userSocial = 0
+  let userTerritorial = 0
   let maxEconomic = 0
   let maxSocial = 0
+  let maxTerritorial = 0
   let totalModelWeight = 0
   let answeredDirectionalWeight = 0
   let weightedStrength = 0
@@ -382,9 +397,11 @@ const compassData = computed(() => {
     const effectiveWeight = baseWeight * discrimination
     const economicDelta = Number(axis.economic) || 0
     const socialDelta = Number(axis.social) || 0
+    const territorialDelta = Number(axis.territorial) || 0
 
     maxEconomic += Math.abs(economicDelta * effectiveWeight)
     maxSocial += Math.abs(socialDelta * effectiveWeight)
+    maxTerritorial += Math.abs(territorialDelta * effectiveWeight)
     totalModelWeight += effectiveWeight
     weightedStrength += (calibration.inferredStrength || 0) * effectiveWeight
     weightedConsistency += (calibration.consistency || 0) * effectiveWeight
@@ -392,6 +409,7 @@ const compassData = computed(() => {
     const userFactor = voteToFactor(answers.value[question.id])
     userEconomic += userFactor * economicDelta * effectiveWeight
     userSocial += userFactor * socialDelta * effectiveWeight
+    userTerritorial += userFactor * territorialDelta * effectiveWeight
     if (userFactor !== 0) {
       answeredDirectionalWeight += effectiveWeight
       answeredQuestions += 1
@@ -401,20 +419,26 @@ const compassData = computed(() => {
       const groupFactor = voteToFactor(question.votes[group])
       partyScores[group].economic += groupFactor * economicDelta * effectiveWeight
       partyScores[group].social += groupFactor * socialDelta * effectiveWeight
+      partyScores[group].territorial += groupFactor * territorialDelta * effectiveWeight
     })
   })
 
   const partyEconomicValues = groups.map((group) => partyScores[group].economic)
   const partySocialValues = groups.map((group) => partyScores[group].social)
+  const partyTerritorialValues = groups.map((group) => partyScores[group].territorial)
   const economicCenter = mean(partyEconomicValues)
   const socialCenter = mean(partySocialValues)
+  const territorialCenter = mean(partyTerritorialValues)
   const economicSpread = standardDeviation(partyEconomicValues)
   const socialSpread = standardDeviation(partySocialValues)
+  const territorialSpread = standardDeviation(partyTerritorialValues)
   const economicSpreadFloor = Math.max(maxEconomic * COMPASS_SPREAD_FLOOR_FACTOR, COMPASS_SPREAD_FLOOR_MIN)
   const socialSpreadFloor = Math.max(maxSocial * COMPASS_SPREAD_FLOOR_FACTOR, COMPASS_SPREAD_FLOOR_MIN)
+  const territorialSpreadFloor = Math.max(maxTerritorial * COMPASS_SPREAD_FLOOR_FACTOR, COMPASS_SPREAD_FLOOR_MIN)
   const spreadReliability = mean([
     clamp(economicSpread / (economicSpreadFloor || 1), 0, 1),
-    clamp(socialSpread / (socialSpreadFloor || 1), 0, 1)
+    clamp(socialSpread / (socialSpreadFloor || 1), 0, 1),
+    clamp(territorialSpread / (territorialSpreadFloor || 1), 0, 1)
   ])
   const empiricalBlend = clamp(
     COMPASS_EMPIRICAL_BLEND_BASE
@@ -440,6 +464,14 @@ const compassData = computed(() => {
       socialSpread,
       empiricalBlend,
       socialSpreadFloor
+    ),
+    territorial: blendAxisScore(
+      userTerritorial,
+      maxTerritorial,
+      territorialCenter,
+      territorialSpread,
+      empiricalBlend,
+      territorialSpreadFloor
     )
   }
 
@@ -462,6 +494,14 @@ const compassData = computed(() => {
         socialSpread,
         empiricalBlend,
         socialSpreadFloor
+      ),
+      territorial: blendAxisScore(
+        partyScores[group].territorial,
+        maxTerritorial,
+        territorialCenter,
+        territorialSpread,
+        empiricalBlend,
+        territorialSpreadFloor
       )
     }))
     .sort((a, b) => affinityOrder.indexOf(a.group) - affinityOrder.indexOf(b.group))
@@ -469,8 +509,8 @@ const compassData = computed(() => {
   const responseCoverage = totalModelWeight ? answeredDirectionalWeight / totalModelWeight : 0
   const avgStrength = totalModelWeight ? weightedStrength / totalModelWeight : 0
   const avgConsistency = totalModelWeight ? weightedConsistency / totalModelWeight : 0
-  const axisBalance = Math.max(maxEconomic, maxSocial)
-    ? Math.min(maxEconomic, maxSocial) / Math.max(maxEconomic, maxSocial)
+  const axisBalance = Math.max(maxEconomic, maxSocial, maxTerritorial)
+    ? Math.min(maxEconomic, maxSocial, maxTerritorial) / Math.max(maxEconomic, maxSocial, maxTerritorial)
     : 0
   const confidenceScore = clamp(
     Math.round(((
@@ -485,19 +525,22 @@ const compassData = computed(() => {
   const confidenceLabel = classifyCompassConfidence(confidenceScore, answeredQuestions)
   const axisUncertainty = {
     economic: Math.round(clamp((100 - confidenceScore) * 0.26 + (1 - spreadReliability) * 10 + (1 - avgConsistency) * 8, 6, 34)),
-    social: Math.round(clamp((100 - confidenceScore) * 0.26 + (1 - spreadReliability) * 10 + (1 - avgStrength) * 8, 6, 34))
+    social: Math.round(clamp((100 - confidenceScore) * 0.26 + (1 - spreadReliability) * 10 + (1 - avgStrength) * 8, 6, 34)),
+    territorial: Math.round(clamp((100 - confidenceScore) * 0.26 + (1 - spreadReliability) * 10 + (1 - avgStrength) * 8, 6, 34))
   }
   const displayScale = clamp(0.62 + (confidenceScore * 0.0026), 0.62, 0.88)
 
   const userForDisplay = {
     ...user,
     displayEconomic: dampenForDisplay(user.economic, displayScale),
-    displaySocial: dampenForDisplay(user.social, displayScale)
+    displaySocial: dampenForDisplay(user.social, displayScale),
+    displayTerritorial: dampenForDisplay(user.territorial, displayScale)
   }
   const partiesWithDisplay = partiesByAffinity.map((party) => ({
     ...party,
     displayEconomic: dampenForDisplay(party.economic, displayScale),
-    displaySocial: dampenForDisplay(party.social, displayScale)
+    displaySocial: dampenForDisplay(party.social, displayScale),
+    displayTerritorial: dampenForDisplay(party.territorial, displayScale)
   }))
   const partiesByDistanceForDisplay = partiesWithDisplay
     .map((party) => ({
@@ -549,12 +592,14 @@ function pointStyle(point) {
   const rawEconomic = Number.isFinite(Number(point?.displayEconomic))
     ? Number(point.displayEconomic)
     : Number(point?.economic) || 0
-  const rawSocial = Number.isFinite(Number(point?.displaySocial))
-    ? Number(point.displaySocial)
-    : Number(point?.social) || 0
+
+  const isTerritorial = selectedYAxis.value === 'territorial'
+  const rawY = isTerritorial
+    ? (Number.isFinite(Number(point?.displayTerritorial)) ? Number(point.displayTerritorial) : Number(point?.territorial) || 0)
+    : (Number.isFinite(Number(point?.displaySocial)) ? Number(point.displaySocial) : Number(point?.social) || 0)
 
   const x = squashAxisForDisplay(rawEconomic)
-  const y = squashAxisForDisplay(rawSocial)
+  const y = squashAxisForDisplay(rawY)
 
   return {
     left: `${axisToBoardPercent(x)}%`,
@@ -752,17 +797,44 @@ function axisToBoardPercent(axisValue) {
           </div>
 
           <div v-if="isAdvancedMode && compassData" class="compass-card">
-            <h3>Mapa político (tipo compass)</h3>
+            <div class="compass-header">
+              <h3>Mapa político (tipo compass)</h3>
+              <div class="axis-switcher">
+                <button
+                  class="axis-btn"
+                  :class="{ 'axis-btn--active': selectedYAxis === 'social' }"
+                  @click="selectedYAxis = 'social'"
+                >
+                  Social
+                </button>
+                <button
+                  class="axis-btn"
+                  :class="{ 'axis-btn--active': selectedYAxis === 'territorial' }"
+                  @click="selectedYAxis = 'territorial'"
+                >
+                  Territorial
+                </button>
+              </div>
+            </div>
             <p class="compass-summary">{{ userCompassLabel }}</p>
 
             <div class="compass-board">
               <div class="compass-axis compass-axis--horizontal"></div>
               <div class="compass-axis compass-axis--vertical"></div>
 
-              <div class="compass-corner compass-corner--tl">Izq. / Autoritario</div>
-              <div class="compass-corner compass-corner--tr">Der. / Autoritario</div>
-              <div class="compass-corner compass-corner--bl">Izq. / Libertario</div>
-              <div class="compass-corner compass-corner--br">Der. / Libertario</div>
+              <!-- Corner Labels -->
+              <template v-if="selectedYAxis === 'social'">
+                <div class="compass-corner compass-corner--tl">Izq. / Autoritario</div>
+                <div class="compass-corner compass-corner--tr">Der. / Autoritario</div>
+                <div class="compass-corner compass-corner--bl">Izq. / Libertario</div>
+                <div class="compass-corner compass-corner--br">Der. / Libertario</div>
+              </template>
+              <template v-else>
+                <div class="compass-corner compass-corner--tl">Izq. / Regionalista</div>
+                <div class="compass-corner compass-corner--tr">Der. / Regionalista</div>
+                <div class="compass-corner compass-corner--bl">Izq. / Centralista</div>
+                <div class="compass-corner compass-corner--br">Der. / Centralista</div>
+              </template>
 
               <div
                 v-for="(party, idx) in topCompassParties"
@@ -788,7 +860,8 @@ function axisToBoardPercent(axisValue) {
               <div v-if="hoveredPoint" class="compass-tooltip" :style="pointStyle(hoveredPoint)">
                 <div class="tooltip-content">
                   <strong>{{ hoveredPoint.label }}</strong>
-                  <span>X {{ hoveredPoint.economic }}, Y {{ hoveredPoint.social }}</span>
+                  <span v-if="selectedYAxis === 'social'">X {{ hoveredPoint.economic }}, Y {{ hoveredPoint.social }}</span>
+                  <span v-else>X {{ hoveredPoint.economic }}, T {{ hoveredPoint.territorial }}</span>
                 </div>
               </div>
             </div>
@@ -797,7 +870,8 @@ function axisToBoardPercent(axisValue) {
               <div class="compass-legend-row compass-legend-row--user">
                 <span class="compass-legend-swatch compass-legend-swatch--user"></span>
                 <span class="compass-legend-name">Tú</span>
-                <span class="compass-legend-coords">X {{ compassData.user.economic }}, Y {{ compassData.user.social }}</span>
+                <span v-if="selectedYAxis === 'social'" class="compass-legend-coords">X {{ compassData.user.economic }}, Y {{ compassData.user.social }}</span>
+                <span v-else class="compass-legend-coords">X {{ compassData.user.economic }}, T {{ compassData.user.territorial }}</span>
               </div>
               <div
                 v-for="(party, idx) in topCompassParties"
@@ -807,13 +881,19 @@ function axisToBoardPercent(axisValue) {
                 <span class="compass-legend-rank">{{ idx + 1 }}.</span>
                 <span class="compass-legend-swatch" :style="{ backgroundColor: getPartyColor(party.group) }"></span>
                 <span class="compass-legend-name">{{ party.group }}</span>
-                <span class="compass-legend-coords">X {{ party.economic }}, Y {{ party.social }}</span>
+                <span v-if="selectedYAxis === 'social'" class="compass-legend-coords">X {{ party.economic }}, Y {{ party.social }}</span>
+                <span v-else class="compass-legend-coords">X {{ party.economic }}, T {{ party.territorial }}</span>
               </div>
             </div>
 
             <p class="compass-values">
               Eje X (económico): <strong>{{ compassData.user.economic }}</strong> |
-              Eje Y (social): <strong>{{ compassData.user.social }}</strong>
+              <template v-if="selectedYAxis === 'social'">
+                Eje Y (social): <strong>{{ compassData.user.social }}</strong>
+              </template>
+              <template v-else>
+                Eje T (territorial): <strong>{{ compassData.user.territorial }}</strong>
+              </template>
             </p>
             <p class="compass-quality">
               Calibración: <strong>{{ compassData.quality.confidenceLabel }}</strong>
@@ -1120,8 +1200,49 @@ function axisToBoardPercent(axisValue) {
 }
 
 .compass-card h3 {
-  margin: 0 0 0.4rem;
+  margin: 0;
   font-size: 1.15rem;
+}
+
+.compass-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6rem;
+  gap: 1rem;
+}
+
+.axis-switcher {
+  display: flex;
+  background: var(--color-bg);
+  padding: 2px;
+  border-radius: 20px;
+  border: 1px solid var(--color-border);
+}
+
+.axis-btn {
+  border: none;
+  background: transparent;
+  padding: 0.35rem 0.85rem;
+  border-radius: 18px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.axis-btn--active {
+  background: var(--color-primary);
+  color: white;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.2);
+}
+
+.axis-btn:hover:not(.axis-btn--active) {
+  color: var(--color-text);
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .compass-summary {

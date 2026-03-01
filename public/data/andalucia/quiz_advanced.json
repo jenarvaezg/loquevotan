@@ -17,7 +17,8 @@
       "weight": 1.35,
       "axis": {
         "economic": 0.35,
-        "social": 0.5
+        "social": 0.5,
+        "territorial": 0.45
       },
       "votes": {
         "PP": "si",
@@ -35,7 +36,8 @@
       "weight": 1.4,
       "axis": {
         "economic": -0.75,
-        "social": -0.2
+        "social": -0.2,
+        "territorial": 0.1
       },
       "votes": {
         "PP": "no",
@@ -53,7 +55,8 @@
       "weight": 1.35,
       "axis": {
         "economic": -0.65,
-        "social": -0.15
+        "social": -0.15,
+        "territorial": 0.2
       },
       "votes": {
         "PP": "no",
@@ -71,7 +74,8 @@
       "weight": 1.15,
       "axis": {
         "economic": 0.85,
-        "social": 0.15
+        "social": 0.15,
+        "territorial": 0
       },
       "votes": {
         "PP": "si",
@@ -89,7 +93,8 @@
       "weight": 1.35,
       "axis": {
         "economic": -0.1,
-        "social": -0.85
+        "social": -0.85,
+        "territorial": 0
       },
       "votes": {
         "PP": "si",
@@ -107,7 +112,8 @@
       "weight": 1.25,
       "axis": {
         "economic": 0.75,
-        "social": 0.2
+        "social": 0.2,
+        "territorial": -0.2
       },
       "votes": {
         "PP": "si",
@@ -125,7 +131,8 @@
       "weight": 1.2,
       "axis": {
         "economic": -0.45,
-        "social": -0.2
+        "social": -0.2,
+        "territorial": 0.3
       },
       "votes": {
         "PP": "si",
@@ -143,7 +150,8 @@
       "weight": 1.2,
       "axis": {
         "economic": -0.2,
-        "social": -0.35
+        "social": -0.35,
+        "territorial": 0.65
       },
       "votes": {
         "PP": "no",
@@ -161,7 +169,8 @@
       "weight": 1.25,
       "axis": {
         "economic": -0.35,
-        "social": -0.15
+        "social": -0.15,
+        "territorial": 0.75
       },
       "votes": {
         "PP": "no",
@@ -179,7 +188,8 @@
       "weight": 1.3,
       "axis": {
         "economic": -0.55,
-        "social": -0.1
+        "social": -0.1,
+        "territorial": 0.4
       },
       "votes": {
         "PP": "no",
@@ -197,7 +207,8 @@
       "weight": 1.2,
       "axis": {
         "economic": -0.45,
-        "social": -0.05
+        "social": -0.05,
+        "territorial": 0.55
       },
       "votes": {
         "PP": "no",
@@ -215,7 +226,8 @@
       "weight": 1.2,
       "axis": {
         "economic": 0.9,
-        "social": 0.1
+        "social": 0.1,
+        "territorial": 0
       },
       "votes": {
         "PP": "si",
@@ -233,7 +245,8 @@
       "weight": 1.25,
       "axis": {
         "economic": -0.55,
-        "social": -0.35
+        "social": -0.35,
+        "territorial": 0.45
       },
       "votes": {
         "PP": "abstencion",
@@ -251,7 +264,8 @@
       "weight": 1.25,
       "axis": {
         "economic": -0.6,
-        "social": -0.4
+        "social": -0.4,
+        "territorial": 0.1
       },
       "votes": {
         "PP": "no",
@@ -269,7 +283,8 @@
       "weight": 1.25,
       "axis": {
         "economic": 0.35,
-        "social": 0.85
+        "social": 0.85,
+        "territorial": -0.1
       },
       "votes": {
         "PP": "si",
@@ -283,11 +298,12 @@
     {
       "id": "aq16",
       "topic": "Derechos",
-      "text": "Ampliar la ley andaluza LGTBI con régimen sancionador reforzado.",
+      "text": "Ampliar la ley andaluza LGTBI with régimen sancionador reforzado.",
       "weight": 1.3,
       "axis": {
         "economic": -0.1,
-        "social": -0.9
+        "social": -0.9,
+        "territorial": 0
       },
       "votes": {
         "PP": "abstencion",
@@ -305,7 +321,8 @@
       "weight": 1.3,
       "axis": {
         "economic": -0.8,
-        "social": -0.15
+        "social": -0.15,
+        "territorial": 0.3
       },
       "votes": {
         "PP": "no",
@@ -323,7 +340,8 @@
       "weight": 1.15,
       "axis": {
         "economic": 0.45,
-        "social": 0.05
+        "social": 0.05,
+        "territorial": -0.2
       },
       "votes": {
         "PP": "si",
