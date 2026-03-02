@@ -58,6 +58,18 @@ function validateMeta(scope, meta) {
     fail(scope, `Longitud diputados (${diputados.length}) != dipStats (${dipStats.length})`);
   }
 
+  for (let i = 0; i < grupos.length; i++) {
+    const raw = String(grupos[i] ?? '');
+    const normalized = raw.trim().toLowerCase();
+    if (!normalized) {
+      fail(scope, `grupos[${i}] está vacío`);
+      continue;
+    }
+    if (normalized === 'unknown') {
+      fail(scope, `grupos[${i}] no puede ser "Unknown"`);
+    }
+  }
+
   const seenSorted = new Set();
   for (const idx of sorted) {
     if (!Number.isInteger(idx) || idx < 0 || idx >= votaciones.length) {

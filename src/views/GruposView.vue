@@ -1,7 +1,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useData } from '../composables/useData'
-import { LEGISLATURAS, affinityColor, getGroupInfo } from '../utils'
+import { LEGISLATURAS, affinityColor, getGroupInfo, sanitizeGroupName, isMeaningfulGroupName } from '../utils'
 import ViewState from '../components/ViewState.vue'
 
 const { grupos, groupAffinityByLeg, loaded } = useData()
@@ -26,7 +26,11 @@ const affinityData = computed(() => {
   }
 
   const validGroups = Array.from(allGroups)
-    .filter(g => (groupTotals[g] || 0) >= 10)
+    .filter(g => {
+      if ((groupTotals[g] || 0) < 10) return false
+      const groupName = sanitizeGroupName(grupos.value[g])
+      return isMeaningfulGroupName(groupName)
+    })
     .sort((a, b) => {
       const infoA = getGroupInfo(grupos.value[a])
       const infoB = getGroupInfo(grupos.value[b])

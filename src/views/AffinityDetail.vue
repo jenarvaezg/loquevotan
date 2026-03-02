@@ -2,7 +2,7 @@
 import { computed, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useData } from '../composables/useData'
-import { fmt, VOTO_LABELS, VOTES_PER_PAGE, votoPillClass, getGroupInfo } from '../utils'
+import { fmt, VOTO_LABELS, VOTES_PER_PAGE, votoPillClass, getGroupInfo, sanitizeGroupName, normalize } from '../utils'
 import ResultBadge from '../components/ResultBadge.vue'
 import Pagination from '../components/Pagination.vue'
 import ViewState from '../components/ViewState.vue'
@@ -10,17 +10,25 @@ import ViewState from '../components/ViewState.vue'
 const route = useRoute()
 const { grupos, votaciones, votos, votosByVotacion, votResults, categorias, loadVotosForLeg, votosLoaded } = useData()
 
-const gaName = computed(() => route.query.ga ? decodeURIComponent(route.query.ga) : '')
-const gbName = computed(() => route.query.gb ? decodeURIComponent(route.query.gb) : '')
+const gaName = computed(() =>
+  route.query.ga ? sanitizeGroupName(decodeURIComponent(route.query.ga)) : ''
+)
+const gbName = computed(() =>
+  route.query.gb ? sanitizeGroupName(decodeURIComponent(route.query.gb)) : ''
+)
 const leg = computed(() => route.query.leg || '')
 
-const gaIdx = computed(() => grupos.value.indexOf(gaName.value))
-const gbIdx = computed(() => grupos.value.indexOf(gbName.value))
+const gaIdx = computed(() =>
+  grupos.value.findIndex(g => normalize(sanitizeGroupName(g)) === normalize(gaName.value))
+)
+const gbIdx = computed(() =>
+  grupos.value.findIndex(g => normalize(sanitizeGroupName(g)) === normalize(gbName.value))
+)
 
 const gaInfo = computed(() => getGroupInfo(gaName.value))
 const gbInfo = computed(() => getGroupInfo(gbName.value))
 
-const valid = computed(() => gaIdx.value >= 0 && gbIdx.value >= 0 && leg.value)
+const valid = computed(() => gaIdx.value >= 0 && gbIdx.value >= 0 && gaIdx.value !== gbIdx.value && leg.value)
 const votosReady = computed(() => votosLoaded.value.has(leg.value))
 
 watch(leg, (l) => { if (l) loadVotosForLeg(l) }, { immediate: true })

@@ -31,6 +31,7 @@ VOTE_MAP = {
     "No": "En contra",
     "Abstención": "Abstención",
 }
+UNKNOWN_GROUP_TOKENS = {"", "unknown", "desconocido", "null", "none", "n/a", "na"}
 
 LEGISLATURAS = [
     {"id": "X", "desde": "2012-01-01", "hasta": "2015-10-27"},
@@ -62,6 +63,13 @@ def classify_subgrupo(titulo_subgrupo):
     if "sección" in tl or "presupuest" in tl:
         return "presupuestos"
     return "otro"
+
+
+def normalize_group_name(group_name):
+    value = (group_name or "").strip()
+    if value.lower() in UNKNOWN_GROUP_TOKENS:
+        return ""
+    return value
 
 
 def text_hash(text):
@@ -319,10 +327,15 @@ def main():
                 
             dip_id = voto_entry.get("diputado")
             if not dip_id: continue
-            
-            grupo = voto_entry.get("grupo")
+
+            grupo = normalize_group_name(voto_entry.get("grupo"))
+            if not grupo and dip_id in unique_diputados:
+                grupo = normalize_group_name(unique_diputados[dip_id].get("grupo"))
+            if not grupo:
+                grupo = "No Adscrito"
+
             unique_grupos.add(grupo)
-            
+
             if dip_id not in unique_diputados:
                 unique_diputados[dip_id] = {
                     "nombre": dip_id,
@@ -330,6 +343,12 @@ def main():
                     "foto": dep_fotos.get(dip_id),
                     "provincia": dep_provs.get(dip_id)
                 }
+            elif (
+                unique_diputados[dip_id].get("grupo") == "No Adscrito"
+                and grupo != "No Adscrito"
+            ):
+                # Upgrade placeholder group when a concrete one appears later.
+                unique_diputados[dip_id]["grupo"] = grupo
             
             # Store raw vote for later indexing
             votos_by_leg[leg].append([vot_idx, dip_id, grupo, code])

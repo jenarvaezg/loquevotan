@@ -225,6 +225,17 @@ export function getGroupInfo(groupName) {
   return { label: g, color: '#64748b' };
 }
 
+export function sanitizeGroupName(groupName) {
+  const g = String(groupName || '').trim();
+  if (!g) return '';
+  if (g.toLowerCase() === 'unknown') return '';
+  return g;
+}
+
+export function isMeaningfulGroupName(groupName) {
+  return sanitizeGroupName(groupName).length > 0;
+}
+
 export function appBasePath() {
   const raw = import.meta.env.BASE_URL || "/";
   const withLeading = raw.startsWith("/") ? raw : `/${raw}`;

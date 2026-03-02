@@ -21,6 +21,14 @@ PROMPT_FILE = "scripts/prompt_categorizacion.txt"
 
 LEGISLATURAS = ["XI", "X", "IX", "VIII", "VII"]
 SCOPE_TAG = "cyl"
+UNKNOWN_GROUP_TOKENS = {"", "unknown", "desconocido", "null", "none", "n/a", "na"}
+
+
+def normalize_group_name(group_name):
+    value = str(group_name or "").strip()
+    if value.lower() in UNKNOWN_GROUP_TOKENS:
+        return "No Adscrito"
+    return value
 
 def load_existing_overrides():
     if not os.path.exists(META_FILE):
@@ -117,6 +125,7 @@ def transform(rebuild=False):
         leg_id_raw = v["id"].split("-")[1] 
         for voto in v["votos"]:
             d_id = voto["diputadoId"]
+            grp_name = normalize_group_name(voto.get("grupo"))
             if voto["diputadoId"] not in deputados_all:
                 # Try to find with possible prefixes
                 dep_data = raw_deps_map.get(d_id)
@@ -128,11 +137,14 @@ def transform(rebuild=False):
                 deputados_all[d_id] = {
                     "id": d_id,
                     "nombre": voto["diputado"],
-                    "grupo": voto["grupo"],
+                    "grupo": grp_name,
                     "foto": dep_data.get("foto"),
                     "provincia": dep_data.get("provincia")
                 }
-            grupos_all.add(voto["grupo"])
+            elif deputados_all[d_id].get("grupo") == "No Adscrito" and grp_name != "No Adscrito":
+                # Upgrade placeholder group when possible.
+                deputados_all[d_id]["grupo"] = grp_name
+            grupos_all.add(grp_name)
             
         # Check if title is in cache
         if v["titulo"] not in cache and v["titulo"] != "Votación nominal":
@@ -250,7 +262,7 @@ def transform(rebuild=False):
                 else: 
                     no_vota += 1; code = 4
                 
-                grp_name = voto["grupo"]
+                grp_name = normalize_group_name(voto.get("grupo"))
                 if grp_name not in by_group:
                     by_group[grp_name] = {1: 0, 2: 0, 3: 0, 4: 0}
                 by_group[grp_name][code] += 1
