@@ -1,8 +1,12 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { computed, ref, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useData } from '../composables/useData'
 import { debounce, normalize, getGroupInfo } from '../utils'
+
+const props = defineProps({
+  showNoResults: { type: Boolean, default: false },
+})
 
 const router = useRouter()
 const { diputados, grupos, dipStats, votaciones, sortedVotIdxByDate } = useData()
@@ -13,6 +17,11 @@ const highlightIdx = ref(-1)
 const dipMatches = ref([])
 const votMatches = ref([])
 const wrapRef = ref(null)
+const noResults = computed(() =>
+  query.value.trim().length >= 2 &&
+  dipMatches.value.length === 0 &&
+  votMatches.value.length === 0
+)
 
 const doSearch = debounce((q) => {
   if (q.length < 2) {
@@ -38,7 +47,7 @@ const doSearch = debounce((q) => {
   dipMatches.value = dips
   votMatches.value = vots
   highlightIdx.value = -1
-  showDropdown.value = dips.length > 0 || vots.length > 0
+  showDropdown.value = dips.length > 0 || vots.length > 0 || props.showNoResults
 }, 150)
 
 function onInput() {
@@ -120,6 +129,9 @@ onUnmounted(() => document.removeEventListener('click', handleClickOutside))
       @keydown="onKeydown"
     >
     <div v-if="showDropdown" class="autocomplete-dropdown">
+      <div v-if="noResults" class="autocomplete-empty">
+        No se encontraron diputados ni votaciones con ese texto.
+      </div>
       <template v-if="dipMatches.length">
         <div class="ac-section-label">Diputados</div>
         <a
@@ -236,5 +248,12 @@ onUnmounted(() => document.removeEventListener('click', handleClickOutside))
   color: var(--color-muted);
   background: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
+}
+
+.autocomplete-empty {
+  padding: 0.85rem 1.25rem;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  background: var(--color-surface);
 }
 </style>

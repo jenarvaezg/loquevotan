@@ -44,7 +44,7 @@ function goToTag(tag) {
     <div class="hero">
       <h1>Lo Que Votan</h1>
       <p class="hero-tagline">Qué vota cada diputado en el Congreso, explicado para ciudadanos</p>
-      <HeroSearch />
+      <HeroSearch :show-no-results="true" />
       <div class="hero-chips">
         <a
           v-for="[tag, label] in manifest.heroExamples"
