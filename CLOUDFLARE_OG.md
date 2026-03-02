@@ -6,6 +6,7 @@ Este proyecto incluye un Worker que genera metatags Open Graph/Twitter en runtim
 
 - `/share/votacion/:scope/:id`
 - `/share/diputado/:scope/:name`
+- `/og/votacion/:scope/:id` (imagen OG dinámica SVG)
 
 Ejemplos:
 
@@ -16,6 +17,7 @@ Ejemplos:
 
 1. El bot de red social abre `/share/...`.
 2. El Worker lee `data/*/votaciones_meta.json` desde `ASSETS` y genera OG tags.
+   - En rutas de votación, `og:image` apunta a `/og/votacion/:scope/:id` y se genera al vuelo (hemiciclo + resumen de votos).
    - En rutas de diputado, usa `dipFotos` como `og:image` cuando hay foto disponible.
 3. Para usuarios reales, el HTML incluye redirección a rutas limpias (`/votacion/...`, `/diputado/...`) y fija `preferredScope` en `localStorage`.
 
@@ -65,7 +67,7 @@ Archivo: `wrangler.toml`
 
 Variable opcional:
 
-- `OG_IMAGE_URL` para sobrescribir la imagen OG global.
+- `OG_IMAGE_URL` para sobrescribir la imagen OG de fallback (casos no encontrados y perfiles sin foto).
 
 ## Nota sobre base path
 
