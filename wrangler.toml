@@ -6,7 +6,7 @@ compatibility_date = "2026-03-02"
 directory = "./dist"
 binding = "ASSETS"
 not_found_handling = "single-page-application"
-run_worker_first = ["/share/*", "/og/*"]
+run_worker_first = ["/share/*", "/og/*", "/api/*"]
 
 [vars]
 SITE_URL = "https://loquevotan.es"

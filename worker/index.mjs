@@ -3,6 +3,8 @@ import jpeg from "jpeg-js";
 const SITE_NAME = "Lo Que Votan";
 const BRAND_TITLE = "LoQueVotan.es";
 const JSON_CACHE_TTL_MS = 5 * 60 * 1000;
+const API_CACHE_TTL_SECONDS = 120;
+const API_MAX_PAGE_SIZE = 100;
 const LEG_TO_NUM = { X: 10, XI: 11, XII: 12, XIII: 13, XIV: 14, XV: 15 };
 const OG_CANVAS = { width: 1200, height: 630 };
 const OG_COLORS = {
@@ -1295,6 +1297,241 @@ function buildImageUrl(env, siteUrl) {
   return `${siteUrl}/og-image.png`;
 }
 
+function apiCorsHeaders(cacheControl = `public, max-age=${API_CACHE_TTL_SECONDS}`) {
+  return {
+    "content-type": "application/json; charset=utf-8",
+    "cache-control": cacheControl,
+    "access-control-allow-origin": "*",
+    "access-control-allow-methods": "GET, HEAD, OPTIONS",
+    "access-control-allow-headers": "content-type",
+    "access-control-max-age": "86400",
+  };
+}
+
+function jsonResponse(payload, status = 200, cacheControl) {
+  return new Response(JSON.stringify(payload), {
+    status,
+    headers: apiCorsHeaders(cacheControl),
+  });
+}
+
+function parsePositiveInt(value, fallback) {
+  const n = Number.parseInt(String(value ?? ""), 10);
+  if (!Number.isFinite(n) || n <= 0) return fallback;
+  return n;
+}
+
+function normalizeSearchToken(value) {
+  return String(value || "")
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+}
+
+function asNumberOrNull(value) {
+  const n = Number(value);
+  return Number.isFinite(n) ? n : null;
+}
+
+function buildVoteRecord(meta, scopeId, index) {
+  const vote = meta?.votaciones?.[index];
+  if (!vote) return null;
+  const result = meta?.votResults?.[index] || {};
+  const categoriaIdx = Number.isInteger(vote.categoria) ? vote.categoria : null;
+  const categoriaLabel =
+    categoriaIdx !== null && Array.isArray(meta?.categorias)
+      ? meta.categorias[categoriaIdx] || null
+      : null;
+  return {
+    scope: scopeId,
+    idx: index,
+    id: String(vote.id || ""),
+    legislatura: vote.legislatura || null,
+    fecha: vote.fecha || null,
+    titulo_ciudadano: vote.titulo_ciudadano || "",
+    categoria_idx: categoriaIdx,
+    categoria: categoriaLabel,
+    etiquetas: Array.isArray(vote.etiquetas) ? vote.etiquetas : [],
+    proponente: vote.proponente || "",
+    sub_tipo: vote.subTipo || null,
+    expediente: vote.exp || null,
+    result: result.result || null,
+    favor: asNumberOrNull(result.favor),
+    contra: asNumberOrNull(result.contra),
+    abstencion: asNumberOrNull(result.abstencion),
+    total: asNumberOrNull(result.total),
+  };
+}
+
+async function handleApiScopes(request, env) {
+  const requestUrl = new URL(request.url);
+  const raw = await fetchJsonAsset(env, requestUrl, "/data/ambitos.json");
+  const scopes = Array.isArray(raw?.ambitos) ? raw.ambitos : [];
+  return jsonResponse({
+    items: scopes.map((scope) => ({
+      id: String(scope.id || ""),
+      nombre: scope.nombre || "",
+      legislaturas: Array.isArray(scope.legislaturas) ? scope.legislaturas : [],
+      wip: Boolean(scope.wip),
+      wipLabel: scope.wipLabel || "",
+    })),
+  });
+}
+
+async function handleApiVotaciones(request, env) {
+  const requestUrl = new URL(request.url);
+  const scopeId = normalizeScope(requestUrl.searchParams.get("scope"));
+  const scopes = await getAmbitos(env, requestUrl);
+  if (!scopes.has(scopeId)) {
+    return jsonResponse({ error: `Scope no válido: ${scopeId}` }, 400, "public, max-age=60");
+  }
+
+  const query = normalizeSearchToken(requestUrl.searchParams.get("q"));
+  const leg = String(requestUrl.searchParams.get("leg") || "").trim().toUpperCase();
+  const from = String(requestUrl.searchParams.get("from") || "").trim();
+  const to = String(requestUrl.searchParams.get("to") || "").trim();
+  const tag = normalizeSearchToken(requestUrl.searchParams.get("tag"));
+  const page = parsePositiveInt(requestUrl.searchParams.get("page"), 1);
+  const pageSize = Math.min(
+    API_MAX_PAGE_SIZE,
+    parsePositiveInt(requestUrl.searchParams.get("pageSize"), 20)
+  );
+
+  const meta = await getScopeMeta(env, requestUrl, scopeId);
+  const fallbackIndices = (meta?.votaciones || []).map((_, idx) => idx);
+  const orderedIndices = Array.isArray(meta?.sortedVotIdxByDate) ? meta.sortedVotIdxByDate : fallbackIndices;
+  const matchedIndices = [];
+
+  for (let i = 0; i < orderedIndices.length; i++) {
+    const idx = orderedIndices[i];
+    const vote = meta?.votaciones?.[idx];
+    if (!vote) continue;
+
+    if (leg && String(vote.legislatura || "").toUpperCase() !== leg) continue;
+    if (from && String(vote.fecha || "") < from) continue;
+    if (to && String(vote.fecha || "") > to) continue;
+
+    if (tag) {
+      const tags = Array.isArray(vote.etiquetas) ? vote.etiquetas : [];
+      const hasTag = tags.some((t) => normalizeSearchToken(t) === tag);
+      if (!hasTag) continue;
+    }
+
+    if (query) {
+      const title = normalizeSearchToken(vote.titulo_ciudadano);
+      const proposer = normalizeSearchToken(vote.proponente);
+      const voteId = normalizeSearchToken(vote.id);
+      if (!title.includes(query) && !proposer.includes(query) && !voteId.includes(query)) continue;
+    }
+
+    matchedIndices.push(idx);
+  }
+
+  const total = matchedIndices.length;
+  const totalPages = Math.max(1, Math.ceil(total / pageSize));
+  const safePage = Math.min(page, totalPages);
+  const start = (safePage - 1) * pageSize;
+  const pagedIndices = matchedIndices.slice(start, start + pageSize);
+  const items = pagedIndices
+    .map((idx) => buildVoteRecord(meta, scopeId, idx))
+    .filter(Boolean);
+
+  return jsonResponse({
+    scope: scopeId,
+    page: safePage,
+    pageSize,
+    total,
+    totalPages,
+    filters: {
+      q: query || null,
+      leg: leg || null,
+      from: from || null,
+      to: to || null,
+      tag: tag || null,
+    },
+    items,
+  });
+}
+
+async function handleApiVotacionById(request, env) {
+  const requestUrl = new URL(request.url);
+  const parts = splitPath(requestUrl.pathname);
+  if (parts.length < 4) return null;
+
+  const scopeId = normalizeScope(decodeSegment(parts[2]));
+  const voteId = decodeSegment(parts.slice(3).join("/"));
+  if (!voteId) return null;
+
+  const scopes = await getAmbitos(env, requestUrl);
+  if (!scopes.has(scopeId)) {
+    return jsonResponse({ error: `Scope no válido: ${scopeId}` }, 400, "public, max-age=60");
+  }
+
+  const meta = await getScopeMeta(env, requestUrl, scopeId);
+  const voteIndex = meta?.votIdById?.[voteId];
+  if (!Number.isInteger(voteIndex)) {
+    return jsonResponse({ error: "Votación no encontrada", scope: scopeId, id: voteId }, 404, "public, max-age=60");
+  }
+
+  const vote = buildVoteRecord(meta, scopeId, voteIndex);
+  return jsonResponse({ item: vote });
+}
+
+async function handleApiDiputadoByName(request, env) {
+  const requestUrl = new URL(request.url);
+  const parts = splitPath(requestUrl.pathname);
+  if (parts.length < 4) return null;
+
+  const scopeId = normalizeScope(decodeSegment(parts[2]));
+  const diputadoName = decodeSegment(parts.slice(3).join("/"));
+  if (!diputadoName) return null;
+
+  const scopes = await getAmbitos(env, requestUrl);
+  if (!scopes.has(scopeId)) {
+    return jsonResponse({ error: `Scope no válido: ${scopeId}` }, 400, "public, max-age=60");
+  }
+
+  const meta = await getScopeMeta(env, requestUrl, scopeId);
+  const dipIdx = findDiputadoIndex(meta, diputadoName);
+  if (dipIdx < 0) {
+    return jsonResponse(
+      { error: "Diputado no encontrado", scope: scopeId, name: diputadoName },
+      404,
+      "public, max-age=60"
+    );
+  }
+
+  const stats = meta?.dipStats?.[dipIdx] || {};
+  const groupName =
+    Number.isInteger(stats?.mainGrupo) && meta?.grupos?.[stats.mainGrupo]
+      ? meta.grupos[stats.mainGrupo]
+      : "Sin grupo";
+  const party = normalizeGroupBrand(groupName);
+
+  const item = {
+    scope: scopeId,
+    idx: dipIdx,
+    nombre: meta?.diputados?.[dipIdx] || diputadoName,
+    grupo: groupName,
+    partido: party.label,
+    logo: party.logo,
+    color: party.color,
+    stats: {
+      total: asNumberOrNull(stats.total),
+      favor: asNumberOrNull(stats.favor),
+      contra: asNumberOrNull(stats.contra),
+      abstencion: asNumberOrNull(stats.abstencion),
+      no_vota: asNumberOrNull(stats.no_vota),
+      loyalty: Number.isFinite(stats?.loyalty) ? Number(stats.loyalty) : null,
+    },
+    foto: meta?.dipFotos?.[dipIdx] || null,
+    provincia: meta?.dipProvincias?.[dipIdx] || null,
+  };
+
+  return jsonResponse({ item });
+}
+
 async function handleVoteOgImage(request, env) {
   const requestUrl = new URL(request.url);
   const parts = splitPath(requestUrl.pathname);
@@ -1641,14 +1878,45 @@ async function handleDiputadoShare(request, env) {
 
 export default {
   async fetch(request, env) {
+    const url = new URL(request.url);
+    const pathname = url.pathname.replace(/\/+$/, "") || "/";
+
+    if (request.method === "OPTIONS" && pathname.startsWith("/api/")) {
+      return new Response(null, { status: 204, headers: apiCorsHeaders("public, max-age=86400") });
+    }
+
     if (request.method !== "GET" && request.method !== "HEAD") {
       return env.ASSETS.fetch(request);
     }
 
-    const url = new URL(request.url);
-    const pathname = url.pathname.replace(/\/+$/, "") || "/";
-
     try {
+      if (pathname === "/api/health") {
+        return jsonResponse({
+          ok: true,
+          service: "loquevotan-worker",
+          timestamp: new Date().toISOString(),
+          backend: env?.DB ? "d1+assets" : "assets",
+        });
+      }
+
+      if (pathname === "/api/scopes") {
+        return await handleApiScopes(request, env);
+      }
+
+      if (pathname === "/api/votaciones") {
+        return await handleApiVotaciones(request, env);
+      }
+
+      if (pathname.startsWith("/api/votacion/")) {
+        const resp = await handleApiVotacionById(request, env);
+        if (resp) return resp;
+      }
+
+      if (pathname.startsWith("/api/diputado/")) {
+        const resp = await handleApiDiputadoByName(request, env);
+        if (resp) return resp;
+      }
+
       if (pathname.startsWith("/og/votacion/")) {
         const imageResp = await handleVoteOgImage(request, env);
         if (imageResp) return imageResp;

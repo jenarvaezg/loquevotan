@@ -1,5 +1,5 @@
 <script setup>
-import { computed, watch, onMounted } from 'vue'
+import { computed, watch, onMounted, onBeforeUnmount, nextTick } from 'vue'
 import { useRoute } from 'vue-router'
 import { useData } from '../composables/useData'
 import { buildAbsoluteAppUrl } from '../utils'
@@ -7,9 +7,15 @@ import VoteBar from '../components/VoteBar.vue'
 import ResultBadge from '../components/ResultBadge.vue'
 
 const route = useRoute()
-const { votaciones, votResults, loading, error, votIdById, loadVotosForLeg } = useData()
+const { votaciones, votResults, loading, error, votIdById, loadVotosForLeg, currentScopeId, setScope, ambitos } = useData()
 
 const isEmbed = computed(() => route.query.embed === 'true')
+const targetScope = computed(() => {
+  const fromParams = typeof route.params.scope === 'string' ? route.params.scope : ''
+  const fromQuery = typeof route.query.scope === 'string' ? route.query.scope : ''
+  const candidate = (fromParams || fromQuery || '').trim().toLowerCase()
+  return candidate || null
+})
 
 const votIdx = computed(() => {
   const id = route.params.id
@@ -25,16 +31,59 @@ watch(v, (newV) => {
   }
 }, { immediate: true })
 
+function applyScopeFromRoute(scope) {
+  if (!scope) return
+  const knownScopes = new Set(['nacional', ...(ambitos.value || []).map(a => String(a.id || '').toLowerCase())])
+  if (!knownScopes.has(scope)) return
+  if (scope === currentScopeId.value) return
+  setScope(scope)
+}
+
+watch([targetScope, () => ambitos.value.length], ([scope]) => {
+  applyScopeFromRoute(scope)
+}, { immediate: true })
+
+function postEmbedHeight() {
+  if (!isEmbed.value || typeof window === 'undefined' || window.parent === window) return
+  nextTick(() => {
+    const docEl = document.documentElement
+    const body = document.body
+    const height = Math.max(
+      260,
+      docEl?.scrollHeight || 0,
+      docEl?.offsetHeight || 0,
+      body?.scrollHeight || 0,
+      body?.offsetHeight || 0,
+    )
+    window.parent.postMessage({ type: 'lqv:embed:resize', height }, '*')
+  })
+}
+
+function onWindowResize() {
+  postEmbedHeight()
+}
+
+watch([loading, error, v, res], () => {
+  postEmbedHeight()
+}, { immediate: true })
+
 onMounted(() => {
   if (isEmbed.value) {
-    // In embed mode, we might want to force a specific theme or behavior
+    // Embed mode is always rendered in light theme to keep visual consistency in third-party sites.
     document.documentElement.dataset.theme = 'light'
   }
+  postEmbedHeight()
+  window.addEventListener('resize', onWindowResize)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', onWindowResize)
 })
 
 const detailUrl = computed(() => {
   if (!v.value) return '#'
-  return buildAbsoluteAppUrl(`votacion/${encodeURIComponent(v.value.id)}`)
+  const scope = encodeURIComponent(currentScopeId.value || 'nacional')
+  return buildAbsoluteAppUrl(`votacion/${encodeURIComponent(v.value.id)}?scope=${scope}`)
 })
 </script>
 

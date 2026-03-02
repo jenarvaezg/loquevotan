@@ -9,6 +9,7 @@
     "preview": "vite preview",
     "cf:dev": "npx wrangler dev",
     "cf:prepare-assets": "node scripts/cloudflare/split_large_assets.mjs",
+    "cf:d1:seed": "node scripts/cloudflare/build_d1_seed.mjs",
     "cf:deploy": "npm run build && npm run cf:prepare-assets && npx wrangler deploy",
     "test:data-integrity": "node scripts/qa/check_data_integrity.mjs",
     "test:data-artifacts": "node scripts/qa/check_data_artifacts.mjs",

@@ -10,8 +10,8 @@ Este documento recoge solo trabajo pendiente.
 - [x] Homogeneizar `run_update.py` con política fail-fast para evitar publicar datasets parciales.
 - [x] Mostrar fecha de última actualización por ámbito en UI.
 - [x] Generar diff automático entre actualizaciones (votaciones nuevas, recategorizaciones, cambios sensibles).
-- [ ] Completar soporte de widgets/embeds para distribución en prensa y terceros.
-- [ ] Definir y arrancar migración de datos a Cloudflare (D1/R2 + Worker API + job semanal).
+- [x] Completar soporte de widgets/embeds para distribución en prensa y terceros.
+- [x] Definir y arrancar migración de datos a Cloudflare (D1/R2 + Worker API + job semanal).
 
 ## P1 (siguiente bloque)
 
@@ -42,11 +42,11 @@ Este documento recoge solo trabajo pendiente.
 
 ### Migración de datos a Cloudflare (D1/R2 + Worker API)
 
-- [ ] Diseñar esquema D1 por ámbito (`votaciones`, `vot_results`, `votos_nominales`, `diputados`).
+- [x] Diseñar esquema D1 por ámbito (`votaciones`, `vot_results`, `votos_nominales`, `diputados`).
 - [ ] Mantener R2 para raw/snapshots/exports grandes.
-- [ ] Exponer API Worker (`/api/votaciones`, `/api/votacion/:id`, `/api/diputado/:id`) con paginación y cache HTTP.
+- [x] Exponer API Worker (`/api/votaciones`, `/api/votacion/:id`, `/api/diputado/:id`) con paginación y cache HTTP.
 - [ ] Adaptar transforms/run_update para upsert incremental en D1.
-- [ ] Programar job semanal end-to-end con checks de integridad y rollback.
+- [x] Programar job semanal end-to-end con checks de integridad y rollback.
 - [ ] Plan de convivencia y rollback durante transición (híbrido JSON + API).
 
 ### Calidad y confianza pública
