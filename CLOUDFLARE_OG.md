@@ -9,8 +9,8 @@ Este proyecto incluye un Worker que genera metatags Open Graph/Twitter en runtim
 
 Ejemplos:
 
-- `https://dondevotan.es/share/votacion/nacional/XV-120-3`
-- `https://dondevotan.es/share/diputado/cyl/Juan%20P%C3%A9rez`
+- `https://loquevotan.es/share/votacion/nacional/XV-120-3`
+- `https://loquevotan.es/share/diputado/cyl/Juan%20P%C3%A9rez`
 
 ## Cómo funciona
 
@@ -32,13 +32,28 @@ npm run build
 npx wrangler deploy
 ```
 
+## Deploy automático con GitHub Actions
+
+El workflow `.github/workflows/deploy.yml` despliega a Cloudflare en cada push a `main`.
+
+Configura estos secrets en GitHub (`Settings` -> `Secrets and variables` -> `Actions`):
+
+- `CLOUDFLARE_API_TOKEN`
+- `CLOUDFLARE_ACCOUNT_ID`
+
+Permisos mínimos recomendados para el token:
+
+- `Account` -> `Cloudflare Workers Scripts:Edit`
+- `Zone` -> `Workers Routes:Edit`
+- `Zone` -> `Zone Settings:Read`
+
 ## Configuración
 
 Archivo: `wrangler.toml`
 
 - `assets.directory = "./dist"`
 - `assets.run_worker_first = ["/share/*"]`
-- `vars.SITE_URL = "https://dondevotan.es"`
+- `vars.SITE_URL = "https://loquevotan.es"`
 
 Variable opcional:
 
