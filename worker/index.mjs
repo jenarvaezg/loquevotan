@@ -19,6 +19,225 @@ const OG_COLORS = {
 const scopeMetaCache = new Map();
 let ambitosCache = { expiresAt: 0, data: null };
 const imageDataUriCache = new Map();
+const PNG_TEXT_ENCODER = new TextEncoder();
+const PNG_SIGNATURE = new Uint8Array([137, 80, 78, 71, 13, 10, 26, 10]);
+const CRC32_TABLE = (() => {
+  const table = new Uint32Array(256);
+  for (let n = 0; n < 256; n++) {
+    let c = n;
+    for (let k = 0; k < 8; k++) {
+      c = (c & 1) ? (0xedb88320 ^ (c >>> 1)) : (c >>> 1);
+    }
+    table[n] = c >>> 0;
+  }
+  return table;
+})();
+
+function clamp(value, min, max) {
+  return Math.max(min, Math.min(max, value));
+}
+
+function hexToRgba(hex, alpha = 255) {
+  const fallback = [0, 0, 0, alpha];
+  if (typeof hex !== "string") return fallback;
+  let value = hex.trim().replace(/^#/, "");
+  if (value.length === 3) {
+    value = `${value[0]}${value[0]}${value[1]}${value[1]}${value[2]}${value[2]}`;
+  }
+  if (!/^[0-9a-fA-F]{6}$/.test(value)) return fallback;
+  const r = parseInt(value.slice(0, 2), 16);
+  const g = parseInt(value.slice(2, 4), 16);
+  const b = parseInt(value.slice(4, 6), 16);
+  return [r, g, b, alpha];
+}
+
+function setPixelRgba(buffer, width, height, x, y, rgba) {
+  if (x < 0 || y < 0 || x >= width || y >= height) return;
+  const idx = (y * width + x) * 4;
+  buffer[idx] = rgba[0];
+  buffer[idx + 1] = rgba[1];
+  buffer[idx + 2] = rgba[2];
+  buffer[idx + 3] = rgba[3];
+}
+
+function drawRectRgba(buffer, width, height, x, y, rectWidth, rectHeight, rgba) {
+  const x0 = clamp(Math.floor(x), 0, width);
+  const y0 = clamp(Math.floor(y), 0, height);
+  const x1 = clamp(Math.ceil(x + rectWidth), 0, width);
+  const y1 = clamp(Math.ceil(y + rectHeight), 0, height);
+  if (x1 <= x0 || y1 <= y0) return;
+
+  for (let py = y0; py < y1; py++) {
+    for (let px = x0; px < x1; px++) {
+      const idx = (py * width + px) * 4;
+      buffer[idx] = rgba[0];
+      buffer[idx + 1] = rgba[1];
+      buffer[idx + 2] = rgba[2];
+      buffer[idx + 3] = rgba[3];
+    }
+  }
+}
+
+function drawFilledCircleRgba(buffer, width, height, cx, cy, radius, rgba) {
+  const r2 = radius * radius;
+  const y0 = clamp(Math.floor(cy - radius), 0, height - 1);
+  const y1 = clamp(Math.ceil(cy + radius), 0, height - 1);
+
+  for (let py = y0; py <= y1; py++) {
+    const dy = py + 0.5 - cy;
+    const dx2 = r2 - dy * dy;
+    if (dx2 <= 0) continue;
+    const dx = Math.sqrt(dx2);
+    const x0 = clamp(Math.floor(cx - dx), 0, width - 1);
+    const x1 = clamp(Math.ceil(cx + dx), 0, width - 1);
+    for (let px = x0; px <= x1; px++) {
+      setPixelRgba(buffer, width, height, px, py, rgba);
+    }
+  }
+}
+
+function fillVerticalGradient(buffer, width, height, topHex, bottomHex) {
+  const top = hexToRgba(topHex);
+  const bottom = hexToRgba(bottomHex);
+  for (let y = 0; y < height; y++) {
+    const t = height <= 1 ? 0 : y / (height - 1);
+    const rgba = [
+      Math.round(top[0] + (bottom[0] - top[0]) * t),
+      Math.round(top[1] + (bottom[1] - top[1]) * t),
+      Math.round(top[2] + (bottom[2] - top[2]) * t),
+      255,
+    ];
+    for (let x = 0; x < width; x++) {
+      const idx = (y * width + x) * 4;
+      buffer[idx] = rgba[0];
+      buffer[idx + 1] = rgba[1];
+      buffer[idx + 2] = rgba[2];
+      buffer[idx + 3] = 255;
+    }
+  }
+}
+
+function crc32(bytes) {
+  let crc = 0xffffffff;
+  for (let i = 0; i < bytes.length; i++) {
+    crc = CRC32_TABLE[(crc ^ bytes[i]) & 0xff] ^ (crc >>> 8);
+  }
+  return (crc ^ 0xffffffff) >>> 0;
+}
+
+function adler32(bytes) {
+  let a = 1;
+  let b = 0;
+  for (let i = 0; i < bytes.length; i++) {
+    a = (a + bytes[i]) % 65521;
+    b = (b + a) % 65521;
+  }
+  return ((b << 16) | a) >>> 0;
+}
+
+function uint32ToBytes(value) {
+  return new Uint8Array([
+    (value >>> 24) & 0xff,
+    (value >>> 16) & 0xff,
+    (value >>> 8) & 0xff,
+    value & 0xff,
+  ]);
+}
+
+function concatBytes(chunks) {
+  const total = chunks.reduce((sum, chunk) => sum + chunk.length, 0);
+  const out = new Uint8Array(total);
+  let offset = 0;
+  for (const chunk of chunks) {
+    out.set(chunk, offset);
+    offset += chunk.length;
+  }
+  return out;
+}
+
+function makePngChunk(type, data) {
+  const typeBytes = PNG_TEXT_ENCODER.encode(type);
+  const crcInput = new Uint8Array(typeBytes.length + data.length);
+  crcInput.set(typeBytes, 0);
+  crcInput.set(data, typeBytes.length);
+  const crcBytes = uint32ToBytes(crc32(crcInput));
+
+  return concatBytes([
+    uint32ToBytes(data.length),
+    typeBytes,
+    data,
+    crcBytes,
+  ]);
+}
+
+function zlibStore(rawData) {
+  const chunks = [new Uint8Array([0x78, 0x01])];
+  let offset = 0;
+
+  while (offset < rawData.length) {
+    const len = Math.min(65535, rawData.length - offset);
+    const isLast = offset + len >= rawData.length;
+    const nlen = 0xffff - len;
+    chunks.push(
+      new Uint8Array([
+        isLast ? 0x01 : 0x00,
+        len & 0xff,
+        (len >>> 8) & 0xff,
+        nlen & 0xff,
+        (nlen >>> 8) & 0xff,
+      ]),
+      rawData.subarray(offset, offset + len)
+    );
+    offset += len;
+  }
+
+  chunks.push(uint32ToBytes(adler32(rawData)));
+  return concatBytes(chunks);
+}
+
+async function compressDeflate(rawData) {
+  if (typeof CompressionStream !== "undefined") {
+    try {
+      const stream = new CompressionStream("deflate");
+      const writer = stream.writable.getWriter();
+      await writer.write(rawData);
+      await writer.close();
+      const compressed = await new Response(stream.readable).arrayBuffer();
+      if (compressed.byteLength > 0) return new Uint8Array(compressed);
+    } catch {
+      // Fallback to uncompressed zlib blocks when CompressionStream is unavailable.
+    }
+  }
+  return zlibStore(rawData);
+}
+
+async function encodeRgbaToPng(width, height, rgbaBuffer) {
+  const rowSize = width * 4 + 1;
+  const raw = new Uint8Array(rowSize * height);
+  for (let y = 0; y < height; y++) {
+    const rowStart = y * rowSize;
+    raw[rowStart] = 0; // Filter method 0 (None)
+    const srcStart = y * width * 4;
+    raw.set(rgbaBuffer.subarray(srcStart, srcStart + width * 4), rowStart + 1);
+  }
+
+  const ihdr = new Uint8Array(13);
+  ihdr.set(uint32ToBytes(width), 0);
+  ihdr.set(uint32ToBytes(height), 4);
+  ihdr[8] = 8; // bit depth
+  ihdr[9] = 6; // color type RGBA
+  ihdr[10] = 0; // compression
+  ihdr[11] = 0; // filter
+  ihdr[12] = 0; // interlace
+
+  const idat = await compressDeflate(raw);
+  return concatBytes([
+    PNG_SIGNATURE,
+    makePngChunk("IHDR", ihdr),
+    makePngChunk("IDAT", idat),
+    makePngChunk("IEND", new Uint8Array(0)),
+  ]);
+}
 
 function stripTrailingSlash(value) {
   return value.endsWith("/") ? value.slice(0, -1) : value;
@@ -372,6 +591,7 @@ function voteOgImageUrl(
 ) {
   const path = `/og/votacion/${encodeURIComponent(scopeId)}/${encodeURIComponent(voteId)}`;
   const url = new URL(`${siteUrl}${path}`);
+  url.searchParams.set("format", "png");
   if (dipName) url.searchParams.set("dip", dipName);
   if (voteToken) url.searchParams.set("vote", voteToken);
   if (groupName) url.searchParams.set("group", groupName);
@@ -485,6 +705,121 @@ function renderVoteOgImage({
 </svg>`;
 }
 
+async function renderVoteOgPng({ result, voteToken = null, groupVoteToken = null }) {
+  const width = OG_CANVAS.width;
+  const height = OG_CANVAS.height;
+  const rgba = new Uint8Array(width * height * 4);
+
+  fillVerticalGradient(rgba, width, height, OG_COLORS.bgA, OG_COLORS.bgB);
+
+  const panel = hexToRgba(OG_COLORS.panel);
+  const border = hexToRgba(OG_COLORS.border);
+  const muted = hexToRgba(OG_COLORS.muted);
+  const favor = hexToRgba(OG_COLORS.favor);
+  const contra = hexToRgba(OG_COLORS.contra);
+  const abst = hexToRgba(OG_COLORS.abst);
+  const noVota = hexToRgba(OG_COLORS.noVota);
+
+  drawRectRgba(rgba, width, height, 30, 30, 564, 570, border);
+  drawRectRgba(rgba, width, height, 34, 34, 556, 562, panel);
+
+  drawRectRgba(rgba, width, height, 618, 72, 548, 486, border);
+  drawRectRgba(rgba, width, height, 622, 76, 540, 478, panel);
+
+  const totals = seatBreakdown(result);
+  const coords = buildSeatCoordinates(totals.total, {
+    cx: 330,
+    cy: 305,
+    outerR: 238,
+    innerR: 96,
+    rows: 9,
+    startDeg: 210,
+    endDeg: -30,
+  });
+  const seatRadius = totals.total > 300 ? 5.3 : 5.8;
+
+  const seatColors = [];
+  for (let i = 0; i < totals.favor; i++) seatColors.push(favor);
+  for (let i = 0; i < totals.contra; i++) seatColors.push(contra);
+  for (let i = 0; i < totals.abstencion; i++) seatColors.push(abst);
+  for (let i = 0; i < totals.noVota; i++) seatColors.push(noVota);
+
+  for (let i = 0; i < coords.length; i++) {
+    drawFilledCircleRgba(
+      rgba,
+      width,
+      height,
+      coords[i].x,
+      coords[i].y,
+      seatRadius,
+      seatColors[i] || noVota
+    );
+  }
+
+  const barRows = [
+    { value: totals.favor, color: favor },
+    { value: totals.contra, color: contra },
+    { value: totals.abstencion, color: abst },
+  ];
+  for (let i = 0; i < barRows.length; i++) {
+    const y = 470 + i * 34;
+    drawRectRgba(rgba, width, height, 94, y, 432, 12, border);
+    const filled = Math.round((barRows[i].value / Math.max(1, totals.total)) * 432);
+    drawRectRgba(rgba, width, height, 94, y, filled, 12, barRows[i].color);
+  }
+
+  const stackX = 700;
+  const stackY = 180;
+  const stackH = 300;
+  const stackW = 160;
+  drawRectRgba(rgba, width, height, stackX - 2, stackY - 2, stackW + 4, stackH + 4, border);
+  const totalForStack = Math.max(1, totals.total);
+  let cursorY = stackY + stackH;
+  const stackRows = [
+    { value: totals.favor, color: favor },
+    { value: totals.contra, color: contra },
+    { value: totals.abstencion, color: abst },
+    { value: totals.noVota, color: noVota },
+  ];
+  for (let i = 0; i < stackRows.length; i++) {
+    const h = Math.round((stackRows[i].value / totalForStack) * stackH);
+    cursorY -= h;
+    drawRectRgba(rgba, width, height, stackX, cursorY, stackW, h, stackRows[i].color);
+  }
+
+  const accentToken = voteToken || groupVoteToken;
+  const accent =
+    accentToken === "si"
+      ? favor
+      : accentToken === "no"
+        ? contra
+        : accentToken === "abstencion"
+          ? abst
+          : accentToken === "no_vota"
+            ? noVota
+            : muted;
+  drawRectRgba(rgba, width, height, 620, 96, 542, 14, accent);
+
+  const summaryBaseY = 186;
+  const summaryRowH = 54;
+  const summaryRows = [
+    { value: totals.favor, color: favor },
+    { value: totals.contra, color: contra },
+    { value: totals.abstencion, color: abst },
+    { value: totals.noVota, color: noVota },
+  ];
+  for (let i = 0; i < summaryRows.length; i++) {
+    const y = summaryBaseY + i * summaryRowH;
+    drawRectRgba(rgba, width, height, 900, y, 210, 10, border);
+    const lineW = Math.round((summaryRows[i].value / totalForStack) * 210);
+    drawRectRgba(rgba, width, height, 900, y, lineW, 10, summaryRows[i].color);
+    const dotR = 8;
+    drawFilledCircleRgba(rgba, width, height, 872, y + 5, dotR, summaryRows[i].color);
+  }
+
+  return encodeRgbaToPng(width, height, rgba);
+}
+
 function renderDiputadoOgImage({
   diputadoName,
   scopeId,
@@ -582,6 +917,7 @@ function renderOgPage({
   description,
   canonicalUrl,
   imageUrl,
+  imageType = "",
   imageAlt = "",
   redirectUrl,
   scopeId = "nacional",
@@ -591,10 +927,14 @@ function renderOgPage({
   const escapedDescription = escapeHtml(description);
   const escapedCanonical = escapeHtml(canonicalUrl);
   const escapedImage = escapeHtml(imageUrl);
+  const escapedImageType = escapeHtml(imageType);
   const escapedImageAlt = escapeHtml(imageAlt);
   const escapedRedirect = escapeHtml(redirectUrl);
   const escapedScope = escapeHtml(scopeId);
   const robots = noindex ? `<meta name="robots" content="noindex, nofollow">` : "";
+  const imageTypeMeta = escapedImageType
+    ? `<meta property="og:image:type" content="${escapedImageType}">`
+    : "";
 
   const html = `<!doctype html>
 <html lang="es">
@@ -611,6 +951,7 @@ function renderOgPage({
   <meta property="og:description" content="${escapedDescription}">
   <meta property="og:url" content="${escapedCanonical}">
   <meta property="og:image" content="${escapedImage}">
+  ${imageTypeMeta}
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="${escapedImageAlt}">
@@ -668,6 +1009,8 @@ async function handleVoteOgImage(request, env) {
   const voteParam = normalizeVoteToken(requestUrl.searchParams.get("vote"));
   const groupParam = decodeSegment(requestUrl.searchParams.get("group") || "").trim();
   const groupVoteParam = normalizeVoteToken(requestUrl.searchParams.get("groupVote"));
+  const formatParam = String(requestUrl.searchParams.get("format") || "svg").toLowerCase();
+  const wantsPng = formatParam === "png";
   if (!voteId) return null;
 
   const scopes = await getAmbitos(env, requestUrl);
@@ -677,6 +1020,21 @@ async function handleVoteOgImage(request, env) {
   const voteIndex = meta?.votIdById?.[voteId];
 
   if (!Number.isInteger(voteIndex)) {
+    if (wantsPng) {
+      const png = await renderVoteOgPng({
+        result: { favor: 0, contra: 0, abstencion: 0, total: 0, result: "Sin datos" },
+        voteToken: voteParam,
+        groupVoteToken: groupVoteParam,
+      });
+      return new Response(png, {
+        status: 404,
+        headers: {
+          "content-type": "image/png",
+          "cache-control": "public, max-age=120",
+        },
+      });
+    }
+
     const svg = renderVoteOgImage({
       voteId,
       voteTitle: "Votación no encontrada",
@@ -701,6 +1059,20 @@ async function handleVoteOgImage(request, env) {
   const vote = meta.votaciones[voteIndex];
   const result = meta.votResults?.[voteIndex] || {};
   const category = meta.categorias?.[vote?.categoria] || "Otros";
+  if (wantsPng) {
+    const png = await renderVoteOgPng({
+      result,
+      voteToken: voteParam,
+      groupVoteToken: groupVoteParam,
+    });
+    return new Response(png, {
+      headers: {
+        "content-type": "image/png",
+        "cache-control": "public, max-age=600",
+      },
+    });
+  }
+
   const svg = renderVoteOgImage({
     voteId,
     voteTitle: vote?.titulo_ciudadano || voteId,
@@ -834,6 +1206,7 @@ async function handleVoteShare(request, env) {
       description: `No hemos encontrado esta votación en el ámbito ${scopeId}.`,
       canonicalUrl,
       imageUrl,
+      imageType: "image/png",
       redirectUrl,
       scopeId,
       noindex: true,
@@ -880,6 +1253,7 @@ async function handleVoteShare(request, env) {
     description,
     canonicalUrl,
     imageUrl,
+    imageType: "image/png",
     imageAlt,
     redirectUrl,
     scopeId,
