@@ -32,6 +32,45 @@ const CRC32_TABLE = (() => {
   }
   return table;
 })();
+const PIXEL_FONT_5X7 = {
+  A: ["01110", "10001", "10001", "11111", "10001", "10001", "10001"],
+  B: ["11110", "10001", "10001", "11110", "10001", "10001", "11110"],
+  C: ["01110", "10001", "10000", "10000", "10000", "10001", "01110"],
+  D: ["11110", "10001", "10001", "10001", "10001", "10001", "11110"],
+  E: ["11111", "10000", "10000", "11110", "10000", "10000", "11111"],
+  F: ["11111", "10000", "10000", "11110", "10000", "10000", "10000"],
+  G: ["01110", "10001", "10000", "10111", "10001", "10001", "01110"],
+  H: ["10001", "10001", "10001", "11111", "10001", "10001", "10001"],
+  I: ["11111", "00100", "00100", "00100", "00100", "00100", "11111"],
+  J: ["00001", "00001", "00001", "00001", "10001", "10001", "01110"],
+  K: ["10001", "10010", "10100", "11000", "10100", "10010", "10001"],
+  L: ["10000", "10000", "10000", "10000", "10000", "10000", "11111"],
+  M: ["10001", "11011", "10101", "10101", "10001", "10001", "10001"],
+  N: ["10001", "11001", "10101", "10011", "10001", "10001", "10001"],
+  O: ["01110", "10001", "10001", "10001", "10001", "10001", "01110"],
+  P: ["11110", "10001", "10001", "11110", "10000", "10000", "10000"],
+  Q: ["01110", "10001", "10001", "10001", "10101", "10010", "01101"],
+  R: ["11110", "10001", "10001", "11110", "10100", "10010", "10001"],
+  S: ["01111", "10000", "10000", "01110", "00001", "00001", "11110"],
+  T: ["11111", "00100", "00100", "00100", "00100", "00100", "00100"],
+  U: ["10001", "10001", "10001", "10001", "10001", "10001", "01110"],
+  V: ["10001", "10001", "10001", "10001", "10001", "01010", "00100"],
+  W: ["10001", "10001", "10001", "10101", "10101", "11011", "10001"],
+  X: ["10001", "10001", "01010", "00100", "01010", "10001", "10001"],
+  Y: ["10001", "10001", "01010", "00100", "00100", "00100", "00100"],
+  Z: ["11111", "00001", "00010", "00100", "01000", "10000", "11111"],
+  0: ["01110", "10001", "10011", "10101", "11001", "10001", "01110"],
+  1: ["00100", "01100", "00100", "00100", "00100", "00100", "01110"],
+  2: ["01110", "10001", "00001", "00010", "00100", "01000", "11111"],
+  3: ["11110", "00001", "00001", "01110", "00001", "00001", "11110"],
+  4: ["00010", "00110", "01010", "10010", "11111", "00010", "00010"],
+  5: ["11111", "10000", "10000", "11110", "00001", "00001", "11110"],
+  6: ["01110", "10000", "10000", "11110", "10001", "10001", "01110"],
+  7: ["11111", "00001", "00010", "00100", "01000", "01000", "01000"],
+  8: ["01110", "10001", "10001", "01110", "10001", "10001", "01110"],
+  9: ["01110", "10001", "10001", "01111", "00001", "00001", "01110"],
+  "?": ["01110", "10001", "00010", "00100", "00100", "00000", "00100"],
+};
 
 function clamp(value, min, max) {
   return Math.max(min, Math.min(max, value));
@@ -93,6 +132,38 @@ function drawFilledCircleRgba(buffer, width, height, cx, cy, radius, rgba) {
     for (let px = x0; px <= x1; px++) {
       setPixelRgba(buffer, width, height, px, py, rgba);
     }
+  }
+}
+
+function drawPixelText(buffer, width, height, text, x, y, scale, rgba) {
+  const safeText = String(text || "").toUpperCase();
+  let cursorX = Math.round(x);
+  const step = 6 * scale;
+
+  for (const char of safeText) {
+    if (char === " ") {
+      cursorX += step;
+      continue;
+    }
+    const glyph = PIXEL_FONT_5X7[char] || PIXEL_FONT_5X7["?"];
+    for (let row = 0; row < glyph.length; row++) {
+      const pattern = glyph[row];
+      for (let col = 0; col < pattern.length; col++) {
+        if (pattern[col] === "1") {
+          drawRectRgba(
+            buffer,
+            width,
+            height,
+            cursorX + col * scale,
+            y + row * scale,
+            scale,
+            scale,
+            rgba
+          );
+        }
+      }
+    }
+    cursorX += step;
   }
 }
 
@@ -574,6 +645,7 @@ function buildSeatCoordinates(totalSeats, config) {
       points.push({
         x: cx + radius * Math.cos(rad),
         y: cy + radius * Math.sin(rad),
+        angle,
       });
     }
   }
@@ -705,7 +777,12 @@ function renderVoteOgImage({
 </svg>`;
 }
 
-async function renderVoteOgPng({ result, voteToken = null, groupVoteToken = null }) {
+async function renderVoteOgPng({
+  result,
+  voteToken = null,
+  groupName = "",
+  groupVoteToken = null,
+}) {
   const width = OG_CANVAS.width;
   const height = OG_CANVAS.height;
   const rgba = new Uint8Array(width * height * 4);
@@ -719,6 +796,8 @@ async function renderVoteOgPng({ result, voteToken = null, groupVoteToken = null
   const contra = hexToRgba(OG_COLORS.contra);
   const abst = hexToRgba(OG_COLORS.abst);
   const noVota = hexToRgba(OG_COLORS.noVota);
+  const seatStroke = hexToRgba("#0f172a");
+  const white = hexToRgba("#ffffff");
 
   drawRectRgba(rgba, width, height, 30, 30, 564, 570, border);
   drawRectRgba(rgba, width, height, 34, 34, 556, 562, panel);
@@ -737,6 +816,12 @@ async function renderVoteOgPng({ result, voteToken = null, groupVoteToken = null
     endDeg: -30,
   });
   const seatRadius = totals.total > 300 ? 5.3 : 5.8;
+  const orderedCoords = [...coords].sort((a, b) => {
+    if (a.angle !== b.angle) return b.angle - a.angle;
+    const ar = (a.x - 330) * (a.x - 330) + (a.y - 305) * (a.y - 305);
+    const br = (b.x - 330) * (b.x - 330) + (b.y - 305) * (b.y - 305);
+    return br - ar;
+  });
 
   const seatColors = [];
   for (let i = 0; i < totals.favor; i++) seatColors.push(favor);
@@ -744,15 +829,18 @@ async function renderVoteOgPng({ result, voteToken = null, groupVoteToken = null
   for (let i = 0; i < totals.abstencion; i++) seatColors.push(abst);
   for (let i = 0; i < totals.noVota; i++) seatColors.push(noVota);
 
-  for (let i = 0; i < coords.length; i++) {
+  for (let i = 0; i < orderedCoords.length; i++) {
+    const point = orderedCoords[i];
+    const fill = seatColors[i] || noVota;
+    drawFilledCircleRgba(rgba, width, height, point.x, point.y, seatRadius + 1.3, seatStroke);
     drawFilledCircleRgba(
       rgba,
       width,
       height,
-      coords[i].x,
-      coords[i].y,
+      point.x,
+      point.y,
       seatRadius,
-      seatColors[i] || noVota
+      fill
     );
   }
 
@@ -815,6 +903,31 @@ async function renderVoteOgPng({ result, voteToken = null, groupVoteToken = null
     drawRectRgba(rgba, width, height, 900, y, lineW, 10, summaryRows[i].color);
     const dotR = 8;
     drawFilledCircleRgba(rgba, width, height, 872, y + 5, dotR, summaryRows[i].color);
+  }
+
+  if (groupName) {
+    const party = normalizeGroupBrand(groupName);
+    const partyColor = hexToRgba(party.color || "#64748b");
+    const badgeX = 1080;
+    const badgeY = 118;
+    drawFilledCircleRgba(rgba, width, height, badgeX, badgeY, 58, white);
+    drawFilledCircleRgba(rgba, width, height, badgeX, badgeY, 52, partyColor);
+    const logo = String(party.logo || initials(party.label || groupName, 3) || "PG")
+      .toUpperCase()
+      .slice(0, 4);
+    const scale = logo.length >= 4 ? 3 : logo.length >= 3 ? 4 : 5;
+    const textWidth = logo.length * 6 * scale - scale;
+    const textHeight = 7 * scale;
+    drawPixelText(
+      rgba,
+      width,
+      height,
+      logo,
+      badgeX - Math.floor(textWidth / 2),
+      badgeY - Math.floor(textHeight / 2),
+      scale,
+      white
+    );
   }
 
   return encodeRgbaToPng(width, height, rgba);
@@ -1024,6 +1137,7 @@ async function handleVoteOgImage(request, env) {
       const png = await renderVoteOgPng({
         result: { favor: 0, contra: 0, abstencion: 0, total: 0, result: "Sin datos" },
         voteToken: voteParam,
+        groupName: groupParam,
         groupVoteToken: groupVoteParam,
       });
       return new Response(png, {
@@ -1063,6 +1177,7 @@ async function handleVoteOgImage(request, env) {
     const png = await renderVoteOgPng({
       result,
       voteToken: voteParam,
+      groupName: groupParam,
       groupVoteToken: groupVoteParam,
     });
     return new Response(png, {
