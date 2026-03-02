@@ -9,6 +9,11 @@ Este proyecto incluye un Worker que genera metatags Open Graph/Twitter en runtim
 - `/og/votacion/:scope/:id` (imagen OG dinámica SVG)
 - `/og/diputado/:scope/:name` (imagen OG dinámica SVG con foto + badge de partido)
 
+Parámetros opcionales en votación para contextualizar el share:
+
+- `?dip=<Nombre>&vote=<si|no|abstencion|no_vota>`
+- `?group=<Grupo>&groupVote=<si|no|abstencion|no_vota>`
+
 Ejemplos:
 
 - `https://loquevotan.es/share/votacion/nacional/XV-13-1`

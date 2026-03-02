@@ -361,11 +361,21 @@ function buildSeatCoordinates(totalSeats, config) {
   return points;
 }
 
-function voteOgImageUrl(siteUrl, scopeId, voteId, dipName = "", voteToken = null) {
+function voteOgImageUrl(
+  siteUrl,
+  scopeId,
+  voteId,
+  dipName = "",
+  voteToken = null,
+  groupName = "",
+  groupVoteToken = null
+) {
   const path = `/og/votacion/${encodeURIComponent(scopeId)}/${encodeURIComponent(voteId)}`;
   const url = new URL(`${siteUrl}${path}`);
   if (dipName) url.searchParams.set("dip", dipName);
   if (voteToken) url.searchParams.set("vote", voteToken);
+  if (groupName) url.searchParams.set("group", groupName);
+  if (groupVoteToken) url.searchParams.set("groupVote", groupVoteToken);
   return url.toString();
 }
 
@@ -382,6 +392,8 @@ function renderVoteOgImage({
   result,
   dipName = "",
   voteToken = null,
+  groupName = "",
+  groupVoteToken = null,
 }) {
   const titleLines = splitTitleLines(voteTitle, 45, 3);
   const totals = seatBreakdown(result);
@@ -425,9 +437,14 @@ function renderVoteOgImage({
     })
     .join("");
 
-  const dipSnippet = dipName
+  const contextSnippetText = dipName
+    ? `${shortDiputadoName(dipName)} ${voteActionText(voteToken)}`
+    : groupName
+      ? `${normalizeGroupBrand(groupName).label} ${voteActionText(groupVoteToken)}`
+      : "";
+  const contextSnippet = contextSnippetText
     ? `<text x="640" y="352" font-size="30" fill="${OG_COLORS.text}" font-weight="700">${escapeHtml(
-        `${shortDiputadoName(dipName)} ${voteActionText(voteToken)}`
+        contextSnippetText
       )}</text>`
     : "";
 
@@ -462,7 +479,7 @@ function renderVoteOgImage({
     category || "Otros"
   )}</text>
   <text x="640" y="320" font-size="24" fill="${OG_COLORS.muted}">Resultado: ${escapeHtml(result?.result || "Sin resultado")}</text>
-  ${dipSnippet}
+  ${contextSnippet}
   <text x="640" y="418" font-size="22" fill="${OG_COLORS.muted}">ID: ${escapeHtml(voteId)}</text>
   <text x="640" y="468" font-size="26" fill="${OG_COLORS.text}" font-weight="700">${totals.favor} sí · ${totals.contra} no · ${totals.abstencion} abst.</text>
 </svg>`;
@@ -649,6 +666,8 @@ async function handleVoteOgImage(request, env) {
   const voteId = decodeSegment(parts.slice(3).join("/"));
   const dipParam = decodeSegment(requestUrl.searchParams.get("dip") || "").trim();
   const voteParam = normalizeVoteToken(requestUrl.searchParams.get("vote"));
+  const groupParam = decodeSegment(requestUrl.searchParams.get("group") || "").trim();
+  const groupVoteParam = normalizeVoteToken(requestUrl.searchParams.get("groupVote"));
   if (!voteId) return null;
 
   const scopes = await getAmbitos(env, requestUrl);
@@ -667,6 +686,8 @@ async function handleVoteOgImage(request, env) {
       result: { favor: 0, contra: 0, abstencion: 0, total: 0, result: "Sin datos" },
       dipName: dipParam,
       voteToken: voteParam,
+      groupName: groupParam,
+      groupVoteToken: groupVoteParam,
     });
     return new Response(svg, {
       status: 404,
@@ -689,6 +710,8 @@ async function handleVoteOgImage(request, env) {
     result,
     dipName: dipParam,
     voteToken: voteParam,
+    groupName: groupParam,
+    groupVoteToken: groupVoteParam,
   });
 
   return new Response(svg, {
@@ -770,6 +793,8 @@ async function handleVoteShare(request, env) {
   const voteId = decodeSegment(parts.slice(3).join("/"));
   const dipParam = decodeSegment(requestUrl.searchParams.get("dip") || "").trim();
   const voteParam = normalizeVoteToken(requestUrl.searchParams.get("vote"));
+  const groupParam = decodeSegment(requestUrl.searchParams.get("group") || "").trim();
+  const groupVoteParam = normalizeVoteToken(requestUrl.searchParams.get("groupVote"));
   if (!voteId) return null;
 
   const scopes = await getAmbitos(env, requestUrl);
@@ -783,12 +808,24 @@ async function handleVoteShare(request, env) {
   const canonicalUrlObj = new URL(`${siteUrl}${sharePath}`);
   if (dipParam) canonicalUrlObj.searchParams.set("dip", dipParam);
   if (voteParam) canonicalUrlObj.searchParams.set("vote", voteParam);
+  if (groupParam) canonicalUrlObj.searchParams.set("group", groupParam);
+  if (groupVoteParam) canonicalUrlObj.searchParams.set("groupVote", groupVoteParam);
   const canonicalUrl = canonicalUrlObj.toString();
-  const imageUrl = voteOgImageUrl(siteUrl, scopeId, voteId, dipParam, voteParam);
+  const imageUrl = voteOgImageUrl(
+    siteUrl,
+    scopeId,
+    voteId,
+    dipParam,
+    voteParam,
+    groupParam,
+    groupVoteParam
+  );
   const redirectUrlObj = new URL(`${siteUrl}/votacion/${encodeURIComponent(voteId)}`);
   redirectUrlObj.searchParams.set("scope", scopeId);
   if (dipParam) redirectUrlObj.searchParams.set("dip", dipParam);
   if (voteParam) redirectUrlObj.searchParams.set("vote", voteParam);
+  if (groupParam) redirectUrlObj.searchParams.set("group", groupParam);
+  if (groupVoteParam) redirectUrlObj.searchParams.set("groupVote", groupVoteParam);
   const redirectUrl = redirectUrlObj.toString();
 
   if (!Number.isInteger(voteIndex)) {
@@ -807,21 +844,35 @@ async function handleVoteShare(request, env) {
   const result = meta.votResults?.[voteIndex] || null;
   const voteTitle = vote?.titulo_ciudadano || voteId;
   const shortDipName = shortDiputadoName(dipParam);
+  const groupDisplayName = groupParam ? normalizeGroupBrand(groupParam).label : "";
   const action = voteActionText(voteParam);
+  const groupAction = voteActionText(groupVoteParam);
   const title = dipParam
     ? voteParam
       ? `${shortDipName} ${action} en ${voteTitle} | ${BRAND_TITLE}`
       : `${shortDipName} en ${voteTitle} | ${BRAND_TITLE}`
+    : groupParam
+      ? groupVoteParam
+        ? `${groupDisplayName} ${groupAction} en ${voteTitle} | ${BRAND_TITLE}`
+        : `${groupDisplayName} en ${voteTitle} | ${BRAND_TITLE}`
     : `${voteTitle} | ${BRAND_TITLE}`;
   const description = dipParam
     ? voteParam
       ? `${shortDipName} ${action} en esta votación. ${voteDescription(vote, result, meta.categorias || [])}`
       : `Consulta cómo votó ${dipParam} en este asunto. ${voteDescription(vote, result, meta.categorias || [])}`
+    : groupParam
+      ? groupVoteParam
+        ? `${groupDisplayName} ${groupAction} en esta votación. ${voteDescription(vote, result, meta.categorias || [])}`
+        : `Consulta qué votó ${groupDisplayName} en este asunto. ${voteDescription(vote, result, meta.categorias || [])}`
     : voteDescription(vote, result, meta.categorias || []);
   const imageAlt = dipParam
     ? voteParam
       ? `${shortDipName} ${action} en ${voteTitle}`
       : `Votación de ${voteTitle}`
+    : groupParam
+      ? groupVoteParam
+        ? `${groupDisplayName} ${groupAction} en ${voteTitle}`
+        : `Votación de ${voteTitle}`
     : `Resultado de votación: ${voteTitle}`;
 
   return renderOgPage({

@@ -22,6 +22,7 @@ const vot = computed(() => {
 const r = computed(() => votResults.value[idx.value])
 const dipSearch = ref('')
 const highlightedDip = ref('')
+const highlightedGroup = ref('')
 const showEmbed = ref(false)
 const copiedEmbed = ref(false)
 
@@ -63,6 +64,14 @@ watch(() => route.query.dip, (dip) => {
     highlightedDip.value = name
   } else {
     highlightedDip.value = ''
+  }
+}, { immediate: true })
+
+watch(() => route.query.group, (group) => {
+  if (group) {
+    highlightedGroup.value = decodeURIComponent(group)
+  } else {
+    highlightedGroup.value = ''
   }
 }, { immediate: true })
 
@@ -131,6 +140,14 @@ const noNominalVotesMessage = computed(() => {
   return 'Esta votación no incluye detalle nominal por representante en la fuente oficial. Solo hay resultado agregado.'
 })
 
+function groupMajorityCode(gIdx) {
+  const c = byGroup.value[gIdx]
+  if (!c) return null
+  if (c[1] >= c[2] && c[1] >= c[3]) return 1
+  if (c[2] >= c[3]) return 2
+  return 3
+}
+
 function voteTokenFromCode(code) {
   if (code === 1) return 'si'
   if (code === 2) return 'no'
@@ -194,14 +211,51 @@ const highlightedVoteToken = computed(() => {
   return ''
 })
 
+function findGroupIdxByName(groupName) {
+  if (!groupName) return -1
+  const target = normalize(groupName)
+  for (let i = 0; i < grupos.value.length; i++) {
+    if (normalize(grupos.value[i]) === target) return i
+  }
+  return -1
+}
+
+const highlightedGroupCode = computed(() => {
+  if (highlightedGroup.value) {
+    const gIdx = findGroupIdxByName(highlightedGroup.value)
+    if (gIdx >= 0 && byGroup.value[gIdx]) return groupMajorityCode(gIdx)
+  }
+  return null
+})
+
+const highlightedGroupVoteToken = computed(() => {
+  if (highlightedGroupCode.value != null) return voteTokenFromCode(highlightedGroupCode.value)
+  const fromQuery = route.query.groupVote
+  if (typeof fromQuery === 'string') return normalizeVoteToken(fromQuery)
+  return ''
+})
+
+const highlightedGroupSummary = computed(() => {
+  if (!highlightedGroup.value || !vot.value?.titulo_ciudadano) return ''
+  const gIdx = findGroupIdxByName(highlightedGroup.value)
+  const label = gIdx >= 0 ? getGroupInfo(grupos.value[gIdx]).label : highlightedGroup.value
+  if (highlightedGroupCode.value != null) {
+    return `${label} ${voteActionTextFromCode(highlightedGroupCode.value)} en "${vot.value.titulo_ciudadano}".`
+  }
+  return `Como voto ${label} en "${vot.value.titulo_ciudadano}"?`
+})
+
 const shareText = computed(() => {
   if (!vot.value?.titulo_ciudadano) return ''
-  if (!highlightedDip.value) return ''
-  const shortName = shortDiputadoName(highlightedDip.value)
-  if (highlightedVoteCode.value != null) {
-    return `${shortName} ${voteActionTextFromCode(highlightedVoteCode.value)} en "${vot.value.titulo_ciudadano}".`
+  if (highlightedDip.value) {
+    const shortName = shortDiputadoName(highlightedDip.value)
+    if (highlightedVoteCode.value != null) {
+      return `${shortName} ${voteActionTextFromCode(highlightedVoteCode.value)} en "${vot.value.titulo_ciudadano}".`
+    }
+    return `Como voto ${shortName} en "${vot.value.titulo_ciudadano}"?`
   }
-  return `Como voto ${shortName} en "${vot.value.titulo_ciudadano}"?`
+  if (highlightedGroup.value) return highlightedGroupSummary.value
+  return ''
 })
 
 const copiedVi = ref(null)
@@ -216,15 +270,40 @@ function copyVoteLink(vi) {
   setTimeout(() => { if (copiedVi.value === vi) copiedVi.value = null }, 2000)
 }
 
+const copiedGroup = ref(null)
+function copyGroupLink(gIdx) {
+  const groupName = grupos.value[gIdx]
+  const groupVoteCode = groupMajorityCode(gIdx)
+  const groupVoteToken = groupVoteCode != null ? voteTokenFromCode(groupVoteCode) : ''
+  const scope = encodeURIComponent(currentScopeId.value || 'nacional')
+  const voteId = encodeURIComponent(vot.value.id)
+  let url = buildAbsoluteAppUrl(`share/votacion/${scope}/${voteId}?group=${encodeURIComponent(groupName)}`)
+  if (groupVoteToken) {
+    url += `&groupVote=${encodeURIComponent(groupVoteToken)}`
+  }
+  navigator.clipboard.writeText(url)
+  copiedGroup.value = gIdx
+  setTimeout(() => { if (copiedGroup.value === gIdx) copiedGroup.value = null }, 2000)
+}
+
 const shareUrl = computed(() => {
   if (!vot.value?.id) return ''
   const scopeId = currentScopeId.value || 'nacional'
   const voteId = encodeURIComponent(vot.value.id)
   let url = buildAbsoluteAppUrl(`share/votacion/${encodeURIComponent(scopeId)}/${voteId}`)
-  if (!highlightedDip.value) return url
-  url += `?dip=${encodeURIComponent(highlightedDip.value)}`
-  if (highlightedVoteToken.value) {
-    url += `&vote=${encodeURIComponent(highlightedVoteToken.value)}`
+  if (highlightedDip.value) {
+    url += `?dip=${encodeURIComponent(highlightedDip.value)}`
+    if (highlightedVoteToken.value) {
+      url += `&vote=${encodeURIComponent(highlightedVoteToken.value)}`
+    }
+    return url
+  }
+  if (highlightedGroup.value) {
+    url += `?group=${encodeURIComponent(highlightedGroup.value)}`
+    if (highlightedGroupVoteToken.value) {
+      url += `&groupVote=${encodeURIComponent(highlightedGroupVoteToken.value)}`
+    }
+    return url
   }
   return url
 })
@@ -318,6 +397,7 @@ watch(vot, (v) => {
 
         <p v-if="vot.resumen" class="detail-summary" style="margin-top:0.5rem">{{ vot.resumen }}</p>
         <p v-if="highlightedVoteSummary" class="detail-highlight-vote">{{ highlightedVoteSummary }}</p>
+        <p v-if="!highlightedVoteSummary && highlightedGroupSummary" class="detail-highlight-vote">{{ highlightedGroupSummary }}</p>
         
         <!-- Nota explicativa para votos deducidos -->
         <div v-if="vot.metadatos?.tipo === 'deduccion_grupal'" class="deduced-note">
@@ -371,12 +451,29 @@ watch(vot, (v) => {
               {{ noNominalVotesMessage }}
             </p>
             <div v-else-if="votosReady" class="groups-grid">
-              <div v-for="gIdx in sortedGroups" :key="gIdx" class="group-result-card">
+              <div
+                v-for="gIdx in sortedGroups"
+                :key="gIdx"
+                class="group-result-card"
+                :class="{ 'tr--highlighted': normalize(grupos[gIdx]) === normalize(highlightedGroup) }"
+              >
                 <div class="group-result-header">
                   <router-link :to="'/grupo/' + encodeURIComponent(grupos[gIdx])" class="group-name">
                     {{ getGroupInfo(grupos[gIdx]).label }}
                   </router-link>
-                  <span class="group-total">{{ byGroup[gIdx].total }} diputados</span>
+                  <div style="display:flex;align-items:center;gap:0.45rem">
+                    <span v-if="groupMajorityCode(gIdx) != null" class="voto-pill" :class="votoPillClass(groupMajorityCode(gIdx))">
+                      {{ VOTO_LABELS[groupMajorityCode(gIdx)] }}
+                    </span>
+                    <span class="group-total">{{ byGroup[gIdx].total }} diputados</span>
+                    <button
+                      class="btn-share-vote"
+                      title="Copiar enlace del voto de este partido"
+                      @click="copyGroupLink(gIdx)"
+                    >
+                      {{ copiedGroup === gIdx ? '✅' : '🔗' }}
+                    </button>
+                  </div>
                 </div>
                 <VoteBar 
                   :favor="byGroup[gIdx][1]" 
