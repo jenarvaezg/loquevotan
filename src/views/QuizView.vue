@@ -1270,29 +1270,35 @@ function axisToBoardPercent(axisValue) {
   margin: 0 auto;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  background:
-    linear-gradient(to right, rgba(37, 99, 235, 0.07), rgba(37, 99, 235, 0.02) 50%, rgba(239, 68, 68, 0.07));
+  background: conic-gradient(
+    from 90deg at 50% 50%,
+    rgba(239, 68, 68, 0.08) 0deg 90deg,     /* Bottom Right: Der/Libertario (Redish tint or Yellowish) */
+    rgba(59, 130, 246, 0.08) 90deg 180deg,    /* Bottom Left: Izq/Libertario (Blueish) */
+    rgba(16, 185, 129, 0.08) 180deg 270deg,   /* Top Left: Izq/Autoritario (Greenish) */
+    rgba(245, 158, 11, 0.08) 270deg 360deg    /* Top Right: Der/Autoritario (Yellowish) */
+  );
   overflow: hidden;
+  box-shadow: inset 0 2px 10px rgba(0,0,0,0.02);
 }
 
 .compass-axis {
   position: absolute;
   background: var(--color-border);
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
 .compass-axis--horizontal {
   left: 0;
   right: 0;
   top: 50%;
-  height: 1px;
+  height: 2px;
 }
 
 .compass-axis--vertical {
   top: 0;
   bottom: 0;
   left: 50%;
-  width: 1px;
+  width: 2px;
 }
 
 .compass-corner {
@@ -1300,12 +1306,17 @@ function axisToBoardPercent(axisValue) {
   font-size: 0.68rem;
   font-weight: 600;
   color: var(--color-text-secondary);
-  background: var(--color-surface);
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(4px);
   border: 1px solid var(--color-border);
   padding: 0.25rem 0.45rem;
   border-radius: 6px;
   box-shadow: var(--shadow-sm);
   z-index: 1;
+}
+
+[data-theme="dark"] .compass-corner {
+  background: rgba(30,41,59,0.8);
 }
 
 .compass-corner--tl { left: 0.4rem; top: 0.4rem; }
@@ -1319,22 +1330,36 @@ function axisToBoardPercent(axisValue) {
   width: 10px;
   height: 10px;
   border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+
+.compass-point:hover {
+  transform: translate(-50%, -50%) scale(1.5);
+  z-index: 10;
 }
 
 .compass-point--party {
   background: #64748b;
-  border: 1.5px solid rgba(255, 255, 255, 0.78);
-  width: 11px;
-  height: 11px;
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+  width: 12px;
+  height: 12px;
   z-index: 2;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
 .compass-point--user {
   background: var(--color-primary);
-  width: 13px;
-  height: 13px;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.22);
+  width: 16px;
+  height: 16px;
+  border: 2px solid #fff;
   z-index: 3;
+  animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(37, 99, 235, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
 }
 
 .compass-point-label {
