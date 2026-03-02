@@ -1,0 +1,53 @@
+[
+  {
+    "id": "MAD-XII-14-3",
+    "fecha": "12/07/2021",
+    "titulo": "a mano alzada al no estar conformes",
+    "votos": [],
+    "totales": {
+      "favor": 15,
+      "contra": 2,
+      "abstencion": 0,
+      "total": 17
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por disciplina de grupo."
+    },
+    "group_votes": {}
+  },
+  {
+    "id": "MAD-XII-18-1",
+    "fecha": "14/07/2021",
+    "titulo": "a mano alzada, ya que",
+    "votos": [],
+    "totales": {
+      "favor": 15,
+      "contra": 2,
+      "abstencion": 0,
+      "total": 17
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por disciplina de grupo."
+    },
+    "group_votes": {}
+  },
+  {
+    "id": "MAD-XII-19-1",
+    "fecha": "14/07/2021",
+    "titulo": "a mano",
+    "votos": [],
+    "totales": {
+      "favor": 15,
+      "contra": 2,
+      "abstencion": 0,
+      "total": 17
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por disciplina de grupo."
+    },
+    "group_votes": {}
+  }
+]

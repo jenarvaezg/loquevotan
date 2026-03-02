@@ -1,0 +1,104 @@
+[
+  {
+    "id": "MAD-XI-166-1",
+    "fecha": "10/03/2020",
+    "titulo": "enmiendas a",
+    "votos": [],
+    "totales": {
+      "favor": 4,
+      "contra": 10,
+      "abstencion": 4,
+      "total": 18
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por disciplina de grupo."
+    },
+    "group_votes": {}
+  },
+  {
+    "id": "MAD-XI-236-1",
+    "fecha": "30/09/2020",
+    "titulo": "votar la PNL con",
+    "votos": [],
+    "totales": {
+      "favor": 11,
+      "contra": 8,
+      "abstencion": 0,
+      "total": 19
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por disciplina de grupo."
+    },
+    "group_votes": {}
+  },
+  {
+    "id": "MAD-XI-27-1",
+    "fecha": "04/10/2019",
+    "titulo": "la designación de don Miguel Díaz Martín como Presidente de la Comisión. (Pausa)",
+    "votos": [],
+    "totales": {
+      "favor": 17,
+      "contra": 2,
+      "abstencion": 0,
+      "total": 19
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por disciplina de grupo."
+    },
+    "group_votes": {}
+  },
+  {
+    "id": "MAD-XI-27-2",
+    "fecha": "04/10/2019",
+    "titulo": "para proclamar a Soledad Sánchez",
+    "votos": [],
+    "totales": {
+      "favor": 17,
+      "contra": 2,
+      "abstencion": 0,
+      "total": 19
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por disciplina de grupo."
+    },
+    "group_votes": {}
+  },
+  {
+    "id": "MAD-XI-83-1",
+    "fecha": "20/11/2019",
+    "titulo": "votación el texto de la PNL",
+    "votos": [],
+    "totales": {
+      "favor": 10,
+      "contra": 9,
+      "abstencion": 0,
+      "total": 19
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por disciplina de grupo."
+    },
+    "group_votes": {}
+  },
+  {
+    "id": "MAD-XI-89-1",
+    "fecha": "02/12/2019",
+    "titulo": "Proposición No de Ley 109/2019: Suscripciones y tarifas, consultar página web de la Asamblea. Depósito legal: M. 19.464-1983 - ISSN 1131-7051 Asamblea de Madrid 4296",
+    "votos": [],
+    "totales": {
+      "favor": 17,
+      "contra": 2,
+      "abstencion": 0,
+      "total": 19
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por disciplina de grupo."
+    },
+    "group_votes": {}
+  }
+]
