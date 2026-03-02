@@ -5,7 +5,7 @@ export default defineConfig({
   timeout: 30000,
   retries: 0,
   use: {
-    baseURL: 'http://localhost:5173/loquevotan/',
+    baseURL: 'http://localhost:5173/',
     headless: true,
   },
   projects: [
@@ -13,7 +13,7 @@ export default defineConfig({
   ],
   webServer: {
     command: 'npm run dev',
-    url: 'http://localhost:5173/loquevotan/',
+    url: 'http://localhost:5173/',
     reuseExistingServer: true,
     timeout: 15000,
   },

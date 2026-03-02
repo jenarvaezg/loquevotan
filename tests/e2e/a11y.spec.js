@@ -4,10 +4,10 @@ import AxeBuilder from '@axe-core/playwright';
 test.describe('Accessibility Checks', () => {
   const routes = [
     '/',
-    '/#/votaciones',
-    '/#/diputados',
-    '/#/grupos',
-    '/#/quiz'
+    '/votaciones',
+    '/diputados',
+    '/grupos',
+    '/quiz'
   ];
 
   for (const route of routes) {

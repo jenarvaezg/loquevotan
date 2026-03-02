@@ -1,7 +1,7 @@
 <script setup>
 import { computed, ref, onMounted, onUnmounted } from 'vue'
 import { useData } from '../composables/useData'
-import { fmt, avatarStyle, avatarInitials, dipPhotoUrl, getGroupInfo } from '../utils'
+import { fmt, avatarStyle, avatarInitials, dipPhotoUrl, getGroupInfo, buildAbsoluteAppUrl } from '../utils'
 import html2canvas from 'html2canvas'
 
 const props = defineProps({
@@ -11,7 +11,7 @@ const props = defineProps({
 
 const emit = defineEmits(['close'])
 
-const { diputados, grupos, dipStats, dipFotos, votos, votaciones, votosByDiputado } = useData()
+const { diputados, grupos, dipStats, dipFotos, votos, votaciones, votosByDiputado, currentScopeId } = useData()
 const copyLabel = ref('Copiar enlace')
 const captureArea = ref(null)
 
@@ -41,9 +41,11 @@ const counts = computed(() => {
 })
 
 const shareUrl = computed(() =>
-  location.origin + location.pathname +
-  '#/diputado/' + encodeURIComponent(name.value) +
-  '?tag=' + encodeURIComponent(props.tag)
+  buildAbsoluteAppUrl(
+    'diputado/' + encodeURIComponent(name.value) +
+    '?tag=' + encodeURIComponent(props.tag) +
+    '&scope=' + encodeURIComponent(currentScopeId.value || 'nacional')
+  )
 )
 
 const twitterUrl = computed(() => {

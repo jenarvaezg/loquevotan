@@ -224,3 +224,16 @@ export function getGroupInfo(groupName) {
 
   return { label: g, color: '#64748b' };
 }
+
+export function appBasePath() {
+  const raw = import.meta.env.BASE_URL || "/";
+  const withLeading = raw.startsWith("/") ? raw : `/${raw}`;
+  return withLeading.endsWith("/") ? withLeading : `${withLeading}/`;
+}
+
+export function buildAbsoluteAppUrl(path, origin = window.location.origin) {
+  const cleanOrigin = String(origin || window.location.origin).replace(/\/+$/, "");
+  const base = appBasePath();
+  const cleanPath = String(path || "").replace(/^\/+/, "");
+  return `${cleanOrigin}${base}${cleanPath}`;
+}

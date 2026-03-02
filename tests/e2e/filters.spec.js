@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 
 test.describe("Votaciones View Filters", () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto("/#/votaciones");
+    await page.goto("/votaciones");
     await page.waitForSelector('[data-testid="vote-card"]', { timeout: 15000 });
   });
 

@@ -1,0 +1,12 @@
+name = "dondevotan"
+main = "worker/index.mjs"
+compatibility_date = "2026-03-02"
+
+[assets]
+directory = "./dist"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+run_worker_first = ["/share/*"]
+
+[vars]
+SITE_URL = "https://dondevotan.es"

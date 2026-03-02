@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test'
 
 test.describe('Home page', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/#/')
+    await page.goto('/')
     await page.waitForSelector('[data-testid="home-stats"]')
   })
 

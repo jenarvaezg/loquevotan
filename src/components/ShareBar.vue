@@ -1,12 +1,14 @@
 <script setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 
 const props = defineProps({
   title: String,
   result: { type: String, default: null },
+  shareUrl: { type: String, default: '' },
 })
 
 const copyLabel = ref('Copiar enlace')
+const resolvedShareUrl = computed(() => props.shareUrl || window.location.href)
 
 function shareText() {
   if (props.result) {
@@ -16,17 +18,17 @@ function shareText() {
 }
 
 function twitterUrl() {
-  const url = window.location.href
+  const url = resolvedShareUrl.value
   return `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText())}&url=${encodeURIComponent(url)}`
 }
 
 function whatsappUrl() {
-  const url = window.location.href
+  const url = resolvedShareUrl.value
   return `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText() + ' ' + url)}`
 }
 
 async function copyUrl() {
-  const url = window.location.href
+  const url = resolvedShareUrl.value
   try {
     await navigator.clipboard.writeText(url)
   } catch {

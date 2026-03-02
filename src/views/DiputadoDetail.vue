@@ -2,7 +2,7 @@
 import { computed, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useData } from '../composables/useData'
-import { fmt, pct, debounce, normalize, dipPhotoUrl, avatarInitials, avatarStyle, VOTO_LABELS, VOTES_PER_PAGE, LEGISLATURAS, subTipoLabel, subTipoBadgeClass, votoPillClass, getGroupInfo } from '../utils'
+import { fmt, pct, debounce, normalize, dipPhotoUrl, avatarInitials, avatarStyle, VOTO_LABELS, VOTES_PER_PAGE, LEGISLATURAS, subTipoLabel, subTipoBadgeClass, votoPillClass, getGroupInfo, buildAbsoluteAppUrl } from '../utils'
 import VoteBar from '../components/VoteBar.vue'
 import ResultBadge from '../components/ResultBadge.vue'
 import ShareBar from '../components/ShareBar.vue'
@@ -36,6 +36,15 @@ function navigateToScope(scopeId) {
   })
 }
 
+watch(() => route.query.scope, (scope) => {
+  if (typeof scope !== 'string') return
+  const target = scope.trim().toLowerCase()
+  const knownScopes = new Set(['nacional', ...(ambitos.value || []).map(a => String(a.id || '').toLowerCase())])
+  if (!knownScopes.has(target)) return
+  if (!target || target === currentScopeId.value) return
+  setScope(target)
+}, { immediate: true })
+
 // History filters
 const histSearch = ref('')
 const histVoto = ref('')
@@ -48,6 +57,13 @@ const groupByExp = ref(true)
 const expandedExps = ref({})
 
 const baseUrl = import.meta.env.BASE_URL
+
+const shareUrl = computed(() => {
+  if (!name.value) return ''
+  const scopeId = encodeURIComponent(currentScopeId.value || 'nacional')
+  const dipName = encodeURIComponent(name.value)
+  return buildAbsoluteAppUrl(`share/diputado/${scopeId}/${dipName}`)
+})
 
 // Track if votos for current filter legislatura (or latest) are loaded
 const votosReady = computed(() => {
@@ -666,7 +682,10 @@ watch(name, (n) => {
         <div class="loading-wrap" style="padding:2rem"><div class="loading-spinner"></div></div>
       </div>
 
-      <ShareBar :title="name + ' - ' + (groupInfo?.label || 'Sin grupo')" />
+      <ShareBar
+        :title="name + ' - ' + (groupInfo?.label || 'Sin grupo')"
+        :share-url="shareUrl"
+      />
 
       <AccountabilityCard
         v-if="showAccCard && votosReady"

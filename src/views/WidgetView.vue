@@ -2,6 +2,7 @@
 import { computed, watch, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { useData } from '../composables/useData'
+import { buildAbsoluteAppUrl } from '../utils'
 import VoteBar from '../components/VoteBar.vue'
 import ResultBadge from '../components/ResultBadge.vue'
 
@@ -33,7 +34,7 @@ onMounted(() => {
 
 const detailUrl = computed(() => {
   if (!v.value) return '#'
-  return `https://jenarvaezg.github.io/loquevotan/#/votacion/${v.value.id}`
+  return buildAbsoluteAppUrl(`votacion/${encodeURIComponent(v.value.id)}`)
 })
 </script>
 

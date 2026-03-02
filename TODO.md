@@ -11,7 +11,7 @@
 2. **Homogeneizar `run_update.py` con fail-fast** (evitar publicar datasets parciales).
 3. **Fecha de actualización por ámbito visible** (transparencia operativa inmediata).
 4. **Diff automático entre actualizaciones** (QA rápido y trazable).
-5. **Tarjetas sociales dinámicas (OG)** (impacto directo en distribución/viralidad).
+5. **Tarjetas sociales dinámicas (OG)** (base implementada con Cloudflare Workers en rutas `/share/...`).
 6. **Soporte widgets/embeds** (distribución en medios locales y terceros).
 
 ### P1 (siguiente bloque)
@@ -41,8 +41,12 @@
   - Al final, la app calcula su % de afinidad real con cada partido/candidato en base al historial de voto.
 - [x] **Encuesta / Analytics del Quiz:**
   - Integrar Google Analytics para guardar los resultados anonimizados.
-- [ ] **Tarjetas Sociales Dinámicas (Open Graph):**
-  - Generar imágenes OG para compartir en redes.
+- [x] **Tarjetas Sociales Dinámicas (Open Graph):**
+  - OG dinámico server-side con Cloudflare Worker para rutas:
+    - `/share/votacion/:scope/:id`
+    - `/share/diputado/:scope/:name`
+  - `ShareBar` usa estas URLs para que redes lean metadatos antes de redirigir a la SPA.
+  - Pendiente opcional: generación de imagen OG personalizada por recurso (ahora usa `og-image.png`).
 - [x] **Botón "Fiscalizar" / Share Accountability:**
   - Exportar ficha de diputado como imagen.
 - [x] **Buscador de representantes por Provincia:**

@@ -7,6 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "cf:dev": "npx wrangler dev",
+    "cf:deploy": "npm run build && npx wrangler deploy",
     "test:data-integrity": "node scripts/qa/check_data_integrity.mjs",
     "test:unit": "vitest run",
     "test": "npm run test:unit && npm run test:data-integrity && npx playwright test"

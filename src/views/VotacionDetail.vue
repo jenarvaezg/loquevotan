@@ -2,7 +2,7 @@
 import { computed, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useData } from '../composables/useData'
-import { fmt, normalize, VOTO_LABELS, resultMarginText, subTipoLabel, subTipoBadgeClass, votoPillClass, getGroupInfo } from '../utils'
+import { fmt, normalize, VOTO_LABELS, resultMarginText, subTipoLabel, subTipoBadgeClass, votoPillClass, getGroupInfo, buildAbsoluteAppUrl } from '../utils'
 import VoteBar from '../components/VoteBar.vue'
 import ResultBadge from '../components/ResultBadge.vue'
 import ShareBar from '../components/ShareBar.vue'
@@ -10,7 +10,7 @@ import ViewState from '../components/ViewState.vue'
 import GlossaryTooltip from '../components/GlossaryTooltip.vue'
 
 const route = useRoute()
-const { votaciones, votResults, votos, votosByVotacion, votsByExp, categorias, grupos, diputados, loadVotosForLeg, votosLoaded, votacionDetail, votIdById, loaded } = useData()
+const { votaciones, votResults, votos, votosByVotacion, votsByExp, categorias, grupos, diputados, loadVotosForLeg, votosLoaded, votacionDetail, votIdById, loaded, currentScopeId, setScope, ambitos } = useData()
 
 const idx = computed(() => votIdById.value?.[route.params.id])
 const vot = computed(() => {
@@ -27,7 +27,7 @@ const copiedEmbed = ref(false)
 
 const embedCode = computed(() => {
   if (!vot.value) return ''
-  const url = location.origin + location.pathname + `#/widget/${vot.value.id}?embed=true`
+  const url = buildAbsoluteAppUrl(`widget/${encodeURIComponent(vot.value.id)}?embed=true`)
   return `<iframe src="${url}" width="100%" height="280" frameborder="0" style="border:1px solid #e2e8f0; border-radius:12px; max-width:550px;"></iframe>`
 })
 
@@ -62,6 +62,15 @@ watch(() => route.query.dip, (dip) => {
     dipSearch.value = name.split(',')[0]  // Search by apellido
     highlightedDip.value = name
   }
+}, { immediate: true })
+
+watch(() => route.query.scope, (scope) => {
+  if (typeof scope !== 'string') return
+  const target = scope.trim().toLowerCase()
+  const knownScopes = new Set(['nacional', ...(ambitos.value || []).map(a => String(a.id || '').toLowerCase())])
+  if (!knownScopes.has(target)) return
+  if (!target || target === currentScopeId.value) return
+  setScope(target)
 }, { immediate: true })
 
 // Group breakdown
@@ -106,11 +115,19 @@ const filteredVotes = computed(() => {
 const copiedVi = ref(null)
 function copyVoteLink(vi) {
   const dipName = diputados.value[votos.value[vi][1]]
-  const url = `${location.origin}${location.pathname}#/votacion/${vot.value.id}?dip=${encodeURIComponent(dipName)}`
+  const scope = encodeURIComponent(currentScopeId.value || 'nacional')
+  const url = buildAbsoluteAppUrl(`votacion/${encodeURIComponent(vot.value.id)}?dip=${encodeURIComponent(dipName)}&scope=${scope}`)
   navigator.clipboard.writeText(url)
   copiedVi.value = vi
   setTimeout(() => { if (copiedVi.value === vi) copiedVi.value = null }, 2000)
 }
+
+const shareUrl = computed(() => {
+  if (!vot.value?.id) return ''
+  const scopeId = encodeURIComponent(currentScopeId.value || 'nacional')
+  const voteId = encodeURIComponent(vot.value.id)
+  return buildAbsoluteAppUrl(`share/votacion/${scopeId}/${voteId}`)
+})
 
 // Exp / Dossier logic
 const expGroup = computed(() => {
@@ -386,7 +403,11 @@ watch(vot, (v) => {
           <div class="detail-section sticky-sidebar">
             <h3>Compartir</h3>
             <p class="small text-muted mb-3">Ayuda a difundir la actividad parlamentaria compartiendo esta votación.</p>
-            <ShareBar :title="vot.titulo_ciudadano" />
+            <ShareBar
+              :title="vot.titulo_ciudadano"
+              :result="r?.result || null"
+              :share-url="shareUrl"
+            />
           </div>
         </aside>
       </div>
