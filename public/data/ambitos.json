@@ -36,6 +36,8 @@
     {
       "id": "madrid",
       "nombre": "Asamblea de Madrid",
+      "wip": true,
+      "wipLabel": "Datos en revisión (procesamiento en curso)",
       "legislaturas": [
         "XIII",
         "XII",
@@ -46,6 +48,8 @@
     {
       "id": "catalunya",
       "nombre": "Parlament de Catalunya",
+      "wip": true,
+      "wipLabel": "Datos en revisión (procesamiento en curso)",
       "legislaturas": [
         "XV"
       ]

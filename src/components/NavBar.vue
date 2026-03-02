@@ -15,6 +15,11 @@ const currentScope = computed(() => {
   return ambitos.value.find(a => a.id === currentScopeId.value) || ambitos.value[0]
 })
 
+const currentScopeWipLabel = computed(() => {
+  if (!currentScope.value?.wip) return null
+  return currentScope.value.wipLabel || 'Datos en actualización'
+})
+
 const lastUpdate = computed(() => {
   if (!manifest.value?.updatedAt) return null
   try {
@@ -89,7 +94,11 @@ initTheme()
           <button class="scope-btn" @click="toggleScopeMenu" :aria-expanded="scopeMenuOpen">
             <img :src="`${baseUrl}assets/flags/${currentScope?.id || 'nacional'}.svg`" class="scope-flag" :alt="currentScope?.nombre" />
             <div class="scope-info">
-              <span class="scope-label">{{ currentScope?.nombre || 'Cargando...' }}</span>
+              <div class="scope-label-row">
+                <span class="scope-label">{{ currentScope?.nombre || 'Cargando...' }}</span>
+                <span v-if="currentScope?.wip" class="scope-wip-badge">WIP</span>
+              </div>
+              <span v-if="currentScopeWipLabel" class="scope-wip-text">{{ currentScopeWipLabel }}</span>
               <span v-if="lastUpdate" class="last-update">Act: {{ lastUpdate }}</span>
             </div>
             <span class="scope-chevron">&#9662;</span>
@@ -105,6 +114,7 @@ initTheme()
             >
               <img :src="`${baseUrl}assets/flags/${a.id}.svg`" class="scope-flag" :alt="a.nombre" />
               {{ a.nombre }}
+              <span class="scope-menu-wip-badge" v-if="a.wip">WIP</span>
               <span class="scope-check" v-if="a.id === currentScopeId">&#10003;</span>
             </button>
           </div>
@@ -256,11 +266,40 @@ initTheme()
   line-height: 1.1;
 }
 
+.scope-label-row {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
 .scope-info {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   margin-left: 0.1rem;
+}
+
+.scope-wip-badge,
+.scope-menu-wip-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.08rem 0.38rem;
+  border-radius: 999px;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border: 1px solid rgba(194, 65, 12, 0.3);
+  background: rgba(254, 215, 170, 0.6);
+  color: #9a3412;
+}
+
+.scope-wip-text {
+  font-size: 0.62rem;
+  color: #9a3412;
+  font-weight: 600;
+  line-height: 1.1;
 }
 
 .last-update {
@@ -330,6 +369,22 @@ initTheme()
   margin-left: auto;
   font-weight: 800;
   color: var(--color-primary);
+}
+
+.scope-menu-wip-badge {
+  margin-left: auto;
+  margin-right: 0.35rem;
+}
+
+[data-theme="dark"] .scope-wip-badge,
+[data-theme="dark"] .scope-menu-wip-badge {
+  border-color: rgba(251, 146, 60, 0.4);
+  background: rgba(124, 45, 18, 0.5);
+  color: #fdba74;
+}
+
+[data-theme="dark"] .scope-wip-text {
+  color: #fdba74;
 }
 
 .nav-brand {
