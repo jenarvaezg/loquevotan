@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from 'vue'
 import { useData } from '../composables/useData'
-import { fmt, subTipoLabel, subTipoBadgeClass, getGroupInfo } from '../utils'
+import { fmt, subTipoLabel, subTipoBadgeClass, getGroupInfo, displayTags } from '../utils'
 import VoteBar from './VoteBar.vue'
 import ResultBadge from './ResultBadge.vue'
 import GlossaryTooltip from './GlossaryTooltip.vue'
@@ -43,9 +43,9 @@ const proponenteInfo = computed(() => {
       <span v-if="proponenteInfo" class="badge" :style="{ backgroundColor: proponenteInfo.color, color: 'white' }">{{ proponenteInfo.label }}</span>
     </div>
     <VoteBar :favor="r.favor" :contra="r.contra" :abstencion="r.abstencion" :total="r.total" small />
-    <div v-if="vot.etiquetas?.length" class="vote-card-tags">
-      <span v-for="tag in vot.etiquetas.slice(0, 4)" :key="tag" class="chip">{{ fmt(tag) }}</span>
-      <span v-if="vot.etiquetas.length > 4" class="chip">+{{ vot.etiquetas.length - 4 }}</span>
+    <div v-if="displayTags(vot.etiquetas)?.length" class="vote-card-tags">
+      <span v-for="tag in displayTags(vot.etiquetas).slice(0, 4)" :key="tag" class="chip">{{ fmt(tag) }}</span>
+      <span v-if="displayTags(vot.etiquetas).length > 4" class="chip">+{{ displayTags(vot.etiquetas).length - 4 }}</span>
     </div>
   </router-link>
 </template>

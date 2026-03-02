@@ -42,6 +42,13 @@ export const VOTO_LABELS = { 1: "A favor", 2: "En contra", 3: "Abstención", 4: 
 export const VOTES_PER_PAGE = 20;
 export const DIPS_PER_PAGE = 30;
 
+export const HIDDEN_TAGS = new Set(["nacional", "cyl", "andalucia", "madrid", "catalunya"]);
+
+export function displayTags(tags) {
+  if (!Array.isArray(tags)) return [];
+  return tags.filter(t => !HIDDEN_TAGS.has((t || '').toLowerCase()));
+}
+
 export function getLeg(fecha) {
   for (let i = LEGISLATURAS.length - 1; i >= 0; i--) {
     if (fecha >= LEGISLATURAS[i].desde && fecha <= LEGISLATURAS[i].hasta) {

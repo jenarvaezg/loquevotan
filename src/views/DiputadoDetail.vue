@@ -2,7 +2,7 @@
 import { computed, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useData } from '../composables/useData'
-import { fmt, pct, debounce, normalize, dipPhotoUrl, avatarInitials, avatarStyle, VOTO_LABELS, VOTES_PER_PAGE, LEGISLATURAS, subTipoLabel, subTipoBadgeClass, votoPillClass, getGroupInfo, buildAbsoluteAppUrl } from '../utils'
+import { fmt, pct, debounce, normalize, dipPhotoUrl, avatarInitials, avatarStyle, VOTO_LABELS, VOTES_PER_PAGE, LEGISLATURAS, subTipoLabel, subTipoBadgeClass, votoPillClass, getGroupInfo, buildAbsoluteAppUrl, displayTags } from '../utils'
 import VoteBar from '../components/VoteBar.vue'
 import ResultBadge from '../components/ResultBadge.vue'
 import ShareBar from '../components/ShareBar.vue'
@@ -155,8 +155,8 @@ const dipTopTags = computed(() => {
   const counts = {}
   for (let j = 0; j < indices.length; j++) {
     const vi = votos.value[indices[j]][0]
-    const tags = votaciones.value[vi].etiquetas
-    if (tags) {
+    const tags = displayTags(votaciones.value[vi].etiquetas)
+    if (tags && tags.length) {
       for (let k = 0; k < tags.length; k++) {
         counts[tags[k]] = (counts[tags[k]] || 0) + 1
       }

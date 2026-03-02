@@ -28,8 +28,11 @@ const copiedEmbed = ref(false)
 
 const embedCode = computed(() => {
   if (!vot.value) return ''
-  const url = buildAbsoluteAppUrl(`widget/${encodeURIComponent(vot.value.id)}?embed=true`)
-  return `<iframe src="${url}" width="100%" height="280" frameborder="0" style="border:1px solid #e2e8f0; border-radius:12px; max-width:550px;"></iframe>`
+  const scopeId = encodeURIComponent(currentScopeId.value || 'nacional')
+  const widgetPath = `widget/${scopeId}/${encodeURIComponent(vot.value.id)}?embed=true`
+  const url = buildAbsoluteAppUrl(widgetPath)
+  return `<iframe src="${url}" width="100%" height="420" frameborder="0" scrolling="no" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" style="border:1px solid #e2e8f0; border-radius:12px; max-width:550px;"></iframe>
+  <script>(function(){var iframe=document.currentScript.previousElementSibling;if(!iframe)return;function onMessage(e){if(!e||!e.data||e.data.type!=='lqv:embed:resize')return;if(e.source!==iframe.contentWindow)return;var h=Number(e.data.height)||420;iframe.style.height=Math.max(260,Math.min(1200,h))+'px';}window.addEventListener('message',onMessage,{passive:true});})();<\/script>`
 })
 
 function toggleEmbed() {
@@ -323,6 +326,12 @@ const sourceLink = computed(() => {
   return null
 })
 
+const HIDDEN_SCOPE_TAGS = new Set(['nacional', 'cyl', 'andalucia', 'madrid', 'catalunya'])
+function visibleTags(tags) {
+  if (!Array.isArray(tags)) return []
+  return tags.filter((tag) => !HIDDEN_SCOPE_TAGS.has(String(tag || '').toLowerCase()))
+}
+
 // Exp / Dossier logic
 const expGroup = computed(() => {
   if (!votsByExp.value || !vot.value?.exp) return null
@@ -422,7 +431,7 @@ watch(vot, (v) => {
           <span v-if="vot.legislatura" class="badge badge--leg">{{ vot.legislatura }}</span>
           <span v-if="vot.proponente" class="badge badge--proponente">{{ vot.proponente }}</span>
           <span class="badge badge--cat">{{ fmt(categorias[vot.categoria]) }}</span>
-          <span v-for="tag in (vot.etiquetas || [])" :key="tag" class="chip">{{ fmt(tag) }}</span>
+          <span v-for="tag in visibleTags(vot.etiquetas)" :key="tag" class="chip">{{ fmt(tag) }}</span>
         </div>
       </div>
 
