@@ -61,6 +61,8 @@ watch(() => route.query.dip, (dip) => {
     const name = decodeURIComponent(dip)
     dipSearch.value = name.split(',')[0]  // Search by apellido
     highlightedDip.value = name
+  } else {
+    highlightedDip.value = ''
   }
 }, { immediate: true })
 
@@ -136,6 +138,20 @@ function voteTokenFromCode(code) {
   return 'no_vota'
 }
 
+function normalizeVoteToken(value) {
+  if (typeof value !== 'string') return ''
+  const normalized = value
+    .trim()
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+  if (normalized === 'si' || normalized === 'a_favor' || normalized === 'favor') return 'si'
+  if (normalized === 'no' || normalized === 'en_contra' || normalized === 'contra') return 'no'
+  if (normalized === 'abstencion' || normalized === 'abstenerse') return 'abstencion'
+  if (normalized === 'no_vota' || normalized === 'ausente') return 'no_vota'
+  return ''
+}
+
 function voteActionTextFromCode(code) {
   if (code === 1) return 'votó a favor'
   if (code === 2) return 'votó en contra'
@@ -171,6 +187,23 @@ const highlightedVoteSummary = computed(() => {
   return `${shortName} ${voteActionTextFromCode(code)} en "${vot.value.titulo_ciudadano}".`
 })
 
+const highlightedVoteToken = computed(() => {
+  if (highlightedVoteCode.value != null) return voteTokenFromCode(highlightedVoteCode.value)
+  const fromQuery = route.query.vote
+  if (typeof fromQuery === 'string') return normalizeVoteToken(fromQuery)
+  return ''
+})
+
+const shareText = computed(() => {
+  if (!vot.value?.titulo_ciudadano) return ''
+  if (!highlightedDip.value) return ''
+  const shortName = shortDiputadoName(highlightedDip.value)
+  if (highlightedVoteCode.value != null) {
+    return `${shortName} ${voteActionTextFromCode(highlightedVoteCode.value)} en "${vot.value.titulo_ciudadano}".`
+  }
+  return `Como voto ${shortName} en "${vot.value.titulo_ciudadano}"?`
+})
+
 const copiedVi = ref(null)
 function copyVoteLink(vi) {
   const dipName = diputados.value[votos.value[vi][1]]
@@ -185,9 +218,15 @@ function copyVoteLink(vi) {
 
 const shareUrl = computed(() => {
   if (!vot.value?.id) return ''
-  const scopeId = encodeURIComponent(currentScopeId.value || 'nacional')
+  const scopeId = currentScopeId.value || 'nacional'
   const voteId = encodeURIComponent(vot.value.id)
-  return buildAbsoluteAppUrl(`share/votacion/${scopeId}/${voteId}`)
+  let url = buildAbsoluteAppUrl(`share/votacion/${encodeURIComponent(scopeId)}/${voteId}`)
+  if (!highlightedDip.value) return url
+  url += `?dip=${encodeURIComponent(highlightedDip.value)}`
+  if (highlightedVoteToken.value) {
+    url += `&vote=${encodeURIComponent(highlightedVoteToken.value)}`
+  }
+  return url
 })
 
 const sourceLink = computed(() => {
@@ -482,6 +521,7 @@ watch(vot, (v) => {
               :title="vot.titulo_ciudadano"
               :result="r?.result || null"
               :share-url="shareUrl"
+              :share-text="shareText"
             />
           </div>
         </aside>

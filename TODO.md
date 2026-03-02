@@ -13,6 +13,7 @@
 4. **Diff automático entre actualizaciones** (QA rápido y trazable).
 5. **Tarjetas sociales dinámicas (OG)** (base implementada con Cloudflare Workers en rutas `/share/...`).
 6. **Soporte widgets/embeds** (distribución en medios locales y terceros).
+7. **Migración de plataforma de datos a Cloudflare (D1/R2 + Worker API + job semanal)** para eliminar JSON gigantes en frontend.
 
 ### P1 (siguiente bloque)
 1. **Madrid datos**: bypass scraping + histórico XII/XI/X + AI pass de títulos.
@@ -124,6 +125,14 @@
 
 ## Fase 3.2: Mejoras de Alto Impacto (operación + confianza pública)
 
+- [ ] **Migración completa de datos a Cloudflare (D1/R2 + Worker API):**
+  - No solo mover `public/data/*.json`: migrar también el procesamiento semanal, publicación y serving.
+  - Diseñar esquema D1 por ámbito (`votaciones`, `vot_results`, `votos_nominales`, `diputados`, índices por `scope/id/fecha`).
+  - Mantener R2 para artefactos grandes/raw (snapshots, partes, exports) y no cargar assets >25MiB en Worker assets.
+  - Exponer endpoints desde Worker (`/api/votaciones`, `/api/votacion/:id`, `/api/diputado/:id`) con paginación y cache HTTP.
+  - Adaptar `run_update.py`/transform para escribir en D1 (upsert incremental) además de generar artefactos de backup.
+  - Programar job semanal end-to-end (GitHub Actions o Cron Trigger) con fail-fast, integrity checks y rollback.
+  - Definir estrategia de convivencia/rollback durante transición (modo híbrido JSON + API hasta validación completa).
 - [ ] **Fecha de actualización por ámbito visible:** mostrar “última actualización” y avisar cuando un ámbito esté desfasado.
 - [ ] **Diff automático entre actualizaciones de datos:** resumen de cambios (votaciones nuevas, diputados nuevos, recategorizaciones) para QA y transparencia.
 - [ ] **Trazabilidad por votación (fuente + hash):** persistir y exponer `source_url` + `source_hash` para auditoría reproducible.

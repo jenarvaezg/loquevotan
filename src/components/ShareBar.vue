@@ -5,26 +5,27 @@ const props = defineProps({
   title: String,
   result: { type: String, default: null },
   shareUrl: { type: String, default: '' },
+  shareText: { type: String, default: '' },
 })
 
 const copyLabel = ref('Copiar enlace')
 const resolvedShareUrl = computed(() => props.shareUrl || window.location.href)
-
-function shareText() {
+const resolvedShareText = computed(() => {
+  if (props.shareText) return props.shareText
   if (props.result) {
     return `${props.title} \u2192 ${props.result}. Mira como voto cada diputado:`
   }
   return `${props.title} \u2014 Lo Que Votan:`
-}
+})
 
 function twitterUrl() {
   const url = resolvedShareUrl.value
-  return `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText())}&url=${encodeURIComponent(url)}`
+  return `https://twitter.com/intent/tweet?text=${encodeURIComponent(resolvedShareText.value)}&url=${encodeURIComponent(url)}`
 }
 
 function whatsappUrl() {
   const url = resolvedShareUrl.value
-  return `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText() + ' ' + url)}`
+  return `https://api.whatsapp.com/send?text=${encodeURIComponent(resolvedShareText.value + ' ' + url)}`
 }
 
 async function copyUrl() {

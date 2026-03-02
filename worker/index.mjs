@@ -295,6 +295,7 @@ async function handleVoteShare(request, env) {
   const redirectUrlObj = new URL(`${siteUrl}/votacion/${encodeURIComponent(voteId)}`);
   redirectUrlObj.searchParams.set("scope", scopeId);
   if (dipParam) redirectUrlObj.searchParams.set("dip", dipParam);
+  if (voteParam) redirectUrlObj.searchParams.set("vote", voteParam);
   const redirectUrl = redirectUrlObj.toString();
 
   if (!Number.isInteger(voteIndex)) {
