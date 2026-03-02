@@ -12,6 +12,8 @@ def run_step(name, command):
 
 def main():
     script_dir = os.path.dirname(os.path.abspath(__file__))
+    rebuild = "--rebuild" in sys.argv
+    rebuild_flag = " --rebuild" if rebuild else ""
     
     # 1. Scrape Deputies
     run_step("Scrape Deputies", f"python3 {os.path.join(script_dir, 'scrape_diputados.py')}")
@@ -23,10 +25,10 @@ def main():
     run_step("Download PDFs", f"python3 {os.path.join(script_dir, 'download_pdfs.py')}")
     
     # 4. Parse PDFs
-    run_step("Parse PDFs", f"python3 {os.path.join(script_dir, 'parse_pdfs.py')}")
+    run_step("Parse PDFs", f"python3 {os.path.join(script_dir, 'parse_pdfs.py')}{rebuild_flag}")
     
     # 5. Transform
-    run_step("Transform Data", f"python3 {os.path.join(script_dir, 'transform.py')}")
+    run_step("Transform Data", f"python3 {os.path.join(script_dir, 'transform.py')}{rebuild_flag}")
 
 if __name__ == "__main__":
     main()

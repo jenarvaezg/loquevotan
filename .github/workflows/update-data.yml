@@ -31,8 +31,14 @@ jobs:
           path: |
             data/raw
             data/andalucia/raw
+            data/andalucia/votos_*_raw.json
+            data/andalucia/parse_state.json
             data/cyl/raw
+            data/cyl/votos_*_raw.json
+            data/cyl/parse_state.json
             data/madrid/raw
+            data/madrid/votos_*_raw.json
+            data/madrid/parse_state.json
           key: parliament-raw-${{ runner.os }}-${{ github.ref_name }}-${{ github.run_id }}
           restore-keys: |
             parliament-raw-${{ runner.os }}-${{ github.ref_name }}-
@@ -81,8 +87,14 @@ jobs:
           path: |
             data/raw
             data/andalucia/raw
+            data/andalucia/votos_*_raw.json
+            data/andalucia/parse_state.json
             data/cyl/raw
+            data/cyl/votos_*_raw.json
+            data/cyl/parse_state.json
             data/madrid/raw
+            data/madrid/votos_*_raw.json
+            data/madrid/parse_state.json
           key: ${{ steps.raw-cache.outputs.cache-primary-key || format('parliament-raw-{0}-{1}-{2}', runner.os, github.ref_name, github.run_id) }}
 
       - name: Commit and push if changed

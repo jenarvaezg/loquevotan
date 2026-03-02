@@ -3,6 +3,7 @@ import os
 import hashlib
 import datetime
 import sys
+import argparse
 
 # Add root dir to path to import ai_utils
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
@@ -18,8 +19,62 @@ AMBITOS_CONFIG = "public/data/ambitos.json"
 PROMPT_FILE = "scripts/prompt_categorizacion.txt"
 
 LEGISLATURAS = ["XV"]
+SCOPE_TAG = "catalunya"
 
-def transform():
+def load_existing_overrides():
+    if not os.path.exists(META_FILE):
+        return {}, {}
+
+    try:
+        with open(META_FILE, "r") as f:
+            previous_meta = json.load(f)
+    except Exception:
+        return {}, {}
+
+    previous_categories = previous_meta.get("categorias", [])
+    previous_votes = previous_meta.get("votaciones", [])
+
+    previous_detail_by_leg = {}
+    for leg in LEGISLATURAS:
+        votes_path = f"{OUTPUT_DIR}/votos_{leg}.json"
+        if not os.path.exists(votes_path):
+            continue
+        try:
+            with open(votes_path, "r") as f:
+                previous_detail_by_leg[leg] = json.load(f).get("detail", {})
+        except Exception:
+            previous_detail_by_leg[leg] = {}
+
+    meta_overrides = {}
+    detail_overrides = {}
+
+    for idx, vote in enumerate(previous_votes):
+        vote_id = vote.get("id")
+        if not vote_id:
+            continue
+
+        override = {}
+        category_idx = vote.get("categoria")
+        if isinstance(category_idx, int) and 0 <= category_idx < len(previous_categories):
+            override["categoria_label"] = previous_categories[category_idx]
+        if isinstance(vote.get("titulo_ciudadano"), str) and vote["titulo_ciudadano"].strip():
+            override["titulo_ciudadano"] = vote["titulo_ciudadano"].strip()
+        if isinstance(vote.get("etiquetas"), list) and vote["etiquetas"]:
+            override["etiquetas"] = vote["etiquetas"]
+        if override:
+            meta_overrides[vote_id] = override
+
+        leg = vote.get("legislatura")
+        detail = previous_detail_by_leg.get(leg, {}).get(str(idx))
+        if isinstance(detail, dict):
+            resumen = detail.get("resumen")
+            if isinstance(resumen, str) and resumen.strip():
+                detail_overrides[vote_id] = {"resumen": resumen.strip()}
+
+    return meta_overrides, detail_overrides
+
+
+def transform(rebuild=False):
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     api_key = os.environ.get("GEMINI_API_KEY")
     
@@ -47,6 +102,10 @@ def transform():
     if os.path.exists(cache_file):
         with open(cache_file, "r") as f:
             cache = json.load(f)
+
+    preserved_meta_by_id, preserved_detail_by_id = ({}, {}) if rebuild else load_existing_overrides()
+    if preserved_meta_by_id:
+        print(f"Preserving curated meta fields for {len(preserved_meta_by_id)} existing votes.")
             
     # 2. Collect unique deputies and groups
     deputados_all = {}
@@ -125,6 +184,26 @@ def transform():
             "resumen_sencillo": "Votació al Parlament de Catalunya",
             "titulo_ciudadano": v["titulo"]
         })
+
+        preserved_meta = preserved_meta_by_id.get(v["id"], {})
+        categoria_label = preserved_meta.get(
+            "categoria_label",
+            cat_info.get("categoria_principal", cat_info.get("categoria", "Otros")),
+        )
+        if categoria_label not in cat_to_idx:
+            categoria_label = cat_info.get("categoria_principal", cat_info.get("categoria", "Otros"))
+
+        etiquetas = preserved_meta.get("etiquetas", cat_info.get("etiquetas", []) + [SCOPE_TAG])
+        if not isinstance(etiquetas, list):
+            etiquetas = cat_info.get("etiquetas", []) + [SCOPE_TAG]
+        etiquetas = [t for t in etiquetas if isinstance(t, str) and t.strip()]
+        if SCOPE_TAG not in etiquetas:
+            etiquetas.append(SCOPE_TAG)
+        titulo_ciudadano = preserved_meta.get("titulo_ciudadano", cat_info.get("titulo_ciudadano", v["titulo"]))
+        resumen = preserved_detail_by_id.get(v["id"], {}).get(
+            "resumen",
+            cat_info.get("resumen_sencillo", "Votació al Parlament de Catalunya"),
+        )
         
         vot_idx = i
         leg_roman = "XV"
@@ -171,9 +250,9 @@ def transform():
             "id": v["id"],
             "legislatura": leg_roman,
             "fecha": v["fecha"],
-            "titulo_ciudadano": cat_info.get("titulo_ciudadano", v["titulo"]),
-            "categoria": cat_to_idx.get(cat_info.get("categoria_principal", cat_info.get("categoria", "Otros")), cat_to_idx["Otros"]),
-            "etiquetas": cat_info.get("etiquetas", []) + ["catalunya"],
+            "titulo_ciudadano": titulo_ciudadano,
+            "categoria": cat_to_idx.get(categoria_label, cat_to_idx["Otros"]),
+            "etiquetas": etiquetas,
             "proponente": v.get("proponente", "")
         })
         
@@ -196,12 +275,11 @@ def transform():
             else: gm[g_name] = 3
         group_majority[vot_idx] = gm
         
-        all_tags = cat_info.get("etiquetas", []) + ["catalunya"]
-        for tag in all_tags:
+        for tag in etiquetas:
             tag_counts[tag] = tag_counts.get(tag, 0) + 1
             
         vot_detail_by_leg[leg_key][vot_idx] = {
-            "resumen": cat_info.get("resumen_sencillo", "Votació al Parlament de Catalunya"),
+            "resumen": resumen,
             "textoOficial": v["titulo"],
             "urlCatalunya": "https://www.parlament.cat",
             "group_majority": gm
@@ -343,4 +421,7 @@ def transform():
     print(f"Transformed {len(vot_meta_list)} total votaciones for {AMBITO}")
 
 if __name__ == "__main__":
-    transform()
+    parser = argparse.ArgumentParser(description="Transforma datos de Catalunya para frontend.")
+    parser.add_argument("--rebuild", action="store_true", help="Regenera todo ignorando overrides existentes.")
+    args = parser.parse_args()
+    transform(rebuild=args.rebuild)

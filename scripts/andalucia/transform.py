@@ -4,6 +4,7 @@ import hashlib
 import datetime
 import sys
 import re
+import argparse
 
 # Add root dir to path to import ai_utils
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
@@ -19,6 +20,7 @@ AMBITOS_CONFIG = "public/data/ambitos.json"
 PROMPT_FILE = "scripts/prompt_categorizacion.txt"
 
 LEGISLATURAS = ["XII", "XI", "X", "IX"]
+SCOPE_TAG = "andalucia"
 
 FALLBACK_TITLE = "Asunto parlamentario sin clasificar"
 MAX_CITIZEN_TITLE_WORDS = 18
@@ -87,7 +89,64 @@ def normalize_citizen_title(citizen_title, official_title):
     return title
 
 
-def transform():
+def load_existing_overrides():
+    if not os.path.exists(META_FILE):
+        return {}, {}
+
+    try:
+        with open(META_FILE, "r") as f:
+            previous_meta = json.load(f)
+    except Exception:
+        return {}, {}
+
+    previous_categories = previous_meta.get("categorias", [])
+    previous_votes = previous_meta.get("votaciones", [])
+
+    previous_detail_by_leg = {}
+    for leg in LEGISLATURAS:
+        votes_path = f"{OUTPUT_DIR}/votos_{leg}.json"
+        if not os.path.exists(votes_path):
+            continue
+        try:
+            with open(votes_path, "r") as f:
+                previous_detail_by_leg[leg] = json.load(f).get("detail", {})
+        except Exception:
+            previous_detail_by_leg[leg] = {}
+
+    meta_overrides = {}
+    detail_overrides = {}
+
+    for idx, vote in enumerate(previous_votes):
+        vote_id = vote.get("id")
+        if not vote_id:
+            continue
+
+        override = {}
+        category_idx = vote.get("categoria")
+        if isinstance(category_idx, int) and 0 <= category_idx < len(previous_categories):
+            override["categoria_label"] = previous_categories[category_idx]
+        if isinstance(vote.get("titulo_ciudadano"), str) and vote["titulo_ciudadano"].strip():
+            override["titulo_ciudadano"] = vote["titulo_ciudadano"].strip()
+        if isinstance(vote.get("etiquetas"), list) and vote["etiquetas"]:
+            override["etiquetas"] = vote["etiquetas"]
+        if isinstance(vote.get("subTipo"), str) and vote["subTipo"].strip():
+            override["subTipo"] = vote["subTipo"].strip()
+        if isinstance(vote.get("proponente"), str) and vote["proponente"].strip():
+            override["proponente"] = vote["proponente"].strip()
+        if override:
+            meta_overrides[vote_id] = override
+
+        leg = vote.get("legislatura")
+        detail = previous_detail_by_leg.get(leg, {}).get(str(idx))
+        if isinstance(detail, dict):
+            resumen = detail.get("resumen")
+            if isinstance(resumen, str) and resumen.strip():
+                detail_overrides[vote_id] = {"resumen": resumen.strip()}
+
+    return meta_overrides, detail_overrides
+
+
+def transform(rebuild=False):
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     api_key = os.environ.get("GEMINI_API_KEY")
     
@@ -109,6 +168,10 @@ def transform():
     if os.path.exists(cache_file):
         with open(cache_file, "r") as f:
             cache = json.load(f)
+
+    preserved_meta_by_id, preserved_detail_by_id = ({}, {}) if rebuild else load_existing_overrides()
+    if preserved_meta_by_id:
+        print(f"Preserving curated meta fields for {len(preserved_meta_by_id)} existing votes.")
             
     # 2. Collect unique deputies and groups across all legislatures
     deputados_all = {}
@@ -192,7 +255,7 @@ def transform():
     for i, v in enumerate(all_raw_votes):
         cat_info = cache.get(v["titulo"], {
             "categoria_principal": "Otros",
-            "etiquetas": ["andalucia"],
+            "etiquetas": [SCOPE_TAG],
             "resumen_sencillo": "Votación en el Parlamento de Andalucía",
             "titulo_ciudadano": prettify_official_title(v["titulo"]),
         })
@@ -200,6 +263,21 @@ def transform():
             # Keep a readable fallback title instead of showing the generic placeholder.
             cat_info = dict(cat_info)
             cat_info["titulo_ciudadano"] = prettify_official_title(v["titulo"])
+
+        preserved_meta = preserved_meta_by_id.get(v["id"], {})
+        categoria_label = preserved_meta.get(
+            "categoria_label",
+            cat_info.get("categoria_principal", cat_info.get("categoria", "Otros")),
+        )
+        if categoria_label not in cat_to_idx:
+            categoria_label = cat_info.get("categoria_principal", cat_info.get("categoria", "Otros"))
+
+        etiquetas = preserved_meta.get("etiquetas", cat_info.get("etiquetas", []))
+        if not isinstance(etiquetas, list):
+            etiquetas = cat_info.get("etiquetas", [])
+        etiquetas = [t for t in etiquetas if isinstance(t, str) and t.strip()]
+        if SCOPE_TAG not in etiquetas:
+            etiquetas.append(SCOPE_TAG)
         
         vot_idx = i
         leg_roman = v["id"].split("-")[1] # e.g. AND-XII-77-1 -> XII
@@ -250,8 +328,14 @@ def transform():
             ])
             
         titulo_ciudadano = normalize_citizen_title(
-            cat_info.get("titulo_ciudadano", v["titulo"]),
+            preserved_meta.get("titulo_ciudadano", cat_info.get("titulo_ciudadano", v["titulo"])),
             v["titulo"],
+        )
+        sub_tipo = preserved_meta.get("subTipo", cat_info.get("subTipo", ""))
+        proponente = preserved_meta.get("proponente", cat_info.get("proponente", ""))
+        resumen = preserved_detail_by_id.get(v["id"], {}).get(
+            "resumen",
+            cat_info.get("resumen_sencillo", cat_info.get("resumen", "")),
         )
 
         votaciones_meta_list.append({
@@ -259,11 +343,11 @@ def transform():
             "legislatura": leg_roman,
             "fecha": v["fecha"],
             "titulo_ciudadano": titulo_ciudadano,
-            "categoria": cat_to_idx[cat_info.get("categoria_principal", cat_info.get("categoria", "Otros"))],
-            "etiquetas": cat_info.get("etiquetas", []),
+            "categoria": cat_to_idx.get(categoria_label, cat_to_idx["Otros"]),
+            "etiquetas": etiquetas,
             "exp": exp_id,
-            "subTipo": cat_info.get("subTipo", ""),
-            "proponente": cat_info.get("proponente", "")
+            "subTipo": sub_tipo,
+            "proponente": proponente
         })
         
         total = favor + contra + abstencion
@@ -287,11 +371,11 @@ def transform():
                 gm[g_idx] = 3
         group_majority[vot_idx] = gm
         
-        for tag in cat_info.get("etiquetas", []):
+        for tag in etiquetas:
             tag_counts[tag] = tag_counts.get(tag, 0) + 1
             
         vot_detail_by_leg[leg_key][vot_idx] = {
-            "resumen": cat_info.get("resumen_sencillo", cat_info.get("resumen", "")),
+            "resumen": resumen,
             "textoOficial": v["titulo"],
             "urlCongreso": f"https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/pdf.do?tipodoc=diario&id={v.get('id', '')}"
         }
@@ -466,4 +550,7 @@ def transform():
     print(f"Transformed {len(votaciones_meta_list)} total votaciones for {AMBITO}")
 
 if __name__ == "__main__":
-    transform()
+    parser = argparse.ArgumentParser(description="Transforma datos de Andalucía para frontend.")
+    parser.add_argument("--rebuild", action="store_true", help="Regenera todo ignorando overrides existentes.")
+    args = parser.parse_args()
+    transform(rebuild=args.rebuild)

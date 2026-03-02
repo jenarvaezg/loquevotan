@@ -9,6 +9,7 @@ import hashlib
 import json
 import os
 import sys
+import argparse
 from datetime import datetime
 from google import genai
 from google.genai import types
@@ -88,8 +89,73 @@ def parse_congress_date(fecha_str):
     return fecha_str
 
 
+def load_existing_overrides():
+    if not os.path.exists(META_FILE):
+        return {}, {}
+
+    try:
+        with open(META_FILE, "r") as f:
+            previous_meta = json.load(f)
+    except Exception:
+        return {}, {}
+
+    previous_categories = previous_meta.get("categorias", [])
+    previous_votes = previous_meta.get("votaciones", [])
+    known_legs = [leg["id"] for leg in LEGISLATURAS]
+
+    previous_detail_by_leg = {}
+    for leg in known_legs:
+        votes_path = os.path.join(SCRIPT_DIR, "..", "public", "data", f"votos_{leg}.json")
+        if not os.path.exists(votes_path):
+            continue
+        try:
+            with open(votes_path, "r") as f:
+                previous_detail_by_leg[leg] = json.load(f).get("detail", {})
+        except Exception:
+            previous_detail_by_leg[leg] = {}
+
+    meta_overrides = {}
+    detail_overrides = {}
+
+    for idx, vote in enumerate(previous_votes):
+        vote_id = vote.get("id")
+        if not vote_id:
+            continue
+
+        override = {}
+        category_idx = vote.get("categoria")
+        if isinstance(category_idx, int) and 0 <= category_idx < len(previous_categories):
+            override["categoria_label"] = previous_categories[category_idx]
+        if isinstance(vote.get("titulo_ciudadano"), str) and vote["titulo_ciudadano"].strip():
+            override["titulo_ciudadano"] = vote["titulo_ciudadano"].strip()
+        if isinstance(vote.get("etiquetas"), list) and vote["etiquetas"]:
+            override["etiquetas"] = vote["etiquetas"]
+        if isinstance(vote.get("proponente"), str) and vote["proponente"].strip():
+            override["proponente"] = vote["proponente"].strip()
+        if override:
+            meta_overrides[vote_id] = override
+
+        leg = vote.get("legislatura")
+        detail = previous_detail_by_leg.get(leg, {}).get(str(idx))
+        if isinstance(detail, dict):
+            detail_override = {}
+            for field in ("resumen", "subgrupo", "subgrupo_detalle"):
+                value = detail.get(field)
+                if isinstance(value, str) and value.strip():
+                    detail_override[field] = value.strip()
+            if detail_override:
+                detail_overrides[vote_id] = detail_override
+
+    return meta_overrides, detail_overrides
+
+
 def main():
-    skip_ai = "--skip-ai" in sys.argv
+    parser = argparse.ArgumentParser(description="Transforma datos nacionales para frontend.")
+    parser.add_argument("--skip-ai", action="store_true", help="No llama a Gemini para nuevas categorizaciones.")
+    parser.add_argument("--rebuild", action="store_true", help="Regenera todo ignorando overrides existentes.")
+    args = parser.parse_args()
+
+    skip_ai = args.skip_ai
     api_key = os.environ.get("GEMINI_API_KEY")
 
     cache = load_cache()
@@ -173,6 +239,9 @@ def main():
     # Filter valid categories and tags for frontend indexing
     VALID_CAT_LIST = sorted(list(ai_utils.VALID_CATEGORIES))
     cat_to_idx = {c: i for i, c in enumerate(VALID_CAT_LIST)}
+    preserved_meta_by_id, preserved_detail_by_id = ({}, {}) if args.rebuild else load_existing_overrides()
+    if preserved_meta_by_id:
+        print(f"Preserving curated meta fields for {len(preserved_meta_by_id)} existing votes.")
 
     vot_meta_list = []
     vot_results_list = []
@@ -199,14 +268,24 @@ def main():
     for filepath, data, h, texto, titulo_original, fecha, subgrupo_titulo, subgrupo_texto, sesion, numero_votacion, file_leg in file_data_list:
         cat_data = cache.get(h, ai_utils._fallback_categorization())
 
-        titulo_ciudadano = cat_data.get("titulo_ciudadano", "Sin título")
-        categoria = cat_data.get("categoria_principal", "Otros")
-        etiquetas = cat_data.get("etiquetas", [])
-        resumen = cat_data.get("resumen_sencillo", "")
-        proponente = cat_data.get("proponente", "")
-
         leg = file_leg or get_leg(fecha)
         if not leg: continue
+        vote_id = f"{leg}-{sesion}-{numero_votacion}"
+        preserved_meta = preserved_meta_by_id.get(vote_id, {})
+        preserved_detail = preserved_detail_by_id.get(vote_id, {})
+
+        titulo_ciudadano = preserved_meta.get("titulo_ciudadano", cat_data.get("titulo_ciudadano", "Sin título"))
+        categoria = preserved_meta.get("categoria_label", cat_data.get("categoria_principal", "Otros"))
+        etiquetas = preserved_meta.get("etiquetas", cat_data.get("etiquetas", []) + ["nacional"])
+        if not isinstance(etiquetas, list):
+            etiquetas = cat_data.get("etiquetas", []) + ["nacional"]
+        etiquetas = [t for t in etiquetas if isinstance(t, str) and t.strip()]
+        if "nacional" not in etiquetas:
+            etiquetas.append("nacional")
+        resumen = preserved_detail.get("resumen", cat_data.get("resumen_sencillo", ""))
+        proponente = preserved_meta.get("proponente", cat_data.get("proponente", ""))
+        subgrupo = preserved_detail.get("subgrupo", classify_subgrupo(subgrupo_titulo))
+        subgrupo_detalle = preserved_detail.get("subgrupo_detalle", subgrupo_titulo)
         
         if leg not in votos_by_leg:
             votos_by_leg[leg] = []
@@ -263,12 +342,12 @@ def main():
         result = "Aprobada" if favor > contra else ("Rechazada" if contra > favor else "Empate")
         
         vot_meta_list.append({
-            "id": f"{leg}-{sesion}-{numero_votacion}",
+            "id": vote_id,
             "legislatura": leg,
             "fecha": fecha,
             "titulo_ciudadano": titulo_ciudadano,
             "categoria": cat_to_idx.get(categoria, cat_to_idx["Otros"]),
-            "etiquetas": etiquetas + ["nacional"],
+            "etiquetas": etiquetas,
             "proponente": proponente
         })
         
@@ -293,12 +372,12 @@ def main():
             "resumen": resumen,
             "textoOficial": titulo_original,
             "urlCongreso": f"https://www.congreso.es/opendata/votaciones?idLegislatura={leg}&idSesion={sesion}&idVotacion={numero_votacion}",
-            "subgrupo": classify_subgrupo(subgrupo_titulo),
-            "subgrupo_detalle": subgrupo_titulo,
+            "subgrupo": subgrupo,
+            "subgrupo_detalle": subgrupo_detalle,
             "group_majority": gm
         }
         
-        for t in etiquetas + ["nacional"]:
+        for t in etiquetas:
             tag_counts[t] = tag_counts.get(t, 0) + 1
 
     # 3. Final indexing and file generation
