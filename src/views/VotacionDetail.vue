@@ -756,6 +756,8 @@ watch(vot, (v) => {
   gap: 1rem;
   margin-bottom: 1rem;
 }
+
+.deduced-note {
   margin-top: 0.75rem;
   padding: 0.6rem 0.85rem;
   background: var(--color-primary-lighter);
