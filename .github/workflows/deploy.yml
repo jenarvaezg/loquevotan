@@ -35,6 +35,10 @@ jobs:
       - run: npm ci
 
       - run: npm run build
+
+      # Cloudflare Workers assets have a per-file limit of 25 MiB.
+      # Split oversized votos_*.json files in dist/data before deploy.
+      - run: npm run cf:prepare-assets
       
       - name: Deploy to Cloudflare
         # Requires GitHub Actions secrets: CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID

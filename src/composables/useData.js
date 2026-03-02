@@ -250,8 +250,39 @@ async function loadVotosForLeg(legId) {
         critical: true,
       });
       if (currentScopeId.value !== scopeId) return;
-      const legVotos = data.votos;
-      const legDetail = data.detail || {};
+
+      let legVotos = [];
+      let legDetail = {};
+
+      if (Array.isArray(data?.votos)) {
+        legVotos = data.votos;
+        legDetail = data.detail || {};
+      } else if (data?.split === true && Array.isArray(data?.parts) && data.parts.length) {
+        for (let i = 0; i < data.parts.length; i++) {
+          const partName = String(data.parts[i] || "").trim();
+          if (!partName || partName.includes("..") || partName.startsWith("/")) {
+            throw new Error(`Invalid split part path: ${partName}`);
+          }
+
+          const partData = await fetchJsonWithRetry(`data/${scopePath}${partName}`, {
+            attempts: 3,
+            timeoutMs: 18000,
+            scope: `${scopeId}:${legId}:part:${i + 1}`,
+            critical: true,
+          });
+          if (currentScopeId.value !== scopeId) return;
+
+          if (!Array.isArray(partData?.votos)) {
+            throw new Error(`Invalid split part payload for ${partName}`);
+          }
+          legVotos = legVotos.concat(partData.votos);
+          if (partData?.detail && typeof partData.detail === "object") {
+            legDetail = { ...legDetail, ...partData.detail };
+          }
+        }
+      } else {
+        throw new Error(`Unsupported votos format for legislatura ${legId}`);
+      }
 
       const currentVotos = votos.value;
       const baseIdx = currentVotos.length;

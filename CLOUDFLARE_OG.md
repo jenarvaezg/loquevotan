@@ -26,7 +26,13 @@ Ejemplos:
 npm run build
 ```
 
-2. Deploy Worker + assets:
+2. Preparar assets para Cloudflare (divide `votos_*.json` > 25 MiB):
+
+```bash
+npm run cf:prepare-assets
+```
+
+3. Deploy Worker + assets:
 
 ```bash
 npx wrangler deploy
@@ -35,6 +41,7 @@ npx wrangler deploy
 ## Deploy automático con GitHub Actions
 
 El workflow `.github/workflows/deploy.yml` despliega a Cloudflare en cada push a `main`.
+Incluye automáticamente el paso `cf:prepare-assets` para evitar errores de límite por archivo.
 
 Configura estos secrets en GitHub (`Settings` -> `Secrets and variables` -> `Actions`):
 
