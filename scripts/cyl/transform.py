@@ -422,16 +422,38 @@ def transform(rebuild=False):
             "margin": v_res["margin"]
         }
 
-    latest_indices = sorted(range(len(vot_meta_list)), key=lambda i: (vot_meta_list[i]["fecha"], i), reverse=True)[:10]
-    tight_indices = sorted([i for i in range(len(vot_meta_list)) if vot_results_list[i]["total"] > 50], 
-                          key=lambda i: vot_results_list[i]["margin"])[:10]
+    canonical_idx_by_id = meta["votIdById"]
+
+    def canonicalize_indices(indices):
+        unique = []
+        seen_ids = set()
+        for idx in indices:
+            vote_id = vot_meta_list[idx]["id"]
+            canonical_idx = canonical_idx_by_id.get(vote_id)
+            if canonical_idx is None or vote_id in seen_ids:
+                continue
+            unique.append(canonical_idx)
+            seen_ids.add(vote_id)
+        return unique
+
+    latest_candidates = sorted(
+        range(len(vot_meta_list)),
+        key=lambda i: (vot_meta_list[i]["fecha"], i),
+        reverse=True
+    )
+    tight_candidates = sorted(
+        [i for i in range(len(vot_meta_list)) if vot_results_list[i]["total"] > 50],
+        key=lambda i: vot_results_list[i]["margin"]
+    )
+
+    latest_indices = canonicalize_indices(latest_candidates)[:10]
+    tight_indices = canonicalize_indices(tight_candidates)[:10]
     
     featured_indices = []
     for fid in featured_ids:
-        for i, v in enumerate(vot_meta_list):
-            if v["id"] == fid:
-                featured_indices.append(i)
-                break
+        idx = canonical_idx_by_id.get(fid)
+        if idx is not None:
+            featured_indices.append(idx)
 
     manifest = {
         "updatedAt": datetime.datetime.now().isoformat(),

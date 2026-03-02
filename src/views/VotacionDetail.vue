@@ -116,6 +116,19 @@ const filteredVotes = computed(() => {
   })
 })
 
+const nominalVoteCount = computed(() => {
+  if (!votosReady.value) return 0
+  return (votosByVotacion.value[idx.value] || []).length
+})
+
+const hasNominalVotes = computed(() => nominalVoteCount.value > 0)
+
+const noNominalVotesMessage = computed(() => {
+  if (!votosReady.value || hasNominalVotes.value) return ''
+  if ((r.value?.total || 0) <= 0) return 'No hay votos registrados para esta votación.'
+  return 'Esta votación no incluye detalle nominal por representante en la fuente oficial. Solo hay resultado agregado.'
+})
+
 const copiedVi = ref(null)
 function copyVoteLink(vi) {
   const dipName = diputados.value[votos.value[vi][1]]
@@ -270,7 +283,10 @@ watch(vot, (v) => {
           <!-- Group breakdown -->
           <div class="detail-section">
             <h2>Por grupos parlamentarios</h2>
-            <div v-if="votosReady" class="groups-grid">
+            <p v-if="votosReady && !hasNominalVotes" class="empty-state-text" style="padding:0.75rem 0 0.25rem">
+              {{ noNominalVotesMessage }}
+            </p>
+            <div v-else-if="votosReady" class="groups-grid">
               <div v-for="gIdx in sortedGroups" :key="gIdx" class="group-result-card">
                 <div class="group-result-header">
                   <router-link :to="'/grupo/' + encodeURIComponent(grupos[gIdx])" class="group-name">
@@ -296,6 +312,7 @@ watch(vot, (v) => {
               <h2>Votos individuales</h2>
               <div class="votes-search-wrap">
                 <input 
+                  v-if="hasNominalVotes"
                   v-model="dipSearch" 
                   type="search" 
                   class="filter-input" 
@@ -304,7 +321,10 @@ watch(vot, (v) => {
               </div>
             </div>
 
-            <div v-if="votosReady" class="table-wrap">
+            <p v-if="votosReady && !hasNominalVotes" class="empty-state-text" style="padding:0.75rem 0 0.25rem">
+              {{ noNominalVotesMessage }}
+            </p>
+            <div v-else-if="votosReady" class="table-wrap">
               <table class="responsive-table">
                 <thead>
                   <tr>
