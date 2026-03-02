@@ -54,7 +54,8 @@ onMounted(() => {
   if (route.query.res) resultFilter.value = route.query.res
   if (route.query.prop) proponenteFilter.value = route.query.prop
   if (route.query.tipo) tipoFilter.value = route.query.tipo
-  if (route.query.leg) legFilter.value = route.query.leg
+  const legQuery = Array.isArray(route.query.leg) ? route.query.leg[0] : route.query.leg
+  if (legQuery) legFilter.value = legQuery
   if (route.query.sort) sortMode.value = route.query.sort
   if (route.query.page) page.value = parseInt(route.query.page) || 1
   if (route.query.tag) selectedTags.value = Array.isArray(route.query.tag) ? route.query.tag : [route.query.tag]
@@ -80,10 +81,18 @@ watch([search, catFilter, resultFilter, proponenteFilter, tipoFilter, legFilter,
 }, { deep: true })
 
 watch(currentScopeLegs, (legs) => {
-  if (legs.length > 0 && !legs.includes(legFilter.value) && !selectedTags.value.length && !route.query.leg) {
-    legFilter.value = legs[0]
+  if (!legs.length) {
+    if (legFilter.value) legFilter.value = ''
+    return
   }
-})
+  if (!legFilter.value && !selectedTags.value.length && !route.query.leg) {
+    legFilter.value = legs[0]
+    return
+  }
+  if (legFilter.value && !legs.includes(legFilter.value)) {
+    legFilter.value = selectedTags.value.length ? '' : legs[0]
+  }
+}, { immediate: true })
 
 const filtered = computed(() => {
   const s = normalize(search.value.trim())

@@ -64,13 +64,17 @@ watch(() => route.query.dip, (dip) => {
   }
 }, { immediate: true })
 
-watch(() => route.query.scope, (scope) => {
+function applyScopeFromQuery(scope) {
   if (typeof scope !== 'string') return
   const target = scope.trim().toLowerCase()
   const knownScopes = new Set(['nacional', ...(ambitos.value || []).map(a => String(a.id || '').toLowerCase())])
   if (!knownScopes.has(target)) return
   if (!target || target === currentScopeId.value) return
   setScope(target)
+}
+
+watch([() => route.query.scope, () => ambitos.value.length], ([scope]) => {
+  applyScopeFromQuery(scope)
 }, { immediate: true })
 
 // Group breakdown
@@ -127,6 +131,15 @@ const shareUrl = computed(() => {
   const scopeId = encodeURIComponent(currentScopeId.value || 'nacional')
   const voteId = encodeURIComponent(vot.value.id)
   return buildAbsoluteAppUrl(`share/votacion/${scopeId}/${voteId}`)
+})
+
+const sourceLink = computed(() => {
+  if (!vot.value) return null
+  if (vot.value.urlCongreso) return { href: vot.value.urlCongreso, label: 'Ver en congreso.es' }
+  if (vot.value.urlCyL) return { href: vot.value.urlCyL, label: 'Ver en ccyl.es' }
+  if (vot.value.urlMadrid) return { href: vot.value.urlMadrid, label: 'Ver en asambleamadrid.es' }
+  if (vot.value.urlCatalunya) return { href: vot.value.urlCatalunya, label: 'Ver en parlament.cat' }
+  return null
 })
 
 // Exp / Dossier logic
@@ -234,11 +247,8 @@ watch(vot, (v) => {
       <div v-if="vot.textoOficial" class="detail-section detail-oficial">
         <h2>Texto oficial del expediente</h2>
         <blockquote class="texto-oficial">{{ vot.textoOficial }}</blockquote>
-        <a v-if="vot.urlCongreso" :href="vot.urlCongreso" target="_blank" rel="noopener" class="link-external">
-          Ver en congreso.es &nearr;
-        </a>
-        <a v-else-if="vot.urlCyL" :href="vot.urlCyL" target="_blank" rel="noopener" class="link-external">
-          Ver en ccyl.es &nearr;
+        <a v-if="sourceLink" :href="sourceLink.href" target="_blank" rel="noopener" class="link-external">
+          {{ sourceLink.label }} &nearr;
         </a>
       </div>
 

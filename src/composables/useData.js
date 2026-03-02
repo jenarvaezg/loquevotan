@@ -36,6 +36,7 @@ const loadTelemetry = ref([]);
 const votosLoaded = ref(new Set());
 
 let _loadPromise = null;
+let _loadVersion = 0;
 const _legLoadPromises = {};
 const FETCH_TIMEOUT_MS = 12000;
 const MAX_TELEMETRY_EVENTS = 120;
@@ -47,6 +48,36 @@ function sleep(ms) {
 function pushTelemetry(event) {
   const next = [...loadTelemetry.value, { ts: new Date().toISOString(), ...event }];
   loadTelemetry.value = next.length > MAX_TELEMETRY_EVENTS ? next.slice(-MAX_TELEMETRY_EVENTS) : next;
+}
+
+function isLatestLoad(loadVersion, scopeId) {
+  return loadVersion === _loadVersion && scopeId === currentScopeId.value;
+}
+
+function resetScopeData() {
+  loaded.value = false;
+  error.value = null;
+  manifest.value = null;
+  diputados.value = [];
+  grupos.value = [];
+  categorias.value = [];
+  votaciones.value = [];
+  votos.value = [];
+  votosByVotacion.value = {};
+  votosByDiputado.value = {};
+  votacionDetail.value = {};
+  votIdById.value = {};
+  votResults.value = [];
+  dipStats.value = [];
+  tagCounts.value = {};
+  topTags.value = [];
+  sortedVotIdxByDate.value = [];
+  groupAffinityByLeg.value = {};
+  votsByExp.value = {};
+  dipFotos.value = [];
+  dipProvincias.value = [];
+  votosLoaded.value = new Set();
+  Object.keys(_legLoadPromises).forEach((k) => delete _legLoadPromises[k]);
 }
 
 async function fetchJsonWithRetry(path, options = {}) {
@@ -103,7 +134,8 @@ async function fetchJsonWithRetry(path, options = {}) {
   throw lastErr;
 }
 
-async function _doLoad() {
+async function _doLoad(loadVersion, scopeId) {
+  if (!isLatestLoad(loadVersion, scopeId)) return;
   loading.value = true;
   error.value = null;
 
@@ -116,7 +148,9 @@ async function _doLoad() {
         scope: "global",
         critical: false,
       });
-      ambitos.value = config.ambitos || [];
+      if (isLatestLoad(loadVersion, scopeId)) {
+        ambitos.value = config.ambitos || [];
+      }
     } catch (err) {
       console.warn("Could not load ambitos config:", err);
     }
@@ -124,32 +158,37 @@ async function _doLoad() {
     // Load global diputados index
     if (Object.keys(globalDiputados.value).length === 0) {
       try {
-        globalDiputados.value = await fetchJsonWithRetry("data/global_diputados.json", {
+        const globalIndex = await fetchJsonWithRetry("data/global_diputados.json", {
           attempts: 2,
           timeoutMs: 9000,
           scope: "global",
           critical: false,
         });
+        if (isLatestLoad(loadVersion, scopeId)) {
+          globalDiputados.value = globalIndex;
+        }
       } catch (err) {
         console.warn("Could not load global diputados index:", err);
       }
     }
 
-    const scopePath = currentScopeId.value === "nacional" ? "" : `${currentScopeId.value}/`;
+    const scopePath = scopeId === "nacional" ? "" : `${scopeId}/`;
     const [raw, manifestData] = await Promise.all([
       fetchJsonWithRetry(`data/${scopePath}votaciones_meta.json`, {
         attempts: 4,
         timeoutMs: 15000,
-        scope: currentScopeId.value,
+        scope: scopeId,
         critical: true,
       }),
       fetchJsonWithRetry(`data/${scopePath}manifest_home.json`, {
         attempts: 3,
         timeoutMs: 10000,
-        scope: currentScopeId.value,
+        scope: scopeId,
         critical: false,
       }).catch(() => null)
     ]);
+
+    if (!isLatestLoad(loadVersion, scopeId)) return;
 
     manifest.value = manifestData;
     diputados.value = raw.diputados;
@@ -169,50 +208,48 @@ async function _doLoad() {
 
     loaded.value = true;
   } catch (err) {
-    console.error(`[useData] load failed for scope "${currentScopeId.value}"`, err);
-    error.value =
-      `Error cargando datos de ${currentScopeId.value}. Comprueba tu conexión e inténtalo de nuevo.`;
+    if (!isLatestLoad(loadVersion, scopeId)) return;
+    console.error(`[useData] load failed for scope "${scopeId}"`, err);
+    error.value = `Error cargando datos de ${scopeId}. Comprueba tu conexión e inténtalo de nuevo.`;
   } finally {
-    loading.value = false;
+    if (isLatestLoad(loadVersion, scopeId)) {
+      loading.value = false;
+    }
   }
 }
 
 function retryLoad() {
   _loadPromise = null;
-  loadData();
+  return loadData();
 }
 
 function setScope(scopeId) {
-  if (currentScopeId.value === scopeId) return;
-  currentScopeId.value = scopeId;
-  localStorage.setItem("preferredScope", scopeId);
-  
-  // Reset state
-  loaded.value = false;
-  diputados.value = [];
-  grupos.value = [];
-  votaciones.value = [];
-  votos.value = [];
-  votosLoaded.value = new Set();
+  const normalizedScopeId = String(scopeId || "nacional").trim().toLowerCase();
+  if (currentScopeId.value === normalizedScopeId) return Promise.resolve();
+  currentScopeId.value = normalizedScopeId;
+  localStorage.setItem("preferredScope", normalizedScopeId);
+
+  resetScopeData();
   _loadPromise = null;
-  Object.keys(_legLoadPromises).forEach(k => delete _legLoadPromises[k]);
-  
   return loadData();
 }
 
 async function loadVotosForLeg(legId) {
   if (!legId || votosLoaded.value.has(legId)) return;
-  if (_legLoadPromises[legId]) return _legLoadPromises[legId];
+  const scopeId = currentScopeId.value;
+  const promiseKey = `${scopeId}:${legId}`;
+  if (_legLoadPromises[promiseKey]) return _legLoadPromises[promiseKey];
 
-  _legLoadPromises[legId] = (async () => {
+  _legLoadPromises[promiseKey] = (async () => {
     try {
-      const scopePath = currentScopeId.value === "nacional" ? "" : `${currentScopeId.value}/`;
+      const scopePath = scopeId === "nacional" ? "" : `${scopeId}/`;
       const data = await fetchJsonWithRetry(`data/${scopePath}votos_${legId}.json`, {
         attempts: 3,
         timeoutMs: 18000,
-        scope: `${currentScopeId.value}:${legId}`,
+        scope: `${scopeId}:${legId}`,
         critical: true,
       });
+      if (currentScopeId.value !== scopeId) return;
       const legVotos = data.votos;
       const legDetail = data.detail || {};
 
@@ -251,16 +288,24 @@ async function loadVotosForLeg(legId) {
       newLoaded.add(legId);
       votosLoaded.value = newLoaded;
     } catch (err) {
-      console.error(`Error loading votos for ${legId}:`, err);
-      delete _legLoadPromises[legId];
+      if (currentScopeId.value === scopeId) {
+        console.error(`Error loading votos for ${legId}:`, err);
+      }
+    } finally {
+      delete _legLoadPromises[promiseKey];
     }
   })();
 
-  return _legLoadPromises[legId];
+  return _legLoadPromises[promiseKey];
 }
 
 function loadData() {
-  if (!_loadPromise) _loadPromise = _doLoad();
+  if (!_loadPromise) {
+    _loadVersion += 1;
+    const loadVersion = _loadVersion;
+    const scopeId = currentScopeId.value;
+    _loadPromise = _doLoad(loadVersion, scopeId);
+  }
   return _loadPromise;
 }
 

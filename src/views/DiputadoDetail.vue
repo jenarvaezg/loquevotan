@@ -17,6 +17,7 @@ const { diputados, grupos, dipStats, dipFotos, votos, votaciones, votResults, vo
 const dipIdx = computed(() => diputados.value.indexOf(decodeURIComponent(route.params.name)))
 const name = computed(() => diputados.value[dipIdx.value])
 const ds = computed(() => dipStats.value[dipIdx.value])
+const rawGroupName = computed(() => (ds.value?.mainGrupo >= 0 ? grupos.value[ds.value.mainGrupo] : ''))
 const groupInfo = computed(() => {
   const gName = ds.value?.mainGrupo >= 0 ? grupos.value[ds.value.mainGrupo] : 'Sin grupo'
   return getGroupInfo(gName)
@@ -36,13 +37,17 @@ function navigateToScope(scopeId) {
   })
 }
 
-watch(() => route.query.scope, (scope) => {
+function applyScopeFromQuery(scope) {
   if (typeof scope !== 'string') return
   const target = scope.trim().toLowerCase()
   const knownScopes = new Set(['nacional', ...(ambitos.value || []).map(a => String(a.id || '').toLowerCase())])
   if (!knownScopes.has(target)) return
   if (!target || target === currentScopeId.value) return
   setScope(target)
+}
+
+watch([() => route.query.scope, () => ambitos.value.length], ([scope]) => {
+  applyScopeFromQuery(scope)
 }, { immediate: true })
 
 // History filters
@@ -309,7 +314,7 @@ watch(name, (n) => {
         <div>
           <h1 style="margin:0">{{ name }}</h1>
           <div class="detail-meta" style="margin-top:0.5rem">
-            <router-link :to="{ path: '/diputados', query: { grupo: groupInfo.value } }" class="badge" :style="{ backgroundColor: groupInfo.color, color: 'white' }">{{ groupInfo.label }}</router-link>
+            <router-link :to="{ path: '/diputados', query: { grupo: rawGroupName } }" class="badge" :style="{ backgroundColor: groupInfo.color, color: 'white' }">{{ groupInfo.label }}</router-link>
             <span class="detail-meta-item">{{ ds.total }} votaciones</span>
             <span class="detail-meta-item">Lealtad al grupo: {{ pct(ds.loyalty) }}</span>
             <span v-for="l in ds.legislaturas" :key="l" class="badge badge--leg">{{ l }}</span>
