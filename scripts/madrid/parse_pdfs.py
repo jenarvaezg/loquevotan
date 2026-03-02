@@ -123,7 +123,9 @@ def get_pdf_first_page_text(path):
 
 def parse_one_file(file_path):
     full_text = get_pdf_text(file_path)
-    if not full_text or "resultado" not in full_text.lower():
+    if not full_text:
+        return None
+    if "resultado" not in full_text.lower():
         return []
 
     first_page_text = get_pdf_first_page_text(file_path)
@@ -376,6 +378,9 @@ def main():
 
         print(f"[{i + 1}/{len(files)}] Parsing {file_path}...")
         parsed_votes = parse_one_file(file_path)
+        if parsed_votes is None:
+            print("  Parsing failed, preserving previous extracted votes for this file.")
+            continue
         for old_vote_id in previous_vote_ids:
             votes_by_id.pop(old_vote_id, None)
         for vote in parsed_votes:

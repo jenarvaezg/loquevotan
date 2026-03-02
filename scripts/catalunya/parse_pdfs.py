@@ -106,7 +106,7 @@ def parse_catalunya_ds(file_path, session_info):
             toc_text = "\n".join([p.extract_text() or "" for p in pages[:10]])
     except Exception as e:
         print(f"  Error opening PDF: {e}")
-        return []
+        return None
 
     points_map = extract_catalunya_points(toc_text)
 
@@ -217,6 +217,9 @@ def main():
             continue
 
         parsed_votes = parse_catalunya_ds(file_path, session_info)
+        if parsed_votes is None:
+            print("  Parsing failed, preserving previous extracted votes for this file.")
+            continue
         for old_vote_id in previous_vote_ids:
             votes_by_id.pop(old_vote_id, None)
         for vote in parsed_votes:

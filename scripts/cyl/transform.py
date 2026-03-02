@@ -167,6 +167,10 @@ def transform(rebuild=False):
     categorias_all = {"Otros"}
     for item in cache.values():
         categorias_all.add(item.get("categoria_principal", item.get("categoria", "Otros")))
+    for override in preserved_meta_by_id.values():
+        category_label = override.get("categoria_label")
+        if isinstance(category_label, str) and category_label.strip():
+            categorias_all.add(category_label.strip())
     
     categorias_list = sorted(list(categorias_all))
     cat_to_idx = {c: i for i, c in enumerate(categorias_list)}
