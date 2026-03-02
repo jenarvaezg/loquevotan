@@ -21,6 +21,22 @@ PROMPT_FILE = "scripts/prompt_categorizacion.txt"
 LEGISLATURAS = ["XII", "XI", "X", "IX"]
 
 FALLBACK_TITLE = "Asunto parlamentario sin clasificar"
+MAX_CITIZEN_TITLE_WORDS = 18
+EXPEDIENTE_PATTERN = re.compile(r"\b\d{1,2}-\d+/[A-Z]+-\d+\b", re.IGNORECASE)
+
+PROCEDURAL_REWRITES = [
+    # Parliamentary boilerplate that adds noise without user value.
+    (r"^proposición no de ley en pleno(?:\s+\d{1,2}-\d+/[a-z]+-\d+)?\s*,?\s*relativa a\s+", ""),
+    (r"^proposición no de ley en pleno\s+", ""),
+    (r"^moción\s+relativa\s+a\s+", ""),
+    (r"^debate de la comunicación del consejo de gobierno sobre\s+", "Debate sobre "),
+    (
+        r"^propuesta de toma en consideración(?: por el pleno)? de la proposición de ley(?: a tramitar ante la mesa del congreso de los diputados)?(?: relativa a)?\s+",
+        "",
+    ),
+    (r"^propuesta de toma en consideración(?: por el pleno)?\s+", ""),
+    (r"^convalidación o derogación del decreto ley(?: por el que)?\s+", ""),
+]
 
 
 def prettify_official_title(title):
@@ -38,6 +54,37 @@ def prettify_official_title(title):
     pretty = lowered[:1].upper() + lowered[1:]
     pretty = re.sub(r"\bandalucía\b", "Andalucía", pretty, flags=re.IGNORECASE)
     return pretty
+
+
+def normalize_citizen_title(citizen_title, official_title):
+    """Clean noisy titles into concise user-facing wording."""
+    title = (citizen_title or "").strip()
+    if not title or title == FALLBACK_TITLE:
+        title = prettify_official_title(official_title)
+
+    title = " ".join(title.split())
+    title = title.replace("ycontrol", "y control")
+    title = EXPEDIENTE_PATTERN.sub("", title)
+    title = re.sub(r",\s*proposición no de ley en pleno.*$", "", title, flags=re.IGNORECASE)
+
+    for pattern, replacement in PROCEDURAL_REWRITES:
+        title = re.sub(pattern, replacement, title, flags=re.IGNORECASE)
+
+    title = re.sub(r"\s*,\s*,", ", ", title)
+    title = re.sub(r"\s{2,}", " ", title)
+    title = title.strip(" ,.;:-")
+
+    if not title:
+        title = prettify_official_title(official_title)
+
+    title = re.sub(r"\bandalucía\b", "Andalucía", title, flags=re.IGNORECASE)
+    title = title[0].upper() + title[1:]
+
+    words = title.split()
+    if len(words) > MAX_CITIZEN_TITLE_WORDS:
+        title = " ".join(words[:MAX_CITIZEN_TITLE_WORDS]).rstrip(",.;:") + "..."
+
+    return title
 
 
 def transform():
@@ -202,11 +249,16 @@ def transform():
                 code
             ])
             
+        titulo_ciudadano = normalize_citizen_title(
+            cat_info.get("titulo_ciudadano", v["titulo"]),
+            v["titulo"],
+        )
+
         votaciones_meta_list.append({
             "id": v["id"],
             "legislatura": leg_roman,
             "fecha": v["fecha"],
-            "titulo_ciudadano": cat_info.get("titulo_ciudadano", v["titulo"]),
+            "titulo_ciudadano": titulo_ciudadano,
             "categoria": cat_to_idx[cat_info.get("categoria_principal", cat_info.get("categoria", "Otros"))],
             "etiquetas": cat_info.get("etiquetas", []),
             "exp": exp_id,

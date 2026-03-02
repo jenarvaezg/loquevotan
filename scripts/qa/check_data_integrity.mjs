@@ -16,6 +16,8 @@ const requiredMetaKeys = [
   'votIdById',
   'sortedVotIdxByDate',
 ];
+const FALLBACK_CITIZEN_TITLE = 'Asunto parlamentario sin clasificar';
+const MAX_ANDALUCIA_TITLE_WORDS = 18;
 
 const failures = [];
 let overflowFailures = 0;
@@ -207,6 +209,50 @@ function validateVotesByLeg(scope, scopeDir, legs, meta) {
   }
 }
 
+function validateAndaluciaTitleQuality(scope, meta) {
+  if (scope !== 'andalucia') return;
+
+  const votaciones = Array.isArray(meta.votaciones) ? meta.votaciones : [];
+  const expedientePattern = /\b\d{1,2}-\d+\/[a-z]+-\d+\b/i;
+  let emptyTitles = 0;
+  let placeholders = 0;
+  let expedienteCodes = 0;
+  let parserTypos = 0;
+  let tooLong = 0;
+
+  for (const vote of votaciones) {
+    const title = String(vote?.titulo_ciudadano || '').trim();
+    if (!title) {
+      emptyTitles += 1;
+      continue;
+    }
+    if (title.toLowerCase() === FALLBACK_CITIZEN_TITLE.toLowerCase()) placeholders += 1;
+    if (expedientePattern.test(title)) expedienteCodes += 1;
+    if (/\bycontrol\b/i.test(title)) parserTypos += 1;
+    const words = title.split(/\s+/).filter(Boolean).length;
+    if (words > MAX_ANDALUCIA_TITLE_WORDS) tooLong += 1;
+  }
+
+  if (emptyTitles > 0) {
+    fail(scope, `QA títulos: ${emptyTitles} títulos ciudadanos vacíos en votaciones_meta.json`);
+  }
+  if (placeholders > 0) {
+    fail(scope, `QA títulos: ${placeholders} títulos con placeholder "${FALLBACK_CITIZEN_TITLE}"`);
+  }
+  if (expedienteCodes > 0) {
+    fail(scope, `QA títulos: ${expedienteCodes} títulos contienen código de expediente técnico`);
+  }
+  if (parserTypos > 0) {
+    fail(scope, `QA títulos: ${parserTypos} títulos contienen el typo "ycontrol"`);
+  }
+  if (tooLong > 0) {
+    fail(
+      scope,
+      `QA títulos: ${tooLong} títulos superan ${MAX_ANDALUCIA_TITLE_WORDS} palabras (ruido procedimental)`
+    );
+  }
+}
+
 function validateScope(scopeConfig) {
   const scopeId = scopeConfig.id;
   const scope = scopeId;
@@ -225,6 +271,7 @@ function validateScope(scopeConfig) {
 
   validateMeta(scope, meta);
   validateVotesByLeg(scope, scopeDir, scopeConfig.legislaturas || [], meta);
+  validateAndaluciaTitleQuality(scope, meta);
 }
 
 function run() {
