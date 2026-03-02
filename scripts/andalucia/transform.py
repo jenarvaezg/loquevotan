@@ -20,6 +20,26 @@ PROMPT_FILE = "scripts/prompt_categorizacion.txt"
 
 LEGISLATURAS = ["XII", "XI", "X", "IX"]
 
+FALLBACK_TITLE = "Asunto parlamentario sin clasificar"
+
+
+def prettify_official_title(title):
+    """Build a readable citizen title from the official expediente text."""
+    if not title:
+        return FALLBACK_TITLE
+
+    clean = " ".join(title.split())
+    clean = re.sub(r"^\d{1,2}-\d+/[A-Z]+-\d+\s*,\s*", "", clean)
+    clean = clean.strip(" .,:;")
+    if not clean:
+        return FALLBACK_TITLE
+
+    lowered = clean.lower()
+    pretty = lowered[:1].upper() + lowered[1:]
+    pretty = re.sub(r"\bandalucía\b", "Andalucía", pretty, flags=re.IGNORECASE)
+    return pretty
+
+
 def transform():
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     api_key = os.environ.get("GEMINI_API_KEY")
@@ -63,14 +83,19 @@ def transform():
                 }
             grupos_all.add(voto["grupo"])
         
-        # Check if title is in cache
-        if v["titulo"] not in cache and v["titulo"] != "Votación sin título":
+        # Categorize new titles, and retry entries that are still placeholders.
+        cache_entry = cache.get(v["titulo"])
+        needs_categorization = (
+            cache_entry is None
+            or cache_entry.get("titulo_ciudadano") == FALLBACK_TITLE
+        )
+        if needs_categorization and v["titulo"] != "Votación sin título":
             # Avoid duplicates in batch
             if not any(t[0] == v["titulo"] for t in titles_to_categorize):
                 titles_to_categorize.append((v["titulo"], v["titulo"]))
 
     # 3. Categorize with AI if needed
-    if titles_to_categorize:
+    if titles_to_categorize and api_key:
         print(f"Categorizing {len(titles_to_categorize)} new titles for Andalusia...")
         with open(PROMPT_FILE, "r") as f:
             prompt_text = f.read()
@@ -86,6 +111,8 @@ def transform():
         # Save updated cache
         with open(cache_file, "w") as f:
             json.dump(cache, f, indent=2, ensure_ascii=False)
+    elif titles_to_categorize and not api_key:
+        print("GEMINI_API_KEY no disponible: se mantiene caché existente sin forzar fallbacks.")
 
     diputados_list = sorted(list(deputados_all.values()), key=lambda x: x["nombre"])
     grupos_list = sorted(list(grupos_all))
@@ -120,8 +147,12 @@ def transform():
             "categoria_principal": "Otros",
             "etiquetas": ["andalucia"],
             "resumen_sencillo": "Votación en el Parlamento de Andalucía",
-            "titulo_ciudadano": v["titulo"]
+            "titulo_ciudadano": prettify_official_title(v["titulo"]),
         })
+        if cat_info.get("titulo_ciudadano") == FALLBACK_TITLE:
+            # Keep a readable fallback title instead of showing the generic placeholder.
+            cat_info = dict(cat_info)
+            cat_info["titulo_ciudadano"] = prettify_official_title(v["titulo"])
         
         vot_idx = i
         leg_roman = v["id"].split("-")[1] # e.g. AND-XII-77-1 -> XII

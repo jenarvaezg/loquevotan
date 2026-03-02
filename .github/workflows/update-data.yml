@@ -59,6 +59,8 @@ jobs:
 
       - name: Run Andalusia update
         run: python scripts/andalucia/run_update.py
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
       - name: Run CyL update
         run: python scripts/cyl/run_update.py
