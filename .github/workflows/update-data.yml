@@ -5,6 +5,10 @@ on:
     - cron: "0 6 * * 1" # Every Monday at 6am UTC
   workflow_dispatch:
 
+concurrency:
+  group: update-voting-data
+  cancel-in-progress: false
+
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -13,26 +17,31 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
       - name: Restore raw data cache
-        uses: actions/cache@v4
+        id: raw-cache
+        uses: actions/cache/restore@v4
         with:
           path: |
             data/raw
             data/andalucia/raw
             data/cyl/raw
-          key: parliament-raw-${{ github.run_id }}
+            data/madrid/raw
+          key: parliament-raw-${{ runner.os }}-${{ github.ref_name }}-${{ github.run_id }}
           restore-keys: |
-            parliament-raw-
+            parliament-raw-${{ runner.os }}-${{ github.ref_name }}-
+            parliament-raw-${{ runner.os }}-
             congress-raw-
 
       - name: Install dependencies
         run: |
-          pip install requests beautifulsoup4 pdfplumber google-genai
+          pip install requests beautifulsoup4 pdfplumber google-genai aiohttp aiofiles
 
       - name: Run National scraper
         run: python scripts/scraper.py
@@ -63,10 +72,51 @@ jobs:
             python scripts/build_global_index.py
           fi
 
+      - name: Save raw data cache
+        if: always() && !cancelled()
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            data/raw
+            data/andalucia/raw
+            data/cyl/raw
+            data/madrid/raw
+          key: ${{ steps.raw-cache.outputs.cache-primary-key || format('parliament-raw-{0}-{1}-{2}', runner.os, github.ref_name, github.run_id) }}
+
       - name: Commit and push if changed
         run: |
+          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add public/data/ data/cache_categorias.json data/andalucia/cache_categorias.json public/data/ambitos.json
-          git diff --staged --quiet || git commit -m "chore: update voting data (National + Andalusia + CyL + Madrid) $(date +%Y-%m-%d)"
-          git push
+          git checkout -B main
+          git add -A public/data/ public/data/ambitos.json
+          [ -f data/cache_categorias.json ] && git add data/cache_categorias.json || true
+          [ -f data/andalucia/cache_categorias.json ] && git add data/andalucia/cache_categorias.json || true
+          [ -f data/cyl/cache_categorias.json ] && git add data/cyl/cache_categorias.json || true
+          [ -f data/madrid/cache_categorias.json ] && git add data/madrid/cache_categorias.json || true
+
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git commit -m "chore: update voting data (National + Andalusia + CyL + Madrid) $(date +%Y-%m-%d)"
+
+          pushed=0
+          for attempt in 1 2 3; do
+            if git pull --rebase --autostash origin main && git push origin HEAD:main; then
+              echo "Push succeeded on attempt ${attempt}."
+              pushed=1
+              break
+            fi
+            git rebase --abort || true
+            if [ "${attempt}" -lt 3 ]; then
+              echo "Push attempt ${attempt} failed, retrying..."
+              sleep 5
+            fi
+          done
+
+          if [ "${pushed}" -ne 1 ]; then
+            echo "Failed to push after 3 attempts."
+            exit 1
+          fi

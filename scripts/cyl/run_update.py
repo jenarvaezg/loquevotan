@@ -8,7 +8,7 @@ def run_step(name, command):
         subprocess.run(command, check=True, shell=True)
     except subprocess.CalledProcessError as e:
         print(f"Error in step {name}: {e}")
-        # sys.exit(1)
+        sys.exit(1)
 
 def main():
     script_dir = os.path.dirname(os.path.abspath(__file__))
