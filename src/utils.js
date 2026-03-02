@@ -37,7 +37,7 @@ export const LEGISLATURAS = [
   },
 ];
 
-export const VOTO_LABELS = { 1: "A favor", 2: "En contra", 3: "Abstención" };
+export const VOTO_LABELS = { 1: "A favor", 2: "En contra", 3: "Abstención", 4: "No vota" };
 
 export const VOTES_PER_PAGE = 20;
 export const DIPS_PER_PAGE = 30;
@@ -146,7 +146,9 @@ export function votoPillClass(code) {
     ? "voto-pill--favor"
     : code === 2
       ? "voto-pill--contra"
-      : "voto-pill--abstencion";
+      : code === 3
+        ? "voto-pill--abstencion"
+        : "voto-pill--no-vota";
 }
 
 const GROUP_MAP = {

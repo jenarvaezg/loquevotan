@@ -96,7 +96,7 @@ const byGroup = computed(() => {
   for (let j = 0; j < indices.length; j++) {
     const v = votos.value[indices[j]]
     const g = v[2]
-    if (!result[g]) result[g] = { 1: 0, 2: 0, 3: 0, total: 0 }
+    if (!result[g]) result[g] = { 1: 0, 2: 0, 3: 0, 4: 0, total: 0 }
     result[g][v[3]]++
     result[g].total++
   }
@@ -143,8 +143,14 @@ const noNominalVotesMessage = computed(() => {
 function groupMajorityCode(gIdx) {
   const c = byGroup.value[gIdx]
   if (!c) return null
-  if (c[1] >= c[2] && c[1] >= c[3]) return 1
-  if (c[2] >= c[3]) return 2
+  const favor = Number(c[1]) || 0
+  const contra = Number(c[2]) || 0
+  const abst = Number(c[3]) || 0
+  const noVota = Number(c[4]) || 0
+  if (favor === 0 && contra === 0 && abst === 0 && noVota === 0) return null
+  if (noVota > Math.max(favor, contra, abst)) return 4
+  if (favor >= contra && favor >= abst) return 1
+  if (contra >= abst) return 2
   return 3
 }
 
@@ -479,6 +485,7 @@ watch(vot, (v) => {
                   :favor="byGroup[gIdx][1]" 
                   :contra="byGroup[gIdx][2]" 
                   :abstencion="byGroup[gIdx][3]" 
+                  :no-vota="byGroup[gIdx][4]" 
                   :total="byGroup[gIdx].total" 
                   small 
                 />

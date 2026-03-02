@@ -12,6 +12,8 @@
   --color-contra-light: #fee2e2;
   --color-abstencion: #d97706;
   --color-abstencion-light: #fef3c7;
+  --color-no-vota: #64748b;
+  --color-no-vota-light: #e2e8f0;
   --color-bg: #f8fafc;
   --color-surface: #ffffff;
   --color-text: #1e293b;
@@ -42,6 +44,8 @@
   --color-contra-light: #7f1d1d;
   --color-abstencion: #fbbf24;
   --color-abstencion-light: #78350f;
+  --color-no-vota: #94a3b8;
+  --color-no-vota-light: #334155;
   --color-bg: #0f172a;
   --color-surface: #1e293b;
   --color-text: #e2e8f0;
@@ -282,6 +286,7 @@ a.badge:hover { text-decoration: none; opacity: 0.85; }
 .voto-pill--favor { background: var(--color-favor); }
 .voto-pill--contra { background: var(--color-contra); }
 .voto-pill--abstencion { background: var(--color-abstencion); }
+.voto-pill--no-vota { background: var(--color-no-vota); }
 
 /* ── Avatar ── */
 .avatar {
