@@ -9,7 +9,7 @@ Este proyecto incluye un Worker que genera metatags Open Graph/Twitter en runtim
 
 Ejemplos:
 
-- `https://loquevotan.es/share/votacion/nacional/XV-120-3`
+- `https://loquevotan.es/share/votacion/nacional/XV-13-1`
 - `https://loquevotan.es/share/diputado/cyl/Juan%20P%C3%A9rez`
 
 ## Cómo funciona
