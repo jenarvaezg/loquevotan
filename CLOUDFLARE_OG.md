@@ -16,6 +16,7 @@ Ejemplos:
 
 1. El bot de red social abre `/share/...`.
 2. El Worker lee `data/*/votaciones_meta.json` desde `ASSETS` y genera OG tags.
+   - En rutas de diputado, usa `dipFotos` como `og:image` cuando hay foto disponible.
 3. Para usuarios reales, el HTML incluye redirección a rutas limpias (`/votacion/...`, `/diputado/...`) y fija `preferredScope` en `localStorage`.
 
 ## Deploy

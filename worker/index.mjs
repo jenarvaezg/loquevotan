@@ -1,6 +1,7 @@
 const SITE_NAME = "Lo Que Votan";
 const BRAND_TITLE = "LoQueVotan.es";
 const JSON_CACHE_TTL_MS = 5 * 60 * 1000;
+const LEG_TO_NUM = { X: 10, XI: 11, XII: 12, XIII: 13, XIV: 14, XV: 15 };
 
 const scopeMetaCache = new Map();
 let ambitosCache = { expiresAt: 0, data: null };
@@ -16,6 +17,19 @@ function escapeHtml(value) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#39;");
+}
+
+function isHttpUrl(value) {
+  return /^https?:\/\//i.test(value);
+}
+
+function asAbsoluteUrl(value, siteUrl) {
+  if (!value || typeof value !== "string") return null;
+  const trimmed = value.trim();
+  if (!trimmed) return null;
+  if (isHttpUrl(trimmed)) return trimmed;
+  if (trimmed.startsWith("/")) return `${siteUrl}${trimmed}`;
+  return `${siteUrl}/${trimmed}`;
 }
 
 function decodeSegment(value) {
@@ -104,11 +118,34 @@ function diputadoDescription(name, groupName, stats) {
   return `${chunks.join(" · ")} · ${BRAND_TITLE}`;
 }
 
+function diputadoPhotoUrl(fotoEntry, siteUrl) {
+  if (!fotoEntry) return null;
+
+  if (typeof fotoEntry === "string") {
+    return asAbsoluteUrl(fotoEntry, siteUrl);
+  }
+
+  if (typeof fotoEntry === "object") {
+    const legs = Object.keys(fotoEntry);
+    if (!legs.length) return null;
+    const bestLeg = legs.reduce((a, b) =>
+      (LEG_TO_NUM[a] || 0) >= (LEG_TO_NUM[b] || 0) ? a : b
+    );
+    const cod = fotoEntry[bestLeg];
+    const num = LEG_TO_NUM[bestLeg];
+    if (!cod || !num) return null;
+    return `https://www.congreso.es/docu/imgweb/diputados/${cod}_${num}.jpg`;
+  }
+
+  return null;
+}
+
 function renderOgPage({
   title,
   description,
   canonicalUrl,
   imageUrl,
+  imageAlt = "",
   redirectUrl,
   scopeId = "nacional",
   noindex = false,
@@ -117,6 +154,7 @@ function renderOgPage({
   const escapedDescription = escapeHtml(description);
   const escapedCanonical = escapeHtml(canonicalUrl);
   const escapedImage = escapeHtml(imageUrl);
+  const escapedImageAlt = escapeHtml(imageAlt);
   const escapedRedirect = escapeHtml(redirectUrl);
   const escapedScope = escapeHtml(scopeId);
   const robots = noindex ? `<meta name="robots" content="noindex, nofollow">` : "";
@@ -138,11 +176,13 @@ function renderOgPage({
   <meta property="og:image" content="${escapedImage}">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="${escapedImageAlt}">
   <meta property="og:locale" content="es_ES">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${escapedTitle}">
   <meta name="twitter:description" content="${escapedDescription}">
   <meta name="twitter:image" content="${escapedImage}">
+  <meta name="twitter:image:alt" content="${escapedImageAlt}">
   <script>
     try { localStorage.setItem("preferredScope", "${escapedScope}"); } catch (e) {}
     window.location.replace("${escapedRedirect}");
@@ -217,12 +257,14 @@ async function handleVoteShare(request, env) {
   const result = meta.votResults?.[voteIndex] || null;
   const title = `${vote?.titulo_ciudadano || voteId} | ${BRAND_TITLE}`;
   const description = voteDescription(vote, result, meta.categorias || []);
+  const imageAlt = `Resultado de votación: ${vote?.titulo_ciudadano || voteId}`;
 
   return renderOgPage({
     title,
     description,
     canonicalUrl,
     imageUrl,
+    imageAlt,
     redirectUrl,
     scopeId,
   });
@@ -248,7 +290,7 @@ async function handleDiputadoShare(request, env) {
   const siteUrl = buildSiteUrl(env, requestUrl);
   const sharePath = `/share/diputado/${encodeURIComponent(scopeId)}/${encodeURIComponent(diputadoName)}`;
   const canonicalUrl = `${siteUrl}${sharePath}`;
-  const imageUrl = buildImageUrl(env, siteUrl);
+  const defaultImageUrl = buildImageUrl(env, siteUrl);
   const redirectUrl = `${siteUrl}/diputado/${encodeURIComponent(diputadoName)}?scope=${encodeURIComponent(scopeId)}`;
 
   if (dipIdx < 0) {
@@ -256,7 +298,8 @@ async function handleDiputadoShare(request, env) {
       title: `Diputado no encontrado | ${BRAND_TITLE}`,
       description: `No hemos encontrado este perfil en el ámbito ${scopeId}.`,
       canonicalUrl,
-      imageUrl,
+      imageUrl: defaultImageUrl,
+      imageAlt: "Imagen de portada de LoQueVotan.es",
       redirectUrl,
       scopeId,
       noindex: true,
@@ -270,12 +313,18 @@ async function handleDiputadoShare(request, env) {
       : "Sin grupo";
   const title = `${diputadoName} (${groupName}) | ${BRAND_TITLE}`;
   const description = diputadoDescription(diputadoName, groupName, stats);
+  const dipPhoto = diputadoPhotoUrl(meta?.dipFotos?.[dipIdx], siteUrl);
+  const imageUrl = dipPhoto || defaultImageUrl;
+  const imageAlt = dipPhoto
+    ? `Foto de ${diputadoName}`
+    : `Perfil de ${diputadoName} en LoQueVotan.es`;
 
   return renderOgPage({
     title,
     description,
     canonicalUrl,
     imageUrl,
+    imageAlt,
     redirectUrl,
     scopeId,
   });
