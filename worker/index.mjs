@@ -454,6 +454,30 @@ function normalizeVoteToken(value) {
   return null;
 }
 
+function normalizeTextKey(value) {
+  return String(value || "")
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+}
+
+function findDiputadoIndex(meta, dipName) {
+  const diputados = Array.isArray(meta?.diputados) ? meta.diputados : [];
+  if (!diputados.length || !dipName) return -1;
+
+  const exact = diputados.indexOf(dipName);
+  if (exact >= 0) return exact;
+
+  const target = normalizeTextKey(dipName);
+  if (!target) return -1;
+
+  for (let i = 0; i < diputados.length; i++) {
+    if (normalizeTextKey(diputados[i]) === target) return i;
+  }
+  return -1;
+}
+
 function voteActionText(voteToken) {
   if (voteToken === "si") return "votó a favor";
   if (voteToken === "no") return "votó en contra";
@@ -780,6 +804,8 @@ function renderVoteOgImage({
 async function renderVoteOgPng({
   result,
   voteToken = null,
+  dipName = "",
+  dipGroupName = "",
   groupName = "",
   groupVoteToken = null,
 }) {
@@ -905,7 +931,55 @@ async function renderVoteOgPng({
     drawFilledCircleRgba(rgba, width, height, 872, y + 5, dotR, summaryRows[i].color);
   }
 
-  if (groupName) {
+  if (dipName) {
+    const dipShort = shortDiputadoName(dipName);
+    const dipInitials = initials(dipShort, 2) || "DV";
+    const party = normalizeGroupBrand(dipGroupName || groupName);
+    const partyColor = hexToRgba(party.color || "#64748b");
+    const avatarX = 1052;
+    const avatarY = 122;
+    const avatarRadius = 58;
+
+    drawFilledCircleRgba(rgba, width, height, avatarX, avatarY, avatarRadius + 4, white);
+    drawFilledCircleRgba(rgba, width, height, avatarX, avatarY, avatarRadius, hexToRgba("#1f2937"));
+    drawFilledCircleRgba(rgba, width, height, avatarX, avatarY + 6, avatarRadius - 10, hexToRgba("#111827"));
+
+    const initScale = dipInitials.length > 1 ? 5 : 6;
+    const initWidth = dipInitials.length * 6 * initScale - initScale;
+    const initHeight = 7 * initScale;
+    drawPixelText(
+      rgba,
+      width,
+      height,
+      dipInitials,
+      avatarX - Math.floor(initWidth / 2),
+      avatarY - Math.floor(initHeight / 2) + 4,
+      initScale,
+      white
+    );
+
+    // Small party badge over the avatar.
+    const partyBadgeX = avatarX + 42;
+    const partyBadgeY = avatarY + 42;
+    const partyLogo = String(party.logo || "PG")
+      .toUpperCase()
+      .slice(0, 3);
+    const partyScale = partyLogo.length >= 3 ? 2 : 3;
+    const partyWidth = partyLogo.length * 6 * partyScale - partyScale;
+    const partyHeight = 7 * partyScale;
+    drawFilledCircleRgba(rgba, width, height, partyBadgeX, partyBadgeY, 24, white);
+    drawFilledCircleRgba(rgba, width, height, partyBadgeX, partyBadgeY, 21, partyColor);
+    drawPixelText(
+      rgba,
+      width,
+      height,
+      partyLogo,
+      partyBadgeX - Math.floor(partyWidth / 2),
+      partyBadgeY - Math.floor(partyHeight / 2),
+      partyScale,
+      white
+    );
+  } else if (groupName) {
     const party = normalizeGroupBrand(groupName);
     const partyColor = hexToRgba(party.color || "#64748b");
     const badgeX = 1080;
@@ -1131,12 +1205,22 @@ async function handleVoteOgImage(request, env) {
 
   const meta = await getScopeMeta(env, requestUrl, scopeId);
   const voteIndex = meta?.votIdById?.[voteId];
+  let dipGroupName = "";
+  if (dipParam) {
+    const dipIdx = findDiputadoIndex(meta, dipParam);
+    const mainGrupo = dipIdx >= 0 ? meta?.dipStats?.[dipIdx]?.mainGrupo : null;
+    if (Number.isInteger(mainGrupo) && meta?.grupos?.[mainGrupo]) {
+      dipGroupName = String(meta.grupos[mainGrupo]);
+    }
+  }
 
   if (!Number.isInteger(voteIndex)) {
     if (wantsPng) {
       const png = await renderVoteOgPng({
         result: { favor: 0, contra: 0, abstencion: 0, total: 0, result: "Sin datos" },
         voteToken: voteParam,
+        dipName: dipParam,
+        dipGroupName,
         groupName: groupParam,
         groupVoteToken: groupVoteParam,
       });
@@ -1177,6 +1261,8 @@ async function handleVoteOgImage(request, env) {
     const png = await renderVoteOgPng({
       result,
       voteToken: voteParam,
+      dipName: dipParam,
+      dipGroupName,
       groupName: groupParam,
       groupVoteToken: groupVoteParam,
     });
@@ -1335,6 +1421,7 @@ async function handleVoteShare(request, env) {
   const groupDisplayName = groupParam ? normalizeGroupBrand(groupParam).label : "";
   const action = voteActionText(voteParam);
   const groupAction = voteActionText(groupVoteParam);
+  const contextDescription = voteDescription(vote, result, meta.categorias || []);
   const title = dipParam
     ? voteParam
       ? `${shortDipName} ${action} en ${voteTitle} | ${BRAND_TITLE}`
@@ -1346,13 +1433,13 @@ async function handleVoteShare(request, env) {
     : `${voteTitle} | ${BRAND_TITLE}`;
   const description = dipParam
     ? voteParam
-      ? `${shortDipName} ${action} en esta votación. ${voteDescription(vote, result, meta.categorias || [])}`
-      : `Consulta cómo votó ${dipParam} en este asunto. ${voteDescription(vote, result, meta.categorias || [])}`
+      ? `Contexto completo de la votación: ${contextDescription}`
+      : `Consulta cómo votó ${dipParam} en este asunto. ${contextDescription}`
     : groupParam
       ? groupVoteParam
-        ? `${groupDisplayName} ${groupAction} en esta votación. ${voteDescription(vote, result, meta.categorias || [])}`
-        : `Consulta qué votó ${groupDisplayName} en este asunto. ${voteDescription(vote, result, meta.categorias || [])}`
-    : voteDescription(vote, result, meta.categorias || []);
+        ? `Contexto completo de la votación: ${contextDescription}`
+        : `Consulta qué votó ${groupDisplayName} en este asunto. ${contextDescription}`
+    : contextDescription;
   const imageAlt = dipParam
     ? voteParam
       ? `${shortDipName} ${action} en ${voteTitle}`
