@@ -13,6 +13,7 @@ PARSE_STATE_FILE = "data/cyl/parse_state.json"
 OUTPUT_PATTERN = "data/cyl/votos_{leg}_raw.json"
 LEG_ID_TO_ROMAN = {"11": "XI", "10": "X", "9": "IX", "8": "VIII", "7": "VII"}
 LEG_ROMAN_TO_ID = {v: k for k, v in LEG_ID_TO_ROMAN.items()}
+PARSER_VERSION = 2
 
 
 def normalize_text(text):
@@ -120,16 +121,20 @@ def load_json(path, default):
 
 
 def load_parse_state():
-    state = load_json(PARSE_STATE_FILE, {"version": 1, "files": {}})
+    state = load_json(PARSE_STATE_FILE, {"version": PARSER_VERSION, "files": {}})
     if not isinstance(state, dict):
-        return {"version": 1, "files": {}}
+        return {"version": PARSER_VERSION, "files": {}}
+    if state.get("version") != PARSER_VERSION:
+        # Force full reparse when parser logic changes.
+        return {"version": PARSER_VERSION, "files": {}}
     if "files" not in state or not isinstance(state["files"], dict):
         state["files"] = {}
-    state["version"] = 1
+    state["version"] = PARSER_VERSION
     return state
 
 
 def save_parse_state(state):
+    state["version"] = PARSER_VERSION
     with open(PARSE_STATE_FILE, "w") as f:
         json.dump(state, f, indent=2, ensure_ascii=False)
 
@@ -291,6 +296,17 @@ def parse_cyl_session(file_path, diputados_by_leg, session_info):
 
         all_votations.append(results)
 
+    # Ensure stable unique IDs within the session.
+    seen_counts = {}
+    for vote in all_votations:
+        base_id = vote.get("id")
+        if not base_id:
+            continue
+        n = seen_counts.get(base_id, 0) + 1
+        seen_counts[base_id] = n
+        if n > 1:
+            vote["id"] = f"{base_id}-V{n}"
+
     return all_votations
 
 
@@ -311,7 +327,7 @@ def main():
     sessions_map = {f"{s['legis_id']}-{s['pub_num']}": s for s in sessions}
 
     votes_by_id = {} if args.rebuild else load_existing_votes_map()
-    state = {"version": 1, "files": {}} if args.rebuild else load_parse_state()
+    state = {"version": PARSER_VERSION, "files": {}} if args.rebuild else load_parse_state()
     state_files = state["files"]
 
     txt_files = sorted(glob.glob(TXT_GLOB))

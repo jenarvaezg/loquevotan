@@ -18,6 +18,7 @@ const requiredMetaKeys = [
 ];
 const FALLBACK_CITIZEN_TITLE = 'Asunto parlamentario sin clasificar';
 const MAX_ANDALUCIA_TITLE_WORDS = 18;
+const ALLOW_DUPLICATE_VOTE_ID_SCOPES = new Set(['andalucia']);
 
 const failures = [];
 let overflowFailures = 0;
@@ -68,10 +69,20 @@ function validateMeta(scope, meta) {
   }
 
   const uniqueIds = new Set();
+  const idCounts = new Map();
   for (let i = 0; i < votaciones.length; i++) {
     const id = votaciones[i]?.id;
     if (!id) fail(scope, `Votación sin id estable en índice ${i}`);
-    else uniqueIds.add(id);
+    else {
+      uniqueIds.add(id);
+      idCounts.set(id, (idCounts.get(id) || 0) + 1);
+    }
+  }
+
+  for (const [id, count] of idCounts.entries()) {
+    if (count > 1 && !ALLOW_DUPLICATE_VOTE_ID_SCOPES.has(scope)) {
+      fail(scope, `ID de votación duplicado en votaciones_meta.json: ${id} (x${count})`);
+    }
   }
 
   for (const id of uniqueIds) {

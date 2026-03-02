@@ -129,11 +129,55 @@ const noNominalVotesMessage = computed(() => {
   return 'Esta votación no incluye detalle nominal por representante en la fuente oficial. Solo hay resultado agregado.'
 })
 
+function voteTokenFromCode(code) {
+  if (code === 1) return 'si'
+  if (code === 2) return 'no'
+  if (code === 3) return 'abstencion'
+  return 'no_vota'
+}
+
+function voteActionTextFromCode(code) {
+  if (code === 1) return 'votó a favor'
+  if (code === 2) return 'votó en contra'
+  if (code === 3) return 'se abstuvo'
+  if (code === 4) return 'no votó'
+  return 'participó'
+}
+
+function shortDiputadoName(name) {
+  if (!name) return ''
+  return String(name).split(',')[0].trim() || String(name)
+}
+
+const highlightedVoteCode = computed(() => {
+  if (!votosReady.value || !highlightedDip.value) return null
+  const target = normalize(highlightedDip.value)
+  const indices = votosByVotacion.value[idx.value] || []
+  for (let j = 0; j < indices.length; j++) {
+    const vi = indices[j]
+    const dipName = diputados.value[votos.value[vi][1]]
+    if (dipName === highlightedDip.value || normalize(dipName) === target) {
+      return votos.value[vi][3]
+    }
+  }
+  return null
+})
+
+const highlightedVoteSummary = computed(() => {
+  if (!highlightedDip.value || !vot.value?.titulo_ciudadano) return ''
+  const shortName = shortDiputadoName(highlightedDip.value)
+  const code = highlightedVoteCode.value
+  if (code == null) return ''
+  return `${shortName} ${voteActionTextFromCode(code)} en "${vot.value.titulo_ciudadano}".`
+})
+
 const copiedVi = ref(null)
 function copyVoteLink(vi) {
   const dipName = diputados.value[votos.value[vi][1]]
+  const voteToken = voteTokenFromCode(votos.value[vi][3])
   const scope = encodeURIComponent(currentScopeId.value || 'nacional')
-  const url = buildAbsoluteAppUrl(`votacion/${encodeURIComponent(vot.value.id)}?dip=${encodeURIComponent(dipName)}&scope=${scope}`)
+  const voteId = encodeURIComponent(vot.value.id)
+  const url = buildAbsoluteAppUrl(`share/votacion/${scope}/${voteId}?dip=${encodeURIComponent(dipName)}&vote=${encodeURIComponent(voteToken)}`)
   navigator.clipboard.writeText(url)
   copiedVi.value = vi
   setTimeout(() => { if (copiedVi.value === vi) copiedVi.value = null }, 2000)
@@ -234,6 +278,7 @@ watch(vot, (v) => {
         </div>
 
         <p v-if="vot.resumen" class="detail-summary" style="margin-top:0.5rem">{{ vot.resumen }}</p>
+        <p v-if="highlightedVoteSummary" class="detail-highlight-vote">{{ highlightedVoteSummary }}</p>
         
         <!-- Nota explicativa para votos deducidos -->
         <div v-if="vot.metadatos?.tipo === 'deduccion_grupal'" class="deduced-note">
@@ -489,6 +534,16 @@ watch(vot, (v) => {
   font-size: 1rem;
   color: var(--color-muted);
   line-height: 1.5;
+}
+
+.detail-highlight-vote {
+  margin: 0.5rem 0 0;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-muted);
+  font-size: 0.9rem;
+  color: var(--color-text);
 }
 
 .deduced-note {

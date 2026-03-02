@@ -118,6 +118,54 @@ function diputadoDescription(name, groupName, stats) {
   return `${chunks.join(" · ")} · ${BRAND_TITLE}`;
 }
 
+function normalizeVoteToken(value) {
+  if (typeof value !== "string") return null;
+  const normalized = value
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/\s+/g, "_");
+
+  if (!normalized) return null;
+
+  if (normalized === "1" || normalized === "si" || normalized === "a_favor" || normalized === "favor") {
+    return "si";
+  }
+  if (normalized === "2" || normalized === "no" || normalized === "en_contra" || normalized === "contra") {
+    return "no";
+  }
+  if (
+    normalized === "3" ||
+    normalized === "abstencion" ||
+    normalized === "abstenerse" ||
+    normalized === "se_abstuvo"
+  ) {
+    return "abstencion";
+  }
+  if (normalized === "4" || normalized === "no_vota" || normalized === "ausente") {
+    return "no_vota";
+  }
+
+  return null;
+}
+
+function voteActionText(voteToken) {
+  if (voteToken === "si") return "votó a favor";
+  if (voteToken === "no") return "votó en contra";
+  if (voteToken === "abstencion") return "se abstuvo";
+  if (voteToken === "no_vota") return "no votó";
+  return "participó";
+}
+
+function shortDiputadoName(name) {
+  if (typeof name !== "string") return "";
+  const trimmed = name.trim();
+  if (!trimmed) return "";
+  const [head] = trimmed.split(",");
+  return head.trim() || trimmed;
+}
+
 function diputadoPhotoUrl(fotoEntry, siteUrl) {
   if (!fotoEntry) return null;
 
@@ -227,6 +275,8 @@ async function handleVoteShare(request, env) {
 
   const scopeId = normalizeScope(decodeSegment(parts[2]));
   const voteId = decodeSegment(parts.slice(3).join("/"));
+  const dipParam = decodeSegment(requestUrl.searchParams.get("dip") || "").trim();
+  const voteParam = normalizeVoteToken(requestUrl.searchParams.get("vote"));
   if (!voteId) return null;
 
   const scopes = await getAmbitos(env, requestUrl);
@@ -237,9 +287,15 @@ async function handleVoteShare(request, env) {
 
   const siteUrl = buildSiteUrl(env, requestUrl);
   const sharePath = `/share/votacion/${encodeURIComponent(scopeId)}/${encodeURIComponent(voteId)}`;
-  const canonicalUrl = `${siteUrl}${sharePath}`;
+  const canonicalUrlObj = new URL(`${siteUrl}${sharePath}`);
+  if (dipParam) canonicalUrlObj.searchParams.set("dip", dipParam);
+  if (voteParam) canonicalUrlObj.searchParams.set("vote", voteParam);
+  const canonicalUrl = canonicalUrlObj.toString();
   const imageUrl = buildImageUrl(env, siteUrl);
-  const redirectUrl = `${siteUrl}/votacion/${encodeURIComponent(voteId)}?scope=${encodeURIComponent(scopeId)}`;
+  const redirectUrlObj = new URL(`${siteUrl}/votacion/${encodeURIComponent(voteId)}`);
+  redirectUrlObj.searchParams.set("scope", scopeId);
+  if (dipParam) redirectUrlObj.searchParams.set("dip", dipParam);
+  const redirectUrl = redirectUrlObj.toString();
 
   if (!Number.isInteger(voteIndex)) {
     return renderOgPage({
@@ -255,9 +311,24 @@ async function handleVoteShare(request, env) {
 
   const vote = meta.votaciones[voteIndex];
   const result = meta.votResults?.[voteIndex] || null;
-  const title = `${vote?.titulo_ciudadano || voteId} | ${BRAND_TITLE}`;
-  const description = voteDescription(vote, result, meta.categorias || []);
-  const imageAlt = `Resultado de votación: ${vote?.titulo_ciudadano || voteId}`;
+  const voteTitle = vote?.titulo_ciudadano || voteId;
+  const shortDipName = shortDiputadoName(dipParam);
+  const action = voteActionText(voteParam);
+  const title = dipParam
+    ? voteParam
+      ? `${shortDipName} ${action} en ${voteTitle} | ${BRAND_TITLE}`
+      : `${shortDipName} en ${voteTitle} | ${BRAND_TITLE}`
+    : `${voteTitle} | ${BRAND_TITLE}`;
+  const description = dipParam
+    ? voteParam
+      ? `${shortDipName} ${action} en esta votación. ${voteDescription(vote, result, meta.categorias || [])}`
+      : `Consulta cómo votó ${dipParam} en este asunto. ${voteDescription(vote, result, meta.categorias || [])}`
+    : voteDescription(vote, result, meta.categorias || []);
+  const imageAlt = dipParam
+    ? voteParam
+      ? `${shortDipName} ${action} en ${voteTitle}`
+      : `Votación de ${voteTitle}`
+    : `Resultado de votación: ${voteTitle}`;
 
   return renderOgPage({
     title,
