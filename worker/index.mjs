@@ -18,6 +18,7 @@ const OG_COLORS = {
 
 const scopeMetaCache = new Map();
 let ambitosCache = { expiresAt: 0, data: null };
+const imageDataUriCache = new Map();
 
 function stripTrailingSlash(value) {
   return value.endsWith("/") ? value.slice(0, -1) : value;
@@ -179,6 +180,98 @@ function shortDiputadoName(name) {
   return head.trim() || trimmed;
 }
 
+function initials(value, max = 4) {
+  const parts = String(value || "")
+    .trim()
+    .split(/[\s,/()-]+/)
+    .filter(Boolean);
+  if (!parts.length) return "";
+  if (parts.length === 1) return parts[0].slice(0, max).toUpperCase();
+  return parts
+    .slice(0, max)
+    .map((p) => p[0]?.toUpperCase() || "")
+    .join("");
+}
+
+function normalizeGroupBrand(groupName) {
+  const raw = String(groupName || "").trim();
+  const lower = raw.toLowerCase();
+  const upper = raw.toUpperCase();
+
+  if (!raw) return { label: "Sin grupo", logo: "SG", color: "#64748b" };
+  if (upper === "GP" || upper === "PP" || lower.includes("popular")) {
+    return { label: "PP", logo: "PP", color: "#0056a0" };
+  }
+  if (
+    upper === "GS" ||
+    upper === "PSOE" ||
+    lower.includes("socialista") ||
+    upper === "PSC"
+  ) {
+    return { label: "PSOE", logo: "PSOE", color: "#ef1c27" };
+  }
+  if (upper === "GVOX" || upper === "VOX" || lower.includes("vox")) {
+    return { label: "VOX", logo: "VOX", color: "#63be21" };
+  }
+  if (upper === "GSUMAR" || lower.includes("sumar")) {
+    return { label: "Sumar", logo: "SUM", color: "#e51c55" };
+  }
+  if (upper === "GCS" || upper === "CS" || lower.includes("ciudadanos")) {
+    return { label: "CS", logo: "CS", color: "#eb6109" };
+  }
+  if (upper.includes("BILDU") || lower.includes("bildu")) {
+    return { label: "EH Bildu", logo: "BIL", color: "#b5cf18" };
+  }
+  if (upper === "GER" || upper === "GR" || upper === "ERC" || lower.includes("republic")) {
+    return { label: "ERC", logo: "ERC", color: "#ffb232" };
+  }
+  if (upper.includes("JXCAT") || upper.includes("JUNTS") || lower.includes("junts")) {
+    return { label: "Junts", logo: "JX", color: "#00c3b2" };
+  }
+  if (upper.includes("PNV") || lower.includes("vasco")) {
+    return { label: "PNV", logo: "PNV", color: "#008000" };
+  }
+  if (upper.includes("MIXTO") || lower.includes("mixto")) {
+    return { label: "Mixto", logo: "MIX", color: "#64748b" };
+  }
+  if (upper.includes("PODEMOS") || upper.includes("GIP") || lower.includes("podemos")) {
+    return { label: "Podemos", logo: "UP", color: "#673ab7" };
+  }
+
+  return { label: raw, logo: initials(raw, 3) || "PG", color: "#64748b" };
+}
+
+function bytesToBase64(bytes) {
+  let binary = "";
+  const chunkSize = 0x8000;
+  for (let i = 0; i < bytes.length; i += chunkSize) {
+    const chunk = bytes.subarray(i, i + chunkSize);
+    binary += String.fromCharCode(...chunk);
+  }
+  return btoa(binary);
+}
+
+async function imageUrlToDataUri(imageUrl) {
+  if (!imageUrl) return null;
+  const now = Date.now();
+  const cached = imageDataUriCache.get(imageUrl);
+  if (cached && cached.expiresAt > now) return cached.dataUri;
+
+  try {
+    const resp = await fetch(imageUrl, { method: "GET" });
+    if (!resp.ok) return null;
+    const contentType = String(resp.headers.get("content-type") || "").toLowerCase();
+    if (!contentType.startsWith("image/")) return null;
+    const bytes = new Uint8Array(await resp.arrayBuffer());
+    if (!bytes.length || bytes.length > 1_500_000) return null;
+    const dataUri = `data:${contentType};base64,${bytesToBase64(bytes)}`;
+    imageDataUriCache.set(imageUrl, { dataUri, expiresAt: now + JSON_CACHE_TTL_MS });
+    return dataUri;
+  } catch {
+    return null;
+  }
+}
+
 function truncateText(value, maxLen = 180) {
   const text = String(value || "").trim().replace(/\s+/g, " ");
   if (text.length <= maxLen) return text;
@@ -276,6 +369,10 @@ function voteOgImageUrl(siteUrl, scopeId, voteId, dipName = "", voteToken = null
   return url.toString();
 }
 
+function diputadoOgImageUrl(siteUrl, scopeId, diputadoName) {
+  return `${siteUrl}/og/diputado/${encodeURIComponent(scopeId)}/${encodeURIComponent(diputadoName)}`;
+}
+
 function renderVoteOgImage({
   voteId,
   voteTitle,
@@ -368,6 +465,76 @@ function renderVoteOgImage({
   ${dipSnippet}
   <text x="640" y="418" font-size="22" fill="${OG_COLORS.muted}">ID: ${escapeHtml(voteId)}</text>
   <text x="640" y="468" font-size="26" fill="${OG_COLORS.text}" font-weight="700">${totals.favor} sí · ${totals.contra} no · ${totals.abstencion} abst.</text>
+</svg>`;
+}
+
+function renderDiputadoOgImage({
+  diputadoName,
+  scopeId,
+  party,
+  stats,
+  photoDataUri = "",
+}) {
+  const nameLines = splitTitleLines(diputadoName, 26, 2);
+  const votesTotal = Math.max(0, Number(stats?.total) || 0);
+  const favor = Math.max(0, Number(stats?.favor) || 0);
+  const contra = Math.max(0, Number(stats?.contra) || 0);
+  const abst = Math.max(0, Number(stats?.abstencion) || 0);
+  const noVota = Math.max(0, Number(stats?.no_vota) || 0);
+  const loyaltyPct = Number.isFinite(stats?.loyalty) ? Math.round(stats.loyalty * 100) : null;
+  const hasPhoto = Boolean(photoDataUri);
+  const avatarFallback = initials(shortDiputadoName(diputadoName), 2) || "DV";
+
+  const nameSvg = nameLines
+    .map(
+      (line, index) =>
+        `<text x="620" y="${160 + index * 58}" font-size="50" fill="${OG_COLORS.text}" font-weight="800">${escapeHtml(
+          line
+        )}</text>`
+    )
+    .join("");
+
+  const loyaltyBar = Math.max(0, Math.min(100, loyaltyPct || 0));
+
+  const photoLayer = hasPhoto
+    ? `<image href="${photoDataUri}" x="78" y="94" width="410" height="410" preserveAspectRatio="xMidYMid slice" clip-path="url(#avatarClip)" />`
+    : `<circle cx="283" cy="299" r="162" fill="#1e293b" /><text x="283" y="322" text-anchor="middle" font-size="92" font-weight="800" fill="#94a3b8">${escapeHtml(
+        avatarFallback
+      )}</text>`;
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="${OG_CANVAS.width}" height="${OG_CANVAS.height}" viewBox="0 0 ${OG_CANVAS.width} ${OG_CANVAS.height}">
+  <defs>
+    <linearGradient id="bgDip" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="${OG_COLORS.bgA}" />
+      <stop offset="100%" stop-color="${OG_COLORS.bgB}" />
+    </linearGradient>
+    <clipPath id="avatarClip"><circle cx="283" cy="299" r="162" /></clipPath>
+  </defs>
+  <rect width="${OG_CANVAS.width}" height="${OG_CANVAS.height}" fill="url(#bgDip)" />
+  <rect x="32" y="32" width="520" height="566" rx="28" fill="${OG_COLORS.panel}" stroke="${OG_COLORS.border}" stroke-width="2" />
+  ${photoLayer}
+  <circle cx="283" cy="299" r="164" fill="none" stroke="${OG_COLORS.text}" stroke-opacity="0.18" stroke-width="4" />
+  <g transform="translate(418 146)">
+    <circle cx="0" cy="0" r="64" fill="${party.color}" stroke="${OG_COLORS.text}" stroke-width="6" />
+    <text x="0" y="10" text-anchor="middle" font-size="26" font-weight="800" fill="#ffffff">${escapeHtml(party.logo)}</text>
+  </g>
+
+  <text x="620" y="70" font-size="22" fill="${OG_COLORS.muted}" font-weight="700">LoQueVotan.es · ${escapeHtml(
+    scopeId
+  )}</text>
+  ${nameSvg}
+  <text x="620" y="300" font-size="40" fill="${party.color}" font-weight="800">${escapeHtml(party.label)}</text>
+
+  <text x="620" y="356" font-size="24" fill="${OG_COLORS.muted}" font-weight="700">Votos registrados</text>
+  <text x="910" y="356" font-size="34" fill="${OG_COLORS.text}" font-weight="800">${votesTotal}</text>
+  <text x="620" y="394" font-size="24" fill="${OG_COLORS.muted}" font-weight="700">A favor ${favor} · En contra ${contra} · Abst. ${abst}</text>
+  <text x="620" y="430" font-size="24" fill="${OG_COLORS.muted}" font-weight="700">No vota ${noVota}</text>
+
+  <text x="620" y="486" font-size="24" fill="${OG_COLORS.muted}" font-weight="700">Disciplina de voto</text>
+  <rect x="620" y="500" width="460" height="18" rx="9" fill="${OG_COLORS.border}" />
+  <rect x="620" y="500" width="${Math.round((460 * loyaltyBar) / 100)}" height="18" rx="9" fill="${party.color}" />
+  <text x="1092" y="516" text-anchor="end" font-size="24" fill="${OG_COLORS.text}" font-weight="800">${loyaltyPct ?? 0}%</text>
 </svg>`;
 }
 
@@ -532,6 +699,66 @@ async function handleVoteOgImage(request, env) {
   });
 }
 
+async function handleDiputadoOgImage(request, env) {
+  const requestUrl = new URL(request.url);
+  const parts = splitPath(requestUrl.pathname);
+
+  // /og/diputado/:scope/:name
+  if (parts.length < 4) return null;
+
+  const scopeId = normalizeScope(decodeSegment(parts[2]));
+  const diputadoName = decodeSegment(parts.slice(3).join("/"));
+  if (!diputadoName) return null;
+
+  const scopes = await getAmbitos(env, requestUrl);
+  if (!scopes.has(scopeId)) return null;
+
+  const meta = await getScopeMeta(env, requestUrl, scopeId);
+  const dipIdx = (meta?.diputados || []).indexOf(diputadoName);
+
+  if (dipIdx < 0) {
+    const svg = renderDiputadoOgImage({
+      diputadoName: "Diputado no encontrado",
+      scopeId,
+      party: { label: "Sin grupo", logo: "SG", color: "#64748b" },
+      stats: {},
+      photoDataUri: "",
+    });
+    return new Response(svg, {
+      status: 404,
+      headers: {
+        "content-type": "image/svg+xml; charset=utf-8",
+        "cache-control": "public, max-age=120",
+      },
+    });
+  }
+
+  const stats = meta?.dipStats?.[dipIdx] || {};
+  const groupName =
+    Number.isInteger(stats?.mainGrupo) && meta?.grupos?.[stats.mainGrupo]
+      ? meta.grupos[stats.mainGrupo]
+      : "Sin grupo";
+  const party = normalizeGroupBrand(groupName);
+  const siteUrl = buildSiteUrl(env, requestUrl);
+  const dipPhoto = diputadoPhotoUrl(meta?.dipFotos?.[dipIdx], siteUrl);
+  const photoDataUri = dipPhoto ? await imageUrlToDataUri(dipPhoto) : "";
+
+  const svg = renderDiputadoOgImage({
+    diputadoName,
+    scopeId,
+    party,
+    stats,
+    photoDataUri,
+  });
+
+  return new Response(svg, {
+    headers: {
+      "content-type": "image/svg+xml; charset=utf-8",
+      "cache-control": "public, max-age=600",
+    },
+  });
+}
+
 async function handleVoteShare(request, env) {
   const requestUrl = new URL(request.url);
   const parts = splitPath(requestUrl.pathname);
@@ -651,11 +878,8 @@ async function handleDiputadoShare(request, env) {
       : "Sin grupo";
   const title = `${diputadoName} (${groupName}) | ${BRAND_TITLE}`;
   const description = diputadoDescription(diputadoName, groupName, stats);
-  const dipPhoto = diputadoPhotoUrl(meta?.dipFotos?.[dipIdx], siteUrl);
-  const imageUrl = dipPhoto || defaultImageUrl;
-  const imageAlt = dipPhoto
-    ? `Foto de ${diputadoName}`
-    : `Perfil de ${diputadoName} en LoQueVotan.es`;
+  const imageUrl = diputadoOgImageUrl(siteUrl, scopeId, diputadoName);
+  const imageAlt = `Perfil de ${diputadoName} (${normalizeGroupBrand(groupName).label})`;
 
   return renderOgPage({
     title,
@@ -680,6 +904,11 @@ export default {
     try {
       if (pathname.startsWith("/og/votacion/")) {
         const imageResp = await handleVoteOgImage(request, env);
+        if (imageResp) return imageResp;
+      }
+
+      if (pathname.startsWith("/og/diputado/")) {
+        const imageResp = await handleDiputadoOgImage(request, env);
         if (imageResp) return imageResp;
       }
 
