@@ -5,6 +5,7 @@ import os
 import glob
 import unicodedata
 import io
+from multiprocessing import Pool
 
 # Madrid Groups Seat Counts for Heuristics
 SEATS = {
@@ -26,91 +27,118 @@ def spanish_to_int(text):
     if m: return int(m.group(0))
     return 0
 
-def normalize_text(text):
-    if not text: return ""
-    text = "".join(c for c in unicodedata.normalize('NFD', text) if unicodedata.category(c) != 'Mn')
-    return text.lower().strip()
+def extract_descriptions(text):
+    """Find all PNL/Bill definitions and their objects in the text."""
+    desc_map = {}
+    pnl_pattern = r'(?P<code>(?:PNL|PCOP|PNLP|PL|Proyecto de Ley|Proposición No de Ley|Moción|Propuesta de Resolución)\s*-?\s*(?P<num>\d+)/(?P<year>\d+)).*?(?:objeto|finalidad):\s*(?P<desc>.*?)(?:\.\s+[A-Z\d]{3,}|\n\n\n|\Z|DIARIO DE SESIONES|Pregunta n|Interpelación)'
+    
+    for m in re.finditer(pnl_pattern, text, re.IGNORECASE | re.DOTALL):
+        num = m.group('num')
+        year = m.group('year')
+        short_year = year[-2:]
+        key = f"{num}/{short_year}"
+        desc = m.group('desc').strip()
+        desc = re.sub(r'\s+', ' ', desc)
+        desc = re.sub(r'\d+\s+DIARIO DE SESIONES.*?\d{4}', '', desc, flags=re.I)
+        if len(desc) > 10:
+            if key not in desc_map or len(desc) > len(desc_map[key]):
+                desc_map[key] = desc
+    return desc_map
 
-def parse_madrid_ds(file_path, legis_id):
-    print(f"Parsing {file_path} (Legis {legis_id})...")
+def parse_one_file(file_path):
+    print(f"Parsing {file_path}...")
     try:
         with pdfplumber.open(file_path) as pdf:
-            text = "\n".join([p.extract_text() or "" for p in pdf.pages])
+            first_page_text = pdf.pages[0].extract_text() or ""
+            # Quick check for voting sections
+            has_votes = False
+            for page in pdf.pages:
+                p_text = (page.extract_text() or "").lower()
+                if "resultado" in p_text and ("votación" in p_text or "votos" in p_text):
+                    has_votes = True
+                    break
+            if not has_votes: return []
+            
+            full_text = "\n".join([p.extract_text() or "" for p in pdf.pages])
     except Exception as e:
-        print(f"  Error opening PDF: {e}")
+        print(f"  Error opening PDF {file_path}: {e}")
         return []
 
-    # Clean artifacts
-    text = text.replace('-\n', '')
-    text = re.sub(r'[ \t]+', ' ', text)
+    legis_match = re.search(r'(X|XI|XII|XIII)\s+legislatura', first_page_text, re.I)
+    legis_id = legis_match.group(1).upper() if legis_match else "XIII"
+    ds_match = re.search(r'NÚM\.\s*(\d+)', first_page_text, re.I)
+    ds_num = ds_match.group(1) if ds_match else os.path.basename(file_path).split('-')[-1].split('.')[0]
 
-    # 1. Locate the start of the voting section (usually near the end)
-    vote_section_match = re.search(r'(?:proceder a realizar las votaciones|llamo a votación)', text, re.I)
-    search_text = text[vote_section_match.start():] if vote_section_match else text
+    full_text = full_text.replace('-\n', '')
+    full_text = re.sub(r'[ \t]+', ' ', full_text)
+    desc_map = extract_descriptions(full_text)
 
-    # 2. Extract votations
-    res_pattern = r'resultado\s+(?:de\s+la\s+)?votación\s+es\s+(?:el\s+siguiente|de)?[:\s]*' \
-                  r'(?:(?P<emitidos>\d+|[a-z]+)\s+votos\s+emitidos[:\s]*)?' \
-                  r'(?:(?P<si1>\d+|[a-z]+)\s+síes?|votos\s+afirmativos\s+(?P<si2>\d+|[a-z]+))' \
-                  r'(?:,\s*| y )' \
-                  r'(?:(?P<no1>\d+|[a-z]+)\s+noes?|votos\s+negativos\s+(?P<no2>\d+|[a-z]+))' \
-                  r'(?:[,\s]*y\s*|[,\s]+)?' \
-                  r'(?:abstenciones\s+(?P<abs2>\d+|[a-z]+)|(?P<abs1>\d+|[a-z]+)\s+abstenciones?)?'
+    # RE-DESIGNED Result Pattern (More robust)
+    # We look for "resultado ... votación" and then capture favor/contra/abs in any order/naming
+    res_pattern = r'resultado\s+(?:de\s+la\s+)?votación\s+es\s+.*?' \
+                  r'(?:(?P<emitidos>\d+|[a-z]+)\s+(?:votos\s+emitidos|diputados\s+presentes))?.*?' \
+                  r'(?:(?P<si>\d+|[a-z]+)\s+(?:síes|votos?\s+(?:a\s+favor|afirmativos)))' \
+                  r'.*?' \
+                  r'(?:(?P<no>\d+|[a-z]+)\s+(?:noes|votos?\s+(?:en\s+contra|negativos)))' \
+                  r'(?:.*?(?P<abs>\d+|[a-z]+)\s+abstenciones?)?'
     
-    matches = list(re.finditer(res_pattern, search_text, re.IGNORECASE))
-    
+    matches = list(re.finditer(res_pattern, full_text, re.IGNORECASE | re.DOTALL))
     votations = []
     last_end = 0
     for i, match in enumerate(matches):
-        block_start = max(0, last_end)
-        votation_block = search_text[block_start:match.start()]
+        # We need to ensure we don't grab context from miles away
+        block_start = max(last_end, match.start() - 2000)
+        votation_block = full_text[block_start:match.start()]
         
-        # 3. Extract Title
-        title = "Votación desconocida"
+        num_match = re.search(r'(\d+)/(\d{2,4})', votation_block)
+        key_found = f"{num_match.group(1)}/{num_match.group(2)[-2:]}" if num_match else None
+        
+        base_title = "Votación desconocida"
         entity_patterns = [
-            r'(?:Proposición No de Ley|PNL)\s+\d+/\d+',
-            r'Proposición de Ley\s+\d+/\d+',
-            r'Proyecto de Ley\s+\d+/\d+',
+            r'(?P<full>(?:Proposición No de Ley|PNL|PCOP|PNLP|Proposición de Ley|Proyecto de Ley|PL|Moción|Propuesta de Resolución)\s*(?:-)?\s*(?P<num>\d+)/(?P<year>\d+))',
             r'enmienda(?:s)?\s+(?:número\s+)?[\d, y a]+',
             r'ratificación del convenio\s+.*',
             r'texto del proyecto de ley',
             r'dictamen de la Comisión.*',
-            r'confianza de la Asamblea',
             r'investidura'
         ]
         
         all_found = []
         for p in entity_patterns:
-            for m in re.finditer(p, votation_block, re.I):
-                all_found.append((m.start(), m.group(0).strip()))
+            for em in re.finditer(p, votation_block, re.I):
+                all_found.append((em.start(), em.group(0).strip()))
         
         if all_found:
             all_found.sort(key=lambda x: x[0])
-            title = all_found[-1][1]
+            base_title = all_found[-1][1]
+        elif key_found:
+            base_title = f"Votación {key_found}"
         else:
             lines = [l.strip() for l in votation_block.split('\n') if l.strip()]
             for line in reversed(lines):
-                if any(k in line.lower() for k in ['votamos', 'votar', 'votación', 'somete a']):
-                    m = re.search(r'(?:votamos|votar|votación|somete a votación)\s+(?:la|el|los|las|de)?\s*(.*)', line, re.I)
+                if any(k in line.lower() for k in ['votamos', 'votar', 'votación', 'pasamos a']):
+                    m = re.search(r'(?:votamos|votar|votación|pasamos a|somete a)\s+(?:la|el|los|las|de)?\s*(.*)', line, re.I)
                     if m:
-                        candidate = m.group(1).strip()
-                        if len(candidate) > 5:
-                            title = candidate
-                            break
+                        base_title = m.group(1).strip()
+                        if len(base_title) > 5: break
         
-        # 4. Extract Votes
+        if key_found and key_found in desc_map:
+            if len(base_title) < 40:
+                base_title = f"{base_title}: {desc_map[key_found]}"
+            elif key_found not in base_title:
+                base_title = f"{base_title} ({key_found}): {desc_map[key_found]}"
+
         d = match.groupdict()
-        v_si = spanish_to_int(d['si1'] or d['si2'])
-        v_no = spanish_to_int(d['no1'] or d['no2'])
-        v_abs = spanish_to_int(d['abs1'] or d['abs2'] or '0')
+        v_si = spanish_to_int(d['si'])
+        v_no = spanish_to_int(d['no'])
+        v_abs = spanish_to_int(d['abs'] or '0')
         v_emit = spanish_to_int(d['emitidos']) if d['emitidos'] else (v_si + v_no + v_abs)
         
-        # Special case for Investiture
-        if "confianza" in title.lower() or "investidura" in title.lower():
-            title = "Investidura"
+        if "investidura" in base_title.lower() or "confianza" in base_title.lower():
+            base_title = "Investidura de la Presidenta de la Comunidad"
 
-        # 5. Telematic additions (immediately after result)
-        post_text = search_text[match.end():match.end()+300]
+        # Special handling for telematic/distance votes often found after the block
+        post_text = full_text[match.end():match.end()+300]
         remote_matches = re.finditer(r'(\d+|un|una|dos|tres)\s*(?:votos?\s+)?(sí|no|abstención|abstencions)', post_text, re.I)
         for rm in remote_matches:
             val = spanish_to_int(rm.group(1))
@@ -120,90 +148,66 @@ def parse_madrid_ds(file_path, legis_id):
             elif 'abstenc' in sense: v_abs += val
         
         v_emit = max(v_emit, v_si + v_no + v_abs)
-
-        # 6. Extract Date
-        date_match = re.search(r'(\d{1,2})\s+DE\s+([A-Z]+)\s+DE\s+(\d{4})', text[:2000], re.I)
-        month_map = {"ENERO": "01", "FEBRERO": "02", "MARZO": "03", "ABRIL": "04", "MAYO": "05", "JUNIO": "06", 
-                     "JULIO": "07", "AGOSTO": "08", "SEPTIEMBRE": "09", "OCTUBRE": "10", "NOVIEMBRE": "11", "DICIEMBRE": "12"}
+        date_match = re.search(r'(\d{1,2})\s+DE\s+([A-Z]+)\s+DE\s+(\d{4})', full_text[:2000], re.I)
         date_str = "Unknown"
         if date_match:
             d_d, m, y = date_match.groups()
+            month_map = {"ENERO": "01", "FEBRERO": "02", "MARZO": "03", "ABRIL": "04", "MAYO": "05", "JUNIO": "06", 
+                         "JULIO": "07", "AGOSTO": "08", "SEPTIEMBRE": "09", "OCTUBRE": "10", "NOVIEMBRE": "11", "DICIEMBRE": "12"}
             date_str = f"{d_d.zfill(2)}/{month_map.get(m.upper(), '01')}/{y}"
 
-        ds_num = os.path.basename(file_path).replace('DS-', '').replace('.pdf', '').split('-')[-1]
-        
-        # Cleanup title
-        title = re.sub(r'^(?:la|el|los|las|de|del)\s+', '', title, flags=re.I)
-        title = title[0].upper() + title[1:]
-        title = re.sub(r'[.:;,]+$', '', title).strip()
+        base_title = re.sub(r'^(?:la|el|los|las|de|del)\s+', '', base_title, flags=re.I)
+        base_title = base_title[0].upper() + base_title[1:]
+        base_title = re.sub(r'[.:;,]+$', '', base_title).strip()
 
         votations.append({
             "id": f"MAD-{legis_id}-{ds_num}-{i+1}",
             "fecha": date_str,
-            "titulo": title[:300],
+            "titulo": base_title[:1000], 
             "votos": [],
-            "totales": {
-                "favor": v_si,
-                "contra": v_no,
-                "abstencion": v_abs,
-                "total": v_emit
-            },
-            "metadatos": {
-                "tipo": "deduccion_grupal",
-                "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
-            }
+            "totales": {"favor": v_si, "contra": v_no, "abstencion": v_abs, "total": v_emit},
+            "metadatos": {"tipo": "deduccion_grupal", "nota": "Sentido del voto deducido por disciplina de grupo."}
         })
-        last_end = match.end() + 100
-        
+        last_end = match.end()
     return votations
 
 def main():
     files = glob.glob("data/madrid/raw/pdf/*.pdf")
-    all_votes = []
-    processed_ids = set()
+    all_votes_map = {}
     
-    for f in sorted(files):
-        filename = os.path.basename(f)
-        parts = filename.split('-')
-        legis = parts[1] if len(parts) >= 3 else "XIII"
-        
-        votes = parse_madrid_ds(f, legis)
-        for v in votes:
-            if v["id"] not in processed_ids:
-                all_votes.append(v)
-                processed_ids.add(v["id"])
+    with Pool(processes=os.cpu_count()) as pool:
+        results = pool.map(parse_one_file, sorted(files))
+        for res in results:
+            for v in res:
+                all_votes_map[v["id"]] = v
                 
-    all_votes.sort(key=lambda x: x["id"])
+    all_votes = sorted(list(all_votes_map.values()), key=lambda x: x["id"])
     
-    # Deduct group votes
     for v in all_votes:
         leg = v["id"].split("-")[1]
         t = v["totales"]
         seats = SEATS.get(leg, SEATS["XIII"])
         gv = {}
-        
-        if leg in ["XIII", "XII"]:
-            if t["favor"] >= seats["PP"] + seats.get("Vox", 0) - 2:
-                gv["PP"] = "si"; gv["Vox"] = "si"
-            elif t["favor"] >= seats["PP"] - 2:
-                gv["PP"] = "si"; gv["Vox"] = "no"
+        if leg in ["XIII", "XII", "XI", "X"]:
+            if t["favor"] >= (seats["PP"] + seats.get("Vox", 0) + seats.get("Ciudadanos", 0)) * 0.9:
+                gv["PP"] = "si"; gv["Vox"] = "si"; gv["Ciudadanos"] = "si"
+            elif t["favor"] >= seats["PP"] * 0.9:
+                gv["PP"] = "si"
             
-            opp_total = seats.get("Más Madrid", 0) + seats.get("PSOE-M", 0)
-            if t["contra"] >= opp_total - 2:
-                gv["Más Madrid"] = "no"; gv["PSOE-M"] = "no"
-            elif t["favor"] >= opp_total + seats["PP"] - 5:
-                gv["Más Madrid"] = "si"; gv["PSOE-M"] = "si"
-        
+            if t["contra"] >= (seats.get("Más Madrid", 0) + seats.get("PSOE-M", 0) + seats.get("Podemos", 0)) * 0.9:
+                gv["Más Madrid"] = "no"; gv["PSOE-M"] = "no"; gv["Podemos"] = "no"
         v["group_votes"] = gv
 
-    # Save by legislature
     for leg in ["X", "XI", "XII", "XIII"]:
-        leg_votes = [v for v in all_votes if v["id"].startswith(f"MAD-{leg}")]
+        path = f"data/madrid/votos_{leg}_raw.json"
+        if os.path.exists(path): os.remove(path)
+        prefix = f"MAD-{leg}-"
+        leg_votes = [v for v in all_votes if v["id"].startswith(prefix)]
         if leg_votes:
-            with open(f"data/madrid/votos_{leg}_raw.json", "w") as f:
+            with open(path, "w") as f:
                 json.dump(leg_votes, f, indent=2, ensure_ascii=False)
     
-    print(f"Extraction complete. Processed {len(all_votes)} total votations for Madrid.")
+    print(f"Extraction complete. Processed {len(all_votes)} unique votations for Madrid.")
 
 if __name__ == "__main__":
     main()

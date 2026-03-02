@@ -24,13 +24,16 @@ def transform():
     api_key = os.environ.get("GEMINI_API_KEY")
     
     # 1. Load all raw votes and deputies
-    all_raw_votes = []
+    all_raw_votes_map = {}
     for leg in LEGISLATURAS:
         raw_file = f"{RAW_DIR}/votos_{leg}_raw.json"
         if os.path.exists(raw_file):
             with open(raw_file, "r") as f:
                 votes = json.load(f)
-                all_raw_votes.extend(votes)
+                for v in votes:
+                    all_raw_votes_map[v["id"]] = v
+    
+    all_raw_votes = list(all_raw_votes_map.values())
     
     with open(f"{RAW_DIR}/diputados_raw.json", "r") as f:
         raw_deps_list = json.load(f)

@@ -1,22 +1,60 @@
 [
   {
-    "id": "MAD-XIII-2-1",
-    "fecha": "22/06/2023",
-    "titulo": "Investidura",
+    "id": "MAD-XIII-131-1",
+    "fecha": "04/12/2025",
+    "titulo": "Proyecto de Ley 4/25",
     "votos": [],
     "totales": {
-      "favor": 70,
-      "contra": 54,
-      "abstencion": 10,
-      "total": 134
+      "favor": 51,
+      "contra": 82,
+      "abstencion": 0,
+      "total": 133
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
-      "PP": "si",
-      "Vox": "no",
+      "Más Madrid": "no",
+      "PSOE-M": "no"
+    }
+  },
+  {
+    "id": "MAD-XIII-131-2",
+    "fecha": "04/12/2025",
+    "titulo": "Enmienda a",
+    "votos": [],
+    "totales": {
+      "favor": 62,
+      "contra": 199,
+      "abstencion": 0,
+      "total": 261
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por disciplina de grupo."
+    },
+    "group_votes": {
+      "Más Madrid": "no",
+      "PSOE-M": "no"
+    }
+  },
+  {
+    "id": "MAD-XIII-131-3",
+    "fecha": "04/12/2025",
+    "titulo": "Enmiendas a",
+    "votos": [],
+    "totales": {
+      "favor": 12,
+      "contra": 121,
+      "abstencion": 0,
+      "total": 133
+    },
+    "metadatos": {
+      "tipo": "deduccion_grupal",
+      "nota": "Sentido del voto deducido por disciplina de grupo."
+    },
+    "group_votes": {
       "Más Madrid": "no",
       "PSOE-M": "no"
     }
@@ -24,7 +62,7 @@
   {
     "id": "MAD-XIII-533-1",
     "fecha": "05/06/2025",
-    "titulo": "Proposición No de Ley 404/24",
+    "titulo": "Proposición No de Ley 404/24: la Asamblea de Madrid insta al gobierno de la Comunidad de Madrid a: Acordar que el proyecto de Fórmula 1 acometido por IFEMA no suponga compromisos económicos que condicionen el presupuesto y patrimonio actual o futuro de la Comunidad de Madrid, instando a los representantes nombrados por la Comunidad de Madrid en el Consejo Rector de IFEMA a que se opongan a que la inversión en la construcción y explotación del circuito sea realizada por el Consorcio público IFEMA con sus propios recursos",
     "votos": [],
     "totales": {
       "favor": 102,
@@ -34,7 +72,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -46,7 +84,7 @@
   {
     "id": "MAD-XIII-533-2",
     "fecha": "05/06/2025",
-    "titulo": "Votación desconocida",
+    "titulo": "Proposición No de Ley 478/24: la Asamblea de Madrid insta al Gobierno de la Comunidad de Madrid a: 1",
     "votos": [],
     "totales": {
       "favor": 102,
@@ -56,7 +94,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -68,7 +106,7 @@
   {
     "id": "MAD-XIII-533-3",
     "fecha": "05/06/2025",
-    "titulo": "Votación desconocida",
+    "titulo": "Proposición No de Ley 106/25: la Asamblea de Madrid insta al Gobierno regional a: 1",
     "votos": [],
     "totales": {
       "favor": 51,
@@ -78,7 +116,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -88,7 +126,7 @@
   {
     "id": "MAD-XIII-543-1",
     "fecha": "12/06/2025",
-    "titulo": "Enmienda número 5",
+    "titulo": "Enmienda número 5,: la Asamblea de Madrid insta al Consejo de Gobierno a poner en marcha las siguientes actuaciones: 1- El incremento urgente y progresivo del parque de vivienda social y asequible, estableciendo objetivos a conseguir en unos plazos determinados, tal y como exige la ley estatal por el derecho a la vivienda. 2- La declaración de zonas de mercado residencial tensionada en aquellos municipios que lo soliciten, de acuerdo con la facultad que le concede el Artículo 18 de la Ley 12/2023, de 24 de mayo, por el Derecho a la Vivienda. 3- Una contribución financiera mediante partidas presupuestarias de inversión en políticas públicas de vivienda, al menos en una cuantía similar a las destinadas en esa Comunidad Autónoma por parte del Estado. 4- Iniciar un diálogo permanente con los organismos municipales, para realizar acciones coordinadas con el fin de dar respuesta a la ciudadanía con la construcción y promoción de viviendas de alquiler asequible, y de esta manera incrementar l",
     "votos": [],
     "totales": {
       "favor": 23,
@@ -98,7 +136,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -108,7 +146,7 @@
   {
     "id": "MAD-XIII-543-10",
     "fecha": "12/06/2025",
-    "titulo": "Proposición No de Ley 320/25",
+    "titulo": "Proposición No de Ley 320/25: ¿Qué planes de carácter social tiene este Gobierno para evitar la filiación de los menores a bandas juveniles? Empezamos por las dirigidas a la señora presidenta del Consejo de Gobierno y para formular la primera tiene la palabra la señora Pérez Moñino-Aranda, del Grupo Parlamentario Vox en Madrid. La Sra. PÉREZ MOÑINO-ARANDA (Desde los escaños.): Muchas gracias, presidente",
     "votos": [],
     "totales": {
       "favor": 79,
@@ -118,7 +156,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -140,7 +178,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -150,7 +188,7 @@
   {
     "id": "MAD-XIII-543-3",
     "fecha": "12/06/2025",
-    "titulo": "Resto de las enmiendas de Vox: son de la 1 a la 4 y la 6. Se inicia la votación",
+    "titulo": "Enmienda número 8",
     "votos": [],
     "totales": {
       "favor": 36,
@@ -160,7 +198,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -180,7 +218,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -200,7 +238,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -212,7 +250,7 @@
   {
     "id": "MAD-XIII-543-6",
     "fecha": "12/06/2025",
-    "titulo": "Votación desconocida",
+    "titulo": "Texto del proyecto de ley",
     "votos": [],
     "totales": {
       "favor": 80,
@@ -222,7 +260,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -244,7 +282,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -256,7 +294,7 @@
   {
     "id": "MAD-XIII-543-8",
     "fecha": "12/06/2025",
-    "titulo": "Proposición No de Ley 294/25",
+    "titulo": "Proposición No de Ley 294/25: la Asamblea de Madrid insta al Gobierno de la Comunidad de Madrid a: 1",
     "votos": [],
     "totales": {
       "favor": 102,
@@ -266,7 +304,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -278,7 +316,7 @@
   {
     "id": "MAD-XIII-543-9",
     "fecha": "12/06/2025",
-    "titulo": "Votación desconocida",
+    "titulo": "Votación 316/25: La Asamblea de Madrid insta al Gobierno de la Comunidad de Madrid a: 1",
     "votos": [],
     "totales": {
       "favor": 129,
@@ -288,7 +326,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -310,7 +348,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -322,7 +360,7 @@
   {
     "id": "MAD-XIII-555-2",
     "fecha": "19/06/2025",
-    "titulo": "Votación desconocida",
+    "titulo": "Votación 318/25: la Asamblea de Madrid insta al Gobierno de la Comunidad de Madrid a: 1",
     "votos": [],
     "totales": {
       "favor": 62,
@@ -332,7 +370,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -342,7 +380,7 @@
   {
     "id": "MAD-XIII-555-3",
     "fecha": "19/06/2025",
-    "titulo": "Votación desconocida",
+    "titulo": "Votación 321/25: la Asamblea de Madrid insta al Consejo de Gobierno de la Comunidad de Madrid a lo siguiente: 1) Mostrar su rechazo a cualquier intento de impulso de una reforma del modelo de financiación autonómico, por considerar que solamente contribuirá a profundizar en un sistema que nos hace desiguales, erosiona los servicios públicos, nos divide y permite el despilfarro y el chantaje separatistas. 2) Rechazar las negociaciones con los partidos separatistas en cualquier circunstancia y considerar que todas las cesiones competenciales han contribuido a deteriorar los servicios públicos y han erosionado la igualdad y los derechos de los españoles. 3) Considerar necesaria una visión nacional de la acción política y administrativa que permita poner toda la maquinaria y los componentes del Estado al servicio del bienestar y la prosperidad de los españoles por encima de entes autonómicos, burocracia y duplicidades. 4) Considerar imperativo iniciar el debate acerca de cómo superar el ac",
     "votos": [],
     "totales": {
       "favor": 89,
@@ -352,7 +390,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -364,7 +402,7 @@
   {
     "id": "MAD-XIII-555-4",
     "fecha": "19/06/2025",
-    "titulo": "Proposición No de Ley 330/25",
+    "titulo": "Proposición No de Ley 330/25: ¿Qué valoración hace el Gobierno de la Comunidad de Madrid sobre las subvenciones otorgadas a asociaciones LGTBI por parte del Gobierno de la región? Comenzamos con las preguntas dirigidas a la señora presidenta del Gobierno, y la primera la formula la señora Pérez Moñino-Aranda, del Grupo Parlamentario Vox en Madrid. La Sra. PÉREZ MOÑINO-ARANDA (Desde los escaños.): Muchas gracias, presidente",
     "votos": [],
     "totales": {
       "favor": 79,
@@ -374,7 +412,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -396,7 +434,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -408,7 +446,7 @@
   {
     "id": "MAD-XIII-559-10",
     "fecha": "12/09/2025",
-    "titulo": "Votación desconocida",
+    "titulo": "Ahora la número 3 del Grupo Socialista. Se inicia la votación. (Pausa.) El",
     "votos": [],
     "totales": {
       "favor": 108,
@@ -418,7 +456,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -430,7 +468,7 @@
   {
     "id": "MAD-XIII-559-11",
     "fecha": "12/09/2025",
-    "titulo": "Votación desconocida",
+    "titulo": "Ahora la número 4. Se inicia la votación. (Pausa.) El",
     "votos": [],
     "totales": {
       "favor": 108,
@@ -440,7 +478,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -452,7 +490,7 @@
   {
     "id": "MAD-XIII-559-12",
     "fecha": "12/09/2025",
-    "titulo": "Votación desconocida",
+    "titulo": "Quinta propuesta de resolución del Grupo Socialista. Se inicia la votación. (Pausa.)",
     "votos": [],
     "totales": {
       "favor": 64,
@@ -462,7 +500,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -472,7 +510,7 @@
   {
     "id": "MAD-XIII-559-13",
     "fecha": "12/09/2025",
-    "titulo": "Votación desconocida",
+    "titulo": "S propuestas de resolución del Grupo Vox en Madrid. Empezamos por",
     "votos": [],
     "totales": {
       "favor": 20,
@@ -482,7 +520,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -492,7 +530,7 @@
   {
     "id": "MAD-XIII-559-14",
     "fecha": "12/09/2025",
-    "titulo": "Votación desconocida",
+    "titulo": "Número 2 de Vox en Madrid. Se inicia la votación. (Pausa.) El",
     "votos": [],
     "totales": {
       "favor": 20,
@@ -502,7 +540,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -512,7 +550,7 @@
   {
     "id": "MAD-XIII-559-15",
     "fecha": "12/09/2025",
-    "titulo": "Votación desconocida",
+    "titulo": "Número 3. Se inicia la votación. (Pausa.) El",
     "votos": [],
     "totales": {
       "favor": 20,
@@ -522,7 +560,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -532,7 +570,7 @@
   {
     "id": "MAD-XIII-559-16",
     "fecha": "12/09/2025",
-    "titulo": "Votación desconocida",
+    "titulo": "Número 4. Se inicia la votación. (Pausa.) El",
     "votos": [],
     "totales": {
       "favor": 10,
@@ -542,7 +580,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -552,7 +590,7 @@
   {
     "id": "MAD-XIII-559-17",
     "fecha": "12/09/2025",
-    "titulo": "Votación desconocida",
+    "titulo": "Última propuesta de resolución del Grupo Parlamentario Vox, que es la",
     "votos": [],
     "totales": {
       "favor": 10,
@@ -562,7 +600,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -582,7 +620,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -594,7 +632,7 @@
   {
     "id": "MAD-XIII-559-3",
     "fecha": "12/09/2025",
-    "titulo": "Votación desconocida",
+    "titulo": "Número 3. Se inicia la votación. (Pausa.) El",
     "votos": [],
     "totales": {
       "favor": 140,
@@ -604,7 +642,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -626,7 +664,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -648,7 +686,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -660,7 +698,7 @@
   {
     "id": "MAD-XIII-559-6",
     "fecha": "12/09/2025",
-    "titulo": "Votación desconocida",
+    "titulo": "S propuestas de resolución del Grupo Parlamentario Más Madrid",
     "votos": [],
     "totales": {
       "favor": 54,
@@ -670,7 +708,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -680,7 +718,7 @@
   {
     "id": "MAD-XIII-559-7",
     "fecha": "12/09/2025",
-    "titulo": "Votación desconocida",
+    "titulo": "Número 3 de Más Madrid. Se inicia la votación. (Pausa.) El",
     "votos": [],
     "totales": {
       "favor": 107,
@@ -690,7 +728,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -702,7 +740,7 @@
   {
     "id": "MAD-XIII-559-8",
     "fecha": "12/09/2025",
-    "titulo": "Votación desconocida",
+    "titulo": "Propuesta de resolución número 4 de Más Madrid. Se inicia la votación. (Pausa.)",
     "votos": [],
     "totales": {
       "favor": 108,
@@ -712,7 +750,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -724,7 +762,7 @@
   {
     "id": "MAD-XIII-559-9",
     "fecha": "12/09/2025",
-    "titulo": "Votación desconocida",
+    "titulo": "Es",
     "votos": [],
     "totales": {
       "favor": 108,
@@ -734,7 +772,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -756,7 +794,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -766,7 +804,7 @@
   {
     "id": "MAD-XIII-569-2",
     "fecha": "18/09/2025",
-    "titulo": "Enmienda número 1",
+    "titulo": "Enmienda número 1: plan de Protección Civil contra incendios forestales en la Comunidad de Madrid (INFOMA) del año 2025 (por vía art",
     "votos": [],
     "totales": {
       "favor": 118,
@@ -776,7 +814,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -786,7 +824,7 @@
   {
     "id": "MAD-XIII-569-3",
     "fecha": "18/09/2025",
-    "titulo": "Proyecto de Ley 2/2025",
+    "titulo": "Proyecto de Ley 2/2025: plan de Protección Civil contra incendios forestales en la Comunidad de Madrid (INFOMA) del año 2025 (por vía art",
     "votos": [],
     "totales": {
       "favor": 145,
@@ -796,7 +834,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -808,7 +846,7 @@
   {
     "id": "MAD-XIII-569-4",
     "fecha": "18/09/2025",
-    "titulo": "Proposición de Ley 4/2024",
+    "titulo": "Proposición de Ley 4/2024: plan de Protección Civil contra incendios forestales en la Comunidad de Madrid (INFOMA) del año 2025 (por vía art",
     "votos": [],
     "totales": {
       "favor": 54,
@@ -818,7 +856,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -828,7 +866,7 @@
   {
     "id": "MAD-XIII-569-5",
     "fecha": "18/09/2025",
-    "titulo": "Proposición No de Ley 336/25",
+    "titulo": "Proposición No de Ley 336/25: la Asamblea de Madrid insta al Consejo de Gobierno de la Comunidad de Madrid a lo siguiente: 1",
     "votos": [],
     "totales": {
       "favor": 63,
@@ -838,7 +876,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -848,7 +886,7 @@
   {
     "id": "MAD-XIII-569-6",
     "fecha": "18/09/2025",
-    "titulo": "Proposición No de Ley 357/2025",
+    "titulo": "Proposición No de Ley 357/2025: la Asamblea de Madrid insta al Gobierno de la Comunidad de Madrid a: Proponer al Ilustre Colegio de la Abogacía de Madrid, al Ilustre Colegio de Abogados de Alcalá de Henares y al Ilustre Colegio de Procuradores de Madrid un protocolo general de actuación para proteger a las personas no propietarias de su vivienda habitual o propietarias con hipoteca frente a los casos de abuso inmobiliario o hipotecario",
     "votos": [],
     "totales": {
       "favor": 80,
@@ -858,7 +896,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -870,7 +908,7 @@
   {
     "id": "MAD-XIII-569-7",
     "fecha": "18/09/2025",
-    "titulo": "Proposición No de Ley 360/2025",
+    "titulo": "Proposición No de Ley 360/2025: la Asamblea de Madrid insta al Gobierno de la Comunidad de Madrid a que: 1. En el siguiente ejercicio presupuestario, se ponga en marcha una línea de subvención específica, destinada al apoyo a los ayuntamientos de la Región con más de 50.000 habitantes para establecer rutas escolares en servicios de transporte urbano para el acceso a todos los centros educativos de esos municipios. 2. Se elabore, en coordinación con los municipios con más de 50.000 habitantes, un Plan de Caminos Escolares Seguros que incluya fórmulas para la identificación de rutas seguras para desplazamientos a pie, en bicicleta o patinete; instalación de señalización específica para garantizar la seguridad vial de los estudiantes, la inclusión de contenidos sobre movilidad sostenible y seguridad vial en el currículo escolar, y la creación de \"puntos de encuentro\" para facilitar desplazamientos grupales organizados. 3. Se cree un premio, patrocinado e impulsado por el gobierno de la Co",
     "votos": [],
     "totales": {
       "favor": 27,
@@ -880,7 +918,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -890,7 +928,7 @@
   {
     "id": "MAD-XIII-569-8",
     "fecha": "18/09/2025",
-    "titulo": "Proposición No de Ley 363/2025",
+    "titulo": "Proposición No de Ley 363/2025: ¿Qué seguimiento se hace de los menores extranjeros no acompañados que llegan a nuestra Región? 25961",
     "votos": [],
     "totales": {
       "favor": 68,
@@ -900,7 +938,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -912,7 +950,7 @@
   {
     "id": "MAD-XIII-579-1",
     "fecha": "02/10/2025",
-    "titulo": "Proposición No de Ley 375/25",
+    "titulo": "Proposición No de Ley 375/25: La Asamblea de Madrid insta al Consejo de Gobierno de la Comunidad de Madrid a que, a su vez, inste al Gobierno de España a lo siguiente: 1) Tramitar de forma urgente la inmediata expulsión de todos los inmigrantes que se encuentren ilegalmente en nuestra región, así como la de todos aquellos inmigrantes legales que hayan cometido delitos graves, que hagan del delito leve su forma de vida o que propaguen ideologías o religiones contrarias a los principios fundamentales de nuestra sociedad y, en particular, que denigren a la mujer y a su plena igualdad. 2) Añadir como penas la pérdida de la nacionalidad española y la expulsión del territorio nacional para los menores y adultos extranjeros que hayan sido condenados. 3) Tramitar de forma urgente la repatriación de los Menores Extranjeros No Acompañados a sus países de origen con sus padres, familiares o entorno íntimo. 4) Incrementar los efectivos de las Fuerzas y Cuerpos de Seguridad del Estado, como la Poli",
     "votos": [],
     "totales": {
       "favor": 62,
@@ -922,7 +960,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -932,7 +970,7 @@
   {
     "id": "MAD-XIII-579-2",
     "fecha": "02/10/2025",
-    "titulo": "Votación desconocida",
+    "titulo": "Votación 383/25: la Asamblea de Madrid insta al gobierno de la Comunidad de Madrid a: 1",
     "votos": [],
     "totales": {
       "favor": 52,
@@ -942,7 +980,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -952,7 +990,7 @@
   {
     "id": "MAD-XIII-579-3",
     "fecha": "02/10/2025",
-    "titulo": "Telemáticamente, que no le va el sistema informático, que no le va la pantalla.) Bueno",
+    "titulo": "Votación 389/25: la Asamblea de Madrid insta al gobierno de la Comunidad de Madrid a: 1",
     "votos": [],
     "totales": {
       "favor": 103,
@@ -962,7 +1000,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -974,7 +1012,7 @@
   {
     "id": "MAD-XIII-579-4",
     "fecha": "02/10/2025",
-    "titulo": "Votación desconocida",
+    "titulo": "Votación 390/25: la Asamblea de Madrid insta al Gobierno de la Comunidad de Madrid a: 1",
     "votos": [],
     "totales": {
       "favor": 52,
@@ -984,7 +1022,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -994,7 +1032,7 @@
   {
     "id": "MAD-XIII-591-1",
     "fecha": "09/10/2025",
-    "titulo": "Proposición No de Ley 211/25",
+    "titulo": "Proposición No de Ley 211/25: ¿Cuántos menores extranjeros no acompañados acoge actualmente la Comunidad de Madrid? Tiene la palabra la señora Pérez Moñino-Aranda, del Grupo Parlamentario Vox en Madrid. La Sra. PÉREZ MOÑINO-ARANDA (Desde los escaños.): Gracias, presidente",
     "votos": [],
     "totales": {
       "favor": 178,
@@ -1004,7 +1042,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -1016,7 +1054,7 @@
   {
     "id": "MAD-XIII-591-2",
     "fecha": "09/10/2025",
-    "titulo": "Proposición No de Ley 366/25",
+    "titulo": "Proposición No de Ley 366/25: la Asamblea de Madrid insta al Gobierno de la Comunidad de Madrid a: 1",
     "votos": [],
     "totales": {
       "favor": 52,
@@ -1026,7 +1064,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -1046,7 +1084,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -1058,7 +1096,7 @@
   {
     "id": "MAD-XIII-600-2",
     "fecha": "16/10/2025",
-    "titulo": "Proposición No de Ley 400/25",
+    "titulo": "Proposición No de Ley 400/25: la Asamblea de Madrid insta al Gobierno de la Comunidad de Madrid a: 1Incrementar de forma significativa la financiación destinada a los servicios sociales en los próximos presupuestos de la Comunidad de Madrid, hasta alcanzar al menos la media estatal de gasto por habitante. 2- Elaborar un estudio, con participación de las entidades locales, que establezca un mapa de necesidades y sirva para reforzar la atención primaria promoviendo la desinstitucionalización. 3- Devolver las competencias y encomiendas de gestión en materia de dependencia a todos los Ayuntamientos de la Comunidad de Madrid asegurando la financiación integral de las mismas, para garantizar una atención más cercana, eficaz y coordinada",
     "votos": [],
     "totales": {
       "favor": 63,
@@ -1068,7 +1106,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -1078,7 +1116,7 @@
   {
     "id": "MAD-XIII-600-3",
     "fecha": "16/10/2025",
-    "titulo": "Votación desconocida",
+    "titulo": "Proposición No de Ley 414/25: la Asamblea de Madrid insta al Consejo de Gobierno de la Comunidad de Madrid, para que a su vez inste al Gobierno de la Nación, a lo siguiente: 1",
     "votos": [],
     "totales": {
       "favor": 89,
@@ -1088,7 +1126,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -1100,7 +1138,7 @@
   {
     "id": "MAD-XIII-600-4",
     "fecha": "16/10/2025",
-    "titulo": "Votación desconocida",
+    "titulo": "PNL 427/25: ¿Qué planes tiene el Gobierno de la Comunidad de Madrid con el inicio del nuevo periodo de sesiones para mejorar las oportunidades de los jóvenes de la región? La primera la formula la señora Pérez Moñino-Aranda, del Grupo Parlamentario Vox en Madrid. La Sra. PÉREZ MOÑINO-ARANDA (Desde los escaños.): Gracias, presidente",
     "votos": [],
     "totales": {
       "favor": 78,
@@ -1110,7 +1148,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -1122,7 +1160,7 @@
   {
     "id": "MAD-XIII-610-1",
     "fecha": "23/10/2025",
-    "titulo": "Proposición No de Ley 47/25",
+    "titulo": "Proposición No de Ley 47/25: la Asamblea de Madrid insta al Gobierno de la Comunidad de Madrid a: 1",
     "votos": [],
     "totales": {
       "favor": 99,
@@ -1132,7 +1170,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -1144,7 +1182,7 @@
   {
     "id": "MAD-XIII-610-2",
     "fecha": "23/10/2025",
-    "titulo": "Votación desconocida",
+    "titulo": "Votación 432/25: la Asamblea de Madrid insta al Consejo de Gobierno de la Comunidad de Madrid a: 1",
     "votos": [],
     "totales": {
       "favor": 61,
@@ -1154,7 +1192,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -1164,7 +1202,7 @@
   {
     "id": "MAD-XIII-610-3",
     "fecha": "23/10/2025",
-    "titulo": "Votación desconocida",
+    "titulo": "Votación 435/25: la Asamblea de Madrid insta al Consejo de Gobierno de la Comunidad de Madrid a lo siguiente: 1",
     "votos": [],
     "totales": {
       "favor": 61,
@@ -1174,7 +1212,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -1184,7 +1222,7 @@
   {
     "id": "MAD-XIII-610-4",
     "fecha": "23/10/2025",
-    "titulo": "Votación desconocida",
+    "titulo": "Votación 444/25: la Asamblea de Madrid insta al Gobierno de la Comunidad de Madrid a: 1",
     "votos": [],
     "totales": {
       "favor": 51,
@@ -1194,7 +1232,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -1204,7 +1242,7 @@
   {
     "id": "MAD-XIII-610-5",
     "fecha": "23/10/2025",
-    "titulo": "445/25. Se inicia la votación. (Pausa.) El",
+    "titulo": "Votación 445/25: ¿Qué planes tiene el Gobierno de la Comunidad de Madrid para hacer frente a los problemas de salud mental entre los madrileños? La primera pregunta la formula la señora Pérez Moñino-Aranda, del Grupo Parlamentario Vox en Madrid. La Sra. PÉREZ MOÑINO-ARANDA (Desde los escaños.): Gracias, presidente",
     "votos": [],
     "totales": {
       "favor": 79,
@@ -1214,7 +1252,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -1224,7 +1262,7 @@
   {
     "id": "MAD-XIII-622-1",
     "fecha": "06/11/2025",
-    "titulo": "Proyecto de Ley 3/25",
+    "titulo": "Proyecto de Ley 3/25: ¿Cómo valora el funcionamiento de los centros de menores infractores en la Comunidad de Madrid? Les recuerdo que, según el artículo 193 de nuestro Reglamento, el tiempo para la tramitación no excederá de seis minutos a repartir a partes iguales entre el diputado o diputada que la formula y el miembro del Gobierno que la contesta",
     "votos": [],
     "totales": {
       "favor": 123,
@@ -1234,7 +1272,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -1256,7 +1294,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -1278,7 +1316,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -1300,7 +1338,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -1312,7 +1350,7 @@
   {
     "id": "MAD-XIII-622-5",
     "fecha": "06/11/2025",
-    "titulo": "Votación desconocida",
+    "titulo": "Moción 9/25: la Asamblea de Madrid insta al Gobierno de la Comunidad de Madrid a: 1",
     "votos": [],
     "totales": {
       "favor": 99,
@@ -1322,7 +1360,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -1334,7 +1372,7 @@
   {
     "id": "MAD-XIII-622-6",
     "fecha": "06/11/2025",
-    "titulo": "Proposición No de Ley 413/25",
+    "titulo": "Proposición No de Ley 413/25: la Asamblea de Madrid insta al Gobierno de la Comunidad de Madrid a: 1",
     "votos": [],
     "totales": {
       "favor": 63,
@@ -1344,7 +1382,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -1354,7 +1392,7 @@
   {
     "id": "MAD-XIII-622-7",
     "fecha": "06/11/2025",
-    "titulo": "Proposición No de Ley 461/25",
+    "titulo": "Proposición No de Ley 461/25: La Asamblea de Madrid insta al Gobierno de la Comunidad de Madrid a instar al Gobierno de la Nación a lo siguiente: 1",
     "votos": [],
     "totales": {
       "favor": 11,
@@ -1364,7 +1402,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -1374,7 +1412,7 @@
   {
     "id": "MAD-XIII-632-1",
     "fecha": "13/11/2025",
-    "titulo": "Proposición No de Ley 48/25",
+    "titulo": "Proposición No de Ley 48/25: la Asamblea de Madrid insta al Gobierno de la Comunidad de Madrid a: 1",
     "votos": [],
     "totales": {
       "favor": 115,
@@ -1384,7 +1422,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -1396,7 +1434,7 @@
   {
     "id": "MAD-XIII-632-2",
     "fecha": "13/11/2025",
-    "titulo": "Proposición No de Ley 465/25",
+    "titulo": "Proposición No de Ley 465/25: la Asamblea de Madrid insta al Gobierno de la Comunidad de Madrid a: 1",
     "votos": [],
     "totales": {
       "favor": 115,
@@ -1406,7 +1444,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -1418,7 +1456,7 @@
   {
     "id": "MAD-XIII-632-3",
     "fecha": "13/11/2025",
-    "titulo": "Proposición No de Ley 468/25",
+    "titulo": "Proposición No de Ley 468/25: la Asamblea de Madrid insta al Gobierno de la Comunidad de Madrid a: 1",
     "votos": [],
     "totales": {
       "favor": 104,
@@ -1428,7 +1466,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -1440,7 +1478,7 @@
   {
     "id": "MAD-XIII-632-4",
     "fecha": "13/11/2025",
-    "titulo": "Votación desconocida",
+    "titulo": "Votación 485/25: la Asamblea de Madrid insta al Gobierno de la Comunidad de Madrid a: 1",
     "votos": [],
     "totales": {
       "favor": 62,
@@ -1450,7 +1488,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -1460,7 +1498,7 @@
   {
     "id": "MAD-XIII-632-5",
     "fecha": "13/11/2025",
-    "titulo": "Votación desconocida",
+    "titulo": "Votación 487/25: La Asamblea de Madrid insta al Consejo de Gobierno de la Comunidad de Madrid a que inste, a su vez, al Gobierno de la Nación a lo siguiente: 1",
     "votos": [],
     "totales": {
       "favor": 11,
@@ -1470,7 +1508,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -1480,7 +1518,7 @@
   {
     "id": "MAD-XIII-642-1",
     "fecha": "20/11/2025",
-    "titulo": "PNL 395/25",
+    "titulo": "PNL 395/25: la Asamblea de Madrid insta al Gobierno de la Comunidad de Madrid a: Trabajar, desde el diálogo constructivo y el compromiso firme con el Gobierno de España, en la consecución del Pacto de Estado frente a la Emergencia Climática, como marco compartido de compromisos que garantizan el interés general y el bien común, abarcando desde la gestión de agua y los bosques, la protección de las personas más vulnerables y la disposición de las mejores condiciones de trabajo para los servicios de emergencia hasta el desarrollo de una nueva cultura de prevención",
     "votos": [],
     "totales": {
       "favor": 106,
@@ -1490,7 +1528,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -1502,7 +1540,7 @@
   {
     "id": "MAD-XIII-642-2",
     "fecha": "20/11/2025",
-    "titulo": "Proposición No de Ley 486/25",
+    "titulo": "Proposición No de Ley 486/25: la Asamblea de Madrid insta al Gobierno de la Comunidad de Madrid a: 1",
     "votos": [],
     "totales": {
       "favor": 64,
@@ -1512,7 +1550,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -1522,7 +1560,7 @@
   {
     "id": "MAD-XIII-642-3",
     "fecha": "20/11/2025",
-    "titulo": "Proposición No de Ley 497/25",
+    "titulo": "Proposición No de Ley 497/25: la Asamblea de Madrid insta al Consejo de Gobierno de la Comunidad de Madrid, para que a su vez inste al Gobierno de la Nación, a lo siguiente: 1",
     "votos": [],
     "totales": {
       "favor": 106,
@@ -1532,7 +1570,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -1544,7 +1582,7 @@
   {
     "id": "MAD-XIII-642-4",
     "fecha": "20/11/2025",
-    "titulo": "Votación desconocida",
+    "titulo": "Votación 500/25: la Asamblea de Madrid insta al Gobierno de la Comunidad de Madrid, dentro de sus competencias, a: Primero",
     "votos": [],
     "totales": {
       "favor": 53,
@@ -1554,67 +1592,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
-    },
-    "group_votes": {
-      "Más Madrid": "no",
-      "PSOE-M": "no"
-    }
-  },
-  {
-    "id": "MAD-XIII-653-1",
-    "fecha": "04/12/2025",
-    "titulo": "Proyecto de Ley 4/25",
-    "votos": [],
-    "totales": {
-      "favor": 51,
-      "contra": 82,
-      "abstencion": 0,
-      "total": 133
-    },
-    "metadatos": {
-      "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
-    },
-    "group_votes": {
-      "Más Madrid": "no",
-      "PSOE-M": "no"
-    }
-  },
-  {
-    "id": "MAD-XIII-653-2",
-    "fecha": "04/12/2025",
-    "titulo": "Enmienda a",
-    "votos": [],
-    "totales": {
-      "favor": 62,
-      "contra": 199,
-      "abstencion": 0,
-      "total": 261
-    },
-    "metadatos": {
-      "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
-    },
-    "group_votes": {
-      "Más Madrid": "no",
-      "PSOE-M": "no"
-    }
-  },
-  {
-    "id": "MAD-XIII-653-3",
-    "fecha": "04/12/2025",
-    "titulo": "Enmiendas a",
-    "votos": [],
-    "totales": {
-      "favor": 12,
-      "contra": 121,
-      "abstencion": 0,
-      "total": 133
-    },
-    "metadatos": {
-      "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -1624,7 +1602,7 @@
   {
     "id": "MAD-XIII-659-1",
     "fecha": "11/12/2025",
-    "titulo": "Es la tramitación en lectura única del Proyecto Ley 5/2025",
+    "titulo": "Votación 5/25: se solicita Comparecencia de la Consejera de Sanidad ante el Pleno de la Cámara con el objeto de informar sobre la evolución de las listas de espera sanitaria en la Comunidad de Madrid",
     "votos": [],
     "totales": {
       "favor": 78,
@@ -1634,7 +1612,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -1656,7 +1634,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -1678,7 +1656,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -1700,7 +1678,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -1720,7 +1698,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -1742,7 +1720,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -1764,7 +1742,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -1784,7 +1762,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -1804,7 +1782,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -1814,7 +1792,7 @@
   {
     "id": "MAD-XIII-659-18",
     "fecha": "11/12/2025",
-    "titulo": "Votación desconocida",
+    "titulo": "Separada de las enmiendas",
     "votos": [],
     "totales": {
       "favor": 47,
@@ -1824,7 +1802,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -1844,7 +1822,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -1854,7 +1832,7 @@
   {
     "id": "MAD-XIII-659-2",
     "fecha": "11/12/2025",
-    "titulo": "Proyecto de Ley 5/2025",
+    "titulo": "Proyecto de Ley 5/2025: se solicita Comparecencia de la Consejera de Sanidad ante el Pleno de la Cámara con el objeto de informar sobre la evolución de las listas de espera sanitaria en la Comunidad de Madrid",
     "votos": [],
     "totales": {
       "favor": 79,
@@ -1864,7 +1842,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -1874,7 +1852,7 @@
   {
     "id": "MAD-XIII-659-20",
     "fecha": "11/12/2025",
-    "titulo": "Votación desconocida",
+    "titulo": "Enmienda número 54",
     "votos": [],
     "totales": {
       "favor": 20,
@@ -1884,7 +1862,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -1904,7 +1882,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -1926,7 +1904,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -1946,7 +1924,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -1956,7 +1934,7 @@
   {
     "id": "MAD-XIII-659-24",
     "fecha": "11/12/2025",
-    "titulo": "Votación desconocida",
+    "titulo": "Enmienda número 130",
     "votos": [],
     "totales": {
       "favor": 20,
@@ -1966,7 +1944,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -1976,7 +1954,7 @@
   {
     "id": "MAD-XIII-659-25",
     "fecha": "11/12/2025",
-    "titulo": "Votación desconocida",
+    "titulo": "Enmienda número 145",
     "votos": [],
     "totales": {
       "favor": 46,
@@ -1986,7 +1964,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -1996,7 +1974,7 @@
   {
     "id": "MAD-XIII-659-26",
     "fecha": "11/12/2025",
-    "titulo": "Votación desconocida",
+    "titulo": "Enmienda número 146",
     "votos": [],
     "totales": {
       "favor": 46,
@@ -2006,7 +1984,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -2016,7 +1994,7 @@
   {
     "id": "MAD-XIII-659-27",
     "fecha": "11/12/2025",
-    "titulo": "Votación desconocida",
+    "titulo": "Enmienda número 151",
     "votos": [],
     "totales": {
       "favor": 10,
@@ -2026,7 +2004,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -2036,7 +2014,7 @@
   {
     "id": "MAD-XIII-659-28",
     "fecha": "11/12/2025",
-    "titulo": "Votación desconocida",
+    "titulo": "Enmienda número 162",
     "votos": [],
     "totales": {
       "favor": 10,
@@ -2046,7 +2024,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -2066,7 +2044,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -2086,7 +2064,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -2108,7 +2086,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -2128,7 +2106,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -2138,7 +2116,7 @@
   {
     "id": "MAD-XIII-659-32",
     "fecha": "11/12/2025",
-    "titulo": "Votación desconocida",
+    "titulo": "Resto de las enmiendas del Grupo Parlamentario Vox en Madrid: 1, 5 a 11",
     "votos": [],
     "totales": {
       "favor": 10,
@@ -2148,7 +2126,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -2168,7 +2146,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -2190,7 +2168,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -2202,7 +2180,7 @@
   {
     "id": "MAD-XIII-659-35",
     "fecha": "11/12/2025",
-    "titulo": "Votación desconocida",
+    "titulo": "Enmienda restante del Grupo Parlamentario Más Madrid, que es la 31. Se",
     "votos": [],
     "totales": {
       "favor": 63,
@@ -2212,7 +2190,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -2232,7 +2210,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -2244,7 +2222,7 @@
   {
     "id": "MAD-XIII-659-37",
     "fecha": "11/12/2025",
-    "titulo": "Votación desconocida",
+    "titulo": "Exposición de motivos, que, en caso de que sus señorías la aprueben, se",
     "votos": [],
     "totales": {
       "favor": 69,
@@ -2254,7 +2232,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -2266,7 +2244,7 @@
   {
     "id": "MAD-XIII-659-38",
     "fecha": "11/12/2025",
-    "titulo": "S proposiciones no de ley. En primer lugar, la 514/25. Se inicia la votación",
+    "titulo": "Votación 514/25: la Asamblea de Madrid insta al Consejo de Gobierno de la Comunidad de Madrid, para que a su vez inste al Gobierno de la Nación, a lo siguiente: 1",
     "votos": [],
     "totales": {
       "favor": 62,
@@ -2276,7 +2254,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -2286,7 +2264,7 @@
   {
     "id": "MAD-XIII-659-39",
     "fecha": "11/12/2025",
-    "titulo": "Votación desconocida",
+    "titulo": "Votación 515/25: la Asamblea de Madrid insta al Gobierno regional a: 1",
     "votos": [],
     "totales": {
       "favor": 52,
@@ -2296,7 +2274,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -2316,7 +2294,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -2338,7 +2316,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -2358,7 +2336,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -2378,7 +2356,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -2398,7 +2376,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -2420,7 +2398,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -2432,7 +2410,7 @@
   {
     "id": "MAD-XIII-679-1",
     "fecha": "05/02/2026",
-    "titulo": "Proposición No de Ley 358/25",
+    "titulo": "Proposición No de Ley 358/25: ¿Qué valoración se hace del nuevo contrato para el acogimiento de menores extranjeros no acompañados en Madrid? Les recuerdo que, por el artículo 193, el tiempo de tramitación de cada",
     "votos": [],
     "totales": {
       "favor": 106,
@@ -2442,7 +2420,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -2454,7 +2432,7 @@
   {
     "id": "MAD-XIII-679-2",
     "fecha": "05/02/2026",
-    "titulo": "Votación desconocida",
+    "titulo": "Proposición No de Ley 508/25: la Asamblea de Madrid insta al Gobierno de la Comunidad de Madrid a: 1",
     "votos": [],
     "totales": {
       "favor": 105,
@@ -2464,7 +2442,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -2476,7 +2454,7 @@
   {
     "id": "MAD-XIII-679-3",
     "fecha": "05/02/2026",
-    "titulo": "Votación desconocida",
+    "titulo": "Votación 511/25: la Asamblea de Madrid insta al Gobierno de la Comunidad de Madrid a: 1",
     "votos": [],
     "totales": {
       "favor": 63,
@@ -2486,7 +2464,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -2496,7 +2474,7 @@
   {
     "id": "MAD-XIII-679-4",
     "fecha": "05/02/2026",
-    "titulo": "Votación desconocida",
+    "titulo": "Votación 517/25: la Asamblea de Madrid insta al Consejo de Gobierno de la Comunidad de Madrid, para que a su vez inste al Gobierno de la Nación, a lo siguiente: 1",
     "votos": [],
     "totales": {
       "favor": 11,
@@ -2506,7 +2484,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -2516,7 +2494,7 @@
   {
     "id": "MAD-XIII-688-1",
     "fecha": "12/02/2026",
-    "titulo": "Proposición No de Ley 141/24",
+    "titulo": "Proposición No de Ley 141/24: la Asamblea de Madrid insta al Gobierno de la Comunidad de Madrid a: 1.- Destituir a Miguel Ángel Rodríguez Bajón de su cargo de Jefe del Gabinete de la Presidenta de la Comunidad de Madrid. 2.- Comunicar a eldiario.es su rechazo a los mensajes enviados por Miguel Ángel Rodríguez Bajón, Jefe de Gabinete de la Presidencia de la Comunidad de Madrid en el momento de su envío, y su compromiso con la libertad de prensa. 3.- Comprometerse con la independencia de los medios de comunicación renunciando a todo tipo de presión a periodistas y medios, especialmente cuando estén investigando o publicando informaciones sobre la Comunidad de Madrid y sus instituciones. Y tiene la palabra la señora Bergerot Uncal para la defensa de su iniciativa por un tiempo máximo de siete minutos. La Sra",
     "votos": [],
     "totales": {
       "favor": 104,
@@ -2526,7 +2504,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -2538,7 +2516,7 @@
   {
     "id": "MAD-XIII-688-2",
     "fecha": "12/02/2026",
-    "titulo": "Votación desconocida",
+    "titulo": "Proposición No de Ley 18/25: la Asamblea de Madrid insta al Gobierno de la Comunidad de Madrid a: 1",
     "votos": [],
     "totales": {
       "favor": 104,
@@ -2548,7 +2526,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -2560,7 +2538,7 @@
   {
     "id": "MAD-XIII-688-3",
     "fecha": "12/02/2026",
-    "titulo": "Proposición No de Ley 522/25",
+    "titulo": "Proposición No de Ley 522/25: la Asamblea de Madrid insta Gobierno regional a revertir inmediatamente el modelo de gestión externalizada del servicio sanitario en régimen de concesión del Hospital Universitario de Torrejón de Ardoz, operado por Ribera Salud, para pasar a un modelo de gestión pública directa bajo la administración del Servicio Madrileño de Salud (SERMAS)",
     "votos": [],
     "totales": {
       "favor": 77,
@@ -2570,7 +2548,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -2582,7 +2560,7 @@
   {
     "id": "MAD-XIII-688-4",
     "fecha": "12/02/2026",
-    "titulo": "Votación desconocida",
+    "titulo": "Proposición No de Ley 23/26: la Asamblea de Madrid insta al Consejo de Gobierno de la Comunidad de Madrid a: 1) Incorporar al proyecto de decreto, del Consejo de Gobierno, por el que se regulan las viviendas con protección pública de la Comunidad de Madrid el carácter permanente de protección pública de la vivienda protegida en cualquiera de sus modalidades. 2) Invertir 2.000 millones de euros para conceder 50.000 ayudas de 40.000 euros a la ciudadanía madrileña para la compra de su primera vivienda, destinada a residencia habitual y con un precio máximo de 450.000 euros, a cambio de que dicha vivienda quede registrada como vivienda protegida de forma permanente. 3) Invertir 2.000 millones de euros para aumentar la oferta de vivienda pública en 11.000 viviendas",
     "votos": [],
     "totales": {
       "favor": 36,
@@ -2592,7 +2570,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "Más Madrid": "no",
@@ -2602,7 +2580,7 @@
   {
     "id": "MAD-XIII-688-5",
     "fecha": "12/02/2026",
-    "titulo": "Votación desconocida",
+    "titulo": "Proposición No de Ley 26/26: la Asamblea de Madrid insta al Gobierno de la Comunidad de Madrid a que utilice todos los instrumentos necesarios para defender los intereses de la región para lograr una financiación suficiente de los servicios públicos y a que exija al Gobierno Central lo siguiente: 1. La retirada inmediata de la propuesta de reforma del Sistema de Financiación presentada el pasado 14 de enero en el Consejo de Política Fiscal y Financiera, que obtuvo el rechazo de todas las Comunidades y Ciudades Autónomas, salvo Cataluña. 2. La necesidad de abordar cuanto antes una reforma del modelo de financiación autonómica que garantice que se puedan seguir prestando unos servicios públicos de calidad a los ciudadanos, que proporcione y garantice suficiencia, estabilidad, equidad, corresponsabilidad y seguridad jurídica, a través de una negociación con las comunidades autónomas de régimen común en el seno del Consejo de Política Fiscal y Financiera, que evite cualquier ruptura del ré",
     "votos": [],
     "totales": {
       "favor": 80,
@@ -2612,7 +2590,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -2624,7 +2602,7 @@
   {
     "id": "MAD-XIII-688-6",
     "fecha": "12/02/2026",
-    "titulo": "Votación desconocida",
+    "titulo": "Proposición No de Ley 33/26: la Asamblea de Madrid insta al Gobierno de la Comunidad de Madrid a que utilice todos los instrumentos necesarios para defender los intereses de la región para lograr una financiación suficiente de los servicios públicos y a que exija al Gobierno Central lo siguiente: 1. La retirada inmediata de la propuesta de reforma del Sistema de Financiación presentada el pasado 14 de enero en el Consejo de Política Fiscal y Financiera, que obtuvo el rechazo de todas las Comunidades y Ciudades Autónomas, salvo Cataluña. 2. La necesidad de abordar cuanto antes una reforma del modelo de financiación autonómica que garantice que se puedan seguir prestando unos servicios públicos de calidad a los ciudadanos, que proporcione y garantice suficiencia, estabilidad, equidad, corresponsabilidad y seguridad jurídica, a través de una negociación con las comunidades autónomas de régimen común en el seno del Consejo de Política Fiscal y Financiera, que evite cualquier ruptura del ré",
     "votos": [],
     "totales": {
       "favor": 197,
@@ -2634,7 +2612,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
@@ -2656,7 +2634,7 @@
     },
     "metadatos": {
       "tipo": "deduccion_grupal",
-      "note": "Sentido del voto deduït pel resultat de la cambra i disciplina de grup (estimat)."
+      "nota": "Sentido del voto deducido por disciplina de grupo."
     },
     "group_votes": {
       "PP": "si",
