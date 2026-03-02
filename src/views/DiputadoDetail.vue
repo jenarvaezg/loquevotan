@@ -309,8 +309,8 @@ watch(name, (n) => {
       <router-link to="/diputados" class="back-link">&larr; Diputados</router-link>
 
       <div class="detail-header" style="display:flex;align-items:center;gap:1.25rem">
-        <img v-if="photoUrl" :src="photoUrl" :alt="name" class="dip-detail-photo">
-        <span v-else class="dip-detail-avatar" :style="avatarStyle(name)">{{ avatarInitials(name) }}</span>
+        <img v-if="photoUrl" :src="photoUrl" :alt="name" class="dip-detail-photo" :style="{ boxShadow: `0 8px 24px -6px ${groupInfo.color}` }">
+        <span v-else class="dip-detail-avatar" :style="[avatarStyle(name), { boxShadow: `0 8px 24px -6px ${groupInfo.color}` }]">{{ avatarInitials(name) }}</span>
         <div>
           <h1 style="margin:0">{{ name }}</h1>
           <div class="detail-meta" style="margin-top:0.5rem">
@@ -449,7 +449,10 @@ watch(name, (n) => {
       <!-- Rebel votes detail -->
       <template v-if="allVotosReady && rebelRecords.length > 0">
         <div class="detail-section rebel-section">
-          <h2 style="color:var(--color-contra)">Votos discordantes ({{ rebelRecords.length }})</h2>
+          <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+            <span style="font-size: 1.5rem;">⚠️</span>
+            <h2 style="color:var(--color-contra); margin: 0;">Votos discordantes ({{ rebelRecords.length }})</h2>
+          </div>
           <p class="hint-text">Votaciones donde este representante votó de forma distinta a la mayoría de su grupo parlamentario.</p>
           
           <div class="table-wrap">
@@ -825,6 +828,15 @@ watch(name, (n) => {
   width: 100%;
   height: 80px;
   display: block;
+}
+
+.sparkline-svg rect {
+  transition: opacity 0.2s, y 0.2s, height 0.2s;
+  cursor: crosshair;
+}
+
+.sparkline-svg rect:hover {
+  opacity: 1 !important;
 }
 
 .sparkline-labels {

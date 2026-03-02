@@ -51,7 +51,15 @@ const proponenteInfo = computed(() => {
 </template>
 
 <style scoped>
-.vote-card { cursor: pointer; }
+.vote-card { 
+  cursor: pointer; 
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.vote-card:hover { 
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary-light);
+}
 
 .vote-card-header {
   display: flex;

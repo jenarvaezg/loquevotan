@@ -59,33 +59,40 @@ function goToTag(tag) {
     </div>
 
     <div class="container">
-      <div class="stats-banner" data-testid="home-stats">
-        <div class="stat-item">
-          <span class="stat-number">{{ manifest.stats.diputados.toLocaleString('es-ES') }}</span>
-          <span class="stat-label">diputados</span>
+      <div class="bento-grid">
+        <!-- Quiz Banner -->
+        <div class="bento-card quiz-bento" data-testid="home-quiz-banner">
+          <div class="quiz-banner-content">
+            <h2>¿Con quién coincide más tu voto?</h2>
+            <p>Responde a ciegas y compara tu patrón con el voto real de los partidos en temas clave.</p>
+          </div>
+          <router-link to="/quiz" class="btn btn--primary btn--lg quiz-banner-btn">
+            Hacer el test &rarr;
+          </router-link>
         </div>
-        <div class="stat-item">
-          <span class="stat-number">{{ manifest.stats.votaciones.toLocaleString('es-ES') }}</span>
-          <span class="stat-label">votaciones</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number">{{ manifest.stats.votos.toLocaleString('es-ES') }}</span>
-          <span class="stat-label">votos individuales</span>
-        </div>
-        <router-link to="/grupos" class="btn btn--primary" style="margin-left:auto;display:inline-flex;align-items:center;gap:0.4rem">
-          &#128202; Compara partidos
-        </router-link>
-      </div>
 
-      <!-- QUIZ BANNER -->
-      <div class="quiz-banner" data-testid="home-quiz-banner">
-        <div class="quiz-banner-content">
-          <h2>¿Con quién coincide más tu voto?</h2>
-          <p>Responde a ciegas y compara tu patrón con el voto real de los partidos en temas clave.</p>
+        <!-- Stats Banner -->
+        <div class="bento-card stats-bento" data-testid="home-stats">
+          <div class="stat-group">
+            <div class="stat-item">
+              <span class="stat-number">{{ manifest.stats.diputados.toLocaleString('es-ES') }}</span>
+              <span class="stat-label">diputados</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">{{ manifest.stats.votaciones.toLocaleString('es-ES') }}</span>
+              <span class="stat-label">votaciones</span>
+            </div>
+          </div>
+          <div class="stat-group stat-group--bottom">
+            <div class="stat-item">
+              <span class="stat-number">{{ manifest.stats.votos.toLocaleString('es-ES') }}</span>
+              <span class="stat-label">votos procesados</span>
+            </div>
+            <router-link to="/grupos" class="btn compare-btn">
+              &#128202; Compara partidos
+            </router-link>
+          </div>
         </div>
-        <router-link to="/quiz" class="btn btn--primary btn--lg quiz-banner-btn">
-          Hacer el test &rarr;
-        </router-link>
       </div>
 
       <div class="section-header">
@@ -148,21 +155,32 @@ function goToTag(tag) {
 
 <style scoped>
 .hero {
-  background: linear-gradient(135deg, #1e3a8a 0%, #1a56db 50%, #2563eb 100%);
+  background: linear-gradient(-45deg, #1e3a8a, #1a56db, #2563eb, #312e81);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
   color: #fff;
-  padding: 3.5rem 1.25rem 3rem;
+  padding: 4rem 1.25rem 3.5rem;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .hero h1 {
   color: #fff;
-  font-size: 2.25rem;
+  font-size: 2.75rem;
   margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
 }
 
 .hero-tagline {
-  font-size: 1.1rem;
-  opacity: 0.85;
+  font-size: 1.15rem;
+  opacity: 0.9;
   margin-bottom: 2rem;
   font-weight: 400;
 }
@@ -200,52 +218,37 @@ function goToTag(tag) {
   color: #fff;
 }
 
-.stats-banner {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  padding: 1.5rem 0;
-  margin: 0 0 2rem;
-  border-bottom: 1px solid var(--color-border);
-  flex-wrap: wrap;
+.bento-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.25rem;
+  margin: -2rem auto 2.5rem;
+  position: relative;
+  z-index: 10;
 }
 
-.stat-item {
-  text-align: center;
-}
-
-.stat-number {
-  display: block;
-  font-size: 1.75rem;
-  font-weight: 800;
-  color: var(--color-primary);
-  line-height: 1.2;
-}
-
-.stat-label {
-  font-size: 0.85rem;
-  color: var(--color-muted);
-  font-weight: 500;
-}
-
-.quiz-banner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  background: var(--color-primary-lighter);
-  border: 1px solid var(--color-primary);
+.bento-card {
+  background: var(--color-surface);
   border-radius: var(--radius-lg);
-  padding: 2rem 2.5rem;
-  margin-bottom: 2.5rem;
-  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.1);
+  border: 1px solid var(--color-border);
+  padding: 2rem;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+}
+
+.quiz-bento {
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: var(--color-primary-lighter);
+  border: 1px solid var(--color-primary-light);
+  gap: 1.5rem;
 }
 
 .quiz-banner-content h2 {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   margin: 0 0 0.5rem 0;
   color: var(--color-primary);
-  font-family: var(--font-serif);
 }
 
 .quiz-banner-content p {
@@ -253,12 +256,59 @@ function goToTag(tag) {
   font-size: 1.05rem;
   color: var(--color-text);
   line-height: 1.5;
+  max-width: 500px;
 }
 
 .quiz-banner-btn {
-  flex-shrink: 0;
-  white-space: nowrap;
   box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+.stats-bento {
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.stat-group {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.stat-group--bottom {
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.stat-item {
+  text-align: left;
+}
+
+.stat-number {
+  display: block;
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.compare-btn {
+  background: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+
+.compare-btn:hover {
+  background: var(--color-bg);
+  border-color: var(--color-primary);
 }
 
 .topic-grid {
@@ -392,13 +442,13 @@ function goToTag(tag) {
   .hero { padding: 2.5rem 1rem 2rem; }
   .hero h1 { font-size: 1.75rem; }
   .hero-tagline { font-size: 1rem; }
-  .stats-banner { gap: 1rem; }
-  .stat-number { font-size: 1.35rem; }
-  .quiz-banner {
-    flex-direction: column;
+  .bento-grid { grid-template-columns: 1fr; margin-top: -1.5rem; }
+  .stat-number { font-size: 1.5rem; }
+  .quiz-bento {
+    align-items: stretch;
     text-align: center;
     padding: 1.5rem;
-    gap: 1rem;
+    gap: 1.25rem;
   }
   .quiz-banner-content h2 { font-size: 1.4rem; }
   .quiz-banner-btn { width: 100%; justify-content: center; }

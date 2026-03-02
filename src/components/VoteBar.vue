@@ -45,32 +45,36 @@ const pN = computed(() => wN.value.toFixed(1))
 <template>
   <div v-if="effectiveTotal > 0" :class="['vote-bar', { 'vote-bar--sm': small }]">
     <div
+      v-if="favorCount > 0"
       class="vote-bar-seg vote-bar-seg--favor"
-      :style="{ width: wF + '%', minWidth: favorCount > 0 ? '2px' : '0px' }"
+      :style="{ flex: favorCount }"
       :title="'A favor: ' + pF + '%'"
     >
       <template v-if="!small">{{ favorCount }}</template>
     </div>
     <div
+      v-if="contraCount > 0"
       class="vote-bar-seg vote-bar-seg--contra"
-      :style="{ width: wC + '%', minWidth: contraCount > 0 ? '2px' : '0px' }"
+      :style="{ flex: contraCount }"
       :title="'En contra: ' + pC + '%'"
     >
       <template v-if="!small">{{ contraCount }}</template>
     </div>
     <div
+      v-if="abstCount > 0"
       class="vote-bar-seg vote-bar-seg--abstencion"
-      :style="{ width: wA + '%', minWidth: abstCount > 0 ? '2px' : '0px' }"
+      :style="{ flex: abstCount }"
       :title="'Abstenciones: ' + pA + '%'"
     >
       <template v-if="!small">{{ abstCount }}</template>
     </div>
     <div
+      v-if="noVotaCount > 0"
       class="vote-bar-seg vote-bar-seg--no-vota"
-      :style="{ width: wN + '%', minWidth: noVotaCount > 0 ? '2px' : '0px' }"
+      :style="{ flex: noVotaCount }"
       :title="'No vota: ' + pN + '%'"
     >
-      <template v-if="!small && noVotaCount > 0">{{ noVotaCount }}</template>
+      <template v-if="!small">{{ noVotaCount }}</template>
     </div>
   </div>
 </template>
@@ -81,7 +85,8 @@ const pN = computed(() => wN.value.toFixed(1))
   height: 1.75rem;
   border-radius: 50px;
   overflow: hidden;
-  background: var(--color-border);
+  background: transparent;
+  gap: 2px;
 }
 
 .vote-bar--sm { height: 0.5rem; border-radius: 4px; }
@@ -91,9 +96,9 @@ const pN = computed(() => wN.value.toFixed(1))
   align-items: center;
   justify-content: center;
   color: #fff;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  transition: width 0.3s ease;
+  transition: flex 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .vote-bar-seg--favor { background: var(--color-favor); }

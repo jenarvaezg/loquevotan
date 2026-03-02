@@ -102,8 +102,8 @@ h1, h2, h3, h4 {
   letter-spacing: -0.01em;
   color: var(--color-text);
 }
-h1 { font-size: 1.875rem; }
-h2 { font-size: 1.5rem; }
+h1 { font-size: 2.5rem; letter-spacing: -0.02em; }
+h2 { font-size: 1.75rem; letter-spacing: -0.015em; }
 h3 { font-size: 1.25rem; }
 
 input, select, button { font-family: inherit; font-size: inherit; }
