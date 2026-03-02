@@ -19,8 +19,14 @@ jobs:
 
       - run: npm ci
 
+      - name: Data integrity checks
+        run: npm run test:data
+
+      - name: Unit tests
+        run: npm run test:unit
+
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Run Tests
-        run: npm run test
+      - name: E2E tests
+        run: npx playwright test

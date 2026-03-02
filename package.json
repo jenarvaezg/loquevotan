@@ -11,8 +11,10 @@
     "cf:prepare-assets": "node scripts/cloudflare/split_large_assets.mjs",
     "cf:deploy": "npm run build && npm run cf:prepare-assets && npx wrangler deploy",
     "test:data-integrity": "node scripts/qa/check_data_integrity.mjs",
+    "test:data-artifacts": "node scripts/qa/check_data_artifacts.mjs",
+    "test:data": "npm run test:data-integrity && npm run test:data-artifacts",
     "test:unit": "vitest run",
-    "test": "npm run test:unit && npm run test:data-integrity && npx playwright test"
+    "test": "npm run test:unit && npm run test:data && npx playwright test"
   },
   "dependencies": {
     "html2canvas": "^1.4.1",

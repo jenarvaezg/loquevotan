@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, watch } from 'vue'
+import { computed, ref, onMounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { fmt } from '../utils'
 import { useData } from '../composables/useData'
@@ -12,6 +12,22 @@ const router = useRouter()
 const manifest = ref(null)
 const manifestLoading = ref(true)
 const manifestError = ref('')
+
+const formattedUpdatedAt = computed(() => {
+  const raw = manifest.value?.updatedAt
+  if (!raw || typeof raw !== 'string') return ''
+
+  const hasTimezone = /(?:[zZ]|[+-]\d{2}:?\d{2})$/.test(raw)
+  const normalized = hasTimezone ? raw : `${raw}Z`
+  const parsed = new Date(normalized)
+  if (Number.isNaN(parsed.getTime())) return ''
+
+  return new Intl.DateTimeFormat('es-ES', {
+    dateStyle: 'long',
+    timeStyle: 'short',
+    timeZone: 'Europe/Madrid',
+  }).format(parsed)
+})
 
 async function loadManifest() {
   manifest.value = null
@@ -44,6 +60,7 @@ function goToTag(tag) {
     <div class="hero">
       <h1>Lo Que Votan</h1>
       <p class="hero-tagline">Qué vota cada diputado en el Congreso, explicado para ciudadanos</p>
+      <p v-if="formattedUpdatedAt" class="hero-updated">Datos actualizados el {{ formattedUpdatedAt }}</p>
       <HeroSearch :show-no-results="true" />
       <div class="hero-chips">
         <a
@@ -181,8 +198,15 @@ function goToTag(tag) {
 .hero-tagline {
   font-size: 1.15rem;
   opacity: 0.9;
-  margin-bottom: 2rem;
+  margin-bottom: 0.4rem;
   font-weight: 400;
+}
+
+.hero-updated {
+  margin: 0 0 1.6rem 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  opacity: 0.88;
 }
 
 .hero-chips {

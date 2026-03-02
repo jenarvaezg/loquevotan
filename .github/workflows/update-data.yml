@@ -24,6 +24,10 @@ jobs:
         with:
           python-version: "3.11"
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
       - name: Restore raw data cache
         id: raw-cache
         uses: actions/cache/restore@v4
@@ -79,6 +83,9 @@ jobs:
           if [ -f scripts/build_global_index.py ]; then
             python scripts/build_global_index.py
           fi
+
+      - name: Generate data diff summary
+        run: node scripts/qa/summarize_update_diff.mjs
 
       - name: Save raw data cache
         if: always() && !cancelled()
