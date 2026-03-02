@@ -51,14 +51,17 @@ def transform():
     titles_to_categorize = []
     
     # Pre-process votes to get unique deputies and groups
+    ROMAN_TO_NUM = {"X": "10", "XI": "11", "XII": "12", "XIII": "13"}
     for v in all_raw_votes:
         votos_list = v.get("votos")
+        leg_roman = v["id"].split("-")[1]
+        leg_num = ROMAN_TO_NUM.get(leg_roman, leg_roman)
+        
         if not votos_list and "group_votes" in v:
             votos_list = []
             gv = v["group_votes"]
-            leg_id_raw = v["id"].split("-")[1]
             for d_id, d_info in raw_deps_map.items():
-                if d_info.get("nlegis") != leg_id_raw: continue
+                if d_info.get("nlegis") != leg_num: continue
                 
                 d_group = d_info.get("grupo", "")
                 voto_sense = "no_vota"
@@ -135,12 +138,13 @@ def transform():
     for i, v in enumerate(all_raw_votes):
         votos_list = v.get("votos")
         leg_roman = v["id"].split("-")[1] 
+        leg_num = ROMAN_TO_NUM.get(leg_roman, leg_roman)
         
         if not votos_list and "group_votes" in v:
             votos_list = []
             gv = v["group_votes"]
             for d_id, d_info in raw_deps_map.items():
-                if d_info.get("nlegis") != leg_roman: continue
+                if d_info.get("nlegis") != leg_num: continue
                 d_group = d_info.get("grupo", "")
                 voto_sense = "no_vota"
                 for g_key, sense in gv.items():
