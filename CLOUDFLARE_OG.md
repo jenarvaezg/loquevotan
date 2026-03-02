@@ -24,7 +24,7 @@ Ejemplos:
 1. El bot de red social abre `/share/...`.
 2. El Worker lee `data/*/votaciones_meta.json` desde `ASSETS` y genera OG tags.
    - En rutas de votación, `og:image` apunta a `/og/votacion/:scope/:id?format=png` y se genera al vuelo (hemiciclo + resumen visual de votos). Si el share incluye `group=...`, añade badge/logo del partido.
-   - Si el share incluye `dip=...`, el PNG añade mini avatar del diputado con badge de partido.
+   - Si el share incluye `dip=...`, el PNG añade mini foto real del diputado (si está disponible) con badge de partido.
    - En rutas de diputado, `og:image` apunta a `/og/diputado/:scope/:name` y se genera al vuelo (foto + badge/logo de partido + métricas).
 3. Para usuarios reales, el HTML incluye redirección a rutas limpias (`/votacion/...`, `/diputado/...`) y fija `preferredScope` en `localStorage`.
 

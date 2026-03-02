@@ -1,3 +1,5 @@
+import jpeg from "jpeg-js";
+
 const SITE_NAME = "Lo Que Votan";
 const BRAND_TITLE = "LoQueVotan.es";
 const JSON_CACHE_TTL_MS = 5 * 60 * 1000;
@@ -19,6 +21,7 @@ const OG_COLORS = {
 const scopeMetaCache = new Map();
 let ambitosCache = { expiresAt: 0, data: null };
 const imageDataUriCache = new Map();
+const imageRgbaCache = new Map();
 const PNG_TEXT_ENCODER = new TextEncoder();
 const PNG_SIGNATURE = new Uint8Array([137, 80, 78, 71, 13, 10, 26, 10]);
 const CRC32_TABLE = (() => {
@@ -164,6 +167,64 @@ function drawPixelText(buffer, width, height, text, x, y, scale, rgba) {
       }
     }
     cursorX += step;
+  }
+}
+
+function drawCircularImageCoverRgba(
+  destBuffer,
+  destWidth,
+  destHeight,
+  cx,
+  cy,
+  radius,
+  srcBuffer,
+  srcWidth,
+  srcHeight
+) {
+  if (!srcBuffer || !srcWidth || !srcHeight || radius <= 0) return;
+
+  const diameter = radius * 2;
+  const scale = Math.max(diameter / srcWidth, diameter / srcHeight);
+  const srcCropW = diameter / scale;
+  const srcCropH = diameter / scale;
+  const srcOffsetX = (srcWidth - srcCropW) / 2;
+  const srcOffsetY = (srcHeight - srcCropH) / 2;
+  const r2 = radius * radius;
+
+  const x0 = clamp(Math.floor(cx - radius), 0, destWidth - 1);
+  const x1 = clamp(Math.ceil(cx + radius), 0, destWidth - 1);
+  const y0 = clamp(Math.floor(cy - radius), 0, destHeight - 1);
+  const y1 = clamp(Math.ceil(cy + radius), 0, destHeight - 1);
+
+  for (let py = y0; py <= y1; py++) {
+    const dy = py + 0.5 - cy;
+    for (let px = x0; px <= x1; px++) {
+      const dx = px + 0.5 - cx;
+      if ((dx * dx) + (dy * dy) > r2) continue;
+
+      const u = (px - (cx - radius)) / diameter;
+      const v = (py - (cy - radius)) / diameter;
+      const sx = clamp(Math.floor(srcOffsetX + u * srcCropW), 0, srcWidth - 1);
+      const sy = clamp(Math.floor(srcOffsetY + v * srcCropH), 0, srcHeight - 1);
+
+      const srcIdx = (sy * srcWidth + sx) * 4;
+      const dstIdx = (py * destWidth + px) * 4;
+      const alpha = srcBuffer[srcIdx + 3] / 255;
+      if (alpha <= 0) continue;
+
+      if (alpha >= 1) {
+        destBuffer[dstIdx] = srcBuffer[srcIdx];
+        destBuffer[dstIdx + 1] = srcBuffer[srcIdx + 1];
+        destBuffer[dstIdx + 2] = srcBuffer[srcIdx + 2];
+        destBuffer[dstIdx + 3] = 255;
+      } else {
+        const inv = 1 - alpha;
+        destBuffer[dstIdx] = Math.round((srcBuffer[srcIdx] * alpha) + (destBuffer[dstIdx] * inv));
+        destBuffer[dstIdx + 1] = Math.round((srcBuffer[srcIdx + 1] * alpha) + (destBuffer[dstIdx + 1] * inv));
+        destBuffer[dstIdx + 2] = Math.round((srcBuffer[srcIdx + 2] * alpha) + (destBuffer[dstIdx + 2] * inv));
+        destBuffer[dstIdx + 3] = 255;
+      }
+    }
   }
 }
 
@@ -586,6 +647,43 @@ async function imageUrlToDataUri(imageUrl) {
   }
 }
 
+async function imageUrlToRgba(imageUrl) {
+  if (!imageUrl) return null;
+  const now = Date.now();
+  const cached = imageRgbaCache.get(imageUrl);
+  if (cached && cached.expiresAt > now) return cached.payload;
+
+  try {
+    const resp = await fetch(imageUrl, { method: "GET" });
+    if (!resp.ok) return null;
+    const contentType = String(resp.headers.get("content-type") || "").toLowerCase();
+    if (!contentType.includes("jpeg") && !contentType.includes("jpg")) return null;
+
+    const bytes = new Uint8Array(await resp.arrayBuffer());
+    if (!bytes.length || bytes.length > 3_000_000) return null;
+
+    const decoded = jpeg.decode(bytes, {
+      useTArray: true,
+      formatAsRGBA: true,
+      tolerantDecoding: true,
+      maxResolutionInMP: 8,
+      maxMemoryUsageInMB: 64,
+    });
+    if (!decoded?.data || !decoded?.width || !decoded?.height) return null;
+    if (decoded.width * decoded.height > 8_000_000) return null;
+
+    const payload = {
+      width: decoded.width,
+      height: decoded.height,
+      data: decoded.data instanceof Uint8Array ? decoded.data : new Uint8Array(decoded.data),
+    };
+    imageRgbaCache.set(imageUrl, { payload, expiresAt: now + JSON_CACHE_TTL_MS });
+    return payload;
+  } catch {
+    return null;
+  }
+}
+
 function truncateText(value, maxLen = 180) {
   const text = String(value || "").trim().replace(/\s+/g, " ");
   if (text.length <= maxLen) return text;
@@ -806,6 +904,7 @@ async function renderVoteOgPng({
   voteToken = null,
   dipName = "",
   dipGroupName = "",
+  dipAvatar = null,
   groupName = "",
   groupVoteToken = null,
 }) {
@@ -942,21 +1041,34 @@ async function renderVoteOgPng({
 
     drawFilledCircleRgba(rgba, width, height, avatarX, avatarY, avatarRadius + 4, white);
     drawFilledCircleRgba(rgba, width, height, avatarX, avatarY, avatarRadius, hexToRgba("#1f2937"));
-    drawFilledCircleRgba(rgba, width, height, avatarX, avatarY + 6, avatarRadius - 10, hexToRgba("#111827"));
-
-    const initScale = dipInitials.length > 1 ? 5 : 6;
-    const initWidth = dipInitials.length * 6 * initScale - initScale;
-    const initHeight = 7 * initScale;
-    drawPixelText(
-      rgba,
-      width,
-      height,
-      dipInitials,
-      avatarX - Math.floor(initWidth / 2),
-      avatarY - Math.floor(initHeight / 2) + 4,
-      initScale,
-      white
-    );
+    if (dipAvatar?.data && dipAvatar?.width && dipAvatar?.height) {
+      drawCircularImageCoverRgba(
+        rgba,
+        width,
+        height,
+        avatarX,
+        avatarY,
+        avatarRadius,
+        dipAvatar.data,
+        dipAvatar.width,
+        dipAvatar.height
+      );
+    } else {
+      drawFilledCircleRgba(rgba, width, height, avatarX, avatarY + 6, avatarRadius - 10, hexToRgba("#111827"));
+      const initScale = dipInitials.length > 1 ? 5 : 6;
+      const initWidth = dipInitials.length * 6 * initScale - initScale;
+      const initHeight = 7 * initScale;
+      drawPixelText(
+        rgba,
+        width,
+        height,
+        dipInitials,
+        avatarX - Math.floor(initWidth / 2),
+        avatarY - Math.floor(initHeight / 2) + 4,
+        initScale,
+        white
+      );
+    }
 
     // Small party badge over the avatar.
     const partyBadgeX = avatarX + 42;
@@ -1203,14 +1315,20 @@ async function handleVoteOgImage(request, env) {
   const scopes = await getAmbitos(env, requestUrl);
   if (!scopes.has(scopeId)) return null;
 
+  const siteUrl = buildSiteUrl(env, requestUrl);
   const meta = await getScopeMeta(env, requestUrl, scopeId);
   const voteIndex = meta?.votIdById?.[voteId];
   let dipGroupName = "";
+  let dipAvatar = null;
   if (dipParam) {
     const dipIdx = findDiputadoIndex(meta, dipParam);
     const mainGrupo = dipIdx >= 0 ? meta?.dipStats?.[dipIdx]?.mainGrupo : null;
     if (Number.isInteger(mainGrupo) && meta?.grupos?.[mainGrupo]) {
       dipGroupName = String(meta.grupos[mainGrupo]);
+    }
+    if (wantsPng && dipIdx >= 0) {
+      const dipPhoto = diputadoPhotoUrl(meta?.dipFotos?.[dipIdx], siteUrl);
+      dipAvatar = await imageUrlToRgba(dipPhoto);
     }
   }
 
@@ -1221,6 +1339,7 @@ async function handleVoteOgImage(request, env) {
         voteToken: voteParam,
         dipName: dipParam,
         dipGroupName,
+        dipAvatar,
         groupName: groupParam,
         groupVoteToken: groupVoteParam,
       });
@@ -1263,6 +1382,7 @@ async function handleVoteOgImage(request, env) {
       voteToken: voteParam,
       dipName: dipParam,
       dipGroupName,
+      dipAvatar,
       groupName: groupParam,
       groupVoteToken: groupVoteParam,
     });
