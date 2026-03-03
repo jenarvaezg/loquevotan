@@ -84,6 +84,8 @@ node scripts/cloudflare/build_d1_seed.mjs --out /tmp/loquevotan-d1-seed.sql --sc
 
 En GitHub Actions (`Cloudflare Data Sync`) puedes lanzar manualmente con input `scopes` para sincronizar solo ámbitos concretos.
 
+Además, el workflow `Update Voting Data` detecta automáticamente qué ámbitos (`public/data/*`) han cambiado y dispara `Cloudflare Data Sync` con esos `scopes` para evitar resyncs completos innecesarios.
+
 ## Deploy
 
 1. Build frontend:

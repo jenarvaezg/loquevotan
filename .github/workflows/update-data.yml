@@ -14,6 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      actions: write
 
     steps:
       - uses: actions/checkout@v4
@@ -87,6 +88,10 @@ jobs:
       - name: Generate data diff summary
         run: node scripts/qa/summarize_update_diff.mjs
 
+      - name: Detect changed scopes for Cloudflare D1 sync
+        id: detect-scopes
+        run: node scripts/cloudflare/detect_changed_scopes.mjs
+
       - name: Save raw data cache
         if: always() && !cancelled()
         uses: actions/cache/save@v4
@@ -105,6 +110,7 @@ jobs:
           key: ${{ steps.raw-cache.outputs.cache-primary-key || format('parliament-raw-{0}-{1}-{2}', runner.os, github.ref_name, github.run_id) }}
 
       - name: Commit and push if changed
+        id: commit-data
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
@@ -118,10 +124,13 @@ jobs:
 
           if git diff --staged --quiet; then
             echo "No changes to commit."
+            echo "pushed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
           git commit -m "chore: update voting data (National + Andalusia + CyL + Madrid) $(date +%Y-%m-%d)"
+          echo "pushed=true" >> "$GITHUB_OUTPUT"
+          echo "new_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
           pushed=0
           for attempt in 1 2 3; do
@@ -141,3 +150,16 @@ jobs:
             echo "Failed to push after 3 attempts."
             exit 1
           fi
+
+      - name: Trigger scoped Cloudflare Data Sync
+        if: steps.commit-data.outputs.pushed == 'true' && steps.detect-scopes.outputs.has_scope_changes == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SCOPES: ${{ steps.detect-scopes.outputs.scope_csv }}
+        run: |
+          set -euo pipefail
+          echo "Triggering Cloudflare Data Sync for scopes: ${SCOPES}"
+          gh api "repos/${{ github.repository }}/actions/workflows/cloudflare-data-sync.yml/dispatches" \
+            -X POST \
+            -f ref=main \
+            -f "inputs[scopes]=${SCOPES}"

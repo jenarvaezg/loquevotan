@@ -45,7 +45,7 @@ Este documento recoge solo trabajo pendiente.
 - [x] Diseñar esquema D1 por ámbito (`votaciones`, `vot_results`, `votos_nominales`, `diputados`).
 - [x] Mantener R2 para raw/snapshots/exports grandes.
 - [x] Exponer API Worker (`/api/votaciones`, `/api/votacion/:id`, `/api/diputado/:id`) con paginación y cache HTTP.
-- [ ] Adaptar transforms/run_update para upsert incremental en D1.
+- [x] Adaptar transforms/run_update para upsert incremental en D1 (sync automático por ámbitos cambiados).
 - [x] Permitir sync D1 incremental por ámbito en CI (`Cloudflare Data Sync` con `scopes`).
 - [x] Programar job semanal end-to-end con checks de integridad y rollback.
 - [x] Plan de convivencia y rollback durante transición (híbrido JSON + API).
