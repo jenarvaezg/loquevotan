@@ -18,6 +18,12 @@ LEG_ID_TO_ROMAN = {"12": "XII", "11": "XI", "10": "X", "9": "IX"}
 LEG_ROMAN_TO_ID = {v: k for k, v in LEG_ID_TO_ROMAN.items()}
 
 
+def parse_legislaturas(value):
+    if not value:
+        return None
+    return {v.strip() for v in str(value).split(",") if v.strip()}
+
+
 def normalize_text(text):
     if not text:
         return ""
@@ -242,13 +248,23 @@ def parse_andalucia_voto_pdf(pdf_path, diputados_map, session_info):
 def main():
     parser = argparse.ArgumentParser(description="Parsea PDFs de Andalucía con modo incremental.")
     parser.add_argument("--rebuild", action="store_true", help="Fuerza reprocesado completo de todos los PDFs.")
+    parser.add_argument(
+        "--legislaturas",
+        help="Lista de legislaturas separadas por coma (ej: 12,11).",
+    )
     args = parser.parse_args()
+    target_leg_ids = parse_legislaturas(args.legislaturas)
 
     diputados_list = load_json(DIPUTADOS_FILE, [])
     diputados_map = {normalize_text(d["nombre"]): d for d in diputados_list}
 
     sessions_list = load_json(SESSIONS_FILE, [])
     sessions_map = {s["doc_id"]: s for s in sessions_list}
+    target_doc_ids = {
+        str(s.get("doc_id"))
+        for s in sessions_list
+        if not target_leg_ids or str(s.get("legis_id")) in target_leg_ids
+    }
 
     votes_by_id = {} if args.rebuild else load_existing_votes_map()
     state = {"version": 1, "files": {}} if args.rebuild else load_parse_state()
@@ -261,8 +277,13 @@ def main():
 
     for pdf_path in pdf_files:
         doc_id = os.path.basename(pdf_path).replace(".pdf", "")
+        if target_doc_ids and doc_id not in target_doc_ids:
+            continue
+
         session_info = sessions_map.get(doc_id)
         if not session_info:
+            continue
+        if target_leg_ids and str(session_info.get("legis_id")) not in target_leg_ids:
             continue
 
         state_key = os.path.basename(pdf_path)
@@ -299,7 +320,16 @@ def main():
         except Exception as e:
             print(f"  Error parsing {pdf_path}: {e}")
 
-    for stale_key in [k for k in list(state_files.keys()) if k not in seen_files]:
+    stale_candidates = []
+    for state_key in list(state_files.keys()):
+        if state_key in seen_files:
+            continue
+        doc_id = state_key.replace(".pdf", "")
+        if target_doc_ids and doc_id not in target_doc_ids:
+            continue
+        stale_candidates.append(state_key)
+
+    for stale_key in stale_candidates:
         for old_vote_id in state_files[stale_key].get("vote_ids", []):
             votes_by_id.pop(old_vote_id, None)
         del state_files[stale_key]

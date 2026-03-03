@@ -38,10 +38,22 @@ def main():
     )
     
     # 3. Download PDFs (Only new ones)
-    run_step("Download PDFs", [sys.executable, os.path.join(script_dir, "download_pdfs.py")])
+    run_step(
+        "Download PDFs",
+        [sys.executable, os.path.join(script_dir, "download_pdfs.py"), "--legislaturas", target_legs],
+    )
     
     # 4. Parse PDFs (Extract votes and group mappings)
-    run_step("Parse PDFs", [sys.executable, os.path.join(script_dir, "parse_pdfs.py"), *rebuild_flag])
+    run_step(
+        "Parse PDFs",
+        [
+            sys.executable,
+            os.path.join(script_dir, "parse_pdfs.py"),
+            "--legislaturas",
+            target_legs,
+            *rebuild_flag,
+        ],
+    )
     
     # 5. Transform (Generate optimized JSONs for frontend)
     run_step("Transform Data", [sys.executable, os.path.join(script_dir, "transform.py"), *rebuild_flag])

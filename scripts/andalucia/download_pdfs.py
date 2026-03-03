@@ -2,14 +2,25 @@ import json
 import os
 import requests
 import time
+import argparse
 
-def download_pdfs():
+
+def parse_legislaturas(value):
+    if not value:
+        return None
+    return {v.strip() for v in str(value).split(",") if v.strip()}
+
+
+def download_pdfs(legislaturas=None):
     with open("data/andalucia/sessions_index.json", "r") as f:
         sessions = json.load(f)
     
     os.makedirs("data/andalucia/raw/pdf", exist_ok=True)
     
     for session in sessions:
+        if legislaturas and str(session.get("legis_id")) not in legislaturas:
+            continue
+
         doc_id = session['doc_id']
         output_path = f"data/andalucia/raw/pdf/{doc_id}.pdf"
         
@@ -34,4 +45,11 @@ def download_pdfs():
             print(f"Error downloading {doc_id}: {e}")
 
 if __name__ == "__main__":
-    download_pdfs()
+    parser = argparse.ArgumentParser(description="Descarga PDFs de votaciones de Andalucía.")
+    parser.add_argument(
+        "--legislaturas",
+        help="Lista de legislaturas separadas por coma (ej: 12,11).",
+    )
+    args = parser.parse_args()
+    target_legs = parse_legislaturas(args.legislaturas)
+    download_pdfs(target_legs)
