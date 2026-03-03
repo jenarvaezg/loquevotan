@@ -3,11 +3,21 @@ from bs4 import BeautifulSoup
 import json
 import re
 import os
+import argparse
 from urllib.parse import urljoin
 
-def scrape_cyl_diputados():
+DEFAULT_LEGISLATURAS = ["11", "10"]
+
+
+def parse_legislaturas(value):
+    if not value:
+        return DEFAULT_LEGISLATURAS
+    return [v.strip() for v in str(value).split(",") if v.strip()]
+
+
+def scrape_cyl_diputados(legislaturas=None):
     base_url = "https://www.ccyl.es/Organizacion/PlenoAlfabetico"
-    legislaturas = ["11", "10"]
+    legislaturas = legislaturas or DEFAULT_LEGISLATURAS
     all_diputados = []
     
     headers = {"User-Agent": "Mozilla/5.0"}
@@ -65,8 +75,16 @@ def scrape_cyl_diputados():
     return all_diputados
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Scrapea diputados históricos de CyL.")
+    parser.add_argument(
+        "--legislaturas",
+        help="Lista de legislaturas separadas por coma (ej: 11,10). Por defecto: 11,10.",
+    )
+    args = parser.parse_args()
+
     os.makedirs("data/cyl", exist_ok=True)
-    diputados = scrape_cyl_diputados()
+    target_legs = parse_legislaturas(args.legislaturas)
+    diputados = scrape_cyl_diputados(target_legs)
     print(f"Found {len(diputados)} total historical diputados for CyL")
     with open("data/cyl/diputados_raw.json", "w") as f:
         json.dump(diputados, f, indent=2, ensure_ascii=False)

@@ -4,6 +4,12 @@ on:
   schedule:
     - cron: "0 6 * * 1" # Every Monday at 6am UTC
   workflow_dispatch:
+    inputs:
+      full_history:
+        description: "Si true, fuerza scraping histórico completo (más lento)."
+        required: false
+        type: boolean
+        default: false
 
 concurrency:
   group: update-voting-data
@@ -15,6 +21,8 @@ jobs:
     permissions:
       contents: write
       actions: write
+    env:
+      FULL_HISTORY: ${{ github.event.inputs.full_history == 'true' && 'true' || 'false' }}
 
     steps:
       - uses: actions/checkout@v4
@@ -35,6 +43,7 @@ jobs:
         with:
           path: |
             data/raw
+            data/state/national
             data/andalucia/raw
             data/andalucia/votos_*_raw.json
             data/andalucia/parse_state.json
@@ -50,12 +59,39 @@ jobs:
             parliament-raw-${{ runner.os }}-
             congress-raw-
 
+      - name: Restore raw snapshot from R2 (fallback)
+        if: steps.raw-cache.outputs.cache-hit != 'true'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_R2_BUCKET_DATA_SNAPSHOTS: ${{ secrets.CLOUDFLARE_R2_BUCKET_DATA_SNAPSHOTS }}
+        run: |
+          set -euo pipefail
+          if [ -z "${CLOUDFLARE_API_TOKEN:-}" ] || [ -z "${CLOUDFLARE_ACCOUNT_ID:-}" ] || [ -z "${CLOUDFLARE_R2_BUCKET_DATA_SNAPSHOTS:-}" ]; then
+            echo "Skipping raw R2 restore because required secrets are missing."
+            exit 0
+          fi
+
+          KEY="raw-snapshots/${GITHUB_REF_NAME}/latest.tar.gz"
+          TMP_FILE="/tmp/loquevotan-raw-latest.tar.gz"
+          if npx wrangler r2 object get "${CLOUDFLARE_R2_BUCKET_DATA_SNAPSHOTS}/${KEY}" --file "${TMP_FILE}"; then
+            tar -xzf "${TMP_FILE}" -C .
+            echo "Restored raw snapshot from R2: ${KEY}"
+          else
+            echo "No raw snapshot found in R2 at ${KEY}; continuing without fallback."
+          fi
+
       - name: Install dependencies
         run: |
           pip install requests beautifulsoup4 pdfplumber google-genai aiohttp aiofiles
 
       - name: Run National scraper
-        run: python scripts/scraper.py
+        run: |
+          if [ "${FULL_HISTORY}" = "true" ]; then
+            python scripts/scraper.py
+          else
+            python scripts/scraper.py --legislatura XV
+          fi
 
       - name: Run National transformer
         run: |
@@ -69,15 +105,30 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
       - name: Run Andalusia update
-        run: python scripts/andalucia/run_update.py
+        run: |
+          if [ "${FULL_HISTORY}" = "true" ]; then
+            python scripts/andalucia/run_update.py
+          else
+            python scripts/andalucia/run_update.py --active-only
+          fi
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
       - name: Run CyL update
-        run: python scripts/cyl/run_update.py
+        run: |
+          if [ "${FULL_HISTORY}" = "true" ]; then
+            python scripts/cyl/run_update.py
+          else
+            python scripts/cyl/run_update.py --active-only
+          fi
 
       - name: Run Madrid update
-        run: python scripts/madrid/run_update.py
+        run: |
+          if [ "${FULL_HISTORY}" = "true" ]; then
+            python scripts/madrid/run_update.py
+          else
+            python scripts/madrid/run_update.py --active-only
+          fi
 
       - name: Build global index
         run: |
@@ -98,6 +149,7 @@ jobs:
         with:
           path: |
             data/raw
+            data/state/national
             data/andalucia/raw
             data/andalucia/votos_*_raw.json
             data/andalucia/parse_state.json
@@ -108,6 +160,58 @@ jobs:
             data/madrid/votos_*_raw.json
             data/madrid/parse_state.json
           key: ${{ steps.raw-cache.outputs.cache-primary-key || format('parliament-raw-{0}-{1}-{2}', runner.os, github.ref_name, github.run_id) }}
+
+      - name: Upload raw snapshot to R2 (if configured)
+        if: always() && !cancelled()
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_R2_BUCKET_DATA_SNAPSHOTS: ${{ secrets.CLOUDFLARE_R2_BUCKET_DATA_SNAPSHOTS }}
+        run: |
+          set -euo pipefail
+          if [ -z "${CLOUDFLARE_API_TOKEN:-}" ] || [ -z "${CLOUDFLARE_ACCOUNT_ID:-}" ] || [ -z "${CLOUDFLARE_R2_BUCKET_DATA_SNAPSHOTS:-}" ]; then
+            echo "Skipping raw snapshot upload because required secrets are missing."
+            exit 0
+          fi
+
+          shopt -s nullglob
+          SNAP_FILE="/tmp/loquevotan-raw-snapshot.tar.gz"
+          INCLUDE_PATHS=(
+            data/raw
+            data/state/national
+            data/andalucia/raw
+            data/cyl/raw
+            data/madrid/raw
+            data/andalucia/parse_state.json
+            data/cyl/parse_state.json
+            data/madrid/parse_state.json
+          )
+          INCLUDE_PATHS+=(data/andalucia/votos_*_raw.json)
+          INCLUDE_PATHS+=(data/cyl/votos_*_raw.json)
+          INCLUDE_PATHS+=(data/madrid/votos_*_raw.json)
+          EXISTING_PATHS=()
+          for p in "${INCLUDE_PATHS[@]}"; do
+            if [ -e "${p}" ]; then
+              EXISTING_PATHS+=("${p}")
+            fi
+          done
+          if [ "${#EXISTING_PATHS[@]}" -eq 0 ]; then
+            echo "No raw files found to snapshot."
+            exit 0
+          fi
+
+          tar -czf "${SNAP_FILE}" "${EXISTING_PATHS[@]}"
+          TS="$(date -u +%Y%m%dT%H%M%SZ)"
+          SHA_SHORT="$(echo "${GITHUB_SHA}" | cut -c1-12)"
+          PREFIX="raw-snapshots/${GITHUB_REF_NAME}"
+          VERSIONED_KEY="${PREFIX}/${TS}-${SHA_SHORT}.tar.gz"
+          LATEST_KEY="${PREFIX}/latest.tar.gz"
+
+          npx wrangler r2 object put "${CLOUDFLARE_R2_BUCKET_DATA_SNAPSHOTS}/${VERSIONED_KEY}" --file "${SNAP_FILE}"
+          npx wrangler r2 object put "${CLOUDFLARE_R2_BUCKET_DATA_SNAPSHOTS}/${LATEST_KEY}" --file "${SNAP_FILE}"
+          echo "Raw snapshot uploaded to R2:"
+          echo "- ${VERSIONED_KEY}"
+          echo "- ${LATEST_KEY}"
 
       - name: Commit and push if changed
         id: commit-data
@@ -121,6 +225,7 @@ jobs:
           [ -f data/andalucia/cache_categorias.json ] && git add data/andalucia/cache_categorias.json || true
           [ -f data/cyl/cache_categorias.json ] && git add data/cyl/cache_categorias.json || true
           [ -f data/madrid/cache_categorias.json ] && git add data/madrid/cache_categorias.json || true
+          git add data/state/national/last_fetch_*.txt || true
 
           if git diff --staged --quiet; then
             echo "No changes to commit."

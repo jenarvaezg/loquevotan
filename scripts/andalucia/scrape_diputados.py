@@ -4,11 +4,21 @@ import json
 import re
 import os
 import time
+import argparse
 from urllib.parse import urljoin
 
-def scrape_andalucia_all_diputados():
+DEFAULT_LEGISLATURAS = ["12", "11", "10", "9"]
+
+
+def parse_legislaturas(value):
+    if not value:
+        return DEFAULT_LEGISLATURAS
+    return [v.strip() for v in str(value).split(",") if v.strip()]
+
+
+def scrape_andalucia_all_diputados(legislaturas=None):
     base_url = "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/composicionyfuncionamiento/diputados/buscadoravanzadodiputados.do"
-    legislaturas = ["12", "11", "10", "9"]
+    legislaturas = legislaturas or DEFAULT_LEGISLATURAS
     all_diputados = []
     
     for legis in legislaturas:
@@ -68,8 +78,16 @@ def scrape_andalucia_all_diputados():
     return all_diputados
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Scrapea diputados históricos de Andalucía.")
+    parser.add_argument(
+        "--legislaturas",
+        help="Lista de legislaturas separadas por coma (ej: 12,11). Por defecto: 12,11,10,9.",
+    )
+    args = parser.parse_args()
+
     os.makedirs("data/andalucia", exist_ok=True)
-    diputados = scrape_andalucia_all_diputados()
+    target_legs = parse_legislaturas(args.legislaturas)
+    diputados = scrape_andalucia_all_diputados(target_legs)
     print(f"Found {len(diputados)} total historical diputados")
     with open("data/andalucia/diputados_raw.json", "w") as f:
         json.dump(diputados, f, indent=2, ensure_ascii=False)

@@ -3,12 +3,21 @@ from bs4 import BeautifulSoup
 import json
 import re
 import os
+import argparse
 from urllib.parse import urljoin
 
-def get_session_links():
+DEFAULT_LEGISLATURAS = ["12", "11", "10", "9"]
+
+
+def parse_legislaturas(value):
+    if not value:
+        return DEFAULT_LEGISLATURAS
+    return [v.strip() for v in str(value).split(",") if v.strip()]
+
+
+def get_session_links(legislaturas=None):
     base_url = "https://www.parlamentodeandalucia.es/webdinamica/portal-web-parlamento/composicionyfuncionamiento/resultadosvotaciones.do?seleccion=publicadosen&desderango=&hastarango=&desdemes=&desdeanyo=&hastames=&hastaanyo=&terminos=&accion=Ver+Sentido+del+voto"
-    
-    legislaturas = ["12", "11", "10", "9"]
+    legislaturas = legislaturas or DEFAULT_LEGISLATURAS
     all_sessions = []
     
     index_file = "data/andalucia/sessions_index.json"
@@ -68,7 +77,15 @@ def get_session_links():
     return all_sessions + new_sessions
 
 if __name__ == "__main__":
-    sessions = get_session_links()
+    parser = argparse.ArgumentParser(description="Scrapea índice de sesiones de Andalucía.")
+    parser.add_argument(
+        "--legislaturas",
+        help="Lista de legislaturas separadas por coma (ej: 12,11). Por defecto: 12,11,10,9.",
+    )
+    args = parser.parse_args()
+
+    target_legs = parse_legislaturas(args.legislaturas)
+    sessions = get_session_links(target_legs)
     print(f"Found {len(sessions)} session documents")
     os.makedirs("data/andalucia/raw/pdf", exist_ok=True)
     with open("data/andalucia/sessions_index.json", "w") as f:

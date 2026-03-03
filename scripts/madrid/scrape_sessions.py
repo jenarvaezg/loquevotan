@@ -2,6 +2,7 @@ import asyncio
 import aiohttp
 import json
 import os
+import argparse
 
 LEGISLATURAS = {
     "XIII": 800,
@@ -20,7 +21,26 @@ async def check_url(session, leg, idx):
         pass
     return None
 
+def parse_legislaturas(value):
+    if not value:
+        return dict(LEGISLATURAS)
+    requested = [v.strip().upper() for v in str(value).split(",") if v.strip()]
+    filtered = {leg: max_idx for leg, max_idx in LEGISLATURAS.items() if leg in requested}
+    missing = [leg for leg in requested if leg not in LEGISLATURAS]
+    if missing:
+        raise ValueError(f"Legislaturas desconocidas: {', '.join(missing)}")
+    return filtered
+
+
 async def main():
+    parser = argparse.ArgumentParser(description="Scrapea índices de diarios de sesiones de Madrid.")
+    parser.add_argument(
+        "--legislaturas",
+        help="Lista de legislaturas separadas por coma (ej: XIII,XII). Por defecto: XIII,XII,XI,X.",
+    )
+    args = parser.parse_args()
+
+    legislaturas = parse_legislaturas(args.legislaturas)
     os.makedirs("data/madrid", exist_ok=True)
     sessions = []
     
@@ -33,7 +53,7 @@ async def main():
 
     async with aiohttp.ClientSession() as session:
         tasks = []
-        for leg, max_idx in LEGISLATURAS.items():
+        for leg, max_idx in legislaturas.items():
             for idx in range(1, max_idx + 1):
                 tasks.append(bounded_check(session, leg, idx))
                 

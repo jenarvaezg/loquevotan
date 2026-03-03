@@ -18,7 +18,7 @@ PORTLET_PARAMS = "p_p_id=votaciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=vi
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 RAW_DIR = os.path.join(SCRIPT_DIR, "..", "data", "raw")
-STATE_DIR = RAW_DIR  # state files live alongside raw data
+STATE_DIR = os.path.join(SCRIPT_DIR, "..", "data", "state", "national")
 
 HEADERS = {
     "User-Agent": (
@@ -178,6 +178,7 @@ def process_legislature(legislatura, limit=None):
 
 def main():
     os.makedirs(RAW_DIR, exist_ok=True)
+    os.makedirs(STATE_DIR, exist_ok=True)
 
     # Parse arguments
     limit = None
@@ -198,6 +199,13 @@ def main():
     new_state = state_file("XV")
     if os.path.exists(old_state) and not os.path.exists(new_state):
         os.rename(old_state, new_state)
+
+    # Migrate legacy per-legislature state files from data/raw/
+    for leg in LEGISLATURES:
+        legacy_state = os.path.join(RAW_DIR, f"last_fetch_{leg}.txt")
+        migrated_state = state_file(leg)
+        if os.path.exists(legacy_state) and not os.path.exists(migrated_state):
+            os.rename(legacy_state, migrated_state)
 
     # Migrate old filenames without legislature prefix
     for f in os.listdir(RAW_DIR):

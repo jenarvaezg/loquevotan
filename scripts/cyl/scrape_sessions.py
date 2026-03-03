@@ -3,11 +3,21 @@ from bs4 import BeautifulSoup
 import json
 import re
 import os
+import argparse
 from datetime import datetime
 
-def get_cyl_session_links():
+DEFAULT_LEGISLATURAS = ["11", "10", "9", "8", "7"]
+
+
+def parse_legislaturas(value):
+    if not value:
+        return DEFAULT_LEGISLATURAS
+    return [v.strip() for v in str(value).split(",") if v.strip()]
+
+
+def get_cyl_session_links(legislaturas=None):
     base_url = "https://www.ccyl.es/RecursosInformacion/DiarioDeSesiones?SeriePublicacion=DS(P)"
-    legislaturas = ["11", "10", "9", "8", "7"]
+    legislaturas = legislaturas or DEFAULT_LEGISLATURAS
     all_sessions = []
     
     headers = {"User-Agent": "Mozilla/5.0"}
@@ -55,8 +65,16 @@ def get_cyl_session_links():
     return all_sessions
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Scrapea índice de sesiones de CyL.")
+    parser.add_argument(
+        "--legislaturas",
+        help="Lista de legislaturas separadas por coma (ej: 11,10). Por defecto: 11,10,9,8,7.",
+    )
+    args = parser.parse_args()
+
     os.makedirs("data/cyl", exist_ok=True)
-    sessions = get_cyl_session_links()
+    target_legs = parse_legislaturas(args.legislaturas)
+    sessions = get_cyl_session_links(target_legs)
     print(f"Found {len(sessions)} session documents for CyL")
     with open("data/cyl/sessions_index.json", "w") as f:
         json.dump(sessions, f, indent=2, ensure_ascii=False)

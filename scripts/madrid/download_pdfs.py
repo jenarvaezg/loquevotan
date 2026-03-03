@@ -5,13 +5,20 @@ import os
 import aiofiles
 import pdfplumber
 import io
+import re
 
 async def download_and_check(session, doc_info, sem):
-    doc_id = doc_info['id']
+    doc_id = str(doc_info['id'])
     url = doc_info['url']
-    # Use legis_id in filename if available to avoid collisions
-    legis_id = doc_info.get('legis_id', 'XIII')
-    filename = f"DS-{legis_id}-{doc_id}.pdf"
+    legis_id = str(doc_info.get('legis_id', 'XIII'))
+
+    # sessions_index may provide id as either "XIII-690" or "690"
+    if re.match(r"^[IVX]+-\d+$", doc_id):
+        normalized_id = doc_id
+    else:
+        normalized_id = f"{legis_id}-{doc_id}"
+
+    filename = f"DS-{normalized_id}.pdf"
     dest_path = os.path.join("data/madrid/raw/pdf", filename)
     
     if os.path.exists(dest_path):
@@ -73,7 +80,15 @@ async def main():
     os.makedirs("data/madrid/raw/pdf", exist_ok=True)
     
     # Filter sessions that were already marked as no-votes
-    sessions = [s for s in sessions if not os.path.exists(os.path.join("data/madrid/raw/pdf", f"DS-{s.get('legis_id', 'XIII')}-{s['id']}.pdf.novotes"))]
+    filtered_sessions = []
+    for s in sessions:
+        doc_id = str(s.get("id", ""))
+        legis_id = str(s.get("legis_id", "XIII"))
+        normalized_id = doc_id if re.match(r"^[IVX]+-\d+$", doc_id) else f"{legis_id}-{doc_id}"
+        marker_path = os.path.join("data/madrid/raw/pdf", f"DS-{normalized_id}.pdf.novotes")
+        if not os.path.exists(marker_path):
+            filtered_sessions.append(s)
+    sessions = filtered_sessions
     
     sem = asyncio.Semaphore(5) # Lower concurrency to avoid being blocked
     

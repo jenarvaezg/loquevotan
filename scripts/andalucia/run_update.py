@@ -1,6 +1,7 @@
 import subprocess
 import sys
 import os
+import argparse
 
 def run_step(name, command):
     print(f"--- Running {name} ---")
@@ -11,15 +12,30 @@ def run_step(name, command):
         sys.exit(e.returncode or 1)
 
 def main():
+    parser = argparse.ArgumentParser(description="Pipeline de actualización de Andalucía.")
+    parser.add_argument("--rebuild", action="store_true", help="Fuerza reprocesado completo.")
+    parser.add_argument(
+        "--active-only",
+        action="store_true",
+        help="Procesa solo legislatura activa (XII) para runs rápidos.",
+    )
+    args = parser.parse_args()
+
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    rebuild = "--rebuild" in sys.argv
-    rebuild_flag = ["--rebuild"] if rebuild else []
+    rebuild_flag = ["--rebuild"] if args.rebuild else []
+    target_legs = "12" if args.active_only else "12,11,10,9"
     
     # 1. Scrape session index (Detects all available legislatures)
-    run_step("Scrape Sessions Index", [sys.executable, os.path.join(script_dir, "scrape_sessions.py")])
+    run_step(
+        "Scrape Sessions Index",
+        [sys.executable, os.path.join(script_dir, "scrape_sessions.py"), "--legislaturas", target_legs],
+    )
     
     # 2. Scrape deputies (Names and photos for all legislatures)
-    run_step("Scrape Deputies", [sys.executable, os.path.join(script_dir, "scrape_diputados.py")])
+    run_step(
+        "Scrape Deputies",
+        [sys.executable, os.path.join(script_dir, "scrape_diputados.py"), "--legislaturas", target_legs],
+    )
     
     # 3. Download PDFs (Only new ones)
     run_step("Download PDFs", [sys.executable, os.path.join(script_dir, "download_pdfs.py")])
