@@ -11,3 +11,8 @@ run_worker_first = ["/share/*", "/og/*", "/api/*"]
 [vars]
 SITE_URL = "https://loquevotan.es"
 API_BACKEND_MODE = "auto"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "loquevotan"
+database_id = "4366d72e-4a59-4407-926c-03bbe9005952"
