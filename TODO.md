@@ -43,7 +43,7 @@ Este documento recoge solo trabajo pendiente.
 ### Migración de datos a Cloudflare (D1/R2 + Worker API)
 
 - [x] Diseñar esquema D1 por ámbito (`votaciones`, `vot_results`, `votos_nominales`, `diputados`).
-- [ ] Mantener R2 para raw/snapshots/exports grandes.
+- [x] Mantener R2 para raw/snapshots/exports grandes.
 - [x] Exponer API Worker (`/api/votaciones`, `/api/votacion/:id`, `/api/diputado/:id`) con paginación y cache HTTP.
 - [ ] Adaptar transforms/run_update para upsert incremental en D1.
 - [x] Programar job semanal end-to-end con checks de integridad y rollback.

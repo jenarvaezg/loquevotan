@@ -106,6 +106,7 @@ Configura estos secrets en GitHub (`Settings` -> `Secrets and variables` -> `Act
 - `CLOUDFLARE_API_TOKEN`
 - `CLOUDFLARE_ACCOUNT_ID`
 - `CLOUDFLARE_D1_DATABASE_NAME` (solo para sync de datos a D1)
+- `CLOUDFLARE_R2_BUCKET_DATA_SNAPSHOTS` (opcional; para subir snapshots SQL comprimidos del sync semanal)
 
 Permisos mínimos recomendados para el token:
 

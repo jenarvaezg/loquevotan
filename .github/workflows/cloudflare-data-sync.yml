@@ -19,6 +19,7 @@ jobs:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
       CLOUDFLARE_D1_DATABASE_NAME: ${{ secrets.CLOUDFLARE_D1_DATABASE_NAME }}
+      CLOUDFLARE_R2_BUCKET_DATA_SNAPSHOTS: ${{ secrets.CLOUDFLARE_R2_BUCKET_DATA_SNAPSHOTS }}
 
     steps:
       - uses: actions/checkout@v4
@@ -39,6 +40,26 @@ jobs:
           name: loquevotan-d1-seed-sql
           path: /tmp/loquevotan-d1-seed.sql
           retention-days: 7
+
+      - name: Compress seed snapshot
+        run: gzip -9 -c /tmp/loquevotan-d1-seed.sql > /tmp/loquevotan-d1-seed.sql.gz
+
+      - name: Upload compressed snapshot to R2 (if configured)
+        run: |
+          set -euo pipefail
+          if [ -z "${CLOUDFLARE_API_TOKEN:-}" ] || [ -z "${CLOUDFLARE_ACCOUNT_ID:-}" ] || [ -z "${CLOUDFLARE_R2_BUCKET_DATA_SNAPSHOTS:-}" ]; then
+            echo "Skipping R2 snapshot upload because at least one secret is missing:"
+            echo "- CLOUDFLARE_API_TOKEN"
+            echo "- CLOUDFLARE_ACCOUNT_ID"
+            echo "- CLOUDFLARE_R2_BUCKET_DATA_SNAPSHOTS"
+            exit 0
+          fi
+
+          TS="$(date -u +%Y%m%dT%H%M%SZ)"
+          SHA_SHORT="$(echo "${GITHUB_SHA}" | cut -c1-12)"
+          KEY="d1-seeds/${TS}-${SHA_SHORT}.sql.gz"
+          npx wrangler r2 object put "${CLOUDFLARE_R2_BUCKET_DATA_SNAPSHOTS}/${KEY}" --file /tmp/loquevotan-d1-seed.sql.gz
+          echo "Snapshot uploaded to R2: ${CLOUDFLARE_R2_BUCKET_DATA_SNAPSHOTS}/${KEY}"
 
       - name: Apply schema and snapshot to D1 (if configured)
         run: |
