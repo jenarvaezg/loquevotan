@@ -13,7 +13,7 @@ Objetivo de este documento:
 - Deploy a Cloudflare (`deploy.yml`) en verde tras CI de `main`.
 - Worker con OG dinamico y API `/api/*` operativa (modo `d1+assets`).
 - Sync D1 (`cloudflare-data-sync.yml`) operativo en ejecuciones manuales.
-- Update semanal (`update-data.yml`) con cache local + fallback/upload de snapshots raw en R2 (pendiente cerrar validacion end-to-end en la ultima version de `main`).
+- Update semanal (`update-data.yml`) con cache local + fallback/upload de snapshots raw en R2 (cierre final en curso con run `22624545183`).
 
 ## P0 - Operacion y datos (esta semana)
 
@@ -22,14 +22,18 @@ Impacto:
 - reducir duracion del update semanal y evitar re-descargas historicas innecesarias.
 
 Tareas:
-- [ ] Lanzar `Update Voting Data` manual sobre el ultimo commit de `main` (`full_history=false`).
+- [x] Lanzar `Update Voting Data` manual sobre el ultimo commit de `main` (`full_history=false`).
 - [ ] Verificar en logs que se cumple al menos una condicion:
 - [ ] `Restore raw data cache` con `cache-hit=true`, o
 - [ ] `Restore raw snapshot from R2` restaurando `raw-snapshots/main/latest.tar.gz`.
-- [ ] Verificar paso `Upload raw snapshot to R2 (if configured)` en verde.
-- [ ] Confirmar en R2 la existencia de:
-- [ ] `raw-snapshots/main/latest.tar.gz`
-- [ ] al menos un snapshot versionado `raw-snapshots/main/<timestamp>-<sha>.tar.gz`.
+- [x] Verificar paso `Upload raw snapshot to R2 (if configured)` en verde.
+- [x] Confirmar en R2 la existencia de:
+- [x] `raw-snapshots/main/latest.tar.gz`
+- [x] al menos un snapshot versionado `raw-snapshots/main/<timestamp>-<sha>.tar.gz`.
+
+Evidencias:
+- [x] Run `22622247625` (success): upload a `raw-snapshots/main/20260303T125159Z-e12fc8877308.tar.gz` y `raw-snapshots/main/latest.tar.gz`.
+- [x] Run incremental lanzado sobre `main` actual: `22624545183` (en curso).
 
 DoD:
 - [ ] run incremental completado sin errores;
@@ -44,16 +48,20 @@ Impacto:
 - previsibilidad operativa y deteccion de regresiones de rendimiento.
 
 Tareas:
-- [ ] Definir objetivo de tiempo para run incremental:
-- [ ] `Update Voting Data` (sin full history): objetivo inicial <= 120 min.
-- [ ] `Cloudflare Data Sync` (scopes detectados): objetivo inicial <= 30 min.
+- [x] Definir objetivo de tiempo para run incremental:
+- [x] `Update Voting Data` (sin full history): objetivo inicial <= 120 min.
+- [x] `Cloudflare Data Sync` (scopes detectados): objetivo inicial <= 30 min.
 - [ ] Guardar baseline real (3 ultimos lunes) en tabla de seguimiento.
-- [ ] Alertar si una ejecucion supera 1.5x baseline.
+- [x] Alertar si una ejecucion supera 1.5x baseline.
+
+Estado:
+- [x] Documento operativo creado: `docs/ops.md` (SLO, alertas y baseline provisional).
+- [ ] Falta consolidar baseline con 3 lunes consecutivos.
 
 DoD:
-- [ ] SLO documentado en este archivo o en `docs/ops.md`;
-- [ ] baseline inicial capturado;
-- [ ] criterio de alerta definido.
+- [x] SLO documentado en este archivo o en `docs/ops.md`;
+- [x] baseline inicial capturado;
+- [x] criterio de alerta definido.
 
 ### 3) Calidad de datos Madrid (bloqueador de confianza)
 Impacto:
