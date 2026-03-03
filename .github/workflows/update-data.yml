@@ -74,7 +74,7 @@ jobs:
 
           KEY="raw-snapshots/${GITHUB_REF_NAME}/latest.tar.gz"
           TMP_FILE="/tmp/loquevotan-raw-latest.tar.gz"
-          if npx wrangler r2 object get "${CLOUDFLARE_R2_BUCKET_DATA_SNAPSHOTS}/${KEY}" --file "${TMP_FILE}"; then
+          if npx wrangler r2 object get "${CLOUDFLARE_R2_BUCKET_DATA_SNAPSHOTS}/${KEY}" --file "${TMP_FILE}" --remote; then
             tar -xzf "${TMP_FILE}" -C .
             echo "Restored raw snapshot from R2: ${KEY}"
           else
@@ -207,8 +207,8 @@ jobs:
           VERSIONED_KEY="${PREFIX}/${TS}-${SHA_SHORT}.tar.gz"
           LATEST_KEY="${PREFIX}/latest.tar.gz"
 
-          npx wrangler r2 object put "${CLOUDFLARE_R2_BUCKET_DATA_SNAPSHOTS}/${VERSIONED_KEY}" --file "${SNAP_FILE}"
-          npx wrangler r2 object put "${CLOUDFLARE_R2_BUCKET_DATA_SNAPSHOTS}/${LATEST_KEY}" --file "${SNAP_FILE}"
+          npx wrangler r2 object put "${CLOUDFLARE_R2_BUCKET_DATA_SNAPSHOTS}/${VERSIONED_KEY}" --file "${SNAP_FILE}" --remote
+          npx wrangler r2 object put "${CLOUDFLARE_R2_BUCKET_DATA_SNAPSHOTS}/${LATEST_KEY}" --file "${SNAP_FILE}" --remote
           echo "Raw snapshot uploaded to R2:"
           echo "- ${VERSIONED_KEY}"
           echo "- ${LATEST_KEY}"

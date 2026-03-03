@@ -72,7 +72,7 @@ jobs:
           TS="$(date -u +%Y%m%dT%H%M%SZ)"
           SHA_SHORT="$(echo "${GITHUB_SHA}" | cut -c1-12)"
           KEY="d1-seeds/${TS}-${SHA_SHORT}.sql.gz"
-          npx wrangler r2 object put "${CLOUDFLARE_R2_BUCKET_DATA_SNAPSHOTS}/${KEY}" --file /tmp/loquevotan-d1-seed.sql.gz
+          npx wrangler r2 object put "${CLOUDFLARE_R2_BUCKET_DATA_SNAPSHOTS}/${KEY}" --file /tmp/loquevotan-d1-seed.sql.gz --remote
           echo "Snapshot uploaded to R2: ${CLOUDFLARE_R2_BUCKET_DATA_SNAPSHOTS}/${KEY}"
 
       - name: Apply schema and snapshot to D1 (if configured)
