@@ -76,6 +76,14 @@ Comando local para generar seed:
 npm run cf:d1:seed
 ```
 
+Seed incremental por ámbito:
+
+```bash
+node scripts/cloudflare/build_d1_seed.mjs --out /tmp/loquevotan-d1-seed.sql --scopes nacional,cyl
+```
+
+En GitHub Actions (`Cloudflare Data Sync`) puedes lanzar manualmente con input `scopes` para sincronizar solo ámbitos concretos.
+
 ## Deploy
 
 1. Build frontend:

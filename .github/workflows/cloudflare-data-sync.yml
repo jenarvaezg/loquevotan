@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: "30 8 * * 1" # Every Monday at 08:30 UTC
   workflow_dispatch:
+    inputs:
+      scopes:
+        description: "Ámbitos a sincronizar (coma separada). Ej: nacional,cyl,andalucia"
+        required: false
+        type: string
 
 permissions:
   contents: read
@@ -20,6 +25,7 @@ jobs:
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
       CLOUDFLARE_D1_DATABASE_NAME: ${{ secrets.CLOUDFLARE_D1_DATABASE_NAME }}
       CLOUDFLARE_R2_BUCKET_DATA_SNAPSHOTS: ${{ secrets.CLOUDFLARE_R2_BUCKET_DATA_SNAPSHOTS }}
+      SYNC_SCOPES: ${{ github.event.inputs.scopes || '' }}
 
     steps:
       - uses: actions/checkout@v4
@@ -32,7 +38,15 @@ jobs:
       - run: npm ci
 
       - name: Build D1 seed SQL snapshot
-        run: node scripts/cloudflare/build_d1_seed.mjs --out /tmp/loquevotan-d1-seed.sql
+        run: |
+          set -euo pipefail
+          if [ -n "${SYNC_SCOPES:-}" ]; then
+            echo "Building scoped D1 seed for: ${SYNC_SCOPES}"
+            node scripts/cloudflare/build_d1_seed.mjs --out /tmp/loquevotan-d1-seed.sql --scopes "${SYNC_SCOPES}"
+          else
+            echo "Building full D1 seed"
+            node scripts/cloudflare/build_d1_seed.mjs --out /tmp/loquevotan-d1-seed.sql
+          fi
 
       - name: Upload seed artifact
         uses: actions/upload-artifact@v4
