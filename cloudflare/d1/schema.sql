@@ -1,5 +1,10 @@
 PRAGMA foreign_keys = OFF;
 
+DROP TABLE IF EXISTS scope_meta;
+DROP TABLE IF EXISTS groups;
+DROP TABLE IF EXISTS votaciones;
+DROP TABLE IF EXISTS diputados;
+
 CREATE TABLE IF NOT EXISTS scope_meta (
   scope_id TEXT PRIMARY KEY,
   scope_name TEXT NOT NULL,
@@ -64,8 +69,7 @@ CREATE TABLE IF NOT EXISTS diputados (
   foto_json TEXT,
   provincia TEXT,
   ingested_at TEXT NOT NULL DEFAULT (datetime('now')),
-  PRIMARY KEY (scope_id, dip_idx),
-  UNIQUE (scope_id, nombre)
+  PRIMARY KEY (scope_id, dip_idx)
 );
 
 CREATE INDEX IF NOT EXISTS idx_diputados_scope_nombre_search

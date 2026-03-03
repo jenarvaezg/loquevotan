@@ -52,7 +52,7 @@ async function appendInsert(outFile, table, columns, rows, batchSize = D1_SQL_BA
   for (let i = 0; i < rows.length; i += batchSize) {
     const batch = rows.slice(i, i + batchSize);
     const valuesSql = batch.map((row) => `(${row.join(", ")})`).join(",\n");
-    const sql = `INSERT INTO ${table} (${columns.join(", ")}) VALUES\n${valuesSql};\n`;
+    const sql = `INSERT OR REPLACE INTO ${table} (${columns.join(", ")}) VALUES\n${valuesSql};\n`;
     await fs.appendFile(outFile, sql, "utf8");
   }
 }
