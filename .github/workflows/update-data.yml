@@ -130,6 +130,22 @@ jobs:
             python scripts/madrid/run_update.py --active-only
           fi
 
+      - name: Generate Madrid QA report
+        run: |
+          node scripts/qa/report_madrid_quality.mjs \
+            --markdown-out artifacts/madrid-quality.md \
+            --json-out artifacts/madrid-quality.json
+
+      - name: Upload Madrid QA artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: madrid-quality-report-${{ github.run_id }}
+          path: |
+            artifacts/madrid-quality.md
+            artifacts/madrid-quality.json
+          if-no-files-found: error
+
       - name: Build global index
         run: |
           if [ -f scripts/build_global_index.py ]; then

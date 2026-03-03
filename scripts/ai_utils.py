@@ -276,29 +276,39 @@ def _categorize_batch_sdk(texts_with_ids, api_key, prompt_text):
 
 def _categorize_batch_cli(texts_with_ids, prompt_text):
     print(f"  Usando gemini CLI (OAuth local) para {len(texts_with_ids)} textos...")
+    cli_model = os.environ.get("GEMINI_CLI_MODEL", "gemini-2.5-flash")
+    cli_extensions = os.environ.get("GEMINI_CLI_EXTENSIONS", "conductor")
     batch_content = "\n---\n".join([f"ID: {tid}\nTEXTO: {text}" for tid, text in texts_with_ids])
     
     cli_instruction = "\nResponde EXCLUSIVAMENTE con el objeto JSON solicitado, empezando por { y terminando por }. No incluyas explicaciones ni bloques de código markdown."
     full_prompt = f"{prompt_text}\n\nProcesa estos asuntos parlamentarios y devuelve un objeto JSON con la clave 'resultados' que sea un array de objetos con: id, titulo_ciudadano, categoria_principal, etiquetas (array), resumen_sencillo, proponente:\n\n{batch_content}{cli_instruction}"
     
     try:
-        # Simple call without extra flags that trigger "thinking"
+        command = ["gemini", "-y", "-m", cli_model]
+        if cli_extensions:
+            command.extend(["-e", cli_extensions])
+        command.extend(["-p", full_prompt])
         process = subprocess.Popen(
-            ["gemini", "-y", "-m", "gemini-3-flash-preview", "-p", "Sigue las instrucciones enviadas por stdin para procesar los datos."],
-            stdin=subprocess.PIPE,
+            command,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             text=True
         )
-        stdout, stderr = process.communicate(input=full_prompt)
-        
+        try:
+            stdout, stderr = process.communicate(timeout=120)
+        except subprocess.TimeoutExpired:
+            process.kill()
+            stdout, stderr = process.communicate()
+            print("CLI AI Error: timeout (>120s) en gemini-cli; se aborta el lote.", file=sys.stderr)
+            return {}
+
         if process.returncode != 0:
             print(f"CLI AI Error (Code {process.returncode}): {stderr}", file=sys.stderr)
             return {}
-        
+
         if not stdout.strip():
             print(f"CLI AI Warning: Empty stdout. Stderr: {stderr}", file=sys.stderr)
-            
+
         return _parse_response_json(stdout, texts_with_ids)
     except Exception as e:
         print(f"CLI Execution Error: {e}", file=sys.stderr)
@@ -306,26 +316,59 @@ def _categorize_batch_cli(texts_with_ids, prompt_text):
 
 def _parse_response_json(raw_text, texts_with_ids):
     try:
-        # Clean markdown if present
-        clean_json = re.sub(r"```json\n?|\n?```", "", raw_text).strip()
-        # Sometimes the CLI might output some ANSI or extra text, try to find the { ... }
-        json_match = re.search(r'(\{.*\})', clean_json, re.DOTALL)
-        if json_match:
-            clean_json = json_match.group(1)
-            
-        data = json.loads(clean_json)
+        clean_text = re.sub(r"```json\n?|\n?```", "", raw_text or "").strip()
+
+        data = None
+        if clean_text:
+            try:
+                parsed = json.loads(clean_text)
+                if isinstance(parsed, dict) and "resultados" in parsed:
+                    data = parsed
+            except Exception:
+                data = None
+
+        if data is None:
+            decoder = json.JSONDecoder()
+            for idx, ch in enumerate(clean_text):
+                if ch != "{":
+                    continue
+                try:
+                    candidate, _ = decoder.raw_decode(clean_text[idx:])
+                except Exception:
+                    continue
+                if isinstance(candidate, dict) and "resultados" in candidate:
+                    data = candidate
+                    break
+
+        if data is None:
+            raise ValueError("No se pudo extraer un objeto JSON con 'resultados'")
+
         expected_ids = {tid for tid, _ in texts_with_ids}
         result_map = {}
         for item in data.get("resultados", []):
             if not isinstance(item, dict):
                 continue
             tid = item.get("id")
+            if tid is not None:
+                tid = str(tid).strip()
             if not tid or tid not in expected_ids:
                 continue
             payload = {k: v for k, v in item.items() if k != "id"}
             result_map[tid] = _validate_categorization(payload)
 
+        if not result_map and isinstance(data.get("resultados"), list):
+            returned_ids = []
+            for item in data.get("resultados", []):
+                if isinstance(item, dict) and "id" in item:
+                    returned_ids.append(str(item.get("id")).strip())
+            print(
+                "JSON Parsed but 0 IDs matched. "
+                f"Returned IDs sample={returned_ids[:5]} Expected sample={list(expected_ids)[:5]}",
+                file=sys.stderr,
+            )
+
         return result_map
     except Exception as e:
-        print(f"JSON Parsing Error: {e}", file=sys.stderr)
+        snippet = (raw_text or "").replace("\n", "\\n")[:400]
+        print(f"JSON Parsing Error: {e}. Snippet: {snippet}", file=sys.stderr)
         return {}

@@ -85,12 +85,10 @@
     "proponente": "Desconocido"
   },
   "Votación desconocida": {
-    "titulo_ciudadano": "Votación sobre un asunto parlamentario no especificado",
+    "titulo_ciudadano": "Decisión sobre votación desconocida",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa apoyar el punto que se está sometiendo a votación en este momento de la sesión.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor significa apoyar el procedimiento de una votación no especificada.",
     "proponente": "Desconocido"
   },
   "Texto del proyecto de ley": {
@@ -405,12 +403,10 @@
     "proponente": "Desconocido"
   },
   "Proposición No de Ley 165/25": {
-    "titulo_ciudadano": "Tramitar una propuesta no de ley en el pleno de la Asamblea",
-    "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa permitir que se debata y vote esta iniciativa parlamentaria sin contenido temático especificado.",
+    "titulo_ciudadano": "Proposición No de Ley 165/25",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica apoyar el contenido de la Proposición No de Ley.",
     "proponente": "Desconocido"
   },
   "Proposición No de Ley 400/25: la Asamblea de Madrid insta al Gobierno de la Comunidad de Madrid a: 1Incrementar de forma significativa la financiación destinada a los servicios sociales en los próximos presupuestos de la Comunidad de Madrid, hasta alcanzar al menos la media estatal de gasto por habitante. 2- Elaborar un estudio, con participación de las entidades locales, que establezca un mapa de necesidades y sirva para reforzar la atención primaria promoviendo la desinstitucionalización. 3- Devolver las competencias y encomiendas de gestión en materia de dependencia a todos los Ayuntamientos de la Comunidad de Madrid asegurando la financiación integral de las mismas, para garantizar una atención más cercana, eficaz y coordinada": {
@@ -513,12 +509,10 @@
     "proponente": "Vox"
   },
   "Proposición de Ley 15/24": {
-    "titulo_ciudadano": "Tramitar una reforma legal a través de una proposición de ley",
+    "titulo_ciudadano": "Proposición de Ley 15/2024",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa apoyar que se inicie el proceso para cambiar una ley vigente en la Comunidad de Madrid.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica apoyar la tramitación de esta propuesta legislativa.",
     "proponente": "Desconocido"
   },
   "Moción 9/25: la Asamblea de Madrid insta al Gobierno de la Comunidad de Madrid a: 1": {
@@ -1111,13 +1105,11 @@
     "titulo_ciudadano": "Votación de trámite durante la sesión"
   },
   "enmienda número 3": {
+    "titulo_ciudadano": "Análisis de la Enmienda Número 3",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa apoyar la modificación específica propuesta en la enmienda número tres.",
-    "proponente": "Desconocido",
-    "titulo_ciudadano": "Votación de la enmienda número tres"
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor significa apoyar la modificación propuesta por la enmienda.",
+    "proponente": "Desconocido"
   },
   "Proposición No de Ley 73/25: Que, en el ámbito de sus competencias, disponga lo siguiente: 1. Priorizar de forma absoluta a los ciudadanos españoles y residentes legales en el acceso a los servicios públicos de salud de nuestra región, estableciendo protocolos que garanticen que los madrileños no sean perjudicados por la demanda de recursos de la inmigración ilegal. 2. Limitar estrictamente el acceso de inmigrantes en situación ilegal a los servicios sanitarios de la Comunidad de Madrid, garantizando únicamente las ayudas humanitarias de riesgo vital, hasta la devolución a sus países de origen, en cumplimiento de las obligaciones internacionales. 3. Crear un registro detallado y transparente de la atención sanitaria prestada a inmigrantes ilegales, que incluya datos precisos sobre el coste de los servicios, tipo de atención recibida y periodicidad, con el objetivo de informar a la ciudadanía y evaluar la presión sobre los recursos sanit": {
     "categoria_principal": "Sanidad",
@@ -1139,13 +1131,13 @@
     "titulo_ciudadano": "Modificación del orden del día de la sesión"
   },
   "enmiendas 14, 16 y 29": {
+    "titulo_ciudadano": "Votación de enmiendas 14, 16 y 29",
     "categoria_principal": "Otros",
     "etiquetas": [
       "procedimiento_parlamentario"
     ],
-    "resumen_sencillo": "Votar a favor significa aprobar este bloque de tres modificaciones al texto legislativo.",
-    "proponente": "Desconocido",
-    "titulo_ciudadano": "Votación conjunta de las enmiendas 14, 16 y 29"
+    "resumen_sencillo": "Votar a favor implica aprobar las enmiendas parlamentarias número 14, 16 y 29.",
+    "proponente": "Desconocido"
   },
   "Proposición No de Ley 478/24: Elaborar una guía metodológica que oriente a las autoridades locales y otras organizaciones interesadas en el diseño y la implantación de redes de refugios climáticos. 2. Condicionar una partida presupuestaria suficiente para dotar a las autoridades locales y otras organizaciones en el desarrollo e implantación de dichas redes de refugios climáticos. 3. Impulsar la creación de refugios climáticos primando no solo a los proyectos que sirvan de adaptación al cambio climático sino también a aquellos que mitiguen dicho cambio en el ámbito urbano y periurbano, para así mejorar la salud pública, el desarrollo económico y el fomento del empleo en la Comunidad de Madrid. 4. Estudiar, en colaboración con los Ayuntamientos, la creación de un mapa de refugios climáticos en nuestra región con el objetivo de preservar la salud de las personas de los efectos de las temperaturas extremas": {
     "categoria_principal": "Medio_Ambiente",
@@ -1169,13 +1161,11 @@
     "titulo_ciudadano": "Evaluar y mejorar las condiciones laborales de los maquinistas de Metro"
   },
   "enmienda número 11": {
+    "titulo_ciudadano": "Enmienda número 11",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa apoyar la propuesta de cambio número once al documento en debate.",
-    "proponente": "Desconocido",
-    "titulo_ciudadano": "Votación de la enmienda número once"
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor significa apoyar la propuesta de modificación número 11.",
+    "proponente": "Desconocido"
   },
   "PNL 427/25: ¿Qué planes tiene el Gobierno de la Comunidad de Madrid con el inicio del nuevo periodo de sesiones para mejorar las oportunidades de los jóvenes de la región? La primera la formula la señora Pérez Moñino-Aranda, del Grupo Parlamentario Vox en Madrid. La Sra. PÉREZ MOÑINO-ARANDA (Desde los escaños.): Gracias, presidente. Buenos días, presidenta. Hoy le preguntamos qué planes tiene el Gobierno de la Comunidad de Madrid para apoyar el futuro de los jóvenes de nuestra región. Se lo pregunto, pero ya le advierto que los jóvenes, más que planes, lo que quieren son llaves. Y, hablando de planes, también les gustaría que usted dejara de eludir una pregunta que yo le he formulado en numerosas ocasiones aquí y es que, si no hay vivienda para ellos, ¿dónde piensa usted meter a las miles y miles de personas que están llegando a Madrid porque usted las está llamando?, ¿qué planes tiene? Hay una realidad sin duda inquietante en Madrid y es que ya no solo está colapsado el mercado de la vivienda, la": {
     "categoria_principal": "Derechos_Sociales",
@@ -1188,13 +1178,11 @@
     "titulo_ciudadano": "Exigir planes de vivienda y empleo para los jóvenes madrileños"
   },
   "enmienda número 18": {
+    "titulo_ciudadano": "Votación de la enmienda 18",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa respaldar la modificación número dieciocho propuesta al texto legal.",
-    "proponente": "Desconocido",
-    "titulo_ciudadano": "Votación de la enmienda número dieciocho"
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar la enmienda número 18.",
+    "proponente": "Desconocido"
   },
   "Proposición No de Ley 230/25: Manifestar el firme compromiso del Gobierno de la Comunidad de Madrid con los derechos sindicales de los trabajadores y las trabajadoras de la región y su apoyo a la labor de los sindicatos. 2. Impulsar, a través del Consejo para el Diálogo Social de la Comunidad de Madrid, un plan de conservación y recuperación de la memoria sindical de nuestra región. 3. Impulsar, en el seno del Consejo para el Diálogo Social de la Comunidad de Madrid, un grupo de trabajo para abordar el fomento de la afiliación sindical de trabajadores y trabajadoras en sectores profesionales estratégicos. 4. Elaborar un informe sobre el impacto que la tasa de sindicalización de cada sector profesional tiene sobre las condiciones laborales de los trabajadores y trabajadoras. 5. Incluir en todos los pliegos de cláusulas administrativas particulares de la compra pública madrileña, una cláusula que indique que no podrán optar, quedando excluidas de": {
     "categoria_principal": "Trabajo_y_Pensiones",
@@ -1217,13 +1205,11 @@
     "titulo_ciudadano": "Validar el acuerdo de colaboración del Consorcio Regional de Transportes"
   },
   "s enmiendas números 1, 3, 5": {
+    "titulo_ciudadano": "Enmiendas parlamentarias específicas",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aprobar conjuntamente estas tres propuestas de cambio al texto original.",
-    "proponente": "Desconocido",
-    "titulo_ciudadano": "Votación en bloque de las enmiendas 1, 3 y 5"
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar las enmiendas números 1, 3 y 5 a la propuesta.",
+    "proponente": "Desconocido"
   },
   "Votación 228/25: Establecer un marco protector para las familias monoparentales que permita equiparar sus derechos a los de las familias numerosas de la Comunidad de Madrid desde el primer hijo o hija. En esta ocasión, tiene la palabra la señora Arce García para la defensa de la iniciativa por un tiempo de siete minutos. La Sra. ARCE GARCÍA: Gracias, presidente. Buenas tardes, señorías. Presentamos hoy una iniciativa que no debería ser necesaria si este Gobierno tuviera la decencia de legislar para todas las familias y no solo para las que encajan en su modelo ideológico. Desde Más Madrid pedimos algo tan básico, tan justo, tan urgente... (Rumores). El Sr. PRESIDENTE: Silencio, señorías, por favor. La Sra. ARCE GARCÍA: ... como que las familias monomarentales tengan los mismos derechos que las familias numerosas, nada más y nada menos que sean reconocidas, protegidas y visibilizadas, porque ahora mismo en el Madrid Ayuso no lo están y": {
     "categoria_principal": "Derechos_Sociales",
@@ -1288,22 +1274,18 @@
     "titulo_ciudadano": "Atender en Madrid a niños heridos de Gaza y ayudar a refugiados"
   },
   "s enmiendas números 61 y 62 del Grupo Parlamentario Popular, de adición, al": {
+    "titulo_ciudadano": "Votación de enmiendas 61 y 62 del Grupo Popular",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa añadir los dos nuevos puntos propuestos por el Partido Popular al texto legal.",
-    "proponente": "PP",
-    "titulo_ciudadano": "Votación de las enmiendas de adición 61 y 62 del PP"
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar las enmiendas de adición número 61 y 62 presentadas por el Grupo Parlamentario Popular.",
+    "proponente": "PP"
   },
   "en Comisión. Imagino que seguimos estando los mismos miembros en la": {
+    "titulo_ciudadano": "Consideración en Comisión",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa ratificar a los miembros actuales de la comisión que está debatiendo el asunto.",
-    "proponente": "Desconocido",
-    "titulo_ciudadano": "Votación sobre la composición de una comisión parlamentaria"
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica mantener la configuración actual de la comisión.",
+    "proponente": "Desconocido"
   },
   "Proposición de Ley\n3/25: Desarrollar un marco normativo que garantice a la adaptación de los campamentos a las necesidades específicas de la infancia, asegurando la inclusión de monitores especializados y de los recursos sociosanitarios que sean necesarios para dar cobertura a los niños y niñas con discapacidad o con necesidades especiales y que aseguren la accesibilidad universal de los centros dónde se realicen. 2. Establecer una línea de subvención para los municipios que sea suficiente con el objetivo de asegurar la gratuidad de los campamentos, que permita incrementar el número de plazas existentes en la actualidad y que garantice la plena inclusión de los niños y niñas con discapacidad, dando así respuesta a las necesidades de la infancia y las familias. Tiene la palabra la señora Huerta Bravo, por un tiempo de siete minutos. A esto se llama llegar y besar el santo. (Risas.) (Aplausos). La Sra. HUERTA BRAVO: Muchas gracias, president": {
     "categoria_principal": "Derechos_Sociales",
@@ -1349,22 +1331,20 @@
     "titulo_ciudadano": "Eliminar las Zonas de Bajas Emisiones y las nuevas tasas de residuos"
   },
   "enmiendas 6 y 7": {
+    "titulo_ciudadano": "Votación de enmiendas 6 y 7",
     "categoria_principal": "Otros",
     "etiquetas": [
       "procedimiento_parlamentario"
     ],
-    "resumen_sencillo": "Votar a favor significa aprobar dos modificaciones técnicas propuestas al documento legislativo.",
-    "proponente": "Desconocido",
-    "titulo_ciudadano": "Votación de las enmiendas número seis y siete"
+    "resumen_sencillo": "Aprobar las enmiendas número 6 y 7 al texto legislativo.",
+    "proponente": "Desconocido"
   },
   "Proposición No de Ley 14/25": {
-    "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa respaldar la propuesta de resolución identificada con este número de expediente.",
-    "proponente": "Desconocido",
-    "titulo_ciudadano": "Votación de la iniciativa parlamentaria número 14 del año 2025"
+    "titulo_ciudadano": "Proposición No de Ley 14/25",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica apoyar el contenido de la Proposición No de Ley.",
+    "proponente": "Desconocido"
   },
   "Proposición No de Ley 177/25: La verdad y que el olvido se imponga sobre el derecho a la memoria. Y, por mucho que quieran ocultarlo, la Real Casa de Correos fue la sede de la Dirección General de Seguridad durante la dictadura franquista, símbolo de represión donde miles de personas fueron detenidas, torturadas e interrogadas por motivos ideológicos y políticos, fue símbolo de terror institucional durante 40 años y reconocerlo es ser demócratas, es hacer justicia, es reconocer a las víctimas, es aprender historia para que no se vuelva a repetir. Y, señorías, la memoria, la justicia, la verdad y la reparación que ustedes han reivindicado también hoy en este pleno son valores democráticos fundamentales y no pueden borrarse ni reinterpretarse según la coyuntura política o los caprichos de la presidenta y el Partido Popular no puede pretender borrar nuestra historia; han pasado ustedes de la equidistancia a la complicidad, y eso es inaceptable en términos democráticos. Ahora bien, la defensa del recurso y de la Ley de": {
     "categoria_principal": "Cultura",
@@ -1377,13 +1357,11 @@
     "titulo_ciudadano": "Reconocer la Real Casa de Correos como lugar de memoria contra la represión"
   },
   "enmienda transaccional número 2. (Pausa)": {
+    "titulo_ciudadano": "Votación enmienda transaccional 2",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aprobar una modificación del texto que ha sido acordada entre varios grupos políticos.",
-    "proponente": "Varios grupos",
-    "titulo_ciudadano": "Votación de la enmienda pactada número dos"
+    "etiquetas": [],
+    "resumen_sencillo": "Implica la aprobación de una enmienda acordada entre diferentes grupos parlamentarios.",
+    "proponente": "Desconocido"
   },
   "enmienda\nA114": {
     "categoria_principal": "Otros",
@@ -1404,13 +1382,11 @@
     "titulo_ciudadano": "Votación de la enmienda número diez"
   },
   "enmienda número 15": {
+    "titulo_ciudadano": "Votación de la enmienda 15",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa respaldar el cambio número quince planteado en el debate legislativo.",
-    "proponente": "Desconocido",
-    "titulo_ciudadano": "Votación de la enmienda número quince"
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar la enmienda número 15.",
+    "proponente": "Desconocido"
   },
   "Proposición No de Ley 127/25: ¿Cómo va a repercutir en la movilidad de los municipios del sur y del sureste las obras actuales de la A5? Recibido escrito del Gobierno comunicando que, por razones de agenda, el Sr. Consejero de Vivienda, Transportes e Infraestructuras no podrá asistir a la presente sesión plenaria y solicitando la posposición de la pregunta para la siguiente sesión. (RGEP.9063/2025). 8.- PCOP-1823/2025 RGEP.8681. Pregunta de Respuesta Oral en Pleno del diputado Sr. Martín Galán, del Grupo Parlamentario Popular al Gobierno, con el siguiente objeto: ¿Qué novedades ofrece el calendario vacunal de la Comunidad de Madrid en 2025? 9.- PCOP-4599/2024 RGEP.19530. Pregunta de Respuesta Oral en Pleno del diputado Sr. Padilla Estrada, del Grupo Parlamentario Más Madrid al Gobierno, con el siguiente objeto: ¿Cómo valora la promoción de las energías renovables por parte de su Gobierno? Recibido escrito de la Sra. Portavoz del Grupo Parlamentario Más Madrid comunicando que la pregunta será formulada por la Sra. S": {
     "categoria_principal": "Infraestructuras",
@@ -1445,22 +1421,18 @@
     "proponente": "Desconocido"
   },
   "Proposición de Ley 5/2025": {
+    "titulo_ciudadano": "Proposición de Ley 5/2025",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa apoyar la creación o reforma legal contenida en esta iniciativa legislativa.",
-    "proponente": "Desconocido",
-    "titulo_ciudadano": "Votación del proyecto de ley número cinco del año 2025"
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica apoyar la tramitación de esta propuesta legislativa.",
+    "proponente": "Desconocido"
   },
   "número 3 de Más Madrid. Se inicia la votación. (Pausa.) El": {
+    "titulo_ciudadano": "Votación propuesta número 3 de Más Madrid",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa respaldar la tercera medida planteada por el grupo Más Madrid en esta tanda de votaciones.",
-    "proponente": "Más Madrid",
-    "titulo_ciudadano": "Votación de la tercera propuesta del grupo Más Madrid"
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor significa aprobar la propuesta número 3 del Grupo Más Madrid.",
+    "proponente": "Mas_Madrid"
   },
   "Votación 432/25: Establecer un límite máximo legal del 3 % del precio final de transmisión en concepto de honorarios o comisiones inmobiliarias en las operaciones de compraventa de vivienda habitual. Dichos honorarios sólo podrán ser exigidos al vendedor que haya contratado expresamente los servicios mediante acuerdo escrito y, en ningún caso, podrán repercutirse al comprador en el precio final, salvo cuando éste tenga la condición de gran tenedor. 2. Fijar un tipo fijo del 8 % del precio final de transmisión en concepto de honorarios o comisiones inmobiliarias cuando el comprador tenga la condición de gran tenedor. En estos casos, los honorarios podrán exigirse al comprador, siempre que haya contratado expresamente dichos servicios por escrito. Se establece como excepción las compraventas de viviendas, que adquieran la condición de protección permanente, para las cuales se aplicará un límite máximo del 3 %. 3. Establece": {
     "categoria_principal": "Vivienda",
@@ -1493,13 +1465,11 @@
     "titulo_ciudadano": "Votación de la enmienda número cuatro"
   },
   "enmienda número\n39": {
+    "titulo_ciudadano": "Votación de la enmienda 39",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa apoyar la modificación número treinta y nueve planteada por un grupo político.",
-    "proponente": "Desconocido",
-    "titulo_ciudadano": "Votación de la enmienda número treinta y nueve"
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar la enmienda número 39.",
+    "proponente": "Desconocido"
   },
   "Proposición de Ley 2/2025: Desistir de forma inmediata del proyecto anunciado de construcción de 40 residencias de colaboración público-privada. 2. Iniciar los trámites oportunos para la constitución de una comisión técnica formada por representantes del Gobierno de la Comunidad de Madrid y de los diferentes municipios de la Comunidad de Madrid, así como las asociaciones de familiares y los diferentes sindicatos con el fin de estudiar la necesidad de establecer zonificación adecuada de los nuevos recursos residenciales y centros de día. Publicación BOAM núm. 99, 27-03-25. 21292": {
     "categoria_principal": "Derechos_Sociales",
@@ -1523,13 +1493,11 @@
     "titulo_ciudadano": "Proteger la libertad de enseñanza y la creación de centros educativos"
   },
   "enmienda transaccionada número 3 del Grupo Parlamentario Popular, de": {
+    "titulo_ciudadano": "Votación de enmienda transaccionada del PP",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aprobar el cambio en el texto negociado y presentado finalmente por el PP.",
-    "proponente": "PP",
-    "titulo_ciudadano": "Votación de la enmienda pactada número tres del PP"
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar la enmienda transaccionada propuesta por el PP.",
+    "proponente": "PP"
   },
   "Proyecto de Ley 1/2025: Sucesiones y donaciones y simplificar los requisitos de acceso a los beneficios fiscales en el impuesto sobre donaciones. Recibido escrito del Grupo Parlamentario Vox en Madrid de presentación de enmiendas (RGEP.12836/2025). Recibido escrito del Grupo Parlamentario Socialista de presentación de enmiendas (RGEP.13216/2025). Recibido escrito del Grupo Parlamentario Más Madrid de presentación de enmiendas (RGEP.13220/2025). En primer lugar, procede que un miembro del Gobierno presente el Proyecto de Ley 1/2025, así que tiene la palabra la señora consejera de Economía, Hacienda y Empleo por tiempo de quince minutos. La Sra. CONSEJERA DE ECONOMÍA, HACIENDA Y EMPLEO (Albert López-Ibor): Señor presidente, señorías, me complace presentarles hoy este proyecto de ley que el Consejo de Gobierno aprobó el pasado 4 de mayo y que responde al cumplimiento del compromiso tanto del programa electoral al que los madrileños dieron su apoyo mayoritario como al programa de gobierno con el que la presidenta": {
     "categoria_principal": "Economia_y_Hacienda",
@@ -1542,22 +1510,18 @@
     "titulo_ciudadano": "Bajar y simplificar los impuestos de Sucesiones y Donaciones"
   },
   "enmienda número 6": {
+    "titulo_ciudadano": "Enmienda propuesta",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa apoyar la sexta modificación propuesta al documento en trámite.",
-    "proponente": "Desconocido",
-    "titulo_ciudadano": "Votación de la enmienda número seis"
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica apoyar la modificación propuesta.",
+    "proponente": "Desconocido"
   },
   "Proposición No de Ley 96/25": {
-    "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa respaldar la propuesta de resolución registrada con este número oficial.",
-    "proponente": "Desconocido",
-    "titulo_ciudadano": "Iniciativa parlamentaria número 96 del año 2025"
+    "titulo_ciudadano": "Proposición No de Ley 96/25",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica apoyar el contenido de la Proposición No de Ley.",
+    "proponente": "Desconocido"
   },
   "Votación 517/25: La Asamblea de Madrid insta al Consejo de Gobierno de la Comunidad de Madrid, para que a su vez inste al Gobierno de la Nación, a lo siguiente: 1. Que el Ministerio del Interior incorpore en los balances de criminalidad el lugar de origen de los infractores que delinquen en la Comunidad de Madrid, a fin de garantizar transparencia, equidad informativa entre territorios y una mejor capacidad de análisis y respuesta ante los desafíos actuales en materia de seguridad, siguiendo el modelo aplicado por los Mossos d'Esquadra y la Ertzaintza. 2. Que el Ministerio del Interior publique estos datos de manera periódica, transparente y homogénea, permitiendo su comparación interterritorial y facilitando la elaboración de diagnósticos y estrategias de seguridad basadas en evidencias. 3. Que el Ministerio del Interior dote a la Comunidad de Madrid de acceso pleno y detallado a esta información, para que pueda desarrollar políticas públicas adecuadas a la realidad criminal de la región. Para la defe": {
     "categoria_principal": "Interior_y_Seguridad",
@@ -1570,48 +1534,40 @@
     "titulo_ciudadano": "Publicar el origen nacional de los delincuentes en las estadísticas oficiales"
   },
   "en bloque las enmiendas números 30, 35, 37, 38, 40, 41 y 55 del": {
+    "titulo_ciudadano": "Votación en bloque de enmiendas",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aceptar simultáneamente este grupo de cambios propuestos al texto final.",
-    "proponente": "Desconocido",
-    "titulo_ciudadano": "Votar en conjunto un bloque de siete enmiendas"
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar conjuntamente las enmiendas listadas.",
+    "proponente": "Desconocido"
   },
   "votación": {
-    "titulo_ciudadano": "Votación de trámite parlamentario",
+    "titulo_ciudadano": "Votación de Trámite Parlamentario",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa apoyar la resolución del punto que se está debatiendo en la sesión.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor significa apoyar el procedimiento de votación.",
     "proponente": "Desconocido"
   },
   "en bloque las enmiendas que acabo de enumerar. (Pausa)": {
-    "titulo_ciudadano": "Votación conjunta de un grupo de enmiendas",
+    "titulo_ciudadano": "Votación en bloque de enmiendas",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aprobar simultáneamente todas las modificaciones que han sido mencionadas por la presidencia.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar conjuntamente las enmiendas que se acaban de enumerar.",
     "proponente": "Desconocido"
   },
   "enmienda número 35": {
-    "titulo_ciudadano": "Votación de la enmienda número treinta y cinco",
+    "titulo_ciudadano": "Votación de la enmienda 35",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aprobar el cambio número 35 propuesto al texto original.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar la enmienda número 35.",
     "proponente": "Desconocido"
   },
   "Dictamen de la Comisión": {
-    "titulo_ciudadano": "Aprobación del informe final de la comisión sobre un proyecto",
+    "titulo_ciudadano": "Aprobación de informe de Comisión",
     "categoria_principal": "Otros",
     "etiquetas": [
       "procedimiento_parlamentario"
     ],
-    "resumen_sencillo": "Votar a favor significa validar el texto técnico que ha preparado la comisión parlamentaria para su aprobación definitiva.",
+    "resumen_sencillo": "Votar a favor implica respaldar el informe presentado por la comisión.",
     "proponente": "Desconocido"
   },
   "enmienda número A12,: El Proyecto de Ley PL-6/2024 RGEP.26800, de Presupuestos Generales de la Comunidad de Madrid para el año 2025. Se han recibido escritos de reserva de enmiendas por parte del Grupo Parlamentario Vox, el Grupo Parlamentario Socialista y el Grupo Parlamentario Más Madrid. Al amparo del 164 del Reglamento y de acuerdo con la Junta de Portavoces, el dictamen se debatirá y votará con las siguientes especialidades: el debate se desarrollará diferenciando, primero, texto articulado; segundo, las secciones del estado de gastos, agrupándose por acuerdo de los grupos parlamentarios, las 1, 2 y 3 y las 25, 26 y 30; en tercer lugar será el estado de ingresos y, por último, la exposición de motivos. Respecto a los turnos de intervención, se establece, para el articulado, para las secciones de gastos, para el estado de ingresos y para la exposición de motivos, un turno a favor de las enmiendas, un turno en contra y un turno para fijar posición -yo les preguntaré a sus señorías el turno en el que dese": {
@@ -1625,30 +1581,24 @@
     "proponente": "Gobierno"
   },
   "enmienda número 60": {
-    "titulo_ciudadano": "Votación de la enmienda número sesenta",
+    "titulo_ciudadano": "Votación de la enmienda 60",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa respaldar la modificación número sesenta al texto legislativo.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar la enmienda número 60.",
     "proponente": "Desconocido"
   },
   "enmienda número 57": {
-    "titulo_ciudadano": "Votación de la enmienda número cincuenta y siete",
+    "titulo_ciudadano": "Votación enmienda 57",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa apoyar el cambio número cincuenta y siete planteado en el debate.",
+    "etiquetas": [],
+    "resumen_sencillo": "Implica apoyar la tramitación de la enmienda número 57.",
     "proponente": "Desconocido"
   },
   "esta proposición no de ley. (Pausa)": {
-    "titulo_ciudadano": "Votación final de la proposición no de ley",
+    "titulo_ciudadano": "Votación proposición no de ley",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aprobar la resolución política que se ha estado debatiendo.",
+    "etiquetas": [],
+    "resumen_sencillo": "Implica apoyar una declaración o recomendación parlamentaria sin carácter de ley.",
     "proponente": "Desconocido"
   },
   "Proposición No de Ley 9/25: Abrir un nuevo proceso de contratación pública para la gestión del servicio de Ayuda a Domicilio dirigido a las personas en situación de dependencia en las Áreas norte, sur, este y oeste de la Comunidad de Madrid, con arreglo a lo establecido en el artículo 45, apartado e) de la Ley 11/2003, de 27 de marzo, de Servicios Sociales de la Comunidad de Madrid, y demás normativa vigente, en especial la Ley 39/2006, de 13 de diciembre, de Promoción de la Autonomía Personal y Atención a las Personas en situación de Dependencia, así como el Decreto 54/2015, de 21 de mayo, por el que se regula el procedimiento para reconocer la situación de dependencia y el derecho a las prestaciones del sistema para la autonomía y atención a la dependencia en la Comunidad de Madrid o en las disposiciones que le sustituyan": {
@@ -1663,12 +1613,10 @@
     "proponente": "Desconocido"
   },
   "enmienda número 33": {
-    "titulo_ciudadano": "Votación de la enmienda número treinta y tres",
+    "titulo_ciudadano": "Votación de la enmienda 33",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa respaldar la propuesta de cambio número treinta y tres.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar la enmienda número 33.",
     "proponente": "Desconocido"
   },
   "Proyecto de Ley 2/25: El proyecto de ley y también sobre las enmiendas que, como novedad y gracias al acuerdo de los grupos de cambio del Reglamento, esta vez puede haber. Por tanto, empezamos por la señora barrero Alba, del Grupo Parlamentario de Vox en Madrid, por un tiempo máximo de quince minutos. La Sra. BARRERO ALBA: Señorías, buenos días. Evidentemente, nos ha explicado muy bien este anteproyecto de ley que modifica la Ley 1 de 1986, del 10 de abril, relativa a la Función Pública, exclusivamente en su artículo 87, que hace referencia al personal interino, y, faltaría más, es decir, si no se hiciera, se estaría incumpliendo la ley, porque se está adaptando a la ley básica estatal y no había más remedio que hacerlo. 25995": {
@@ -1682,12 +1630,12 @@
     "proponente": "Gobierno"
   },
   "hasta tres veces; de": {
-    "titulo_ciudadano": "Asunto procedimental sobre turnos de votación",
+    "titulo_ciudadano": "Aplicación de regla procedimental",
     "categoria_principal": "Otros",
     "etiquetas": [
       "procedimiento_parlamentario"
     ],
-    "resumen_sencillo": "Votar a favor significa aceptar la propuesta técnica sobre cómo se van a realizar las votaciones en este punto.",
+    "resumen_sencillo": "Votar a favor implica aplicar una regla procedimental que permite repetir algo hasta tres veces.",
     "proponente": "Desconocido"
   },
   "dictamen de la Comisión de Medio Ambiente sobre el Proyecto de: Todo, lo que es más grave, impide que la sociedad civil pueda presentar las alegaciones y poder enriquecer el trámite legislativo con sus aportaciones. En cualquier caso, nosotros, en el análisis del contenido -no me voy a repetir mucho sobre lo que ya dijimos aquí-, estamos a favor de que creen las figuras de los planes regionales de estrategia territorial; bueno, ese plan regional que ustedes nunca crean, nunca hacen, y, ahora, pues como no hacen el plan general de todo el territorio de la Comunidad de Madrid, quieren hacer planes territoriales comarcales, que estamos a favor de los planes comarcales, ya saben que defendemos la comarca y nos parecen bien, pero los planes municipales pues los vemos con cierto reparo. Y, luego, pues afrontan ustedes la enésima reforma de la ley del suelo. Vuelvo a repetir que en la inmensa mayoría de las cosas estamos a favor: en modificar el régimen de actuaciones de transformación del suelo urbano, porque es muy importante al final que se quiten trám": {
@@ -1701,12 +1649,10 @@
     "proponente": "Desconocido"
   },
   "votación de la": {
-    "titulo_ciudadano": "Votación de trámite ordinario",
+    "titulo_ciudadano": "Inicio de votación",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa respaldar la continuación de la tramitación de la iniciativa que se está decidiendo.",
+    "etiquetas": [],
+    "resumen_sencillo": "Proceder con el acto de votación de la propuesta.",
     "proponente": "Desconocido"
   },
   "Proposición No de Ley 336/25: Promover, en el marco de sus competencias, la prohibición del velo islámico en todos los edificios y espacios públicos -abiertos y cerradosdependientes de la Comunidad de Madrid, incluyendo escuelas, universidades, hospitales, instalaciones deportivas y parques infantiles por ser contrarios a los derechos fundamentales de las mujeres e incompatibles con nuestra identidad, cultura, usos, modos y costumbres. 2. Garantizar, en el marco de sus competencias, la igualdad entre hombres y mujeres, la integración cultural y el respeto por las tradiciones, cultura, idiosincrasia y valores propios de España, garantizando a su vez la adaptación plena de todas las personas a los modos de vida propiamente nacionales. Publicación BOAM núm. 117, 01-08-25. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 26064-26065 - Interviene la Sra. Pérez Moñino-Aran": {
@@ -1721,21 +1667,17 @@
     "proponente": "Vox"
   },
   "Proposición de Ley 13/24": {
-    "titulo_ciudadano": "Votación del proyecto de ley número trece del año 2024",
+    "titulo_ciudadano": "Proposición de Ley 13/2024",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa respaldar el cambio legal propuesto en esta iniciativa parlamentaria.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica apoyar la tramitación de esta propuesta legislativa.",
     "proponente": "Desconocido"
   },
   "–lo voy a desgajar entero, a ver si así está bien- es el siguiente": {
-    "titulo_ciudadano": "Votación por partes de una iniciativa",
+    "titulo_ciudadano": "Presentación de desglose completo",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aprobar el punto específico que se ha separado para votar de forma independiente.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aceptar la presentación completa de un asunto.",
     "proponente": "Desconocido"
   },
   "enmienda número 1: Instando al Consejo de Gobierno a: 1. Manifestar al Gobierno de la Nación la necesidad de abordar cuanto antes una reforma del modelo de financiación autonómica que garantice la prestación de unos servicios públicos de calidad a la ciudadanía, a partir de los principios de igualdad, equidad y solidaridad, a través de una negociación multilateral entre las Comunidades Autónomas que evite cualquier ruptura del régimen común de financiación. 2. Trasladar al Gobierno de la Nación que se considera imprescindible que el nuevo modelo tenga en cuenta la realidad socioeconómica y demográfica de la Comunidad de Madrid, marcada por un fuerte crecimiento poblacional, la presión sobre la sanidad y la educación públicas, así como el papel capital de la región como motor económico y financiero de España. 3. Exponer al citado Gobierno de manera rotunda que cualquier intento de establecer una financiación singular para Cataluña que suponga privilegios económicos o fiscales al margen del régimen común": {
@@ -1749,21 +1691,17 @@
     "proponente": "Desconocido"
   },
   "Dictamen de la Comisión y, finalmente, la Exposición de Motivos, que se": {
-    "titulo_ciudadano": "Aprobación del dictamen final y la justificación de la ley",
+    "titulo_ciudadano": "Aprobación de Dictamen de Comisión y Exposición de Motivos",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa validar el contenido técnico y las razones que explican la nueva normativa.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica dar luz verde al dictamen y exposición de motivos.",
     "proponente": "Desconocido"
   },
   "la iniciativa de la proposición": {
-    "titulo_ciudadano": "Votación sobre la toma en consideración de la propuesta",
-    "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa permitir que esta iniciativa comience su camino legislativo para ser debatida y aprobada.",
+    "titulo_ciudadano": "Iniciativa de proposición legislativa",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica respaldar el inicio de un proceso legislativo.",
     "proponente": "Desconocido"
   },
   "PNL 185/18: Elaborar una propuesta de Relación de Puestos de Trabajo del Instituto de Medicina Legal, consensuada dentro de la Mesa Sectorial de Justicia de la Comunidad de Madrid, en la que se identifiquen cada uno de los puestos de trabajo existentes y su adscripción jurisdiccional y territorial dentro de la estructura orgánica, así como las características de cada uno de esos puestos, para lo que deberán contar con la previsión de las partidas presupuestarias y recursos necesarios para tal fin, así como la dotación de los medios necesarios en los Juzgados a fin de prestar este servicio en unas dignas condiciones. 2.Cumplir debidamente la Resolución aprobada por unanimidad en la Comisión de Presidencia, Justicia y Portavocía del Gobierno, en su sesión de fecha 19-04-16, sobre la puesta en marcha del Instituto de Medicina Legal en la Comunidad de Madrid. Les informo de que se han presentado las siguientes enmiendas: por el Grupo Parlamenta": {
@@ -1787,48 +1725,38 @@
     "proponente": "Gobierno"
   },
   "separada de alguna enmienda. (Denegaciones.) Comienza la votación. (Pausa)": {
-    "titulo_ciudadano": "Votación del texto completo sin cambios",
+    "titulo_ciudadano": "Votación separada de una enmienda",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aprobar la iniciativa tal cual ha llegado al pleno, sin separar ningún punto para votación independiente.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar la enmienda que se vota de forma separada del resto.",
     "proponente": "Desconocido"
   },
   "a mano alzada conforme al artículo 124 a)": {
-    "titulo_ciudadano": "Votación pública a mano alzada",
+    "titulo_ciudadano": "Votación a mano alzada (Art. 124a)",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aprobar la medida que se está votando de forma visible por los diputados.",
+    "etiquetas": [],
+    "resumen_sencillo": "Significa que la decisión se toma mediante un recuento visual de votos levantados.",
     "proponente": "Desconocido"
   },
   "propuesta de resolución número 4 de Más Madrid. Se inicia la votación. (Pausa.)": {
-    "titulo_ciudadano": "Cuarta propuesta de resolución del grupo Más Madrid",
+    "titulo_ciudadano": "Votación propuesta de resolución 4 de Más Madrid",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa respaldar la cuarta medida política planteada por Más Madrid en este debate.",
-    "proponente": "Más Madrid"
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar la propuesta de resolución número 4 presentada por el grupo Más Madrid.",
+    "proponente": "Más_Madrid"
   },
   "enmienda número 17": {
-    "titulo_ciudadano": "Votación de la enmienda número diecisiete",
+    "titulo_ciudadano": "Votación de la enmienda 17",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa apoyar la propuesta de cambio número diecisiete al texto oficial.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar la enmienda número 17.",
     "proponente": "Desconocido"
   },
   "exposición de motivos, que, en caso de que sus señorías la aprueben, se": {
-    "titulo_ciudadano": "Votación de la justificación de la propuesta",
+    "titulo_ciudadano": "Aprobación de la exposición de motivos",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa validar el preámbulo que explica por qué se presenta esta iniciativa parlamentaria.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar la exposición de motivos del asunto.",
     "proponente": "Desconocido"
   },
   "Proposición No de Ley 143/18: Que: 1.- Realice, en colaboración con el Consorcio Urbanístico Los Molinos-Buenavista y el Ayuntamiento de Getafe, las actuaciones necesarias para que la carretera autonómica M-406, además de incorporar el enlace con el nuevo viario de salida del barrio de Buenavista, adquiera las características propias y, en su caso, la condición de travesía urbana en su tramo comprendido entre el límite entre los términos municipales de Getafe y Leganés y la intersección con la autovía de Toledo (A-42), teniendo en cuenta los hitos que se relacionan en el escrito. 2.- A la realización de un estudio e implementación de las actuaciones necesarias, en colaboración con los Ayuntamientos de Getafe y Leganés, los colectivos ciudadanos y vecinales de los barrios y los equipamientos más afectados, para la mejora de la permeabilidad peatonal del resto de tramos de la carreta autonómica M-406 y su adecuación a las condiciones urbanas de su en": {
@@ -1854,21 +1782,17 @@
     "proponente": "Más Madrid"
   },
   "enmienda número 105": {
-    "titulo_ciudadano": "Votación de la enmienda número ciento cinco",
+    "titulo_ciudadano": "Votación enmienda 105",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aprobar la modificación número 105 propuesta al documento legislativo.",
+    "etiquetas": [],
+    "resumen_sencillo": "Implica apoyar la tramitación de la enmienda número 105.",
     "proponente": "Desconocido"
   },
   "este bloque de enmiendas. (Pausa)": {
-    "titulo_ciudadano": "Votación de un grupo de modificaciones",
+    "titulo_ciudadano": "Bloque de enmiendas en debate parlamentario",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa apoyar todas las enmiendas incluidas en este bloque de votación conjunto.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica apoyar el conjunto de modificaciones propuestas.",
     "proponente": "Desconocido"
   },
   "Votación 12/24": {
@@ -1891,13 +1815,11 @@
     "proponente": "Más Madrid"
   },
   "enmienda transaccional número 1. (Pausa)": {
-    "titulo_ciudadano": "Votación de la enmienda pactada número uno",
+    "titulo_ciudadano": "Votación enmienda transaccional 1",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aprobar la primera modificación acordada entre diferentes grupos parlamentarios.",
-    "proponente": "Varios grupos"
+    "etiquetas": [],
+    "resumen_sencillo": "Implica la aprobación de una enmienda acordada entre diferentes grupos parlamentarios.",
+    "proponente": "Desconocido"
   },
   "los": {
     "titulo_ciudadano": "Votación de un punto procedimental parcial",
@@ -1909,21 +1831,17 @@
     "proponente": "Desconocido"
   },
   "ahora la número 4. Se inicia la votación. (Pausa.) El": {
-    "titulo_ciudadano": "Votación de la cuarta propuesta de la serie",
+    "titulo_ciudadano": "Votación de la propuesta número 4",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa respaldar la cuarta medida política sometida a votación en este bloque.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor significa aprobar la propuesta número 4.",
     "proponente": "Desconocido"
   },
   "enmienda número 151": {
-    "titulo_ciudadano": "Votación de la enmienda número ciento cincuenta y uno",
+    "titulo_ciudadano": "Votación enmienda 151",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa apoyar la modificación número 151 al texto legal.",
+    "etiquetas": [],
+    "resumen_sencillo": "Implica apoyar la tramitación de la enmienda número 151.",
     "proponente": "Desconocido"
   },
   "enmienda A16": {
@@ -1947,39 +1865,33 @@
     "proponente": "Podemos"
   },
   "en los términos resultantes": {
-    "titulo_ciudadano": "Votación del texto final con enmiendas incluidas",
+    "titulo_ciudadano": "Aprobación en términos acordados",
     "categoria_principal": "Otros",
     "etiquetas": [
       "procedimiento_parlamentario"
     ],
-    "resumen_sencillo": "Votar a favor significa dar el respaldo definitivo al documento tal como ha quedado tras incorporar los cambios aceptados.",
+    "resumen_sencillo": "Votar a favor implica aceptar la propuesta tal y como ha sido modificada o presentada finalmente.",
     "proponente": "Desconocido"
   },
   "PNL 42/15: Todo los intereses de los afectados. Muchas gracias. La Sra. PRESIDENTA: Muchas gracias, Señor Berzal. A continuación les pregunto: ¿hay alguna sustitución por parte de algún Grupo? (Denegaciones.) De acuerdo. Sometemos a votación la PNL. (Pausa). El resultado de la votación es el siguiente: 15 diputados presentes; 7 votos a favor y 8 votos en contra. Queda rechazada la PNL 123/18. Muchas gracias. Pasamos al segundo punto del orden del día. ──── RUEGOS Y PREGUNTAS. ──── ¿Algún ruego o alguna pregunta que formular a la Mesa? (Denegaciones.) Muchas gracias por su asistencia. Hasta el próximo día. Se levanta la sesión. (Se levanta la sesión a las 10 horas y 23 minutos). 43896": {
-    "titulo_ciudadano": "Votación de la propuesta no de ley número cuarenta y dos",
+    "titulo_ciudadano": "Rechazo de PNL y Cierre de Sesión Parlamentaria",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa respaldar la resolución política que se ha sometido a consideración del pleno.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor significa aceptar el resultado de la votación que rechaza una Proposición No de Ley y dar por finalizada la sesión.",
     "proponente": "Desconocido"
   },
   "Proposición No de Ley 109/2019: Suscripciones y tarifas, consultar página web de la Asamblea. Depósito legal: M. 19.464-1983 - ISSN 1131-7051 Asamblea de Madrid 4296": {
-    "titulo_ciudadano": "Iniciativa parlamentaria número 109 del año 2019",
+    "titulo_ciudadano": "Información sobre suscripciones y tarifas de la Asamblea",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa apoyar la propuesta de resolución registrada bajo este número oficial en 2019.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica tomar nota del contenido informativo sobre suscripciones y tarifas de la Asamblea de Madrid.",
     "proponente": "Desconocido"
   },
   "enmienda número 26": {
-    "titulo_ciudadano": "Votación de la enmienda número veintiséis",
+    "titulo_ciudadano": "Votación de la enmienda 26",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aceptar la vigesimosexta propuesta de modificación al texto legal.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar la enmienda número 26.",
     "proponente": "Desconocido"
   },
   "dictamen de la comisión de investigación; en concreto, al voto particular del": {
@@ -2003,12 +1915,10 @@
     "proponente": "Desconocido"
   },
   "enmienda número 54": {
-    "titulo_ciudadano": "Votación de la enmienda número cincuenta y cuatro",
+    "titulo_ciudadano": "Enmienda número 54",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aceptar la propuesta de cambio número cincuenta y cuatro al documento original.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor significa apoyar la propuesta de modificación número 54.",
     "proponente": "Desconocido"
   },
   "Proposición No de Ley 194/25: Adoptar las siguientes medidas: 1. Establecer un fondo de emergencia para proporcionar ayudas económicas directas a los agricultores y ganaderos afectados, con el objetivo de compensar las pérdidas de producción y restaurar el potencial productivo de las explotaciones. Anticipando el 100% de las ayudas, para asegurar una respuesta rápida y efectiva accesible a cualquier persona. 2. Destinar recursos para la recuperación del potencial productivo de las explotaciones agrarias afectadas, incluyendo la reposición de maquinaria dañada y la restauración de infraestructuras básicas de uso. 3. Proporcionar asistencia técnica y financiera a los municipios afectados para la reparación de infraestructuras públicas dañadas por las inundaciones, como carreteras, puentes, polideportivos, sistemas de drenaje o los gastos de hospedaje de las personas evacuadas. Incluir en estas ayudas a aquellos municipios afectados de más de 20.000 h": {
@@ -2371,12 +2281,12 @@
     "proponente": "Desconocido"
   },
   "Proposición No de Ley 156/25: El dictamen de la Comisión de Investigación. Como el artículo 49.2 establece la suspensión de la tramitación de las iniciativas sujetas a reconsideración, ese punto, que era el punto 3 del orden del día, no se sustancia hoy y se sustanciará en el pleno siguiente a cuando se resuelva esa reconsideración. La otra cuestión preliminar es que tuvimos la credencial de la nueva diputada después de la Junta de Portavoces, por eso la Junta de Portavoces no pudo acordar que se incluyera en el pleno, pero estoy seguro de que todo el pleno, por asentimiento, está de acuerdo con que procedamos a la promesa o juramento de la nueva diputada, que es una vieja conocida de esta Asamblea de Madrid. ¿Estamos todos de acuerdo? (Asentimiento por parte de los señores diputados.) Entonces vamos a ello. Promesa o juramento de la Sra. Diputada electa D.ª Raquel Huerta Bravo, en sustitución, por renuncia, de D. Diego Figuera Álvarez (RGEP.10644/2025": {
-    "titulo_ciudadano": "Toma de posesión de una nueva diputada en la Asamblea",
+    "titulo_ciudadano": "Dictamen de Comisión y Juramento de Nueva Diputada",
     "categoria_principal": "Otros",
     "etiquetas": [
       "procedimiento_parlamentario"
     ],
-    "resumen_sencillo": "Votar a favor significa aceptar formalmente la incorporación de una nueva representante a la Cámara madrileña.",
+    "resumen_sencillo": "Votar a favor significa apoyar la tramitación parlamentaria y la toma de posesión de la nueva diputada.",
     "proponente": "Desconocido"
   },
   "Proposición No de Ley 360/2025: Que: 1. En el siguiente ejercicio presupuestario, se ponga en marcha una línea de subvención específica, destinada al apoyo a los ayuntamientos de la Región con más de 50.000 habitantes para establecer rutas escolares en servicios de transporte urbano para el acceso a todos los centros educativos de esos municipios. 2. Se elabore, en coordinación con los municipios con más de 50.000 habitantes, un Plan de Caminos Escolares Seguros que incluya fórmulas para la identificación de rutas seguras para desplazamientos a pie, en bicicleta o patinete; instalación de señalización específica para garantizar la seguridad vial de los estudiantes, la inclusión de contenidos sobre movilidad sostenible y seguridad vial en el currículo escolar, y la creación de \"puntos de encuentro\" para facilitar desplazamientos grupales organizados. 3. Se cree un premio, patrocinado e impulsado por el gobierno de la Comunidad de Madrid, que reconozca": {
@@ -2876,39 +2786,31 @@
     "proponente": "Desconocido"
   },
   "quinta propuesta de resolución del Grupo Socialista. Se inicia la votación. (Pausa.)": {
-    "titulo_ciudadano": "Votación de la quinta iniciativa política del grupo PSOE",
+    "titulo_ciudadano": "Votación de la quinta propuesta del Grupo Socialista",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa respaldar la quinta medida planteada por el PSOE en este turno de votaciones.",
-    "proponente": "PSOE"
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar la quinta propuesta de resolución presentada por el Grupo Socialista.",
+    "proponente": "Grupo_Socialista"
   },
   "la designación de don Miguel Díaz Martín como Presidente de la Comisión. (Pausa)": {
-    "titulo_ciudadano": "Elección del presidente de una comisión parlamentaria",
-    "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa ratificar a Miguel Díaz Martín para dirigir los trabajos de la comisión.",
+    "titulo_ciudadano": "Designación de Miguel Díaz Martín como Presidente de Comisión",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar la designación de don Miguel Díaz Martín para el cargo de Presidente de la Comisión.",
     "proponente": "Desconocido"
   },
   "a continuación las enmiendas restantes del Grupo Parlamentario Más Madrid, que": {
-    "titulo_ciudadano": "Votación del bloque final de enmiendas de Más Madrid",
+    "titulo_ciudadano": "Votación de enmiendas restantes del Grupo Más Madrid",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa apoyar el resto de cambios propuestos por el grupo Más Madrid al texto legislativo.",
-    "proponente": "Más Madrid"
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar las enmiendas restantes presentadas por el Grupo Parlamentario Más Madrid.",
+    "proponente": "Más_Madrid"
   },
   "s enmiendas informadas favorablemente por la Ponencia, que son las enmiendas": {
-    "titulo_ciudadano": "Votación de enmiendas aceptadas técnicamente por los expertos",
+    "titulo_ciudadano": "Aprobación de enmiendas favorables de la Ponencia",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aprobar el grupo de cambios que los ponentes de la ley consideran positivos.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar las enmiendas que han sido informadas favorablemente por la Ponencia.",
     "proponente": "Desconocido"
   },
   "dictamen de la comisión de investigación. Se inicia la votación. (Pausa.) El": {
@@ -2923,39 +2825,31 @@
     "proponente": "Desconocido"
   },
   "nuevo. Que quede claro que estamos votando la proposición no de ley con la": {
-    "titulo_ciudadano": "Votación definitiva de la propuesta no de ley con sus cambios",
+    "titulo_ciudadano": "Votación de nueva proposición no de ley",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa dar el respaldo final a la iniciativa tal como ha quedado tras el debate.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar una nueva proposición no de ley.",
     "proponente": "Desconocido"
   },
   "ahora la número 3 del Grupo Socialista. Se inicia la votación. (Pausa.) El": {
-    "titulo_ciudadano": "Votación de la tercera propuesta de resolución del PSOE",
+    "titulo_ciudadano": "Votación propuesta de resolución 3 del Grupo Socialista",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa apoyar la tercera medida política presentada por el grupo socialista en esta sesión.",
-    "proponente": "PSOE"
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar la propuesta de resolución número 3 presentada por el Grupo Socialista.",
+    "proponente": "Grupo_Socialista"
   },
   "votar la reserva de enmiendas del Grupo Parlamentario Popular. Comienza la": {
-    "titulo_ciudadano": "Votación de las modificaciones propuestas por el Partido Popular",
+    "titulo_ciudadano": "Votación de la reserva de enmiendas del Grupo Popular",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aprobar el conjunto de cambios planteados por el grupo del PP.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar la reserva de enmiendas presentada por el Grupo Parlamentario Popular.",
     "proponente": "PP"
   },
   "respecto a la retirada o no de este punto del orden del día. Pasamos a la": {
-    "titulo_ciudadano": "Votación sobre si se mantiene o se quita un tema del debate",
+    "titulo_ciudadano": "Decisión sobre retirada de punto del día",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa que el tema que se estaba tratando debe retirarse y no seguir debatiéndose hoy.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica retirar un punto del orden del día.",
     "proponente": "Desconocido"
   },
   "votación las enmiendas restantes del Grupo Parlamentario Más Madrid, las": {
@@ -2968,66 +2862,52 @@
     "proponente": "Más Madrid"
   },
   "resto de las enmiendas del Grupo Parlamentario Vox en Madrid: 1, 5 a 11": {
-    "titulo_ciudadano": "Votación agrupada de varias enmiendas de Vox",
+    "titulo_ciudadano": "Votación de enmiendas del Grupo Parlamentario Vox",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aprobar en bloque las modificaciones número 1 y de la 5 a la 11 presentadas por Vox.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar las enmiendas restantes presentadas por Vox.",
     "proponente": "Vox"
   },
   "en bloque las enmiendas números 18, 19, 22, 60, 70, 71 y 72, informadas": {
-    "titulo_ciudadano": "Votar en conjunto un bloque de siete enmiendas técnicas",
+    "titulo_ciudadano": "Aprobación en bloque de varias enmiendas",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aceptar simultáneamente este grupo de siete cambios al texto oficial.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar un grupo de enmiendas propuestas.",
     "proponente": "Desconocido"
   },
   "enmienda restante del Grupo Parlamentario Más Madrid, que es la 31. Se": {
-    "titulo_ciudadano": "Votación de la propuesta de cambio número 31 de Más Madrid",
+    "titulo_ciudadano": "Votación de enmienda de Más Madrid",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aprobar la trigesimoprimera enmienda presentada por el grupo Más Madrid.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar la enmienda 31 propuesta por Más Madrid.",
     "proponente": "Más Madrid"
   },
   "última propuesta de resolución del Grupo Parlamentario Vox, que es la": {
-    "titulo_ciudadano": "Votación final de las iniciativas políticas de Vox",
+    "titulo_ciudadano": "Votación de propuesta de resolución de Vox",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa respaldar la última medida que ha planteado el grupo Vox en este punto.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar la última propuesta de resolución de Vox.",
     "proponente": "Vox"
   },
   "resto de enmiendas del Grupo Parlamentario Más Madrid. Se inicia la": {
-    "titulo_ciudadano": "Votación del último bloque de enmiendas de Más Madrid",
+    "titulo_ciudadano": "Votación de enmiendas restantes de Más Madrid",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aprobar todos los cambios de Más Madrid que quedaban pendientes de decidir.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar las enmiendas restantes de Más Madrid.",
     "proponente": "Más Madrid"
   },
   "s propuestas de resolución del Grupo Vox en Madrid. Empezamos por": {
-    "titulo_ciudadano": "Votación del bloque de propuestas políticas de Vox",
+    "titulo_ciudadano": "Propuestas de resolución Grupo Vox",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa apoyar las medidas de carácter político que Vox presenta tras el debate.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica iniciar el debate sobre las propuestas presentadas por el Grupo Vox.",
     "proponente": "Vox"
   },
   "presentada por el Grupo Parlamentario Vox. Se inicia la votación": {
-    "titulo_ciudadano": "Votación de una iniciativa presentada por Vox",
+    "titulo_ciudadano": "Votación propuesta Grupo Vox",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa respaldar la propuesta que el grupo político Vox ha traído al pleno.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor significa aprobar la propuesta presentada por el Grupo Parlamentario Vox.",
     "proponente": "Vox"
   },
   "propuesta de creación de la comisión de estudio para abordar el": {
@@ -3041,76 +2921,59 @@
     "proponente": "Desconocido"
   },
   "número 2 de Vox en Madrid. Se inicia la votación. (Pausa.) El": {
-    "titulo_ciudadano": "Votación de la segunda propuesta política de Vox",
+    "titulo_ciudadano": "Votación propuesta número 2 de Vox",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa apoyar la segunda medida presentada por Vox en este bloque de la sesión.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor significa aprobar la propuesta número 2 del Grupo Vox en Madrid.",
     "proponente": "Vox"
   },
   "s propuestas de resolución del Grupo Parlamentario Más Madrid": {
-    "titulo_ciudadano": "Votación de las medidas políticas del grupo Más Madrid",
+    "titulo_ciudadano": "Propuestas de resolución Grupo Más Madrid",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa respaldar el conjunto de iniciativas planteadas por Más Madrid tras el debate.",
-    "proponente": "Más Madrid"
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica iniciar el debate sobre las propuestas presentadas por el Grupo Parlamentario Más Madrid.",
+    "proponente": "Mas_Madrid"
   },
   "escrito de oposición presentado por el Grupo Parlamentario": {
-    "titulo_ciudadano": "Votación sobre el rechazo formal de un partido a una medida",
+    "titulo_ciudadano": "Escrito de oposición presentado",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario",
-      "controlar_gobierno"
-    ],
-    "resumen_sencillo": "Votar a favor significa apoyar el documento donde un grupo político expresa oficialmente sus razones para oponerse a algo.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica respaldar el escrito de oposición presentado por el Grupo Parlamentario.",
     "proponente": "Desconocido"
   },
   "en bloque estas enmiendas que acabo de enumerar. (Pausa)": {
-    "titulo_ciudadano": "Votación conjunta de varias propuestas de cambio",
+    "titulo_ciudadano": "Votación en bloque de enmiendas",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aprobar al mismo tiempo todo el grupo de enmiendas que se han leído.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar conjuntamente las enmiendas que se acaban de enumerar.",
     "proponente": "Desconocido"
   },
   "texto con los términos resultantes del debate. (Pausa)": {
-    "titulo_ciudadano": "Votación final del texto tal como ha quedado tras el debate",
+    "titulo_ciudadano": "Aprobación texto final del debate",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa dar el visto bueno definitivo al documento legislativo con los cambios incorporados durante la sesión.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor significa aprobar el texto definitivo que surge del debate parlamentario.",
     "proponente": "Desconocido"
   },
   "texto en los términos resultantes del debate. (Pausa)": {
-    "titulo_ciudadano": "Votación definitiva de la propuesta tras su discusión",
+    "titulo_ciudadano": "Aprobación texto final del debate",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aprobar la iniciativa con las modificaciones que se han acordado en el pleno.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor significa aprobar el texto definitivo que surge del debate parlamentario.",
     "proponente": "Desconocido"
   },
   "enmiendas 1, 6, 10, 11, 13, 15, 17, 19, 25 y 28": {
-    "titulo_ciudadano": "Votación en bloque de diez enmiendas específicas",
+    "titulo_ciudadano": "Votación de varias enmiendas",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aprobar este grupo de diez modificaciones propuestas al texto normativo.",
+    "etiquetas": [],
+    "resumen_sencillo": "Implica la aprobación de las modificaciones propuestas en las enmiendas listadas.",
     "proponente": "Desconocido"
   },
   "número 3. Se inicia la votación. (Pausa.) El": {
-    "titulo_ciudadano": "Votación del tercer punto de la propuesta actual",
+    "titulo_ciudadano": "Inicio de votación sobre el punto 3",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa apoyar la tercera medida o apartado que se está decidiendo en este instante.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor significa apoyar el inicio de la votación sobre el asunto presentado.",
     "proponente": "Desconocido"
   },
   "Investidura de la Presidenta de la Comunidad": {
@@ -3124,84 +2987,66 @@
     "proponente": "Desconocido"
   },
   "número 4. Se inicia la votación. (Pausa.) El": {
-    "titulo_ciudadano": "Votación del cuarto punto del asunto en debate",
+    "titulo_ciudadano": "Inicio de votación",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa respaldar la cuarta propuesta específica dentro de este bloque de votaciones.",
+    "etiquetas": [],
+    "resumen_sencillo": "Significa que el proceso de votación sobre un punto específico ha comenzado.",
     "proponente": "Desconocido"
   },
   "enmienda transaccional número 3. (Pausa)": {
-    "titulo_ciudadano": "Votación de la tercera enmienda acordada entre grupos",
+    "titulo_ciudadano": "Votación enmienda transaccional 3",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aprobar la tercera modificación que ha sido pactada por varios partidos políticos.",
-    "proponente": "Varios grupos"
+    "etiquetas": [],
+    "resumen_sencillo": "Implica la aprobación de una enmienda acordada entre diferentes grupos parlamentarios.",
+    "proponente": "Desconocido"
   },
   "votación. Votamos en primer lugar de": {
-    "titulo_ciudadano": "Votación del primer bloque de una iniciativa",
+    "titulo_ciudadano": "Primera votación iniciada",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa apoyar la primera parte de las medidas que se están sometiendo a decisión.",
+    "etiquetas": [],
+    "resumen_sencillo": "Significa que la primera votación en el orden del día ha comenzado.",
     "proponente": "Desconocido"
   },
   "a mano alzada al no estar conformes": {
-    "titulo_ciudadano": "Votación pública por desacuerdo en el sistema electrónico",
+    "titulo_ciudadano": "Votación a mano alzada por desacuerdo",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa dar el apoyo a la medida de forma visible levantando la mano en el pleno.",
+    "etiquetas": [],
+    "resumen_sencillo": "Significa que la votación se realiza de forma visible debido a la falta de consenso en un punto.",
     "proponente": "Desconocido"
   },
   "enmiendas 2, 4, 16, 18, 26, 31, 58": {
-    "titulo_ciudadano": "Votación conjunta de siete enmiendas numeradas",
+    "titulo_ciudadano": "Votación de varias enmiendas",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aprobar este bloque de siete cambios propuestos al documento en trámite.",
+    "etiquetas": [],
+    "resumen_sencillo": "Implica la aprobación de las modificaciones propuestas en las enmiendas listadas.",
     "proponente": "Desconocido"
   },
   "votar el texto de la PNL. (Pausa)": {
-    "titulo_ciudadano": "Votación final del texto de la propuesta no de ley",
+    "titulo_ciudadano": "Votación de texto de PNL",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aprobar definitivamente la resolución política discutida durante la sesión.",
+    "etiquetas": [],
+    "resumen_sencillo": "Implica la aprobación del texto final de la proposición no de ley.",
     "proponente": "Desconocido"
   },
   "para proclamar a Soledad Sánchez": {
-    "titulo_ciudadano": "Elección de Soledad Sánchez para un cargo en la Cámara",
-    "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa nombrar oficialmente a Soledad Sánchez para la función o puesto que se está votando.",
+    "titulo_ciudadano": "Proclamación de Soledad Sánchez",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica dar conformidad a la proclamación de Soledad Sánchez.",
     "proponente": "Desconocido"
   },
   "Proposición No de Ley 252/25": {
-    "titulo_ciudadano": "Iniciativa parlamentaria número 252 del año 2025",
-    "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa respaldar la propuesta de resolución política identificada con este número oficial.",
+    "titulo_ciudadano": "Proposición No de Ley 252/25",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica apoyar el contenido de la Proposición No de Ley.",
     "proponente": "Desconocido"
   },
   "Proposición No de Ley 53/25": {
-    "titulo_ciudadano": "Iniciativa parlamentaria número 53 del año 2025",
-    "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa apoyar la propuesta de resolución registrada bajo este número oficial.",
+    "titulo_ciudadano": "Proposición No de Ley 53/25",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica apoyar el contenido de la Proposición No de Ley.",
     "proponente": "Desconocido"
   },
   "votación el texto de la PNL": {
@@ -3214,111 +3059,87 @@
     "proponente": "Desconocido"
   },
   "Proposición No de Ley 80/25": {
-    "titulo_ciudadano": "Iniciativa parlamentaria número 80 del año 2025",
-    "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa respaldar la propuesta de resolución identificada con este código oficial.",
+    "titulo_ciudadano": "Proposición No de Ley 80/25",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica apoyar el contenido de la Proposición No de Ley.",
     "proponente": "Desconocido"
   },
   "esta proposición no de ley": {
-    "titulo_ciudadano": "Votación de la iniciativa política en curso",
-    "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa apoyar la resolución política que se está tratando en este momento de la sesión.",
+    "titulo_ciudadano": "Aprobación de proposición no de ley",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica apoyar el contenido de esta proposición no de ley.",
     "proponente": "Desconocido"
   },
   "Proposición de Ley\n7/2025": {
-    "titulo_ciudadano": "Votación del proyecto de ley número siete del año 2025",
+    "titulo_ciudadano": "Proposición de Ley 7/2025",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa apoyar la propuesta de cambio o creación legal que plantea esta iniciativa.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica apoyar la tramitación de esta propuesta legislativa.",
     "proponente": "Desconocido"
   },
   "texto del proyecto de ley": {
-    "titulo_ciudadano": "Votación del contenido completo del proyecto de ley",
+    "titulo_ciudadano": "Tramitación texto proyecto de ley",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa respaldar definitivamente el articulado legal que se ha estado discutiendo.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aceptar el texto propuesto para esta ley.",
     "proponente": "Desconocido"
   },
   "Proposición de Ley 4/2025": {
-    "titulo_ciudadano": "Votación del proyecto de ley número cuatro del año 2025",
+    "titulo_ciudadano": "Proposición de Ley 4/2025",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa dar curso legal a la reforma o creación de ley propuesta en esta iniciativa.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica apoyar la tramitación de esta propuesta legislativa.",
     "proponente": "Desconocido"
   },
   "separada de las enmiendas": {
-    "titulo_ciudadano": "Votación de una parte específica de la propuesta por separado",
+    "titulo_ciudadano": "Consideración separada de enmiendas",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa respaldar el punto concreto que se ha decidido votar de forma independiente al resto.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica que las enmiendas se votarán de forma individual.",
     "proponente": "Desconocido"
   },
   "Proposición de Ley 21/18": {
-    "titulo_ciudadano": "Proyecto de ley regional número 21 del año 2018",
+    "titulo_ciudadano": "Proposición de Ley 21/2018",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa apoyar la iniciativa legislativa registrada con este número en el año 2018.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica apoyar la tramitación de esta propuesta legislativa.",
     "proponente": "Desconocido"
   },
   "Proposición de Ley 2/16": {
-    "titulo_ciudadano": "Proyecto de ley regional número dos del año 2016",
+    "titulo_ciudadano": "Proposición de Ley 2/2016",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa respaldar la propuesta de ley tramitada bajo este número oficial.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica apoyar la tramitación de esta propuesta legislativa.",
     "proponente": "Desconocido"
   },
   "separada de la enmienda": {
-    "titulo_ciudadano": "Votación independiente de un punto concreto",
+    "titulo_ciudadano": "Consideración separada de enmienda",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa apoyar el apartado que se ha desgajado para decidirlo por separado.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica que la enmienda se votará de forma individual.",
     "proponente": "Desconocido"
   },
   "Proposición de Ley\n2/16": {
-    "titulo_ciudadano": "Votación del proyecto legislativo número dos del 2016",
+    "titulo_ciudadano": "Proposición de Ley 2/2016",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aprobar el cambio legal que se propone en esta iniciativa parlamentaria.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica apoyar la tramitación de esta propuesta legislativa.",
     "proponente": "Desconocido"
   },
   "enmiendas 8, 9, 13 y 14": {
-    "titulo_ciudadano": "Votación conjunta de las enmiendas 8, 9, 13 y 14",
+    "titulo_ciudadano": "Votación de enmiendas 8, 9, 13 y 14",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aprobar estas cuatro propuestas específicas de modificación al texto legal.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aceptar las enmiendas propuestas.",
     "proponente": "Desconocido"
   },
   "Proposición de Ley 7/24": {
-    "titulo_ciudadano": "Votación del proyecto de ley número siete del año 2024",
-    "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa respaldar la creación o reforma de ley contenida en este expediente.",
+    "titulo_ciudadano": "Tramitación de Proposición de Ley 7/24",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor significa apoyar la tramitación de esta propuesta legislativa.",
     "proponente": "Desconocido"
   },
   "votación el texto de la": {
@@ -3331,318 +3152,262 @@
     "proponente": "Desconocido"
   },
   "por el sistema de mano": {
-    "titulo_ciudadano": "Votación pública a mano alzada",
+    "titulo_ciudadano": "Votación por el sistema de mano alzada",
     "categoria_principal": "Otros",
     "etiquetas": [
       "procedimiento_parlamentario"
     ],
-    "resumen_sencillo": "Votar a favor significa dar el respaldo a la medida levantando la mano en el pleno.",
+    "resumen_sencillo": "Votar a favor implica expresar la voluntad mediante levantando la mano.",
     "proponente": "Desconocido"
   },
   "son dos, las enmiendas": {
-    "titulo_ciudadano": "Votación conjunta de dos enmiendas",
+    "titulo_ciudadano": "Consideración de dos enmiendas",
     "categoria_principal": "Otros",
     "etiquetas": [
       "procedimiento_parlamentario"
     ],
-    "resumen_sencillo": "Votar a favor significa aprobar las dos modificaciones propuestas al texto.",
+    "resumen_sencillo": "Votar a favor implica aprobar o debatir las dos enmiendas presentadas.",
     "proponente": "Desconocido"
   },
   "esta enmienda. (Pausa)": {
-    "titulo_ciudadano": "Votación de la enmienda propuesta",
+    "titulo_ciudadano": "Consideración de una enmienda",
     "categoria_principal": "Otros",
     "etiquetas": [
       "procedimiento_parlamentario"
     ],
-    "resumen_sencillo": "Votar a favor significa aceptar el cambio específico que se está decidiendo.",
+    "resumen_sencillo": "Votar a favor implica aprobar o debatir la enmienda específica.",
     "proponente": "Desconocido"
   },
   "a mano alzada, ya que": {
-    "titulo_ciudadano": "Votación manual por fallo del sistema o acuerdo",
+    "titulo_ciudadano": "Votación a mano alzada",
     "categoria_principal": "Otros",
     "etiquetas": [
       "procedimiento_parlamentario"
     ],
-    "resumen_sencillo": "Votar a favor significa apoyar la medida de forma visible en el pleno.",
+    "resumen_sencillo": "Votar a favor implica expresar la voluntad mediante levantando la mano.",
     "proponente": "Desconocido"
   },
   "enmiendas\n10, 11 y 16": {
-    "titulo_ciudadano": "Votación de las enmiendas 10, 11 y 16",
+    "titulo_ciudadano": "Votación de enmiendas 10, 11 y 16",
     "categoria_principal": "Otros",
     "etiquetas": [
       "procedimiento_parlamentario"
     ],
-    "resumen_sencillo": "Votar a favor significa aprobar estas tres modificaciones al documento legal.",
+    "resumen_sencillo": "Votar a favor implica aprobar las enmiendas parlamentarias número 10, 11 y 16.",
     "proponente": "Desconocido"
   },
   "por la Comisión. Les": {
-    "titulo_ciudadano": "Votación de un punto del informe de la comisión",
+    "titulo_ciudadano": "Propuesta presentada por la Comisión",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa respaldar el elemento técnico propuesto por la comisión.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica respaldar la propuesta presentada por la comisión.",
     "proponente": "Desconocido"
   },
   "enmienda número 3, y": {
-    "titulo_ciudadano": "Votación de la enmienda número tres y siguientes",
+    "titulo_ciudadano": "Votación de enmienda número 3",
     "categoria_principal": "Otros",
     "etiquetas": [
       "procedimiento_parlamentario"
     ],
-    "resumen_sencillo": "Votar a favor significa apoyar la modificación número tres al texto legislativo.",
+    "resumen_sencillo": "Votar a favor implica aprobar la enmienda parlamentaria número 3.",
     "proponente": "Desconocido"
   },
   "texto de la PNL con": {
-    "titulo_ciudadano": "Votación definitiva de la propuesta no de ley",
+    "titulo_ciudadano": "Votación texto PNL",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa dar el visto bueno final a la resolución política con sus cambios.",
+    "etiquetas": [],
+    "resumen_sencillo": "Implica apoyar la tramitación del texto de la Proposición No de Ley.",
     "proponente": "Desconocido"
   },
   "enmienda número 146": {
-    "titulo_ciudadano": "Votación de la enmienda número 146",
+    "titulo_ciudadano": "Votación enmienda 146",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aprobar la modificación número 146 al texto.",
+    "etiquetas": [],
+    "resumen_sencillo": "Implica apoyar la tramitación de la enmienda número 146.",
     "proponente": "Desconocido"
   },
   "enmienda número 130": {
-    "titulo_ciudadano": "Votación de la enmienda número 130",
+    "titulo_ciudadano": "Votación enmienda 130",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa respaldar el cambio número 130 propuesto.",
+    "etiquetas": [],
+    "resumen_sencillo": "Implica apoyar la tramitación de la enmienda número 130.",
     "proponente": "Desconocido"
   },
   "enmienda número 145": {
-    "titulo_ciudadano": "Votación de la enmienda número 145",
+    "titulo_ciudadano": "Votación enmienda 145",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aceptar la propuesta de modificación número 145.",
+    "etiquetas": [],
+    "resumen_sencillo": "Implica apoyar la tramitación de la enmienda número 145.",
     "proponente": "Desconocido"
   },
   "enmienda número A14": {
-    "titulo_ciudadano": "Votación de la enmienda técnica A14",
+    "titulo_ciudadano": "Votación de enmienda A14",
     "categoria_principal": "Otros",
     "etiquetas": [
       "procedimiento_parlamentario"
     ],
-    "resumen_sencillo": "Votar a favor significa aprobar el cambio identificado con el código A14.",
+    "resumen_sencillo": "Votar a favor implica aprobar la enmienda parlamentaria identificada como A14.",
     "proponente": "Desconocido"
   },
   "enmienda número 115": {
-    "titulo_ciudadano": "Votación de la enmienda número 115",
+    "titulo_ciudadano": "Votación enmienda 115",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa apoyar la modificación número 115 al texto oficial.",
+    "etiquetas": [],
+    "resumen_sencillo": "Implica apoyar la tramitación de la enmienda número 115.",
     "proponente": "Desconocido"
   },
   "enmienda número 162": {
-    "titulo_ciudadano": "Votación de la enmienda número 162",
+    "titulo_ciudadano": "Votación enmienda 162",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aprobar el cambio número 162 planteado.",
+    "etiquetas": [],
+    "resumen_sencillo": "Implica apoyar la tramitación de la enmienda número 162.",
     "proponente": "Desconocido"
   },
   "enmienda número 165": {
-    "titulo_ciudadano": "Votación de la enmienda número 165",
+    "titulo_ciudadano": "Votación enmienda 165",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa respaldar la propuesta de cambio número 165.",
+    "etiquetas": [],
+    "resumen_sencillo": "Implica apoyar la tramitación de la enmienda número 165.",
     "proponente": "Desconocido"
   },
   "enmienda número 163": {
-    "titulo_ciudadano": "Votación de la enmienda número 163",
+    "titulo_ciudadano": "Votación enmienda 163",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aceptar la enmienda número 163 al documento en debate.",
+    "etiquetas": [],
+    "resumen_sencillo": "Implica apoyar la tramitación de la enmienda número 163.",
     "proponente": "Desconocido"
   },
   "enmienda número 12": {
-    "titulo_ciudadano": "Votación de la enmienda número doce",
+    "titulo_ciudadano": "Enmienda número 12",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aprobar la decimosegunda propuesta de cambio.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor significa apoyar la propuesta de modificación número 12.",
     "proponente": "Desconocido"
   },
   "enmienda número\n30": {
-    "titulo_ciudadano": "Votación de la enmienda número treinta",
+    "titulo_ciudadano": "Enmienda Número 30 a Debate",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa apoyar la trigésima modificación propuesta.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor significa apoyar la modificación propuesta por la enmienda.",
     "proponente": "Desconocido"
   },
   "enmienda número 19": {
-    "titulo_ciudadano": "Votación de la enmienda número diecinueve",
+    "titulo_ciudadano": "Votación de la enmienda 19",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aceptar el cambio número diecinueve al texto legal.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar la enmienda número 19.",
     "proponente": "Desconocido"
   },
   "enmienda número 78": {
-    "titulo_ciudadano": "Votación de la enmienda número 78",
+    "titulo_ciudadano": "Enmienda propuesta",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aprobar la propuesta de cambio número 78.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica apoyar la modificación propuesta.",
     "proponente": "Desconocido"
   },
   "enmienda número 34": {
-    "titulo_ciudadano": "Votación de la enmienda número 34",
+    "titulo_ciudadano": "Votación de la enmienda 34",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa apoyar la modificación número 34 al texto original.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar la enmienda número 34.",
     "proponente": "Desconocido"
   },
   "enmienda número 10": {
-    "titulo_ciudadano": "Votación de la enmienda número diez",
+    "titulo_ciudadano": "Enmienda número 10",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aceptar la décima propuesta de cambio.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor significa apoyar la propuesta de modificación número 10.",
     "proponente": "Desconocido"
   },
   "enmienda número 41": {
-    "titulo_ciudadano": "Votación de la enmienda número 41",
+    "titulo_ciudadano": "Votación de la enmienda 41",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aprobar el cambio número 41 al documento.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar la enmienda número 41.",
     "proponente": "Desconocido"
   },
   "enmienda número 80": {
-    "titulo_ciudadano": "Votación de la enmienda número ochenta",
+    "titulo_ciudadano": "Enmienda propuesta",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa respaldar la modificación número ochenta.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica apoyar la modificación propuesta.",
     "proponente": "Desconocido"
   },
   "enmienda número 31": {
-    "titulo_ciudadano": "Votación de la enmienda número 31",
+    "titulo_ciudadano": "Enmienda número 31",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aprobar la propuesta de cambio número 31.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor significa apoyar la propuesta de modificación número 31.",
     "proponente": "Desconocido"
   },
   "enmienda número 62": {
-    "titulo_ciudadano": "Votación de la enmienda número 62",
+    "titulo_ciudadano": "Votación de la enmienda 62",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aceptar el cambio número 62 al texto legislativo.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar la enmienda número 62.",
     "proponente": "Desconocido"
   },
   "enmienda número 14": {
-    "titulo_ciudadano": "Votación de la enmienda número catorce",
+    "titulo_ciudadano": "Enmienda número 14",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa apoyar la decimocuarta modificación propuesta.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor significa apoyar la propuesta de modificación número 14.",
     "proponente": "Desconocido"
   },
   "enmienda número 37": {
-    "titulo_ciudadano": "Votación de la enmienda número 37",
+    "titulo_ciudadano": "Votación enmienda 37",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa respaldar el cambio número treinta y siete propuesto al texto.",
+    "etiquetas": [],
+    "resumen_sencillo": "Implica apoyar la tramitación de la enmienda número 37.",
     "proponente": "Desconocido"
   },
   "enmienda número 16": {
-    "titulo_ciudadano": "Votación de la enmienda número dieciséis",
+    "titulo_ciudadano": "Enmienda número 16",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aceptar la propuesta de cambio número dieciséis.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor significa apoyar la propuesta de modificación número 16.",
     "proponente": "Desconocido"
   },
   "enmiendas\nnúmero 1": {
-    "titulo_ciudadano": "Votación de la primera enmienda",
+    "titulo_ciudadano": "Enmienda propuesta",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aprobar la primera modificación planteada.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica apoyar la modificación propuesta.",
     "proponente": "Desconocido"
   },
   "enmienda número 9": {
-    "titulo_ciudadano": "Votación de la enmienda número nueve",
+    "titulo_ciudadano": "Propuesta de Enmienda Número 9",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aceptar el cambio número nueve al texto original.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor significa apoyar la modificación propuesta por la enmienda.",
     "proponente": "Desconocido"
   },
   "enmienda número 5": {
-    "titulo_ciudadano": "Votación de la enmienda número cinco",
+    "titulo_ciudadano": "Enmienda número 5",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aprobar la quinta propuesta de cambio.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor significa apoyar la propuesta de modificación número 5.",
     "proponente": "Desconocido"
   },
   "enmienda número 7": {
-    "titulo_ciudadano": "Votación de la enmienda número siete",
+    "titulo_ciudadano": "Consideración de la Enmienda Número 7",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa respaldar la séptima modificación al texto legislativo.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor significa apoyar la modificación propuesta por la enmienda.",
     "proponente": "Desconocido"
   },
   "enmienda número\n3": {
-    "titulo_ciudadano": "Votación de la enmienda número tres",
+    "titulo_ciudadano": "Enmienda propuesta",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa apoyar el cambio número tres al documento oficial.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica apoyar la modificación propuesta.",
     "proponente": "Desconocido"
   },
   "enmienda\nnúmero 8": {
-    "titulo_ciudadano": "Votación de la enmienda número ocho",
+    "titulo_ciudadano": "Enmienda propuesta",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aprobar la octava propuesta de modificación.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica apoyar la modificación propuesta.",
     "proponente": "Desconocido"
   },
   "votación. (Pausa)": {
@@ -3655,75 +3420,59 @@
     "proponente": "Desconocido"
   },
   "enmienda\nnúmero 9": {
-    "titulo_ciudadano": "Votación de la enmienda número nueve",
+    "titulo_ciudadano": "Enmienda propuesta",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aceptar la novena propuesta de cambio al texto.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica apoyar la modificación propuesta.",
     "proponente": "Desconocido"
   },
   "enmiendas 17 a 25": {
-    "titulo_ciudadano": "Votación en bloque de las enmiendas 17 a la 25",
+    "titulo_ciudadano": "Grupo de enmiendas propuestas",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aprobar simultáneamente estas nueve modificaciones propuestas.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica apoyar las modificaciones propuestas en bloque.",
     "proponente": "Desconocido"
   },
   "enmienda número 1": {
-    "titulo_ciudadano": "Votación de la primera enmienda",
+    "titulo_ciudadano": "Enmienda número 1",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aceptar el primer cambio propuesto al texto original.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor significa apoyar la propuesta de modificación número 1.",
     "proponente": "Desconocido"
   },
   "enmienda número 2": {
-    "titulo_ciudadano": "Votación de la enmienda número dos",
+    "titulo_ciudadano": "Enmienda número 2",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa apoyar la segunda propuesta de modificación planteada.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor significa apoyar la propuesta de modificación número 2.",
     "proponente": "Desconocido"
   },
   "enmienda número 4": {
-    "titulo_ciudadano": "Votación de la enmienda número cuatro",
+    "titulo_ciudadano": "Enmienda Número 4 en Discusión",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aprobar el cuarto cambio al documento legislativo.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor significa apoyar la modificación propuesta por la enmienda.",
     "proponente": "Desconocido"
   },
   "enmienda número 8": {
-    "titulo_ciudadano": "Votación de la enmienda número ocho",
+    "titulo_ciudadano": "Enmienda número 8",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa respaldar la octava modificación al texto.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor significa apoyar la propuesta de modificación número 8.",
     "proponente": "Desconocido"
   },
   "enmiendas 3 y 12": {
-    "titulo_ciudadano": "Votación conjunta de las enmiendas 3 y 12",
+    "titulo_ciudadano": "Enmiendas específicas propuestas",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aprobar estas dos modificaciones específicas al mismo tiempo.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica apoyar las modificaciones propuestas.",
     "proponente": "Desconocido"
   },
   "votar la PNL con": {
-    "titulo_ciudadano": "Votación definitiva de la propuesta no de ley",
-    "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aprobar finalmente la resolución política tal como ha quedado redactada.",
+    "titulo_ciudadano": "Votación de Proposición No de Ley",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica apoyar la propuesta de la Proposición No de Ley.",
     "proponente": "Desconocido"
   },
   "Votación 1030/06": {
@@ -3736,30 +3485,24 @@
     "proponente": "Desconocido"
   },
   "s propuestas de": {
-    "titulo_ciudadano": "Votación de un bloque de iniciativas",
+    "titulo_ciudadano": "Propuestas parlamentarias",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa respaldar las medidas que se están sometiendo a decisión en este bloque.",
+    "etiquetas": [],
+    "resumen_sencillo": "Aprobar las propuestas presentadas para su consideración.",
     "proponente": "Desconocido"
   },
   "enmiendas 1 y 4": {
-    "titulo_ciudadano": "Votación conjunta de las enmiendas 1 y 4",
+    "titulo_ciudadano": "Enmiendas específicas propuestas",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aprobar estas dos modificaciones propuestas al texto oficial.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica apoyar las modificaciones propuestas.",
     "proponente": "Desconocido"
   },
   "enmiendas 2 y 4": {
-    "titulo_ciudadano": "Votación conjunta de las enmiendas 2 y 4",
+    "titulo_ciudadano": "Enmiendas específicas propuestas",
     "categoria_principal": "Otros",
-    "etiquetas": [
-      "procedimiento_parlamentario"
-    ],
-    "resumen_sencillo": "Votar a favor significa aprobar estas dos propuestas de cambio al documento legislativo.",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica apoyar las modificaciones propuestas.",
     "proponente": "Desconocido"
   },
   "Votación 31/07": {
@@ -3967,6 +3710,55 @@
       "procedimiento_parlamentario"
     ],
     "resumen_sencillo": "Votar a favor significa apoyar el elemento técnico que se está decidiendo en este instante de la sesión.",
+    "proponente": "Desconocido"
+  },
+  "Votación relacionada con: Proposición de Ley 5/2025: La verdad y que el olvido se imponga sobre el derecho a la memoria. Y, por mucho que quieran ocultarlo, la Real Casa de Correos fue la sede de la Dirección General de Seguridad durante la dictadura franquista, símbolo de represión donde miles de personas fueron detenidas, torturadas e interrogadas por motivos ideológicos y políticos, fue símbolo de terror institucional durante 40 años y reconocerlo es ser demócratas, es hacer justicia, es reconocer a las víctimas, es aprender historia para que no se vuelva a repetir. Y, señorías, la memoria, la justicia, la verdad y la reparación que ustedes han reivindicado también hoy en este pleno son valores democráticos fundamentales y no pueden borrarse ni reinterpretarse según la coyuntura política o los caprichos de la presidenta y el Partido Popular no puede pretender borrar nuestra historia; han pasado ustedes de la equidistancia a la complicidad, y eso es inaceptable en términos democráticos. Ahora bien, la defensa del recurso y de la Ley de": {
+    "titulo_ciudadano": "Ley de Memoria Democrática y Reconocimiento de Víctimas del Franquismo",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica reconocer la represión franquista y hacer justicia a sus víctimas, promoviendo la memoria democrática.",
+    "proponente": "Desconocido"
+  },
+  "Votación relacionada con: Proposición No de Ley 143/18: Que: 1.- Realice, en colaboración con el Consorcio Urbanístico Los Molinos-Buenavista y el Ayuntamiento de Getafe, las actuaciones necesarias para que la carretera autonómica M-406, además de incorporar el enlace con el nuevo viario de salida del barrio de Buenavista, adquiera las características propias y, en su caso, la condición de travesía urbana en su tramo comprendido entre el límite entre los términos municipales de Getafe y Leganés y la intersección con la autovía de Toledo (A-42), teniendo en cuenta los hitos que se relacionan en el escrito. 2.- A la realización de un estudio e implementación de las actuaciones necesarias, en colaboración con los Ayuntamientos de Getafe y Leganés, los colectivos ciudadanos y vecinales de los barrios y los equipamientos más afectados, para la mejora de la permeabilidad peatonal del resto de tramos de la carreta autonómica M-406 y su adecuación a las condiciones urbanas de su en": {
+    "titulo_ciudadano": "Mejora y Urbanización de la Carretera M-406 en Getafe y Leganés",
+    "categoria_principal": "Infraestructuras",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor significa impulsar mejoras en la M-406 para convertirla en travesía urbana y mejorar la permeabilidad peatonal.",
+    "proponente": "Desconocido"
+  },
+  "Votación relacionada con: Proposición No de Ley 230/25: Manifestar el firme compromiso del Gobierno de la Comunidad de Madrid con los derechos sindicales de los trabajadores y las trabajadoras de la región y su apoyo a la labor de los sindicatos. 2. Impulsar, a través del Consejo para el Diálogo Social de la Comunidad de Madrid, un plan de conservación y recuperación de la memoria sindical de nuestra región. 3. Impulsar, en el seno del Consejo para el Diálogo Social de la Comunidad de Madrid, un grupo de trabajo para abordar el fomento de la afiliación sindical de trabajadores y trabajadoras en sectores profesionales estratégicos. 4. Elaborar un informe sobre el impacto que la tasa de sindicalización de cada sector profesional tiene sobre las condiciones laborales de los trabajadores y trabajadoras. 5. Incluir en todos los pliegos de cláusulas administrativas particulares de la compra pública madrileña, una cláusula que indique que no podrán optar, quedando excluidas de": {
+    "titulo_ciudadano": "Plan de Apoyo a Derechos Sindicales en la Comunidad de Madrid",
+    "categoria_principal": "Trabajo_y_Pensiones",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor significa comprometerse con los derechos sindicales, fomentar la afiliación y mejorar las condiciones laborales en Madrid.",
+    "proponente": "Desconocido"
+  },
+  "Votación relacionada con: PNL 27/25: Elaborar un Plan de Apoyo a la Formación Profesional que incluya: 1- Convenio de prácticas territorializadas: La Consejería de Educación, Ciencia y Universidades destinará los recursos económicos y humanos necesarios a las Direcciones de Área Territorial para que, a través de las mismas, se firmen convenios de prácticas para alumnos de FP de todas las ramas tanto con empresas que se encuentren en ese área territorial como con instituciones públicas a nivel local y autonómico. De esta forma, se potenciará las oportunidades para el estudiantado, las administraciones públicas y las empresas, y se facilitará la búsqueda de prácticas para el estudiantado y se apoyará en esa labor al profesorado. 2- Garantizar que el estudiantado de Formación Profesional de la rama sociosanitaria de centros públicos tengan preferencia para hacer prácticas en los centros sanitarios públicos de gestión tanto directa como indirecta en la Comuni": {
+    "titulo_ciudadano": "Plan de Apoyo a Formación Profesional y Prácticas Sociosanitarias",
+    "categoria_principal": "Educacion",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor significa implementar un plan para potenciar las prácticas de FP y asegurar la preferencia de estudiantes sociosanitarios en centros públicos.",
+    "proponente": "Desconocido"
+  },
+  "Votación relacionada con: PNL 196/18: La Asamblea de Madrid insta al Gobierno de la Comunidad a trasladar al Gobierno de la Nación el rechazo a la concesión del indulto, y cualquier otra medida de privilegio, a los que en caso de producirse sentencia condenatoria, resulten responsables del golpe separatista cometido en Cataluña durante los meses de septiembre y octubre de 2017 y que actualmente es objeto de enjuiciamiento ante el Tribunal Supremo": {
+    "titulo_ciudadano": "Rechazo indultos a independentistas catalanes de 2017",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica que la Asamblea de Madrid pide al Gobierno de la Nación rechazar indultos a los responsables del proceso independentista catalán de 2017.",
+    "proponente": "Desconocido"
+  },
+  "Votación relacionada con: Dictamen de la Comisión y, finalmente, la Exposición de Motivos, que se": {
+    "titulo_ciudadano": "Votación de dictamen de comisión y exposición de motivos",
+    "categoria_principal": "Otros",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar el dictamen emitido por la comisión y la exposición de motivos del asunto tratado.",
+    "proponente": "Desconocido"
+  },
+  "Asunto procedimental sin especificar": {
+    "titulo_ciudadano": "Asunto procedimental",
+    "categoria_principal": "Otros",
+    "etiquetas": [],
+    "resumen_sencillo": "Implica la aprobación de una cuestión de procedimiento para el funcionamiento de la sesión.",
     "proponente": "Desconocido"
   }
 }

@@ -35054,5 +35054,364 @@
     ],
     "resumen_sencillo": "Votar a favor significa aprobar el presupuesto y los gastos que el Gobierno ha planificado para el año 2016.",
     "proponente": "Gobierno"
+  },
+  "Presupuestos Generales del Estado": {
+    "titulo_ciudadano": "Aprobación de los Presupuestos Generales del Estado",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar el plan de ingresos y gastos del Estado para el próximo año.",
+    "proponente": "Gobierno"
+  },
+  "Dictámenes de Comisiones sobre iniciativas legislativas.": {
+    "titulo_ciudadano": "Informes de comisiones sobre nuevas leyes",
+    "categoria_principal": "Otros",
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor implica aceptar los informes de las comisiones sobre las propuestas de ley.",
+    "proponente": "Desconocido"
+  },
+  "Dictámenes de Comisiones no Permanentes.": {
+    "titulo_ciudadano": "Informes de comisiones especiales",
+    "categoria_principal": "Otros",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar los informes de comisiones no permanentes sobre temas específicos.",
+    "proponente": "Desconocido"
+  },
+  "Propuestas de Resolución relativas a las Memorias del Consejo General del Poder Judicial.": {
+    "titulo_ciudadano": "Propuestas sobre informes del Poder Judicial",
+    "categoria_principal": "Justicia",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica respaldar las propuestas sobre la gestión y actividad del Consejo General del Poder Judicial.",
+    "proponente": "Desconocido"
+  },
+  "Mociones consecuencia de interpelaciones urgentes.": {
+    "titulo_ciudadano": "Mociones tras preguntas urgentes al Gobierno",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica apoyar la moción propuesta después de una interpelación urgente al Gobierno.",
+    "proponente": "Desconocido"
+  },
+  "Enmiendas del Senado.": {
+    "titulo_ciudadano": "Cambios propuestos por el Senado a leyes",
+    "categoria_principal": "Otros",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aceptar las modificaciones que el Senado propone a las leyes.",
+    "proponente": "Desconocido"
+  },
+  "Proposiciones no de Ley.": {
+    "titulo_ciudadano": "Propuestas parlamentarias sin rango de ley",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica manifestar la opinión del Parlamento o instar al Gobierno a actuar sobre un tema específico, sin crear una ley.",
+    "proponente": "Desconocido"
+  },
+  "Toma en consideración de Proposiciones de Ley.": {
+    "titulo_ciudadano": "Aceptar iniciar debate de proposiciones de ley",
+    "categoria_principal": "Otros",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aceptar debatir una propuesta de ley, iniciando así su tramitación parlamentaria.",
+    "proponente": "Desconocido"
+  },
+  "Debates de totalidad de iniciativas legislativas.": {
+    "titulo_ciudadano": "Debatir la totalidad de nuevas leyes",
+    "categoria_principal": "Otros",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica permitir que una iniciativa legislativa continúe su tramitación y no sea rechazada en su conjunto.",
+    "proponente": "Desconocido"
+  },
+  "Tramitación directa y en lectura única de iniciativas legislativas.": {
+    "titulo_ciudadano": "Acelerar tramitación de leyes",
+    "categoria_principal": "Otros",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar un procedimiento rápido para debatir y votar iniciativas legislativas sin pasar por todos los trámites habituales.",
+    "proponente": "Desconocido"
+  },
+  "Convalidación o derogación de Reales Decretos-Leyes.": {
+    "titulo_ciudadano": "Aprobar o derogar Reales Decretos-Leyes",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica mantener en vigor un Real Decreto-Ley emitido por el Gobierno.",
+    "proponente": "Gobierno"
+  },
+  "Convalidación o derogación de Reales Decretos-leyes.": {
+    "titulo_ciudadano": "Aprobar o derogar Reales Decretos-leyes",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica mantener en vigor un Real Decreto-ley emitido por el Gobierno.",
+    "proponente": "Gobierno"
+  },
+  "Toma en consideración de Proposiciones de Ley de Comunidades y Ciudades Autónomas.": {
+    "titulo_ciudadano": "Aceptar debatir leyes de CCAA",
+    "categoria_principal": "Politica_Territorial",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aceptar debatir una propuesta de ley originada en una Comunidad o Ciudad Autónoma.",
+    "proponente": "Desconocido"
+  },
+  "Acuerdos de Comisiones relativos a Informes de Subcomisiones y Ponencias.": {
+    "titulo_ciudadano": "Acuerdos sobre informes de subcomisiones",
+    "categoria_principal": "Otros",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar los acuerdos de las comisiones basados en los informes de grupos de trabajo más pequeños.",
+    "proponente": "Desconocido"
+  },
+  "Propuestas de creación de Subcomisiones.": {
+    "titulo_ciudadano": "Proponer crear nuevos grupos de trabajo",
+    "categoria_principal": "Otros",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica apoyar la creación de nuevos grupos de trabajo especializados dentro de las comisiones parlamentarias.",
+    "proponente": "Desconocido"
+  },
+  "Dictámenes de Comisiones de Investigación.": {
+    "titulo_ciudadano": "Informes de comisiones de investigación",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar las conclusiones de las comisiones de investigación.",
+    "proponente": "Desconocido"
+  },
+  "Dictamen de la Comisión del Estatuto de los Diputados.": {
+    "titulo_ciudadano": "Informe sobre el estatuto de los diputados",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar las propuestas relativas al régimen y derechos de los diputados.",
+    "proponente": "Desconocido"
+  },
+  "Mociones consecuencia de interpelaciones urgentes (Continuación).": {
+    "titulo_ciudadano": "Mociones tras interpelaciones urgentes",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica apoyar las propuestas surgidas de las interpelaciones urgentes al Gobierno.",
+    "proponente": "Desconocido"
+  },
+  "Solicitud de prórroga de Subcomisiones": {
+    "titulo_ciudadano": "Petición para extender subcomisiones",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica permitir que las subcomisiones continúen sus trabajos por más tiempo.",
+    "proponente": "Desconocido"
+  },
+  "Dictámenes de la Comisión del Estatuto de los Diputados.": {
+    "titulo_ciudadano": "Informes de la Comisión del Estatuto de los Diputados",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar las propuestas sobre el régimen de los diputados.",
+    "proponente": "Desconocido"
+  },
+  "Toma en consideración de Proposiciones de Ley de iniciativa popular.": {
+    "titulo_ciudadano": "Debate de proposiciones de ley ciudadana",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica iniciar el trámite parlamentario de una ley propuesta por la ciudadanía.",
+    "proponente": "Desconocido"
+  },
+  "Debate de totalidad de Propuestas de Reforma de Estatutos de Autonomía.": {
+    "titulo_ciudadano": "Debate de reforma de Estatutos de Autonomía",
+    "categoria_principal": "Politica_Territorial",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica permitir que se debata en profundidad la modificación de un Estatuto de Autonomía.",
+    "proponente": "Desconocido"
+  },
+  "Dictámenes de la Comisión de Asuntos Exteriores sobre Convenios internacionales.": {
+    "titulo_ciudadano": "Informes de Asuntos Exteriores sobre convenios internacionales",
+    "categoria_principal": "Asuntos_Exteriores",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica respaldar las recomendaciones de la comisión sobre convenios internacionales.",
+    "proponente": "Desconocido"
+  },
+  "Propuestas de creación de Comisiones.": {
+    "titulo_ciudadano": "Propuestas para crear comisiones parlamentarias",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica establecer nuevas comisiones para tratar temas específicos.",
+    "proponente": "Desconocido"
+  },
+  "Solicitud de prórroga de Comisiones de Investigación.": {
+    "titulo_ciudadano": "Petición para extender comisiones de investigación",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica permitir que las comisiones de investigación sigan trabajando.",
+    "proponente": "Desconocido"
+  },
+  "Toma en consideración de Proposición de reforma del Reglamento del Congreso de los Diputados.": {
+    "titulo_ciudadano": "Debate sobre reforma del Reglamento del Congreso",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica iniciar el proceso para modificar las normas de funcionamiento del Congreso.",
+    "proponente": "Desconocido"
+  },
+  "Solicitud de prórroga de Subcomisiones.": {
+    "titulo_ciudadano": "Petición para extender subcomisiones",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica permitir que las subcomisiones continúen sus trabajos.",
+    "proponente": "Desconocido"
+  },
+  "Tramitación directa y en lectura única de Proposición de reforma del Reglamento del Congreso de los Diputados.": {
+    "titulo_ciudadano": "Agilizar reforma del Reglamento del Congreso",
+    "categoria_principal": "Otros",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica permitir una tramitación rápida y en una sola lectura para modificar las normas internas del Congreso.",
+    "proponente": "Desconocido"
+  },
+  "Solicitudes de creación de Comisiones de Investigación.": {
+    "titulo_ciudadano": "Aprobar creación de Comisiones de Investigación",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica la creación de una comisión para investigar asuntos de interés público.",
+    "proponente": "Desconocido"
+  },
+  "Declaración sobre la Cuenta General del Estado.": {
+    "titulo_ciudadano": "Aprobación de la Cuenta General del Estado",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor significa dar el visto bueno al resumen económico anual de ingresos y gastos del Estado.",
+    "proponente": "Gobierno"
+  },
+  "Acuerdo de tramitación directa y en lectura única de Proposición de reforma del Reglamento del Congreso de los Diputados.": {
+    "titulo_ciudadano": "Agilizar acuerdo para reforma del Reglamento Congreso",
+    "categoria_principal": "Otros",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar que la reforma del Reglamento del Congreso se tramite de forma rápida y en una única lectura.",
+    "proponente": "Desconocido"
+  },
+  "Avocación de iniciativas legislativas.": {
+    "titulo_ciudadano": "Cambiar órgano de tramitación iniciativas legislativas",
+    "categoria_principal": "Otros",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica que la tramitación de ciertas iniciativas legislativas sea asumida por un órgano distinto al que estaba inicialmente asignado.",
+    "proponente": "Desconocido"
+  },
+  "Dación de Cuentas de la Diputación Permanente.": {
+    "titulo_ciudadano": "Recibir informes de Diputación Permanente",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aceptar los informes y la gestión realizada por la Diputación Permanente en periodos entre sesiones.",
+    "proponente": "Desconocido"
+  },
+  "Toma en consideración de Proposiciones de reforma del Reglamento del Congreso de los Diputados.": {
+    "titulo_ciudadano": "Iniciar debate reforma Reglamento del Congreso",
+    "categoria_principal": "Otros",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aceptar debatir una propuesta para modificar el Reglamento del Congreso.",
+    "proponente": "Desconocido"
+  },
+  "Acuerdo de tramitación directa y en lectura única de iniciativas legislativas": {
+    "titulo_ciudadano": "Agilizar tramitación de iniciativas legislativas",
+    "categoria_principal": "Otros",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar que ciertas leyes se tramiten de forma rápida y en una única lectura.",
+    "proponente": "Desconocido"
+  },
+  "Acuerdos relativos a Subcomisiones": {
+    "titulo_ciudadano": "Aprobar acuerdos sobre Subcomisiones",
+    "categoria_principal": "Otros",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar decisiones relacionadas con el funcionamiento o creación de subcomisiones parlamentarias.",
+    "proponente": "Desconocido"
+  },
+  "Debates de totalidad de iniciativas legislativas (Conforme a la modificación del orden de debate)": {
+    "titulo_ciudadano": "Iniciar debate completo iniciativas legislativas",
+    "categoria_principal": "Otros",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica permitir el debate íntegro de las iniciativas legislativas según el orden establecido.",
+    "proponente": "Desconocido"
+  },
+  "Acuerdos de tramitación directa y en lectura única de iniciativas legislativas.": {
+    "titulo_ciudadano": "Agilizar tramitación de iniciativas legislativas",
+    "categoria_principal": "Otros",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar que ciertas leyes se tramiten de forma rápida y en una única lectura.",
+    "proponente": "Desconocido"
+  },
+  "Debate relativo al objetivo de estabilidad presupuestaria.": {
+    "titulo_ciudadano": "Debate sobre el límite de gasto público",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor significa apoyar los objetivos de gasto y déficit que el gobierno propone para el país.",
+    "proponente": "Gobierno"
+  },
+  "Acuerdo de tramitación directa y en lectura única.": {
+    "titulo_ciudadano": "Aprobar tramitación directa y lectura única",
+    "categoria_principal": "Otros",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aceptar un procedimiento legislativo rápido que no permite enmiendas al texto.",
+    "proponente": "Desconocido"
+  },
+  "Dictamen de la Comisión del Estatuto.": {
+    "titulo_ciudadano": "Aprobar informe de Comisión del Estatuto",
+    "categoria_principal": "Otros",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aceptar las conclusiones y propuestas del informe presentado por la Comisión del Estatuto.",
+    "proponente": "Desconocido"
+  },
+  "Acuerdo de tramitación directa y en lectura única de iniciativas legislativas.": {
+    "titulo_ciudadano": "Acuerdos sobre tramitación rápida de leyes",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica agilizar la aprobación de nuevas leyes sin pasar por el procedimiento ordinario.",
+    "proponente": "Desconocido"
+  },
+  "Acuerdos de Comisiones relativos a Informes y Subcomisiones.": {
+    "titulo_ciudadano": "Acuerdos de Comisiones sobre Informes",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor significa respaldar las decisiones y conclusiones alcanzadas por las comisiones parlamentarias en sus informes.",
+    "proponente": "Desconocido"
+  },
+  "Solicitud de unificación de Comisiones de Investigación.": {
+    "titulo_ciudadano": "Petición para unificar Comisiones de Investigación",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica fusionar varias comisiones de investigación en una sola entidad.",
+    "proponente": "Desconocido"
+  },
+  "Debate relativo a la apreciación por la Cámara de la previsión contenida en los artículos 135.4 de la Constitución y 11.3 de la Ley Orgánica 2/2012, de 27 de abril, de Estabilidad Presupuestaria y Sostenibilidad Financiera.": {
+    "titulo_ciudadano": "Debate sobre reglas de estabilidad presupuestaria",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [],
+    "resumen_sencillo": "Apoyaría el análisis de la Cámara sobre cómo aplicar las normas de estabilidad económica.",
+    "proponente": "Desconocido"
+  },
+  "Acuerdo de tramitación directa y en lectura única de Proposición de reforma constitucional.": {
+    "titulo_ciudadano": "Acuerdo para tramitar reforma constitucional de urgencia",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor significa aprobar una reforma constitucional mediante un proceso legislativo abreviado.",
+    "proponente": "Desconocido"
+  },
+  "Dictámenes de Comisiones no Permanentes (Continuación).": {
+    "titulo_ciudadano": "Continuación de dictámenes de Comisiones no permanentes",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica continuar con la evaluación y aprobación de los informes emitidos por comisiones especiales.",
+    "proponente": "Desconocido"
+  },
+  "Debates de totalidad de Convenios internacionales.": {
+    "titulo_ciudadano": "Debate general sobre Convenios Internacionales",
+    "categoria_principal": "Asuntos_Exteriores",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor significa iniciar un debate sobre la totalidad de un convenio internacional antes de su ratificación.",
+    "proponente": "Desconocido"
+  },
+  "Recurso previo contra Convenios internacionales.": {
+    "titulo_ciudadano": "Recurso contra Convenios Internacionales",
+    "categoria_principal": "Asuntos_Exteriores",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica impugnar legalmente un convenio internacional antes de su entrada en vigor.",
+    "proponente": "Desconocido"
+  },
+  "Acuerdos de Comisiones de Investigación": {
+    "titulo_ciudadano": "Acuerdos de Comisiones de Investigación",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor significa respaldar las conclusiones o acciones propuestas por una comisión de investigación.",
+    "proponente": "Desconocido"
+  },
+  "Veto del Senado.": {
+    "titulo_ciudadano": "Superación del veto del Senado",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor implica aprobar una ley que ha sido vetada por el Senado, requiriendo una mayoría específica en el Congreso.",
+    "proponente": "Desconocido"
   }
 }

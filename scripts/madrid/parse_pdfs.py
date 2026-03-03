@@ -10,6 +10,7 @@ PDF_GLOB = "data/madrid/raw/pdf/*.pdf"
 PARSE_STATE_FILE = "data/madrid/parse_state.json"
 OUTPUT_PATTERN = "data/madrid/votos_{leg}_raw.json"
 LEGISLATURAS = ["X", "XI", "XII", "XIII"]
+PARSER_VERSION = 3
 
 # Madrid Groups Seat Counts for Heuristics
 SEATS = {
@@ -140,6 +141,7 @@ def parse_one_file(file_path):
 
     votations = []
     last_end = 0
+    last_known_title = None
 
     for i, m_anchor in enumerate(re.finditer(r"resultado\s+(?:de\s+la\s+)?votación\s+es", desc_text, re.I)):
         window = desc_text[m_anchor.end():m_anchor.end() + 1000]
@@ -245,6 +247,24 @@ def parse_one_file(file_path):
 
         base_title = re.sub(r"[.:;, ]+$", "", base_title).strip()
 
+        normalized_lower = base_title.lower()
+        is_low_signal_title = (
+            normalized_lower in {
+                "votación desconocida",
+                "votación",
+                "votación sin título",
+                "votación de la",
+                "(pausa.) el",
+                "pausa. el",
+                "el",
+            }
+            or re.fullmatch(r"\(?pausa\.?\)?\s*el", normalized_lower) is not None
+        )
+        if is_low_signal_title and last_known_title:
+            base_title = f"Votación relacionada con: {last_known_title}"
+        elif not is_low_signal_title:
+            last_known_title = base_title
+
         votations.append(
             {
                 "id": f"MAD-{legis_id}-{ds_num}-{i + 1}",
@@ -272,16 +292,19 @@ def load_json(path, default):
 
 
 def load_parse_state():
-    state = load_json(PARSE_STATE_FILE, {"version": 1, "files": {}})
+    state = load_json(PARSE_STATE_FILE, {"version": PARSER_VERSION, "files": {}})
     if not isinstance(state, dict):
-        return {"version": 1, "files": {}}
+        return {"version": PARSER_VERSION, "files": {}}
+    if state.get("version") != PARSER_VERSION:
+        return {"version": PARSER_VERSION, "files": {}}
     if "files" not in state or not isinstance(state["files"], dict):
         state["files"] = {}
-    state["version"] = 1
+    state["version"] = PARSER_VERSION
     return state
 
 
 def save_parse_state(state):
+    state["version"] = PARSER_VERSION
     with open(PARSE_STATE_FILE, "w") as f:
         json.dump(state, f, indent=2, ensure_ascii=False)
 
@@ -352,7 +375,7 @@ def main():
 
     files = sorted(glob.glob(PDF_GLOB))
     votes_by_id = {} if args.rebuild else load_existing_votes_map()
-    state = {"version": 1, "files": {}} if args.rebuild else load_parse_state()
+    state = {"version": PARSER_VERSION, "files": {}} if args.rebuild else load_parse_state()
     state_files = state["files"]
 
     seen_files = set()
