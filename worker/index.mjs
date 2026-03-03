@@ -1383,6 +1383,24 @@ function hasD1Binding(env) {
   return Boolean(env?.DB && typeof env.DB.prepare === "function");
 }
 
+function getApiBackendMode(env) {
+  const mode = String(env?.API_BACKEND_MODE || "auto")
+    .trim()
+    .toLowerCase();
+  return mode === "assets" || mode === "d1" ? mode : "auto";
+}
+
+function strictD1ErrorResponse(message) {
+  return jsonResponse(
+    {
+      error: message,
+      source: "d1",
+    },
+    503,
+    "no-store"
+  );
+}
+
 function parseJsonSafe(value, fallback) {
   if (value === null || value === undefined) return fallback;
   if (typeof value === "object") return value;
@@ -1483,10 +1501,28 @@ async function handleApiScopesFromD1(request, env) {
 }
 
 async function handleApiScopes(request, env) {
+  const backendMode = getApiBackendMode(env);
+  if (backendMode === "assets") {
+    return handleApiScopesFromAssets(request, env);
+  }
+
+  if (!hasD1Binding(env)) {
+    if (backendMode === "d1") {
+      return strictD1ErrorResponse("D1 binding no configurado (esperado: DB).");
+    }
+    return handleApiScopesFromAssets(request, env);
+  }
+
   try {
     const d1Resp = await handleApiScopesFromD1(request, env);
     if (d1Resp) return d1Resp;
+    if (backendMode === "d1") {
+      return jsonResponse({ source: "d1", items: [] });
+    }
   } catch (error) {
+    if (backendMode === "d1") {
+      return strictD1ErrorResponse("Consulta D1 fallida en /api/scopes.");
+    }
     console.warn(`[api/scopes] D1 fallback to assets: ${error?.message || error}`);
   }
 
@@ -1571,8 +1607,9 @@ async function handleApiVotaciones(request, env) {
   );
 
   const filters = { query, leg, from, to, tag, page, pageSize };
+  const backendMode = getApiBackendMode(env);
 
-  if (hasD1Binding(env)) {
+  if (backendMode !== "assets" && hasD1Binding(env)) {
     try {
       const where = ["scope_id = ?"];
       const params = [scopeId];
@@ -1642,8 +1679,15 @@ async function handleApiVotaciones(request, env) {
         items: rows.map(voteRecordFromD1Row).filter(Boolean),
       });
     } catch (error) {
+      if (backendMode === "d1") {
+        return strictD1ErrorResponse("Consulta D1 fallida en /api/votaciones.");
+      }
       console.warn(`[api/votaciones] D1 fallback to assets: ${error?.message || error}`);
     }
+  }
+
+  if (backendMode === "d1") {
+    return strictD1ErrorResponse("D1 no disponible para /api/votaciones.");
   }
 
   return handleApiVotacionesFromAssets(request, env, scopeId, filters);
@@ -1674,7 +1718,8 @@ async function handleApiVotacionById(request, env) {
     return jsonResponse({ error: `Scope no válido: ${scopeId}` }, 400, "public, max-age=60");
   }
 
-  if (hasD1Binding(env)) {
+  const backendMode = getApiBackendMode(env);
+  if (backendMode !== "assets" && hasD1Binding(env)) {
     try {
       const row = await env.DB
         .prepare(
@@ -1692,9 +1737,23 @@ async function handleApiVotacionById(request, env) {
       if (row) {
         return jsonResponse({ source: "d1", item: voteRecordFromD1Row(row) });
       }
+      if (backendMode === "d1") {
+        return jsonResponse(
+          { error: "Votación no encontrada", scope: scopeId, id: voteId, source: "d1" },
+          404,
+          "public, max-age=60"
+        );
+      }
     } catch (error) {
+      if (backendMode === "d1") {
+        return strictD1ErrorResponse("Consulta D1 fallida en /api/votacion/:scope/:id.");
+      }
       console.warn(`[api/votacion] D1 fallback to assets: ${error?.message || error}`);
     }
+  }
+
+  if (backendMode === "d1") {
+    return strictD1ErrorResponse("D1 no disponible para /api/votacion/:scope/:id.");
   }
 
   return handleApiVotacionByIdFromAssets(request, env, scopeId, voteId);
@@ -1754,7 +1813,8 @@ async function handleApiDiputadoByName(request, env) {
     return jsonResponse({ error: `Scope no válido: ${scopeId}` }, 400, "public, max-age=60");
   }
 
-  if (hasD1Binding(env)) {
+  const backendMode = getApiBackendMode(env);
+  if (backendMode !== "assets" && hasD1Binding(env)) {
     try {
       const nameSearch = normalizeSearchToken(diputadoName);
       const row = await env.DB
@@ -1796,9 +1856,23 @@ async function handleApiDiputadoByName(request, env) {
           },
         });
       }
+      if (backendMode === "d1") {
+        return jsonResponse(
+          { error: "Diputado no encontrado", scope: scopeId, name: diputadoName, source: "d1" },
+          404,
+          "public, max-age=60"
+        );
+      }
     } catch (error) {
+      if (backendMode === "d1") {
+        return strictD1ErrorResponse("Consulta D1 fallida en /api/diputado/:scope/:name.");
+      }
       console.warn(`[api/diputado] D1 fallback to assets: ${error?.message || error}`);
     }
+  }
+
+  if (backendMode === "d1") {
+    return strictD1ErrorResponse("D1 no disponible para /api/diputado/:scope/:name.");
   }
 
   return handleApiDiputadoByNameFromAssets(request, env, scopeId, diputadoName);
@@ -2163,11 +2237,23 @@ export default {
 
     try {
       if (pathname === "/api/health") {
+        const backendMode = getApiBackendMode(env);
+        const d1Bound = hasD1Binding(env);
+        const backend =
+          backendMode === "assets"
+            ? "assets"
+            : d1Bound
+              ? "d1+assets"
+              : backendMode === "d1"
+                ? "d1-unavailable"
+                : "assets";
         return jsonResponse({
           ok: true,
           service: "loquevotan-worker",
           timestamp: new Date().toISOString(),
-          backend: env?.DB ? "d1+assets" : "assets",
+          backend,
+          backendMode,
+          d1Bound,
         });
       }
 

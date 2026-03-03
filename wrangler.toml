@@ -10,3 +10,4 @@ run_worker_first = ["/share/*", "/og/*", "/api/*"]
 
 [vars]
 SITE_URL = "https://loquevotan.es"
+API_BACKEND_MODE = "auto"

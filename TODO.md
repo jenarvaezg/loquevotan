@@ -47,7 +47,7 @@ Este documento recoge solo trabajo pendiente.
 - [x] Exponer API Worker (`/api/votaciones`, `/api/votacion/:id`, `/api/diputado/:id`) con paginación y cache HTTP.
 - [ ] Adaptar transforms/run_update para upsert incremental en D1.
 - [x] Programar job semanal end-to-end con checks de integridad y rollback.
-- [ ] Plan de convivencia y rollback durante transición (híbrido JSON + API).
+- [x] Plan de convivencia y rollback durante transición (híbrido JSON + API).
 
 ### Calidad y confianza pública
 

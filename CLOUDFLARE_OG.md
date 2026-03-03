@@ -125,6 +125,10 @@ Archivo: `wrangler.toml`
 Variable opcional:
 
 - `OG_IMAGE_URL` para sobrescribir la imagen OG de fallback (casos no encontrados y perfiles sin foto).
+- `API_BACKEND_MODE` para controlar el backend de `/api/*` sin redeploy:
+  - `auto` (default): usa D1 si está disponible; si falla, fallback a assets JSON.
+  - `assets`: fuerza lectura solo desde assets JSON (rollback rápido).
+  - `d1`: fuerza lectura desde D1 (sin fallback, útil para detectar problemas de sync).
 
 ## Nota sobre base path
 
