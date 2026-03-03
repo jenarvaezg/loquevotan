@@ -14,6 +14,7 @@ Objetivo de este documento:
 - Worker con OG dinamico y API `/api/*` operativa (modo `d1+assets`).
 - Sync D1 (`cloudflare-data-sync.yml`) operativo en ejecuciones manuales.
 - Update semanal (`update-data.yml`) con cache local + fallback/upload de snapshots raw en R2 (operativo y validado).
+- Refresh IA por CLI endurecido (resume incremental + checkpoint por batch + modo estable `gemini -e conductor`).
 
 ## P0 - Operacion y datos (esta semana)
 
@@ -71,11 +72,11 @@ Impacto:
 Tareas:
 - [ ] Robustecer parsing nominal (menos heuristica de `group_votes`).
 - [ ] Mejorar cobertura historica XII/XI/X (control de huecos y fallos de parseo por legislatura).
-- [ ] Reducir titulos genericos con mejoras en transform + fallback.
-- [ ] Crear reporte QA por run con:
-- [ ] % titulos genericos,
-- [ ] % votos sin asignacion nominal,
-- [ ] grupos `Unknown`.
+- [x] Reducir titulos genericos con mejoras en transform + fallback (14.03% -> 2.86%).
+- [x] Crear reporte QA por run con:
+- [x] % titulos genericos,
+- [x] % votos sin asignacion nominal,
+- [x] grupos `Unknown`.
 
 DoD:
 - [ ] titulos genericos en Madrid < 2%;
@@ -84,18 +85,36 @@ DoD:
 
 ## P1 - Producto y trazabilidad (siguiente bloque)
 
-### 4) Full-pass IA de Andalucia para titulos residuales
+### 4) Full-pass IA de Andalucia para titulos residuales (cerrado)
 Impacto:
 - mejora legibilidad del contenido compartido y de home.
 
 Tareas:
-- [ ] Ejecutar pasada IA completa en Andalucia con cache de categorias.
-- [ ] Listar outliers (titulos muy cortos, genericos, o duplicados).
-- [ ] Corregir prompt/fallback para evitar recaidas en siguientes runs.
+- [x] Ejecutar pasada IA completa en Andalucia con cache de categorias.
+- [x] Listar outliers (titulos muy cortos, genericos, o duplicados).
+- [x] Corregir prompt/fallback para evitar recaidas en siguientes runs.
 
 DoD:
-- [ ] no quedan titulos "Asunto parlamentario sin clasificar" en muestras recientes;
-- [ ] mejora validada en `manifest_home.json` y detalle de votacion.
+- [x] no quedan titulos "Asunto parlamentario sin clasificar" en muestras recientes;
+- [x] mejora validada en `manifest_home.json` y detalle de votacion.
+
+Evidencias:
+- [x] `qa:data-audit` tras pasada IA: Andalucia `empty summary` 93.19% -> 0.46%, `unknown proponente` 93.19% -> 69.81%.
+- [x] Corrida completa IA por scopes (`nacional,andalucia,cyl,madrid,catalunya`): 1768 entradas actualizadas.
+- [x] Scripts nuevos: `scripts/qa/refresh_ai_cache_cli.py`, `scripts/prompt_categorizacion_compact.txt`, `scripts/qa/audit_data_quality.mjs`.
+
+### 4.1) IA incremental en CI por ambitos cambiados (siguiente paso)
+Impacto:
+- mantener calidad sin rehacer pasadas completas y sin consumo innecesario de cuotas.
+
+Tareas:
+- [ ] Ejecutar refresh IA solo en scopes detectados como cambiados en `update-data.yml`.
+- [ ] Limitar por candidatos pendientes (`--skip-satisfied-cache`) y persistir checkpoints en cada batch.
+- [ ] Publicar resumen por scope en artefacto CI (candidatos, actualizados, fallos/retries).
+
+DoD:
+- [ ] run semanal no hace full-pass IA salvo override manual;
+- [ ] evidencia de actualizacion incremental en 2 runs semanales seguidos.
 
 ### 5) Filtro por rango de fecha en `/votaciones`
 Impacto:
@@ -182,7 +201,7 @@ DoD:
 
 ## Backlog largo plazo
 
-- [ ] Nuevas CCAA: Cataluna, Pais Vasco, C. Valenciana, etc.
+- [ ] Nuevas CCAA: Pais Vasco, C. Valenciana, etc.
 - [ ] Históricos I-IX (1977-2011).
 - [ ] Favoritos locales de votaciones/diputados.
 
