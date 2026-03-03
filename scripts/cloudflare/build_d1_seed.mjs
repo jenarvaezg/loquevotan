@@ -6,6 +6,7 @@ import path from "node:path";
 const ROOT = process.cwd();
 const DATA_DIR = path.join(ROOT, "public", "data");
 const DEFAULT_OUT = path.join(ROOT, "tmp", "cloudflare-d1-seed.sql");
+const D1_SQL_BATCH_SIZE = Number.parseInt(process.env.D1_SQL_BATCH_SIZE || "25", 10);
 
 function normalizeSearchToken(value) {
   return String(value || "")
@@ -46,7 +47,7 @@ async function readJson(filePath) {
   return JSON.parse(raw);
 }
 
-async function appendInsert(outFile, table, columns, rows, batchSize = 250) {
+async function appendInsert(outFile, table, columns, rows, batchSize = D1_SQL_BATCH_SIZE) {
   if (!rows.length) return;
   for (let i = 0; i < rows.length; i += batchSize) {
     const batch = rows.slice(i, i + batchSize);
