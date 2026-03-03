@@ -13,19 +13,19 @@ Objetivo de este documento:
 - Deploy a Cloudflare (`deploy.yml`) en verde tras CI de `main`.
 - Worker con OG dinamico y API `/api/*` operativa (modo `d1+assets`).
 - Sync D1 (`cloudflare-data-sync.yml`) operativo en ejecuciones manuales.
-- Update semanal (`update-data.yml`) con cache local + fallback/upload de snapshots raw en R2 (cierre final en curso con run `22624545183`).
+- Update semanal (`update-data.yml`) con cache local + fallback/upload de snapshots raw en R2 (operativo y validado).
 
 ## P0 - Operacion y datos (esta semana)
 
-### 1) Cierre operativo de snapshot raw en R2 + run incremental real
+### 1) Cierre operativo de snapshot raw en R2 + run incremental real (cerrado)
 Impacto:
 - reducir duracion del update semanal y evitar re-descargas historicas innecesarias.
 
 Tareas:
 - [x] Lanzar `Update Voting Data` manual sobre el ultimo commit de `main` (`full_history=false`).
-- [ ] Verificar en logs que se cumple al menos una condicion:
-- [ ] `Restore raw data cache` con `cache-hit=true`, o
-- [ ] `Restore raw snapshot from R2` restaurando `raw-snapshots/main/latest.tar.gz`.
+- [x] Verificar en logs que se cumple al menos una condicion:
+- [x] `Restore raw data cache` con `cache-hit=true`, o
+- [x] `Restore raw snapshot from R2` restaurando `raw-snapshots/main/latest.tar.gz`.
 - [x] Verificar paso `Upload raw snapshot to R2 (if configured)` en verde.
 - [x] Confirmar en R2 la existencia de:
 - [x] `raw-snapshots/main/latest.tar.gz`
@@ -33,12 +33,13 @@ Tareas:
 
 Evidencias:
 - [x] Run `22622247625` (success): upload a `raw-snapshots/main/20260303T125159Z-e12fc8877308.tar.gz` y `raw-snapshots/main/latest.tar.gz`.
-- [x] Run incremental lanzado sobre `main` actual: `22624545183` (en curso).
+- [x] Run `22624881347` (success): subida a R2 en modo remoto confirmada (`Resource location: remote`).
+- [x] Producción validada con backend `d1+assets` y `source: d1` en `/api/votaciones?scope=andalucia`.
 
 DoD:
-- [ ] run incremental completado sin errores;
-- [ ] snapshot raw reutilizable confirmado en R2;
-- [ ] evidencias guardadas (run id + capturas/log snippets) en issue/PR de seguimiento.
+- [x] run incremental completado sin errores;
+- [x] snapshot raw reutilizable confirmado en R2;
+- [x] evidencias guardadas (run id + capturas/log snippets) en issue/PR de seguimiento.
 
 Dependencias:
 - secrets en GitHub: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, `CLOUDFLARE_R2_BUCKET_DATA_SNAPSHOTS`.

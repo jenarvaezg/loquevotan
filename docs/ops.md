@@ -44,8 +44,14 @@ Baseline actual:
 - Snapshot raw subido a R2 en run `22622247625`:
 - `raw-snapshots/main/20260303T125159Z-e12fc8877308.tar.gz`
 - `raw-snapshots/main/latest.tar.gz`
+- Subida R2 en modo remoto verificada (fix `--remote`) en run `22624881347`:
+- `Resource location: remote`
+- `d1-seeds/20260303T132207Z-2bab02625c4f.sql.gz`
 - Trigger de sync por scopes detectados en run `22622247625`:
 - `andalucia,cyl,madrid,nacional`
+- Produccion validada tras sync manual:
+- `/api/health` -> `backend: d1+assets`
+- `/api/votaciones?scope=andalucia&page=1&pageSize=1` -> `source: d1`
 
 ## Proximos cierres operativos
 
