@@ -3,6 +3,7 @@ import json
 import os
 import sys
 import re
+import time
 import subprocess
 from google import genai
 from google.genai import types
@@ -108,6 +109,11 @@ VALID_TAGS = frozenset([
     "nacional", "andalucia", "cyl", "madrid",
 ])
 
+GEMINI_MIN_INTERVAL_SECONDS = float(os.environ.get("GEMINI_MIN_INTERVAL_SECONDS", "12"))
+GEMINI_MAX_RETRIES = int(os.environ.get("GEMINI_MAX_RETRIES", "4"))
+GEMINI_RETRY_BACKOFF_SECONDS = float(os.environ.get("GEMINI_RETRY_BACKOFF_SECONDS", "6"))
+_LAST_GEMINI_REQUEST_AT = 0.0
+
 def text_hash(text):
     return hashlib.sha256(text.encode("utf-8")).hexdigest()[:16]
 
@@ -145,6 +151,51 @@ def _fallback_categorization():
         "proponente": "",
     }
 
+def _wait_gemini_rate_limit():
+    global _LAST_GEMINI_REQUEST_AT
+    if GEMINI_MIN_INTERVAL_SECONDS <= 0:
+        return
+    now = time.monotonic()
+    elapsed = now - _LAST_GEMINI_REQUEST_AT
+    wait_seconds = GEMINI_MIN_INTERVAL_SECONDS - elapsed
+    if wait_seconds > 0:
+        time.sleep(wait_seconds)
+
+def _mark_gemini_request():
+    global _LAST_GEMINI_REQUEST_AT
+    _LAST_GEMINI_REQUEST_AT = time.monotonic()
+
+def _is_transient_ai_error(error_text):
+    text = (error_text or "").lower()
+    transient_tokens = (
+        "resource_exhausted",
+        "quota exceeded",
+        "rate limit",
+        "too many requests",
+        "unavailable",
+        "timed out",
+        "429",
+        "503",
+    )
+    return any(token in text for token in transient_tokens)
+
+def _extract_retry_delay_seconds(error_text):
+    if not error_text:
+        return None
+    patterns = [
+        r"retry in ([0-9]+(?:\.[0-9]+)?)s",
+        r"'retryDelay':\s*'([0-9]+)s'",
+        r'"retryDelay":\s*"([0-9]+)s"',
+    ]
+    for pattern in patterns:
+        match = re.search(pattern, error_text, re.IGNORECASE)
+        if match:
+            try:
+                return float(match.group(1))
+            except Exception:
+                return None
+    return None
+
 def categorize_batch(texts_with_ids, api_key, prompt_text):
     """
     texts_with_ids: list of (id, text)
@@ -159,39 +210,69 @@ def _categorize_batch_sdk(texts_with_ids, api_key, prompt_text):
     batch_content = "\n---\n".join([f"ID: {tid}\nTEXTO: {text}" for tid, text in texts_with_ids])
     full_prompt = f"{prompt_text}\n\nProcesa estos asuntos parlamentarios:\n\n{batch_content}"
     
-    try:
-        response = client.models.generate_content(
-            model="gemini-3-flash-preview",
-            config=types.GenerateContentConfig(
-                response_mime_type="application/json",
-                response_schema={
-                    "type": "OBJECT",
-                    "properties": {
-                        "resultados": {
-                            "type": "ARRAY",
-                            "items": {
-                                "type": "OBJECT",
-                                "properties": {
-                                    "id": {"type": "STRING"},
-                                    "titulo_ciudadano": {"type": "STRING"},
-                                    "categoria_principal": {"type": "STRING"},
-                                    "etiquetas": {"type": "ARRAY", "items": {"type": "STRING"}},
-                                    "resumen_sencillo": {"type": "STRING"},
-                                    "proponente": {"type": "STRING"}
-                                },
-                                "required": ["id", "titulo_ciudadano", "categoria_principal", "etiquetas", "resumen_sencillo"]
+    retries = max(GEMINI_MAX_RETRIES, 1)
+    for attempt in range(1, retries + 1):
+        try:
+            _wait_gemini_rate_limit()
+            response = client.models.generate_content(
+                model="gemini-3-flash-preview",
+                config=types.GenerateContentConfig(
+                    response_mime_type="application/json",
+                    response_schema={
+                        "type": "OBJECT",
+                        "properties": {
+                            "resultados": {
+                                "type": "ARRAY",
+                                "items": {
+                                    "type": "OBJECT",
+                                    "properties": {
+                                        "id": {"type": "STRING"},
+                                        "titulo_ciudadano": {"type": "STRING"},
+                                        "categoria_principal": {"type": "STRING"},
+                                        "etiquetas": {"type": "ARRAY", "items": {"type": "STRING"}},
+                                        "resumen_sencillo": {"type": "STRING"},
+                                        "proponente": {"type": "STRING"}
+                                    },
+                                    "required": ["id", "titulo_ciudadano", "categoria_principal", "etiquetas", "resumen_sencillo"]
+                                }
                             }
-                        }
-                    },
-                    "required": ["resultados"]
-                }
-            ),
-            contents=[full_prompt]
-        )
-        return _parse_response_json(response.text, texts_with_ids)
-    except Exception as e:
-        print(f"SDK AI Error: {e}", file=sys.stderr)
-        return {tid: _fallback_categorization() for tid, _ in texts_with_ids}
+                        },
+                        "required": ["resultados"]
+                    }
+                ),
+                contents=[full_prompt]
+            )
+            _mark_gemini_request()
+            parsed = _parse_response_json(response.text, texts_with_ids)
+            if parsed:
+                return parsed
+            # Empty parse result; retry to avoid poisoning cache with fallbacks.
+            if attempt < retries:
+                wait_seconds = GEMINI_RETRY_BACKOFF_SECONDS * attempt
+                print(
+                    f"SDK AI Warning: empty/invalid JSON payload. Retry {attempt}/{retries} in {wait_seconds:.1f}s",
+                    file=sys.stderr,
+                )
+                time.sleep(wait_seconds)
+            else:
+                print("SDK AI Warning: empty/invalid JSON payload after retries.", file=sys.stderr)
+                return {}
+        except Exception as e:
+            _mark_gemini_request()
+            error_text = str(e)
+            if attempt < retries and _is_transient_ai_error(error_text):
+                wait_seconds = _extract_retry_delay_seconds(error_text)
+                if wait_seconds is None:
+                    wait_seconds = GEMINI_RETRY_BACKOFF_SECONDS * attempt
+                print(
+                    f"SDK AI transient error (attempt {attempt}/{retries}): {e}. Retrying in {wait_seconds:.1f}s",
+                    file=sys.stderr,
+                )
+                time.sleep(wait_seconds)
+                continue
+            print(f"SDK AI Error: {e}", file=sys.stderr)
+            return {}
+    return {}
 
 def _categorize_batch_cli(texts_with_ids, prompt_text):
     print(f"  Usando gemini CLI (OAuth local) para {len(texts_with_ids)} textos...")
@@ -213,7 +294,7 @@ def _categorize_batch_cli(texts_with_ids, prompt_text):
         
         if process.returncode != 0:
             print(f"CLI AI Error (Code {process.returncode}): {stderr}", file=sys.stderr)
-            return {tid: _fallback_categorization() for tid, _ in texts_with_ids}
+            return {}
         
         if not stdout.strip():
             print(f"CLI AI Warning: Empty stdout. Stderr: {stderr}", file=sys.stderr)
@@ -221,7 +302,7 @@ def _categorize_batch_cli(texts_with_ids, prompt_text):
         return _parse_response_json(stdout, texts_with_ids)
     except Exception as e:
         print(f"CLI Execution Error: {e}", file=sys.stderr)
-        return {tid: _fallback_categorization() for tid, _ in texts_with_ids}
+        return {}
 
 def _parse_response_json(raw_text, texts_with_ids):
     try:
@@ -233,16 +314,18 @@ def _parse_response_json(raw_text, texts_with_ids):
             clean_json = json_match.group(1)
             
         data = json.loads(clean_json)
+        expected_ids = {tid for tid, _ in texts_with_ids}
         result_map = {}
         for item in data.get("resultados", []):
-            tid = item.pop("id")
-            result_map[tid] = _validate_categorization(item)
-            
-        # Fill missing with fallbacks
-        for tid, _ in texts_with_ids:
-            if tid not in result_map:
-                result_map[tid] = _fallback_categorization()
+            if not isinstance(item, dict):
+                continue
+            tid = item.get("id")
+            if not tid or tid not in expected_ids:
+                continue
+            payload = {k: v for k, v in item.items() if k != "id"}
+            result_map[tid] = _validate_categorization(payload)
+
         return result_map
     except Exception as e:
         print(f"JSON Parsing Error: {e}", file=sys.stderr)
-        return {tid: _fallback_categorization() for tid, _ in texts_with_ids}
+        return {}
