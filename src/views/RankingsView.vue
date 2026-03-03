@@ -4,9 +4,12 @@ import { useData } from '../composables/useData'
 import { pct, dipPhotoUrl, avatarInitials, avatarStyle, getGroupInfo } from '../utils'
 
 const { diputados, grupos, dipStats, dipFotos, currentScopeId, loading } = useData()
+const NON_PARTISAN_GROUPS = new Set(['No Adscrito', 'Sin grupo', 'Desconocido', 'Unknown'])
 
 const rankings = computed(() => {
-  if (loading.value || !diputados.value.length) return { rebels: [], absents: [] }
+  if (loading.value || !diputados.value.length) {
+    return { rebels: [], absents: [], hasAbsentSignal: false }
+  }
 
   // Calculate the maximum possible votes any deputy has in the current dataset
   // to establish a dynamic baseline.
@@ -36,6 +39,7 @@ const rankings = computed(() => {
     data.push({
       idx: i,
       name: diputados.value[i],
+      grupoRaw: gName,
       grupo: gInfo.label,
       grupoColor: gInfo.color,
       loyalty: ds.loyalty,
@@ -46,15 +50,17 @@ const rankings = computed(() => {
     })
   }
 
-  const rebels = [...data]
+  const rebels = data
+    .filter((d) => !NON_PARTISAN_GROUPS.has(d.grupoRaw))
     .sort((a, b) => a.loyalty - b.loyalty)
     .slice(0, 15)
 
+  const hasAbsentSignal = data.some((d) => d.no_vota > 0)
   const absents = [...data]
     .sort((a, b) => b.absentismo - a.absentismo)
     .slice(0, 15)
 
-  return { rebels, absents }
+  return { rebels, absents: hasAbsentSignal ? absents : [], hasAbsentSignal }
 })
 </script>
 
@@ -77,6 +83,9 @@ const rankings = computed(() => {
         <p class="text-muted small mb-3">Diputados que más veces han votado distinto a la mayoría de su propio partido.</p>
         
         <div class="ranking-list">
+          <div v-if="rankings.rebels.length === 0" class="empty-state">
+            No hay datos suficientes para calcular este ranking en este ámbito.
+          </div>
           <router-link 
             v-for="(d, i) in rankings.rebels" 
             :key="d.idx" 
@@ -109,6 +118,9 @@ const rankings = computed(() => {
         <p class="text-muted small mb-3">Diputados con mayor porcentaje de "No Vota" sobre el total de votaciones celebradas.</p>
 
         <div class="ranking-list">
+          <div v-if="!rankings.hasAbsentSignal" class="empty-state">
+            En este ámbito no hay señal de absentismo nominal suficiente para un ranking fiable.
+          </div>
           <router-link 
             v-for="(d, i) in rankings.absents" 
             :key="d.idx" 
@@ -175,6 +187,13 @@ const rankings = computed(() => {
 
 .ranking-item:last-child {
   border-bottom: none;
+}
+
+.empty-state {
+  padding: 1rem 1.25rem;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 
 .rank-num {

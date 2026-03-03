@@ -30,6 +30,35 @@ def normalize_group_name(group_name):
         return "No Adscrito"
     return value
 
+
+def parse_sortable_date(value):
+    s = str(value or "").strip()
+    if not s:
+        return datetime.datetime.min
+
+    # CyL raw dates are usually dd/mm/yyyy
+    if "/" in s:
+        parts = s.split("/")
+        if len(parts) == 3 and all(p.isdigit() for p in parts):
+            d, m, y = parts
+            try:
+                return datetime.datetime(int(y), int(m), int(d))
+            except Exception:
+                pass
+
+    # Fallbacks for ISO-like formats
+    for fmt in (
+        "%Y-%m-%d",
+        "%Y-%m-%d %H:%M:%S",
+        "%Y-%m-%dT%H:%M:%S",
+        "%Y-%m-%dT%H:%M:%S.%f",
+    ):
+        try:
+            return datetime.datetime.strptime(s, fmt)
+        except Exception:
+            continue
+    return datetime.datetime.min
+
 def load_existing_overrides():
     if not os.path.exists(META_FILE):
         return {}, {}
@@ -197,8 +226,11 @@ def transform(rebuild=False):
     group_majority = {}
     vots_by_exp = {} # exp_id -> list of vot_idx
     
-    # Sort all votes by date descending
-    all_raw_votes.sort(key=lambda x: x["fecha"], reverse=True)
+    # Sort all votes by real date descending (raw date is dd/mm/yyyy).
+    all_raw_votes.sort(
+        key=lambda x: (parse_sortable_date(x.get("fecha")), x.get("id", "")),
+        reverse=True,
+    )
     
     leg_map_id = {"11": "XI", "10": "X", "9": "IX", "8": "VIII", "7": "VII"}
     
@@ -388,6 +420,12 @@ def transform(rebuild=False):
         if ga: group_affinity_by_leg[leg_id] = ga
 
     # 8. Generate final meta
+    sorted_indices = sorted(
+        range(len(vot_meta_list)),
+        key=lambda i: (parse_sortable_date(vot_meta_list[i]["fecha"]), i),
+        reverse=True,
+    )
+
     meta = {
         "diputados": [d["nombre"] for d in diputados_list],
         "grupos": grupos_list,
@@ -396,7 +434,7 @@ def transform(rebuild=False):
         "votResults": vot_results_list,
         "tagCounts": tag_counts,
         "topTags": sorted(tag_counts.items(), key=lambda x: x[1], reverse=True)[:30],
-        "sortedVotIdxByDate": list(range(len(vot_meta_list))), 
+        "sortedVotIdxByDate": sorted_indices,
         "dipStats": dip_stats,
         "groupAffinityByLeg": group_affinity_by_leg, 
         "votsByExp": vots_by_exp,
@@ -450,7 +488,7 @@ def transform(rebuild=False):
 
     latest_candidates = sorted(
         range(len(vot_meta_list)),
-        key=lambda i: (vot_meta_list[i]["fecha"], i),
+        key=lambda i: (parse_sortable_date(vot_meta_list[i]["fecha"]), i),
         reverse=True
     )
     tight_candidates = sorted(
