@@ -5,10 +5,11 @@ import { pct, dipPhotoUrl, avatarInitials, avatarStyle, getGroupInfo } from '../
 
 const { diputados, grupos, dipStats, dipFotos, currentScopeId, loading } = useData()
 const NON_PARTISAN_GROUPS = new Set(['No Adscrito', 'Sin grupo', 'Desconocido', 'Unknown'])
+const isCyLScope = computed(() => currentScopeId.value === 'cyl')
 
 const rankings = computed(() => {
   if (loading.value || !diputados.value.length) {
-    return { rebels: [], absents: [], hasAbsentSignal: false }
+    return { rebels: [], absents: [], activists: [], hasAbsentSignal: false }
   }
 
   // Calculate the maximum possible votes any deputy has in the current dataset
@@ -43,6 +44,7 @@ const rankings = computed(() => {
       grupo: gInfo.label,
       grupoColor: gInfo.color,
       loyalty: ds.loyalty,
+      desmarques: Math.max(0, Math.round((1 - ds.loyalty) * ds.total)),
       absentismo: ds.no_vota / allPossibleVotes,
       photo: dipPhotoUrl(dipFotos.value[i]),
       total: ds.total,
@@ -50,9 +52,15 @@ const rankings = computed(() => {
     })
   }
 
-  const rebels = data
+  const rebels = [...data]
     .filter((d) => !NON_PARTISAN_GROUPS.has(d.grupoRaw))
-    .sort((a, b) => a.loyalty - b.loyalty)
+    .filter((d) => !isCyLScope.value || d.desmarques > 0)
+    .sort((a, b) => {
+      if (isCyLScope.value) {
+        return (b.desmarques - a.desmarques) || (a.loyalty - b.loyalty) || (b.total - a.total)
+      }
+      return a.loyalty - b.loyalty
+    })
     .slice(0, 15)
 
   const hasAbsentSignal = data.some((d) => d.no_vota > 0)
@@ -60,7 +68,11 @@ const rankings = computed(() => {
     .sort((a, b) => b.absentismo - a.absentismo)
     .slice(0, 15)
 
-  return { rebels, absents: hasAbsentSignal ? absents : [], hasAbsentSignal }
+  const activists = [...data]
+    .sort((a, b) => b.total - a.total || b.loyalty - a.loyalty)
+    .slice(0, 15)
+
+  return { rebels, absents: hasAbsentSignal ? absents : [], activists, hasAbsentSignal }
 })
 </script>
 
@@ -77,10 +89,14 @@ const rankings = computed(() => {
       <!-- REBELS -->
       <div class="ranking-section">
         <div class="section-header">
-          <h2>Más "Rebeldes"</h2>
-          <span class="badge badge--contra">Menor lealtad</span>
+          <h2>{{ isCyLScope ? 'Más Desmarques' : 'Más "Rebeldes"' }}</h2>
+          <span class="badge badge--contra">{{ isCyLScope ? 'Más votos distintos' : 'Menor lealtad' }}</span>
         </div>
-        <p class="text-muted small mb-3">Diputados que más veces han votado distinto a la mayoría de su propio partido.</p>
+        <p class="text-muted small mb-3">
+          {{ isCyLScope
+            ? 'En CyL se muestran procuradores con más desmarques nominales frente a la mayoría de su grupo.'
+            : 'Diputados que más veces han votado distinto a la mayoría de su propio partido.' }}
+        </p>
         
         <div class="ranking-list">
           <div v-if="rankings.rebels.length === 0" class="empty-state">
@@ -102,8 +118,8 @@ const rankings = computed(() => {
             </div>
             
             <div class="rank-stat">
-              <div class="rank-stat-value">{{ pct(d.loyalty) }}</div>
-              <div class="rank-stat-label">lealtad</div>
+              <div class="rank-stat-value">{{ isCyLScope ? d.desmarques : pct(d.loyalty) }}</div>
+              <div class="rank-stat-label">{{ isCyLScope ? 'desmarques' : 'lealtad' }}</div>
             </div>
           </router-link>
         </div>
@@ -112,17 +128,21 @@ const rankings = computed(() => {
       <!-- ABSENTS -->
       <div class="ranking-section">
         <div class="section-header">
-          <h2>Más Absentistas</h2>
-          <span class="badge badge--warning">No vota</span>
+          <h2>{{ isCyLScope ? 'Más Activos (nominal)' : 'Más Absentistas' }}</h2>
+          <span class="badge badge--warning">{{ isCyLScope ? 'Más participación' : 'No vota' }}</span>
         </div>
-        <p class="text-muted small mb-3">Diputados con mayor porcentaje de "No Vota" sobre el total de votaciones celebradas.</p>
+        <p class="text-muted small mb-3">
+          {{ isCyLScope
+            ? 'En CyL no hay señal robusta de absentismo nominal. Mostramos procuradores con más votos nominales registrados.'
+            : 'Diputados con mayor porcentaje de "No Vota" sobre el total de votaciones celebradas.' }}
+        </p>
 
         <div class="ranking-list">
-          <div v-if="!rankings.hasAbsentSignal" class="empty-state">
+          <div v-if="!isCyLScope && !rankings.hasAbsentSignal" class="empty-state">
             En este ámbito no hay señal de absentismo nominal suficiente para un ranking fiable.
           </div>
           <router-link 
-            v-for="(d, i) in rankings.absents" 
+            v-for="(d, i) in (isCyLScope ? rankings.activists : rankings.absents)" 
             :key="d.idx" 
             :to="'/diputado/' + encodeURIComponent(d.name)"
             class="ranking-item"
@@ -136,9 +156,9 @@ const rankings = computed(() => {
               <div class="rank-meta" :style="{ color: d.grupoColor, fontWeight: 600 }">{{ d.grupo }}</div>
             </div>
             
-            <div class="rank-stat rank-stat--alt">
-              <div class="rank-stat-value">{{ pct(d.absentismo) }}</div>
-              <div class="rank-stat-label">absentismo</div>
+            <div class="rank-stat" :class="{ 'rank-stat--alt': !isCyLScope }">
+              <div class="rank-stat-value">{{ isCyLScope ? d.total : pct(d.absentismo) }}</div>
+              <div class="rank-stat-label">{{ isCyLScope ? 'votos nominales' : 'absentismo' }}</div>
             </div>
           </router-link>
         </div>
@@ -146,7 +166,7 @@ const rankings = computed(() => {
     </div>
 
     <div class="mt-4 p-3 bg-light rounded small text-muted">
-      <strong>Nota sobre los ránkings:</strong> Solo se incluyen diputados con una participación mínima (al menos el 15% del total de votaciones del periodo) para evitar distorsiones por bajas o sustituciones prematuras. El absentismo incluye tanto ausencias justificadas como no justificadas, ya que los datos abiertos no distinguen el motivo de la falta de voto.
+      <strong>Nota sobre los ránkings:</strong> Solo se incluyen diputados con una participación mínima (al menos el 15% del total de votaciones del periodo) para evitar distorsiones por bajas o sustituciones prematuras. El absentismo incluye tanto ausencias justificadas como no justificadas, ya que los datos abiertos no distinguen el motivo de la falta de voto. En CyL, cuando no hay señal nominal de absentismo, se sustituye por ranking de actividad nominal.
     </div>
   </div>
 </template>

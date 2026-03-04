@@ -1,0 +1,40 @@
+{
+  "generatedAt": "2026-03-03T21:58:49.637Z",
+  "scopes": [
+    {
+      "scope": "nacional",
+      "status": "ok",
+      "score": 100,
+      "incidents": 0,
+      "file": "public/data/quality_status.json"
+    },
+    {
+      "scope": "andalucia",
+      "status": "ok",
+      "score": 99.6,
+      "incidents": 0,
+      "file": "public/data/andalucia/quality_status.json"
+    },
+    {
+      "scope": "cyl",
+      "status": "warn",
+      "score": 84.7,
+      "incidents": 2,
+      "file": "public/data/cyl/quality_status.json"
+    },
+    {
+      "scope": "madrid",
+      "status": "ok",
+      "score": 96.6,
+      "incidents": 1,
+      "file": "public/data/madrid/quality_status.json"
+    },
+    {
+      "scope": "catalunya",
+      "status": "critical",
+      "score": 0,
+      "incidents": 3,
+      "file": "public/data/catalunya/quality_status.json"
+    }
+  ]
+}

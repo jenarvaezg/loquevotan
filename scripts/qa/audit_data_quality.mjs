@@ -30,6 +30,7 @@ function parseArgs() {
   const args = {
     markdownOut: process.env.DATA_AUDIT_MD || 'docs/data_audit.md',
     jsonOut: process.env.DATA_AUDIT_JSON || 'artifacts/data-audit.json',
+    scopes: process.env.DATA_AUDIT_SCOPES || '',
   }
   const input = process.argv.slice(2)
   for (let i = 0; i < input.length; i += 1) {
@@ -39,6 +40,9 @@ function parseArgs() {
       i += 1
     } else if (token === '--json-out' && input[i + 1]) {
       args.jsonOut = input[i + 1]
+      i += 1
+    } else if (token === '--scopes' && input[i + 1]) {
+      args.scopes = input[i + 1]
       i += 1
     }
   }
@@ -67,6 +71,39 @@ function words(text) {
 function toPercent(count, total) {
   if (!total) return 0
   return Number(((count / total) * 100).toFixed(2))
+}
+
+function parseScopeFilter(scopesArg) {
+  const scopes = String(scopesArg || '')
+    .split(',')
+    .map((value) => value.trim().toLowerCase())
+    .filter(Boolean)
+  if (!scopes.length) return null
+  return new Set(scopes)
+}
+
+function normalizeVoteDate(value) {
+  const raw = String(value || '').trim()
+  if (!raw) return null
+
+  if (/^\d{4}-\d{2}-\d{2}$/.test(raw)) return raw
+
+  const isoDateTime = raw.match(/^(\d{4}-\d{2}-\d{2})[T ]/)
+  if (isoDateTime) return isoDateTime[1]
+
+  const slash = raw.match(/^(\d{2})\/(\d{2})\/(\d{4})$/)
+  if (slash) {
+    const [, dd, mm, yyyy] = slash
+    return `${yyyy}-${mm}-${dd}`
+  }
+
+  const dash = raw.match(/^(\d{2})-(\d{2})-(\d{4})$/)
+  if (dash) {
+    const [, dd, mm, yyyy] = dash
+    return `${yyyy}-${mm}-${dd}`
+  }
+
+  return null
 }
 
 function isUnknownGroup(groupName) {
@@ -193,6 +230,12 @@ async function auditScope(scope) {
   let genericSummary = 0
   let totalsMismatch = 0
   let totalsMissingRaw = 0
+  let votesWithoutNominalDetail = 0
+  let invalidDateFormat = 0
+  let futureDates = 0
+  let tooOldDates = 0
+  const todayIso = new Date().toISOString().slice(0, 10)
+  const minReasonableDate = '1977-06-15'
 
   const aiRecatCandidates = []
   const aiRetitleCandidates = []
@@ -229,7 +272,20 @@ async function auditScope(scope) {
     if (!summary) emptySummary += 1
     if (isGenericSummary(summary)) genericSummary += 1
 
+    const normalizedDate = normalizeVoteDate(vote.fecha)
+    if (!normalizedDate) {
+      invalidDateFormat += 1
+    } else {
+      if (normalizedDate > todayIso) futureDates += 1
+      if (normalizedDate < minReasonableDate) tooOldDates += 1
+    }
+
     const result = results[idx] || {}
+    const hasAnyTuple = tupleAnyByVote.has(idx)
+    if (!hasAnyTuple && Number(result.total || 0) > 0) {
+      votesWithoutNominalDetail += 1
+    }
+
     if (scopeId !== 'nacional') {
       const raw = rawVotesById.get(vote.id)
       if (!raw?.totales) {
@@ -281,11 +337,19 @@ async function auditScope(scope) {
       categoryOtros: { count: othersCategory, percent: toPercent(othersCategory, votes.length) },
       votesWithNominal: { count: [...tupleNominalByVote.keys()].length, percent: toPercent([...tupleNominalByVote.keys()].length, votes.length) },
       votesWithAnyTuples: { count: [...tupleAnyByVote.keys()].length, percent: toPercent([...tupleAnyByVote.keys()].length, votes.length) },
+      votesWithoutNominalDetail: { count: votesWithoutNominalDetail, percent: toPercent(votesWithoutNominalDetail, votes.length) },
       unknownGroupsMeta: { count: unknownGroupsMeta, total: groups.length, percent: toPercent(unknownGroupsMeta, groups.length) },
       unknownGroupsGroupMajority: {
         count: groupMajorityUnknown,
         total: groupMajorityTotal,
         percent: toPercent(groupMajorityUnknown, groupMajorityTotal),
+      },
+      dateAnomalies: {
+        count: invalidDateFormat + futureDates + tooOldDates,
+        invalidFormat: invalidDateFormat,
+        futureDates,
+        tooOldDates,
+        percent: toPercent(invalidDateFormat + futureDates + tooOldDates, votes.length),
       },
       detailMissingEntries: { count: detailMissingEntries, percent: toPercent(detailMissingEntries, votes.length) },
       emptySummary: { count: emptySummary, percent: toPercent(emptySummary, votes.length) },
@@ -311,7 +375,7 @@ async function auditScope(scope) {
 }
 
 function markdownRow(scope, m) {
-  return `| ${scope.scope} | ${scope.votes} | ${m.genericTitles.percent}% | ${m.categoryOtros.percent}% | ${m.votesWithNominal.percent}% | ${m.emptySummary.percent}% | ${m.rawTotalsMismatch.percent}% | ${scope.aiCandidates.retitle.count} | ${scope.aiCandidates.recategorize.count} | ${scope.aiCandidates.summary.count} |`
+  return `| ${scope.scope} | ${scope.votes} | ${m.genericTitles.percent}% | ${m.categoryOtros.percent}% | ${m.votesWithNominal.percent}% | ${m.votesWithoutNominalDetail.percent}% | ${m.dateAnomalies.percent}% | ${m.emptySummary.percent}% | ${m.rawTotalsMismatch.percent}% | ${scope.aiCandidates.retitle.count} | ${scope.aiCandidates.recategorize.count} | ${scope.aiCandidates.summary.count} |`
 }
 
 function buildMarkdown(report) {
@@ -322,8 +386,8 @@ function buildMarkdown(report) {
   lines.push('')
   lines.push('## Scope Summary')
   lines.push('')
-  lines.push('| Scope | Votes | Generic titles | Categoria Otros | Nominal coverage | Empty summary | Raw totals mismatch | AI retitle | AI recategorize | AI summary |')
-  lines.push('|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|')
+  lines.push('| Scope | Votes | Generic titles | Categoria Otros | Nominal coverage | No nominal detail | Date anomalies | Empty summary | Raw totals mismatch | AI retitle | AI recategorize | AI summary |')
+  lines.push('|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|')
   for (const scope of report.scopes) {
     if (scope.error) continue
     lines.push(markdownRow(scope, scope.metrics))
@@ -343,6 +407,8 @@ function buildMarkdown(report) {
     lines.push(`- generic titles: ${m.genericTitles.count} (${m.genericTitles.percent}%)`)
     lines.push(`- categoria Otros: ${m.categoryOtros.count} (${m.categoryOtros.percent}%)`)
     lines.push(`- nominal coverage: ${m.votesWithNominal.count}/${scope.votes} (${m.votesWithNominal.percent}%)`)
+    lines.push(`- no nominal detail (con total): ${m.votesWithoutNominalDetail.count} (${m.votesWithoutNominalDetail.percent}%)`)
+    lines.push(`- date anomalies: ${m.dateAnomalies.count} (${m.dateAnomalies.percent}%) [invalid=${m.dateAnomalies.invalidFormat}, future=${m.dateAnomalies.futureDates}, too_old=${m.dateAnomalies.tooOldDates}]`)
     lines.push(`- empty summary: ${m.emptySummary.count} (${m.emptySummary.percent}%)`)
     lines.push(`- unknown proponente: ${m.noProponente.count} (${m.noProponente.percent}%)`)
     lines.push(`- raw totals mismatch: ${m.rawTotalsMismatch.count}/${m.rawTotalsMismatch.total} (${m.rawTotalsMismatch.percent}%)`)
@@ -367,9 +433,17 @@ function buildMarkdown(report) {
 
 async function main() {
   const args = parseArgs()
+  const scopeFilter = parseScopeFilter(args.scopes)
   const ambitos = await readJson(path.join(projectRoot, 'public', 'data', 'ambitos.json'), { ambitos: [] })
+  const selectedScopes = (ambitos.ambitos || []).filter((scope) => {
+    if (!scopeFilter) return true
+    return scopeFilter.has(String(scope.id || '').toLowerCase())
+  })
+  if (scopeFilter && selectedScopes.length === 0) {
+    throw new Error(`No se encontraron scopes para filtro: ${args.scopes}`)
+  }
   const scopes = []
-  for (const scope of ambitos.ambitos || []) {
+  for (const scope of selectedScopes) {
     scopes.push(await auditScope(scope))
   }
 

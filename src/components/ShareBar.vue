@@ -9,6 +9,7 @@ const props = defineProps({
 })
 
 const copyLabel = ref('Copiar enlace')
+const copyTextLabel = ref('Copiar texto')
 const resolvedShareUrl = computed(() => props.shareUrl || window.location.href)
 const resolvedShareText = computed(() => {
   if (props.shareText) return props.shareText
@@ -28,25 +29,39 @@ function whatsappUrl() {
   return `https://api.whatsapp.com/send?text=${encodeURIComponent(resolvedShareText.value + ' ' + url)}`
 }
 
-async function copyUrl() {
-  const url = resolvedShareUrl.value
+async function copyToClipboard(value) {
   try {
-    await navigator.clipboard.writeText(url)
+    await navigator.clipboard.writeText(value)
+    return true
   } catch {
     const ta = document.createElement('textarea')
-    ta.value = url
+    ta.value = value
     document.body.appendChild(ta)
     ta.select()
-    document.execCommand('copy')
+    const ok = document.execCommand('copy')
     document.body.removeChild(ta)
+    return ok
   }
+}
+
+async function copyUrl() {
+  const url = resolvedShareUrl.value
+  await copyToClipboard(url)
   copyLabel.value = 'Copiado!'
   setTimeout(() => { copyLabel.value = 'Copiar enlace' }, 2000)
+}
+
+async function copyShareText() {
+  const payload = `${resolvedShareText.value} ${resolvedShareUrl.value}`.trim()
+  await copyToClipboard(payload)
+  copyTextLabel.value = 'Copiado!'
+  setTimeout(() => { copyTextLabel.value = 'Copiar texto' }, 2000)
 }
 </script>
 
 <template>
   <div class="share-bar">
+    <button class="share-btn share-btn--copy-text" @click="copyShareText">&#9997;&#65039; {{ copyTextLabel }}</button>
     <button class="share-btn share-btn--copy" @click="copyUrl">&#128279; {{ copyLabel }}</button>
     <a class="share-btn share-btn--twitter" :href="twitterUrl()" target="_blank" rel="noopener">
       &#120143; Compartir
@@ -87,4 +102,12 @@ async function copyUrl() {
 .share-btn--whatsapp { border-color: #25d366; color: #25d366; }
 .share-btn--whatsapp:hover { background: #25d366; color: #fff; }
 .share-btn--copy:hover { background: var(--color-primary-light); color: var(--color-primary); }
+.share-btn--copy-text {
+  border-color: #0f766e;
+  color: #0f766e;
+}
+.share-btn--copy-text:hover {
+  background: #0f766e;
+  color: #fff;
+}
 </style>

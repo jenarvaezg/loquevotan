@@ -475,6 +475,64 @@ function voteDescription(vote, result, categories) {
   return `${chunks.join(" · ")} · ${BRAND_TITLE}`;
 }
 
+function sourceFallbackByScope(scopeId) {
+  const scope = normalizeScope(scopeId);
+  if (scope === "nacional") {
+    return { url: "https://www.congreso.es/opendata/votaciones", label: "congreso.es" };
+  }
+  if (scope === "cyl") {
+    return { url: "https://www.ccyl.es", label: "ccyl.es" };
+  }
+  if (scope === "andalucia") {
+    return { url: "https://www.parlamentodeandalucia.es", label: "parlamentodeandalucia.es" };
+  }
+  if (scope === "madrid") {
+    return { url: "https://www.asambleamadrid.es", label: "asambleamadrid.es" };
+  }
+  if (scope === "catalunya") {
+    return { url: "https://www.parlament.cat", label: "parlament.cat" };
+  }
+  return null;
+}
+
+function congresoSourceUrlFromVoteId(voteId) {
+  const match = String(voteId || "").trim().match(/^([XVI]+)-(\d+)-(\d+)$/i);
+  if (!match) return null;
+  const [, legislatura, sesion, votacion] = match;
+  return `https://www.congreso.es/opendata/votaciones?idLegislatura=${encodeURIComponent(
+    legislatura.toUpperCase()
+  )}&idSesion=${encodeURIComponent(sesion)}&idVotacion=${encodeURIComponent(votacion)}`;
+}
+
+function voteSourceRef(scopeId, voteId, vote) {
+  if (!vote && !voteId) return null;
+  const explicitUrl =
+    vote?.urlCongreso ||
+    vote?.urlCyL ||
+    vote?.urlAndalucia ||
+    vote?.urlMadrid ||
+    vote?.urlCatalunya ||
+    null;
+  if (explicitUrl) {
+    let label = "fuente oficial";
+    try {
+      label = new URL(explicitUrl).hostname.replace(/^www\./, "");
+    } catch {
+      label = "fuente oficial";
+    }
+    return {
+      url: explicitUrl,
+      label,
+    };
+  }
+
+  if (normalizeScope(scopeId) === "nacional") {
+    const congresoUrl = congresoSourceUrlFromVoteId(voteId);
+    if (congresoUrl) return { url: congresoUrl, label: "congreso.es" };
+  }
+  return sourceFallbackByScope(scopeId);
+}
+
 function diputadoDescription(name, groupName, stats) {
   const total = Number.isFinite(stats?.total) ? stats.total : 0;
   const loyal = Number.isFinite(stats?.loyalty) ? Math.round(stats.loyalty * 100) : null;
@@ -1223,6 +1281,9 @@ function renderOgPage({
   redirectUrl,
   scopeId = "nacional",
   noindex = false,
+  sourceUrl = "",
+  sourceLabel = "",
+  sourceRef = "",
 }) {
   const escapedTitle = escapeHtml(title);
   const escapedDescription = escapeHtml(description);
@@ -1232,9 +1293,21 @@ function renderOgPage({
   const escapedImageAlt = escapeHtml(imageAlt);
   const escapedRedirect = escapeHtml(redirectUrl);
   const escapedScope = escapeHtml(scopeId);
+  const escapedSourceUrl = escapeHtml(sourceUrl);
+  const escapedSourceLabel = escapeHtml(sourceLabel);
+  const escapedSourceRef = escapeHtml(sourceRef);
   const robots = noindex ? `<meta name="robots" content="noindex, nofollow">` : "";
   const imageTypeMeta = escapedImageType
     ? `<meta property="og:image:type" content="${escapedImageType}">`
+    : "";
+  const sourceMeta = escapedSourceUrl
+    ? `
+  <meta property="og:see_also" content="${escapedSourceUrl}">
+  <meta name="citation_public_url" content="${escapedSourceUrl}">
+`
+    : "";
+  const sourceFallbackHtml = escapedSourceUrl
+    ? `<p>Fuente oficial: <a href="${escapedSourceUrl}" target="_blank" rel="noopener">${escapedSourceLabel || escapedSourceUrl}</a>${escapedSourceRef ? ` · ${escapedSourceRef}` : ""}</p>`
     : "";
 
   const html = `<!doctype html>
@@ -1257,6 +1330,7 @@ function renderOgPage({
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="${escapedImageAlt}">
   <meta property="og:locale" content="es_ES">
+  ${sourceMeta}
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${escapedTitle}">
   <meta name="twitter:description" content="${escapedDescription}">
@@ -1269,6 +1343,7 @@ function renderOgPage({
 </head>
 <body>
   <p>Redirigiendo a la votación...</p>
+  ${sourceFallbackHtml}
   <p><a href="${escapedRedirect}">Abrir en ${escapeHtml(BRAND_TITLE)}</a></p>
 </body>
 </html>`;
@@ -2125,6 +2200,9 @@ async function handleVoteShare(request, env) {
   const action = voteActionText(voteParam);
   const groupAction = voteActionText(groupVoteParam);
   const contextDescription = voteDescription(vote, result, meta.categorias || []);
+  const source = voteSourceRef(scopeId, voteId, vote);
+  const sourceHint = source?.label ? ` Fuente oficial: ${source.label}.` : "";
+  const sourceRef = vote?.exp ? `Ref ${voteId} · Exp ${vote.exp}` : `Ref ${voteId}`;
   const title = dipParam
     ? voteParam
       ? `${shortDipName} ${action} en ${voteTitle} | ${BRAND_TITLE}`
@@ -2136,13 +2214,13 @@ async function handleVoteShare(request, env) {
     : `${voteTitle} | ${BRAND_TITLE}`;
   const description = dipParam
     ? voteParam
-      ? `Contexto completo de la votación: ${contextDescription}`
-      : `Consulta cómo votó ${dipParam} en este asunto. ${contextDescription}`
+      ? `Contexto completo de la votación: ${contextDescription}${sourceHint}`
+      : `Consulta cómo votó ${dipParam} en este asunto. ${contextDescription}${sourceHint}`
     : groupParam
       ? groupVoteParam
-        ? `Contexto completo de la votación: ${contextDescription}`
-        : `Consulta qué votó ${groupDisplayName} en este asunto. ${contextDescription}`
-    : contextDescription;
+        ? `Contexto completo de la votación: ${contextDescription}${sourceHint}`
+        : `Consulta qué votó ${groupDisplayName} en este asunto. ${contextDescription}${sourceHint}`
+    : `${contextDescription}${sourceHint}`;
   const imageAlt = dipParam
     ? voteParam
       ? `${shortDipName} ${action} en ${voteTitle}`
@@ -2162,6 +2240,9 @@ async function handleVoteShare(request, env) {
     imageAlt,
     redirectUrl,
     scopeId,
+    sourceUrl: source?.url || "",
+    sourceLabel: source?.label || "",
+    sourceRef,
   });
 }
 

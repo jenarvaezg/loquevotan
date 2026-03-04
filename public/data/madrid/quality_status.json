@@ -1,0 +1,24 @@
+{
+  "scope": "madrid",
+  "generatedAt": "2026-03-03T21:58:49.637Z",
+  "status": "ok",
+  "score": 96.6,
+  "summary": "Calidad de datos estable",
+  "votes": 385,
+  "metrics": {
+    "genericTitlesPct": 2.86,
+    "unknownGroupsPct": 0,
+    "dateAnomaliesPct": 0,
+    "rawTotalsMismatchPct": 0,
+    "emptySummaryPct": 0,
+    "nominalCoveragePct": 0,
+    "votesWithoutNominalDetailPct": 100
+  },
+  "incidents": [
+    {
+      "id": "limited_nominal_coverage",
+      "severity": "info",
+      "message": "Cobertura nominal limitada (0% con detalle nominal)."
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # LoQueVotan - Roadmap operativo (pendiente)
 
-Ultima revision: 2026-03-03 (enfoque PM).
+Ultima revision: 2026-03-04 (enfoque PM).
 
 Objetivo de este documento:
 - priorizar lo que desbloquea fiabilidad, calidad de dato y crecimiento de producto;
@@ -129,6 +129,60 @@ Tareas:
 DoD:
 - [ ] filtro funcional en nacional + CCAA;
 - [ ] enlaces con rango reproducen exactamente el listado.
+
+### 5.1) Vista de Leyes/Expedientes (MVP producto, sin scope creep)
+Impacto:
+- mejora descubrimiento ciudadano de "como se voto una ley completa" y no solo votaciones aisladas.
+
+Tareas:
+- [ ] Crear entrada visible en home/nav hacia buscador de leyes/expedientes.
+- [ ] Reusar `exp` y agrupacion existente para mostrar:
+- [ ] titulo principal del expediente,
+- [ ] votaciones asociadas (general/particular/final),
+- [ ] estado final cuando exista.
+- [ ] Añadir filtros minimos en la nueva vista: texto, legislatura, resultado.
+- [ ] Añadir CTA de compartir para la vista de expediente.
+- [ ] Añadir tests E2E de smoke (cargar vista, buscar expediente, abrir detalle).
+
+No-objetivos del MVP (guardrail):
+- [ ] no cambiar scraping/parsers ni introducir nuevas fuentes de datos.
+- [ ] no rediseñar todo el flujo de `/votaciones`.
+- [ ] no recalcular afinidades ni compass en esta fase.
+
+DoD:
+- [ ] cualquier expediente con mas de una votacion se puede ver como unidad navegable;
+- [ ] el tiempo de carga no empeora significativamente frente a `/votaciones`;
+- [ ] PR incluye captura de UX y tradeoffs documentados.
+
+### 5.2) Alineamiento anual por diputado (lectura rapida)
+Impacto:
+- facilita entender cambios de comportamiento politico por año sin leer tablas largas.
+
+Tareas:
+- [ ] Definir metrica de alineamiento anual por diputado contra bloques de referencia por ambito.
+- [ ] Renderizar grafico anual en ficha de diputado.
+- [ ] Mostrar aviso cuando no haya base suficiente de votaciones divididas para un año.
+- [ ] Añadir test unitario para calculo y E2E de render en al menos un diputado por scope.
+
+DoD:
+- [ ] grafico visible en desktop/mobile sin degradar la ficha;
+- [ ] metrica consistente con metodologia publicada;
+- [ ] casos con datos incompletos no rompen UI.
+
+### 5.3) Exportables y comparticion en vistas clave
+Impacto:
+- aumenta difusion organica y reutilizacion de visualizaciones en redes.
+
+Tareas:
+- [ ] Extender `descargar imagen` a detalle de votacion (estado + reparto por grupos).
+- [ ] Extender `descargar imagen` a afinidad entre grupos (matriz/pareja seleccionada).
+- [ ] Añadir preset de texto de share para cada exportable.
+- [ ] Añadir smoke tests para botones de copiar/enlace/descarga.
+
+DoD:
+- [ ] al menos 3 vistas principales generan PNG correcto;
+- [ ] enlaces compartidos preservan contexto (`scope`, `id`, filtros relevantes);
+- [ ] fallback de portapapeles funciona en navegadores sin `navigator.clipboard`.
 
 ### 6) Cobertura de tests en share/OG y Worker API
 Impacto:

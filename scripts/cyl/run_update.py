@@ -19,6 +19,16 @@ def main():
         action="store_true",
         help="Procesa solo legislatura activa (11) para runs rápidos.",
     )
+    parser.add_argument(
+        "--ai-parse-fallback",
+        action="store_true",
+        help="Activa fallback IA en parse_texts para documentos de baja confianza.",
+    )
+    parser.add_argument(
+        "--ai-parse-model",
+        default=os.environ.get("CYL_PARSE_AI_MODEL", "gemini-2.5-flash"),
+        help="Modelo Gemini para parse fallback (solo si --ai-parse-fallback).",
+    )
     args = parser.parse_args()
 
     script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -41,7 +51,10 @@ def main():
     run_step("Download Texts", [sys.executable, os.path.join(script_dir, "download_texts.py")])
     
     # 4. Parse texts (Extract nominal votes)
-    run_step("Parse Texts", [sys.executable, os.path.join(script_dir, "parse_texts.py"), *rebuild_flag])
+    parse_command = [sys.executable, os.path.join(script_dir, "parse_texts.py"), *rebuild_flag]
+    if args.ai_parse_fallback:
+        parse_command.extend(["--ai-fallback", "--ai-model", args.ai_parse_model])
+    run_step("Parse Texts", parse_command)
     
     # 5. Transform (Generate optimized JSONs for frontend)
     run_step("Transform Data", [sys.executable, os.path.join(script_dir, "transform.py"), *rebuild_flag])

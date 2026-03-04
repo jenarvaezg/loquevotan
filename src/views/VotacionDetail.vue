@@ -191,6 +191,14 @@ function shortDiputadoName(name) {
   return String(name).split(',')[0].trim() || String(name)
 }
 
+function congresoSourceFromVoteId(voteId) {
+  const raw = String(voteId || '').trim()
+  const match = raw.match(/^([XVI]+)-(\d+)-(\d+)$/i)
+  if (!match) return null
+  const [, legislatura, sesion, votacion] = match
+  return `https://www.congreso.es/opendata/votaciones?idLegislatura=${encodeURIComponent(legislatura.toUpperCase())}&idSesion=${encodeURIComponent(sesion)}&idVotacion=${encodeURIComponent(votacion)}`
+}
+
 const highlightedVoteCode = computed(() => {
   if (!votosReady.value || !highlightedDip.value) return null
   const target = normalize(highlightedDip.value)
@@ -259,12 +267,17 @@ const shareText = computed(() => {
   if (highlightedDip.value) {
     const shortName = shortDiputadoName(highlightedDip.value)
     if (highlightedVoteCode.value != null) {
-      return `${shortName} ${voteActionTextFromCode(highlightedVoteCode.value)} en "${vot.value.titulo_ciudadano}".`
+      return `${shortName} ${voteActionTextFromCode(highlightedVoteCode.value)} en "${vot.value.titulo_ciudadano}". Mira el detalle completo.`
     }
-    return `Como voto ${shortName} en "${vot.value.titulo_ciudadano}"?`
+    return `Como voto ${shortName} en "${vot.value.titulo_ciudadano}"? Mira el detalle completo.`
   }
-  if (highlightedGroup.value) return highlightedGroupSummary.value
-  return ''
+  if (highlightedGroup.value) {
+    if (highlightedGroupCode.value != null) {
+      return `${highlightedGroupSummary.value} Mira el detalle completo.`
+    }
+    return `${highlightedGroupSummary.value} Ver detalle completo.`
+  }
+  return `Asi se voto "${vot.value.titulo_ciudadano}". Mira el detalle completo.`
 })
 
 const copiedVi = ref(null)
@@ -321,9 +334,27 @@ const sourceLink = computed(() => {
   if (!vot.value) return null
   if (vot.value.urlCongreso) return { href: vot.value.urlCongreso, label: 'Ver en congreso.es' }
   if (vot.value.urlCyL) return { href: vot.value.urlCyL, label: 'Ver en ccyl.es' }
+  if (vot.value.urlAndalucia) return { href: vot.value.urlAndalucia, label: 'Ver en parlamentodeandalucia.es' }
   if (vot.value.urlMadrid) return { href: vot.value.urlMadrid, label: 'Ver en asambleamadrid.es' }
   if (vot.value.urlCatalunya) return { href: vot.value.urlCatalunya, label: 'Ver en parlament.cat' }
+  const scope = String(currentScopeId.value || '').toLowerCase()
+  if (scope === 'nacional') {
+    return {
+      href: congresoSourceFromVoteId(vot.value.id) || 'https://www.congreso.es/opendata/votaciones',
+      label: 'Ver en congreso.es',
+    }
+  }
+  if (scope === 'cyl') return { href: 'https://www.ccyl.es', label: 'Ver en ccyl.es' }
+  if (scope === 'andalucia') return { href: 'https://www.parlamentodeandalucia.es', label: 'Ver en parlamentodeandalucia.es' }
+  if (scope === 'madrid') return { href: 'https://www.asambleamadrid.es', label: 'Ver en asambleamadrid.es' }
+  if (scope === 'catalunya') return { href: 'https://www.parlament.cat', label: 'Ver en parlament.cat' }
   return null
+})
+
+const sourceRef = computed(() => {
+  if (!vot.value?.id) return ''
+  if (vot.value?.exp) return `Ref ${vot.value.id} · Exp ${vot.value.exp}`
+  return `Ref ${vot.value.id}`
 })
 
 const HIDDEN_SCOPE_TAGS = new Set(['nacional', 'cyl', 'andalucia', 'madrid', 'catalunya'])
@@ -435,10 +466,15 @@ watch(vot, (v) => {
         </div>
       </div>
 
-      <!-- Official text and source -->
-      <div v-if="vot.textoOficial" class="detail-section detail-oficial">
-        <h2>Texto oficial del expediente</h2>
-        <blockquote class="texto-oficial">{{ vot.textoOficial }}</blockquote>
+      <!-- Official source and traceability -->
+      <div v-if="vot.textoOficial || sourceLink" class="detail-section detail-oficial">
+        <h2>Fuente oficial</h2>
+        <blockquote v-if="vot.textoOficial" class="texto-oficial">{{ vot.textoOficial }}</blockquote>
+        <p v-else class="source-empty">No hay extracto textual, pero sí referencia oficial de la votación.</p>
+        <div class="source-trace">
+          <span v-if="sourceRef" class="badge badge--source">{{ sourceRef }}</span>
+          <span v-if="vot.legislatura" class="badge badge--source">{{ vot.legislatura }}</span>
+        </div>
         <a v-if="sourceLink" :href="sourceLink.href" target="_blank" rel="noopener" class="link-external">
           {{ sourceLink.label }} &nearr;
         </a>
@@ -830,6 +866,25 @@ watch(vot, (v) => {
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   font-size: 0.88rem;
   line-height: 1.6;
+}
+
+.source-empty {
+  margin: 0 0 0.6rem;
+  font-size: 0.88rem;
+  color: var(--color-muted);
+}
+
+.source-trace {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.badge--source {
+  background: var(--color-surface-muted);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
 }
 
 .link-external {

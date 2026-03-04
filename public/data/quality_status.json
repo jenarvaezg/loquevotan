@@ -1,0 +1,18 @@
+{
+  "scope": "nacional",
+  "generatedAt": "2026-03-03T21:58:49.637Z",
+  "status": "ok",
+  "score": 100,
+  "summary": "Calidad de datos estable",
+  "votes": 14590,
+  "metrics": {
+    "genericTitlesPct": 0,
+    "unknownGroupsPct": 0,
+    "dateAnomaliesPct": 0,
+    "rawTotalsMismatchPct": 0,
+    "emptySummaryPct": 0,
+    "nominalCoveragePct": 99.03,
+    "votesWithoutNominalDetailPct": 0
+  },
+  "incidents": []
+}

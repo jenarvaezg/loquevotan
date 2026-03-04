@@ -5,6 +5,7 @@ node_modules/
 dist/
 .omc/
 test-results/
+artifacts/
 
 # Data and Scraping
 **/raw/

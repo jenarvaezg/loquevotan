@@ -14,6 +14,8 @@
     "qa:refresh-ai-cli": "python3 scripts/qa/refresh_ai_cache_cli.py",
     "qa:madrid": "node scripts/qa/report_madrid_quality.mjs",
     "qa:data-audit": "node scripts/qa/audit_data_quality.mjs",
+    "qa:quality-status": "node scripts/qa/build_quality_status.mjs",
+    "qa:quality-gate:cyl": "node scripts/qa/check_quality_gate.mjs --scope cyl",
     "test:data-integrity": "node scripts/qa/check_data_integrity.mjs",
     "test:data-artifacts": "node scripts/qa/check_data_artifacts.mjs",
     "test:data": "npm run test:data-integrity && npm run test:data-artifacts",

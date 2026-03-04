@@ -23,6 +23,8 @@ jobs:
       actions: write
     env:
       FULL_HISTORY: ${{ github.event.inputs.full_history == 'true' && 'true' || 'false' }}
+      CYL_AI_PARSE_FALLBACK: ${{ vars.CYL_AI_PARSE_FALLBACK || 'false' }}
+      CYL_AI_PARSE_MODEL: ${{ vars.CYL_AI_PARSE_MODEL || 'gemini-2.5-flash' }}
 
     steps:
       - uses: actions/checkout@v4
@@ -116,10 +118,15 @@ jobs:
 
       - name: Run CyL update
         run: |
+          CYL_EXTRA_ARGS=""
+          if [ "${CYL_AI_PARSE_FALLBACK}" = "true" ]; then
+            CYL_EXTRA_ARGS="--ai-parse-fallback --ai-parse-model ${CYL_AI_PARSE_MODEL}"
+            echo "CyL AI parse fallback enabled with model: ${CYL_AI_PARSE_MODEL}"
+          fi
           if [ "${FULL_HISTORY}" = "true" ]; then
-            python scripts/cyl/run_update.py
+            python scripts/cyl/run_update.py ${CYL_EXTRA_ARGS}
           else
-            python scripts/cyl/run_update.py --active-only
+            python scripts/cyl/run_update.py --active-only ${CYL_EXTRA_ARGS}
           fi
 
       - name: Run Madrid update
@@ -136,6 +143,18 @@ jobs:
             --markdown-out artifacts/madrid-quality.md \
             --json-out artifacts/madrid-quality.json
 
+      - name: Generate data quality audit
+        run: |
+          node scripts/qa/audit_data_quality.mjs \
+            --markdown-out artifacts/data-quality.md \
+            --json-out artifacts/data-quality.json
+
+      - name: Build public quality status files
+        run: |
+          node scripts/qa/build_quality_status.mjs \
+            --audit artifacts/data-quality.json \
+            --out-dir public/data
+
       - name: Upload Madrid QA artifact
         if: always()
         uses: actions/upload-artifact@v4
@@ -144,6 +163,16 @@ jobs:
           path: |
             artifacts/madrid-quality.md
             artifacts/madrid-quality.json
+          if-no-files-found: error
+
+      - name: Upload data quality artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: data-quality-report-${{ github.run_id }}
+          path: |
+            artifacts/data-quality.md
+            artifacts/data-quality.json
           if-no-files-found: error
 
       - name: Build global index

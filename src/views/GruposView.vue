@@ -214,36 +214,37 @@ function cellData(ga, gb) {
   white-space: nowrap;
 }
 
-.affinity-table tbody:hover td {
-  color: transparent;
-}
-.affinity-table tbody:hover td:hover {
-  color: inherit;
-  transform: scale(1.1);
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  z-index: 10;
-  position: relative;
-}
+@media (hover: hover) and (pointer: fine) and (min-width: 1024px) {
+  .affinity-table tbody:hover td {
+    color: transparent;
+  }
+  .affinity-table tbody:hover td:hover {
+    color: inherit;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.6), 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    position: relative;
+  }
 
-.affinity-table tr:hover td {
-  color: inherit;
-}
-.affinity-table td:hover::after,
-.affinity-table td:hover::before {
-  content: "";
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.05);
-  left: 0;
-  top: -5000px;
-  height: 10000px;
-  width: 100%;
-  z-index: -1;
-}
-.affinity-table td:hover::before {
-  left: -5000px;
-  top: 0;
-  width: 10000px;
-  height: 100%;
+  .affinity-table tr:hover td {
+    color: inherit;
+  }
+  .affinity-table td:hover::after,
+  .affinity-table td:hover::before {
+    content: "";
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.05);
+    left: 0;
+    top: -5000px;
+    height: 10000px;
+    width: 100%;
+    z-index: -1;
+  }
+  .affinity-table td:hover::before {
+    left: -5000px;
+    top: 0;
+    width: 10000px;
+    height: 100%;
+  }
 }
 
 .affinity-table thead th {
@@ -309,10 +310,12 @@ function cellData(ga, gb) {
   color: #1e293b;
   border: 1px solid rgba(255,255,255,0.4);
   cursor: default;
-  transition: opacity 0.1s;
+  transition: opacity 0.1s, box-shadow 0.12s ease;
 }
 
-.affinity-cell:hover { opacity: 0.85; }
+@media (hover: hover) and (pointer: fine) {
+  .affinity-cell:hover { opacity: 0.85; }
+}
 .affinity-cell--link { cursor: pointer; }
 
 .affinity-cell--self {

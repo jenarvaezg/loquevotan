@@ -1,0 +1,29 @@
+{
+  "scope": "cyl",
+  "generatedAt": "2026-03-03T21:58:49.637Z",
+  "status": "warn",
+  "score": 84.7,
+  "summary": "Calidad de datos con incidencias menores",
+  "votes": 5090,
+  "metrics": {
+    "genericTitlesPct": 10.06,
+    "unknownGroupsPct": 0,
+    "dateAnomaliesPct": 0,
+    "rawTotalsMismatchPct": 1.39,
+    "emptySummaryPct": 0.16,
+    "nominalCoveragePct": 3.34,
+    "votesWithoutNominalDetailPct": 96.42
+  },
+  "incidents": [
+    {
+      "id": "generic_titles",
+      "severity": "medium",
+      "message": "Títulos genéricos elevados (10.06%)."
+    },
+    {
+      "id": "limited_nominal_coverage",
+      "severity": "info",
+      "message": "Cobertura nominal limitada (3.34% con detalle nominal)."
+    }
+  ]
+}

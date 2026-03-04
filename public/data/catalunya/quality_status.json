@@ -1,0 +1,34 @@
+{
+  "scope": "catalunya",
+  "generatedAt": "2026-03-03T21:58:49.637Z",
+  "status": "critical",
+  "score": 0,
+  "summary": "Calidad de datos con incidencias relevantes",
+  "votes": 146,
+  "metrics": {
+    "genericTitlesPct": 0,
+    "unknownGroupsPct": 0,
+    "dateAnomaliesPct": 100,
+    "rawTotalsMismatchPct": 0,
+    "emptySummaryPct": 100,
+    "nominalCoveragePct": 0,
+    "votesWithoutNominalDetailPct": 100
+  },
+  "incidents": [
+    {
+      "id": "date_anomalies",
+      "severity": "high",
+      "message": "146 votaciones con fecha anómala."
+    },
+    {
+      "id": "empty_summary",
+      "severity": "high",
+      "message": "Resúmenes vacíos por encima del umbral (100%)."
+    },
+    {
+      "id": "limited_nominal_coverage",
+      "severity": "info",
+      "message": "Cobertura nominal limitada (0% con detalle nominal)."
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+name: CyL Daily Quality Audit
+
+on:
+  schedule:
+    - cron: "15 7 * * *" # Every day at 07:15 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cyl-daily-quality
+  cancel-in-progress: true
+
+jobs:
+  audit-cyl:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - run: npm ci
+
+      - name: Run CyL quality audit
+        run: |
+          node scripts/qa/audit_data_quality.mjs \
+            --scopes cyl \
+            --markdown-out artifacts/cyl-quality.md \
+            --json-out artifacts/cyl-quality.json
+
+      - name: Run CyL quality gate
+        run: |
+          node scripts/qa/check_quality_gate.mjs \
+            --scope cyl \
+            --audit artifacts/cyl-quality.json
+
+      - name: Upload CyL quality artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cyl-quality-report-${{ github.run_id }}
+          path: |
+            artifacts/cyl-quality.md
+            artifacts/cyl-quality.json
+          if-no-files-found: error
