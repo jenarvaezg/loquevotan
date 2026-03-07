@@ -10,7 +10,6 @@ import ViewState from '../components/ViewState.vue'
 const { currentScopeId, ambitos } = useData()
 const router = useRouter()
 const manifest = ref(null)
-const qualityStatus = ref(null)
 const manifestLoading = ref(true)
 const manifestError = ref('')
 const BASE_HIDDEN_POPULAR_TAGS = [
@@ -51,50 +50,16 @@ const visibleTopTags = computed(() =>
   )
 )
 
-const qualityStatusLabel = computed(() => {
-  const status = String(qualityStatus.value?.status || '').toLowerCase()
-  if (status === 'critical') return 'Fiabilidad con incidencias'
-  if (status === 'warn') return 'Fiabilidad con avisos'
-  return 'Fiabilidad estable'
-})
-
-const qualityStatusClass = computed(() => {
-  const status = String(qualityStatus.value?.status || '').toLowerCase()
-  if (status === 'critical') return 'hero-quality--critical'
-  if (status === 'warn') return 'hero-quality--warn'
-  return 'hero-quality--ok'
-})
-
-const qualityGeneratedAt = computed(() => {
-  const raw = qualityStatus.value?.generatedAt
-  if (!raw || typeof raw !== 'string') return ''
-  const parsed = new Date(raw)
-  if (Number.isNaN(parsed.getTime())) return ''
-  return new Intl.DateTimeFormat('es-ES', {
-    dateStyle: 'short',
-    timeStyle: 'short',
-    timeZone: 'Europe/Madrid',
-  }).format(parsed)
-})
-
 async function loadManifest() {
   manifest.value = null
-  qualityStatus.value = null
   manifestError.value = ''
   manifestLoading.value = true
   try {
     const scopePath = currentScopeId.value === 'nacional' ? '' : `${currentScopeId.value}/`
     const manifestUrl = `${import.meta.env.BASE_URL}data/${scopePath}manifest_home.json`
-    const qualityUrl = `${import.meta.env.BASE_URL}data/${scopePath}quality_status.json`
-    const [manifestResp, qualityResp] = await Promise.all([
-      fetch(manifestUrl),
-      fetch(qualityUrl).catch(() => null),
-    ])
+    const manifestResp = await fetch(manifestUrl)
     if (!manifestResp.ok) throw new Error(`HTTP ${manifestResp.status}`)
     manifest.value = await manifestResp.json()
-    if (qualityResp?.ok) {
-      qualityStatus.value = await qualityResp.json()
-    }
   } catch (e) {
     console.error('Error loading manifest:', e)
     manifestError.value = 'No se pudo cargar el resumen inicial para este ámbito.'
@@ -117,12 +82,6 @@ function goToTag(tag) {
       <h1>Lo Que Votan</h1>
       <p class="hero-tagline">Qué vota cada diputado en el Congreso, explicado para ciudadanos</p>
       <p v-if="formattedUpdatedAt" class="hero-updated">Datos actualizados el {{ formattedUpdatedAt }}</p>
-      <div v-if="qualityStatus" class="hero-quality" :class="qualityStatusClass">
-        <strong>{{ qualityStatusLabel }}</strong>
-        <span>Score {{ qualityStatus.score }}/100</span>
-        <span v-if="qualityStatus.incidents?.length">· {{ qualityStatus.incidents.length }} incidencias</span>
-        <span v-if="qualityGeneratedAt">· auditado {{ qualityGeneratedAt }}</span>
-      </div>
       <HeroSearch :show-no-results="true" />
       <div class="hero-chips">
         <a
@@ -269,35 +228,6 @@ function goToTag(tag) {
   font-size: 0.95rem;
   font-weight: 500;
   opacity: 0.88;
-}
-
-.hero-quality {
-  display: inline-flex;
-  gap: 0.55rem;
-  align-items: center;
-  flex-wrap: wrap;
-  padding: 0.35rem 0.7rem;
-  border-radius: 999px;
-  font-size: 0.78rem;
-  font-weight: 500;
-  margin: 0 auto 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  background: rgba(15, 23, 42, 0.35);
-}
-
-.hero-quality--ok {
-  border-color: rgba(74, 222, 128, 0.45);
-  color: #dcfce7;
-}
-
-.hero-quality--warn {
-  border-color: rgba(250, 204, 21, 0.45);
-  color: #fef9c3;
-}
-
-.hero-quality--critical {
-  border-color: rgba(248, 113, 113, 0.5);
-  color: #fee2e2;
 }
 
 .hero-chips {

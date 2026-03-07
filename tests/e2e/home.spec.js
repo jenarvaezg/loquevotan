@@ -30,4 +30,8 @@ test.describe('Home page', () => {
     await expect(quizBanner).toBeVisible()
     await expect(quizBanner.getByRole('heading')).toContainText('¿Con quién coincide más tu voto?')
   })
+
+  test('does not expose reliability copy on the public home', async ({ page }) => {
+    await expect(page.locator('body')).not.toContainText(/Fiabilidad con avisos|Fiabilidad estable|Fiabilidad con incidencias/)
+  })
 })

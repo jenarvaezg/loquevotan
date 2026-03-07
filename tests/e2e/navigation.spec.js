@@ -36,4 +36,12 @@ test.describe('Navigation', () => {
     await page.waitForURL(/\/votaciones/)
     expect(page.url()).toContain('/votaciones')
   })
+
+  test('audit route is reachable directly but not linked in nav', async ({ page }) => {
+    await page.goto('/')
+    await expect(page.locator('.nav-bar')).not.toContainText('Audit')
+
+    await page.goto('/audit')
+    await expect(page.getByTestId('audit-page')).toBeVisible()
+  })
 })
