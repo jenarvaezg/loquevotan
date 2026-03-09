@@ -70,6 +70,13 @@ export function normalize(s) {
     .toLowerCase();
 }
 
+export function matchSearch(query, target) {
+  if (!query || !target) return false;
+  const tokens = normalize(query).split(/\s+/).filter(Boolean);
+  const normalizedTarget = normalize(target);
+  return tokens.every(token => normalizedTarget.includes(token));
+}
+
 export function pct(n) {
   return (n * 100).toFixed(1) + "%";
 }

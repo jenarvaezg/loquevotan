@@ -1,6 +1,6 @@
 <script setup>
 import { ref, computed } from 'vue'
-import { normalize, fmt } from '../utils'
+import { normalize, matchSearch, fmt } from '../utils'
 
 const props = defineProps({
   tags: Array,
@@ -14,9 +14,9 @@ const open = ref(false)
 const activeIdx = ref(-1)
 
 const filtered = computed(() => {
-  const q = normalize(query.value.trim())
+  const q = query.value.trim()
   if (!q) return props.tags.slice(0, 20)
-  return props.tags.filter(t => normalize(t).includes(q)).slice(0, 20)
+  return props.tags.filter(t => matchSearch(q, t)).slice(0, 20)
 })
 
 function select(tag) {

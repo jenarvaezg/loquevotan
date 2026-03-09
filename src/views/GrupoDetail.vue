@@ -2,7 +2,7 @@
 import { computed, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useData } from '../composables/useData'
-import { fmt, pct, normalize, dipPhotoUrl, avatarStyle, avatarInitials, LEGISLATURAS, DIPS_PER_PAGE, getGroupInfo } from '../utils'
+import { fmt, pct, normalize, matchSearch, dipPhotoUrl, avatarStyle, avatarInitials, LEGISLATURAS, DIPS_PER_PAGE, getGroupInfo } from '../utils'
 import VoteBar from '../components/VoteBar.vue'
 import Pagination from '../components/Pagination.vue'
 import ViewState from '../components/ViewState.vue'
@@ -90,9 +90,9 @@ const memberPage = ref(1)
 const memberSearch = ref('')
 
 const filteredMembers = computed(() => {
-  const q = normalize(memberSearch.value.trim())
+  const q = memberSearch.value.trim()
   if (!q) return members.value
-  return members.value.filter(i => normalize(diputados.value[i]).includes(q))
+  return members.value.filter(i => matchSearch(q, diputados.value[i]))
 })
 
 const memberTotalPages = computed(() => Math.max(1, Math.ceil(filteredMembers.value.length / DIPS_PER_PAGE)))

@@ -2,7 +2,7 @@
 import { ref, computed, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useData } from '../composables/useData'
-import { debounce, normalize, DIPS_PER_PAGE, getGroupInfo } from '../utils'
+import { debounce, normalize, matchSearch, DIPS_PER_PAGE, getGroupInfo } from '../utils'
 import DipCard from '../components/DipCard.vue'
 import Pagination from '../components/Pagination.vue'
 import FilterBar from '../components/FilterBar.vue'
@@ -40,7 +40,7 @@ const availableProvincias = computed(() => {
 })
 
 const filtered = computed(() => {
-  const s = normalize(search.value.trim())
+  const s = search.value.trim()
   const grupo = grupoFilter.value
   const prov = provinciaFilter.value
   const sort = sortMode.value
@@ -49,7 +49,7 @@ const filtered = computed(() => {
   for (let i = 0; i < diputados.value.length; i++) {
     const ds = dipStats.value[i]
     if (ds.total === 0) continue
-    if (s && !normalize(diputados.value[i]).includes(s)) continue
+    if (s && !matchSearch(s, diputados.value[i])) continue
     if (grupo && (ds.mainGrupo < 0 || grupos.value[ds.mainGrupo] !== grupo)) continue
     
     if (prov) {

@@ -2,7 +2,7 @@
 import { ref, computed, watch, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useData } from '../composables/useData'
-import { fmt, debounce, normalize, LEGISLATURAS, VOTES_PER_PAGE } from '../utils'
+import { fmt, debounce, normalize, matchSearch, LEGISLATURAS, VOTES_PER_PAGE } from '../utils'
 import VoteCard from '../components/VoteCard.vue'
 import Pagination from '../components/Pagination.vue'
 import FilterBar from '../components/FilterBar.vue'
@@ -95,7 +95,7 @@ watch(currentScopeLegs, (legs) => {
 }, { immediate: true })
 
 const filtered = computed(() => {
-  const s = normalize(search.value.trim())
+  const s = search.value.trim()
   const cat = catFilter.value
   const result = resultFilter.value
   const proponente = proponenteFilter.value
@@ -105,7 +105,7 @@ const filtered = computed(() => {
 
   let indices = sortedVotIdxByDate.value.filter(i => {
     const vot = votaciones.value[i]
-    if (s && !normalize(vot.titulo_ciudadano).includes(s)) return false
+    if (s && !matchSearch(s, vot.titulo_ciudadano)) return false
     if (cat && categorias.value[vot.categoria] !== cat) return false
     if (result && votResults.value[i].result !== result) return false
     if (proponente && vot.proponente !== proponente) return false

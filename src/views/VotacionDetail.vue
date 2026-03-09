@@ -2,7 +2,7 @@
 import { computed, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useData } from '../composables/useData'
-import { fmt, normalize, VOTO_LABELS, resultMarginText, subTipoLabel, subTipoBadgeClass, votoPillClass, getGroupInfo, buildAbsoluteAppUrl } from '../utils'
+import { fmt, normalize, matchSearch, VOTO_LABELS, resultMarginText, subTipoLabel, subTipoBadgeClass, votoPillClass, getGroupInfo, buildAbsoluteAppUrl } from '../utils'
 import VoteBar from '../components/VoteBar.vue'
 import ResultBadge from '../components/ResultBadge.vue'
 import ShareBar from '../components/ShareBar.vue'
@@ -122,11 +122,11 @@ const sortedVoteIndices = computed(() => {
 })
 
 const filteredVotes = computed(() => {
-  const q = normalize(dipSearch.value.trim())
+  const q = dipSearch.value.trim()
   if (!q) return sortedVoteIndices.value
   return sortedVoteIndices.value.filter(vi => {
     const name = diputados.value[votos.value[vi][1]]
-    return normalize(name).includes(q)
+    return matchSearch(q, name)
   })
 })
 

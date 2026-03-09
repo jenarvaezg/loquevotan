@@ -2,7 +2,7 @@
 import { computed, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useData } from '../composables/useData'
-import { pct, normalize, dipPhotoUrl, avatarStyle, avatarInitials, VOTO_LABELS, VOTES_PER_PAGE, votoPillClass } from '../utils'
+import { pct, normalize, matchSearch, dipPhotoUrl, avatarStyle, avatarInitials, VOTO_LABELS, VOTES_PER_PAGE, votoPillClass } from '../utils'
 import VoteBar from '../components/VoteBar.vue'
 import ResultBadge from '../components/ResultBadge.vue'
 import Pagination from '../components/Pagination.vue'
@@ -50,20 +50,20 @@ watch([dipIdxA, dipIdxB], ([a, b]) => {
 
 // Autocomplete filtered lists
 const filteredA = computed(() => {
-  const q = normalize(searchA.value.trim())
+  const q = searchA.value.trim()
   if (!q) return []
   return diputados.value
     .map((name, idx) => ({ name, idx }))
-    .filter(d => normalize(d.name).includes(q))
+    .filter(d => matchSearch(q, d.name))
     .slice(0, 8)
 })
 
 const filteredB = computed(() => {
-  const q = normalize(searchB.value.trim())
+  const q = searchB.value.trim()
   if (!q) return []
   return diputados.value
     .map((name, idx) => ({ name, idx }))
-    .filter(d => normalize(d.name).includes(q))
+    .filter(d => matchSearch(q, d.name))
     .slice(0, 8)
 })
 

@@ -2,7 +2,7 @@
 import { computed, ref, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useData } from '../composables/useData'
-import { debounce, normalize, getGroupInfo } from '../utils'
+import { debounce, normalize, getGroupInfo, matchSearch } from '../utils'
 
 const props = defineProps({
   showNoResults: { type: Boolean, default: false },
@@ -29,17 +29,15 @@ const doSearch = debounce((q) => {
     return
   }
 
-  const norm = normalize(q)
-
   const dips = []
   for (let i = 0; i < diputados.value.length && dips.length < 5; i++) {
     if (dipStats.value[i].total === 0) continue
-    if (normalize(diputados.value[i]).includes(norm)) dips.push(i)
+    if (matchSearch(q, diputados.value[i])) dips.push(i)
   }
 
   const allVots = []
   for (let i = 0; i < votaciones.value.length; i++) {
-    if (normalize(votaciones.value[i].titulo_ciudadano).includes(norm)) allVots.push(i)
+    if (matchSearch(q, votaciones.value[i].titulo_ciudadano)) allVots.push(i)
   }
   allVots.sort((a, b) => {
     const da = votaciones.value[a].fecha || ''

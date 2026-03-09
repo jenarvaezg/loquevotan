@@ -2,7 +2,7 @@
 import { computed, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useData } from '../composables/useData'
-import { fmt, pct, debounce, normalize, dipPhotoUrl, avatarInitials, avatarStyle, VOTO_LABELS, VOTES_PER_PAGE, LEGISLATURAS, subTipoLabel, subTipoBadgeClass, votoPillClass, getGroupInfo, buildAbsoluteAppUrl, displayTags } from '../utils'
+import { fmt, pct, debounce, normalize, matchSearch, dipPhotoUrl, avatarInitials, avatarStyle, VOTO_LABELS, VOTES_PER_PAGE, LEGISLATURAS, subTipoLabel, subTipoBadgeClass, votoPillClass, getGroupInfo, buildAbsoluteAppUrl, displayTags } from '../utils'
 import VoteBar from '../components/VoteBar.vue'
 import ResultBadge from '../components/ResultBadge.vue'
 import ShareBar from '../components/ShareBar.vue'
@@ -182,13 +182,13 @@ const rebelRecords = computed(() => {
 })
 
 const filteredHistory = computed(() => {
-  const q = normalize(histSearch.value.trim())
+  const q = histSearch.value.trim()
   const votoFilter = histVoto.value
   const legFilter = histLeg.value
   const tag = activeTag.value
 
   return dipRecords.value.filter(r => {
-    if (q && !normalize(votaciones.value[r.votIdx].titulo_ciudadano).includes(q)) return false
+    if (q && !matchSearch(q, votaciones.value[r.votIdx].titulo_ciudadano)) return false
     if (votoFilter && r.code !== Number(votoFilter)) return false
     if (legFilter && votaciones.value[r.votIdx].legislatura !== legFilter) return false
     if (tag && !(votaciones.value[r.votIdx].etiquetas || []).includes(tag)) return false
