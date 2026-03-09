@@ -200,7 +200,6 @@ function goToTag(tag) {
   padding: 4rem 1.25rem 3.5rem;
   text-align: center;
   position: relative;
-  overflow: hidden;
 }
 
 @keyframes gradientBG {

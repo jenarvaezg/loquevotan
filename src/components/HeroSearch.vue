@@ -37,12 +37,16 @@ const doSearch = debounce((q) => {
     if (normalize(diputados.value[i]).includes(norm)) dips.push(i)
   }
 
-  const vots = []
-  const sorted = sortedVotIdxByDate.value
-  for (let i = 0; i < sorted.length && vots.length < 3; i++) {
-    const idx = sorted[i]
-    if (normalize(votaciones.value[idx].titulo_ciudadano).includes(norm)) vots.push(idx)
+  const allVots = []
+  for (let i = 0; i < votaciones.value.length; i++) {
+    if (normalize(votaciones.value[i].titulo_ciudadano).includes(norm)) allVots.push(i)
   }
+  allVots.sort((a, b) => {
+    const da = votaciones.value[a].fecha || ''
+    const db = votaciones.value[b].fecha || ''
+    return db.localeCompare(da)
+  })
+  const vots = allVots.slice(0, 3)
 
   dipMatches.value = dips
   votMatches.value = vots
