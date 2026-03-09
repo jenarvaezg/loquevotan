@@ -569,11 +569,14 @@
     "proponente": "Por Andalucía"
   },
   "VOTACIÓN PARA DECIDIR SI SE REALIZA VOTACIÓN ORDINARIA O NO PARA LA ‘12-23/PNLP-000019, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A COMPROMISO CON LA IGUALDAD Y LA LUCHA CONTRA LA VIOLENCIA DE GÉNERO’": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Reforzar la lucha contra la violencia de género y promover la igualdad",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "combatir_violencia_machista",
+      "impulsar_igualdad_genero"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar que se debata y vote una propuesta para fortalecer el compromiso público contra la violencia machista.",
+    "proponente": "Desconocido"
   },
   "12-23/PNLP-000019, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A COMPROMISO CON LA IGUALDAD Y LA LUCHA CONTRA LA VIOLENCIA DE GÉNERO": {
     "titulo_ciudadano": "Renovar el pacto andaluz contra la violencia de género",
@@ -771,11 +774,13 @@
     "proponente": "Desconocido"
   },
   "DE COLABORACIÓN": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Trámite administrativo sobre convenios de colaboración",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa validar un paso administrativo necesario para gestionar acuerdos de colaboración institucional.",
+    "proponente": "Desconocido"
   },
   "12-22/PL-000005, DEBATE FINAL DEL PROYECTO DE LEY DE LA FUNCIÓN PÚBLICA DE ANDALUCÍA": {
     "titulo_ciudadano": "Aprobar la nueva Ley de la Función Pública para los trabajadores de la Junta",
@@ -1429,11 +1434,13 @@
     "proponente": "Desconocido"
   },
   "VOTACIÓN PARA LA PROPUESTA DE RETIRADA DEL PUNTO TERCERO DEL ORDEN DEL DÍA EN RELACIÓN AL DECRETO LEY 12-24/DL-000003": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Retirar del debate del día la votación de un decreto ley",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aceptar que se elimine un tema específico de la agenda de reuniones de hoy para tratarlo en otro momento.",
+    "proponente": "Desconocido"
   },
   "12-24/PPL-000001, PROPUESTA DE TOMA EN CONSIDERACIÓN DE LA PROPOSICIÓN DE LEY RELATIVA A CONSEJO CONSULTIVO DE ANDALUCÍA": {
     "titulo_ciudadano": "Crear ley para Consejo Consultivo de Andalucía",
@@ -2405,11 +2412,13 @@
     "proponente": "Desconocido"
   },
   "12-24/ICG-000001, APROBACIÓN, EN SU CASO, DE LA CUENTA GENERAL CORRESPONDIENTE AL EJERCICIO 2023": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Aprobar el balance del gasto público realizado durante el año 2023",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "controlar_gasto_publico"
+    ],
+    "resumen_sencillo": "Votar a favor significa dar el visto bueno al informe final sobre cómo se gastó el dinero público el año pasado.",
+    "proponente": "Desconocido"
   },
   "12-25/M-000004, MOCIÓN RELATIVA A POLÍTICA GENERAL EN MATERIA DE ALUMNADO CON NECESIDADES EDUCATIVAS ESPECIALES": {
     "titulo_ciudadano": "Política general para alumnos con necesidades educativas especiales",
@@ -4507,11 +4516,13 @@
     "proponente": "Gobierno"
   },
   "11-21/PPL-000007, PROPUESTA DE TOMA EN CONSIDERACIÓN DE LA PROPOSICIÓN DE LEY DE CONCORDIA ENTRE ESPAÑOLES": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
-    "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "titulo_ciudadano": "Iniciar el debate para una nueva ley sobre memoria y concordia",
+    "categoria_principal": "Justicia",
+    "etiquetas": [
+      "recuperar_memoria_historica"
+    ],
+    "resumen_sencillo": "Votar a favor significa aceptar que el Parlamento comience a tramitar y discutir una propuesta de ley sobre concordia histórica.",
+    "proponente": "Desconocido"
   },
   "11-21/M-000018, MOCIÓN RELATIVA A POLÍTICA EN MATERIA DE CONTRATACIÓN PÚBLICA": {
     "titulo_ciudadano": "Política de contratación pública",
@@ -5562,11 +5573,13 @@
     "proponente": "Desconocido"
   },
   "PNLP-000025": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Trámite de una propuesta no de ley sobre temas generales",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa avanzar en la tramitación de esta iniciativa parlamentaria técnica sin contenido temático especificado.",
+    "proponente": "Desconocido"
   },
   "10-16/PNLP-000020, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A ACTUACIONES A FAVOR DE LOS AFECTADOS POR EL ÍNDICE DE REFERENCIA DE PRÉSTAMOS HIPOTECARIOS": {
     "titulo_ciudadano": "Medidas para afectados por índice de préstamos hipotecarios",
@@ -7938,11 +7951,13 @@
     "proponente": "Desconocido"
   },
   "VOTACIÓN PARA LA ALTERACIÓN DEL ORDEN DEL DIA": {
-    "titulo_ciudadano": "Asunto parlamentario sin clasificar",
+    "titulo_ciudadano": "Cambiar el orden de los asuntos que se debaten hoy",
     "categoria_principal": "Otros",
-    "etiquetas": [],
-    "resumen_sencillo": "",
-    "proponente": ""
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa modificar la lista de temas a tratar en la sesión para priorizar unos sobre otros.",
+    "proponente": "Desconocido"
   },
   "PROPOSICIÓN NO DE LEY EN PLENO 9-12/PNLP-000002, RELATIVA A CARGA DE TRABAJO DE LOS ASTILLEROS DE LA BAHÍA DE CÁDIZ": {
     "titulo_ciudadano": "Carga de trabajo en astilleros de Cádiz",

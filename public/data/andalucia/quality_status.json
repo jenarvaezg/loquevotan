@@ -1,16 +1,16 @@
 {
   "scope": "andalucia",
-  "generatedAt": "2026-03-03T21:58:49.637Z",
+  "generatedAt": "2026-03-09T07:16:18.379Z",
   "status": "ok",
-  "score": 99.6,
+  "score": 100,
   "summary": "Calidad de datos estable",
-  "votes": 4584,
+  "votes": 4579,
   "metrics": {
     "genericTitlesPct": 0,
     "unknownGroupsPct": 0,
     "dateAnomaliesPct": 0,
     "rawTotalsMismatchPct": 0,
-    "emptySummaryPct": 0.46,
+    "emptySummaryPct": 0.02,
     "nominalCoveragePct": 99.98,
     "votesWithoutNominalDetailPct": 0
   },

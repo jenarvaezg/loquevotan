@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-03T21:58:49.637Z",
+  "generatedAt": "2026-03-09T07:16:18.379Z",
   "scopes": [
     {
       "scope": "nacional",
@@ -11,7 +11,7 @@
     {
       "scope": "andalucia",
       "status": "ok",
-      "score": 99.6,
+      "score": 100,
       "incidents": 0,
       "file": "public/data/andalucia/quality_status.json"
     },
