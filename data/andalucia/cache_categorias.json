@@ -10226,5 +10226,14 @@
     ],
     "resumen_sencillo": "Votar a favor significa garantizar por ley el acceso universal y la inclusión de las personas con discapacidad.",
     "proponente": "Gobierno"
+  },
+  "CAMBIO DEL ORDEN DEL DÍA": {
+    "titulo_ciudadano": "Modificar los temas que se van a debatir en la sesion",
+    "categoria_principal": "Otros",
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aceptar que se cambie el orden de los asuntos previstos para debatir durante la jornada.",
+    "proponente": "Desconocido"
   }
 }
