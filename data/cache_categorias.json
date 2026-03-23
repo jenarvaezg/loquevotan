@@ -35413,5 +35413,118 @@
     "etiquetas": [],
     "resumen_sencillo": "Votar a favor implica aprobar una ley que ha sido vetada por el Senado, requiriendo una mayoría específica en el Congreso.",
     "proponente": "Desconocido"
+  },
+  "438b69c5ddfaaa17": {
+    "titulo_ciudadano": "Modificar normas sobre empleados públicos y gestión de subvenciones",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa cambiar las leyes que regulan el trabajo de los empleados públicos y la forma en que se conceden las ayudas públicas.",
+    "proponente": "Mixto"
+  },
+  "724b4ac77e57cc90": {
+    "titulo_ciudadano": "Ampliar los casos de prisión permanente revisable en el Código Penal",
+    "categoria_principal": "Justicia",
+    "etiquetas": [
+      "reformar_codigo_penal"
+    ],
+    "resumen_sencillo": "Votar a favor significa permitir que se aplique la pena de prisión permanente a más tipos de delitos graves.",
+    "proponente": "PP"
+  },
+  "63fe4cab11b30c00": {
+    "titulo_ciudadano": "Medidas para defender la libertad de información y expresión",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "proteger_libertad_expresion"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar acciones para garantizar que los ciudadanos y medios puedan expresarse e informar libremente.",
+    "proponente": "PSOE"
+  },
+  "065aa9cf0c26e42a": {
+    "titulo_ciudadano": "Defender a cristianos perseguidos y frenar masacres religiosas internacionales",
+    "categoria_principal": "Asuntos_Exteriores",
+    "etiquetas": [
+      "proteger_derechos_humanos"
+    ],
+    "resumen_sencillo": "Votar a favor significa instar al Gobierno a actuar internacionalmente para proteger a personas perseguidas por sus creencias cristianas.",
+    "proponente": "PP"
+  },
+  "5e73b933263f7c5c": {
+    "titulo_ciudadano": "Exigir cambios en la política de inmigración del Gobierno",
+    "categoria_principal": "Interior_y_Seguridad",
+    "etiquetas": [
+      "controlar_gobierno",
+      "restringir_inmigracion"
+    ],
+    "resumen_sencillo": "Votar a favor significa pedir al Gobierno que revise y rinda cuentas sobre su gestión de la inmigración.",
+    "proponente": "PP"
+  },
+  "5605a7fa315a173a": {
+    "titulo_ciudadano": "Estudiar alternativas para trenes de alta velocidad y su impacto",
+    "categoria_principal": "Infraestructuras",
+    "etiquetas": [
+      "financiar_infraestructuras"
+    ],
+    "resumen_sencillo": "Votar a favor significa evaluar diferentes opciones para el trazado de trenes rápidos considerando su coste y efectos sociales.",
+    "proponente": "Bildu"
+  },
+  "4f645e5a75459edd": {
+    "titulo_ciudadano": "Aprobar ayudas urgentes por daños de temporales y mal tiempo",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "aprobar_ayudas_emergencia",
+      "proteger_medio_ambiente"
+    ],
+    "resumen_sencillo": "Votar a favor significa autorizar fondos y medidas de socorro inmediatas para las zonas afectadas por desastres meteorológicos.",
+    "proponente": "Gobierno"
+  },
+  "414c46dd4a7164f5": {
+    "titulo_ciudadano": "Acelerar el trámite de las ayudas por desastres naturales",
+    "categoria_principal": "Otros",
+    "etiquetas": [
+      "tramitar_ley_urgencia",
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa tramitar las ayudas por el temporal de forma rápida para que se conviertan en ley cuanto antes.",
+    "proponente": "Gobierno"
+  },
+  "260142162b0ec134": {
+    "titulo_ciudadano": "Organizar en España un foro mundial contra el racismo",
+    "categoria_principal": "Asuntos_Exteriores",
+    "etiquetas": [
+      "aprobar_acuerdo_internacional",
+      "proteger_derechos_humanos"
+    ],
+    "resumen_sencillo": "Votar a favor significa ratificar un acuerdo con la ONU para celebrar un encuentro internacional contra la discriminación racial.",
+    "proponente": "Gobierno"
+  },
+  "85b4e66554069581": {
+    "titulo_ciudadano": "Establecer un centro de investigación europeo en Sevilla",
+    "categoria_principal": "Educacion",
+    "etiquetas": [
+      "impulsar_ciencia",
+      "aprobar_acuerdo_internacional"
+    ],
+    "resumen_sencillo": "Votar a favor significa permitir la creación de una sede científica de la Comisión Europea dedicada a la investigación tecnológica.",
+    "proponente": "Gobierno"
+  },
+  "19af3298908f7a7e": {
+    "titulo_ciudadano": "Actualizar el acuerdo de transporte aéreo entre España y Honduras",
+    "categoria_principal": "Asuntos_Exteriores",
+    "etiquetas": [
+      "aprobar_acuerdo_internacional"
+    ],
+    "resumen_sencillo": "Votar a favor significa renovar las normas internacionales que regulan los vuelos y conexiones aéreas entre ambos países.",
+    "proponente": "Gobierno"
+  },
+  "718df67a3392881d": {
+    "titulo_ciudadano": "Reformar la Constitución para que Formentera elija su propio senador",
+    "categoria_principal": "Politica_Territorial",
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa iniciar el cambio legal para que la isla de Formentera tenga representación independiente en el Senado.",
+    "proponente": "Desconocido"
   }
 }
