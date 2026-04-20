@@ -35694,5 +35694,85 @@
     ],
     "resumen_sencillo": "Votar a favor significa permitir que las medidas sobre el conflicto en Oriente Medio se conviertan en ley mediante un proceso parlamentario rápido.",
     "proponente": "Gobierno"
+  },
+  "812d060c73e928e0": {
+    "titulo_ciudadano": "Regular el uso de velos integrales y transferir competencias de seguridad",
+    "categoria_principal": "Interior_y_Seguridad",
+    "etiquetas": [
+      "aumentar_seguridad_ciudadana",
+      "reformar_codigo_penal"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar la prohibición de prendas que oculten el rostro y permitir que Cataluña gestione sus propias competencias de seguridad ciudadana e identificación.",
+    "proponente": "Junts"
+  },
+  "4b694d75e962b1d0": {
+    "titulo_ciudadano": "Designar a la CNMC como supervisor oficial de los servicios digitales",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "proteger_consumidores",
+      "impulsar_telecomunicaciones"
+    ],
+    "resumen_sencillo": "Votar a favor significa permitir que la Comisión Nacional de los Mercados y la Competencia vigile y coordine los servicios en internet en España.",
+    "proponente": "PSOE"
+  },
+  "63df70ebff1aceb9": {
+    "titulo_ciudadano": "Reconocer y reparar a las víctimas del Patronato de Protección a la Mujer",
+    "categoria_principal": "Justicia",
+    "etiquetas": [
+      "recuperar_memoria_historica",
+      "proteger_derechos_humanos"
+    ],
+    "resumen_sencillo": "Votar a favor significa reconocer oficialmente el daño causado a las mujeres encerradas en esta institución y dignificar su memoria.",
+    "proponente": "ERC"
+  },
+  "a6db12ccae5a96d7": {
+    "titulo_ciudadano": "Homenajear a profesionales de la cultura perseguidos durante la dictadura",
+    "categoria_principal": "Cultura",
+    "etiquetas": [
+      "impulsar_cultura",
+      "recuperar_memoria_historica"
+    ],
+    "resumen_sencillo": "Votar a favor significa investigar la destrucción de libros y rendir homenaje a libreros y editores que defendieron la cultura frente al franquismo.",
+    "proponente": "PSOE"
+  },
+  "c54f0564c45e4e54": {
+    "titulo_ciudadano": "Mejorar las infraestructuras de tren y las conexiones ferroviarias con el sur",
+    "categoria_principal": "Infraestructuras",
+    "etiquetas": [
+      "mejorar_red_ferroviaria",
+      "financiar_infraestructuras"
+    ],
+    "resumen_sencillo": "Votar a favor significa exigir al Gobierno inversiones urgentes para solucionar los problemas de los trenes y mejorar los trayectos hacia el sur.",
+    "proponente": "PP"
+  },
+  "ae0e395238dc2161": {
+    "titulo_ciudadano": "Eliminar visados para diplomáticos entre España y Omán",
+    "categoria_principal": "Asuntos_Exteriores",
+    "etiquetas": [
+      "aprobar_acuerdo_internacional",
+      "impulsar_cooperacion_internacional"
+    ],
+    "resumen_sencillo": "Votar a favor significa facilitar el viaje de representantes diplomáticos de ambos países permitiéndoles cruzar fronteras sin necesidad de visado previo.",
+    "proponente": "Gobierno"
+  },
+  "1740cb3a37d763f0": {
+    "titulo_ciudadano": "Construir una nueva conexión eléctrica de alta tensión con Andorra",
+    "categoria_principal": "Asuntos_Exteriores",
+    "etiquetas": [
+      "aprobar_acuerdo_internacional",
+      "garantizar_suministro_electrico"
+    ],
+    "resumen_sencillo": "Votar a favor significa ratificar el acuerdo internacional para unir las redes eléctricas de España y Andorra mediante una línea de alta tensión.",
+    "proponente": "Gobierno"
+  },
+  "aaea83453f4b956b": {
+    "titulo_ciudadano": "Formalizar el acuerdo de sede de la Unión por el Mediterráneo",
+    "categoria_principal": "Asuntos_Exteriores",
+    "etiquetas": [
+      "aprobar_acuerdo_internacional",
+      "impulsar_cooperacion_internacional"
+    ],
+    "resumen_sencillo": "Votar a favor significa dar validez jurídica al acuerdo que establece las oficinas centrales de este organismo internacional en la ciudad de Barcelona.",
+    "proponente": "Gobierno"
   }
 }
