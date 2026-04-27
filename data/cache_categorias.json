@@ -35774,5 +35774,78 @@
     ],
     "resumen_sencillo": "Votar a favor significa dar validez jurídica al acuerdo que establece las oficinas centrales de este organismo internacional en la ciudad de Barcelona.",
     "proponente": "Gobierno"
+  },
+  "195afdfd9ca77281": {
+    "titulo_ciudadano": "Agilizar trámites urbanísticos para facilitar el desarrollo urbano y la vivienda",
+    "categoria_principal": "Vivienda",
+    "etiquetas": [
+      "facilitar_acceso_vivienda"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar reformas legales para evitar que los planes urbanísticos se bloqueen y facilitar la construcción de viviendas.",
+    "proponente": "PP"
+  },
+  "9d6d18fa8610f501": {
+    "titulo_ciudadano": "Modificar la regulación sobre la conservación de óvulos para mejorar su uso",
+    "categoria_principal": "Sanidad",
+    "etiquetas": [
+      "proteger_sanidad_publica"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar cambios en la ley de reproducción asistida para actualizar cómo se guardan y utilizan los óvulos congelados.",
+    "proponente": "PSOE"
+  },
+  "63dc88056ba5f7f3": {
+    "titulo_ciudadano": "Reforzar el control y la seguridad frente al uso de armas blancas",
+    "categoria_principal": "Interior_y_Seguridad",
+    "etiquetas": [
+      "aumentar_seguridad_ciudadana"
+    ],
+    "resumen_sencillo": "Votar a favor significa pedir al Gobierno medidas urgentes para reducir los delitos y la inseguridad causados por el uso de cuchillos.",
+    "proponente": "PP"
+  },
+  "81bd95d1a69f3fdd": {
+    "titulo_ciudadano": "Liderar acciones internacionales para acabar con el matrimonio forzado",
+    "categoria_principal": "Asuntos_Exteriores",
+    "etiquetas": [
+      "impulsar_cooperacion_internacional",
+      "proteger_derechos_humanos"
+    ],
+    "resumen_sencillo": "Votar a favor significa que España trabaje con otros países para proteger a las personas obligadas a casarse contra su voluntad.",
+    "proponente": "PSOE"
+  },
+  "dc411e01483e1024": {
+    "titulo_ciudadano": "Reducir el gasto militar y priorizar soluciones pacíficas a los conflictos",
+    "categoria_principal": "Asuntos_Exteriores",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor significa pedir al Gobierno que detenga el aumento del gasto en armas y busque activamente el fin de las guerras.",
+    "proponente": "Podemos"
+  },
+  "95d7c161c414806b": {
+    "titulo_ciudadano": "Exigir al Gobierno detallar sus planes para el resto de la legislatura",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "controlar_gobierno"
+    ],
+    "resumen_sencillo": "Votar a favor significa obligar al Gobierno a explicar cuáles serán sus prioridades y proyectos políticos principales hasta las próximas elecciones.",
+    "proponente": "Vox"
+  },
+  "6ffe81b7b81c7d20": {
+    "titulo_ciudadano": "Bajar los impuestos a los ciudadanos y criticar la política fiscal actual",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "bajar_impuestos",
+      "controlar_gasto_publico"
+    ],
+    "resumen_sencillo": "Votar a favor significa rechazar la actual presión fiscal del Gobierno y exigir una reducción de los impuestos que pagan los españoles.",
+    "proponente": "PP"
+  },
+  "2883ce9ed3e508a6": {
+    "titulo_ciudadano": "Acelerar las obras de construcción de la segunda fase del Canal",
+    "categoria_principal": "Infraestructuras",
+    "etiquetas": [
+      "gestionar_recursos_hidricos",
+      "financiar_infraestructuras"
+    ],
+    "resumen_sencillo": "Votar a favor significa exigir al Gobierno que asigne fondos y agilice los contratos para terminar una infraestructura hidráulica clave para el territorio.",
+    "proponente": "UPN"
   }
 }
