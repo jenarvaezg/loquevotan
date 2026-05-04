@@ -35847,5 +35847,115 @@
     ],
     "resumen_sencillo": "Votar a favor significa exigir al Gobierno que asigne fondos y agilice los contratos para terminar una infraestructura hidráulica clave para el territorio.",
     "proponente": "UPN"
+  },
+  "098b0dc1efaa97fd": {
+    "titulo_ciudadano": "Crear un consorcio para gestionar inversiones conjuntas entre Estado y Generalitat",
+    "categoria_principal": "Politica_Territorial",
+    "etiquetas": [
+      "financiar_infraestructuras"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar la creación de una entidad conjunta para coordinar y financiar proyectos de inversión en el territorio.",
+    "proponente": "ERC"
+  },
+  "c66b02a80b341365": {
+    "titulo_ciudadano": "Reforzar la protección legal de los menores que están bajo tutela pública",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "proteger_infancia",
+      "reformar_codigo_penal"
+    ],
+    "resumen_sencillo": "Votar a favor significa modificar el Código Civil para aumentar la seguridad jurídica y el bienestar de los niños desamparados.",
+    "proponente": "Vox"
+  },
+  "d6b1a880f7c36734": {
+    "titulo_ciudadano": "Aprobar ayudas al alquiler para familias afectadas por la crisis económica",
+    "categoria_principal": "Vivienda",
+    "etiquetas": [
+      "proteger_inquilinos",
+      "facilitar_acceso_vivienda"
+    ],
+    "resumen_sencillo": "Votar a favor significa validar medidas de apoyo económico para facilitar el pago del alquiler ante el encarecimiento de la vida.",
+    "proponente": "Gobierno"
+  },
+  "fef5656010bccbd1": {
+    "titulo_ciudadano": "Exigir medidas al Gobierno para evitar el colapso de la sanidad pública",
+    "categoria_principal": "Sanidad",
+    "etiquetas": [
+      "controlar_gobierno",
+      "proteger_sanidad_publica"
+    ],
+    "resumen_sencillo": "Votar a favor significa pedir al Gobierno que actúe de inmediato para solucionar los problemas de gestión y retrasos en los hospitales.",
+    "proponente": "Vox"
+  },
+  "938858f2c2a38216": {
+    "titulo_ciudadano": "Acelerar las obras de agua e infraestructuras de transporte pendientes",
+    "categoria_principal": "Medio_Ambiente",
+    "etiquetas": [
+      "gestionar_recursos_hidricos",
+      "financiar_infraestructuras"
+    ],
+    "resumen_sencillo": "Votar a favor significa exigir al Estado que finalice las inversiones urgentes en agua y transporte que acumulan retrasos.",
+    "proponente": "PP"
+  },
+  "20f5a894a3b0ecf8": {
+    "titulo_ciudadano": "Impulsar ayudas económicas urgentes para paliar los efectos de la guerra",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "aprobar_ayudas_emergencia",
+      "impulsar_crecimiento_economico"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar medidas especiales de apoyo económico para las regiones más vulnerables al impacto de la crisis internacional.",
+    "proponente": "CC"
+  },
+  "3d4cdec64410f59f": {
+    "titulo_ciudadano": "Evaluar el impacto de las políticas económicas actuales en las familias",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "controlar_gobierno",
+      "proteger_familias"
+    ],
+    "resumen_sencillo": "Votar a favor significa criticar la gestión económica del Gobierno y proponer medidas que alivien la situación financiera de los hogares.",
+    "proponente": "PP"
+  },
+  "1dc7d86073be5f44": {
+    "titulo_ciudadano": "Priorizar el mantenimiento y conservación de las carreteras y vías ferroviarias",
+    "categoria_principal": "Infraestructuras",
+    "etiquetas": [
+      "controlar_gobierno",
+      "mejorar_carreteras",
+      "mejorar_red_ferroviaria"
+    ],
+    "resumen_sencillo": "Votar a favor significa exigir al Gobierno un plan claro sobre cómo va a arreglar y conservar las infraestructuras de transporte existentes.",
+    "proponente": "Vox"
+  },
+  "d47724279801f976": {
+    "titulo_ciudadano": "Aprobar medidas urgentes para el sector del transporte y su financiación",
+    "categoria_principal": "Infraestructuras",
+    "etiquetas": [
+      "fomentar_transporte_publico",
+      "financiar_infraestructuras"
+    ],
+    "resumen_sencillo": "Votar a favor significa validar un decreto con ayudas directas y mejoras para garantizar el funcionamiento del transporte.",
+    "proponente": "Gobierno"
+  },
+  "69af2955283a0d43": {
+    "titulo_ciudadano": "Tramitar por vía de urgencia la nueva ley de transportes",
+    "categoria_principal": "Infraestructuras",
+    "etiquetas": [
+      "procedimiento_parlamentario",
+      "tramitar_ley_urgencia"
+    ],
+    "resumen_sencillo": "Votar a favor significa permitir que la ley de transportes se discuta rápidamente en el Congreso para poder añadir mejoras de los grupos.",
+    "proponente": "Varios grupos"
+  },
+  "f3642af5683cc348": {
+    "titulo_ciudadano": "Rechazar el proyecto de reforma de la Constitución sobre sanidad pública",
+    "categoria_principal": "Sanidad",
+    "etiquetas": [
+      "proteger_sanidad_publica",
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor de estas enmiendas significa intentar frenar la modificación del artículo constitucional referido al derecho a la salud.",
+    "proponente": "PP y Vox"
   }
 }
