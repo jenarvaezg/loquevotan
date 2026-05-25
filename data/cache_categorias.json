@@ -35957,5 +35957,84 @@
     ],
     "resumen_sencillo": "Votar a favor de estas enmiendas significa intentar frenar la modificación del artículo constitucional referido al derecho a la salud.",
     "proponente": "PP y Vox"
+  },
+  "3338875626f04878": {
+    "titulo_ciudadano": "Endurecer las leyes para agilizar el desalojo de viviendas ocupadas ilegalmente",
+    "categoria_principal": "Justicia",
+    "etiquetas": [
+      "limitar_okupacion",
+      "reformar_codigo_penal"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar cambios legales para acelerar el desalojo de okupas y mejorar la seguridad en las comunidades de vecinos.",
+    "proponente": "PP"
+  },
+  "d607e7ec819509f3": {
+    "titulo_ciudadano": "Modificar las leyes que regulan cómo se celebran las elecciones en España",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "reformar_ley_electoral"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar cambios en las normas que rigen el funcionamiento del sistema electoral.",
+    "proponente": "PSOE"
+  },
+  "62ab24a5140d1e2e": {
+    "titulo_ciudadano": "Garantizar transparencia y control en la adjudicación de viviendas protegidas públicas",
+    "categoria_principal": "Vivienda",
+    "etiquetas": [
+      "facilitar_acceso_vivienda",
+      "aumentar_transparencia"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar que haya más vigilancia y claridad al repartir las viviendas públicas entre los ciudadanos.",
+    "proponente": "PSOE"
+  },
+  "a2f5f3c389843fbf": {
+    "titulo_ciudadano": "Combatir la especulación inmobiliaria para facilitar el acceso a una vivienda digna",
+    "categoria_principal": "Vivienda",
+    "etiquetas": [
+      "facilitar_acceso_vivienda",
+      "proteger_inquilinos"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar medidas para evitar precios abusivos y asegurar que el acceso a la vivienda sea un derecho efectivo.",
+    "proponente": "Sumar"
+  },
+  "3a50afb814d22c5c": {
+    "titulo_ciudadano": "Proponer cambios para fortalecer y mejorar el sistema educativo público",
+    "categoria_principal": "Educacion",
+    "etiquetas": [
+      "proteger_educacion_publica",
+      "reformar_educacion"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar un cambio en las políticas de educación para fortalecer la enseñanza pública.",
+    "proponente": "Varios grupos"
+  },
+  "a376b60d6bf1394d": {
+    "titulo_ciudadano": "Exigir al Gobierno una revisión de sus actuales políticas de vivienda",
+    "categoria_principal": "Vivienda",
+    "etiquetas": [
+      "controlar_gobierno",
+      "facilitar_acceso_vivienda"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar una revisión crítica de la gestión del Gobierno en materia de vivienda para exigir mejoras.",
+    "proponente": "PP"
+  },
+  "5bcce9fefde0208c": {
+    "titulo_ciudadano": "Conceder ayudas económicas y rebajas fiscales a los afectados por la DANA",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "aprobar_ayudas_emergencia",
+      "bajar_impuestos"
+    ],
+    "resumen_sencillo": "Votar a favor significa validar el decreto que otorga fondos directos y beneficios tributarios a las víctimas de las inundaciones.",
+    "proponente": "Gobierno"
+  },
+  "d20faf8b824f17cb": {
+    "titulo_ciudadano": "Tramitar por vía de urgencia las ayudas para los afectados por la DANA",
+    "categoria_principal": "Otros",
+    "etiquetas": [
+      "procedimiento_parlamentario",
+      "tramitar_ley_urgencia"
+    ],
+    "resumen_sencillo": "Votar a favor significa que el decreto de ayudas se convierta en un proyecto de ley para que los partidos puedan proponer mejoras rápidamente.",
+    "proponente": "Gobierno"
   }
 }
