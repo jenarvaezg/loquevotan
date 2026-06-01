@@ -36036,5 +36036,134 @@
     ],
     "resumen_sencillo": "Votar a favor significa que el decreto de ayudas se convierta en un proyecto de ley para que los partidos puedan proponer mejoras rápidamente.",
     "proponente": "Gobierno"
+  },
+  "3bee3e099bbab91c": {
+    "titulo_ciudadano": "Fomentar el consumo de alimentos y bebidas saludables entre la población",
+    "categoria_principal": "Sanidad",
+    "etiquetas": [
+      "proteger_sanidad_publica",
+      "proteger_consumidores"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar medidas legislativas para incentivar que los ciudadanos elijan productos alimentarios más sanos y nutritivos.",
+    "proponente": "Sumar"
+  },
+  "10356f2eb7e8e00d": {
+    "titulo_ciudadano": "Reformar las normas sobre comunidades de vecinos y propiedad de edificios",
+    "categoria_principal": "Vivienda",
+    "etiquetas": [
+      "facilitar_acceso_vivienda"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar cambios legales en el funcionamiento y la toma de decisiones dentro de las comunidades de propietarios.",
+    "proponente": "PP"
+  },
+  "b151161951a4744a": {
+    "titulo_ciudadano": "Cambiar las normas de funcionamiento interno del Congreso de los Diputados",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "reformar_reglamento_congreso",
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar una modificación en las reglas que rigen los debates, las votaciones y el trabajo de los parlamentarios.",
+    "proponente": "Varios grupos"
+  },
+  "1d849ef5cfa1eda5": {
+    "titulo_ciudadano": "Eliminar la obligatoriedad de la cita previa en las oficinas públicas",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "aumentar_transparencia",
+      "proteger_consumidores"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar que los ciudadanos puedan acudir a las administraciones del Estado sin necesidad de pedir hora previamente.",
+    "proponente": "PP"
+  },
+  "2ee22f53498836df": {
+    "titulo_ciudadano": "Conmemorar y reforzar el papel de España en la Unión Europea",
+    "categoria_principal": "Asuntos_Exteriores",
+    "etiquetas": [
+      "adaptar_normativa_europea",
+      "impulsar_cooperacion_internacional"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar una declaración institucional para celebrar la pertenencia de España a la UE y fortalecer su integración europea.",
+    "proponente": "PSOE"
+  },
+  "0171c5913bc6a4db": {
+    "titulo_ciudadano": "Reforzar la lucha policial contra el tráfico de drogas en España",
+    "categoria_principal": "Interior_y_Seguridad",
+    "etiquetas": [
+      "aumentar_seguridad_ciudadana",
+      "controlar_gobierno"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar que se den más recursos y mejores condiciones a las fuerzas de seguridad para combatir el narcotráfico.",
+    "proponente": "PP"
+  },
+  "2cda365df37e22d7": {
+    "titulo_ciudadano": "Exigir soluciones al Gobierno para mejorar el funcionamiento de la justicia",
+    "categoria_principal": "Justicia",
+    "etiquetas": [
+      "reformar_poder_judicial",
+      "controlar_gobierno"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar medidas para agilizar los procesos judiciales y solucionar los problemas de falta de medios en el sistema de justicia.",
+    "proponente": "Vox"
+  },
+  "2b2690308eb85e23": {
+    "titulo_ciudadano": "Definir y priorizar medidas estatales para mejorar la seguridad ciudadana",
+    "categoria_principal": "Interior_y_Seguridad",
+    "etiquetas": [
+      "aumentar_seguridad_ciudadana",
+      "controlar_gobierno"
+    ],
+    "resumen_sencillo": "Votar a favor significa exigir al Gobierno que establezca planes claros y prioritarios para proteger a los ciudadanos y combatir la delincuencia.",
+    "proponente": "Vox"
+  },
+  "f2bd65cc461a9f33": {
+    "titulo_ciudadano": "Modificar el precio que los ciudadanos pagan por sus medicinas recetadas",
+    "categoria_principal": "Sanidad",
+    "etiquetas": [
+      "proteger_sanidad_publica",
+      "proteger_enfermos"
+    ],
+    "resumen_sencillo": "Votar a favor significa validar el cambio en la cantidad de dinero que los pacientes deben aportar al comprar medicamentos en las farmacias.",
+    "proponente": "Gobierno"
+  },
+  "e0539c3e4d7833fa": {
+    "titulo_ciudadano": "Tramitar por vía urgente el cambio en los pagos por medicamentos",
+    "categoria_principal": "Sanidad",
+    "etiquetas": [
+      "tramitar_ley_urgencia",
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aceptar que la reforma sobre el coste de las medicinas se debata y apruebe de forma rápida en el Congreso.",
+    "proponente": "Gobierno"
+  },
+  "19568c0fd6d4ab96": {
+    "titulo_ciudadano": "Aprobar la declaración de actividades privadas y trabajos de los diputados",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "aumentar_transparencia",
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa autorizar que los diputados puedan realizar las actividades externas que han declarado, asegurando la transparencia de sus ingresos.",
+    "proponente": "Desconocido"
+  },
+  "7dad97d41e9d672a": {
+    "titulo_ciudadano": "Estudiar la prohibición del velo integral en espacios y edificios públicos",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "proteger_derechos_humanos",
+      "impulsar_igualdad_genero"
+    ],
+    "resumen_sencillo": "Votar a favor significa crear un grupo de trabajo para analizar si debe limitarse el uso de prendas que cubren totalmente el rostro en público.",
+    "proponente": "Varios grupos"
+  },
+  "d63c7c51e3b5330e": {
+    "titulo_ciudadano": "Tramitar de forma rápida y directa cambios en la ley electoral",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "reformar_ley_electoral",
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar que la reforma de las normas para votar se decida de forma inmediata sin pasar por los trámites de comisión.",
+    "proponente": "Desconocido"
   }
 }
