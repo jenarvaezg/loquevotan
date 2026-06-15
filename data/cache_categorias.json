@@ -36165,5 +36165,99 @@
     ],
     "resumen_sencillo": "Votar a favor significa aprobar que la reforma de las normas para votar se decida de forma inmediata sin pasar por los trámites de comisión.",
     "proponente": "Desconocido"
+  },
+  "c473658b0ec7772d": {
+    "titulo_ciudadano": "Reconocer a los funcionarios de prisiones como agentes de la autoridad",
+    "categoria_principal": "Justicia",
+    "etiquetas": [
+      "aumentar_seguridad_ciudadana"
+    ],
+    "resumen_sencillo": "Votar a favor significa dar mayor protección jurídica a los trabajadores de las cárceles otorgándoles el estatus legal de agentes de la autoridad.",
+    "proponente": "Desconocido"
+  },
+  "6cce48bf66ee399b": {
+    "titulo_ciudadano": "Mejorar la situación de profesionales que cotizan en mutualidades alternativas",
+    "categoria_principal": "Trabajo_y_Pensiones",
+    "etiquetas": [
+      "reformar_seguridad_social",
+      "garantizar_pensiones"
+    ],
+    "resumen_sencillo": "Votar a favor significa iniciar cambios en la ley para mejorar la protección y jubilación de profesionales que no cotizan en la Seguridad Social pública.",
+    "proponente": "Desconocido"
+  },
+  "28079b1a5aef51c3": {
+    "titulo_ciudadano": "Cerrar definitivamente el polígono de tiro militar de las Bardenas",
+    "categoria_principal": "Medio_Ambiente",
+    "etiquetas": [
+      "proteger_medio_ambiente"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar el cese de las maniobras militares y el cierre del campo de tiro en este paraje natural.",
+    "proponente": "Varios grupos"
+  },
+  "c07fa762fd113b3f": {
+    "titulo_ciudadano": "Defender el derecho de participación ciudadana en los asuntos públicos",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "aumentar_transparencia"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar medidas para proteger y fomentar que los ciudadanos intervengan activamente en las decisiones políticas.",
+    "proponente": "PP"
+  },
+  "bc003fc05bf21ec0": {
+    "titulo_ciudadano": "Reducir el gasto militar para aumentar la inversión en políticas sociales",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "combatir_pobreza"
+    ],
+    "resumen_sencillo": "Votar a favor significa rechazar el aumento del presupuesto en defensa para destinar ese dinero a necesidades sociales y económicas básicas.",
+    "proponente": "BNG"
+  },
+  "7c1a44265c337b72": {
+    "titulo_ciudadano": "Criticar la gestión de la ministra de Seguridad Social e Inmigración",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "controlar_gobierno"
+    ],
+    "resumen_sencillo": "Votar a favor significa censurar políticamente las decisiones y el desempeño de la ministra responsable de las pensiones y la inmigración.",
+    "proponente": "PP"
+  },
+  "1b0ce518969437fd": {
+    "titulo_ciudadano": "Impulsar medidas para asegurar una educación de calidad en España",
+    "categoria_principal": "Educacion",
+    "etiquetas": [
+      "reformar_educacion"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar que el Gobierno adopte nuevas directrices para mejorar el funcionamiento y los contenidos del sistema educativo.",
+    "proponente": "Vox"
+  },
+  "208e45e72edd054c": {
+    "titulo_ciudadano": "Validar la reforma de la Seguridad Social para profesionales mutualistas",
+    "categoria_principal": "Trabajo_y_Pensiones",
+    "etiquetas": [
+      "reformar_seguridad_social",
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar el texto final que permite mejorar las condiciones de los profesionales acogidos a mutualidades alternativas.",
+    "proponente": "Desconocido"
+  },
+  "aa0e325ab522118d": {
+    "titulo_ciudadano": "Reformar el reglamento del Congreso para mejorar la disciplina parlamentaria",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "reformar_reglamento_congreso",
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa actualizar las normas internas del Congreso para vigilar y sancionar mejor el comportamiento de los diputados.",
+    "proponente": "PSOE"
+  },
+  "eb0741a87d6eb8cd": {
+    "titulo_ciudadano": "Facilitar por ley el ejercicio del derecho a morir dignamente",
+    "categoria_principal": "Sanidad",
+    "etiquetas": [
+      "legalizar_eutanasia",
+      "proteger_enfermos"
+    ],
+    "resumen_sencillo": "Votar a favor significa modificar normas judiciales para eliminar obstáculos y garantizar el derecho de los ciudadanos a una muerte digna.",
+    "proponente": "Parlamento de Cataluña"
   }
 }
