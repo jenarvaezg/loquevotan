@@ -36259,5 +36259,176 @@
     ],
     "resumen_sencillo": "Votar a favor significa modificar normas judiciales para eliminar obstáculos y garantizar el derecho de los ciudadanos a una muerte digna.",
     "proponente": "Parlamento de Cataluña"
+  },
+  "dbb18d3979db0456": {
+    "titulo_ciudadano": "Regular la eleccion de jueces españoles en tribunales de la Union Europea",
+    "categoria_principal": "Justicia",
+    "etiquetas": [
+      "reformar_poder_judicial",
+      "adaptar_normativa_europea"
+    ],
+    "resumen_sencillo": "Votar a favor significa establecer normas claras para elegir a los candidatos españoles que formaran parte de los altos tribunales europeos.",
+    "proponente": "PP"
+  },
+  "4c056468ed0a69c2": {
+    "titulo_ciudadano": "Reforzar el funcionamiento y las competencias legales del Instituto de la Mujer",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "impulsar_igualdad_genero"
+    ],
+    "resumen_sencillo": "Votar a favor significa actualizar la organizacion y las leyes que rigen el Instituto de la Mujer para mejorar su efectividad.",
+    "proponente": "PSOE"
+  },
+  "7cf573b4af55063c": {
+    "titulo_ciudadano": "Eliminar los discursos de odio y el racismo en el deporte español",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "proteger_derechos_humanos"
+    ],
+    "resumen_sencillo": "Votar a favor significa poner en marcha medidas especificas para erradicar los insultos y comportamientos de odio en las competiciones deportivas.",
+    "proponente": "PSOE"
+  },
+  "9ba83ed69428a35a": {
+    "titulo_ciudadano": "Garantizar el desarrollo del transporte y cumplir la movilidad sostenible",
+    "categoria_principal": "Infraestructuras",
+    "etiquetas": [
+      "fomentar_transporte_publico",
+      "controlar_gobierno"
+    ],
+    "resumen_sencillo": "Votar a favor significa instar al Gobierno a que cumpla con los plazos y compromisos de inversion en transporte publico.",
+    "proponente": "PP"
+  },
+  "abd8c8e381ecce64": {
+    "titulo_ciudadano": "Asegurar que los padres de niños enfermos reciban sus ayudas correctamente",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "proteger_infancia",
+      "proteger_enfermos",
+      "reformar_seguridad_social"
+    ],
+    "resumen_sencillo": "Votar a favor significa exigir al Gobierno que mejore la gestion de las ayudas economicas para padres que cuidan de hijos con enfermedades graves.",
+    "proponente": "PNV"
+  },
+  "f2d1c76b79cfe8da": {
+    "titulo_ciudadano": "Dar prioridad a los ciudadanos españoles en el acceso a vivienda social",
+    "categoria_principal": "Vivienda",
+    "etiquetas": [
+      "facilitar_acceso_vivienda",
+      "restringir_inmigracion"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar que se establezca preferencia para los ciudadanos nacionales a la hora de recibir ayudas publicas de vivienda.",
+    "proponente": "Vox"
+  },
+  "32a74bbb5c490d54": {
+    "titulo_ciudadano": "Denunciar la situacion de debilidad politica del Gobierno actual",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "controlar_gobierno"
+    ],
+    "resumen_sencillo": "Votar a favor significa manifestar el rechazo a la gestion del Gobierno y criticar su falta de estabilidad parlamentaria.",
+    "proponente": "PP"
+  },
+  "2f0c9c90aeb9899c": {
+    "titulo_ciudadano": "Declarar eventos culturales y deportivos como beneficiosos para el interes publico",
+    "categoria_principal": "Cultura",
+    "etiquetas": [
+      "impulsar_cultura",
+      "apoyar_emprendedores"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar beneficios fiscales y apoyo institucional para programas y eventos considerados de gran relevancia nacional.",
+    "proponente": "Gobierno"
+  },
+  "a5a43c842d3be5b9": {
+    "titulo_ciudadano": "Acelerar la tramitacion parlamentaria de los eventos de interes publico",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "tramitar_ley_urgencia",
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa permitir que el Congreso debata y modifique rapidamente la ley sobre eventos de interes nacional.",
+    "proponente": "Gobierno"
+  },
+  "8aaff497be8822de": {
+    "titulo_ciudadano": "Actualizar el reparto de dinero para las comunidades autonomas y ayuntamientos",
+    "categoria_principal": "Politica_Territorial",
+    "etiquetas": [
+      "financiar_ayuntamientos"
+    ],
+    "resumen_sencillo": "Votar a favor significa validar el nuevo decreto que regula como se distribuyen los fondos publicos entre los distintos territorios.",
+    "proponente": "Gobierno"
+  },
+  "5fc0e3e0dadb8144": {
+    "titulo_ciudadano": "Tramitar con urgencia los cambios en la financiacion de los territorios",
+    "categoria_principal": "Politica_Territorial",
+    "etiquetas": [
+      "tramitar_ley_urgencia",
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa agilizar el proceso legislativo para que los grupos puedan proponer cambios a la norma de financiacion territorial.",
+    "proponente": "Gobierno"
+  },
+  "bb6121a621d0cec4": {
+    "titulo_ciudadano": "Cambiar la ley electoral para mejorar el funcionamiento de las elecciones",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "reformar_ley_electoral"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar modificaciones tecnicas y legales en las normas que regulan como votamos y elegimos representantes.",
+    "proponente": "Desconocido"
+  },
+  "7848316b4b5fd1ae": {
+    "titulo_ciudadano": "Detener la reforma educativa propuesta y devolverla al Gobierno",
+    "categoria_principal": "Educacion",
+    "etiquetas": [
+      "reformar_educacion"
+    ],
+    "resumen_sencillo": "Votar a favor significa rechazar los cambios previstos en el sistema educativo y pedir que se retire el proyecto de ley.",
+    "proponente": "Varios grupos"
+  },
+  "1a3406c7d1c5d4b4": {
+    "titulo_ciudadano": "Colaborar con el Banco Asiatico de Desarrollo en servicios informaticos",
+    "categoria_principal": "Asuntos_Exteriores",
+    "etiquetas": [
+      "aprobar_acuerdo_internacional",
+      "impulsar_telecomunicaciones"
+    ],
+    "resumen_sencillo": "Votar a favor significa ratificar un acuerdo internacional para que España acoja o colabore en centros tecnologicos del banco.",
+    "proponente": "Gobierno"
+  },
+  "c9db461bc1ce1085": {
+    "titulo_ciudadano": "Actualizar los protocolos de seguridad militar con aliados europeos",
+    "categoria_principal": "Asuntos_Exteriores",
+    "etiquetas": [
+      "aprobar_acuerdo_internacional"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar nuevas normas de seguridad para la cooperacion en materia de defensa con otros paises europeos.",
+    "proponente": "Gobierno"
+  },
+  "d87db5ad6fbebb75": {
+    "titulo_ciudadano": "Cooperar con Uruguay para combatir el crimen organizado y la delincuencia",
+    "categoria_principal": "Interior_y_Seguridad",
+    "etiquetas": [
+      "aprobar_acuerdo_internacional"
+    ],
+    "resumen_sencillo": "Votar a favor significa fortalecer la colaboracion policial y judicial con Uruguay para perseguir redes criminales internacionales.",
+    "proponente": "Gobierno"
+  },
+  "f70cdb035a251eb1": {
+    "titulo_ciudadano": "Facilitar el intercambio de informacion judicial penal con Egipto",
+    "categoria_principal": "Justicia",
+    "etiquetas": [
+      "aprobar_acuerdo_internacional"
+    ],
+    "resumen_sencillo": "Votar a favor significa que los jueces de España y Egipto podran colaborar mas facilmente en la investigacion de delitos.",
+    "proponente": "Gobierno"
+  },
+  "b7e9a892d6068478": {
+    "titulo_ciudadano": "Permitir la entrega de delincuentes buscados entre España y Egipto",
+    "categoria_principal": "Justicia",
+    "etiquetas": [
+      "aprobar_acuerdo_internacional"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar el tratado que regula como se enviaran de un pais a otro a personas que deben ser juzgadas.",
+    "proponente": "Gobierno"
   }
 }
