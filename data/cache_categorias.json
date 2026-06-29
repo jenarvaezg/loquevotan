@@ -36430,5 +36430,143 @@
     ],
     "resumen_sencillo": "Votar a favor significa aprobar el tratado que regula como se enviaran de un pais a otro a personas que deben ser juzgadas.",
     "proponente": "Gobierno"
+  },
+  "8298658eabe1c3be": {
+    "titulo_ciudadano": "Reformar el reglamento para controlar mejor la acción del Gobierno",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "reformar_reglamento_congreso",
+      "controlar_gobierno"
+    ],
+    "resumen_sencillo": "Votar a favor significa cambiar las normas internas del Congreso para que el Gobierno dé explicaciones de forma más efectiva.",
+    "proponente": "PP"
+  },
+  "f15875a4600ac197": {
+    "titulo_ciudadano": "Endurecer las leyes electorales para evitar el fraude en los votos",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "reformar_ley_electoral",
+      "combatir_corrupcion"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar cambios en la ley electoral para reforzar la vigilancia y evitar trampas en las votaciones.",
+    "proponente": "Vox"
+  },
+  "97159b50e7a7bd72": {
+    "titulo_ciudadano": "Castigar penalmente las terapias que pretenden cambiar la orientación sexual",
+    "categoria_principal": "Justicia",
+    "etiquetas": [
+      "reformar_codigo_penal",
+      "proteger_derechos_lgbti"
+    ],
+    "resumen_sencillo": "Votar a favor significa reformar el Código Penal para prohibir y sancionar las prácticas que intentan eliminar la identidad sexual.",
+    "proponente": "Desconocido"
+  },
+  "dc52e06ca22e6501": {
+    "titulo_ciudadano": "Traspasar la gestión de la autopista AP-9 al gobierno autonómico",
+    "categoria_principal": "Politica_Territorial",
+    "etiquetas": [
+      "mejorar_carreteras",
+      "financiar_infraestructuras"
+    ],
+    "resumen_sencillo": "Votar a favor significa permitir que la titularidad y las competencias de la autopista AP-9 pasen a manos de la comunidad autónoma.",
+    "proponente": "Desconocido"
+  },
+  "d012a6d51dcd20e8": {
+    "titulo_ciudadano": "Dar prioridad a los ciudadanos nacionales en el acceso a ayudas",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "restringir_inmigracion",
+      "combatir_pobreza"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar que los ciudadanos españoles tengan preferencia sobre los extranjeros al recibir prestaciones públicas.",
+    "proponente": "Vox"
+  },
+  "02fd91e964f016e9": {
+    "titulo_ciudadano": "Reforzar la educación afectivo-sexual y emocional en los colegios",
+    "categoria_principal": "Educacion",
+    "etiquetas": [
+      "reformar_educacion",
+      "impulsar_igualdad_genero"
+    ],
+    "resumen_sencillo": "Votar a favor significa promover que los centros educativos enseñen a los alumnos sobre respeto, emociones y salud sexual.",
+    "proponente": "PSOE"
+  },
+  "8547eb96fe6a19a8": {
+    "titulo_ciudadano": "Brindar apoyo y protección a las víctimas de terapias de conversión",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "proteger_derechos_lgbti",
+      "proteger_derechos_humanos"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar medidas de acompañamiento y reparación para personas LGTBIQ+ que sufrieron intentos de cambiar su orientación.",
+    "proponente": "Grupo Mixto"
+  },
+  "dedaf7caeb56df93": {
+    "titulo_ciudadano": "Evaluar el impacto de los fondos europeos en la agricultura",
+    "categoria_principal": "Agricultura",
+    "etiquetas": [
+      "proteger_sector_primario"
+    ],
+    "resumen_sencillo": "Votar a favor significa exigir un análisis sobre cómo afectan las ayudas de la Unión Europea al campo y al territorio.",
+    "proponente": "ERC"
+  },
+  "3c2cb3faa57e21d4": {
+    "titulo_ciudadano": "Defender al sector agrícola español ante los acuerdos comerciales internacionales",
+    "categoria_principal": "Agricultura",
+    "etiquetas": [
+      "proteger_sector_primario",
+      "aprobar_acuerdo_internacional"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar medidas para proteger a agricultores y ganaderos frente a las nuevas políticas europeas y tratados de comercio.",
+    "proponente": "Vox"
+  },
+  "9844ecfd3756f450": {
+    "titulo_ciudadano": "Exigir responsabilidades al Gobierno y al Ministro de Política Territorial",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "controlar_gobierno"
+    ],
+    "resumen_sencillo": "Votar a favor significa denunciar la gestión del Gobierno y pedir cuentas al ministro responsable de la memoria democrática.",
+    "proponente": "PP"
+  },
+  "cd2ebf9ad0d07fd9": {
+    "titulo_ciudadano": "Modificar el reglamento interno que rige el funcionamiento del Congreso",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "reformar_reglamento_congreso",
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa actualizar las normas que deciden cómo deben trabajar y votar los diputados en la cámara.",
+    "proponente": "Desconocido"
+  },
+  "fe19513976b3c07f": {
+    "titulo_ciudadano": "Rebajar el precio del transporte público para jóvenes durante el verano",
+    "categoria_principal": "Infraestructuras",
+    "etiquetas": [
+      "fomentar_transporte_publico",
+      "proteger_infancia"
+    ],
+    "resumen_sencillo": "Votar a favor significa validar el decreto para que los jóvenes viajen más barato en tren o autobús en vacaciones.",
+    "proponente": "Gobierno"
+  },
+  "d058bb3e065f27ad": {
+    "titulo_ciudadano": "Acelerar los plazos legales para aprobar los descuentos de transporte joven",
+    "categoria_principal": "Infraestructuras",
+    "etiquetas": [
+      "tramitar_ley_urgencia",
+      "fomentar_transporte_publico"
+    ],
+    "resumen_sencillo": "Votar a favor significa acelerar los plazos parlamentarios para que la ley de transporte joven se tramite de forma prioritaria.",
+    "proponente": "Gobierno"
+  },
+  "9f4f3f48958668a9": {
+    "titulo_ciudadano": "Autorizar préstamos y dinero extra para organismos públicos",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "controlar_gasto_publico",
+      "financiar_infraestructuras"
+    ],
+    "resumen_sencillo": "Votar a favor significa permitir que el Estado conceda créditos extraordinarios a diversas entidades públicas para financiar sus actividades.",
+    "proponente": "Gobierno"
   }
 }
