@@ -1,17 +1,17 @@
 {
   "scope": "nacional",
-  "generatedAt": "2026-07-13T09:27:16.859Z",
+  "generatedAt": "2026-07-20T09:02:02.107Z",
   "status": "ok",
   "score": 99.6,
   "summary": "Calidad de datos estable",
-  "votes": 272,
+  "votes": 328,
   "metrics": {
-    "genericTitlesPct": 0.37,
+    "genericTitlesPct": 0.3,
     "unknownGroupsPct": 0,
     "dateAnomaliesPct": 0,
     "rawTotalsMismatchPct": 0,
     "emptySummaryPct": 0,
-    "nominalCoveragePct": 4689.71,
+    "nominalCoveragePct": 3889.33,
     "votesWithoutNominalDetailPct": 0
   },
   "incidents": []

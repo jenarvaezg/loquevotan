@@ -36579,5 +36579,75 @@
     ],
     "resumen_sencillo": "Votar a favor significa permitir que el grupo de trabajo parlamentario tenga más tiempo para finalizar su propuesta de pacto nacional para acabar con la pobreza de los niños.",
     "proponente": "Varios grupos"
+  },
+  "86928c649f298f54": {
+    "titulo_ciudadano": "Reforzar los derechos y la autonomia de las personas con discapacidad",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "proteger_personas_discapacidad",
+      "proteger_derechos_humanos"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar cambios legales para mejorar la inclusion social y la accesibilidad universal de las personas con discapacidad.",
+    "proponente": "Gobierno"
+  },
+  "3adba215d1e6f196": {
+    "titulo_ciudadano": "Establecer limites de deuda y gasto publico para los proximos anos",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "reducir_deficit",
+      "limitar_deuda_publica",
+      "controlar_gasto_publico"
+    ],
+    "resumen_sencillo": "Votar a favor significa fijar los objetivos financieros que deben cumplir todas las administraciones publicas para garantizar la estabilidad economica.",
+    "proponente": "Gobierno"
+  },
+  "c31d9300b1b2b481": {
+    "titulo_ciudadano": "Asegurar el funcionamiento y la prestacion del servicio publico de RTVE",
+    "categoria_principal": "Cultura",
+    "etiquetas": [
+      "reformar_medios_comunicacion"
+    ],
+    "resumen_sencillo": "Votar a favor significa validar medidas para garantizar que la radio y television publica espanola sigan prestando su servicio correctamente.",
+    "proponente": "Gobierno"
+  },
+  "b10deebda8215b81": {
+    "titulo_ciudadano": "Fortalecer el sistema de ayuda a personas en situacion de dependencia",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "proteger_personas_discapacidad",
+      "proteger_familias"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar medidas extraordinarias para mejorar la financiacion y la atencion de las personas que dependen de cuidados externos.",
+    "proponente": "Gobierno"
+  },
+  "70355414aee242dd": {
+    "titulo_ciudadano": "Tramitar por via urgente las mejoras en el sistema de dependencia",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "procedimiento_parlamentario",
+      "tramitar_ley_urgencia"
+    ],
+    "resumen_sencillo": "Votar a favor significa permitir que la nueva ley para reforzar la atencion a la dependencia se tramite de la forma mas rapida posible.",
+    "proponente": "Varios grupos"
+  },
+  "5f2b8afe7fadb321": {
+    "titulo_ciudadano": "Aprobar el texto final para mejorar la inclusion de personas discapacitadas",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "proteger_personas_discapacidad",
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa dar el visto bueno al texto definitivo de la ley que amplia los derechos y la accesibilidad de las personas con discapacidad.",
+    "proponente": "Gobierno"
+  },
+  "5a40db23838868aa": {
+    "titulo_ciudadano": "Modificar el Codigo Penal para proteger mejor la libertad de expresion",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "proteger_libertad_expresion",
+      "reformar_codigo_penal"
+    ],
+    "resumen_sencillo": "Votar a favor significa reformar las leyes penales para evitar que se castiguen opiniones o expresiones amparadas por la libertad de expresion.",
+    "proponente": "Desconocido"
   }
 }
