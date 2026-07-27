@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-07-20T09:02:02.107Z",
+  "generatedAt": "2026-07-27T09:54:34.848Z",
   "scopes": [
     {
       "scope": "nacional",
       "status": "ok",
-      "score": 99.6,
+      "score": 99.7,
       "incidents": 0,
       "file": "public/data/quality_status.json"
     },

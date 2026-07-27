@@ -36649,5 +36649,73 @@
     ],
     "resumen_sencillo": "Votar a favor significa reformar las leyes penales para evitar que se castiguen opiniones o expresiones amparadas por la libertad de expresion.",
     "proponente": "Desconocido"
+  },
+  "605621bbfa8eaa38": {
+    "titulo_ciudadano": "Traspasar la gestión de la autopista AP-9 a la comunidad autónoma",
+    "categoria_principal": "Politica_Territorial",
+    "etiquetas": [
+      "mejorar_carreteras"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar que la titularidad y las competencias sobre esta autopista pasen del Estado a la región.",
+    "proponente": "Desconocido"
+  },
+  "a13a89a9e1bf9294": {
+    "titulo_ciudadano": "Aprobar ayudas y medidas ante la crisis en Oriente Medio",
+    "categoria_principal": "Asuntos_Exteriores",
+    "etiquetas": [
+      "impulsar_cooperacion_internacional"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar el plan del Gobierno para responder a las consecuencias de la crisis internacional en Oriente Medio.",
+    "proponente": "Gobierno"
+  },
+  "1b8fb5d4abec5d83": {
+    "titulo_ciudadano": "Tramitar por vía urgente las medidas sobre la crisis de Oriente Medio",
+    "categoria_principal": "Asuntos_Exteriores",
+    "etiquetas": [
+      "tramitar_ley_urgencia",
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa agilizar los plazos para que las medidas sobre la crisis internacional se aprueben de forma rápida.",
+    "proponente": "Gobierno"
+  },
+  "781e2247750b02d1": {
+    "titulo_ciudadano": "Facilitar la jubilación anticipada a empleados públicos y mejorar pluses insulares",
+    "categoria_principal": "Trabajo_y_Pensiones",
+    "etiquetas": [
+      "reformar_pensiones",
+      "mejorar_condiciones_laborales"
+    ],
+    "resumen_sencillo": "Votar a favor significa permitir que el personal laboral público se jubile antes y mejorar los complementos salariales por vivir en las islas.",
+    "proponente": "Gobierno"
+  },
+  "bef1ad790b720b1e": {
+    "titulo_ciudadano": "Agilizar la ley sobre jubilación anticipada y complementos por insularidad",
+    "categoria_principal": "Trabajo_y_Pensiones",
+    "etiquetas": [
+      "tramitar_ley_urgencia",
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa tramitar este decreto como ley por el procedimiento de urgencia para permitir cambios de los grupos parlamentarios rápidamente.",
+    "proponente": "Gobierno"
+  },
+  "a2e398e58b612816": {
+    "titulo_ciudadano": "Mejorar las pruebas de detección de enfermedades en bebés recién nacidos",
+    "categoria_principal": "Sanidad",
+    "etiquetas": [
+      "proteger_sanidad_publica",
+      "proteger_infancia"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar la actualización de las normas para mejorar el cribado médico que se realiza a los neonatos.",
+    "proponente": "Desconocido"
+  },
+  "7775c03c3a811bfe": {
+    "titulo_ciudadano": "Rechazar la ley de sostenibilidad financiera para las comunidades autónomas",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "controlar_gasto_publico",
+      "limitar_deuda_publica"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar la devolución del proyecto de ley al Gobierno para frenar su tramitación parlamentaria.",
+    "proponente": "Varios grupos"
   }
 }
