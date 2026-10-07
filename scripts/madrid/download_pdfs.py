@@ -7,6 +7,14 @@ import pdfplumber
 import io
 import re
 
+# asambleamadrid.es sits behind a WAF that rejects library user agents.
+HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    )
+}
+
 async def download_and_check(session, doc_info, sem):
     doc_id = str(doc_info['id'])
     url = doc_info['url']
@@ -61,6 +69,9 @@ async def download_and_check(session, doc_info, sem):
                             return False
                     elif response.status == 404:
                         return False
+                    else:
+                        print(f"HTTP {response.status} downloading {filename} (attempt {attempt + 1}/3)")
+                        await asyncio.sleep(2 * (attempt + 1))
             except Exception as e:
                 if attempt == 2:
                     print(f"Error downloading {filename} after 3 attempts: {e}")
@@ -93,7 +104,7 @@ async def main():
     sem = asyncio.Semaphore(5) # Lower concurrency to avoid being blocked
     
     connector = aiohttp.TCPConnector(limit=5)
-    async with aiohttp.ClientSession(connector=connector) as session:
+    async with aiohttp.ClientSession(connector=connector, headers=HEADERS) as session:
         tasks = [download_and_check(session, doc, sem) for doc in sessions]
         await asyncio.gather(*tasks)
 
