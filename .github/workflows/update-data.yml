@@ -18,6 +18,9 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
+    # A lost raw cache makes the national scraper re-download the full history
+    # (~4h); keep headroom for that one-off run.
+    timeout-minutes: 330
     permissions:
       contents: write
       actions: write
@@ -61,7 +64,7 @@ jobs:
             parliament-raw-${{ runner.os }}-
             congress-raw-
 
-      - name: Restore raw snapshot from R2 (fallback)
+      - name: Restore raw snapshot from R2
         if: steps.raw-cache.outputs.cache-hit != 'true'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -83,17 +86,20 @@ jobs:
             echo "No raw snapshot found in R2 at ${KEY}; continuing without fallback."
           fi
 
+      - name: Count restored raw files
+        run: echo "RAW_FILES_RESTORED=$(find data/raw -name '*.json' 2>/dev/null | wc -l)" >> "$GITHUB_ENV"
+
       - name: Install dependencies
         run: |
           pip install requests beautifulsoup4 pdfplumber google-genai aiohttp aiofiles
 
+      # Always checks every legislature: it's one request each when data/raw is
+      # complete, and re-downloads whatever is missing when it isn't. The step
+      # timeout (unlike the job one) still lets the cache/R2 steps below save
+      # partial progress for the next run.
       - name: Run National scraper
-        run: |
-          if [ "${FULL_HISTORY}" = "true" ]; then
-            python scripts/scraper.py
-          else
-            python scripts/scraper.py --legislatura XV
-          fi
+        timeout-minutes: 240
+        run: python scripts/scraper.py
 
       - name: Run National transformer
         run: |
@@ -106,7 +112,11 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
+      # Regional updates must not block the national data: failures are
+      # reported at the end of the job and their outputs discarded.
       - name: Run Andalusia update
+        id: andalucia
+        continue-on-error: true
         run: |
           if [ "${FULL_HISTORY}" = "true" ]; then
             python scripts/andalucia/run_update.py
@@ -117,7 +127,12 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
       - name: Run CyL update
+        id: cyl
+        continue-on-error: true
         run: |
+          # ccyl.es serves its certificate without the GlobalSign intermediate.
+          cat "$(python -m certifi)" scripts/certs/*.pem > "${RUNNER_TEMP}/ca-bundle.pem"
+          export REQUESTS_CA_BUNDLE="${RUNNER_TEMP}/ca-bundle.pem"
           CYL_EXTRA_ARGS=""
           if [ "${CYL_AI_PARSE_FALLBACK}" = "true" ]; then
             CYL_EXTRA_ARGS="--ai-parse-fallback --ai-parse-model ${CYL_AI_PARSE_MODEL}"
@@ -130,12 +145,27 @@ jobs:
           fi
 
       - name: Run Madrid update
+        id: madrid
+        continue-on-error: true
         run: |
           if [ "${FULL_HISTORY}" = "true" ]; then
             python scripts/madrid/run_update.py
           else
             python scripts/madrid/run_update.py --active-only
           fi
+
+      - name: Discard outputs of failed regional updates
+        env:
+          FAILED_SCOPES: >-
+            ${{ steps.andalucia.outcome == 'failure' && 'andalucia' || '' }}
+            ${{ steps.cyl.outcome == 'failure' && 'cyl' || '' }}
+            ${{ steps.madrid.outcome == 'failure' && 'madrid' || '' }}
+        run: |
+          for scope in ${FAILED_SCOPES}; do
+            echo "::warning title=${scope}::Actualización fallida; se descartan sus cambios en public/data/${scope}"
+            git checkout -- "public/data/${scope}" || true
+            git clean -fdq -- "public/data/${scope}" || true
+          done
 
       - name: Generate Madrid QA report
         run: |
@@ -184,6 +214,9 @@ jobs:
       - name: Generate data diff summary
         run: node scripts/qa/summarize_update_diff.mjs
 
+      - name: Data integrity gate
+        run: node scripts/qa/check_data_integrity.mjs
+
       - name: Detect changed scopes for Cloudflare D1 sync
         id: detect-scopes
         run: node scripts/cloudflare/detect_changed_scopes.mjs
@@ -216,6 +249,12 @@ jobs:
           set -euo pipefail
           if [ -z "${CLOUDFLARE_API_TOKEN:-}" ] || [ -z "${CLOUDFLARE_ACCOUNT_ID:-}" ] || [ -z "${CLOUDFLARE_R2_BUCKET_DATA_SNAPSHOTS:-}" ]; then
             echo "Skipping raw snapshot upload because required secrets are missing."
+            exit 0
+          fi
+
+          RAW_FILES_NOW="$(find data/raw -name '*.json' 2>/dev/null | wc -l)"
+          if [ "${RAW_FILES_NOW}" -lt "${RAW_FILES_RESTORED:-0}" ]; then
+            echo "::warning::data/raw shrank (${RAW_FILES_RESTORED} -> ${RAW_FILES_NOW}); not overwriting the R2 snapshot."
             exit 0
           fi
 
@@ -270,7 +309,7 @@ jobs:
           [ -f data/andalucia/cache_categorias.json ] && git add data/andalucia/cache_categorias.json || true
           [ -f data/cyl/cache_categorias.json ] && git add data/cyl/cache_categorias.json || true
           [ -f data/madrid/cache_categorias.json ] && git add data/madrid/cache_categorias.json || true
-          git add data/state/national/last_fetch_*.txt || true
+          git add -A data/state/national
 
           if git diff --staged --quiet; then
             echo "No changes to commit."
@@ -301,6 +340,14 @@ jobs:
             exit 1
           fi
 
+      # Pushes made with GITHUB_TOKEN don't trigger other workflows, so CI (and
+      # the deploy that follows it) has to be dispatched explicitly.
+      - name: Trigger CI and deploy
+        if: steps.commit-data.outputs.pushed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run ci.yml --ref main
+
       - name: Trigger scoped Cloudflare Data Sync
         if: steps.commit-data.outputs.pushed == 'true' && steps.detect-scopes.outputs.has_scope_changes == 'true'
         env:
@@ -313,3 +360,9 @@ jobs:
             -X POST \
             -f ref=main \
             -f "inputs[scopes]=${SCOPES}"
+
+      - name: Fail if a regional update failed
+        if: always() && (steps.andalucia.outcome == 'failure' || steps.cyl.outcome == 'failure' || steps.madrid.outcome == 'failure')
+        run: |
+          echo "::error::Fallaron actualizaciones regionales: andalucia=${{ steps.andalucia.outcome }} cyl=${{ steps.cyl.outcome }} madrid=${{ steps.madrid.outcome }}"
+          exit 1

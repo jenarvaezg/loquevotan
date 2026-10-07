@@ -8,7 +8,9 @@ const PROJECT_ROOT = path.resolve(__dirname, '..', '..')
 const DATA_ROOT = path.join(PROJECT_ROOT, 'public', 'data')
 
 const SOFT_SIZE_LIMIT_BYTES = 25 * 1024 * 1024
-const hardLimitMb = Number.parseInt(process.env.DATA_MAX_ARTIFACT_SIZE_MB ?? '40', 10)
+// Below GitHub's 50 MiB per-file warning. Deploy splits anything over the soft
+// limit for Cloudflare; votos_XIV.json is ~40 MiB with the full history.
+const hardLimitMb = Number.parseInt(process.env.DATA_MAX_ARTIFACT_SIZE_MB ?? '48', 10)
 const HARD_SIZE_LIMIT_BYTES = hardLimitMb * 1024 * 1024
 
 const errors = []

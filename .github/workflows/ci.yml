@@ -5,6 +5,8 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+  # Dispatched by update-data.yml after committing new data.
+  workflow_dispatch:
 
 jobs:
   test:
@@ -18,6 +20,15 @@ jobs:
           cache: npm
 
       - run: npm ci
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Pipeline unit tests
+        run: |
+          pip install google-genai
+          npm run test:pipeline
 
       - name: Data integrity checks
         run: npm run test:data
