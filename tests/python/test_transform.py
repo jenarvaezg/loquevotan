@@ -179,6 +179,14 @@ class TransformMainTest(unittest.TestCase):
         self.run_main("--allow-shrink")
         self.assertEqual(len(self.read("votaciones_meta.json")["votaciones"]), 1)
 
+    def test_warns_about_uncategorized_votes(self):
+        self.seed_two_legislatures()
+        with mock.patch("builtins.print") as fake_print:
+            self.run_main()
+        warnings = [c.args[0] for c in fake_print.call_args_list if c.args and str(c.args[0]).startswith("::warning title=IA::")]
+        self.assertEqual(len(warnings), 1)
+        self.assertIn("2 votaciones sin categorizar (XIV: 1, XV: 1)", warnings[0])
+
     def test_fallback_titles_are_not_frozen_by_overrides(self):
         self.seed_two_legislatures()
         self.run_main()  # no AI -> placeholder titles

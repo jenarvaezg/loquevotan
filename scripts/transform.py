@@ -10,6 +10,7 @@ permite de forma explícita).
 """
 
 import argparse
+from collections import Counter
 import glob
 import json
 import os
@@ -738,6 +739,16 @@ def main():
     print(f"Transformación completada: {len(vot_meta_list)} votaciones.")
     for leg in sorted(new_counts, key=roman_to_int):
         print(f"  {leg}: {new_counts[leg]} votaciones")
+
+    # Votes published with the AI placeholder (no key, quota, API errors). They
+    # are retried automatically on the next run, but shouldn't go unnoticed.
+    uncategorized = Counter(v["legislatura"] for v in vot_meta_list if v["titulo_ciudadano"] == FALLBACK_TITLE)
+    if uncategorized:
+        detail = ", ".join(f"{leg}: {uncategorized[leg]}" for leg in sorted(uncategorized, key=roman_to_int))
+        print(
+            f"::warning title=IA::{sum(uncategorized.values())} votaciones sin categorizar ({detail}); "
+            "se reintentarán en el próximo run con GEMINI_API_KEY."
+        )
 
 
 if __name__ == "__main__":
