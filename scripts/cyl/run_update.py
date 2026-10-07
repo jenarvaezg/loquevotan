@@ -17,7 +17,7 @@ def main():
     parser.add_argument(
         "--active-only",
         action="store_true",
-        help="Procesa solo legislatura activa (11) para runs rápidos.",
+        help="Procesa solo legislatura activa (12) para runs rápidos.",
     )
     parser.add_argument(
         "--ai-parse-fallback",
@@ -33,7 +33,8 @@ def main():
 
     script_dir = os.path.dirname(os.path.abspath(__file__))
     rebuild_flag = ["--rebuild"] if args.rebuild else []
-    target_legs = "11" if args.active_only else "11,10,9,8,7"
+    # XII legislature since the 2026-03-15 elections (constituted 2026-04-14).
+    target_legs = "12" if args.active_only else "12,11,10,9,8,7"
     
     # 1. Scrape deputies
     run_step(

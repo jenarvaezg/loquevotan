@@ -19,7 +19,7 @@ MANIFEST_FILE = f"{OUTPUT_DIR}/manifest_home.json"
 AMBITOS_CONFIG = "public/data/ambitos.json"
 PROMPT_FILE = "scripts/prompt_categorizacion.txt"
 
-LEGISLATURAS = ["XI", "X", "IX", "VIII", "VII"]
+LEGISLATURAS = ["XII", "XI", "X", "IX", "VIII", "VII"]
 SCOPE_TAG = "cyl"
 UNKNOWN_GROUP_TOKENS = {"", "unknown", "desconocido", "null", "none", "n/a", "na"}
 
@@ -232,7 +232,7 @@ def transform(rebuild=False):
         reverse=True,
     )
     
-    leg_map_id = {"11": "XI", "10": "X", "9": "IX", "8": "VIII", "7": "VII"}
+    leg_map_id = {"12": "XII", "11": "XI", "10": "X", "9": "IX", "8": "VIII", "7": "VII"}
     
     for i, v in enumerate(all_raw_votes):
         cat_info = cache.get(v["titulo"], {
@@ -259,7 +259,7 @@ def transform(rebuild=False):
         
         vot_idx = i
         leg_id_raw = v["id"].split("-")[1] 
-        leg_roman = leg_map_id.get(leg_id_raw, "XI")
+        leg_roman = leg_map_id.get(leg_id_raw, LEGISLATURAS[0])
         leg_key = leg_roman 
 
         # Extract expediente from title (e.g. PNL/000123 or just 123)
@@ -542,7 +542,8 @@ def transform(rebuild=False):
             config = json.load(f)
         for a in config["ambitos"]:
             if a["id"] == "cyl":
-                a["legislaturas"] = LEGISLATURAS
+                # Only legislatures with votes: an empty one would 404 in the selector.
+                a["legislaturas"] = [leg for leg in LEGISLATURAS if votos_by_leg[leg]]
                 break
         with open(AMBITOS_CONFIG, "w") as f:
             json.dump(config, f, indent=2, ensure_ascii=False)

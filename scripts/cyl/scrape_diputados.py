@@ -6,7 +6,7 @@ import os
 import argparse
 from urllib.parse import urljoin
 
-DEFAULT_LEGISLATURAS = ["11", "10"]
+DEFAULT_LEGISLATURAS = ["12", "11", "10"]
 
 
 def parse_legislaturas(value):
@@ -78,7 +78,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Scrapea diputados históricos de CyL.")
     parser.add_argument(
         "--legislaturas",
-        help="Lista de legislaturas separadas por coma (ej: 11,10). Por defecto: 11,10.",
+        help="Lista de legislaturas separadas por coma (ej: 12,11). Por defecto: 12,11,10.",
     )
     args = parser.parse_args()
 

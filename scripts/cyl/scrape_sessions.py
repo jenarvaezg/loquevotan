@@ -6,7 +6,7 @@ import os
 import argparse
 from datetime import datetime
 
-DEFAULT_LEGISLATURAS = ["11", "10", "9", "8", "7"]
+DEFAULT_LEGISLATURAS = ["12", "11", "10", "9", "8", "7"]
 
 
 def parse_legislaturas(value):
@@ -68,7 +68,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Scrapea índice de sesiones de CyL.")
     parser.add_argument(
         "--legislaturas",
-        help="Lista de legislaturas separadas por coma (ej: 11,10). Por defecto: 11,10,9,8,7.",
+        help="Lista de legislaturas separadas por coma (ej: 12,11). Por defecto: 12,11,10,9,8,7.",
     )
     args = parser.parse_args()
 

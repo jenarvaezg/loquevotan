@@ -19,7 +19,7 @@ MANIFEST_FILE = f"{OUTPUT_DIR}/manifest_home.json"
 AMBITOS_CONFIG = "public/data/ambitos.json"
 PROMPT_FILE = "scripts/prompt_categorizacion.txt"
 
-LEGISLATURAS = ["XII", "XI", "X", "IX"]
+LEGISLATURAS = ["XIII", "XII", "XI", "X", "IX"]
 SCOPE_TAG = "andalucia"
 
 FALLBACK_TITLE = "Asunto parlamentario sin clasificar"
@@ -529,7 +529,7 @@ def transform(rebuild=False):
 
     # 6. Generate votes files
     for leg in LEGISLATURAS:
-        if not votos_by_leg[leg] and leg != "XII": continue
+        if not votos_by_leg[leg]: continue
         with open(f"{OUTPUT_DIR}/votos_{leg}.json", "w") as f:
             json.dump({
                 "votos": votos_by_leg[leg],
@@ -545,7 +545,8 @@ def transform(rebuild=False):
         # Find andalucia entry
         for a in config["ambitos"]:
             if a["id"] == "andalucia":
-                a["legislaturas"] = LEGISLATURAS
+                # Only legislatures with votes: an empty one would 404 in the selector.
+                a["legislaturas"] = [leg for leg in LEGISLATURAS if votos_by_leg[leg]]
                 break
         
         with open(config_file, "w") as f:
