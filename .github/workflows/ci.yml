@@ -41,3 +41,19 @@ jobs:
 
       - name: E2E tests
         run: npx playwright test
+
+  # update-data.yml dispatches this workflow with GITHUB_TOKEN after committing
+  # data. GitHub doesn't start workflow_run chains (deploy.yml) from runs
+  # created by that token, so the deploy is dispatched explicitly once tests
+  # pass. Runs started by a person still deploy through workflow_run.
+  deploy:
+    needs: test
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' && github.actor == 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+    steps:
+      - name: Dispatch deploy
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref main --repo "${{ github.repository }}"

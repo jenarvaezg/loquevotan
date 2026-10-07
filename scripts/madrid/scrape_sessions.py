@@ -3,6 +3,7 @@ import asyncio
 import json
 import os
 import sys
+from collections import Counter
 
 import aiohttp
 
@@ -22,12 +23,16 @@ BATCH_SIZE = 5  # the site sits behind a WAF: keep concurrency low
 RETRIES = 3
 
 FOUND, MISSING, BLOCKED = "found", "missing", "blocked"
+# Last non-200/404 outcome per blocked probe (status code or exception name),
+# to tell a WAF block (403/429) from timeouts in the logs.
+BLOCK_REASONS = Counter()
 
 
 async def probe(session, leg, idx):
     """HEAD a diary URL. 404 means it doesn't exist; anything else after
     retries (403/429/5xx/timeouts) means we couldn't tell."""
     url = URL_TEMPLATE.format(leg=leg, idx=idx)
+    reason = "?"
     for attempt in range(1, RETRIES + 1):
         try:
             async with session.head(url, timeout=aiohttp.ClientTimeout(total=20), allow_redirects=True) as resp:
@@ -35,9 +40,11 @@ async def probe(session, leg, idx):
                     return FOUND
                 if resp.status == 404:
                     return MISSING
-        except (aiohttp.ClientError, asyncio.TimeoutError):
-            pass
+                reason = f"HTTP {resp.status}"
+        except (aiohttp.ClientError, asyncio.TimeoutError) as e:
+            reason = type(e).__name__
         await asyncio.sleep(2 * attempt)
+    BLOCK_REASONS[reason] += 1
     return BLOCKED
 
 
@@ -116,8 +123,9 @@ async def main():
 
     if total_blocked * 2 > total_probed:
         # Previously this silently produced an empty index for months.
+        reasons = ", ".join(f"{reason}: {count}" for reason, count in BLOCK_REASONS.most_common())
         print(
-            f"::error title=Madrid::asambleamadrid.es no respondió ({total_blocked} peticiones bloqueadas o fallidas).",
+            f"::error title=Madrid::asambleamadrid.es no respondió ({total_blocked} peticiones bloqueadas o fallidas: {reasons}).",
             file=sys.stderr,
         )
         sys.exit(1)
