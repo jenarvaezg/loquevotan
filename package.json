@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prototype:home": "vite --open \"/?variant=hemiciclo\"",
     "build": "vite build",
     "preview": "vite preview",
     "cf:dev": "npx wrangler dev",

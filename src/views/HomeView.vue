@@ -1,14 +1,34 @@
 <script setup>
 import { computed, ref, onMounted, watch } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { fmt } from '../utils'
 import { useData } from '../composables/useData'
 import VoteCard from '../components/VoteCard.vue'
 import HeroSearch from '../components/HeroSearch.vue'
 import ViewState from '../components/ViewState.vue'
+// PROTOTYPE — variantes de rediseño de portada (?variant=), solo en dev.
+import PrototypeSwitcher from '../components/PrototypeSwitcher.vue'
+import { VARIANTS } from './home-prototype/usePrototype'
+import VariantHemiciclo from './home-prototype/VariantHemiciclo.vue'
+import VariantPregunta from './home-prototype/VariantPregunta.vue'
+import VariantMarcador from './home-prototype/VariantMarcador.vue'
+import VariantOrla from './home-prototype/VariantOrla.vue'
+import VariantPreguntaHemiciclo from './home-prototype/VariantPreguntaHemiciclo.vue'
+import VariantHemicicloPregunta from './home-prototype/VariantHemicicloPregunta.vue'
 
 const { currentScopeId, ambitos } = useData()
 const router = useRouter()
+const route = useRoute()
+const isDev = import.meta.env.DEV
+const PROTO_COMPONENTS = {
+  hemiciclo: VariantHemiciclo,
+  pregunta: VariantPregunta,
+  marcador: VariantMarcador,
+  orla: VariantOrla,
+  'pregunta-hemiciclo': VariantPreguntaHemiciclo,
+  'hemiciclo-pregunta': VariantHemicicloPregunta,
+}
+const protoComponent = computed(() => (isDev ? PROTO_COMPONENTS[route.query.variant] || null : null))
 const manifest = ref(null)
 const manifestLoading = ref(true)
 const manifestError = ref('')
@@ -84,6 +104,8 @@ function goToTag(tag) {
 </script>
 
 <template>
+  <component :is="protoComponent" v-if="protoComponent" :manifest="manifest" />
+  <template v-else>
   <section v-if="manifest" data-testid="home-manifest-loaded">
     <div class="hero">
       <h1>Lo Que Votan</h1>
@@ -196,6 +218,8 @@ function goToTag(tag) {
   </div>
 
   <ViewState v-else-if="manifestLoading" type="loading" />
+  </template>
+  <PrototypeSwitcher v-if="isDev" :variants="VARIANTS" />
 </template>
 
 <style scoped>

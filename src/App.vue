@@ -10,6 +10,11 @@ const route = useRoute()
 
 // Embedded widgets render only the card, without the site chrome.
 const isEmbed = computed(() => route.query.embed === 'true' && String(route.path).startsWith('/widget'))
+// PROTOTYPE — las variantes de portada traen su propia cabecera y pie.
+const isProtoVariant = computed(() =>
+  import.meta.env.DEV && route.path === '/' && !!route.query.variant && route.query.variant !== 'actual'
+)
+const showChrome = computed(() => !isEmbed.value && !isProtoVariant.value)
 
 const votosErrorMessage = computed(() => {
   const legs = [...votosFailed.value]
@@ -30,8 +35,8 @@ loadData()
 </script>
 
 <template>
-  <a v-if="!isEmbed" href="#main-content" class="skip-link">Saltar al contenido</a>
-  <NavBar v-if="!isEmbed" />
+  <a v-if="showChrome" href="#main-content" class="skip-link">Saltar al contenido</a>
+  <NavBar v-if="showChrome" />
 
   <ErrorBanner v-if="error" :message="error" @retry="retryLoad" />
   <ErrorBanner v-else-if="votosErrorMessage" :message="votosErrorMessage" @retry="retryFailedVotos" />
@@ -46,7 +51,7 @@ loadData()
     <router-view />
   </main>
 
-  <footer v-if="!isEmbed" class="site-footer">
+  <footer v-if="showChrome" class="site-footer">
     <div class="container footer-content">
       <p>
         Datos oficiales del
