@@ -62,6 +62,14 @@ function buildIncidents(scope) {
   const withoutNominalPct = normalizeMetricPercent(m.votesWithoutNominalDetail)
   const nominalCoveragePct = normalizeMetricPercent(m.votesWithAnyTuples)
 
+  if ((m.outOfRangeTuples?.count || 0) > 0) {
+    incidents.push({
+      id: 'out_of_range_votes',
+      severity: 'high',
+      message: `${m.outOfRangeTuples.count} votos apuntan a votaciones inexistentes (ficheros desincronizados).`,
+    })
+  }
+
   if (dateAnomaliesPct > 0) {
     incidents.push({
       id: 'date_anomalies',
