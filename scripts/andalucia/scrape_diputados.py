@@ -7,7 +7,7 @@ import time
 import argparse
 from urllib.parse import urljoin
 
-DEFAULT_LEGISLATURAS = ["12", "11", "10", "9"]
+DEFAULT_LEGISLATURAS = ["13", "12", "11", "10", "9"]
 
 
 def parse_legislaturas(value):

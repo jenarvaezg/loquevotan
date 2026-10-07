@@ -17,13 +17,14 @@ def main():
     parser.add_argument(
         "--active-only",
         action="store_true",
-        help="Procesa solo legislatura activa (XII) para runs rápidos.",
+        help="Procesa solo legislatura activa (XIII) para runs rápidos.",
     )
     args = parser.parse_args()
 
     script_dir = os.path.dirname(os.path.abspath(__file__))
     rebuild_flag = ["--rebuild"] if args.rebuild else []
-    target_legs = "12" if args.active_only else "12,11,10,9"
+    # XIII legislature since the 2026-05-17 elections.
+    target_legs = "13" if args.active_only else "13,12,11,10,9"
     
     # 1. Scrape session index (Detects all available legislatures)
     run_step(

@@ -12,7 +12,7 @@ AMBITO = "andalucia"
 CACHE_FILE = f"data/{AMBITO}/cache_categorias.json"
 RAW_DIR = f"data/{AMBITO}"
 PROMPT_FILE = "scripts/prompt_categorizacion.txt"
-LEGISLATURAS = ["XII", "XI", "X", "IX"]
+LEGISLATURAS = ["XIII", "XII", "XI", "X", "IX"]
 
 def main():
     api_key = os.environ.get("GEMINI_API_KEY")
