@@ -1,11 +1,16 @@
 /* ═══ Lo Que Votan - Design System ═══ */
 
-/* ── Variables ── */
+/* ── Variables ──
+   The site has no brand colour: colour belongs to the parties. The interface
+   is ink on paper, and a vote is told apart by its shape (solid yes, hollow
+   no, half abstention), never by a hue that a party already owns. */
 :root {
-  --color-primary: #1a56db;
-  --color-primary-hover: #1e40af;
-  --color-primary-light: #e1effe;
-  --color-primary-lighter: #f0f6ff;
+  --color-primary: #18212b;
+  --color-primary-hover: #2c3846;
+  --color-primary-light: #e3e6ea;
+  --color-primary-lighter: #f2f3f5;
+  --color-on-primary: #ffffff;
+  --color-vacant: #c3c9d1;
   --color-favor: #059669;
   --color-favor-light: #d1fae5;
   --color-contra: #dc2626;
@@ -14,30 +19,32 @@
   --color-abstencion-light: #fef3c7;
   --color-no-vota: #64748b;
   --color-no-vota-light: #e2e8f0;
-  --color-bg: #f8fafc;
+  --color-bg: #f2f3f5;
   --color-surface: #ffffff;
-  --color-text: #1e293b;
-  --color-text-secondary: #475569;
-  --color-muted: #64748b;
-  --color-border: #e2e8f0;
-  --color-border-hover: #cbd5e1;
-  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
-  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.04);
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
-  --font-sans: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-heading: "DM Serif Display", Georgia, "Times New Roman", serif;
-  --container-max: 1200px;
+  --color-text: #18212b;
+  --color-text-secondary: #3d4652;
+  --color-muted: #525c69;
+  --color-border: #d6dbe1;
+  --color-border-hover: #b3bac3;
+  --shadow-sm: 0 1px 2px rgba(24, 33, 43, 0.06);
+  --shadow-md: 0 2px 6px rgba(24, 33, 43, 0.08);
+  --shadow-lg: 0 8px 24px rgba(24, 33, 43, 0.1);
+  --radius-sm: 3px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --font-sans: "Archivo", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-heading: var(--font-sans);
+  --container-max: 1280px;
   --nav-height: 60px;
 }
 
 [data-theme="dark"] {
-  --color-primary: #3b82f6;
-  --color-primary-hover: #60a5fa;
-  --color-primary-light: #1e3a5f;
-  --color-primary-lighter: #172554;
+  --color-primary: #e8ebef;
+  --color-primary-hover: #ffffff;
+  --color-primary-light: #2a313a;
+  --color-primary-lighter: #1d232a;
+  --color-on-primary: #11161b;
+  --color-vacant: #4a535e;
   --color-favor: #34d399;
   --color-favor-light: #064e3b;
   --color-contra: #f87171;
@@ -46,13 +53,13 @@
   --color-abstencion-light: #78350f;
   --color-no-vota: #94a3b8;
   --color-no-vota-light: #334155;
-  --color-bg: #0f172a;
-  --color-surface: #1e293b;
-  --color-text: #e2e8f0;
-  --color-text-secondary: #94a3b8;
-  --color-muted: #94a3b8;
-  --color-border: #334155;
-  --color-border-hover: #475569;
+  --color-bg: #11161b;
+  --color-surface: #1a2027;
+  --color-text: #e8ebef;
+  --color-text-secondary: #c2c8cf;
+  --color-muted: #9aa3ad;
+  --color-border: #2c343d;
+  --color-border-hover: #46505b;
   --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
   --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.3), 0 2px 4px -2px rgba(0,0,0,0.2);
   --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.4), 0 4px 6px -4px rgba(0,0,0,0.2);
@@ -64,7 +71,7 @@
 html {
   font-family: var(--font-sans);
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.55;
   color: var(--color-text);
   background-color: var(--color-bg);
   -webkit-font-smoothing: antialiased;
@@ -84,27 +91,41 @@ img { max-width: 100%; height: auto; }
   z-index: 1000;
   padding: 0.5rem 1rem;
   background: var(--color-primary);
-  color: #fff;
+  color: var(--color-on-primary);
   border-radius: var(--radius-sm);
   font-weight: 600;
   text-decoration: none;
 }
 .skip-link:focus {
   top: 0.5rem;
-  color: #fff;
+  color: var(--color-on-primary);
   text-decoration: none;
 }
 
+:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Headings use Archivo's narrow widths; body text stays at normal width. */
 h1, h2, h3, h4 {
   font-family: var(--font-heading);
-  font-weight: 400;
-  line-height: 1.25;
-  letter-spacing: -0.01em;
+  font-weight: 800;
+  font-stretch: 75%;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
   color: var(--color-text);
+  text-wrap: balance;
 }
-h1 { font-size: 2.5rem; letter-spacing: -0.02em; }
-h2 { font-size: 1.75rem; letter-spacing: -0.015em; }
-h3 { font-size: 1.25rem; }
+h1 { font-size: 2.6rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.3rem; font-stretch: 85%; letter-spacing: -0.01em; }
 
 input, select, button { font-family: inherit; font-size: inherit; }
 
@@ -260,7 +281,7 @@ a.badge:hover { text-decoration: none; opacity: 0.85; }
 .chip--active,
 .chip--active:hover {
   background: var(--color-primary);
-  color: #fff;
+  color: var(--color-on-primary);
 }
 
 .chip--clickable {
@@ -336,12 +357,12 @@ a.badge:hover { text-decoration: none; opacity: 0.85; }
 .btn--primary {
   background: var(--color-primary);
   border-color: var(--color-primary);
-  color: #fff;
+  color: var(--color-on-primary);
 }
 
 .btn--primary:hover {
   background: var(--color-primary-hover);
-  color: #fff;
+  color: var(--color-on-primary);
 }
 
 .btn--sm { padding: 0.35rem 0.7rem; font-size: 0.8rem; }
@@ -500,17 +521,6 @@ tbody tr:hover { background: var(--color-primary-lighter); }
   display: none;
 }
 
-/* ── Footer ── */
-.site-footer {
-  margin-top: 3rem;
-  padding: 1.5rem 1.25rem;
-  border-top: 1px solid var(--color-border);
-  text-align: center;
-  font-size: 0.8rem;
-  color: var(--color-muted);
-}
-
-.site-footer a { color: var(--color-primary); }
 
 /* ── Empty state (used in multiple views) ── */
 .empty-state {

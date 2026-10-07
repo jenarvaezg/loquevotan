@@ -1,10 +1,10 @@
 import { test, expect } from '@playwright/test'
 
 test.describe('Navigation', () => {
-  test('clicking VoteCard navigates to stable ID URL', async ({ page }) => {
+  test('clicking a home vote row navigates to stable ID URL', async ({ page }) => {
     await page.goto('/')
-    await page.waitForSelector('[data-testid="vote-card"]')
-    await page.getByTestId('vote-card').first().click()
+    await page.waitForSelector('[data-testid="home-vote-row"]')
+    await page.getByTestId('home-vote-row').first().click()
     await page.waitForURL(/\/votacion\/.+/)
     expect(page.url()).toMatch(/\/votacion\/.+/)
   })

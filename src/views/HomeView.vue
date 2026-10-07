@@ -1,516 +1,144 @@
 <script setup>
 import { computed, ref, onMounted, watch } from 'vue'
-import { useRouter } from 'vue-router'
-import { fmt } from '../utils'
 import { useData } from '../composables/useData'
-import VoteCard from '../components/VoteCard.vue'
-import HeroSearch from '../components/HeroSearch.vue'
 import ViewState from '../components/ViewState.vue'
+import HomeSpotlight from '../components/home/HomeSpotlight.vue'
+import AskParty from '../components/home/AskParty.vue'
+import VoteRows from '../components/home/VoteRows.vue'
 
-const { currentScopeId, ambitos } = useData()
-const router = useRouter()
+const { currentScopeId } = useData()
 const manifest = ref(null)
-const manifestLoading = ref(true)
-const manifestError = ref('')
-const BASE_HIDDEN_POPULAR_TAGS = [
-  'nacional',
-  'andalucia',
-  'cyl',
-  'madrid',
-  'catalunya',
-  'procedimiento_parlamentario'
-]
+const extras = ref(null)
+const loading = ref(true)
+const error = ref('')
 
-const hiddenPopularTags = computed(() => {
-  const scopeIds = (ambitos.value || [])
-    .map((scope) => String(scope?.id || '').trim().toLowerCase())
-    .filter(Boolean)
-  return new Set([...BASE_HIDDEN_POPULAR_TAGS, ...scopeIds])
-})
+async function fetchJson(url) {
+  const resp = await fetch(url)
+  if (!resp.ok) throw new Error(`HTTP ${resp.status}`)
+  return resp.json()
+}
 
-const formattedUpdatedAt = computed(() => {
-  const raw = manifest.value?.updatedAt
-  if (!raw || typeof raw !== 'string') return ''
-
-  const hasTimezone = /(?:[zZ]|[+-]\d{2}:?\d{2})$/.test(raw)
-  const normalized = hasTimezone ? raw : `${raw}Z`
-  const parsed = new Date(normalized)
-  if (Number.isNaN(parsed.getTime())) return ''
-
-  return new Intl.DateTimeFormat('es-ES', {
-    dateStyle: 'long',
-    timeStyle: 'short',
-    timeZone: 'Europe/Madrid',
-  }).format(parsed)
-})
-
-const visibleTopTags = computed(() =>
-  (manifest.value?.topTags || []).filter(
-    ([tag]) => !hiddenPopularTags.value.has(String(tag || '').trim().toLowerCase())
-  )
-)
-
-// Home fetches the small manifest itself so it can render before the full
+// Home fetches its two small files itself so it can render before the full
 // metadata arrives. Only the latest request (scope switches) may apply.
-let manifestRequest = 0
+let request = 0
 
-async function loadManifest() {
-  const request = ++manifestRequest
+async function load() {
+  const current = ++request
   manifest.value = null
-  manifestError.value = ''
-  manifestLoading.value = true
-  try {
-    const scopePath = currentScopeId.value === 'nacional' ? '' : `${currentScopeId.value}/`
-    const manifestUrl = `${import.meta.env.BASE_URL}data/${scopePath}manifest_home.json`
-    const manifestResp = await fetch(manifestUrl)
-    if (!manifestResp.ok) throw new Error(`HTTP ${manifestResp.status}`)
-    const data = await manifestResp.json()
-    if (request === manifestRequest) manifest.value = data
-  } catch (e) {
-    if (request !== manifestRequest) return
-    console.error('Error loading manifest:', e)
-    manifestError.value = 'No se pudo cargar el resumen inicial para este ámbito.'
-  } finally {
-    if (request === manifestRequest) manifestLoading.value = false
+  extras.value = null
+  error.value = ''
+  loading.value = true
+
+  const scopePath = currentScopeId.value === 'nacional' ? '' : `${currentScopeId.value}/`
+  const base = `${import.meta.env.BASE_URL}data/${scopePath}`
+  const [manifestResult, extrasResult] = await Promise.allSettled([
+    fetchJson(`${base}manifest_home.json`),
+    fetchJson(`${base}home_extras.json`),
+  ])
+  if (current !== request) return
+
+  if (manifestResult.status === 'fulfilled') {
+    manifest.value = manifestResult.value
+  } else {
+    console.error('Error loading manifest:', manifestResult.reason)
+    error.value = 'No se pudo cargar el resumen inicial para este ámbito.'
   }
+  // Without the extras the home still works: the chamber is drawn from the totals.
+  if (extrasResult.status === 'fulfilled') {
+    extras.value = extrasResult.value
+  } else {
+    console.warn('Error loading home extras:', extrasResult.reason)
+  }
+  loading.value = false
 }
 
-onMounted(loadManifest)
-watch(currentScopeId, loadManifest)
+onMounted(load)
+watch(currentScopeId, load)
 
-function goToTag(tag) {
-  router.push({ path: '/votaciones', query: { tag } })
-}
+const spotlight = computed(() => {
+  if (extras.value?.spotlight?.length) return extras.value.spotlight
+  return (manifest.value?.featuredVotes || []).map((v) => ({ ...v, titulo: v.titulo_ciudadano, resumen: '', groups: null }))
+})
+const hasQuestions = computed(() => (extras.value?.questions?.topics?.length || 0) > 0)
 </script>
 
 <template>
-  <section v-if="manifest" data-testid="home-manifest-loaded">
-    <div class="hero">
-      <h1>Lo Que Votan</h1>
-      <p class="hero-tagline">Qué vota cada diputado en el Congreso, explicado para ciudadanos</p>
-      <p v-if="formattedUpdatedAt" class="hero-updated">Datos actualizados el {{ formattedUpdatedAt }}</p>
-      <HeroSearch :show-no-results="true" />
-      <div class="hero-chips">
-        <a
-          v-for="[tag, label] in manifest.heroExamples"
-          :key="tag"
-          class="hero-chip"
-          href="#"
-          @click.prevent="goToTag(tag)"
-        >
-          {{ label }}
-        </a>
-      </div>
-    </div>
+  <h1 class="sr-only">Lo Que Votan: qué vota cada diputado</h1>
 
-    <div class="container">
-      <div class="bento-grid">
-        <!-- Quiz Banner -->
-        <div class="bento-card quiz-bento" data-testid="home-quiz-banner">
-          <div class="quiz-banner-content">
-            <h2>¿Con quién coincide más tu voto?</h2>
-            <p>Responde a ciegas y compara tu patrón con el voto real de los partidos en temas clave.</p>
-          </div>
-          <router-link to="/quiz" class="btn btn--primary btn--lg quiz-banner-btn">
-            Hacer el test &rarr;
-          </router-link>
-        </div>
+  <div v-if="manifest" data-testid="home-manifest-loaded">
+    <HomeSpotlight v-if="spotlight.length" :votes="spotlight" />
 
-        <!-- Stats Banner -->
-        <div class="bento-card stats-bento" data-testid="home-stats">
-          <div class="stat-group">
-            <div class="stat-item">
-              <span class="stat-number">{{ manifest.stats.diputados.toLocaleString('es-ES') }}</span>
-              <span class="stat-label">diputados</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number">{{ manifest.stats.votaciones.toLocaleString('es-ES') }}</span>
-              <span class="stat-label">votaciones</span>
-            </div>
-          </div>
-          <div class="stat-group stat-group--bottom">
-            <div class="stat-item">
-              <span class="stat-number">{{ manifest.stats.votos.toLocaleString('es-ES') }}</span>
-              <span class="stat-label">votos procesados</span>
-            </div>
-            <router-link to="/grupos" class="btn compare-btn">
-              &#128202; Compara partidos
-            </router-link>
-          </div>
-        </div>
-      </div>
+    <AskParty
+      v-if="hasQuestions"
+      :questions="extras.questions"
+      :preferred-tags="(manifest.heroExamples || []).map(([tag]) => tag)"
+    />
 
-      <div class="section-header">
-        <h2>Temas populares</h2>
-      </div>
-      <div class="topic-grid" data-testid="home-top-tags">
-        <a
-          v-for="[tag, count] in visibleTopTags"
-          :key="tag"
-          class="topic-card"
-          href="#"
-          @click.prevent="goToTag(tag)"
-        >
-          <span class="topic-card-label">{{ fmt(tag) }}</span>
-          <span class="topic-card-count">{{ count }}</span>
-        </a>
-      </div>
+    <section class="home-lists">
+      <VoteRows title="Últimas votaciones" :votes="manifest.latestVotes.slice(0, 6)" data-testid="home-latest-votes" />
+      <VoteRows title="Decididas por un puñado de votos" :votes="manifest.tightVotes.slice(0, 6)" data-testid="home-tight-votes" />
+    </section>
 
-      <!-- FEATURED VOTES -->
-      <div v-if="manifest.featuredVotes && manifest.featuredVotes.length > 0" class="featured-section" data-testid="home-featured-votes">
-        <div class="section-header">
-          <h2>Votaciones destacadas</h2>
-          <span>Fiscaliza los temas clave</span>
-        </div>
-        <div class="vote-cards-grid featured-grid">
-          <VoteCard v-for="v in manifest.featuredVotes" :key="v.id" :votData="v" :votResult="v" class="featured-card" />
-        </div>
+    <section class="home-quiz" data-testid="home-quiz-banner">
+      <div>
+        <h2>¿Y tú, qué habrías votado?</h2>
+        <p>Vota a ciegas propuestas que ya pasaron por el pleno y compara tus respuestas con lo que votó cada grupo.</p>
       </div>
+      <router-link to="/quiz" class="home-quiz-btn">Hacer el test</router-link>
+    </section>
+  </div>
 
-      <div class="section-header">
-        <h2>Votaciones más ajustadas</h2>
-        <router-link to="/votaciones">Ver todas &rarr;</router-link>
-      </div>
-      <div class="vote-cards-grid" data-testid="home-tight-votes">
-        <VoteCard v-for="v in manifest.tightVotes" :key="v.id" :votData="v" :votResult="v" />
-      </div>
-
-      <div class="section-header">
-        <h2>Últimas votaciones</h2>
-        <router-link to="/votaciones">Ver todas &rarr;</router-link>
-      </div>
-      <div class="vote-cards-grid" data-testid="home-latest-votes">
-        <VoteCard v-for="v in manifest.latestVotes" :key="v.id" :votData="v" :votResult="v" />
-      </div>
-    </div>
-  </section>
-
-  <div v-else-if="manifestError" class="container" style="padding-top:2rem">
+  <div v-else-if="error" class="container home-error">
     <ViewState
       type="error"
       title="No pudimos cargar la portada"
-      :message="manifestError"
+      :message="error"
       action-label="Reintentar"
-      @action="loadManifest"
+      @action="load"
     />
   </div>
 
-  <ViewState v-else-if="manifestLoading" type="loading" />
+  <ViewState v-else-if="loading" type="loading" />
 </template>
 
 <style scoped>
-.hero {
-  background: linear-gradient(-45deg, #1e3a8a, #1a56db, #2563eb, #312e81);
-  background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
-  color: #fff;
-  padding: 4rem 1.25rem 3.5rem;
-  text-align: center;
-  position: relative;
-}
-
-@keyframes gradientBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.hero h1 {
-  color: #fff;
-  font-size: 2.75rem;
-  margin-bottom: 0.5rem;
-  letter-spacing: -0.02em;
-}
-
-.hero-tagline {
-  font-size: 1.15rem;
-  opacity: 0.9;
-  margin-bottom: 0.4rem;
-  font-weight: 400;
-}
-
-.hero-updated {
-  margin: 0 0 1.6rem 0;
-  font-size: 0.95rem;
-  font-weight: 500;
-  opacity: 0.88;
-}
-
-.hero-chips {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.4rem;
-  margin-top: 1.25rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.hero-chip {
-  display: inline-block;
-  padding: 0.35em 0.75em;
-  border-radius: 50px;
-  font-size: 0.82rem;
-  font-weight: 500;
-  background: rgba(255,255,255,0.15);
-  color: rgba(255,255,255,0.9);
-  border: 1px solid rgba(255,255,255,0.2);
-  cursor: pointer;
-  transition: background 0.15s, border-color 0.15s;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.hero-chip:hover {
-  background: rgba(255,255,255,0.25);
-  border-color: rgba(255,255,255,0.4);
-  text-decoration: none;
-  color: #fff;
-}
-
-.bento-grid {
+.home-lists {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 1.25rem;
-  margin: -2rem auto 2.5rem;
-  position: relative;
-  z-index: 10;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  max-width: var(--container-max);
+  margin: 72px auto 0;
+  padding: 0 1.25rem;
 }
 
-.bento-card {
-  background: var(--color-surface);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--color-border);
-  padding: 2rem;
-  box-shadow: var(--shadow-lg);
-  display: flex;
-}
-
-.quiz-bento {
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  background: var(--color-primary-lighter);
-  border: 1px solid var(--color-primary-light);
-  gap: 1.5rem;
-}
-
-.quiz-banner-content h2 {
-  font-size: 1.8rem;
-  margin: 0 0 0.5rem 0;
-  color: var(--color-primary);
-}
-
-.quiz-banner-content p {
-  margin: 0;
-  font-size: 1.05rem;
-  color: var(--color-text);
-  line-height: 1.5;
-  max-width: 500px;
-}
-
-.quiz-banner-btn {
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
-}
-
-.stats-bento {
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 1.5rem;
-}
-
-.stat-group {
-  display: flex;
-  gap: 1.5rem;
-}
-
-.stat-group--bottom {
-  justify-content: space-between;
-  align-items: flex-end;
-}
-
-.stat-item {
-  text-align: left;
-}
-
-.stat-number {
-  display: block;
-  font-size: 1.85rem;
-  font-weight: 800;
-  color: var(--color-primary);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-}
-
-.stat-label {
-  font-size: 0.85rem;
-  color: var(--color-muted);
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.compare-btn {
-  background: var(--color-surface-muted);
-  border: 1px solid var(--color-border);
-  color: var(--color-text);
-}
-
-.compare-btn:hover {
-  background: var(--color-bg);
-  border-color: var(--color-primary);
-}
-
-.topic-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 0.6rem;
-  margin-bottom: 2rem;
-}
-
-.topic-card {
+.home-quiz {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.75rem 1rem;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  transition: border-color 0.15s, box-shadow 0.15s;
-  text-decoration: none;
-  color: inherit;
-}
-
-.topic-card:hover {
-  border-color: var(--color-primary);
-  box-shadow: var(--shadow-sm);
-  text-decoration: none;
-  color: inherit;
-}
-
-.topic-card-label {
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--color-text);
-}
-
-.topic-card-count {
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--color-primary);
-  background: var(--color-primary-light);
-  padding: 0.15em 0.5em;
-  border-radius: 50px;
-}
-
-.ranking-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 0.75rem;
-  margin-bottom: 2rem;
-}
-
-.ranking-card {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.75rem 1rem;
-  background: var(--color-surface);
+  gap: 2rem;
+  max-width: calc(var(--container-max) - 2.5rem);
+  margin: 72px auto 0;
+  padding: 36px 40px;
   border-radius: var(--radius-md);
-  border: 1px solid var(--color-border);
-  text-decoration: none;
-  transition: box-shadow 0.15s, border-color 0.15s;
+  background: var(--color-primary);
+  color: var(--color-on-primary);
 }
-
-.ranking-card:hover {
-  box-shadow: var(--shadow-md);
-  border-color: var(--color-primary);
-}
-
-.ranking-card :deep(.avatar) {
-  width: 44px;
-  height: 44px;
-  font-size: 1rem;
-  flex-shrink: 0;
-  margin-bottom: 0;
-}
-
-.ranking-info {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-}
-
-.ranking-name {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--color-text);
+.home-quiz h2 { font-size: 2.2rem; font-stretch: 72%; color: inherit; margin-bottom: 0.3rem; }
+.home-quiz p { opacity: 0.8; max-width: 56ch; }
+.home-quiz-btn {
+  padding: 0.85rem 1.5rem;
+  border-radius: var(--radius-md);
+  background: var(--color-on-primary);
+  color: var(--color-primary);
+  font-weight: 700;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
+.home-quiz-btn:hover { color: var(--color-primary); text-decoration: none; opacity: 0.9; }
 
-.ranking-detail {
-  font-size: 0.8rem;
-  color: var(--color-muted);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+.home-error { padding-top: 2rem; }
 
-.ranking-stat {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--color-contra);
-}
-
-.featured-section {
-  margin-bottom: 3rem;
-  background: var(--color-surface-muted);
-  padding: 1.5rem;
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--color-border);
-}
-
-.featured-grid {
-  gap: 1.25rem;
-}
-
-.featured-card {
-  border-left: 4px solid var(--color-primary) !important;
-  box-shadow: var(--shadow-md) !important;
-}
-
-.vote-cards-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.75rem;
-}
-
-@media (max-width: 768px) {
-  .hero { padding: 2.5rem 1rem 2rem; }
-  .hero h1 { font-size: 1.75rem; }
-  .hero-tagline { font-size: 1rem; }
-  .bento-grid { grid-template-columns: 1fr; margin-top: -1.5rem; }
-  .stat-number { font-size: 1.5rem; }
-  .quiz-bento {
-    align-items: stretch;
-    text-align: center;
-    padding: 1.5rem;
-    gap: 1.25rem;
-  }
-  .quiz-banner-content h2 { font-size: 1.4rem; }
-  .quiz-banner-btn { width: 100%; justify-content: center; }
-  .topic-grid {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-  .topic-grid {
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  }
+@media (max-width: 900px) {
+  .home-lists { grid-template-columns: 1fr; gap: 36px; padding: 0 16px; margin-top: 48px; }
+  .home-quiz { margin: 48px 16px 0; padding: 24px; flex-direction: column; align-items: flex-start; }
 }
 </style>

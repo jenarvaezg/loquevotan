@@ -81,7 +81,7 @@ const pages = computed(() => getPageRange(page.value, props.totalPages))
 
 .page-btn.active {
   background: var(--color-primary);
-  color: #fff;
+  color: var(--color-on-primary);
   border-color: var(--color-primary);
 }
 

@@ -96,6 +96,23 @@ function validateManifest(manifest, scopeId) {
   }
 }
 
+function validateHomeExtras(extras, scopeId) {
+  const file = `home_extras.json (${scopeId})`
+  if (!isObject(extras)) {
+    pushError(`${file} debe ser un objeto JSON.`)
+    return
+  }
+  if (!Array.isArray(extras.spotlight)) {
+    pushError(`${file} "spotlight" debe ser un array.`)
+  } else if (extras.spotlight.length === 0) {
+    pushWarning(`${file} no tiene votaciones destacadas: la portada no mostrará el hemiciclo.`)
+  }
+  const q = extras.questions
+  if (!isObject(q) || !Array.isArray(q.groups) || !Array.isArray(q.topics) || !Array.isArray(q.votes)) {
+    pushError(`${file} "questions" debe tener groups, topics y votes.`)
+  }
+}
+
 function validateMeta(meta, scopeId) {
   if (!isObject(meta)) {
     pushError(`votaciones_meta.json (${scopeId}) debe ser un objeto JSON.`)
@@ -143,6 +160,12 @@ async function validateScope(scopeId, legislaturas) {
   if (await ensureFile(manifestPath)) {
     const manifest = await readJson(manifestPath)
     if (manifest) validateManifest(manifest, scopeId)
+  }
+
+  const extrasPath = path.join(baseDir, 'home_extras.json')
+  if (await ensureFile(extrasPath)) {
+    const extras = await readJson(extrasPath)
+    if (extras) validateHomeExtras(extras, scopeId)
   }
 
   const metaPath = path.join(baseDir, 'votaciones_meta.json')

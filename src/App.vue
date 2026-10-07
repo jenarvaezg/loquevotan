@@ -51,13 +51,11 @@ loadData()
       <p>
         Datos oficiales del
         <a href="https://www.congreso.es/es/opendata/votaciones" target="_blank" rel="noopener">Congreso</a>
-        y de parlamentos autonómicos.
-        Categorización automática por IA. Proyecto de código abierto.
+        y de los parlamentos autonómicos. Títulos y temas resumidos con IA.
       </p>
       <div class="footer-links">
-        <router-link to="/metodologia">Metodología y Transparencia</router-link>
-        <span class="footer-sep">|</span>
-        <a href="https://github.com/jenarvaezg/loquevotan" target="_blank" rel="noopener">GitHub</a>
+        <router-link to="/metodologia">Metodología</router-link>
+        <a href="https://github.com/jenarvaezg/loquevotan" target="_blank" rel="noopener">Código abierto en GitHub</a>
       </div>
     </div>
   </footer>
@@ -91,42 +89,27 @@ loadData()
 
 .site-footer {
   margin-top: 4rem;
-  padding: 2rem 0;
-  background: var(--color-surface);
+  padding: 1.5rem 0 2.5rem;
   border-top: 1px solid var(--color-border);
-  text-align: center;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: var(--color-muted);
 }
 
-.footer-content p {
-  margin-bottom: 0.75rem;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.footer-links {
+.footer-content {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.75rem;
+  justify-content: space-between;
+  gap: 2rem;
 }
 
-.footer-links a {
-  color: var(--color-primary);
-  text-decoration: none;
-  font-weight: 500;
-}
+.footer-content p { max-width: 70ch; }
 
-.footer-links a:hover {
+.footer-content a {
+  color: var(--color-text);
   text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
-.footer-sep {
-  color: var(--color-border);
-  font-weight: 300;
-}
+.footer-links { display: flex; gap: 1.25rem; white-space: nowrap; }
 
 @media (max-width: 640px) {
   .wip-banner__content {
@@ -134,5 +117,7 @@ loadData()
     flex-direction: column;
     gap: 0.15rem;
   }
+
+  .footer-content { flex-direction: column; gap: 0.75rem; }
 }
 </style>
