@@ -125,7 +125,7 @@ async def main():
         # Previously this silently produced an empty index for months.
         reasons = ", ".join(f"{reason}: {count}" for reason, count in BLOCK_REASONS.most_common())
         print(
-            f"::error title=Madrid::asambleamadrid.es no respondió ({total_blocked} peticiones bloqueadas o fallidas: {reasons}).",
+            f"::warning title=Madrid::asambleamadrid.es no respondió ({total_blocked} peticiones bloqueadas o fallidas: {reasons}).",
             file=sys.stderr,
         )
         sys.exit(1)
