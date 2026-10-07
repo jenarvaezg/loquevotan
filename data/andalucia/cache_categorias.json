@@ -10235,5 +10235,224 @@
     ],
     "resumen_sencillo": "Votar a favor significa aceptar que se cambie el orden de los asuntos previstos para debatir durante la jornada.",
     "proponente": "Desconocido"
+  },
+  "CEUTA.": {
+    "titulo_ciudadano": "Mejorar la situación general y recursos destinados a Ceuta",
+    "categoria_principal": "Politica_Territorial",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor significa apoyar medidas específicas para atender las necesidades y el desarrollo de Ceuta.",
+    "proponente": "Desconocido"
+  },
+  "13-26/PNLP-000008, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A DEFENSA DE LA APLICACIÓN DEL PLAN ESTATAL DE VIVIENDA 2026-2030 Y DEL DERECHO A LA VIVIENDA DE LA CIUDADANÍA ANDALUZA": {
+    "titulo_ciudadano": "Aplicar el plan estatal para garantizar el acceso a la vivienda",
+    "categoria_principal": "Vivienda",
+    "etiquetas": [
+      "facilitar_acceso_vivienda",
+      "proteger_inquilinos"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar la aplicación de planes públicos para asegurar el derecho ciudadano a una vivienda digna.",
+    "proponente": "Desconocido"
+  },
+  "13-26/PNLP-000012, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A REACTIVACIÓN INMEDIATA DE LA UNIDAD DE ÉLITE DE LA GUARDIA CIVIL OCON-SUR": {
+    "titulo_ciudadano": "Recuperar la unidad de élite de la Guardia Civil contra el narcotráfico",
+    "categoria_principal": "Interior_y_Seguridad",
+    "etiquetas": [
+      "aumentar_seguridad_ciudadana",
+      "controlar_gobierno"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar la reactivación de una unidad especializada para reforzar la seguridad y la lucha contra el crimen.",
+    "proponente": "Desconocido"
+  },
+  "13-26/M-000001, MOCIÓN RELATIVA A POLÍTICA GENERAL EN MATERIA DE ATENCIÓN, ASISTENCIA, PROTECCIÓN Y RESPUESTA JUDICIAL A LAS VÍCTIMAS DE VIOLENCIA DE GÉNERO EN ANDALUCÍA": {
+    "titulo_ciudadano": "Reforzar la protección y respuesta judicial para víctimas de violencia machista",
+    "categoria_principal": "Justicia",
+    "etiquetas": [
+      "combatir_violencia_machista",
+      "proteger_derechos_humanos"
+    ],
+    "resumen_sencillo": "Votar a favor significa mejorar la atención y las leyes para proteger a las mujeres víctimas de violencia.",
+    "proponente": "Desconocido"
+  },
+  "13-26/COM-000023, SOLICITUD DE CREACIÓN DE COMISIÓN DE INVESTIGACIÓN RELATIVA A LOS INCENDIOS FORESTALES OCURRIDOS EN ANDALUCÍA DURANTE 2026, SU PREVENCIÓN Y EXTINCIÓN, LA GESTIÓN DE LAS EMERGENCIAS VINCULADAS A LOS MISMOS, EL DISPOSITIVO INFOCA Y LAS CONSECUENCIAS DEL REPARTO Y SEGREGACIÓN DE LAS COMPETENCIAS DE PREVENCIÓN Y EXTINCIÓN ENTRE LAS CONSEJERÍAS CON COMPETENCIAS EN EMERGENCIAS Y SOSTENIBILIDAD, ASÍ COMO LA CREACIÓN Y EL PROCESO DE INTEGRACIÓN DE LA AGENCIA DE EMERGENCIAS DE ANDALUCÍA": {
+    "titulo_ciudadano": "Investigar la gestión y prevención de los grandes incendios forestales",
+    "categoria_principal": "Medio_Ambiente",
+    "etiquetas": [
+      "crear_comision_investigacion",
+      "proteger_medio_ambiente",
+      "aprobar_ayudas_emergencia"
+    ],
+    "resumen_sencillo": "Votar a favor significa crear un grupo para analizar cómo se gestionaron los incendios y mejorar la respuesta ante futuras emergencias.",
+    "proponente": "Desconocido"
+  },
+  "13-26/PNLP-000018, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A BLINDAJE INSTITUCIONAL DE LOS DERECHOS DE LAS MUJERES Y DE LA LUCHA CONTRA LA VIOLENCIA DE GÉNERO EN ANDALUCÍA": {
+    "titulo_ciudadano": "Blindar institucionalmente los derechos de las mujeres y la igualdad",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "impulsar_igualdad_genero",
+      "combatir_violencia_machista"
+    ],
+    "resumen_sencillo": "Votar a favor significa asegurar que las instituciones protejan de forma permanente los derechos de las mujeres y la lucha contra la violencia.",
+    "proponente": "Desconocido"
+  },
+  "13-26/PNLP-000025, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A COMPROMISO DE ESTADO PARA LA MEJORA DEL SISTEMA EDUCATIVO ESPAÑOL": {
+    "titulo_ciudadano": "Alcanzar un compromiso nacional para mejorar el sistema educativo",
+    "categoria_principal": "Educacion",
+    "etiquetas": [
+      "reformar_educacion",
+      "proteger_educacion_publica"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar un gran acuerdo político para elevar la calidad y estabilidad de la educación en España.",
+    "proponente": "Desconocido"
+  },
+  "13-26/PNLP-000022, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A REVISIÓN DEL PROYECTO DE REAL DECRETO POR EL QUE SE REGULAN LOS REQUISITOS DE SOSTENIBILIDAD ENERGÉTICA, MEDIOAMBIENTAL Y DE RESILIENCIA Y SOBERANÍA DIGITAL APLICABLES A LOS CENTROS DE DATOS": {
+    "titulo_ciudadano": "Hacer los centros de datos más sostenibles y seguros digitalmente",
+    "categoria_principal": "Medio_Ambiente",
+    "etiquetas": [
+      "impulsar_energia_renovable",
+      "combatir_cambio_climatico",
+      "impulsar_telecomunicaciones"
+    ],
+    "resumen_sencillo": "Votar a favor significa revisar las normas para que los centros de datos consuman menos energía y protejan mejor la información.",
+    "proponente": "Desconocido"
+  },
+  "12-25/PL-000009, DEBATE FINAL DEL PROYECTO DE LEY PARA LA GESTIÓN AMBIENTAL DE ANDALUCÍA": {
+    "titulo_ciudadano": "Aprobar la nueva ley para mejorar la gestión del medio ambiente",
+    "categoria_principal": "Medio_Ambiente",
+    "etiquetas": [
+      "proteger_medio_ambiente",
+      "combatir_cambio_climatico"
+    ],
+    "resumen_sencillo": "Votar a favor significa validar una ley que moderniza y refuerza la protección de los recursos naturales y la naturaleza.",
+    "proponente": "Gobierno"
+  },
+  "12-25/PL-000010, DEBATE FINAL DEL PROYECTO DE LEY DE MONTES DE ANDALUCÍA": {
+    "titulo_ciudadano": "Aprobar la ley para proteger y gestionar mejor los montes",
+    "categoria_principal": "Medio_Ambiente",
+    "etiquetas": [
+      "proteger_medio_ambiente",
+      "gestionar_recursos_hidricos"
+    ],
+    "resumen_sencillo": "Votar a favor significa dar luz verde a una normativa dedicada al cuidado, conservación y aprovechamiento de los espacios forestales.",
+    "proponente": "Gobierno"
+  },
+  "12-26/M-000001, MOCIÓN RELATIVA A POLÍTICA GENERAL EN MATERIA DE FINANCIACIÓN AUTONÓMICA Y DEUDA PÚBLICA": {
+    "titulo_ciudadano": "Mejorar el sistema de financiación y controlar la deuda pública",
+    "categoria_principal": "Politica_Territorial",
+    "etiquetas": [
+      "limitar_deuda_publica",
+      "controlar_gasto_publico"
+    ],
+    "resumen_sencillo": "Votar a favor significa pedir una reforma para que las regiones reciban fondos más justos y se gestione mejor la deuda.",
+    "proponente": "Desconocido"
+  },
+  "12-26/COM-000002, SOLICITUD DE CREACIÓN DE GRUPO DE TRABAJO RELATIVO A RECONSTRUCCIÓN DE ANDALUCÍA.": {
+    "titulo_ciudadano": "Crear un equipo parlamentario para planificar la reconstrucción económica",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "procedimiento_parlamentario",
+      "impulsar_crecimiento_economico"
+    ],
+    "resumen_sencillo": "Votar a favor significa poner en marcha un grupo de expertos y políticos para diseñar el futuro desarrollo tras una crisis.",
+    "proponente": "Desconocido"
+  },
+  "12-26/PNLP-000013, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A DEFENSA DE LA LIBERTAD DE EXPRESIÓN FRENTE A LOS ATAQUES DEL GOBIERNO DE PEDRO SÁNCHEZ": {
+    "titulo_ciudadano": "Proteger la libertad de expresión frente a posibles injerencias políticas",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "proteger_libertad_expresion",
+      "controlar_gobierno"
+    ],
+    "resumen_sencillo": "Votar a favor significa manifestar el rechazo a cualquier medida gubernamental que pueda limitar el derecho a opinar libremente.",
+    "proponente": "Desconocido"
+  },
+  "12-26/PNLP-000018, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A SOLUCIONES A LA REGRESIÓN EN LAS PLAYAS ANDALUZAS AFECTADAS POR LAS BORRASCAS": {
+    "titulo_ciudadano": "Reparar y proteger las playas dañadas por los temporales",
+    "categoria_principal": "Medio_Ambiente",
+    "etiquetas": [
+      "proteger_medio_ambiente",
+      "aprobar_ayudas_emergencia"
+    ],
+    "resumen_sencillo": "Votar a favor significa destinar recursos para recuperar el litoral y las playas que han sufrido daños por las tormentas.",
+    "proponente": "Desconocido"
+  },
+  "12-26/PNLP-000019, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A ACTUACIONES URGENTES PARA PALIAR LOS EFECTOS DE LAS INUNDACIONES EN ANDALUCÍA Y SU DÉFICIT DE INFRAESTRUCTURAS": {
+    "titulo_ciudadano": "Actuar contra las inundaciones y mejorar las infraestructuras de defensa",
+    "categoria_principal": "Infraestructuras",
+    "etiquetas": [
+      "aprobar_ayudas_emergencia",
+      "financiar_infraestructuras",
+      "gestionar_recursos_hidricos"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar obras urgentes para evitar riadas y arreglar las infraestructuras que fallaron durante las lluvias.",
+    "proponente": "Desconocido"
+  },
+  "12-26/M-000002, MOCIÓN RELATIVA A POLÍTICA GENERAL EN MATERIA DE SECTOR PRIMARIO": {
+    "titulo_ciudadano": "Apoyar al sector agrícola y ganadero mediante nuevas medidas políticas",
+    "categoria_principal": "Agricultura",
+    "etiquetas": [
+      "proteger_sector_primario"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar al sector primario para mejorar su rentabilidad y condiciones de trabajo.",
+    "proponente": "Desconocido"
+  },
+  "12-26/PNLP-000029, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A DEFENSA DE LA AGRICULTURA Y LA GANADERÍA SOCIAL Y PROFESIONAL, LA SOBERANÍA ALIMENTARIA Y CONTRA EL ACUERDO UE-MERCOSUR Y LOS RECORTES DE LA PAC PARA FINANCIAR EL REARME": {
+    "titulo_ciudadano": "Defender al agricultor frente a acuerdos internacionales y recortes europeos",
+    "categoria_principal": "Agricultura",
+    "etiquetas": [
+      "proteger_sector_primario"
+    ],
+    "resumen_sencillo": "Votar a favor significa oponerse a tratados comerciales perjudiciales y pedir que no se recorten las ayudas del campo.",
+    "proponente": "Desconocido"
+  },
+  "12-25/PL-000011, DEBATE FINAL DEL PROYECTO DE LEY DE PATRIMONIO CULTURAL DE ANDALUCÍA": {
+    "titulo_ciudadano": "Aprobar una nueva ley para proteger monumentos y tradiciones culturales",
+    "categoria_principal": "Cultura",
+    "etiquetas": [
+      "impulsar_cultura"
+    ],
+    "resumen_sencillo": "Votar a favor significa dar mayor protección legal a la riqueza histórica, artística y cultural del territorio.",
+    "proponente": "Gobierno"
+  },
+  "12-26/PNLP-000026, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A GARANTÍA EFECTIVA DEL DERECHO A LA VIVIENDA EN ANDALUCÍA": {
+    "titulo_ciudadano": "Asegurar que el derecho a una vivienda digna sea real",
+    "categoria_principal": "Vivienda",
+    "etiquetas": [
+      "facilitar_acceso_vivienda",
+      "proteger_inquilinos"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar medidas que garanticen que todos los ciudadanos puedan acceder a un hogar.",
+    "proponente": "Desconocido"
+  },
+  "12-26/PNLP-000024, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A ACTUACIONES URGENTES EN INFRAESTRUCTURAS DE ANDALUCÍA": {
+    "titulo_ciudadano": "Invertir urgentemente en la mejora de las infraestructuras de transporte",
+    "categoria_principal": "Infraestructuras",
+    "etiquetas": [
+      "financiar_infraestructuras",
+      "mejorar_red_ferroviaria",
+      "mejorar_carreteras"
+    ],
+    "resumen_sencillo": "Votar a favor significa acelerar la inversión en carreteras, trenes y comunicaciones esenciales para la región.",
+    "proponente": "Desconocido"
+  },
+  "12-26/PNLP-000023, PROPOSICIÓN NO DE LEY EN PLENO RELATIVA A DÍA INTERNACIONAL DE LA MUJER (8M) Y COMPROMISO CON LAS POLÍTICAS DE IGUALDAD Y CONTRA LA VIOLENCIA EJERCIDA SOBRE LAS MUJERES": {
+    "titulo_ciudadano": "Reforzar el compromiso con la igualdad de género por el 8M",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "impulsar_igualdad_genero",
+      "combatir_violencia_machista"
+    ],
+    "resumen_sencillo": "Votar a favor significa ratificar el apoyo de las instituciones a los derechos de las mujeres y la lucha por la igualdad.",
+    "proponente": "Desconocido"
+  },
+  "12-26/DL-000001, CONVALIDACIÓN O DEROGACIÓN DEL DECRETO-LEY 1/2026, DE 25 DE FEBRERO, POR EL QUE SE ADOPTAN CON CARÁCTER URGENTE MEDIDAS DE APOYO FISCAL POR LOS DAÑOS PRODUCIDOS POR EL IMPACTO DE BORRASCAS EN LA COMUNIDAD AUTÓNOMA DE ANDALUCÍA, Y POR EL QUE SE APRUEBAN MEDIDAS EXTRAORDINARIAS PARA PALIAR SUS EFECTOS SOBRE EL POTENCIAL PRODUCTIVO AGRARIO Y GANADERO, EN INFRAESTRUCTURAS HIDRÁULICAS Y DEL DOMINIO PÚBLICO HIDRÁULICO": {
+    "titulo_ciudadano": "Dar ayudas fiscales y apoyo económico tras los daños por temporales",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "bajar_impuestos",
+      "aprobar_ayudas_emergencia",
+      "proteger_sector_primario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar beneficios en los impuestos y dinero directo para agricultores e infraestructuras de agua dañadas.",
+    "proponente": "Gobierno"
   }
 }

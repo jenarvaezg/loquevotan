@@ -36717,5 +36717,1321 @@
     ],
     "resumen_sencillo": "Votar a favor significa apoyar la devolución del proyecto de ley al Gobierno para frenar su tramitación parlamentaria.",
     "proponente": "Varios grupos"
+  },
+  "4f2f7ca04f8daf24": {
+    "titulo_ciudadano": "Aprobar normas sobre cotizaciones sociales en el presupuesto del Estado",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "reformar_seguridad_social"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar los artículos del presupuesto que regulan las cuotas que empresas y trabajadores pagan a la Seguridad Social.",
+    "proponente": "Gobierno"
+  },
+  "14d6b44dda28fbb0": {
+    "titulo_ciudadano": "Aprobar el presupuesto para pagar las pensiones de antiguos funcionarios públicos",
+    "categoria_principal": "Trabajo_y_Pensiones",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "garantizar_pensiones"
+    ],
+    "resumen_sencillo": "Votar a favor significa autorizar el gasto necesario para garantizar el pago de las pensiones del personal jubilado de la administración.",
+    "proponente": "Gobierno"
+  },
+  "a12f3f5c7ec6f149": {
+    "titulo_ciudadano": "Aprobar las reglas de financiación para las comunidades autónomas",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "aprobar_presupuestos"
+    ],
+    "resumen_sencillo": "Votar a favor significa validar los mecanismos y fondos que el Estado transfiere a las autonomías para sus servicios.",
+    "proponente": "Gobierno"
+  },
+  "bccbec1d21ba31ed": {
+    "titulo_ciudadano": "Aprobar cambios en impuestos y gestión del gasto público nacional",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "controlar_gasto_publico"
+    ],
+    "resumen_sencillo": "Votar a favor significa dar luz verde a las normas tributarias y de control de gasto incluidas en las cuentas generales.",
+    "proponente": "Gobierno"
+  },
+  "4df41e8b014a8061": {
+    "titulo_ciudadano": "Garantizar el dinero estatal destinado a la financiación de los ayuntamientos",
+    "categoria_principal": "Politica_Territorial",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "financiar_ayuntamientos"
+    ],
+    "resumen_sencillo": "Votar a favor significa asegurar que las entidades locales reciban los fondos previstos en los presupuestos para sus competencias.",
+    "proponente": "Gobierno"
+  },
+  "f713503c6c71324b": {
+    "titulo_ciudadano": "Aprobar los detalles finales y disposiciones técnicas de los presupuestos generales",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa ratificar las normas complementarias y finales que permiten aplicar la ley de presupuestos en su totalidad.",
+    "proponente": "Gobierno"
+  },
+  "ab9ffdc277a60776": {
+    "titulo_ciudadano": "Aprobar los listados detallados de inversiones públicas previstas para este año",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "financiar_infraestructuras"
+    ],
+    "resumen_sencillo": "Votar a favor significa validar los anexos técnicos donde se especifican las obras y proyectos concretos de inversión.",
+    "proponente": "Gobierno"
+  },
+  "e54eb43243950aed": {
+    "titulo_ciudadano": "Aprobar los fondos para el funcionamiento diario del Tribunal Constitucional",
+    "categoria_principal": "Justicia",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "reformar_tribunal_constitucional"
+    ],
+    "resumen_sencillo": "Votar a favor significa dotar de presupuesto al Tribunal Constitucional para que pueda ejercer sus funciones de control legal.",
+    "proponente": "Gobierno"
+  },
+  "40ebfc3bd30ddd22": {
+    "titulo_ciudadano": "Aprobar el presupuesto anual del órgano de gobierno de los jueces",
+    "categoria_principal": "Justicia",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "reformar_poder_judicial"
+    ],
+    "resumen_sencillo": "Votar a favor significa asignar los recursos económicos necesarios al Consejo General del Poder Judicial para el próximo ejercicio.",
+    "proponente": "Gobierno"
+  },
+  "2487580e2396f1a6": {
+    "titulo_ciudadano": "Aprobar el presupuesto del Ministerio de Hacienda y Administraciones Públicas",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "controlar_gasto_publico"
+    ],
+    "resumen_sencillo": "Votar a favor significa permitir que el Ministerio encargado de los impuestos y la administración gestione sus propios recursos.",
+    "proponente": "Gobierno"
+  },
+  "6a988c4eb2741795": {
+    "titulo_ciudadano": "Aprobar el sistema de reparto de dinero a comunidades y ayuntamientos",
+    "categoria_principal": "Politica_Territorial",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "financiar_ayuntamientos"
+    ],
+    "resumen_sencillo": "Votar a favor significa autorizar las transferencias económicas del Estado hacia los gobiernos regionales y locales.",
+    "proponente": "Gobierno"
+  },
+  "b350a4be70a0372b": {
+    "titulo_ciudadano": "Impulsar el diálogo político con las instituciones y sociedad civil catalana",
+    "categoria_principal": "Politica_Territorial",
+    "etiquetas": [
+      "controlar_gobierno"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar el inicio de negociaciones y acuerdos para mejorar la relación política con Cataluña.",
+    "proponente": "Grupo Mixto"
+  },
+  "175ad4a7a43a63ff": {
+    "titulo_ciudadano": "Realizar una limpieza integral y protección ambiental de las rías gallegas",
+    "categoria_principal": "Medio_Ambiente",
+    "etiquetas": [
+      "proteger_medio_ambiente",
+      "gestionar_recursos_hidricos"
+    ],
+    "resumen_sencillo": "Votar a favor significa obligar al Gobierno a invertir en el saneamiento y recuperación ecológica de las rías en Galicia.",
+    "proponente": "Unidos Podemos"
+  },
+  "eb66015335d9941b": {
+    "titulo_ciudadano": "Aplicar leyes europeas sobre finanzas, sanidad y derechos de los trabajadores",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "adaptar_normativa_europea",
+      "regular_sector_financiero",
+      "proteger_sanidad_publica"
+    ],
+    "resumen_sencillo": "Votar a favor significa validar un decreto que incorpora normas de la Unión Europea a la legislación española en múltiples áreas.",
+    "proponente": "Gobierno"
+  },
+  "97ba1cb6e778ca18": {
+    "titulo_ciudadano": "Tramitar por vía de urgencia la ley de normativas europeas",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "tramitar_ley_urgencia",
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa permitir que el Congreso debata y proponga cambios a la nueva norma europea de forma acelerada.",
+    "proponente": "Gobierno"
+  },
+  "9b72e8dbf3cd80cb": {
+    "titulo_ciudadano": "Aprobar ayudas urgentes y medidas legales para combatir la sequía",
+    "categoria_principal": "Medio_Ambiente",
+    "etiquetas": [
+      "gestionar_recursos_hidricos",
+      "proteger_sector_primario",
+      "aprobar_ayudas_emergencia"
+    ],
+    "resumen_sencillo": "Votar a favor significa autorizar fondos y cambios en la gestión del agua para paliar la falta de lluvia en el campo.",
+    "proponente": "Gobierno"
+  },
+  "b79df4d5592e1172": {
+    "titulo_ciudadano": "Tramitar rápidamente como ley las medidas de apoyo contra la sequía",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "tramitar_ley_urgencia",
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa acelerar los plazos parlamentarios para que las ayudas contra la sequía se conviertan en ley definitiva cuanto antes.",
+    "proponente": "Gobierno"
+  },
+  "05701670e30ef8c8": {
+    "titulo_ciudadano": "Reformar la ley para agilizar trámites legales que no requieren juicio",
+    "categoria_principal": "Justicia",
+    "etiquetas": [
+      "reformar_poder_judicial"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar cambios técnicos en la gestión de expedientes civiles para que sean más rápidos y sencillos.",
+    "proponente": "Desconocido"
+  },
+  "105701c6998d6d60": {
+    "titulo_ciudadano": "Recuperar la independencia y pluralismo en la elección de directivos de RTVE",
+    "categoria_principal": "Cultura",
+    "etiquetas": [
+      "reformar_medios_comunicacion",
+      "aumentar_transparencia"
+    ],
+    "resumen_sencillo": "Votar a favor significa cambiar la ley para que los responsables de la radio y televisión pública se elijan por mayorías amplias.",
+    "proponente": "Desconocido"
+  },
+  "7a58fb6efd211eec": {
+    "titulo_ciudadano": "Aprobar el presupuesto para infraestructuras de transporte, trenes y carreteras",
+    "categoria_principal": "Infraestructuras",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "financiar_infraestructuras",
+      "fomentar_transporte_publico"
+    ],
+    "resumen_sencillo": "Votar a favor significa dotar de fondos al Ministerio para la construcción y mantenimiento de la red de transporte nacional.",
+    "proponente": "Gobierno"
+  },
+  "07b529b79783b004": {
+    "titulo_ciudadano": "Aprobar los fondos para educación y formación profesional",
+    "categoria_principal": "Educacion",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "proteger_educacion_publica",
+      "impulsar_formacion_profesional"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar el presupuesto destinado a los colegios públicos y a la formación de los trabajadores.",
+    "proponente": "Gobierno"
+  },
+  "cf0aae69f8df40c1": {
+    "titulo_ciudadano": "Financiar las políticas de empleo y mejora de las condiciones laborales",
+    "categoria_principal": "Trabajo_y_Pensiones",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "crear_empleo",
+      "mejorar_condiciones_laborales"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar el presupuesto para fomentar la creación de empleo y proteger los derechos de los trabajadores.",
+    "proponente": "Gobierno"
+  },
+  "df046e597c77137c": {
+    "titulo_ciudadano": "Aprobar el presupuesto para impulsar la industria, el comercio y el turismo",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "impulsar_crecimiento_economico"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar la financiación de sectores clave para la economía como las fábricas, tiendas y el turismo.",
+    "proponente": "Gobierno"
+  },
+  "6f2c770ca95c5639": {
+    "titulo_ciudadano": "Otorgar fondos para apoyar la agricultura, la pesca y la alimentación",
+    "categoria_principal": "Agricultura",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "proteger_sector_primario"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar los presupuestos para ayudar a los agricultores, ganaderos y pescadores.",
+    "proponente": "Gobierno"
+  },
+  "d894852568e72faa": {
+    "titulo_ciudadano": "Financiar la organización del territorio y el trabajo de los funcionarios",
+    "categoria_principal": "Politica_Territorial",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "financiar_ayuntamientos"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar el presupuesto para gestionar las relaciones con las comunidades autónomas y los servicios públicos regionales.",
+    "proponente": "Gobierno"
+  },
+  "766c5feaf8892cf5": {
+    "titulo_ciudadano": "Aprobar el presupuesto de Hacienda para gestionar los impuestos",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "controlar_gasto_publico",
+      "combatir_fraude_fiscal"
+    ],
+    "resumen_sencillo": "Votar a favor significa dar luz verde a los fondos para que el Estado recaude impuestos y controle las cuentas públicas.",
+    "proponente": "Gobierno"
+  },
+  "2e54c2ccbe98e822": {
+    "titulo_ciudadano": "Aprobar el dinero que recibirán las comunidades autónomas y ayuntamientos",
+    "categoria_principal": "Politica_Territorial",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "financiar_ayuntamientos"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar el sistema por el cual se reparte el dinero público entre las regiones y los municipios.",
+    "proponente": "Gobierno"
+  },
+  "84af99f3bbda3a4a": {
+    "titulo_ciudadano": "Financiar la lucha contra el cambio climático y la despoblación rural",
+    "categoria_principal": "Medio_Ambiente",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "proteger_medio_ambiente",
+      "combatir_cambio_climatico",
+      "combatir_despoblacion"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar los fondos para proteger la naturaleza y combatir el abandono de los pueblos.",
+    "proponente": "Gobierno"
+  },
+  "bfa98b96e5d04c83": {
+    "titulo_ciudadano": "Aprobar fondos para Presidencia del Gobierno y memoria democrática",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "recuperar_memoria_historica"
+    ],
+    "resumen_sencillo": "Votar a favor significa autorizar el presupuesto para el funcionamiento del Gobierno y la recuperación de la memoria histórica.",
+    "proponente": "Gobierno"
+  },
+  "a0cd10af12606b62": {
+    "titulo_ciudadano": "Aprobar el presupuesto destinado a fomentar la cultura y el deporte",
+    "categoria_principal": "Cultura",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "impulsar_cultura"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar económicamente el cine, las artes, el patrimonio cultural y las actividades deportivas.",
+    "proponente": "Gobierno"
+  },
+  "2551cb6a02859999": {
+    "titulo_ciudadano": "Destinar fondos para fortalecer el sistema nacional de salud pública",
+    "categoria_principal": "Sanidad",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "proteger_sanidad_publica"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar el dinero necesario para gestionar la sanidad y coordinar los servicios médicos públicos.",
+    "proponente": "Gobierno"
+  },
+  "be95afe01d14407a": {
+    "titulo_ciudadano": "Financiar la transformación digital y la gestión de la economía nacional",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "impulsar_telecomunicaciones",
+      "impulsar_crecimiento_economico"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar el presupuesto para modernizar la tecnología y supervisar la estabilidad económica del país.",
+    "proponente": "Gobierno"
+  },
+  "2f450d72ede4e139": {
+    "titulo_ciudadano": "Aprobar el presupuesto para fomentar la investigación científica y la innovación",
+    "categoria_principal": "Educacion",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "impulsar_ciencia"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar económicamente el trabajo de los científicos y el desarrollo de nuevas tecnologías.",
+    "proponente": "Gobierno"
+  },
+  "41d910a224111096": {
+    "titulo_ciudadano": "Otorgar fondos para proteger derechos sociales y combatir la pobreza",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "combatir_pobreza",
+      "proteger_infancia"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar el dinero destinado a ayudar a los colectivos vulnerables y cumplir objetivos sociales.",
+    "proponente": "Gobierno"
+  },
+  "d016b8c18082a75f": {
+    "titulo_ciudadano": "Financiar políticas para la igualdad real entre hombres y mujeres",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "impulsar_igualdad_genero",
+      "combatir_violencia_machista"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar el presupuesto para combatir la violencia de género y promover la igualdad de derechos.",
+    "proponente": "Gobierno"
+  },
+  "7fc1370b246f9645": {
+    "titulo_ciudadano": "Aprobar fondos para la protección de los derechos de los consumidores",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "proteger_consumidores"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar económicamente la vigilancia del mercado y la defensa de los ciudadanos frente a abusos.",
+    "proponente": "Gobierno"
+  },
+  "d6d9b328f370b493": {
+    "titulo_ciudadano": "Financiar la Seguridad Social y la atención a personas inmigrantes",
+    "categoria_principal": "Trabajo_y_Pensiones",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "reformar_seguridad_social",
+      "regularizar_inmigrantes"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar el presupuesto para gestionar las pensiones, la seguridad social y la acogida de inmigrantes.",
+    "proponente": "Gobierno"
+  },
+  "778872d818393642": {
+    "titulo_ciudadano": "Aprobar fondos para la financiación y mejora de universidades públicas",
+    "categoria_principal": "Educacion",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "financiar_universidad"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar el presupuesto destinado a la enseñanza superior y a la gestión de becas universitarias.",
+    "proponente": "Gobierno"
+  },
+  "d414fc79b3365291": {
+    "titulo_ciudadano": "Aprobar el presupuesto para el funcionamiento de la Casa Real",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "aprobar_presupuestos"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar la asignación de dinero público para el sostenimiento de la Jefatura del Estado.",
+    "proponente": "Gobierno"
+  },
+  "0be2fd62f5a527d5": {
+    "titulo_ciudadano": "Financiar otros acuerdos económicos con regiones y municipios",
+    "categoria_principal": "Politica_Territorial",
+    "etiquetas": [
+      "aprobar_presupuestos"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar pagos y compensaciones económicas adicionales para las comunidades autónomas y ayuntamientos.",
+    "proponente": "Gobierno"
+  },
+  "bc0289e8740dd781": {
+    "titulo_ciudadano": "Aprobar la financiacion de empresas y fundaciones publicas",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "controlar_gasto_publico"
+    ],
+    "resumen_sencillo": "Votar a favor significa autorizar los presupuestos para las entidades, empresas y fundaciones que dependen del Estado.",
+    "proponente": "Gobierno"
+  },
+  "fdd6a7f978fe6a6c": {
+    "titulo_ciudadano": "Aprobar el presupuesto para educacion y formacion profesional",
+    "categoria_principal": "Educacion",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "proteger_educacion_publica",
+      "impulsar_formacion_profesional"
+    ],
+    "resumen_sencillo": "Votar a favor significa dar luz verde al dinero que se destinara a colegios, institutos y centros de formacion profesional.",
+    "proponente": "Gobierno"
+  },
+  "491e4252a4dd6433": {
+    "titulo_ciudadano": "Aprobar fondos para potenciar la industria, el comercio y el turismo",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "impulsar_crecimiento_economico"
+    ],
+    "resumen_sencillo": "Votar a favor significa autorizar el gasto destinado a apoyar a las empresas industriales, comercios y al sector turistico.",
+    "proponente": "Gobierno"
+  },
+  "9a83b7bf9e6c67d9": {
+    "titulo_ciudadano": "Aprobar el presupuesto para el medio ambiente y el entorno rural",
+    "categoria_principal": "Medio_Ambiente",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "combatir_cambio_climatico",
+      "combatir_despoblacion"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar la financiacion de politicas contra el cambio climatico y medidas contra la despoblacion de los pueblos.",
+    "proponente": "Gobierno"
+  },
+  "6694bee73ba7bf1b": {
+    "titulo_ciudadano": "Aprobar la financiacion para actividades culturales y deportivas",
+    "categoria_principal": "Cultura",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "impulsar_cultura"
+    ],
+    "resumen_sencillo": "Votar a favor significa respaldar el presupuesto destinado a promover la cultura, las artes y la practica del deporte.",
+    "proponente": "Gobierno"
+  },
+  "e423773f635b88e6": {
+    "titulo_ciudadano": "Aprobar fondos para la economia digital y las telecomunicaciones",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "impulsar_telecomunicaciones",
+      "impulsar_crecimiento_economico"
+    ],
+    "resumen_sencillo": "Votar a favor significa autorizar el presupuesto para modernizar la economia a traves de la tecnologia y la digitalizacion.",
+    "proponente": "Gobierno"
+  },
+  "0daf1a2d6037df3a": {
+    "titulo_ciudadano": "Aprobar fondos para servicios sociales y proteccion de la infancia",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "combatir_pobreza",
+      "proteger_infancia"
+    ],
+    "resumen_sencillo": "Votar a favor significa autorizar el presupuesto para ayudar a los colectivos mas vulnerables y cumplir objetivos de desarrollo social.",
+    "proponente": "Gobierno"
+  },
+  "8727054b78a5570c": {
+    "titulo_ciudadano": "Aprobar el presupuesto para politicas de igualdad y contra la violencia",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "impulsar_igualdad_genero",
+      "combatir_violencia_machista"
+    ],
+    "resumen_sencillo": "Votar a favor significa destinar fondos publicos a la lucha contra la violencia de genero y la promocion de la igualdad real.",
+    "proponente": "Gobierno"
+  },
+  "ce024e56e530952c": {
+    "titulo_ciudadano": "Aprobar fondos para la defensa y proteccion de los consumidores",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "proteger_consumidores"
+    ],
+    "resumen_sencillo": "Votar a favor significa autorizar el gasto del ministerio encargado de velar por los derechos de los ciudadanos al comprar productos o servicios.",
+    "proponente": "Gobierno"
+  },
+  "1dca7ed35e226764": {
+    "titulo_ciudadano": "Aprobar presupuesto para seguridad social e inclusion de migrantes",
+    "categoria_principal": "Trabajo_y_Pensiones",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "reformar_seguridad_social",
+      "regularizar_inmigrantes"
+    ],
+    "resumen_sencillo": "Votar a favor significa autorizar los fondos para el sistema de proteccion social y la gestion de politicas migratorias.",
+    "proponente": "Gobierno"
+  },
+  "f27f6b9d999ae684": {
+    "titulo_ciudadano": "Aprobar el presupuesto general de la Seguridad Social",
+    "categoria_principal": "Trabajo_y_Pensiones",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "garantizar_pensiones",
+      "reformar_seguridad_social"
+    ],
+    "resumen_sencillo": "Votar a favor significa garantizar los fondos necesarios para el pago de pensiones y prestaciones de los trabajadores.",
+    "proponente": "Gobierno"
+  },
+  "16815caf53117d61": {
+    "titulo_ciudadano": "Aprobar fondos para la educacion universitaria y la ciencia",
+    "categoria_principal": "Educacion",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "financiar_universidad",
+      "impulsar_ciencia"
+    ],
+    "resumen_sencillo": "Votar a favor significa dar luz verde al presupuesto destinado a financiar las universidades publicas y la investigacion academica.",
+    "proponente": "Gobierno"
+  },
+  "bb2743a9bf88406d": {
+    "titulo_ciudadano": "Aprobar el presupuesto anual para la Casa del Rey",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "controlar_gasto_publico"
+    ],
+    "resumen_sencillo": "Votar a favor significa autorizar la partida de dinero publico que se asigna a la Jefatura del Estado para su funcionamiento.",
+    "proponente": "Gobierno"
+  },
+  "24424a4da684187d": {
+    "titulo_ciudadano": "Aprobar fondos para el organo de gobierno de los jueces",
+    "categoria_principal": "Justicia",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "reformar_poder_judicial"
+    ],
+    "resumen_sencillo": "Votar a favor significa autorizar el presupuesto del Consejo General del Poder Judicial para que pueda realizar sus funciones.",
+    "proponente": "Gobierno"
+  },
+  "5e2355b5ef48df4e": {
+    "titulo_ciudadano": "Aprobar reserva de dinero para gastos imprevistos o emergencias",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "aprobar_ayudas_emergencia"
+    ],
+    "resumen_sencillo": "Votar a favor significa autorizar un fondo de reserva para cubrir necesidades urgentes que no estaban planeadas inicialmente.",
+    "proponente": "Gobierno"
+  },
+  "fcfcc31b97d05298": {
+    "titulo_ciudadano": "Aprobar fondos para reducir las diferencias economicas entre regiones",
+    "categoria_principal": "Politica_Territorial",
+    "etiquetas": [
+      "aprobar_presupuestos"
+    ],
+    "resumen_sencillo": "Votar a favor significa autorizar dinero para inversiones en las comunidades mas desfavorecidas para fomentar el equilibrio entre territorios.",
+    "proponente": "Gobierno"
+  },
+  "1e40c351c51a49b1": {
+    "titulo_ciudadano": "Aprobar transferencias financieras a comunidades autonomas y ayuntamientos",
+    "categoria_principal": "Politica_Territorial",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "financiar_ayuntamientos"
+    ],
+    "resumen_sencillo": "Votar a favor significa autorizar diversas partidas economicas destinadas a la financiacion de los gobiernos regionales y locales.",
+    "proponente": "Gobierno"
+  },
+  "6cf6139f5df53056": {
+    "titulo_ciudadano": "Aprobar la financiacion de organismos y empresas del Estado",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "controlar_gasto_publico"
+    ],
+    "resumen_sencillo": "Votar a favor significa dar el visto bueno al dinero que recibiran las empresas y fundaciones publicas para su actividad.",
+    "proponente": "Gobierno"
+  },
+  "c053b0fd686979b8": {
+    "titulo_ciudadano": "Aprobar el presupuesto para la educacion publica y profesional",
+    "categoria_principal": "Educacion",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "proteger_educacion_publica",
+      "impulsar_formacion_profesional"
+    ],
+    "resumen_sencillo": "Votar a favor significa autorizar el gasto del Estado en colegios e institutos y en programas de formacion para el empleo.",
+    "proponente": "Gobierno"
+  },
+  "420fc537ce4a71dd": {
+    "titulo_ciudadano": "Aprobar el presupuesto destinado a la Casa Real",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "controlar_gasto_publico"
+    ],
+    "resumen_sencillo": "Votar a favor significa autorizar la asignacion economica anual que recibe la Jefatura del Estado para su mantenimiento.",
+    "proponente": "Gobierno"
+  },
+  "c932be6a741c9f35": {
+    "titulo_ciudadano": "Aprobar el presupuesto para el funcionamiento de las Cortes Generales",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "controlar_gasto_publico"
+    ],
+    "resumen_sencillo": "Votar a favor significa autorizar el presupuesto necesario para que el Congreso y el Senado realicen su trabajo parlamentario.",
+    "proponente": "Gobierno"
+  },
+  "94163cb131e3dbf1": {
+    "titulo_ciudadano": "Dotar de fondos al Tribunal de Cuentas para supervisar el dinero público",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "controlar_gasto_publico"
+    ],
+    "resumen_sencillo": "Votar a favor significa permitir que el organismo que vigila cómo gasta el dinero el Estado tenga presupuesto para operar.",
+    "proponente": "Gobierno"
+  },
+  "2eab0129878cd70f": {
+    "titulo_ciudadano": "Asignar el presupuesto anual para el Consejo de Estado",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "controlar_gasto_publico"
+    ],
+    "resumen_sencillo": "Votar a favor significa financiar el principal órgano consultivo que asesora jurídicamente al Gobierno de España.",
+    "proponente": "Gobierno"
+  },
+  "bfac71d52709d7c5": {
+    "titulo_ciudadano": "Financiar la asistencia sanitaria de los empleados públicos",
+    "categoria_principal": "Sanidad",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "proteger_sanidad_publica"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar los fondos destinados a las mutuas que prestan servicios de salud a los funcionarios.",
+    "proponente": "Gobierno"
+  },
+  "a8ff14c7ec334df8": {
+    "titulo_ciudadano": "Aprobar la financiación para todas las empresas y fundaciones públicas",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "controlar_gasto_publico"
+    ],
+    "resumen_sencillo": "Votar a favor significa autorizar el gasto para el funcionamiento de las entidades comerciales y administrativas propiedad del Estado.",
+    "proponente": "Gobierno"
+  },
+  "ae99e213a3c09704": {
+    "titulo_ciudadano": "Aprobar un bloque fundamental de la Ley de Presupuestos Generales",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "aprobar_presupuestos"
+    ],
+    "resumen_sencillo": "Votar a favor significa validar una de las partes principales que componen el presupuesto anual del país.",
+    "proponente": "Gobierno"
+  },
+  "a94a496869f18083": {
+    "titulo_ciudadano": "Validar las reglas adicionales que permiten aplicar el presupuesto nacional",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "aprobar_presupuestos"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar las normas técnicas necesarias para ejecutar correctamente las cuentas generales del Estado.",
+    "proponente": "Gobierno"
+  },
+  "3b994615ed5b05bb": {
+    "titulo_ciudadano": "Aprobar los detalles técnicos de las inversiones y gastos estatales",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "aprobar_presupuestos"
+    ],
+    "resumen_sencillo": "Votar a favor significa autorizar los documentos anexos que detallan cada partida de gasto del presupuesto público.",
+    "proponente": "Gobierno"
+  },
+  "33acf70df968d87d": {
+    "titulo_ciudadano": "Financiar la diplomacia española y la ayuda al desarrollo internacional",
+    "categoria_principal": "Asuntos_Exteriores",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "impulsar_cooperacion_internacional"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar el presupuesto para embajadas y proyectos de ayuda en el extranjero.",
+    "proponente": "Gobierno"
+  },
+  "b48df95d7c35aed3": {
+    "titulo_ciudadano": "Financiar el sistema de ahorro en compras para toda la administración",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "controlar_gasto_publico"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar el organismo que centraliza contratos para ahorrar dinero público comprando suministros conjuntamente.",
+    "proponente": "Gobierno"
+  },
+  "3b1564fb6f82d70a": {
+    "titulo_ciudadano": "Aprobar el reparto de fondos para las autonomías y ayuntamientos",
+    "categoria_principal": "Politica_Territorial",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "financiar_ayuntamientos"
+    ],
+    "resumen_sencillo": "Votar a favor significa garantizar que el Estado envíe el dinero correspondiente a regiones y municipios para sus servicios.",
+    "proponente": "Gobierno"
+  },
+  "4d9d322d404d270f": {
+    "titulo_ciudadano": "Aprobar el presupuesto para apoyar al sector agrícola y pesquero",
+    "categoria_principal": "Agricultura",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "proteger_sector_primario"
+    ],
+    "resumen_sencillo": "Votar a favor significa destinar fondos públicos para el desarrollo y protección de agricultores, ganaderos y pescadores.",
+    "proponente": "Gobierno"
+  },
+  "002455b24d0560dc": {
+    "titulo_ciudadano": "Asignar fondos para la protección y defensa de los consumidores",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "proteger_consumidores"
+    ],
+    "resumen_sencillo": "Votar a favor significa financiar las políticas públicas destinadas a vigilar el mercado y defender los derechos de los usuarios.",
+    "proponente": "Gobierno"
+  },
+  "596ce38f4fcdd62e": {
+    "titulo_ciudadano": "Aprobar la partida económica para el funcionamiento de la Casa Real",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "controlar_gasto_publico"
+    ],
+    "resumen_sencillo": "Votar a favor significa autorizar la asignación presupuestaria anual que la Constitución otorga a la Jefatura del Estado.",
+    "proponente": "Gobierno"
+  },
+  "96554affed707996": {
+    "titulo_ciudadano": "Garantizar el presupuesto para la sanidad de los empleados públicos",
+    "categoria_principal": "Sanidad",
+    "etiquetas": [
+      "aprobar_presupuestos",
+      "proteger_sanidad_publica"
+    ],
+    "resumen_sencillo": "Votar a favor significa validar definitivamente el dinero para la cobertura sanitaria del personal de la administración del Estado.",
+    "proponente": "Gobierno"
+  },
+  "85c287a73e51121c": {
+    "titulo_ciudadano": "Crear un grupo parlamentario para mejorar la lucha contra violencia machista",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "combatir_violencia_machista",
+      "impulsar_igualdad_genero"
+    ],
+    "resumen_sencillo": "Votar a favor significa crear una subcomisión encargada de actualizar el Pacto de Estado contra la violencia de género.",
+    "proponente": "Varios grupos"
+  },
+  "53123633f7dc0c50": {
+    "titulo_ciudadano": "Crear impuestos temporales a la banca, energéticas y grandes fortunas",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "subir_impuestos",
+      "regular_sector_financiero",
+      "combatir_fraude_fiscal"
+    ],
+    "resumen_sencillo": "Votar a favor significa que bancos, empresas energéticas y personas con grandes patrimonios paguen gravámenes adicionales de forma temporal.",
+    "proponente": "Varios grupos"
+  },
+  "ac097ee9d58a7845": {
+    "titulo_ciudadano": "Aprobar una nueva ley para mejorar la cooperación internacional española",
+    "categoria_principal": "Asuntos_Exteriores",
+    "etiquetas": [
+      "impulsar_cooperacion_internacional",
+      "proteger_derechos_humanos"
+    ],
+    "resumen_sencillo": "Votar a favor significa actualizar las normas para que España ayude mejor a los países en desarrollo de forma sostenible.",
+    "proponente": "Gobierno"
+  },
+  "659e7611ad2fa209": {
+    "titulo_ciudadano": "Llevar el debate final de la Ley Trans al Pleno del Congreso",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "procedimiento_parlamentario",
+      "proteger_derechos_lgbti"
+    ],
+    "resumen_sencillo": "Votar a favor significa que todos los diputados deban votar la Ley Trans en el Pleno en lugar de solo en comisión.",
+    "proponente": "PP"
+  },
+  "634953e1bc99503b": {
+    "titulo_ciudadano": "Aprobar ayudas sociales urgentes para afectados por incendios forestales",
+    "categoria_principal": "Medio_Ambiente",
+    "etiquetas": [
+      "proteger_medio_ambiente",
+      "mejorar_condiciones_laborales",
+      "aprobar_ayudas_emergencia"
+    ],
+    "resumen_sencillo": "Votar a favor significa convalidar medidas de protección laboral y ayudas para las personas perjudicadas por los fuegos en el monte.",
+    "proponente": "Gobierno"
+  },
+  "6d5f231c5b9c241f": {
+    "titulo_ciudadano": "Tramitar urgentemente protecciones laborales y sociales ante incendios forestales",
+    "categoria_principal": "Medio_Ambiente",
+    "etiquetas": [
+      "tramitar_ley_urgencia",
+      "mejorar_condiciones_laborales",
+      "proteger_medio_ambiente"
+    ],
+    "resumen_sencillo": "Votar a favor significa agilizar la aprobacion de medidas para proteger a los trabajadores y ciudadanos afectados por el fuego.",
+    "proponente": "Gobierno"
+  },
+  "fe6cea3f186b1927": {
+    "titulo_ciudadano": "Dar nacionalidad española a saharauis nacidos bajo administracion de España",
+    "categoria_principal": "Justicia",
+    "etiquetas": [
+      "proteger_derechos_humanos",
+      "regularizar_inmigrantes"
+    ],
+    "resumen_sencillo": "Votar a favor significa permitir que las personas del Sahara nacidas cuando España administraba el territorio puedan ser españolas.",
+    "proponente": "Desconocido"
+  },
+  "f2e36fa5ba8dec7e": {
+    "titulo_ciudadano": "Aprobar los detalles finales para dar la nacionalidad a saharauis",
+    "categoria_principal": "Justicia",
+    "etiquetas": [
+      "procedimiento_parlamentario",
+      "proteger_derechos_humanos"
+    ],
+    "resumen_sencillo": "Votar a favor significa validar el texto definitivo de la ley para que los saharauis obtengan la nacionalidad española.",
+    "proponente": "Desconocido"
+  },
+  "b42f362655f00fd1": {
+    "titulo_ciudadano": "Reforzar la seguridad nacional y el futuro de Ceuta y Melilla",
+    "categoria_principal": "Interior_y_Seguridad",
+    "etiquetas": [
+      "aumentar_seguridad_ciudadana",
+      "controlar_gobierno"
+    ],
+    "resumen_sencillo": "Votar a favor significa exigir al Gobierno un plan de Estado para proteger la seguridad en las ciudades autonomas.",
+    "proponente": "PP"
+  },
+  "4d4c85245251f11b": {
+    "titulo_ciudadano": "Aumentar la transparencia y el acceso a la informacion publica",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "aumentar_transparencia"
+    ],
+    "resumen_sencillo": "Votar a favor significa impulsar medidas para que la gestion de las instituciones sea mas clara y abierta al ciudadano.",
+    "proponente": "PSOE"
+  },
+  "5782f5d91c4f1870": {
+    "titulo_ciudadano": "Exigir al Gobierno un plan contra el empobrecimiento de los españoles",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "combatir_pobreza",
+      "controlar_gobierno"
+    ],
+    "resumen_sencillo": "Votar a favor significa pedir al Gobierno medidas urgentes para mejorar la situacion economica y frenar la perdida de riqueza.",
+    "proponente": "Vox"
+  },
+  "c710a3e96d6e91f9": {
+    "titulo_ciudadano": "Controlar la politica de vivienda del Gobierno para mejorar el acceso",
+    "categoria_principal": "Vivienda",
+    "etiquetas": [
+      "facilitar_acceso_vivienda",
+      "controlar_gobierno"
+    ],
+    "resumen_sencillo": "Votar a favor significa criticar la gestion actual del Gobierno y proponer cambios para facilitar el acceso al hogar.",
+    "proponente": "PP"
+  },
+  "3941e9da05be79fe": {
+    "titulo_ciudadano": "Cambiar la forma de elegir a los jueces del poder judicial",
+    "categoria_principal": "Justicia",
+    "etiquetas": [
+      "reformar_poder_judicial"
+    ],
+    "resumen_sencillo": "Votar a favor significa modificar la ley para que los miembros del Consejo General del Poder Judicial se elijan de otro modo.",
+    "proponente": "PP"
+  },
+  "e7add44851d5ea4f": {
+    "titulo_ciudadano": "Reconocer a biologos y trabajadores sociales como profesionales sanitarios",
+    "categoria_principal": "Sanidad",
+    "etiquetas": [
+      "proteger_sanidad_publica",
+      "mejorar_condiciones_laborales"
+    ],
+    "resumen_sencillo": "Votar a favor significa dar estatus de sanitario a estos profesionales para mejorar sus funciones en el sistema de salud.",
+    "proponente": "PSOE"
+  },
+  "521e44e477d3fb61": {
+    "titulo_ciudadano": "Colaborar con la UNESCO para impulsar la cultura mediterranea",
+    "categoria_principal": "Asuntos_Exteriores",
+    "etiquetas": [
+      "aprobar_acuerdo_internacional",
+      "impulsar_cultura"
+    ],
+    "resumen_sencillo": "Votar a favor significa ratificar un acuerdo internacional para convertir a la Fundacion Tres Culturas en un centro de referencia mundial.",
+    "proponente": "Gobierno"
+  },
+  "514be16f972f0521": {
+    "titulo_ciudadano": "Regular el reparto de agua del rio Guadiana con Portugal",
+    "categoria_principal": "Medio_Ambiente",
+    "etiquetas": [
+      "aprobar_acuerdo_internacional",
+      "gestionar_recursos_hidricos"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar un acuerdo con Portugal para asegurar el uso sostenible del agua en la frontera común.",
+    "proponente": "Gobierno"
+  },
+  "40987dd9513cce4b": {
+    "titulo_ciudadano": "Proteger informacion militar secreta compartida entre España y Australia",
+    "categoria_principal": "Asuntos_Exteriores",
+    "etiquetas": [
+      "aprobar_acuerdo_internacional"
+    ],
+    "resumen_sencillo": "Votar a favor significa validar un tratado para intercambiar y proteger de forma segura datos confidenciales de defensa con Australia.",
+    "proponente": "Gobierno"
+  },
+  "15388cb55d75683f": {
+    "titulo_ciudadano": "Revisar y validar el informe sobre las cuentas del Estado",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "controlar_gasto_publico",
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa dar el visto bueno al analisis del Tribunal de Cuentas sobre como gasto el dinero el Gobierno.",
+    "proponente": "Varios grupos"
+  },
+  "ef200e4e87cedc38": {
+    "titulo_ciudadano": "Crear un grupo de trabajo para proteger a personas desaparecidas",
+    "categoria_principal": "Interior_y_Seguridad",
+    "etiquetas": [
+      "procedimiento_parlamentario",
+      "proteger_derechos_humanos"
+    ],
+    "resumen_sencillo": "Votar a favor significa crear una subcomision para redactar una ley que de mas derechos y apoyo a desaparecidos y sus familias.",
+    "proponente": "Varios grupos"
+  },
+  "5bf674d3e12ee893": {
+    "titulo_ciudadano": "Reformar la Ley de Defensa Nacional para mejorar la seguridad",
+    "categoria_principal": "Asuntos_Exteriores",
+    "etiquetas": [],
+    "resumen_sencillo": "Votar a favor significa modificar las normas basicas que regulan el funcionamiento de las Fuerzas Armadas y la defensa de España.",
+    "proponente": "Vox"
+  },
+  "78a9fe55d47ca5c0": {
+    "titulo_ciudadano": "Modificar la ley de vivienda para reforzar el derecho al hogar",
+    "categoria_principal": "Vivienda",
+    "etiquetas": [
+      "facilitar_acceso_vivienda",
+      "proteger_inquilinos"
+    ],
+    "resumen_sencillo": "Votar a favor significa cambiar la ley actual para buscar una mayor proteccion de los ciudadanos en el acceso a la vivienda.",
+    "proponente": "Sumar"
+  },
+  "43db5b39df6a1840": {
+    "titulo_ciudadano": "Devolver menores inmigrantes a Marruecos y evitar su reparto nacional",
+    "categoria_principal": "Interior_y_Seguridad",
+    "etiquetas": [
+      "restringir_inmigracion",
+      "proteger_infancia"
+    ],
+    "resumen_sencillo": "Votar a favor significa pedir que los menores extranjeros solos vuelvan a Marruecos y que no se trasladen a otras regiones.",
+    "proponente": "Vox"
+  },
+  "4c696ba01ecff86d": {
+    "titulo_ciudadano": "Rechazar las sanciones economicas de Estados Unidos contra Cuba",
+    "categoria_principal": "Asuntos_Exteriores",
+    "etiquetas": [
+      "impulsar_cooperacion_internacional"
+    ],
+    "resumen_sencillo": "Votar a favor significa posicionar a España en contra del bloqueo a Cuba y defender la soberania del pais caribeño.",
+    "proponente": "Sumar"
+  },
+  "33116e1c9270b118": {
+    "titulo_ciudadano": "Exigir medidas al Gobierno contra el aumento del coste de vida",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "controlar_gobierno",
+      "combatir_pobreza",
+      "proteger_consumidores"
+    ],
+    "resumen_sencillo": "Votar a favor significa pedir al Gobierno un plan urgente para frenar la subida de precios que afecta a los ciudadanos.",
+    "proponente": "Podemos"
+  },
+  "93cee55b6118addc": {
+    "titulo_ciudadano": "Aumentar la seguridad ante la llegada masiva de inmigrantes",
+    "categoria_principal": "Interior_y_Seguridad",
+    "etiquetas": [
+      "controlar_gobierno",
+      "aumentar_seguridad_ciudadana",
+      "restringir_inmigracion"
+    ],
+    "resumen_sencillo": "Votar a favor significa exigir al Gobierno medidas policiales y de control fronterizo mas estrictas para garantizar la seguridad.",
+    "proponente": "Vox"
+  },
+  "ed4f01507963472e": {
+    "titulo_ciudadano": "Exigir al Gobierno medidas para resolver la crisis actual de Ceuta",
+    "categoria_principal": "Politica_Territorial",
+    "etiquetas": [
+      "controlar_gobierno",
+      "combatir_pobreza"
+    ],
+    "resumen_sencillo": "Votar a favor significa pedir al Gobierno que actúe de forma urgente para solucionar los problemas sociales y económicos que sufre la ciudad de Ceuta.",
+    "proponente": "PP"
+  },
+  "d721611c0ec28439": {
+    "titulo_ciudadano": "Acelerar las obras de agua pendientes para el Canal de Navarra",
+    "categoria_principal": "Infraestructuras",
+    "etiquetas": [
+      "gestionar_recursos_hidricos",
+      "controlar_gobierno"
+    ],
+    "resumen_sencillo": "Votar a favor significa exigir al Gobierno que ponga fechas concretas para licitar y terminar la segunda fase de las obras del canal.",
+    "proponente": "UPN"
+  },
+  "65829505f8717b44": {
+    "titulo_ciudadano": "Regular y hacer transparentes las reuniones de los grupos de interés",
+    "categoria_principal": "Gobernanza",
+    "etiquetas": [
+      "aumentar_transparencia",
+      "regular_lobbies"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar una ley para que las actividades de los lobbies y sus contactos con políticos sean públicas y éticas.",
+    "proponente": "Gobierno"
+  },
+  "9fdd32c92575564e": {
+    "titulo_ciudadano": "Aprobar ayudas sociales y económicas urgentes de apoyo a Ceuta",
+    "categoria_principal": "Politica_Territorial",
+    "etiquetas": [
+      "aprobar_ayudas_emergencia",
+      "combatir_pobreza"
+    ],
+    "resumen_sencillo": "Votar a favor significa ratificar un paquete de medidas económicas y sociales para mejorar la situación y estabilidad de la ciudad.",
+    "proponente": "Gobierno"
+  },
+  "046fe4b6ca14bea9": {
+    "titulo_ciudadano": "Tramitar las ayudas urgentes a Ceuta como un proyecto de ley",
+    "categoria_principal": "Otros",
+    "etiquetas": [
+      "procedimiento_parlamentario",
+      "tramitar_ley_urgencia"
+    ],
+    "resumen_sencillo": "Votar a favor significa permitir que el decreto de ayudas se debata y pueda modificarse en el Congreso mediante un procedimiento rápido.",
+    "proponente": "Gobierno"
+  },
+  "15d3fde7cd72cdf8": {
+    "titulo_ciudadano": "Mejorar los procesos judiciales de familia cuando hay menores involucrados",
+    "categoria_principal": "Justicia",
+    "etiquetas": [
+      "reformar_poder_judicial",
+      "proteger_infancia",
+      "proteger_familias"
+    ],
+    "resumen_sencillo": "Votar a favor significa agilizar los juicios de familia para proteger mejor los derechos y el bienestar de los hijos menores de edad.",
+    "proponente": "PNV"
+  },
+  "283ad3eecf2fadcd": {
+    "titulo_ciudadano": "Permitir la jubilación anticipada sin que se recorte la pensión",
+    "categoria_principal": "Trabajo_y_Pensiones",
+    "etiquetas": [
+      "subir_pensiones",
+      "reformar_pensiones"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar que los trabajadores puedan jubilarse sin sufrir penalizaciones económicas en la cuantía de su pensión mensual.",
+    "proponente": "Grupo Mixto"
+  },
+  "215b2b77ec053e8a": {
+    "titulo_ciudadano": "Impulsar el transporte ferroviario de mercancías y mejorar infraestructuras locales",
+    "categoria_principal": "Infraestructuras",
+    "etiquetas": [
+      "mejorar_red_ferroviaria",
+      "financiar_infraestructuras"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar la construcción de nuevas vías de tren para mercancías y aplicar medidas para reducir su impacto en los municipios.",
+    "proponente": "PNV"
+  },
+  "825e327a74bf5c52": {
+    "titulo_ciudadano": "Impulsar la aprobación de una nueva Ley de Familias",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "proteger_familias",
+      "proteger_infancia",
+      "impulsar_conciliacion"
+    ],
+    "resumen_sencillo": "Votar a favor significa instar al Gobierno a aprobar definitivamente una ley que amplíe las ayudas y derechos para todos los tipos de familias.",
+    "proponente": "Podemos"
+  },
+  "6a54a5b6e55505e4": {
+    "titulo_ciudadano": "Mejorar los salarios y categorías profesionales de los trabajadores sanitarios",
+    "categoria_principal": "Sanidad",
+    "etiquetas": [
+      "proteger_sanidad_publica",
+      "mejorar_condiciones_laborales"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar la revisión de sueldos y la mejora de la carrera profesional para el personal del sistema de salud.",
+    "proponente": "CC"
+  },
+  "f7108aedb97d687b": {
+    "titulo_ciudadano": "Reformar el sistema educativo para elevar el rendimiento de los alumnos",
+    "categoria_principal": "Educacion",
+    "etiquetas": [
+      "reformar_educacion",
+      "controlar_gobierno"
+    ],
+    "resumen_sencillo": "Votar a favor significa exigir al Gobierno cambios profundos en la enseñanza para revertir los malos resultados escolares actuales.",
+    "proponente": "Vox"
+  },
+  "7cd5ce7146251fdc": {
+    "titulo_ciudadano": "Reprobar la política educativa del Gobierno y exigir cambios inmediatos",
+    "categoria_principal": "Educacion",
+    "etiquetas": [
+      "reformar_educacion",
+      "controlar_gobierno"
+    ],
+    "resumen_sencillo": "Votar a favor significa criticar la gestión del Ministerio de Educación y pedir un cambio de rumbo en las leyes educativas.",
+    "proponente": "PP"
+  },
+  "06c09c7aa2680f4f": {
+    "titulo_ciudadano": "Usar excedentes autonómicos para financiar la reconstrucción de La Palma",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "aprobar_ayudas_emergencia",
+      "financiar_infraestructuras",
+      "financiar_ayuntamientos"
+    ],
+    "resumen_sencillo": "Votar a favor significa autorizar el uso de fondos sobrantes de las regiones para invertir en la recuperación económica y social de la isla.",
+    "proponente": "Gobierno"
+  },
+  "76b48ba2d6536a4f": {
+    "titulo_ciudadano": "Tramitar por vía urgente la ley de reconstrucción de La Palma",
+    "categoria_principal": "Otros",
+    "etiquetas": [
+      "procedimiento_parlamentario",
+      "tramitar_ley_urgencia"
+    ],
+    "resumen_sencillo": "Votar a favor significa agilizar el debate parlamentario para que las ayudas financieras a la isla se conviertan en ley lo antes posible.",
+    "proponente": "Gobierno"
+  },
+  "1e5046e9fcf0e26b": {
+    "titulo_ciudadano": "Modificar el sistema de selección y formación de los futuros jueces",
+    "categoria_principal": "Justicia",
+    "etiquetas": [
+      "reformar_poder_judicial"
+    ],
+    "resumen_sencillo": "Votar a favor significa cambiar las normas del curso obligatorio que deben superar quienes quieren ingresar en la carrera judicial.",
+    "proponente": "PP"
+  },
+  "2fa60bb84fbd0568": {
+    "titulo_ciudadano": "Reducir la tasa máxima de alcohol permitida para conducir vehículos",
+    "categoria_principal": "Interior_y_Seguridad",
+    "etiquetas": [
+      "mejorar_seguridad_vial"
+    ],
+    "resumen_sencillo": "Votar a favor significa endurecer la ley de tráfico bajando los límites de alcohol autorizados para aumentar la seguridad en carretera.",
+    "proponente": "PSOE"
+  },
+  "6425bd5d4fc4b666": {
+    "titulo_ciudadano": "Implementar en España el Pacto Europeo sobre Migración y Asilo",
+    "categoria_principal": "Asuntos_Exteriores",
+    "etiquetas": [
+      "adaptar_normativa_europea",
+      "restringir_inmigracion"
+    ],
+    "resumen_sencillo": "Votar a favor significa comprometerse a aplicar las nuevas normas comunes de la Unión Europea para gestionar la inmigración y el asilo.",
+    "proponente": "PP"
+  },
+  "59f8382bc206e22c": {
+    "titulo_ciudadano": "Crear un impuesto europeo a los beneficios extraordinarios de energéticas",
+    "categoria_principal": "Economia_y_Hacienda",
+    "etiquetas": [
+      "subir_impuestos",
+      "impulsar_cooperacion_internacional"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar que las empresas de energía paguen una tasa especial por las ganancias excesivas obtenidas durante la crisis.",
+    "proponente": "PSOE"
+  },
+  "8c73b80e93edcaea": {
+    "titulo_ciudadano": "Frenar la subida del precio de la luz y el gas",
+    "categoria_principal": "Otros",
+    "etiquetas": [
+      "combatir_pobreza_energetica",
+      "proteger_consumidores",
+      "controlar_gobierno"
+    ],
+    "resumen_sencillo": "Votar a favor significa exigir al Gobierno medidas para abaratar las facturas energéticas y aliviar el coste de la vida de las familias.",
+    "proponente": "Podemos"
+  },
+  "760806820c4d9bc7": {
+    "titulo_ciudadano": "Reforzar la seguridad nacional y el control fronterizo en Ceuta",
+    "categoria_principal": "Interior_y_Seguridad",
+    "etiquetas": [
+      "aumentar_seguridad_ciudadana",
+      "controlar_gobierno"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar el despliegue de más medios de seguridad para proteger la frontera y garantizar la tranquilidad en la ciudad.",
+    "proponente": "Vox"
+  },
+  "0b27a4409b6c4aae": {
+    "titulo_ciudadano": "Pedir explicaciones sobre la gestión de Defensa en la crisis de Ceuta",
+    "categoria_principal": "Asuntos_Exteriores",
+    "etiquetas": [
+      "controlar_gobierno"
+    ],
+    "resumen_sencillo": "Votar a favor significa exigir responsabilidades al Gobierno por cómo el Ministerio de Defensa manejó la crisis fronteriza en Ceuta.",
+    "proponente": "PP"
+  },
+  "360838c242b7359e": {
+    "titulo_ciudadano": "Frenar la tramitación de la nueva ley contra la violencia vicaria",
+    "categoria_principal": "Derechos_Sociales",
+    "etiquetas": [
+      "combatir_violencia_machista",
+      "proteger_infancia"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar la propuesta de Vox para rechazar y devolver al Gobierno su proyecto de ley sobre violencia vicaria.",
+    "proponente": "Vox"
+  },
+  "0d5484dceb21f2b7": {
+    "titulo_ciudadano": "Aprobar un acuerdo de ayuda económica y técnica a Ucrania",
+    "categoria_principal": "Asuntos_Exteriores",
+    "etiquetas": [
+      "aprobar_acuerdo_internacional",
+      "impulsar_cooperacion_internacional"
+    ],
+    "resumen_sencillo": "Votar a favor significa ratificar un convenio de colaboración entre España y Ucrania para prestar apoyo financiero y asistencia técnica.",
+    "proponente": "Gobierno"
+  },
+  "9810128cb720af43": {
+    "titulo_ciudadano": "Crear una comisión internacional para gestionar reclamaciones de guerra en Ucrania",
+    "categoria_principal": "Asuntos_Exteriores",
+    "etiquetas": [
+      "aprobar_acuerdo_internacional"
+    ],
+    "resumen_sencillo": "Votar a favor significa apoyar la creación de un organismo internacional encargado de tramitar las reclamaciones legales y económicas por el conflicto ucraniano.",
+    "proponente": "Gobierno"
+  },
+  "ba457e14f246552b": {
+    "titulo_ciudadano": "Quitar la obligación de visado para diplomáticos entre España y Uzbekistán",
+    "categoria_principal": "Asuntos_Exteriores",
+    "etiquetas": [
+      "aprobar_acuerdo_internacional"
+    ],
+    "resumen_sencillo": "Votar a favor significa permitir que las personas con pasaporte diplomático de ambos países viajen sin necesidad de solicitar visado previo.",
+    "proponente": "Gobierno"
+  },
+  "800a87d4e30a26b3": {
+    "titulo_ciudadano": "Establecer nuevas normas para los vuelos comerciales entre España y Brasil",
+    "categoria_principal": "Asuntos_Exteriores",
+    "etiquetas": [
+      "aprobar_acuerdo_internacional"
+    ],
+    "resumen_sencillo": "Votar a favor significa aprobar un tratado internacional para organizar y mejorar las conexiones de transporte aéreo entre España y Brasil.",
+    "proponente": "Gobierno"
+  },
+  "aab3dea70fad738e": {
+    "titulo_ciudadano": "Reforzar internacionalmente la protección de los derechos de los jóvenes",
+    "categoria_principal": "Asuntos_Exteriores",
+    "etiquetas": [
+      "aprobar_acuerdo_internacional",
+      "proteger_derechos_humanos"
+    ],
+    "resumen_sencillo": "Votar a favor significa validar un protocolo internacional que amplía el compromiso de los países iberoamericanos en la defensa de los derechos juveniles.",
+    "proponente": "Gobierno"
+  },
+  "574eb6f79af6fa39": {
+    "titulo_ciudadano": "Suprimir los visados diplomáticos y oficiales entre España y Arabia Saudí",
+    "categoria_principal": "Asuntos_Exteriores",
+    "etiquetas": [
+      "aprobar_acuerdo_internacional"
+    ],
+    "resumen_sencillo": "Votar a favor significa facilitar los viajes oficiales y diplomáticos entre ambos reinos eliminando la exigencia mutua de visados.",
+    "proponente": "Gobierno"
+  },
+  "d0d624da7c57df80": {
+    "titulo_ciudadano": "Ampliar el plazo de investigación sobre el corte de luz de 2025",
+    "categoria_principal": "Infraestructuras",
+    "etiquetas": [
+      "procedimiento_parlamentario",
+      "crear_comision_investigacion"
+    ],
+    "resumen_sencillo": "Votar a favor significa dar seis meses más a los diputados para que puedan concluir su informe sobre el gran apagón eléctrico ocurrido en abril de 2025.",
+    "proponente": "Desconocido"
+  },
+  "a8c31b1a22634e35": {
+    "titulo_ciudadano": "Exigir que la reforma educativa se debata y vote en el Pleno",
+    "categoria_principal": "Educacion",
+    "etiquetas": [
+      "reformar_educacion",
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa pedir que las leyes de reforma educativa sean discutidas y votadas por la totalidad de los diputados y no solo en una comisión.",
+    "proponente": "Varios grupos"
+  },
+  "2d736b372075811b": {
+    "titulo_ciudadano": "Permitir que la justicia investigue a un diputado retirando su protección",
+    "categoria_principal": "Justicia",
+    "etiquetas": [
+      "procedimiento_parlamentario"
+    ],
+    "resumen_sencillo": "Votar a favor significa autorizar que un tribunal pueda proceder judicialmente contra un miembro del Congreso, levantando su inmunidad parlamentaria.",
+    "proponente": "Desconocido"
   }
 }

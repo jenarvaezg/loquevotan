@@ -16,6 +16,7 @@
       "id": "andalucia",
       "nombre": "Parlamento de Andalucía",
       "legislaturas": [
+        "XIII",
         "XII",
         "XI",
         "X",
@@ -26,6 +27,7 @@
       "id": "cyl",
       "nombre": "Cortes de Castilla y León",
       "legislaturas": [
+        "XII",
         "XI",
         "X",
         "IX",

@@ -1,18 +1,18 @@
 {
   "scope": "nacional",
-  "generatedAt": "2026-08-24T06:58:34.852Z",
+  "generatedAt": "2026-10-07T13:14:31.127Z",
   "status": "ok",
-  "score": 99.7,
+  "score": 100,
   "summary": "Calidad de datos estable",
-  "votes": 348,
+  "votes": 16951,
   "metrics": {
-    "genericTitlesPct": 0.29,
+    "genericTitlesPct": 0,
     "unknownGroupsPct": 0,
     "dateAnomaliesPct": 0,
     "rawTotalsMismatchPct": 0,
     "emptySummaryPct": 0,
-    "nominalCoveragePct": 3665.8,
-    "votesWithoutNominalDetailPct": 0
+    "nominalCoveragePct": 99.16,
+    "votesWithoutNominalDetailPct": 0.17
   },
   "incidents": []
 }

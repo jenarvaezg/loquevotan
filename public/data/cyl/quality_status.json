@@ -1,29 +1,29 @@
 {
   "scope": "cyl",
-  "generatedAt": "2026-08-24T06:58:34.852Z",
+  "generatedAt": "2026-10-07T13:14:31.127Z",
   "status": "warn",
-  "score": 84.7,
+  "score": 84.8,
   "summary": "Calidad de datos con incidencias menores",
-  "votes": 5090,
+  "votes": 5092,
   "metrics": {
-    "genericTitlesPct": 10.06,
+    "genericTitlesPct": 10.05,
     "unknownGroupsPct": 0,
     "dateAnomaliesPct": 0,
     "rawTotalsMismatchPct": 1.39,
     "emptySummaryPct": 0.16,
-    "nominalCoveragePct": 3.34,
-    "votesWithoutNominalDetailPct": 96.42
+    "nominalCoveragePct": 3.38,
+    "votesWithoutNominalDetailPct": 96.39
   },
   "incidents": [
     {
       "id": "generic_titles",
       "severity": "medium",
-      "message": "Títulos genéricos elevados (10.06%)."
+      "message": "Títulos genéricos elevados (10.05%)."
     },
     {
       "id": "limited_nominal_coverage",
       "severity": "info",
-      "message": "Cobertura nominal limitada (3.34% con detalle nominal)."
+      "message": "Cobertura nominal limitada (3.38% con detalle nominal)."
     }
   ]
 }
