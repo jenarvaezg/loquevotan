@@ -170,6 +170,13 @@ jobs:
             git clean -fdq -- "public/data/${scope}" || true
           done
 
+      # Regional transforms rebuild from their raw caches too: if one of them
+      # would publish fewer votes than HEAD (lost cache, partial download),
+      # keep the published data for that scope instead.
+      - name: Discard scopes that would lose votes
+        id: shrink-guard
+        run: node scripts/qa/guard_shrink.mjs
+
       - name: Generate Madrid QA report
         run: |
           node scripts/qa/report_madrid_quality.mjs \
@@ -347,8 +354,8 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: gh workflow run ci.yml --ref main
 
-      - name: Fail if a regional update failed
-        if: always() && (steps.andalucia.outcome == 'failure' || steps.cyl.outcome == 'failure' || steps.madrid.outcome == 'failure')
+      - name: Fail if a regional update failed or was discarded
+        if: always() && (steps.andalucia.outcome == 'failure' || steps.cyl.outcome == 'failure' || steps.madrid.outcome == 'failure' || steps.shrink-guard.outputs.shrunk_scopes != '')
         run: |
-          echo "::error::Fallaron actualizaciones regionales: andalucia=${{ steps.andalucia.outcome }} cyl=${{ steps.cyl.outcome }} madrid=${{ steps.madrid.outcome }}"
+          echo "::error::Actualizaciones regionales: andalucia=${{ steps.andalucia.outcome }} cyl=${{ steps.cyl.outcome }} madrid=${{ steps.madrid.outcome }}; descartadas por perder votos: '${{ steps.shrink-guard.outputs.shrunk_scopes }}'"
           exit 1

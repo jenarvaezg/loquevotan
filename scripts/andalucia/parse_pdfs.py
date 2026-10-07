@@ -14,7 +14,7 @@ PDF_GLOB = "data/andalucia/raw/pdf/*.pdf"
 OUTPUT_PATTERN = "data/andalucia/votos_{leg}_raw.json"
 PARSE_STATE_FILE = "data/andalucia/parse_state.json"
 
-LEG_ID_TO_ROMAN = {"12": "XII", "11": "XI", "10": "X", "9": "IX"}
+LEG_ID_TO_ROMAN = {"13": "XIII", "12": "XII", "11": "XI", "10": "X", "9": "IX"}
 LEG_ROMAN_TO_ID = {v: k for k, v in LEG_ID_TO_ROMAN.items()}
 
 
@@ -116,8 +116,8 @@ def parse_andalucia_voto_pdf(pdf_path, diputados_map, session_info):
         pre_vote_text = full_text[max(0, match.start() - 1000):match.start()]
 
         session_num = session_info.get("session", "Unknown")
-        legis_id = session_info.get("legis_id", "12")
-        legis = LEG_ID_TO_ROMAN.get(legis_id, "XII")
+        legis_id = session_info.get("legis_id", "13")
+        legis = LEG_ID_TO_ROMAN.get(legis_id, "XIII")
         date = session_info.get("date", "Unknown")
 
         results = {
@@ -271,7 +271,6 @@ def main():
     state_files = state["files"]
 
     pdf_files = sorted(glob.glob(PDF_GLOB))
-    seen_files = set()
     skipped = 0
     reparsed = 0
 
@@ -287,7 +286,6 @@ def main():
             continue
 
         state_key = os.path.basename(pdf_path)
-        seen_files.add(state_key)
         signature = file_signature(pdf_path)
         previous_entry = state_files.get(state_key, {})
         previous_vote_ids = previous_entry.get("vote_ids", [])
@@ -320,19 +318,10 @@ def main():
         except Exception as e:
             print(f"  Error parsing {pdf_path}: {e}")
 
-    stale_candidates = []
-    for state_key in list(state_files.keys()):
-        if state_key in seen_files:
-            continue
-        doc_id = state_key.replace(".pdf", "")
-        if target_doc_ids and doc_id not in target_doc_ids:
-            continue
-        stale_candidates.append(state_key)
-
-    for stale_key in stale_candidates:
-        for old_vote_id in state_files[stale_key].get("vote_ids", []):
-            votes_by_id.pop(old_vote_id, None)
-        del state_files[stale_key]
+    # Documents not visited in this run (other legislature with --active-only,
+    # or missing from a partially restored raw cache) keep their parsed votes:
+    # dropping them here is how whole legislatures used to disappear. Use
+    # --rebuild to start from scratch.
 
     votes_by_leg = split_votes_by_leg(votes_by_id)
     for leg_id, roman in LEG_ID_TO_ROMAN.items():
