@@ -191,7 +191,6 @@ def main():
     state_files = state["files"]
 
     files = sorted(glob.glob(PDF_GLOB))
-    seen_files = set()
     skipped = 0
     reparsed = 0
 
@@ -202,7 +201,6 @@ def main():
             continue
 
         state_key = os.path.basename(file_path)
-        seen_files.add(state_key)
         signature = file_signature(file_path)
         previous_entry = state_files.get(state_key, {})
         previous_vote_ids = previous_entry.get("vote_ids", [])
@@ -233,10 +231,8 @@ def main():
         }
         reparsed += 1
 
-    for stale_key in [k for k in list(state_files.keys()) if k not in seen_files]:
-        for old_vote_id in state_files[stale_key].get("vote_ids", []):
-            votes_by_id.pop(old_vote_id, None)
-        del state_files[stale_key]
+    # Documents not visited in this run (e.g. missing from a partially restored
+    # raw cache) keep their parsed votes. Use --rebuild to start from scratch.
 
     all_votes = sorted(votes_by_id.values(), key=lambda x: x.get("id", ""))
     with open(OUTPUT_FILE, "w") as f:

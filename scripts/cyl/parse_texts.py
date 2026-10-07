@@ -17,7 +17,7 @@ TXT_GLOB = "data/cyl/raw/txt/*.txt"
 PARSE_STATE_FILE = "data/cyl/parse_state.json"
 OUTPUT_PATTERN = "data/cyl/votos_{leg}_raw.json"
 AI_PARSE_CACHE_FILE = "data/cyl/ai_parse_cache.json"
-LEG_ID_TO_ROMAN = {"11": "XI", "10": "X", "9": "IX", "8": "VIII", "7": "VII"}
+LEG_ID_TO_ROMAN = {"12": "XII", "11": "XI", "10": "X", "9": "IX", "8": "VIII", "7": "VII"}
 LEG_ROMAN_TO_ID = {v: k for k, v in LEG_ID_TO_ROMAN.items()}
 PARSER_VERSION = 2
 AI_PARSE_VERSION = 1
@@ -762,7 +762,6 @@ def main():
     ai_cache = load_ai_parse_cache() if args.ai_fallback else {}
 
     txt_files = sorted(glob.glob(TXT_GLOB))
-    seen_files = set()
     skipped = 0
     reparsed = 0
     ai_calls = 0
@@ -775,7 +774,6 @@ def main():
             continue
 
         state_key = os.path.basename(txt_path)
-        seen_files.add(state_key)
         signature = file_signature(txt_path)
         previous_entry = state_files.get(state_key, {})
         previous_vote_ids = previous_entry.get("vote_ids", [])
@@ -844,10 +842,10 @@ def main():
         except Exception as e:
             print(f"  Error parsing {txt_path}: {e}")
 
-    for stale_key in [k for k in list(state_files.keys()) if k not in seen_files]:
-        for old_vote_id in state_files[stale_key].get("vote_ids", []):
-            votes_by_id.pop(old_vote_id, None)
-        del state_files[stale_key]
+    # Documents not visited in this run (other legislature with --active-only,
+    # or missing from a partially restored raw cache) keep their parsed votes:
+    # dropping them here is how whole legislatures used to disappear. Use
+    # --rebuild to start from scratch.
 
     os.makedirs("data/cyl", exist_ok=True)
     votes_by_leg = split_votes_by_leg(votes_by_id)
