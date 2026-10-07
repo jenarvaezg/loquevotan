@@ -22,8 +22,46 @@ const OG_COLORS = {
 
 const scopeMetaCache = new Map();
 let ambitosCache = { expiresAt: 0, data: null };
-const imageDataUriCache = new Map();
-const imageRgbaCache = new Map();
+// Per-isolate caches with a byte budget: an isolate has ~128 MB, and decoded
+// RGBA photos are large, so unbounded Maps could exhaust it.
+const IMAGE_CACHE_BUDGET_BYTES = 16 * 1024 * 1024;
+const imageDataUriCache = createBoundedCache(IMAGE_CACHE_BUDGET_BYTES);
+const imageRgbaCache = createBoundedCache(IMAGE_CACHE_BUDGET_BYTES);
+const DATA_URI_IMAGE_TYPES = new Set(["image/jpeg", "image/png", "image/webp", "image/gif"]);
+
+function createBoundedCache(maxBytes) {
+  const entries = new Map(); // insertion order = least recently used first
+  let totalBytes = 0;
+  const remove = (key) => {
+    const entry = entries.get(key);
+    if (!entry) return;
+    totalBytes -= entry.bytes;
+    entries.delete(key);
+  };
+  return {
+    get(key, now = Date.now()) {
+      const entry = entries.get(key);
+      if (!entry) return undefined;
+      if (entry.expiresAt <= now) {
+        remove(key);
+        return undefined;
+      }
+      entries.delete(key);
+      entries.set(key, entry);
+      return entry.value;
+    },
+    set(key, value, bytes, expiresAt) {
+      if (bytes > maxBytes) return;
+      remove(key);
+      entries.set(key, { value, bytes, expiresAt });
+      totalBytes += bytes;
+      for (const oldestKey of entries.keys()) {
+        if (totalBytes <= maxBytes) break;
+        remove(oldestKey);
+      }
+    },
+  };
+}
 const PNG_TEXT_ENCODER = new TextEncoder();
 const PNG_SIGNATURE = new Uint8Array([137, 80, 78, 71, 13, 10, 26, 10]);
 const CRC32_TABLE = (() => {
@@ -75,6 +113,7 @@ const PIXEL_FONT_5X7 = {
   8: ["01110", "10001", "10001", "01110", "10001", "10001", "01110"],
   9: ["01110", "10001", "10001", "01111", "00001", "00001", "01110"],
   "?": ["01110", "10001", "00010", "00100", "00100", "00000", "00100"],
+  "%": ["11001", "11010", "00010", "00100", "01000", "01011", "10011"],
 };
 
 function clamp(value, min, max) {
@@ -698,18 +737,19 @@ function bytesToBase64(bytes) {
 async function imageUrlToDataUri(imageUrl) {
   if (!imageUrl) return null;
   const now = Date.now();
-  const cached = imageDataUriCache.get(imageUrl);
-  if (cached && cached.expiresAt > now) return cached.dataUri;
+  const cached = imageDataUriCache.get(imageUrl, now);
+  if (cached) return cached;
 
   try {
     const resp = await fetch(imageUrl, { method: "GET" });
     if (!resp.ok) return null;
-    const contentType = String(resp.headers.get("content-type") || "").toLowerCase();
-    if (!contentType.startsWith("image/")) return null;
+    // Only known types, without parameters: the value ends up inside an SVG attribute.
+    const contentType = String(resp.headers.get("content-type") || "").split(";")[0].trim().toLowerCase();
+    if (!DATA_URI_IMAGE_TYPES.has(contentType)) return null;
     const bytes = new Uint8Array(await resp.arrayBuffer());
     if (!bytes.length || bytes.length > 1_500_000) return null;
     const dataUri = `data:${contentType};base64,${bytesToBase64(bytes)}`;
-    imageDataUriCache.set(imageUrl, { dataUri, expiresAt: now + JSON_CACHE_TTL_MS });
+    imageDataUriCache.set(imageUrl, dataUri, dataUri.length, now + JSON_CACHE_TTL_MS);
     return dataUri;
   } catch {
     return null;
@@ -719,8 +759,8 @@ async function imageUrlToDataUri(imageUrl) {
 async function imageUrlToRgba(imageUrl) {
   if (!imageUrl) return null;
   const now = Date.now();
-  const cached = imageRgbaCache.get(imageUrl);
-  if (cached && cached.expiresAt > now) return cached.payload;
+  const cached = imageRgbaCache.get(imageUrl, now);
+  if (cached) return cached;
 
   try {
     const resp = await fetch(imageUrl, { method: "GET" });
@@ -746,7 +786,7 @@ async function imageUrlToRgba(imageUrl) {
       height: decoded.height,
       data: decoded.data instanceof Uint8Array ? decoded.data : new Uint8Array(decoded.data),
     };
-    imageRgbaCache.set(imageUrl, { payload, expiresAt: now + JSON_CACHE_TTL_MS });
+    imageRgbaCache.set(imageUrl, payload, payload.data.byteLength, now + JSON_CACHE_TTL_MS);
     return payload;
   } catch {
     return null;
@@ -863,7 +903,7 @@ function voteOgImageUrl(
 }
 
 function diputadoOgImageUrl(siteUrl, scopeId, diputadoName) {
-  return `${siteUrl}/og/diputado/${encodeURIComponent(scopeId)}/${encodeURIComponent(diputadoName)}`;
+  return `${siteUrl}/og/diputado/${encodeURIComponent(scopeId)}/${encodeURIComponent(diputadoName)}?format=png`;
 }
 
 function renderVoteOgImage({
@@ -1254,7 +1294,7 @@ function renderDiputadoOgImage({
   <text x="620" y="486" font-size="24" fill="${OG_COLORS.muted}" font-weight="700">Disciplina de voto</text>
   <rect x="620" y="500" width="460" height="18" rx="9" fill="${OG_COLORS.border}" />
   <rect x="620" y="500" width="${Math.round((460 * loyaltyBar) / 100)}" height="18" rx="9" fill="${party.color}" />
-  <text x="1092" y="516" text-anchor="end" font-size="24" fill="${OG_COLORS.text}" font-weight="800">${loyaltyPct ?? 0}%</text>
+  <text x="1092" y="516" text-anchor="end" font-size="24" fill="${OG_COLORS.text}" font-weight="800">${loyaltyPct === null ? "—" : `${loyaltyPct}%`}</text>
 </svg>`;
 }
 
@@ -1714,9 +1754,9 @@ async function handleApiVotaciones(request, env) {
         params.push(`%\"${tag.replaceAll("\"", "")}\"%`);
       }
       if (query) {
-        where.push("(lower(titulo_ciudadano) LIKE ? OR lower(proponente) LIKE ? OR lower(id) LIKE ?)");
-        const like = `%${query}%`;
-        params.push(like, like, like);
+        // search_text is pre-normalized (lowercase, no accents) like `query`.
+        where.push("search_text LIKE ?");
+        params.push(`%${query}%`);
       }
 
       const whereSql = where.join(" AND ");
@@ -2081,6 +2121,85 @@ async function handleVoteOgImage(request, env) {
   });
 }
 
+// Raster (PNG) profile card: social networks don't render SVG previews. Like
+// the vote card it has no free text (pixel font only covers A-Z, 0-9, %); the
+// name and group travel in og:title / og:description.
+async function renderDiputadoOgPng({ diputadoName, party, stats, avatar }) {
+  const width = OG_CANVAS.width;
+  const height = OG_CANVAS.height;
+  const rgba = new Uint8Array(width * height * 4);
+
+  fillVerticalGradient(rgba, width, height, OG_COLORS.bgA, OG_COLORS.bgB);
+  const panel = hexToRgba(OG_COLORS.panel);
+  const border = hexToRgba(OG_COLORS.border);
+  const white = hexToRgba("#ffffff");
+  const text = hexToRgba(OG_COLORS.text);
+  const muted = hexToRgba(OG_COLORS.muted);
+  const partyColor = hexToRgba(party?.color || "#64748b");
+
+  drawRectRgba(rgba, width, height, 30, 30, width - 60, height - 60, border);
+  drawRectRgba(rgba, width, height, 34, 34, width - 68, height - 68, panel);
+  drawRectRgba(rgba, width, height, 34, 34, width - 68, 16, partyColor);
+
+  // Photo (or initials) with a ring in the party colour.
+  const avatarX = 290;
+  const avatarY = 330;
+  const avatarRadius = 190;
+  drawFilledCircleRgba(rgba, width, height, avatarX, avatarY, avatarRadius + 10, partyColor);
+  drawFilledCircleRgba(rgba, width, height, avatarX, avatarY, avatarRadius, hexToRgba("#1f2937"));
+  if (avatar?.data && avatar?.width && avatar?.height) {
+    drawCircularImageCoverRgba(rgba, width, height, avatarX, avatarY, avatarRadius, avatar.data, avatar.width, avatar.height);
+  } else {
+    const dipInitials = initials(shortDiputadoName(diputadoName), 2) || "DV";
+    const scale = 18;
+    const textWidth = dipInitials.length * 6 * scale - scale;
+    drawPixelText(rgba, width, height, dipInitials, avatarX - Math.floor(textWidth / 2), avatarY - Math.floor((7 * scale) / 2), scale, white);
+  }
+
+  // Party logo letters.
+  const logo = String(party?.logo || "").toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 6);
+  if (logo) drawPixelText(rgba, width, height, logo, 560, 96, 9, partyColor);
+
+  // Vote distribution (favor / contra / abstención).
+  const favor = Number(stats?.favor) || 0;
+  const contra = Number(stats?.contra) || 0;
+  const abst = Number(stats?.abstencion) || 0;
+  const cast = Math.max(1, favor + contra + abst);
+  const barX = 560;
+  const barW = 580;
+  let cursor = barX;
+  const segments = [
+    [favor, hexToRgba(OG_COLORS.favor)],
+    [contra, hexToRgba(OG_COLORS.contra)],
+    [abst, hexToRgba(OG_COLORS.abst)],
+  ];
+  drawRectRgba(rgba, width, height, barX, 220, barW, 44, border);
+  for (const [value, color] of segments) {
+    const w = Math.round((value / cast) * barW);
+    drawRectRgba(rgba, width, height, cursor, 220, w, 44, color);
+    cursor += w;
+  }
+  for (let i = 0; i < segments.length; i++) {
+    const pctValue = Math.round((segments[i][0] / cast) * 100);
+    drawFilledCircleRgba(rgba, width, height, barX + 14 + i * 200, 312, 12, segments[i][1]);
+    drawPixelText(rgba, width, height, `${pctValue}%`, barX + 36 + i * 200, 298, 5, text);
+  }
+
+  // Loyalty to the group (absent for Mixto / no adscritos).
+  if (Number.isFinite(stats?.loyalty)) {
+    const loyaltyPct = Math.round(stats.loyalty * 100);
+    drawPixelText(rgba, width, height, "LEALTAD AL GRUPO", barX, 360, 4, muted);
+    drawPixelText(rgba, width, height, `${loyaltyPct}%`, barX, 412, 14, text);
+    drawRectRgba(rgba, width, height, barX, 520, barW, 22, border);
+    drawRectRgba(rgba, width, height, barX, 520, Math.round((loyaltyPct / 100) * barW), 22, partyColor);
+  } else {
+    drawRectRgba(rgba, width, height, barX, 520, barW, 22, border);
+    drawRectRgba(rgba, width, height, barX, 520, 8, 22, muted);
+  }
+
+  return encodeRgbaToPng(width, height, rgba);
+}
+
 async function handleDiputadoOgImage(request, env) {
   const requestUrl = new URL(request.url);
   const parts = splitPath(requestUrl.pathname);
@@ -2123,6 +2242,18 @@ async function handleDiputadoOgImage(request, env) {
   const party = normalizeGroupBrand(groupName);
   const siteUrl = buildSiteUrl(env, requestUrl);
   const dipPhoto = diputadoPhotoUrl(meta?.dipFotos?.[dipIdx], siteUrl);
+
+  if (requestUrl.searchParams.get("format") === "png") {
+    const avatar = dipPhoto ? await imageUrlToRgba(dipPhoto) : null;
+    const png = await renderDiputadoOgPng({ diputadoName, party, stats, avatar });
+    return new Response(png, {
+      headers: {
+        "content-type": "image/png",
+        "cache-control": "public, max-age=600",
+      },
+    });
+  }
+
   const photoDataUri = dipPhoto ? await imageUrlToDataUri(dipPhoto) : "";
 
   const svg = renderDiputadoOgImage({
@@ -2305,6 +2436,7 @@ async function handleDiputadoShare(request, env) {
     description,
     canonicalUrl,
     imageUrl,
+    imageType: "image/png",
     imageAlt,
     redirectUrl,
     scopeId,
@@ -2384,9 +2516,25 @@ export default {
         if (dipResp) return dipResp;
       }
     } catch (err) {
-      return new Response(`OG worker error: ${err?.message || err}`, {
+      // Details go to the logs, not to the client.
+      console.error(`[worker] ${pathname} failed:`, err);
+      if (pathname.startsWith("/api/")) {
+        return jsonResponse({ error: "Error interno" }, 500, "no-store");
+      }
+      return new Response("Error interno", {
         status: 500,
-        headers: { "content-type": "text/plain; charset=utf-8" },
+        headers: { "content-type": "text/plain; charset=utf-8", "cache-control": "no-store" },
+      });
+    }
+
+    // Unknown API/image routes must not fall through to the SPA (200 text/html).
+    if (pathname.startsWith("/api/")) {
+      return jsonResponse({ error: "No encontrado" }, 404, "public, max-age=60");
+    }
+    if (pathname.startsWith("/og/")) {
+      return new Response("No encontrado", {
+        status: 404,
+        headers: { "content-type": "text/plain; charset=utf-8", "cache-control": "public, max-age=60" },
       });
     }
 
