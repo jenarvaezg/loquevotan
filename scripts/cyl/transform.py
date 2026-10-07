@@ -9,6 +9,7 @@ import argparse
 # Add root dir to path to import ai_utils
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 import ai_utils
+from date_utils import to_iso_date
 
 # Configuration
 AMBITO = "cyl"
@@ -226,7 +227,9 @@ def transform(rebuild=False):
     group_majority = {}
     vots_by_exp = {} # exp_id -> list of vot_idx
     
-    # Sort all votes by real date descending (raw date is dd/mm/yyyy).
+    # Publish ISO dates like the other scopes (the frontend sorts them as text).
+    for v in all_raw_votes:
+        v["fecha"] = to_iso_date(v.get("fecha"))
     all_raw_votes.sort(
         key=lambda x: (parse_sortable_date(x.get("fecha")), x.get("id", "")),
         reverse=True,

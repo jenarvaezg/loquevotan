@@ -8,6 +8,7 @@ import re
 # Add root dir to path to import ai_utils
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 import ai_utils
+from date_utils import to_iso_date
 
 # Configuration
 AMBITO = "madrid"
@@ -266,7 +267,9 @@ def transform(rebuild=False):
     votos_by_leg = {leg: [] for leg in LEGISLATURAS}
     vot_detail_by_leg = {leg: {} for leg in LEGISLATURAS}
     
-    # Sort all votes by date descending
+    # ISO dates: the source's DD/MM/YYYY sorted as text put old votes first.
+    for v in all_raw_votes:
+        v["fecha"] = to_iso_date(v.get("fecha"))
     all_raw_votes.sort(key=lambda x: x["fecha"], reverse=True)
     
     for i, v in enumerate(all_raw_votes):
