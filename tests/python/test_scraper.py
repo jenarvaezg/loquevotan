@@ -1,7 +1,10 @@
+import io
+import json
 import os
 import sys
 import tempfile
 import unittest
+import zipfile
 from datetime import datetime, timezone
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "scripts"))
@@ -47,6 +50,41 @@ class ParsingTest(unittest.TestCase):
     def test_raw_filename(self):
         url = "https://www.congreso.es/webpublica/opendata/votaciones/Leg15/Sesion202/20260930/Votacion001/VOT_1.json"
         self.assertEqual(scraper.raw_filename(url, 20260930, "XV"), "LXV_20260930_S202_V001.json")
+
+
+DATE_HTML = """
+<a href="/webpublica/opendata/votaciones/Leg15/Sesion202/20260930/VOT_20260930153631.zip">ZIP</a>
+<a href="/webpublica/opendata/votaciones/Leg15/Sesion202/20260930/Votacion001/VOT_1.json">JSON</a>
+<a href="/webpublica/opendata/votaciones/Leg15/Sesion202/20260930/Votacion001/VOT_1.json">JSON</a>
+<a href="/webpublica/opendata/votaciones/Leg15/Sesion202/20260930/Votacion010/VOT_10.json">JSON</a>
+"""
+
+
+class ZipTest(unittest.TestCase):
+    def test_parse_date_links(self):
+        urls, zip_url = scraper.parse_date_links(DATE_HTML)
+        self.assertEqual(len(urls), 2)
+        self.assertTrue(zip_url.endswith("VOT_20260930153631.zip"))
+        self.assertEqual([scraper.vote_key_from_url(u) for u in urls], [(202, 1), (202, 10)])
+
+    def test_zip_entry_key(self):
+        self.assertEqual(scraper.zip_entry_key("sesion202votacion9.json"), (202, 9))
+        self.assertEqual(scraper.zip_entry_key("dir/sesion15votacion1.json"), (15, 1))
+        self.assertIsNone(scraper.zip_entry_key("sesion202votacion9.pdf"))
+
+    def test_extract_from_zip_writes_only_wanted_votes(self):
+        buffer = io.BytesIO()
+        with zipfile.ZipFile(buffer, "w") as archive:
+            for v in (1, 10, 11):
+                archive.writestr(f"sesion202votacion{v}.json", json.dumps({"informacion": {"numeroVotacion": v}}))
+            archive.writestr("sesion202votacion1.pdf", b"%PDF")
+        with tempfile.TemporaryDirectory() as tmp:
+            wanted = {(202, 1): os.path.join(tmp, "LXV_20260930_S202_V001.json"), (202, 10): os.path.join(tmp, "LXV_20260930_S202_V010.json")}
+            written = scraper.extract_from_zip(buffer.getvalue(), wanted)
+            self.assertEqual(written, {(202, 1), (202, 10)})
+            self.assertEqual(sorted(os.listdir(tmp)), ["LXV_20260930_S202_V001.json", "LXV_20260930_S202_V010.json"])
+            with open(wanted[(202, 10)], encoding="utf-8") as f:
+                self.assertEqual(json.load(f)["informacion"]["numeroVotacion"], 10)
 
 
 class StateTest(unittest.TestCase):

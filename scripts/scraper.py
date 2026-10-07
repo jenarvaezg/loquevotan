@@ -14,12 +14,14 @@ fechas sin ficheros vuelven a quedar pendientes y se re-descargan: el scraper
 se repara solo en lugar de dar por descargado algo que no está en disco.
 """
 
+import io
 import json
 import os
 import re
 import sys
 import time
 import urllib.request
+import zipfile
 from collections import Counter
 from datetime import datetime, timedelta, timezone
 
@@ -44,6 +46,10 @@ HEADERS = {
 DELAY_BETWEEN_DATES = float(os.environ.get("LQV_SCRAPER_DELAY_DATES", "1.5"))
 DELAY_BETWEEN_FILES = float(os.environ.get("LQV_SCRAPER_DELAY_FILES", "0.5"))
 FETCH_RETRIES = 3
+# Date pages of long sessions (budget debates with 400+ votes) take 40s+ to
+# render; a 30s timeout made the old scraper skip exactly those days.
+PAGE_TIMEOUT = 120
+ZIP_TIMEOUT = 300
 FETCH_RETRY_BACKOFF = 5
 
 # Fallback if the legislature selector can't be parsed. Discovery from the web
@@ -64,19 +70,23 @@ def roman_to_int(roman):
     return total
 
 
-def fetch(url):
-    """Fetch URL content with browser User-Agent, retrying transient errors."""
+def fetch_bytes(url, timeout=PAGE_TIMEOUT):
+    """Fetch URL with browser User-Agent, retrying transient errors."""
     last_error = None
     for attempt in range(1, FETCH_RETRIES + 1):
         try:
             req = urllib.request.Request(url, headers=HEADERS)
-            with urllib.request.urlopen(req, timeout=30) as resp:
-                return resp.read().decode("utf-8")
+            with urllib.request.urlopen(req, timeout=timeout) as resp:
+                return resp.read()
         except Exception as e:  # noqa: BLE001 - network errors are varied
             last_error = e
             if attempt < FETCH_RETRIES:
                 time.sleep(FETCH_RETRY_BACKOFF * attempt)
     raise last_error
+
+
+def fetch(url, timeout=PAGE_TIMEOUT):
+    return fetch_bytes(url, timeout).decode("utf-8")
 
 
 def legislature_page_url(legislatura):
@@ -122,14 +132,30 @@ def int_to_date_param(date_int):
     return f"{s[6:8]}/{s[4:6]}/{s[:4]}"
 
 
-def get_json_urls(date_int, legislatura):
-    """Fetch the votaciones page for a date and extract all JSON download URLs."""
-    param = int_to_date_param(date_int)
-    url = f"{legislature_page_url(legislatura)}&targetDate={param}"
-    html = fetch(url)
+def parse_date_links(html):
+    """JSON download URLs (one per vote) and the day's ZIP with all of them."""
     hrefs = re.findall(r'href="(/webpublica/opendata/votaciones/[^"]+\.json)"', html)
+    zips = re.findall(r'href="(/webpublica/opendata/votaciones/[^"]+\.zip)"', html)
     # Preserve order, drop duplicates.
-    return [f"{BASE_URL}{h}" for h in dict.fromkeys(hrefs)]
+    json_urls = [f"{BASE_URL}{h}" for h in dict.fromkeys(hrefs)]
+    return json_urls, (f"{BASE_URL}{zips[0]}" if zips else None)
+
+
+def get_date_links(date_int, legislatura):
+    """Fetch the votaciones page for a date: (json_urls, zip_url or None)."""
+    param = int_to_date_param(date_int)
+    return parse_date_links(fetch(f"{legislature_page_url(legislatura)}&targetDate={param}"))
+
+
+def vote_key_from_url(url):
+    match = re.search(r"Sesion(\d+)/\d+/Votacion(\d+)/", url)
+    return (int(match.group(1)), int(match.group(2))) if match else None
+
+
+def zip_entry_key(name):
+    """'sesion202votacion9.json' -> (202, 9)."""
+    match = re.search(r"sesion(\d+)votacion(\d+)\.json$", os.path.basename(name), re.IGNORECASE)
+    return (int(match.group(1)), int(match.group(2))) if match else None
 
 
 def raw_filename(url, date_int, legislatura):
@@ -137,6 +163,28 @@ def raw_filename(url, date_int, legislatura):
     if not match:
         return None
     return f"L{legislatura}_{date_int}_S{match.group(1)}_V{match.group(2)}.json"
+
+
+def write_raw(filepath, text):
+    json.loads(text)  # validate JSON before persisting
+    tmp_path = f"{filepath}.tmp"
+    with open(tmp_path, "w", encoding="utf-8") as f:
+        f.write(text)
+    os.replace(tmp_path, filepath)
+
+
+def extract_from_zip(zip_bytes, wanted):
+    """Write the JSONs in `wanted` ({(sesion, votacion): filepath}) from the
+    day's ZIP. Returns the keys written. The ZIP's JSONs are byte-for-byte the
+    same documents as the per-vote downloads."""
+    written = set()
+    with zipfile.ZipFile(io.BytesIO(zip_bytes)) as archive:
+        for name in archive.namelist():
+            key = zip_entry_key(name)
+            if key in wanted and key not in written:
+                write_raw(wanted[key], archive.read(name).decode("utf-8"))
+                written.add(key)
+    return written
 
 
 def download_json(url, date_int, legislatura):
@@ -149,13 +197,7 @@ def download_json(url, date_int, legislatura):
     if os.path.exists(filepath):
         return filepath, False
 
-    data = fetch(url)
-    json.loads(data)  # validate JSON before persisting
-
-    tmp_path = f"{filepath}.tmp"
-    with open(tmp_path, "w", encoding="utf-8") as f:
-        f.write(data)
-    os.replace(tmp_path, filepath)
+    write_raw(filepath, fetch(url))
     return filepath, True
 
 
@@ -259,7 +301,7 @@ def process_legislature(legislatura, limit=None):
         print(f"  [{i + 1}/{len(pending)}] {label}...", end=" ", flush=True)
 
         try:
-            urls = get_json_urls(date_int, legislatura)
+            urls, zip_url = get_date_links(date_int, legislatura)
             if not urls:
                 # Listed as a voting day but no files yet: retry next run.
                 print("0 votaciones (se reintentará)")
@@ -268,6 +310,21 @@ def process_legislature(legislatura, limit=None):
 
             print(f"{len(urls)} votaciones")
             errors = 0
+            missing = {}
+            for url in urls:
+                key, filename = vote_key_from_url(url), raw_filename(url, date_int, legislatura)
+                if key and filename and not os.path.exists(os.path.join(RAW_DIR, filename)):
+                    missing[key] = os.path.join(RAW_DIR, filename)
+
+            # One request for the whole day instead of one per vote (a lost
+            # cache means ~14k votes); per-vote downloads cover any gap.
+            if zip_url and len(missing) > 1:
+                try:
+                    written = extract_from_zip(fetch_bytes(zip_url, ZIP_TIMEOUT), missing)
+                    total_downloaded += len(written)
+                except Exception as e:  # noqa: BLE001
+                    print(f"    WARN: ZIP del día no utilizable ({e}); descarga por votación", file=sys.stderr)
+
             for url in urls:
                 try:
                     _, is_new = download_json(url, date_int, legislatura)
