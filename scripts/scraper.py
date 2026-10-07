@@ -2,7 +2,16 @@
 """
 Scraper de votaciones del Congreso de los Diputados de España.
 Descarga los JSON de datos abiertos de congreso.es/opendata/votaciones.
-Soporta múltiples legislaturas (X a XV).
+
+Las legislaturas disponibles se descubren desde la propia web (selector de
+legislatura), así que una legislatura nueva (XVI, XVII...) se recoge sola.
+
+Estado por legislatura en data/state/national/dates_<LEG>.json:
+    {"20260930": 21, ...}  -> nº de votaciones publicadas ese día.
+Una fecha se considera completa solo si data/raw tiene al menos ese nº de
+ficheros para ella. Si data/raw se pierde (cache de CI expirada, etc.), las
+fechas sin ficheros vuelven a quedar pendientes y se re-descargan: el scraper
+se repara solo en lugar de dar por descargado algo que no está en disco.
 """
 
 import json
@@ -11,14 +20,18 @@ import re
 import sys
 import time
 import urllib.request
+from collections import Counter
+from datetime import datetime, timedelta, timezone
 
 BASE_URL = "https://www.congreso.es"
 VOTACIONES_PAGE = f"{BASE_URL}/es/opendata/votaciones"
 PORTLET_PARAMS = "p_p_id=votaciones&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view"
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-RAW_DIR = os.path.join(SCRIPT_DIR, "..", "data", "raw")
-STATE_DIR = os.path.join(SCRIPT_DIR, "..", "data", "state", "national")
+RAW_DIR = os.environ.get("LQV_NATIONAL_RAW_DIR") or os.path.join(SCRIPT_DIR, "..", "data", "raw")
+STATE_DIR = os.environ.get("LQV_NATIONAL_STATE_DIR") or os.path.join(
+    SCRIPT_DIR, "..", "data", "state", "national"
+)
 
 HEADERS = {
     "User-Agent": (
@@ -28,31 +41,79 @@ HEADERS = {
     )
 }
 
-DELAY_BETWEEN_DATES = 1.5
-DELAY_BETWEEN_FILES = 0.5
+DELAY_BETWEEN_DATES = float(os.environ.get("LQV_SCRAPER_DELAY_DATES", "1.5"))
+DELAY_BETWEEN_FILES = float(os.environ.get("LQV_SCRAPER_DELAY_FILES", "0.5"))
+FETCH_RETRIES = 3
+FETCH_RETRY_BACKOFF = 5
 
-# Legislatures with opendata available
-LEGISLATURES = ["X", "XI", "XII", "XIII", "XIV", "XV"]
+# Fallback if the legislature selector can't be parsed. Discovery from the web
+# takes precedence, so new legislatures don't need a code change.
+LEGISLATURES = ["X", "XI", "XII", "XIII", "XIV", "XV", "XVI"]
+
+ROMAN_VALUES = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100}
+RAW_FILE_RE = re.compile(r"^L([IVXLC]+)_(\d{8})_S\d+_V\d+\.json$")
+
+
+def roman_to_int(roman):
+    total = 0
+    prev = 0
+    for ch in reversed(roman.upper()):
+        value = ROMAN_VALUES[ch]
+        total = total - value if value < prev else total + value
+        prev = max(prev, value)
+    return total
 
 
 def fetch(url):
-    """Fetch URL content with browser User-Agent."""
-    req = urllib.request.Request(url, headers=HEADERS)
-    with urllib.request.urlopen(req, timeout=30) as resp:
-        return resp.read().decode("utf-8")
+    """Fetch URL content with browser User-Agent, retrying transient errors."""
+    last_error = None
+    for attempt in range(1, FETCH_RETRIES + 1):
+        try:
+            req = urllib.request.Request(url, headers=HEADERS)
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                return resp.read().decode("utf-8")
+        except Exception as e:  # noqa: BLE001 - network errors are varied
+            last_error = e
+            if attempt < FETCH_RETRIES:
+                time.sleep(FETCH_RETRY_BACKOFF * attempt)
+    raise last_error
+
+
+def legislature_page_url(legislatura):
+    return f"{VOTACIONES_PAGE}?{PORTLET_PARAMS}&targetLegislatura={legislatura}"
+
+
+def parse_legislatures(html):
+    """Extract legislature ids (roman numerals) from the legislature <select>."""
+    start = html.find('id="_votaciones_legislatura"')
+    if start == -1:
+        return []
+    end = html.find("</select>", start)
+    segment = html[start:end if end != -1 else start + 5000]
+    legs = re.findall(r"<option[^>]*>\s*([IVXLC]+)\s+Legislatura", segment)
+    return sorted(set(legs), key=roman_to_int)
+
+
+def parse_voting_dates(html):
+    match = re.search(r"diasVotaciones\s*=\s*\[([^\]]*)\]", html)
+    if not match:
+        return []
+    return sorted(int(d.strip()) for d in match.group(1).split(",") if d.strip())
+
+
+def discover_legislatures():
+    """Legislatures listed on the opendata page, falling back to LEGISLATURES."""
+    try:
+        legs = parse_legislatures(fetch(f"{VOTACIONES_PAGE}?{PORTLET_PARAMS}"))
+    except Exception as e:  # noqa: BLE001
+        print(f"  WARN: no se pudo descubrir legislaturas ({e}); uso lista fija", file=sys.stderr)
+        legs = []
+    return legs or list(LEGISLATURES)
 
 
 def get_voting_dates(legislatura):
     """Extract the diasVotaciones array for a given legislature."""
-    url = (
-        f"{VOTACIONES_PAGE}?{PORTLET_PARAMS}"
-        f"&targetLegislatura={legislatura}&currentLegislatura=XV"
-    )
-    html = fetch(url)
-    match = re.search(r"diasVotaciones\s*=\s*\[([^\]]+)\]", html)
-    if not match:
-        return []
-    return sorted(int(d.strip()) for d in match.group(1).split(",") if d.strip())
+    return parse_voting_dates(fetch(legislature_page_url(legislatura)))
 
 
 def int_to_date_param(date_int):
@@ -64,63 +125,109 @@ def int_to_date_param(date_int):
 def get_json_urls(date_int, legislatura):
     """Fetch the votaciones page for a date and extract all JSON download URLs."""
     param = int_to_date_param(date_int)
-    url = (
-        f"{VOTACIONES_PAGE}?{PORTLET_PARAMS}"
-        f"&targetLegislatura={legislatura}&targetDate={param}"
-    )
+    url = f"{legislature_page_url(legislatura)}&targetDate={param}"
     html = fetch(url)
-    hrefs = re.findall(
-        r'href="(/webpublica/opendata/votaciones/[^"]+\.json)"', html
-    )
-    return [f"{BASE_URL}{h}" for h in hrefs]
+    hrefs = re.findall(r'href="(/webpublica/opendata/votaciones/[^"]+\.json)"', html)
+    # Preserve order, drop duplicates.
+    return [f"{BASE_URL}{h}" for h in dict.fromkeys(hrefs)]
+
+
+def raw_filename(url, date_int, legislatura):
+    match = re.search(r"Sesion(\d+)/\d+/Votacion(\d+)/", url)
+    if not match:
+        return None
+    return f"L{legislatura}_{date_int}_S{match.group(1)}_V{match.group(2)}.json"
 
 
 def download_json(url, date_int, legislatura):
-    """Download a single voting JSON and save it to data/raw/."""
-    match = re.search(r"Sesion(\d+)/\d+/Votacion(\d+)/", url)
-    if not match:
-        print(f"  WARN: URL no reconocida: {url}", file=sys.stderr)
-        return None
-
-    sesion = match.group(1)
-    votacion = match.group(2)
-    filename = f"L{legislatura}_{date_int}_S{sesion}_V{votacion}.json"
+    """Download a single voting JSON into data/raw/. Returns (path, is_new)."""
+    filename = raw_filename(url, date_int, legislatura)
+    if not filename:
+        raise ValueError(f"URL no reconocida: {url}")
     filepath = os.path.join(RAW_DIR, filename)
 
     if os.path.exists(filepath):
-        return filepath
+        return filepath, False
 
     data = fetch(url)
-    json.loads(data)  # validate JSON
+    json.loads(data)  # validate JSON before persisting
 
-    with open(filepath, "w", encoding="utf-8") as f:
+    tmp_path = f"{filepath}.tmp"
+    with open(tmp_path, "w", encoding="utf-8") as f:
         f.write(data)
-    return filepath
+    os.replace(tmp_path, filepath)
+    return filepath, True
 
 
-def state_file(legislatura):
-    """Path to the state file tracking last fetched date per legislature."""
-    return os.path.join(STATE_DIR, f"last_fetch_{legislatura}.txt")
+def raw_counts_by_date(legislatura, raw_dir=None):
+    """Number of raw files on disk per date for a legislature."""
+    counts = Counter()
+    for name in os.listdir(raw_dir or RAW_DIR):
+        match = RAW_FILE_RE.match(name)
+        if match and match.group(1) == legislatura:
+            counts[int(match.group(2))] += 1
+    return counts
 
 
-def get_last_date(legislatura):
-    """Read the last successfully processed date for a legislature."""
-    path = state_file(legislatura)
+def manifest_file(legislatura, state_dir=None):
+    return os.path.join(state_dir or STATE_DIR, f"dates_{legislatura}.json")
+
+
+def legacy_state_file(legislatura, state_dir=None):
+    return os.path.join(state_dir or STATE_DIR, f"last_fetch_{legislatura}.txt")
+
+
+def load_manifest(legislatura, raw_counts, state_dir=None):
+    """Load {date_int: expected_count}, migrating from the legacy last_fetch file.
+
+    Legacy state only stored the last processed date. Dates up to it that have
+    files on disk are trusted with the count present; dates with no files are
+    left out so they get downloaded again.
+    """
+    path = manifest_file(legislatura, state_dir)
     if os.path.exists(path):
         with open(path, encoding="utf-8") as f:
+            return {int(k): int(v) for k, v in json.load(f).items()}
+
+    legacy = legacy_state_file(legislatura, state_dir)
+    last = 0
+    if os.path.exists(legacy):
+        with open(legacy, encoding="utf-8") as f:
             content = f.read().strip()
-            return int(content) if content else 0
-    return 0
+            last = int(content) if content else 0
+    return {d: n for d, n in raw_counts.items() if d <= last and n > 0}
 
 
-def save_last_date(legislatura, date_int):
-    """Persist the last successfully processed date for a legislature."""
-    with open(state_file(legislatura), "w", encoding="utf-8") as f:
-        f.write(str(date_int))
+def save_manifest(legislatura, manifest, state_dir=None):
+    path = manifest_file(legislatura, state_dir)
+    tmp_path = f"{path}.tmp"
+    with open(tmp_path, "w", encoding="utf-8") as f:
+        json.dump({str(k): manifest[k] for k in sorted(manifest)}, f, indent=0)
+        f.write("\n")
+    os.replace(tmp_path, path)
+
+
+def is_settled(date_int, now=None):
+    """A voting day is final once it's at least two days old.
+
+    A run during (or right after) a plenary session may see only part of the
+    day's votes, so recent dates are never recorded as complete.
+    """
+    now = now or datetime.now(timezone.utc)
+    cutoff = int((now - timedelta(days=2)).strftime("%Y%m%d"))
+    return date_int <= cutoff
+
+
+def pending_dates(dates, manifest, raw_counts):
+    """Dates not yet fully downloaded: unknown, or fewer files than expected."""
+    return [d for d in dates if d not in manifest or raw_counts.get(d, 0) < manifest[d]]
 
 
 def process_legislature(legislatura, limit=None):
-    """Download all voting data for a single legislature."""
+    """Download all missing voting data for a single legislature.
+
+    Returns (new_files, failed_dates).
+    """
     print(f"\n{'='*60}")
     print(f"  LEGISLATURA {legislatura}")
     print(f"{'='*60}")
@@ -128,20 +235,23 @@ def process_legislature(legislatura, limit=None):
     dates = get_voting_dates(legislatura)
     if not dates:
         print(f"  No hay datos para la legislatura {legislatura}")
-        return 0
+        return 0, []
 
-    last = get_last_date(legislatura)
-    pending = [d for d in dates if d > last]
+    raw_counts = raw_counts_by_date(legislatura)
+    manifest = load_manifest(legislatura, raw_counts)
+    pending = pending_dates(dates, manifest, raw_counts)
 
     if not pending:
         print(f"  {len(dates)} fechas - todas ya descargadas")
-        return 0
+        save_manifest(legislatura, manifest)
+        return 0, []
 
     if limit:
         pending = pending[:limit]
 
     print(f"  {len(dates)} fechas totales, {len(pending)} pendientes")
     total_downloaded = 0
+    failed_dates = []
 
     for i, date_int in enumerate(pending):
         s = str(date_int)
@@ -151,38 +261,73 @@ def process_legislature(legislatura, limit=None):
         try:
             urls = get_json_urls(date_int, legislatura)
             if not urls:
-                print("0 votaciones")
+                # Listed as a voting day but no files yet: retry next run.
+                print("0 votaciones (se reintentará)")
                 time.sleep(DELAY_BETWEEN_DATES)
                 continue
 
             print(f"{len(urls)} votaciones")
-
+            errors = 0
             for url in urls:
                 try:
-                    result = download_json(url, date_int, legislatura)
-                    if result:
+                    _, is_new = download_json(url, date_int, legislatura)
+                    if is_new:
                         total_downloaded += 1
-                except Exception as e:
-                    print(f"    ERROR descargando: {e}", file=sys.stderr)
-                time.sleep(DELAY_BETWEEN_FILES)
+                        time.sleep(DELAY_BETWEEN_FILES)
+                except Exception as e:  # noqa: BLE001
+                    errors += 1
+                    print(f"    ERROR descargando {url}: {e}", file=sys.stderr)
 
-            save_last_date(legislatura, date_int)
+            if errors:
+                failed_dates.append(date_int)
+            elif is_settled(date_int):
+                manifest[date_int] = len(urls)
+                save_manifest(legislatura, manifest)
 
-        except Exception as e:
+        except Exception as e:  # noqa: BLE001
+            failed_dates.append(date_int)
             print(f"  ERROR: {e}", file=sys.stderr)
 
         time.sleep(DELAY_BETWEEN_DATES)
 
-    return total_downloaded
+    return total_downloaded, failed_dates
+
+
+def remove_legacy_state(legislatura):
+    """Drop last_fetch_<LEG>.txt once dates_<LEG>.json supersedes it."""
+    legacy = legacy_state_file(legislatura)
+    if os.path.exists(legacy) and os.path.exists(manifest_file(legislatura)):
+        os.remove(legacy)
+
+
+def migrate_legacy_layout():
+    """Move state/filenames from older scraper versions into the current layout."""
+    old_state = os.path.join(RAW_DIR, "last_fetch.txt")
+    if os.path.exists(old_state) and not os.path.exists(legacy_state_file("XV")):
+        os.rename(old_state, legacy_state_file("XV"))
+
+    for leg in LEGISLATURES:
+        legacy_raw_state = os.path.join(RAW_DIR, f"last_fetch_{leg}.txt")
+        if not os.path.exists(legacy_raw_state):
+            continue
+        if os.path.exists(manifest_file(leg)) or os.path.exists(legacy_state_file(leg)):
+            os.remove(legacy_raw_state)  # superseded
+        else:
+            os.rename(legacy_raw_state, legacy_state_file(leg))
+
+    for f in os.listdir(RAW_DIR):
+        if re.match(r"^\d{8}_S\d+_V\d+\.json$", f):
+            new_path = os.path.join(RAW_DIR, f"LXV_{f}")
+            if not os.path.exists(new_path):
+                os.rename(os.path.join(RAW_DIR, f), new_path)
 
 
 def main():
     os.makedirs(RAW_DIR, exist_ok=True)
     os.makedirs(STATE_DIR, exist_ok=True)
 
-    # Parse arguments
     limit = None
-    target_legs = LEGISLATURES
+    target_legs = None
 
     if "--limit" in sys.argv:
         idx = sys.argv.index("--limit")
@@ -194,35 +339,29 @@ def main():
         if idx + 1 < len(sys.argv):
             target_legs = [sys.argv[idx + 1]]
 
-    # Migrate old state file (from single-legislature version)
-    old_state = os.path.join(RAW_DIR, "last_fetch.txt")
-    new_state = state_file("XV")
-    if os.path.exists(old_state) and not os.path.exists(new_state):
-        os.rename(old_state, new_state)
+    migrate_legacy_layout()
 
-    # Migrate legacy per-legislature state files from data/raw/
-    for leg in LEGISLATURES:
-        legacy_state = os.path.join(RAW_DIR, f"last_fetch_{leg}.txt")
-        migrated_state = state_file(leg)
-        if os.path.exists(legacy_state) and not os.path.exists(migrated_state):
-            os.rename(legacy_state, migrated_state)
-
-    # Migrate old filenames without legislature prefix
-    for f in os.listdir(RAW_DIR):
-        if re.match(r"^\d{8}_S\d+_V\d+\.json$", f):
-            old_path = os.path.join(RAW_DIR, f)
-            new_name = f"LXV_{f}"
-            new_path = os.path.join(RAW_DIR, new_name)
-            if not os.path.exists(new_path):
-                os.rename(old_path, new_path)
+    if target_legs is None:
+        target_legs = discover_legislatures()
+    print(f"Legislaturas: {', '.join(target_legs)}")
 
     grand_total = 0
+    failures = {}
     for leg in target_legs:
-        grand_total += process_legislature(leg, limit)
+        downloaded, failed = process_legislature(leg, limit)
+        grand_total += downloaded
+        if failed:
+            failures[leg] = failed
+        remove_legacy_state(leg)
 
     print(f"\n{'='*60}")
     print(f"  DESCARGA COMPLETADA: {grand_total} archivos nuevos")
     print(f"{'='*60}")
+
+    if failures:
+        detail = "; ".join(f"{leg}: {', '.join(map(str, d))}" for leg, d in failures.items())
+        # GitHub annotation; dates stay pending and are retried next run.
+        print(f"::warning title=Scraper nacional::Fechas con errores (se reintentarán): {detail}")
 
 
 if __name__ == "__main__":

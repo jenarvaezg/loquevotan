@@ -20,7 +20,8 @@
     "test:data-artifacts": "node scripts/qa/check_data_artifacts.mjs",
     "test:data": "npm run test:data-integrity && npm run test:data-artifacts",
     "test:unit": "vitest run",
-    "test": "npm run test:unit && npm run test:data && npx playwright test"
+    "test:pipeline": "python3 -m unittest discover -s tests/python",
+    "test": "npm run test:unit && npm run test:pipeline && npm run test:data && npx playwright test"
   },
   "dependencies": {
     "html2canvas": "^1.4.1",
