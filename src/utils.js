@@ -33,9 +33,33 @@ export const LEGISLATURAS = [
     id: "XV",
     nombre: "XV Legislatura",
     desde: "2023-08-17",
+    // Cortes disueltas el 2026-10-06; la Diputación Permanente sigue en la XV
+    // hasta la sesión constitutiva de la XVI.
+    hasta: "2026-12-22",
+  },
+  {
+    id: "XVI",
+    nombre: "XVI Legislatura",
+    desde: "2026-12-23",
     hasta: "2099-12-31",
   },
 ];
+
+const ROMAN_VALUES = { I: 1, V: 5, X: 10, L: 50, C: 100 };
+
+/** "XIV" -> 14. Unknown characters yield 0 so callers can sort safely. */
+export function romanToInt(roman) {
+  let total = 0;
+  let prev = 0;
+  const chars = String(roman || "").toUpperCase().split("").reverse();
+  for (const ch of chars) {
+    const value = ROMAN_VALUES[ch];
+    if (!value) return 0;
+    total = value < prev ? total - value : total + value;
+    prev = Math.max(prev, value);
+  }
+  return total;
+}
 
 export const VOTO_LABELS = { 1: "A favor", 2: "En contra", 3: "Abstención", 4: "No vota" };
 
@@ -103,11 +127,10 @@ export function avatarInitials(name) {
 }
 
 export function resultMarginText(r) {
+  if (r.asentimiento) return "Aprobada por asentimiento";
   if (r.result === "Empate") return "Empate";
   return r.result + " por " + r.margin + " votos";
 }
-
-const LEG_TO_NUM = { X: 10, XI: 11, XII: 12, XIII: 13, XIV: 14, XV: 15 };
 
 export function dipPhotoUrl(fotoEntry) {
   if (!fotoEntry) return null;
@@ -116,11 +139,9 @@ export function dipPhotoUrl(fotoEntry) {
   // Pick the most recent legislatura available
   const legs = Object.keys(fotoEntry);
   if (legs.length === 0) return null;
-  const best = legs.reduce((a, b) =>
-    (LEG_TO_NUM[a] || 0) >= (LEG_TO_NUM[b] || 0) ? a : b,
-  );
+  const best = legs.reduce((a, b) => (romanToInt(a) >= romanToInt(b) ? a : b));
   const cod = fotoEntry[best];
-  const num = LEG_TO_NUM[best];
+  const num = romanToInt(best);
   return `https://www.congreso.es/docu/imgweb/diputados/${cod}_${num}.jpg`;
 }
 

@@ -119,7 +119,9 @@ const filtered = computed(() => {
   })
 
   if (sortMode.value === 'closest') {
-    indices = [...indices].sort((a, b) => votResults.value[a].margin - votResults.value[b].margin)
+    // Votes without a nominal count (assent) have margin 0 but aren't close.
+    const closeness = (i) => (votResults.value[i].total > 0 ? votResults.value[i].margin : Infinity)
+    indices = [...indices].sort((a, b) => closeness(a) - closeness(b))
   }
 
   return indices

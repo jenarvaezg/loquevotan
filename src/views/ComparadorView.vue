@@ -150,7 +150,9 @@ const sharedVotaciones = computed(() => {
   const shared = []
   for (const votIdxStr of Object.keys(votByA)) {
     const votIdx = Number(votIdxStr)
-    if (votIdx in votByB) {
+    // Only votes where both cast a vote: "No vota" (4) on either side is
+    // absence, not agreement or disagreement.
+    if (votIdx in votByB && votByA[votIdx] !== 4 && votByB[votIdx] !== 4) {
       shared.push({
         votIdx,
         codeA: votByA[votIdx],

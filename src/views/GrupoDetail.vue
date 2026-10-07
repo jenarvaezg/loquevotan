@@ -2,7 +2,7 @@
 import { computed, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useData } from '../composables/useData'
-import { fmt, pct, normalize, matchSearch, dipPhotoUrl, avatarStyle, avatarInitials, LEGISLATURAS, DIPS_PER_PAGE, getGroupInfo } from '../utils'
+import { fmt, pct, normalize, matchSearch, dipPhotoUrl, avatarStyle, avatarInitials, romanToInt, DIPS_PER_PAGE, getGroupInfo } from '../utils'
 import VoteBar from '../components/VoteBar.vue'
 import Pagination from '../components/Pagination.vue'
 import ViewState from '../components/ViewState.vue'
@@ -46,7 +46,8 @@ const grupoLegs = computed(() => {
     const ds = dipStats.value[i]
     if (ds.legislaturas) ds.legislaturas.forEach(l => legs.add(l))
   }
-  return LEGISLATURAS.filter(l => legs.has(l.id)).map(l => l.id)
+  // Most recent first
+  return [...legs].sort((a, b) => romanToInt(b) - romanToInt(a))
 })
 
 // Average loyalty

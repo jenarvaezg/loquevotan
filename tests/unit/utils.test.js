@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { getLeg, fmt, normalize, pct, avatarInitials, resultMarginText, dipPhotoUrl, subTipoLabel, subTipoBadgeClass, affinityColor, votoPillClass, getGroupInfo } from '../../src/utils.js';
+import { getLeg, romanToInt, fmt, normalize, pct, avatarInitials, resultMarginText, dipPhotoUrl, subTipoLabel, subTipoBadgeClass, affinityColor, votoPillClass, getGroupInfo } from '../../src/utils.js';
 
 describe('utils.js', () => {
   describe('getLeg', () => {
@@ -11,6 +11,25 @@ describe('utils.js', () => {
 
     it('returns empty string if out of bounds', () => {
       expect(getLeg('1990-01-01')).toBe('');
+    });
+
+    it('keeps the XV until the XVI is constituted', () => {
+      expect(getLeg('2026-11-15')).toBe('XV');
+      expect(getLeg('2027-01-10')).toBe('XVI');
+    });
+  });
+
+  describe('romanToInt', () => {
+    it('parses legislature numerals', () => {
+      expect(romanToInt('XIV')).toBe(14);
+      expect(romanToInt('XVI')).toBe(16);
+      expect(romanToInt('ix')).toBe(9);
+    });
+
+    it('returns 0 for invalid input', () => {
+      expect(romanToInt('')).toBe(0);
+      expect(romanToInt('abc')).toBe(0);
+      expect(romanToInt(null)).toBe(0);
     });
   });
 
@@ -60,6 +79,10 @@ describe('utils.js', () => {
       expect(resultMarginText({ result: 'Rechazada', margin: 5 })).toBe('Rechazada por 5 votos');
       expect(resultMarginText({ result: 'Empate' })).toBe('Empate');
     });
+
+    it('describes votes approved by assent', () => {
+      expect(resultMarginText({ result: 'Aprobada', margin: 0, asentimiento: true })).toBe('Aprobada por asentimiento');
+    });
   });
 
   describe('dipPhotoUrl', () => {
@@ -74,6 +97,10 @@ describe('utils.js', () => {
 
     it('returns proper congreso URL for highest legislatura', () => {
       expect(dipPhotoUrl({ 'XIV': '123', 'XV': '456' })).toBe('https://www.congreso.es/docu/imgweb/diputados/456_15.jpg');
+    });
+
+    it('supports legislatures after the XV', () => {
+      expect(dipPhotoUrl({ 'XV': '456', 'XVI': '789' })).toBe('https://www.congreso.es/docu/imgweb/diputados/789_16.jpg');
     });
   });
 
