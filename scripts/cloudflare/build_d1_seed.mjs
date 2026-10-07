@@ -2,11 +2,49 @@
 
 import fs from "node:fs/promises";
 import path from "node:path";
+import { TABLES, diffTable, renderDeletes, renderUpserts, sqlLiteral } from "./d1_diff.mjs";
 
 const ROOT = process.cwd();
 const DATA_DIR = path.join(ROOT, "public", "data");
 const DEFAULT_OUT = path.join(ROOT, "tmp", "cloudflare-d1-seed.sql");
 const D1_SQL_BATCH_SIZE = Number.parseInt(process.env.D1_SQL_BATCH_SIZE || "25", 10);
+const TABLE_BY_NAME = Object.fromEntries(TABLES.map((t) => [t.name, t]));
+
+function toNumberOrNull(value) {
+  // Number(null) is 0: keep missing values as NULL (e.g. loyalty of Mixto members).
+  if (value === null || value === undefined || value === "") return null;
+  const n = Number(value);
+  return Number.isFinite(n) ? n : null;
+}
+
+const ROMAN_VALUES = { I: 1, V: 5, X: 10, L: 50, C: 100 };
+
+function romanToInt(roman) {
+  let total = 0;
+  let prev = 0;
+  for (const ch of String(roman || "").toUpperCase().split("").reverse()) {
+    const value = ROMAN_VALUES[ch] || 0;
+    total = value < prev ? total - value : total + value;
+    prev = Math.max(prev, value);
+  }
+  return total;
+}
+
+// National provinces come per legislature ({"XIV": "Madrid", "XV": "Segovia"});
+// the column holds the most recent one (it used to store "[object Object]").
+function latestProvince(value) {
+  if (!value || typeof value !== "object") return value || null;
+  const legs = Object.keys(value).sort((a, b) => romanToInt(b) - romanToInt(a));
+  return legs.length ? value[legs[0]] || null : null;
+}
+
+function toJsonText(value) {
+  try {
+    return JSON.stringify(value ?? null);
+  } catch {
+    return null;
+  }
+}
 
 function normalizeSearchToken(value) {
   return String(value || "")
@@ -25,36 +63,22 @@ function toIsoDate(value) {
   return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
 }
 
-function toSqlString(value) {
-  if (value === null || value === undefined) return "NULL";
-  return `'${String(value).replaceAll("'", "''")}'`;
-}
-
-function toSqlNumber(value) {
-  // Number(null) is 0: keep missing values as NULL (e.g. loyalty of Mixto members).
-  if (value === null || value === undefined || value === "") return "NULL";
-  const n = Number(value);
-  return Number.isFinite(n) ? String(n) : "NULL";
-}
-
-function toSqlJson(value) {
-  try {
-    return toSqlString(JSON.stringify(value ?? null));
-  } catch {
-    return "NULL";
-  }
-}
-
 function parseArgs(argv) {
-  const scopesIndex = argv.findIndex((a) => a === "--scopes");
-  const outIndex = argv.findIndex((a) => a === "--out");
-  const outFile = outIndex >= 0 && argv[outIndex + 1] ? path.resolve(ROOT, argv[outIndex + 1]) : DEFAULT_OUT;
-  const scopesCsv = scopesIndex >= 0 && argv[scopesIndex + 1] ? String(argv[scopesIndex + 1]) : "";
-  const scopes = scopesCsv
+  const valueOf = (flag) => {
+    const index = argv.findIndex((a) => a === flag);
+    return index >= 0 && argv[index + 1] ? String(argv[index + 1]) : "";
+  };
+  const out = valueOf("--out");
+  const diffAgainst = valueOf("--diff-against");
+  const scopes = valueOf("--scopes")
     .split(",")
     .map((s) => s.trim().toLowerCase())
     .filter(Boolean);
-  return { outFile, scopes };
+  return {
+    outFile: out ? path.resolve(ROOT, out) : DEFAULT_OUT,
+    scopes,
+    diffDir: diffAgainst ? path.resolve(ROOT, diffAgainst) : "",
+  };
 }
 
 function parseScopeFilter(scopesArg, allScopes) {
@@ -77,14 +101,21 @@ async function readJson(filePath) {
   return JSON.parse(raw);
 }
 
-async function appendInsert(outFile, table, columns, rows, batchSize = D1_SQL_BATCH_SIZE) {
-  if (!rows.length) return;
+function renderInserts(table, rows, batchSize = D1_SQL_BATCH_SIZE) {
+  const statements = [];
   for (let i = 0; i < rows.length; i += batchSize) {
-    const batch = rows.slice(i, i + batchSize);
-    const valuesSql = batch.map((row) => `(${row.join(", ")})`).join(",\n");
-    const sql = `INSERT OR REPLACE INTO ${table} (${columns.join(", ")}) VALUES\n${valuesSql};\n`;
-    await fs.appendFile(outFile, sql, "utf8");
+    const values = rows
+      .slice(i, i + batchSize)
+      .map((row) => `(${table.columns.map((column) => sqlLiteral(row[column])).join(", ")})`)
+      .join(",\n");
+    statements.push(`INSERT OR REPLACE INTO ${table.name} (${table.columns.join(", ")}) VALUES\n${values};`);
   }
+  return statements;
+}
+
+async function readExistingRows(diffDir, tableName) {
+  // Written by scripts/cloudflare/export_d1_tables.mjs
+  return readJson(path.join(diffDir, `${tableName}.json`));
 }
 
 function scopeDataPaths(scopeId) {
@@ -100,8 +131,80 @@ function scopeDataPaths(scopeId) {
   };
 }
 
+function buildScopeRows(scopeId, scope, manifest, meta) {
+  const rows = { scope_meta: [], groups: [], votaciones: [], diputados: [] };
+
+  rows.scope_meta.push({
+    scope_id: scopeId,
+    scope_name: String(scope?.nombre || scopeId),
+    updated_at: manifest?.updatedAt || null,
+    diputados_count: Number(manifest?.stats?.diputados || 0),
+    votaciones_count: Number(manifest?.stats?.votaciones || 0),
+    votos_count: Number(manifest?.stats?.votos || 0),
+  });
+
+  const grupos = Array.isArray(meta?.grupos) ? meta.grupos : [];
+  grupos.forEach((name, g) => rows.groups.push({ scope_id: scopeId, group_idx: g, group_name: name || "" }));
+
+  const votaciones = Array.isArray(meta?.votaciones) ? meta.votaciones : [];
+  const votResults = Array.isArray(meta?.votResults) ? meta.votResults : [];
+  const categorias = Array.isArray(meta?.categorias) ? meta.categorias : [];
+  votaciones.forEach((vote = {}, i) => {
+    const result = votResults[i] || {};
+    const categoriaIdx = Number.isInteger(vote.categoria) ? vote.categoria : null;
+    rows.votaciones.push({
+      scope_id: scopeId,
+      vot_idx: i,
+      id: vote.id || "",
+      legislatura: vote.legislatura || null,
+      fecha: toIsoDate(vote.fecha),
+      titulo_ciudadano: vote.titulo_ciudadano || "",
+      categoria_idx: categoriaIdx,
+      categoria_label: categoriaIdx !== null ? categorias[categoriaIdx] || null : null,
+      etiquetas_json: toJsonText(Array.isArray(vote.etiquetas) ? vote.etiquetas : []),
+      proponente: vote.proponente || "",
+      sub_tipo: vote.subTipo || null,
+      expediente: vote.exp || null,
+      result: result.result || null,
+      favor: toNumberOrNull(result.favor),
+      contra: toNumberOrNull(result.contra),
+      abstencion: toNumberOrNull(result.abstencion),
+      total: toNumberOrNull(result.total),
+      search_text: normalizeSearchToken(`${vote.titulo_ciudadano || ""} ${vote.proponente || ""} ${vote.id || ""}`),
+    });
+  });
+
+  const diputados = Array.isArray(meta?.diputados) ? meta.diputados : [];
+  const dipStats = Array.isArray(meta?.dipStats) ? meta.dipStats : [];
+  const dipFotos = Array.isArray(meta?.dipFotos) ? meta.dipFotos : [];
+  const dipProvincias = Array.isArray(meta?.dipProvincias) ? meta.dipProvincias : [];
+  diputados.forEach((rawName, i) => {
+    const nombre = String(rawName || "");
+    const stats = dipStats[i] || {};
+    const groupIdx = Number.isInteger(stats?.mainGrupo) ? stats.mainGrupo : null;
+    rows.diputados.push({
+      scope_id: scopeId,
+      dip_idx: i,
+      nombre,
+      nombre_search: normalizeSearchToken(nombre),
+      main_grupo_idx: groupIdx,
+      main_grupo_name: groupIdx !== null ? grupos[groupIdx] || null : null,
+      total: toNumberOrNull(stats.total),
+      favor: toNumberOrNull(stats.favor),
+      contra: toNumberOrNull(stats.contra),
+      abstencion: toNumberOrNull(stats.abstencion),
+      no_vota: toNumberOrNull(stats.no_vota),
+      loyalty: toNumberOrNull(stats.loyalty),
+      foto_json: toJsonText(dipFotos[i] ?? null),
+      provincia: latestProvince(dipProvincias[i]),
+    });
+  });
+
+  return rows;
+}
+
 async function main() {
-  const { outFile, scopes: scopeFilterArg } = parseArgs(process.argv.slice(2));
+  const { outFile, scopes: scopeFilterArg, diffDir } = parseArgs(process.argv.slice(2));
   await fs.mkdir(path.dirname(outFile), { recursive: true });
 
   const ambitos = await readJson(path.join(DATA_DIR, "ambitos.json"));
@@ -111,190 +214,69 @@ async function main() {
     throw new Error("No hay ámbitos para procesar.");
   }
   const scopedMode = scopeFilterArg.length > 0;
+  const scopeIds = scopes.map((scope) => String(scope?.id || "").trim().toLowerCase()).filter(Boolean);
 
-  const headerLines = ["-- Generated by scripts/cloudflare/build_d1_seed.mjs"];
-  if (scopedMode) {
-    for (const scope of scopes) {
-      const scopeId = String(scope?.id || "").trim().toLowerCase();
-      if (!scopeId) continue;
-      headerLines.push(`DELETE FROM groups WHERE scope_id = ${toSqlString(scopeId)};`);
-      headerLines.push(`DELETE FROM votaciones WHERE scope_id = ${toSqlString(scopeId)};`);
-      headerLines.push(`DELETE FROM diputados WHERE scope_id = ${toSqlString(scopeId)};`);
-      headerLines.push(`DELETE FROM scope_meta WHERE scope_id = ${toSqlString(scopeId)};`);
-    }
-  } else {
-    headerLines.push("DELETE FROM scope_meta;");
-    headerLines.push("DELETE FROM groups;");
-    headerLines.push("DELETE FROM votaciones;");
-    headerLines.push("DELETE FROM diputados;");
-  }
-  headerLines.push("");
-  await fs.writeFile(outFile, headerLines.join("\n"), "utf8");
-
-  const scopeRows = [];
-  const groupRows = [];
-  const voteRows = [];
-  const dipRows = [];
+  const desired = { scope_meta: [], groups: [], votaciones: [], diputados: [] };
   const summary = [];
-
   for (const scope of scopes) {
     const scopeId = String(scope?.id || "").trim().toLowerCase();
     if (!scopeId) continue;
-
     const paths = scopeDataPaths(scopeId);
     const [manifest, meta] = await Promise.all([readJson(paths.manifest), readJson(paths.meta)]);
-
-    const scopeName = String(scope?.nombre || scopeId);
-    const diputadosCount = Number(manifest?.stats?.diputados || 0);
-    const votacionesCount = Number(manifest?.stats?.votaciones || 0);
-    const votosCount = Number(manifest?.stats?.votos || 0);
-
-    scopeRows.push([
-      toSqlString(scopeId),
-      toSqlString(scopeName),
-      toSqlString(manifest?.updatedAt || null),
-      toSqlNumber(diputadosCount),
-      toSqlNumber(votacionesCount),
-      toSqlNumber(votosCount),
-    ]);
-
-    const grupos = Array.isArray(meta?.grupos) ? meta.grupos : [];
-    for (let g = 0; g < grupos.length; g++) {
-      groupRows.push([
-        toSqlString(scopeId),
-        toSqlNumber(g),
-        toSqlString(grupos[g] || ""),
-      ]);
-    }
-
-    const votaciones = Array.isArray(meta?.votaciones) ? meta.votaciones : [];
-    const votResults = Array.isArray(meta?.votResults) ? meta.votResults : [];
-    const categorias = Array.isArray(meta?.categorias) ? meta.categorias : [];
-
-    for (let i = 0; i < votaciones.length; i++) {
-      const vote = votaciones[i] || {};
-      const result = votResults[i] || {};
-      const categoriaIdx = Number.isInteger(vote.categoria) ? vote.categoria : null;
-      const categoriaLabel = categoriaIdx !== null ? categorias[categoriaIdx] || null : null;
-      voteRows.push([
-        toSqlString(scopeId),
-        toSqlNumber(i),
-        toSqlString(vote.id || ""),
-        toSqlString(vote.legislatura || null),
-        toSqlString(toIsoDate(vote.fecha)),
-        toSqlString(vote.titulo_ciudadano || ""),
-        toSqlNumber(categoriaIdx),
-        toSqlString(categoriaLabel),
-        toSqlJson(Array.isArray(vote.etiquetas) ? vote.etiquetas : []),
-        toSqlString(vote.proponente || ""),
-        toSqlString(vote.subTipo || null),
-        toSqlString(vote.exp || null),
-        toSqlString(result.result || null),
-        toSqlNumber(result.favor),
-        toSqlNumber(result.contra),
-        toSqlNumber(result.abstencion),
-        toSqlNumber(result.total),
-        toSqlString(normalizeSearchToken(`${vote.titulo_ciudadano || ""} ${vote.proponente || ""} ${vote.id || ""}`)),
-      ]);
-    }
-
-    const diputados = Array.isArray(meta?.diputados) ? meta.diputados : [];
-    const dipStats = Array.isArray(meta?.dipStats) ? meta.dipStats : [];
-    const dipFotos = Array.isArray(meta?.dipFotos) ? meta.dipFotos : [];
-    const dipProvincias = Array.isArray(meta?.dipProvincias) ? meta.dipProvincias : [];
-
-    for (let i = 0; i < diputados.length; i++) {
-      const nombre = String(diputados[i] || "");
-      const stats = dipStats[i] || {};
-      const groupIdx = Number.isInteger(stats?.mainGrupo) ? stats.mainGrupo : null;
-      dipRows.push([
-        toSqlString(scopeId),
-        toSqlNumber(i),
-        toSqlString(nombre),
-        toSqlString(normalizeSearchToken(nombre)),
-        toSqlNumber(groupIdx),
-        toSqlString(groupIdx !== null ? grupos[groupIdx] || null : null),
-        toSqlNumber(stats.total),
-        toSqlNumber(stats.favor),
-        toSqlNumber(stats.contra),
-        toSqlNumber(stats.abstencion),
-        toSqlNumber(stats.no_vota),
-        toSqlNumber(stats.loyalty),
-        toSqlJson(dipFotos[i] ?? null),
-        toSqlString(dipProvincias[i] || null),
-      ]);
-    }
-
+    const rows = buildScopeRows(scopeId, scope, manifest, meta);
+    for (const table of TABLES) desired[table.name].push(...rows[table.name]);
     summary.push({
       scope: scopeId,
-      votaciones: votaciones.length,
-      diputados: diputados.length,
-      grupos: grupos.length,
+      votaciones: rows.votaciones.length,
+      diputados: rows.diputados.length,
+      grupos: rows.groups.length,
     });
   }
 
-  await appendInsert(
-    outFile,
-    "scope_meta",
-    ["scope_id", "scope_name", "updated_at", "diputados_count", "votaciones_count", "votos_count"],
-    scopeRows
-  );
-  await appendInsert(outFile, "groups", ["scope_id", "group_idx", "group_name"], groupRows);
-  await appendInsert(
-    outFile,
-    "votaciones",
-    [
-      "scope_id",
-      "vot_idx",
-      "id",
-      "legislatura",
-      "fecha",
-      "titulo_ciudadano",
-      "categoria_idx",
-      "categoria_label",
-      "etiquetas_json",
-      "proponente",
-      "sub_tipo",
-      "expediente",
-      "result",
-      "favor",
-      "contra",
-      "abstencion",
-      "total",
-      "search_text",
-    ],
-    voteRows
-  );
-  await appendInsert(
-    outFile,
-    "diputados",
-    [
-      "scope_id",
-      "dip_idx",
-      "nombre",
-      "nombre_search",
-      "main_grupo_idx",
-      "main_grupo_name",
-      "total",
-      "favor",
-      "contra",
-      "abstencion",
-      "no_vota",
-      "loyalty",
-      "foto_json",
-      "provincia",
-    ],
-    dipRows
-  );
+  const statements = ["-- Generated by scripts/cloudflare/build_d1_seed.mjs"];
+  let rowsToWrite = 0;
+
+  if (diffDir) {
+    // Only rows that changed; nothing is dropped or re-inserted wholesale.
+    for (const table of TABLES) {
+      const existing = await readExistingRows(diffDir, table.name);
+      const { upserts, deletes } = diffTable(table, desired[table.name], existing, scopeIds, {
+        pruneOtherScopes: !scopedMode,
+      });
+      statements.push(...renderDeletes(table, deletes), ...renderUpserts(table, upserts, D1_SQL_BATCH_SIZE));
+      rowsToWrite += upserts.length + deletes.length;
+      console.log(`[cf-d1-seed] ${table.name}: ${upserts.length} altas/cambios, ${deletes.length} bajas`);
+    }
+  } else {
+    for (const scopeId of scopedMode ? scopeIds : []) {
+      for (const table of [...TABLES].reverse()) {
+        statements.push(`DELETE FROM ${table.name} WHERE scope_id = ${sqlLiteral(scopeId)};`);
+      }
+    }
+    if (!scopedMode) {
+      for (const table of [...TABLES].reverse()) statements.push(`DELETE FROM ${table.name};`);
+    }
+    for (const table of TABLES) {
+      statements.push(...renderInserts(TABLE_BY_NAME[table.name], desired[table.name]));
+      rowsToWrite += desired[table.name].length;
+    }
+  }
+
+  await fs.writeFile(outFile, `${statements.join("\n")}\n`, "utf8");
 
   const stats = await fs.stat(outFile);
   console.log(`[cf-d1-seed] SQL generado: ${outFile}`);
-  console.log(`[cf-d1-seed] modo: ${scopedMode ? `scopes(${scopeFilterArg.join(",")})` : "full"}`);
-  console.log(`[cf-d1-seed] tamaño: ${(stats.size / 1024 / 1024).toFixed(2)} MiB`);
+  console.log(
+    `[cf-d1-seed] modo: ${diffDir ? "diff" : "completo"}${scopedMode ? ` · scopes(${scopeIds.join(",")})` : ""}`
+  );
+  console.log(`[cf-d1-seed] tamaño: ${(stats.size / 1024 / 1024).toFixed(2)} MiB · filas a escribir: ${rowsToWrite}`);
   for (const row of summary) {
     console.log(
       `[cf-d1-seed] ${row.scope}: ${row.votaciones} votaciones, ${row.diputados} diputados, ${row.grupos} grupos`
     );
+  }
+  if (process.env.GITHUB_OUTPUT) {
+    await fs.appendFile(process.env.GITHUB_OUTPUT, `rows_to_write=${rowsToWrite}\n`, "utf8");
   }
 }
 

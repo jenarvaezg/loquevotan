@@ -2,13 +2,20 @@ name: Cloudflare Data Sync
 
 on:
   schedule:
-    - cron: "30 8 * * 1" # Every Monday at 08:30 UTC
+    # Daily: a diff sync writes nothing when D1 is already up to date, and it
+    # catches up after a day where the free-tier write quota ran out.
+    - cron: "30 8 * * *"
   workflow_dispatch:
     inputs:
       scopes:
         description: "Ámbitos a sincronizar (coma separada). Ej: nacional,cyl,andalucia"
         required: false
         type: string
+      full_reset:
+        description: "Borra y recrea las tablas. ~120k filas escritas: supera el límite diario gratuito de D1 (100k). Solo para cambios de esquema."
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -23,6 +30,7 @@ jobs:
     # Secrets are only exposed to the steps that call Cloudflare, not to npm ci.
     env:
       SYNC_SCOPES: ${{ github.event.inputs.scopes || '' }}
+      FULL_RESET: ${{ github.event.inputs.full_reset == 'true' && 'true' || 'false' }}
       # Pinned: npx would otherwise fetch whatever is latest on every run.
       WRANGLER: wrangler@4.86.0
 
@@ -36,63 +44,57 @@ jobs:
 
       - run: npm ci
 
-      - name: Build D1 seed SQL snapshot
+      - name: Check Cloudflare secrets
+        id: secrets
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_D1_DATABASE_NAME: ${{ secrets.CLOUDFLARE_D1_DATABASE_NAME }}
+          CLOUDFLARE_R2_BUCKET_DATA_SNAPSHOTS: ${{ secrets.CLOUDFLARE_R2_BUCKET_DATA_SNAPSHOTS }}
         run: |
-          set -euo pipefail
-          if [ -n "${SYNC_SCOPES:-}" ]; then
-            echo "Building scoped D1 seed for: ${SYNC_SCOPES}"
-            node scripts/cloudflare/build_d1_seed.mjs --out /tmp/loquevotan-d1-seed.sql --scopes "${SYNC_SCOPES}"
+          if [ -n "${CLOUDFLARE_API_TOKEN:-}" ] && [ -n "${CLOUDFLARE_ACCOUNT_ID:-}" ] && [ -n "${CLOUDFLARE_D1_DATABASE_NAME:-}" ]; then
+            echo "d1=true" >> "$GITHUB_OUTPUT"
           else
-            echo "Building full D1 seed"
-            node scripts/cloudflare/build_d1_seed.mjs --out /tmp/loquevotan-d1-seed.sql
+            echo "::warning::Cloudflare D1 secrets missing: D1 is not synced."
+          fi
+          if [ -n "${CLOUDFLARE_API_TOKEN:-}" ] && [ -n "${CLOUDFLARE_ACCOUNT_ID:-}" ] && [ -n "${CLOUDFLARE_R2_BUCKET_DATA_SNAPSHOTS:-}" ]; then
+            echo "r2=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::warning::Cloudflare R2 secrets missing: seed snapshot not uploaded."
           fi
 
-      - name: Upload seed artifact
-        uses: actions/upload-artifact@v7
-        with:
-          name: loquevotan-d1-seed-sql
-          path: /tmp/loquevotan-d1-seed.sql
-          retention-days: 7
+      # Full seed: backup snapshot in R2, and the input of a full reset.
+      - name: Build full D1 seed snapshot
+        run: |
+          set -euo pipefail
+          SCOPE_ARGS=()
+          if [ -n "${SYNC_SCOPES:-}" ]; then SCOPE_ARGS=(--scopes "${SYNC_SCOPES}"); fi
+          node scripts/cloudflare/build_d1_seed.mjs --out /tmp/loquevotan-d1-seed.sql "${SCOPE_ARGS[@]}"
+          gzip -9 -c /tmp/loquevotan-d1-seed.sql > /tmp/loquevotan-d1-seed.sql.gz
 
-      - name: Compress seed snapshot
-        run: gzip -9 -c /tmp/loquevotan-d1-seed.sql > /tmp/loquevotan-d1-seed.sql.gz
-
-      - name: Upload compressed snapshot to R2 (if configured)
+      - name: Upload seed snapshot to R2
+        if: steps.secrets.outputs.r2 == 'true'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_R2_BUCKET_DATA_SNAPSHOTS: ${{ secrets.CLOUDFLARE_R2_BUCKET_DATA_SNAPSHOTS }}
         run: |
           set -euo pipefail
-          if [ -z "${CLOUDFLARE_API_TOKEN:-}" ] || [ -z "${CLOUDFLARE_ACCOUNT_ID:-}" ] || [ -z "${CLOUDFLARE_R2_BUCKET_DATA_SNAPSHOTS:-}" ]; then
-            echo "::warning::Skipping R2 snapshot upload because at least one secret is missing:"
-            echo "- CLOUDFLARE_API_TOKEN"
-            echo "- CLOUDFLARE_ACCOUNT_ID"
-            echo "- CLOUDFLARE_R2_BUCKET_DATA_SNAPSHOTS"
-            exit 0
-          fi
-
           TS="$(date -u +%Y%m%dT%H%M%SZ)"
           SHA_SHORT="$(echo "${GITHUB_SHA}" | cut -c1-12)"
           KEY="d1-seeds/${TS}-${SHA_SHORT}.sql.gz"
           npx --yes "${WRANGLER}" r2 object put "${CLOUDFLARE_R2_BUCKET_DATA_SNAPSHOTS}/${KEY}" --file /tmp/loquevotan-d1-seed.sql.gz --remote
-          echo "Snapshot uploaded to R2: ${CLOUDFLARE_R2_BUCKET_DATA_SNAPSHOTS}/${KEY}"
+          echo "Snapshot uploaded to R2: ${KEY}"
 
-      - name: Apply schema and snapshot to D1 (if configured)
+      - name: Full reset of D1 (manual only)
+        if: steps.secrets.outputs.d1 == 'true' && env.FULL_RESET == 'true'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_D1_DATABASE_NAME: ${{ secrets.CLOUDFLARE_D1_DATABASE_NAME }}
         run: |
           set -euo pipefail
-          if [ -z "${CLOUDFLARE_API_TOKEN:-}" ] || [ -z "${CLOUDFLARE_ACCOUNT_ID:-}" ] || [ -z "${CLOUDFLARE_D1_DATABASE_NAME:-}" ]; then
-            echo "::warning::Skipping remote D1 sync because at least one secret is missing:"
-            echo "- CLOUDFLARE_API_TOKEN"
-            echo "- CLOUDFLARE_ACCOUNT_ID"
-            echo "- CLOUDFLARE_D1_DATABASE_NAME"
-            exit 0
-          fi
-
+          echo "::warning::Full reset: rewrites every row and can exceed the daily D1 write quota."
           SCHEMA_FILE="cloudflare/d1/schema.sql"
           if [ -n "${SYNC_SCOPES:-}" ]; then
             # schema.sql drops every table; a scoped seed only re-inserts its
@@ -102,3 +104,45 @@ jobs:
           fi
           npx --yes "${WRANGLER}" d1 execute "${CLOUDFLARE_D1_DATABASE_NAME}" --remote --file "${SCHEMA_FILE}"
           npx --yes "${WRANGLER}" d1 execute "${CLOUDFLARE_D1_DATABASE_NAME}" --remote --file /tmp/loquevotan-d1-seed.sql
+
+      # Default path: read what D1 has (reads are cheap) and write only the
+      # rows that changed. Nothing is dropped, so a failure midway (e.g. the
+      # daily quota) leaves every row either old or new and the next run
+      # finishes the job.
+      - name: Export current D1 rows
+        if: steps.secrets.outputs.d1 == 'true' && env.FULL_RESET != 'true'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_D1_DATABASE_NAME: ${{ secrets.CLOUDFLARE_D1_DATABASE_NAME }}
+        run: |
+          set -euo pipefail
+          # Creates missing tables/indexes only (no DROP): no rows are written.
+          grep -v '^DROP TABLE' cloudflare/d1/schema.sql > "${RUNNER_TEMP}/schema-no-drop.sql"
+          npx --yes "${WRANGLER}" d1 execute "${CLOUDFLARE_D1_DATABASE_NAME}" --remote --file "${RUNNER_TEMP}/schema-no-drop.sql"
+          node scripts/cloudflare/export_d1_tables.mjs --database "${CLOUDFLARE_D1_DATABASE_NAME}" --out-dir "${RUNNER_TEMP}/d1-current"
+
+      - name: Build D1 diff
+        id: diff
+        if: steps.secrets.outputs.d1 == 'true' && env.FULL_RESET != 'true'
+        run: |
+          set -euo pipefail
+          SCOPE_ARGS=()
+          if [ -n "${SYNC_SCOPES:-}" ]; then SCOPE_ARGS=(--scopes "${SYNC_SCOPES}"); fi
+          node scripts/cloudflare/build_d1_seed.mjs --out /tmp/loquevotan-d1-diff.sql --diff-against "${RUNNER_TEMP}/d1-current" "${SCOPE_ARGS[@]}"
+
+      - name: Apply D1 diff
+        if: steps.diff.outputs.rows_to_write != '' && steps.diff.outputs.rows_to_write != '0'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_D1_DATABASE_NAME: ${{ secrets.CLOUDFLARE_D1_DATABASE_NAME }}
+          ROWS: ${{ steps.diff.outputs.rows_to_write }}
+        run: |
+          set -euo pipefail
+          echo "Writing ${ROWS} changed rows to D1"
+          npx --yes "${WRANGLER}" d1 execute "${CLOUDFLARE_D1_DATABASE_NAME}" --remote --file /tmp/loquevotan-d1-diff.sql
+
+      - name: D1 already up to date
+        if: steps.diff.outputs.rows_to_write == '0'
+        run: echo "No changes to write to D1."
