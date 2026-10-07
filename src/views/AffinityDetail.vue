@@ -2,13 +2,13 @@
 import { computed, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useData } from '../composables/useData'
-import { fmt, VOTO_LABELS, VOTES_PER_PAGE, votoPillClass, getGroupInfo, sanitizeGroupName, normalize } from '../utils'
+import { fmt, VOTO_LABELS, VOTES_PER_PAGE, votoPillClass, getGroupInfo, sanitizeGroupName, normalize, majorityPosition } from '../utils'
 import ResultBadge from '../components/ResultBadge.vue'
 import Pagination from '../components/Pagination.vue'
 import ViewState from '../components/ViewState.vue'
 
 const route = useRoute()
-const { grupos, votaciones, votos, votosByVotacion, votResults, categorias, loadVotosForLeg, votosLoaded } = useData()
+const { grupos, votaciones, votos, votosByVotacion, votResults, categorias, loadVotosForLeg, votosLoaded, loaded } = useData()
 
 const gaName = computed(() =>
   route.query.ga ? sanitizeGroupName(decodeURIComponent(route.query.ga)) : ''
@@ -47,9 +47,7 @@ function groupMajority(votIndices, gIdx) {
     const v = votos.value[vi]
     if (v[2] === gIdx) counts[v[3]] = (counts[v[3]] || 0) + 1
   }
-  const total = counts[1] + counts[2] + counts[3]
-  if (total === 0) return null
-  return Number(Object.entries(counts).reduce((a, b) => b[1] > a[1] ? b : a)[0])
+  return majorityPosition(counts)
 }
 
 // Each item: { votIdx, vot, result, majorityA, majorityB, coincide }
@@ -164,7 +162,7 @@ const pageItems = computed(() => {
     </div>
   </section>
 
-  <ViewState v-else-if="!votosReady && valid" type="loading" />
+  <ViewState v-else-if="!loaded || (!votosReady && valid)" type="loading" />
 
   <section v-else>
     <div class="container" style="padding-top:3rem">

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { getLeg, romanToInt, fmt, normalize, pct, avatarInitials, resultMarginText, dipPhotoUrl, subTipoLabel, subTipoBadgeClass, affinityColor, votoPillClass, getGroupInfo } from '../../src/utils.js';
+import { getLeg, romanToInt, isNonPartisanGroup, majorityPosition, fmt, normalize, pct, avatarInitials, resultMarginText, dipPhotoUrl, subTipoLabel, subTipoBadgeClass, affinityColor, votoPillClass, getGroupInfo } from '../../src/utils.js';
 
 describe('utils.js', () => {
   describe('getLeg', () => {
@@ -16,6 +16,26 @@ describe('utils.js', () => {
     it('keeps the XV until the XVI is constituted', () => {
       expect(getLeg('2026-11-15')).toBe('XV');
       expect(getLeg('2027-01-10')).toBe('XVI');
+    });
+  });
+
+  describe('isNonPartisanGroup', () => {
+    it('detects mixed and unaffiliated groups', () => {
+      expect(isNonPartisanGroup('GMx')).toBe(true);
+      expect(isNonPartisanGroup('Grupo Mixto')).toBe(true);
+      expect(isNonPartisanGroup('No Adscrito')).toBe(true);
+      expect(isNonPartisanGroup('GPlu')).toBe(true);
+      expect(isNonPartisanGroup('GP')).toBe(false);
+      expect(isNonPartisanGroup('GSUMAR')).toBe(false);
+    });
+  });
+
+  describe('majorityPosition', () => {
+    it('requires an absolute majority of the votes cast', () => {
+      expect(majorityPosition({ 1: 3, 2: 1, 3: 0 })).toBe(1);
+      expect(majorityPosition({ 1: 4, 2: 4, 3: 0 })).toBeNull();
+      expect(majorityPosition({ 1: 2, 2: 2, 3: 3 })).toBeNull();
+      expect(majorityPosition({ 1: 0, 2: 0, 3: 0 })).toBeNull();
     });
   });
 
@@ -59,6 +79,11 @@ describe('utils.js', () => {
       expect(pct(0.5)).toBe('50.0%');
       expect(pct(0.333333)).toBe('33.3%');
       expect(pct(1)).toBe('100.0%');
+    });
+
+    it('shows a dash for missing values', () => {
+      expect(pct(null)).toBe('—');
+      expect(pct(undefined)).toBe('—');
     });
   });
 

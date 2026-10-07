@@ -1,11 +1,28 @@
 import { ref, shallowRef } from "vue";
 
+// localStorage throws when storage is blocked (e.g. third-party iframes).
+export function storageGet(key) {
+  try {
+    return window.localStorage.getItem(key);
+  } catch {
+    return null;
+  }
+}
+
+export function storageSet(key, value) {
+  try {
+    window.localStorage.setItem(key, value);
+  } catch {
+    // Not persisting a preference is fine.
+  }
+}
+
 const loading = ref(true);
 const error = ref(null);
 const loaded = ref(false);
 
 const ambitos = ref([]);
-const currentScopeId = ref(localStorage.getItem("preferredScope") || "nacional");
+const currentScopeId = ref(storageGet("preferredScope") || "nacional");
 
 const diputados = shallowRef([]);
 const grupos = shallowRef([]);
@@ -34,9 +51,14 @@ const globalDiputados = shallowRef({});
 const loadTelemetry = ref([]);
 
 const votosLoaded = ref(new Set());
+// Legislatures whose votos failed to load in the current scope.
+const votosFailed = ref(new Set());
 
 let _loadPromise = null;
 let _loadVersion = 0;
+// Bumped on every scope reset so in-flight leg loads from a previous visit to
+// the same scope (A -> B -> A) don't merge into the new state.
+let _scopeGeneration = 0;
 const _legLoadPromises = {};
 const FETCH_TIMEOUT_MS = 12000;
 const MAX_TELEMETRY_EVENTS = 120;
@@ -77,6 +99,8 @@ function resetScopeData() {
   dipFotos.value = [];
   dipProvincias.value = [];
   votosLoaded.value = new Set();
+  votosFailed.value = new Set();
+  _scopeGeneration += 1;
   Object.keys(_legLoadPromises).forEach((k) => delete _legLoadPromises[k]);
 }
 
@@ -227,7 +251,7 @@ function setScope(scopeId) {
   const normalizedScopeId = String(scopeId || "nacional").trim().toLowerCase();
   if (currentScopeId.value === normalizedScopeId) return Promise.resolve();
   currentScopeId.value = normalizedScopeId;
-  localStorage.setItem("preferredScope", normalizedScopeId);
+  storageSet("preferredScope", normalizedScopeId);
 
   resetScopeData();
   _loadPromise = null;
@@ -237,8 +261,16 @@ function setScope(scopeId) {
 async function loadVotosForLeg(legId) {
   if (!legId || votosLoaded.value.has(legId)) return;
   const scopeId = currentScopeId.value;
+  const generation = _scopeGeneration;
+  const isCurrent = () => generation === _scopeGeneration && currentScopeId.value === scopeId;
   const promiseKey = `${scopeId}:${legId}`;
   if (_legLoadPromises[promiseKey]) return _legLoadPromises[promiseKey];
+
+  if (votosFailed.value.has(legId)) {
+    const nextFailed = new Set(votosFailed.value);
+    nextFailed.delete(legId);
+    votosFailed.value = nextFailed;
+  }
 
   _legLoadPromises[promiseKey] = (async () => {
     try {
@@ -249,7 +281,7 @@ async function loadVotosForLeg(legId) {
         scope: `${scopeId}:${legId}`,
         critical: true,
       });
-      if (currentScopeId.value !== scopeId) return;
+      if (!isCurrent()) return;
 
       let legVotos = [];
       let legDetail = {};
@@ -270,7 +302,7 @@ async function loadVotosForLeg(legId) {
             scope: `${scopeId}:${legId}:part:${i + 1}`,
             critical: true,
           });
-          if (currentScopeId.value !== scopeId) return;
+          if (!isCurrent()) return;
 
           if (!Array.isArray(partData?.votos)) {
             throw new Error(`Invalid split part payload for ${partName}`);
@@ -319,15 +351,20 @@ async function loadVotosForLeg(legId) {
       newLoaded.add(legId);
       votosLoaded.value = newLoaded;
     } catch (err) {
-      if (currentScopeId.value === scopeId) {
+      if (isCurrent()) {
         console.error(`Error loading votos for ${legId}:`, err);
+        votosFailed.value = new Set(votosFailed.value).add(legId);
       }
     } finally {
-      delete _legLoadPromises[promiseKey];
+      if (_legLoadPromises[promiseKey] && isCurrent()) delete _legLoadPromises[promiseKey];
     }
   })();
 
   return _legLoadPromises[promiseKey];
+}
+
+function retryFailedVotos() {
+  return Promise.all([...votosFailed.value].map((legId) => loadVotosForLeg(legId)));
 }
 
 function loadData() {
@@ -371,6 +408,8 @@ export function useData() {
     votosLoaded,
     globalDiputados,
     loadVotosForLeg,
+    votosFailed,
+    retryFailedVotos,
     retryLoad,
     loadTelemetry,
   };

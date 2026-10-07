@@ -553,17 +553,9 @@ const compassData = computed(() => {
     displaySocial: dampenForDisplay(party.social, displayScale),
     displayTerritorial: dampenForDisplay(party.territorial, displayScale)
   }))
-  const partiesByDistanceForDisplay = partiesWithDisplay
-    .map((party) => ({
-      ...party,
-      distance: Math.hypot(user.economic - party.economic, user.social - party.social)
-    }))
-    .sort((a, b) => a.distance - b.distance)
-
   return {
     user: userForDisplay,
     partiesByAffinity: partiesWithDisplay,
-    partiesByDistance: partiesByDistanceForDisplay,
     quality: {
       confidenceScore,
       confidenceLabel,
@@ -574,29 +566,46 @@ const compassData = computed(() => {
   }
 })
 
+// Nearest parties on the map currently shown (economic × social or economic × territorial).
 const topCompassParties = computed(() => {
   if (!compassData.value) return []
-  return compassData.value.partiesByDistance
+  const yKey = selectedYAxis.value === 'territorial' ? 'territorial' : 'social'
+  const { user } = compassData.value
+  return compassData.value.partiesByAffinity
+    .map((party) => ({
+      ...party,
+      distance: Math.hypot(user.economic - party.economic, user[yKey] - party[yKey])
+    }))
+    .sort((a, b) => a.distance - b.distance)
 })
 
 const userCompassLabel = computed(() => {
   if (!compassData.value) return ''
 
-  const { economic, social } = compassData.value.user
+  const { economic, social, territorial } = compassData.value.user
   const economicLabel = economic < -ECONOMIC_AXIS_THRESHOLD
     ? 'izquierda económica'
     : economic > ECONOMIC_AXIS_THRESHOLD
       ? 'derecha económica'
       : 'centro económico'
-  const socialLabel = social > SOCIAL_AXIS_THRESHOLD
-    ? 'más conservador/autoritario'
-    : social < -SOCIAL_AXIS_THRESHOLD
-      ? 'más progresista/libertario'
-      : 'centro social'
-  const nearest = compassData.value.partiesByDistance[0]
+  let secondLabel
+  if (selectedYAxis.value === 'territorial') {
+    secondLabel = territorial > TERRITORIAL_AXIS_THRESHOLD
+      ? 'más descentralizador/soberanista'
+      : territorial < -TERRITORIAL_AXIS_THRESHOLD
+        ? 'más centralista'
+        : 'centro territorial'
+  } else {
+    secondLabel = social > SOCIAL_AXIS_THRESHOLD
+      ? 'más conservador/autoritario'
+      : social < -SOCIAL_AXIS_THRESHOLD
+        ? 'más progresista/libertario'
+        : 'centro social'
+  }
+  const nearest = topCompassParties.value[0]
   const nearestLabel = nearest ? ` El partido más cercano en mapa es ${nearest.group}.` : ''
 
-  return `Tu posición cae en ${economicLabel} y ${socialLabel}.${nearestLabel}`
+  return `Tu posición cae en ${economicLabel} y ${secondLabel}.${nearestLabel}`
 })
 
 function pointStyle(point) {

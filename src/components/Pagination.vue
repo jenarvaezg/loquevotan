@@ -20,12 +20,15 @@ function getPageRange(current, total) {
   return pages
 }
 
-const pages = computed(() => getPageRange(props.current, props.totalPages))
+// Views may pass an out-of-range page (e.g. ?page=99): clamp it so the active
+// button and the arrows stay consistent with what's displayed.
+const page = computed(() => Math.min(Math.max(Number(props.current) || 1, 1), Math.max(props.totalPages || 1, 1)))
+const pages = computed(() => getPageRange(page.value, props.totalPages))
 </script>
 
 <template>
   <nav v-if="totalPages > 1" class="pagination" aria-label="Paginación">
-    <button class="page-btn" :disabled="current <= 1" @click="emit('page', current - 1)">
+    <button class="page-btn" :disabled="page <= 1" @click="emit('page', page - 1)">
       &larr;
     </button>
     <template v-for="(p, i) in pages" :key="i">
@@ -33,13 +36,13 @@ const pages = computed(() => getPageRange(props.current, props.totalPages))
       <button
         v-else
         class="page-btn"
-        :class="{ active: p === current }"
+        :class="{ active: p === page }"
         @click="emit('page', p)"
       >
         {{ p }}
       </button>
     </template>
-    <button class="page-btn" :disabled="current >= totalPages" @click="emit('page', current + 1)">
+    <button class="page-btn" :disabled="page >= totalPages" @click="emit('page', page + 1)">
       &rarr;
     </button>
   </nav>

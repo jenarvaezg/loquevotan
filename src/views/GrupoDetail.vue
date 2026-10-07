@@ -2,7 +2,7 @@
 import { computed, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useData } from '../composables/useData'
-import { fmt, pct, normalize, matchSearch, dipPhotoUrl, avatarStyle, avatarInitials, romanToInt, DIPS_PER_PAGE, getGroupInfo } from '../utils'
+import { fmt, pct, normalize, matchSearch, dipPhotoUrl, avatarStyle, avatarInitials, romanToInt, DIPS_PER_PAGE, getGroupInfo, isNonPartisanGroup } from '../utils'
 import VoteBar from '../components/VoteBar.vue'
 import Pagination from '../components/Pagination.vue'
 import ViewState from '../components/ViewState.vue'
@@ -52,18 +52,16 @@ const grupoLegs = computed(() => {
 
 // Average loyalty
 const avgLoyalty = computed(() => {
-  if (!members.value.length) return 0
-  let sum = 0
-  for (const i of members.value) {
-    sum += dipStats.value[i].loyalty
-  }
-  return sum / members.value.length
+  const values = members.value.map(i => dipStats.value[i].loyalty).filter(l => l != null)
+  if (!values.length) return null
+  return values.reduce((sum, l) => sum + l, 0) / values.length
 })
 
 // Most rebellious members
 const rebels = computed(() => {
+  if (isNonPartisanGroup(grupoRawName.value)) return []
   return [...members.value]
-    .filter(i => dipStats.value[i].total >= 10)
+    .filter(i => dipStats.value[i].total >= 10 && dipStats.value[i].loyalty != null)
     .sort((a, b) => dipStats.value[a].loyalty - dipStats.value[b].loyalty)
     .slice(0, 5)
 })
@@ -121,7 +119,7 @@ watch(grupoRawName, (n) => {
           <h1 style="margin:0">{{ groupInfo.label }}</h1>
           <div class="detail-meta" style="margin-top:0.25rem">
             <span class="detail-meta-item">{{ members.length }} diputados</span>
-            <span class="detail-meta-item">Lealtad media: {{ pct(avgLoyalty) }}</span>
+            <span v-if="avgLoyalty != null" class="detail-meta-item">Lealtad media: {{ pct(avgLoyalty) }}</span>
             <span v-for="l in grupoLegs" :key="l" class="badge badge--leg">{{ l }}</span>
           </div>
           <p class="small text-muted" style="margin-top:0.25rem">Nombre oficial: {{ grupoRawName }}</p>

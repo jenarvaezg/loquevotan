@@ -2,7 +2,7 @@
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
 import HeroSearch from './HeroSearch.vue'
-import { useData } from '../composables/useData'
+import { useData, storageGet, storageSet } from '../composables/useData'
 
 const { ambitos, currentScopeId, setScope, manifest } = useData()
 const route = useRoute()
@@ -40,7 +40,7 @@ const lastUpdate = computed(() => {
 })
 
 function initTheme() {
-  const saved = localStorage.getItem('lqv-theme')
+  const saved = storageGet('lqv-theme')
   if (saved) {
     document.documentElement.dataset.theme = saved
   } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -52,7 +52,7 @@ function initTheme() {
 function toggleTheme() {
   const next = isDark.value ? 'light' : 'dark'
   document.documentElement.dataset.theme = next
-  localStorage.setItem('lqv-theme', next)
+  storageSet('lqv-theme', next)
   isDark.value = next === 'dark'
 }
 

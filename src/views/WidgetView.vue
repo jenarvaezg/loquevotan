@@ -2,19 +2,19 @@
 import { computed, watch, onMounted, onBeforeUnmount, nextTick } from 'vue'
 import { useRoute } from 'vue-router'
 import { useData } from '../composables/useData'
-import { buildAbsoluteAppUrl } from '../utils'
+import { buildAbsoluteAppUrl, scopeFromVoteId } from '../utils'
 import VoteBar from '../components/VoteBar.vue'
 import ResultBadge from '../components/ResultBadge.vue'
 
 const route = useRoute()
-const { votaciones, votResults, loading, error, votIdById, loadVotosForLeg, currentScopeId, setScope, ambitos } = useData()
+const { votaciones, votResults, loading, error, votIdById, currentScopeId, setScope, ambitos } = useData()
 
 const isEmbed = computed(() => route.query.embed === 'true')
 const targetScope = computed(() => {
   const fromParams = typeof route.params.scope === 'string' ? route.params.scope : ''
   const fromQuery = typeof route.query.scope === 'string' ? route.query.scope : ''
   const candidate = (fromParams || fromQuery || '').trim().toLowerCase()
-  return candidate || null
+  return candidate || scopeFromVoteId(route.params.id)
 })
 
 const votIdx = computed(() => {
@@ -24,12 +24,6 @@ const votIdx = computed(() => {
 
 const v = computed(() => votIdx.value !== undefined ? votaciones.value[votIdx.value] : null)
 const res = computed(() => votIdx.value !== undefined ? votResults.value[votIdx.value] : null)
-
-watch(v, (newV) => {
-  if (newV && newV.legislatura) {
-    loadVotosForLeg(newV.legislatura)
-  }
-}, { immediate: true })
 
 function applyScopeFromRoute(scope) {
   if (!scope) return

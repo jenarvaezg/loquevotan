@@ -68,7 +68,10 @@ onMounted(() => {
       <div class="methodology-section">
         <h2>4. Definición de "Rebeldía"</h2>
         <p>
-          En este proyecto, un diputado se considera <strong>Rebelde</strong> cuando su voto individual (Sí, No, Abstención) difiere de la mayoría absoluta de los votos emitidos por los miembros de su propio grupo parlamentario en esa misma votación. No se cuenta como rebeldía la ausencia o la no emisión de voto.
+          En este proyecto, un diputado se considera <strong>Rebelde</strong> cuando su voto individual (Sí, No, Abstención) difiere de la opción que obtuvo la mayoría absoluta de los votos emitidos por los miembros de su propio grupo parlamentario en esa misma votación. No se cuenta como rebeldía la ausencia o la no emisión de voto.
+        </p>
+        <p>
+          Si ninguna opción alcanza la mayoría absoluta dentro del grupo, esa votación no se tiene en cuenta. Tampoco se calcula la lealtad de los miembros del <strong>Grupo Mixto</strong>, del Grupo Plural ni de los diputados no adscritos, porque reúnen a formaciones distintas y no existe una disciplina de grupo común. La <strong>lealtad</strong> es el porcentaje de votos computables en los que el diputado coincidió con su grupo.
         </p>
       </div>
 

@@ -65,7 +65,9 @@ const filtered = computed(() => {
   } else if (sort === 'active') {
     result.sort((a, b) => dipStats.value[b].total - dipStats.value[a].total)
   } else if (sort === 'loyalty-low') {
-    result.sort((a, b) => dipStats.value[a].loyalty - dipStats.value[b].loyalty)
+    // Deputies without a measurable group line (Mixto...) go last.
+    const loyaltyKey = (i) => dipStats.value[i].loyalty ?? Infinity
+    result.sort((a, b) => loyaltyKey(a) - loyaltyKey(b))
   }
 
   return result
