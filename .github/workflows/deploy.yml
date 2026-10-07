@@ -16,11 +16,15 @@ concurrency:
 jobs:
   deploy:
     # Deploy only after CI has passed on main (or via manual dispatch).
+    # head_branch alone also matches a PR from a fork's "main" branch, so the
+    # run must come from this repository and not from a pull request.
     if: >
       (github.event_name == 'workflow_dispatch') ||
       (github.event_name == 'workflow_run' &&
        github.event.workflow_run.conclusion == 'success' &&
-       github.event.workflow_run.head_branch == 'main')
+       github.event.workflow_run.head_branch == 'main' &&
+       github.event.workflow_run.head_repository.full_name == github.repository &&
+       (github.event.workflow_run.event == 'push' || github.event.workflow_run.event == 'workflow_dispatch'))
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

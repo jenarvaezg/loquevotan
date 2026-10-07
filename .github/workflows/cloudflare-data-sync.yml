@@ -86,5 +86,12 @@ jobs:
             exit 0
           fi
 
-          npx wrangler d1 execute "${CLOUDFLARE_D1_DATABASE_NAME}" --remote --file cloudflare/d1/schema.sql
+          SCHEMA_FILE="cloudflare/d1/schema.sql"
+          if [ -n "${SYNC_SCOPES:-}" ]; then
+            # schema.sql drops every table; a scoped seed only re-inserts its
+            # own scopes, so keep the other scopes' rows.
+            SCHEMA_FILE="${RUNNER_TEMP}/schema-no-drop.sql"
+            grep -v '^DROP TABLE' cloudflare/d1/schema.sql > "${SCHEMA_FILE}"
+          fi
+          npx wrangler d1 execute "${CLOUDFLARE_D1_DATABASE_NAME}" --remote --file "${SCHEMA_FILE}"
           npx wrangler d1 execute "${CLOUDFLARE_D1_DATABASE_NAME}" --remote --file /tmp/loquevotan-d1-seed.sql
