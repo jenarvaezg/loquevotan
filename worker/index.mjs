@@ -1298,6 +1298,14 @@ function renderDiputadoOgImage({
 </svg>`;
 }
 
+// National provinces are per legislature ({"XIV": "Madrid", "XV": "Segovia"}):
+// expose the most recent one, as D1 does.
+function latestProvince(value) {
+  if (!value || typeof value !== "object") return value || null;
+  const legs = Object.keys(value).sort((a, b) => (LEG_TO_NUM[b] || 0) - (LEG_TO_NUM[a] || 0));
+  return legs.length ? value[legs[0]] || null : null;
+}
+
 function diputadoPhotoUrl(fotoEntry, siteUrl) {
   if (!fotoEntry) return null;
 
@@ -1917,7 +1925,7 @@ async function handleApiDiputadoByNameFromAssets(request, env, scopeId, diputado
       loyalty: Number.isFinite(stats?.loyalty) ? Number(stats.loyalty) : null,
     },
     foto: meta?.dipFotos?.[dipIdx] || null,
-    provincia: meta?.dipProvincias?.[dipIdx] || null,
+    provincia: latestProvince(meta?.dipProvincias?.[dipIdx]),
   };
   return jsonResponse({ source: "assets", item });
 }
