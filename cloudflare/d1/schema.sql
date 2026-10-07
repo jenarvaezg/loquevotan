@@ -40,6 +40,8 @@ CREATE TABLE IF NOT EXISTS votaciones (
   contra INTEGER,
   abstencion INTEGER,
   total INTEGER,
+  -- lowercase, accent-free title/proponent/id: SQLite's lower() is ASCII-only
+  search_text TEXT,
   ingested_at TEXT NOT NULL DEFAULT (datetime('now')),
   PRIMARY KEY (scope_id, id)
 );

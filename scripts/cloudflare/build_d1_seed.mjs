@@ -16,12 +16,23 @@ function normalizeSearchToken(value) {
     .replace(/[\u0300-\u036f]/g, "");
 }
 
+// Regional metadata uses dd/mm/yyyy; D1 sorts and filters dates as text.
+function toIsoDate(value) {
+  const text = String(value || "").trim();
+  const match = text.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+  if (!match) return text || null;
+  const [, day, month, year] = match;
+  return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
+}
+
 function toSqlString(value) {
   if (value === null || value === undefined) return "NULL";
   return `'${String(value).replaceAll("'", "''")}'`;
 }
 
 function toSqlNumber(value) {
+  // Number(null) is 0: keep missing values as NULL (e.g. loyalty of Mixto members).
+  if (value === null || value === undefined || value === "") return "NULL";
   const n = Number(value);
   return Number.isFinite(n) ? String(n) : "NULL";
 }
@@ -170,7 +181,7 @@ async function main() {
         toSqlNumber(i),
         toSqlString(vote.id || ""),
         toSqlString(vote.legislatura || null),
-        toSqlString(vote.fecha || null),
+        toSqlString(toIsoDate(vote.fecha)),
         toSqlString(vote.titulo_ciudadano || ""),
         toSqlNumber(categoriaIdx),
         toSqlString(categoriaLabel),
@@ -183,6 +194,7 @@ async function main() {
         toSqlNumber(result.contra),
         toSqlNumber(result.abstencion),
         toSqlNumber(result.total),
+        toSqlString(normalizeSearchToken(`${vote.titulo_ciudadano || ""} ${vote.proponente || ""} ${vote.id || ""}`)),
       ]);
     }
 
@@ -249,6 +261,7 @@ async function main() {
       "contra",
       "abstencion",
       "total",
+      "search_text",
     ],
     voteRows
   );
