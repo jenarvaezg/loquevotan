@@ -2,7 +2,7 @@
 
 import fs from "node:fs/promises";
 import path from "node:path";
-import { TABLES, diffTable, renderDeletes, renderUpserts, sqlLiteral } from "./d1_diff.mjs";
+import { TABLES, diffTable, renderDeletes, renderUpdates, renderUpserts, sqlLiteral } from "./d1_diff.mjs";
 
 const ROOT = process.cwd();
 const DATA_DIR = path.join(ROOT, "public", "data");
@@ -240,12 +240,18 @@ async function main() {
     // Only rows that changed; nothing is dropped or re-inserted wholesale.
     for (const table of TABLES) {
       const existing = await readExistingRows(diffDir, table.name);
-      const { upserts, deletes } = diffTable(table, desired[table.name], existing, scopeIds, {
+      const { inserts, updates, deletes } = diffTable(table, desired[table.name], existing, scopeIds, {
         pruneOtherScopes: !scopedMode,
       });
-      statements.push(...renderDeletes(table, deletes), ...renderUpserts(table, upserts, D1_SQL_BATCH_SIZE));
-      rowsToWrite += upserts.length + deletes.length;
-      console.log(`[cf-d1-seed] ${table.name}: ${upserts.length} altas/cambios, ${deletes.length} bajas`);
+      statements.push(
+        ...renderDeletes(table, deletes),
+        ...renderUpdates(table, updates),
+        ...renderUpserts(table, inserts, D1_SQL_BATCH_SIZE)
+      );
+      rowsToWrite += inserts.length + updates.length + deletes.length;
+      console.log(
+        `[cf-d1-seed] ${table.name}: ${inserts.length} altas, ${updates.length} cambios, ${deletes.length} bajas`
+      );
     }
   } else {
     for (const scopeId of scopedMode ? scopeIds : []) {

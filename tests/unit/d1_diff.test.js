@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { TABLES, diffTable, renderUpserts, renderDeletes, sqlLiteral } from '../../scripts/cloudflare/d1_diff.mjs';
+import { TABLES, diffTable, renderUpserts, renderUpdates, renderDeletes, sqlLiteral } from '../../scripts/cloudflare/d1_diff.mjs';
 
 const groups = TABLES.find((t) => t.name === 'groups');
 
@@ -8,17 +8,22 @@ const row = (scope_id, group_idx, group_name) => ({ scope_id, group_idx, group_n
 describe('d1_diff', () => {
   it('writes nothing when D1 already has the same rows', () => {
     const rows = [row('nacional', 0, 'GP'), row('nacional', 1, 'GS')];
-    const { upserts, deletes } = diffTable(groups, rows, rows.map((r) => ({ ...r })), ['nacional']);
-    expect(upserts).toEqual([]);
+    const { inserts, updates, deletes } = diffTable(groups, rows, rows.map((r) => ({ ...r })), ['nacional']);
+    expect(inserts).toEqual([]);
+    expect(updates).toEqual([]);
     expect(deletes).toEqual([]);
   });
 
-  it('upserts new and changed rows and deletes rows that disappeared', () => {
+  it('inserts new rows, updates only changed columns and deletes rows that disappeared', () => {
     const existing = [row('nacional', 0, 'GP'), row('nacional', 1, 'GS'), row('nacional', 2, 'GCs')];
     const desired = [row('nacional', 0, 'GP'), row('nacional', 1, 'GSOC'), row('nacional', 3, 'GSUMAR')];
-    const { upserts, deletes } = diffTable(groups, desired, existing, ['nacional']);
-    expect(upserts).toEqual([row('nacional', 1, 'GSOC'), row('nacional', 3, 'GSUMAR')]);
+    const { inserts, updates, deletes } = diffTable(groups, desired, existing, ['nacional']);
+    expect(inserts).toEqual([row('nacional', 3, 'GSUMAR')]);
+    expect(updates).toEqual([{ row: row('nacional', 1, 'GSOC'), columns: ['group_name'] }]);
     expect(deletes).toEqual([row('nacional', 2, 'GCs')]);
+    expect(renderUpdates(groups, updates)).toEqual([
+      "UPDATE groups SET group_name = 'GSOC' WHERE scope_id = 'nacional' AND group_idx = 1;",
+    ]);
   });
 
   it('leaves other scopes alone in a scoped sync and prunes them in a full one', () => {
@@ -35,7 +40,7 @@ describe('d1_diff', () => {
     const base = Object.fromEntries(diputados.columns.map((c) => [c, null]));
     const desired = [{ ...base, scope_id: 'nacional', dip_idx: 0, loyalty: undefined }];
     const existing = [{ ...base, scope_id: 'nacional', dip_idx: 0 }];
-    expect(diffTable(diputados, desired, existing, ['nacional']).upserts).toEqual([]);
+    expect(diffTable(diputados, desired, existing, ['nacional']).updates).toEqual([]);
   });
 
   it('renders upserts and deletes as SQL', () => {

@@ -79,8 +79,8 @@ function rowKey(table, row) {
   return JSON.stringify(table.key.map((column) => normalize(row[column])));
 }
 
-function sameRow(table, a, b) {
-  return table.columns.every((column) => normalize(a[column]) === normalize(b[column]));
+function changedColumns(table, current, desired) {
+  return table.columns.filter((column) => normalize(current[column]) !== normalize(desired[column]));
 }
 
 /**
@@ -94,13 +94,21 @@ export function diffTable(table, desiredRows, existingRows, syncedScopes, { prun
   const scopes = new Set(syncedScopes);
   const existingByKey = new Map(existingRows.map((row) => [rowKey(table, row), row]));
   const desiredKeys = new Set();
-  const upserts = [];
+  const inserts = [];
+  // Only the columns that changed: SQLite rewrites every index whose columns
+  // appear in SET, and D1 bills each index entry as a written row.
+  const updates = [];
 
   for (const row of desiredRows) {
     const key = rowKey(table, row);
     desiredKeys.add(key);
     const current = existingByKey.get(key);
-    if (!current || !sameRow(table, current, row)) upserts.push(row);
+    if (!current) {
+      inserts.push(row);
+      continue;
+    }
+    const columns = changedColumns(table, current, row);
+    if (columns.length) updates.push({ row, columns });
   }
 
   const deletes = existingRows.filter((row) => {
@@ -108,7 +116,7 @@ export function diffTable(table, desiredRows, existingRows, syncedScopes, { prun
     return scopes.has(row.scope_id) || pruneOtherScopes;
   });
 
-  return { upserts, deletes };
+  return { inserts, updates, deletes };
 }
 
 export function renderUpserts(table, rows, batchSize = 25) {
@@ -130,9 +138,17 @@ export function renderUpserts(table, rows, batchSize = 25) {
   return statements;
 }
 
-export function renderDeletes(table, rows) {
-  return rows.map((row) => {
-    const where = table.key.map((column) => `${column} = ${sqlLiteral(row[column])}`).join(" AND ");
-    return `DELETE FROM ${table.name} WHERE ${where};`;
+function keyWhere(table, row) {
+  return table.key.map((column) => `${column} = ${sqlLiteral(row[column])}`).join(" AND ");
+}
+
+export function renderUpdates(table, updates) {
+  return updates.map(({ row, columns }) => {
+    const set = columns.map((column) => `${column} = ${sqlLiteral(row[column])}`).join(", ");
+    return `UPDATE ${table.name} SET ${set} WHERE ${keyWhere(table, row)};`;
   });
+}
+
+export function renderDeletes(table, rows) {
+  return rows.map((row) => `DELETE FROM ${table.name} WHERE ${keyWhere(table, row)};`);
 }
