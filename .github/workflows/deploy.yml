@@ -8,6 +8,11 @@ on:
 
 permissions:
   contents: read
+  actions: write
+
+env:
+  # Pinned: npx would otherwise fetch whatever is latest on every run.
+  WRANGLER: wrangler@4.86.0
 
 concurrency:
   group: cloudflare-deploy
@@ -27,26 +32,51 @@ jobs:
        (github.event.workflow_run.event == 'push' || github.event.workflow_run.event == 'workflow_dispatch'))
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           ref: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.sha }}
 
-      - uses: actions/setup-node@v4
+      # A slower, older CI run can finish after a newer one: don't let it
+      # overwrite a newer deploy with stale code/data.
+      - name: Skip if main has moved on
+        id: freshness
+        if: github.event_name == 'workflow_run'
+        run: |
+          git fetch --quiet origin main
+          if [ "$(git rev-parse origin/main)" != "${{ github.event.workflow_run.head_sha }}" ]; then
+            echo "::notice::main is ahead of ${{ github.event.workflow_run.head_sha }}; a newer run will deploy."
+            echo "stale=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/setup-node@v7
+        if: steps.freshness.outputs.stale != 'true'
         with:
-          node-version: "20"
+          node-version: "24"
           cache: npm
 
       - run: npm ci
+        if: steps.freshness.outputs.stale != 'true'
 
       - run: npm run build
+        if: steps.freshness.outputs.stale != 'true'
 
       # Cloudflare Workers assets have a per-file limit of 25 MiB.
       # Split oversized votos_*.json files in dist/data before deploy.
       - run: npm run cf:prepare-assets
-      
+        if: steps.freshness.outputs.stale != 'true'
+
       - name: Deploy to Cloudflare
+        if: steps.freshness.outputs.stale != 'true'
         # Requires GitHub Actions secrets: CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID
-        run: npx wrangler deploy --config wrangler.toml
+        run: npx --yes "${WRANGLER}" deploy --config wrangler.toml
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+      # The API (D1) must serve the same data as the static assets just
+      # deployed, so it's synced after every successful deploy.
+      - name: Sync D1 with the deployed data
+        if: steps.freshness.outputs.stale != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run cloudflare-data-sync.yml --ref main

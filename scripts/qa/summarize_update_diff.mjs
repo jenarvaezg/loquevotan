@@ -172,6 +172,13 @@ async function main() {
 
   process.stdout.write(output)
 
+  // Votes are never deleted upstream: removals mean incomplete inputs.
+  for (const row of rows) {
+    if (row.scope !== '**TOTAL**' && row.removedVotes > 0) {
+      process.stdout.write(`::warning title=Votaciones eliminadas::${row.scope}: ${row.removedVotes} votaciones desaparecen respecto a HEAD.\n`)
+    }
+  }
+
   if (summaryPath) {
     await fs.appendFile(summaryPath, `${output}\n`, 'utf8')
   }

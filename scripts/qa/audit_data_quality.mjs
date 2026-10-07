@@ -187,6 +187,8 @@ async function auditScope(scope) {
   const tupleNominalByVote = new Map()
   const tupleAnyByVote = new Map()
   let detailMissingEntries = 0
+  // Tuples pointing at votes that don't exist in the metadata (out-of-sync files).
+  let outOfRangeTuples = 0
   let groupMajorityUnknown = 0
   let groupMajorityTotal = 0
 
@@ -199,6 +201,10 @@ async function auditScope(scope) {
       if (!Array.isArray(tuple) || tuple.length < 4) continue
       const voteIdx = Number(tuple[0])
       const code = Number(tuple[3])
+      if (!Number.isInteger(voteIdx) || voteIdx < 0 || voteIdx >= votes.length) {
+        outOfRangeTuples += 1
+        continue
+      }
       tupleAnyByVote.set(voteIdx, (tupleAnyByVote.get(voteIdx) || 0) + 1)
       if ([1, 2, 3].includes(code)) {
         tupleNominalByVote.set(voteIdx, (tupleNominalByVote.get(voteIdx) || 0) + 1)
@@ -338,6 +344,7 @@ async function auditScope(scope) {
       votesWithNominal: { count: [...tupleNominalByVote.keys()].length, percent: toPercent([...tupleNominalByVote.keys()].length, votes.length) },
       votesWithAnyTuples: { count: [...tupleAnyByVote.keys()].length, percent: toPercent([...tupleAnyByVote.keys()].length, votes.length) },
       votesWithoutNominalDetail: { count: votesWithoutNominalDetail, percent: toPercent(votesWithoutNominalDetail, votes.length) },
+      outOfRangeTuples: { count: outOfRangeTuples },
       unknownGroupsMeta: { count: unknownGroupsMeta, total: groups.length, percent: toPercent(unknownGroupsMeta, groups.length) },
       unknownGroupsGroupMajority: {
         count: groupMajorityUnknown,
