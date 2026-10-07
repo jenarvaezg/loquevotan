@@ -71,3 +71,19 @@ Usa este checklist como runbook completo para integrar un nuevo ámbito autonóm
   - [ ] detalle de votación y afinidad por grupos,
   - [ ] quiz básico/avanzado y compass.
 - [ ] Documentar en PR: fuentes, supuestos, gaps de datos y pasos de regeneración.
+
+# Nueva legislatura (tras elecciones)
+
+- **Nacional**: automático. `scripts/scraper.py` descubre las legislaturas desde congreso.es y `transform.py` sincroniza `ambitos.json`. Solo hay que revisar las fechas de `LEGISLATURAS` en `scripts/transform.py` y `src/utils.js`, y los grupos del quiz.
+- **CCAA**: añadir la legislatura en todos estos sitios y cambiar la activa de `--active-only`:
+  - `scripts/<scope_id>/scrape_sessions.py` y `scrape_diputados.py` (`DEFAULT_LEGISLATURAS`),
+  - `run_update.py` (`target_legs`),
+  - el parser (`LEG_ID_TO_ROMAN` o equivalente),
+  - `transform.py` (`LEGISLATURAS` / mapas de id → romano).
+- Comprobar en local con `python3 scripts/<scope_id>/run_update.py --active-only` que no baja el número de votaciones de las legislaturas anteriores. `node scripts/qa/guard_shrink.mjs` lo detecta, y el workflow semanal descarta un ámbito que pierda votaciones.
+
+# Invariantes del pipeline de datos
+
+- Las votaciones nunca se borran en origen: si un ámbito publica menos votaciones que `HEAD`, faltan entradas (caché de raw perdida, descarga parcial). El transform nacional aborta (`--allow-shrink` para forzarlo) y `guard_shrink.mjs` protege a las CCAA.
+- `data/raw` y los raw regionales solo viven en la caché de Actions y en R2. El scraper nacional se autorrepara comparando `data/state/national/dates_<LEG>.json` con los ficheros en disco.
+- Los push del bot (`GITHUB_TOKEN`) no disparan workflows: `update-data.yml` lanza `ci.yml` y, tras el deploy, `deploy.yml` sincroniza D1.
