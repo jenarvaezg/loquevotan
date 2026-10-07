@@ -9,10 +9,11 @@ import ShareBar from '../components/ShareBar.vue'
 import Pagination from '../components/Pagination.vue'
 import AccountabilityCard from '../components/AccountabilityCard.vue'
 import GlossaryTooltip from '../components/GlossaryTooltip.vue'
+import ViewState from '../components/ViewState.vue'
 
 const route = useRoute()
 const router = useRouter()
-const { diputados, grupos, dipStats, dipFotos, votos, votaciones, votResults, votosByDiputado, categorias, loadVotosForLeg, votosLoaded, votsByExp, globalDiputados, ambitos, currentScopeId, setScope, votacionDetail } = useData()
+const { diputados, grupos, dipStats, dipFotos, votos, votaciones, votResults, votosByDiputado, categorias, loadVotosForLeg, votosLoaded, votsByExp, globalDiputados, ambitos, currentScopeId, setScope, votacionDetail, loaded } = useData()
 
 const dipIdx = computed(() => diputados.value.indexOf(decodeURIComponent(route.params.name)))
 const name = computed(() => diputados.value[dipIdx.value])
@@ -95,12 +96,14 @@ watch(histLeg, (leg) => {
   if (leg) loadVotosForLeg(leg)
 })
 
-// Background-load remaining legislaturas after the first one is ready
-watch(votosReady, (ready) => {
-  if (ready && ds.value?.legislaturas?.length > 1) {
-    ds.value.legislaturas.slice(1).forEach(leg => loadVotosForLeg(leg))
+// Background-load remaining legislaturas after the first one is ready.
+// Also runs on mount and on deputy change: the first legislatura may already
+// be loaded, in which case votosReady never transitions.
+watch([ds, votosReady], ([stats, ready]) => {
+  if (ready && stats?.legislaturas?.length > 1) {
+    stats.legislaturas.slice(1).forEach(leg => loadVotosForLeg(leg))
   }
-})
+}, { immediate: true })
 
 // Monthly activity sparkline
 const monthlyActivity = computed(() => {
@@ -108,11 +111,12 @@ const monthlyActivity = computed(() => {
   const indices = votosByDiputado.value[dipIdx.value] || []
   const months = {}
   for (let j = 0; j < indices.length; j++) {
+    const code = votos.value[indices[j]][3]
+    if (code === 4) continue // "No vota" is absence, not a cast vote
     const votIdx = votos.value[indices[j]][0]
     const fecha = votaciones.value[votIdx].fecha
     const month = fecha.slice(0, 7) // YYYY-MM
     if (!months[month]) months[month] = { month, favor: 0, contra: 0, abst: 0, total: 0 }
-    const code = votos.value[indices[j]][3]
     if (code === 1) months[month].favor++
     else if (code === 2) months[month].contra++
     else months[month].abst++
@@ -138,6 +142,7 @@ const catBreakdown = computed(() => {
     const v = votos.value[indices[j]]
     const votIdx = v[0]
     const code = v[3]
+    if (code === 4) continue // "No vota" is absence, not a cast vote
     const cat = votaciones.value[votIdx].categoria
     if (!result[cat]) result[cat] = { 1: 0, 2: 0, 3: 0, total: 0 }
     result[cat][code]++
@@ -700,6 +705,21 @@ watch(name, (n) => {
         :dip-idx="dipIdx"
         :tag="accTag"
         @close="closeAccCard"
+      />
+    </div>
+  </section>
+
+  <ViewState v-else-if="!loaded" type="loading" />
+
+  <section v-else>
+    <div class="container" style="padding-top:3rem">
+      <ViewState
+        type="empty"
+        icon="&#128100;"
+        title="Diputado no encontrado"
+        message="No hay ningún diputado con ese nombre en este ámbito."
+        action-label="Ver diputados"
+        action-to="/diputados"
       />
     </div>
   </section>

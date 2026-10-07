@@ -1,17 +1,28 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useData } from '../composables/useData'
-import { LEGISLATURAS, affinityColor, getGroupInfo, sanitizeGroupName, isMeaningfulGroupName } from '../utils'
+import { romanToInt, affinityColor, getGroupInfo, sanitizeGroupName, isMeaningfulGroupName } from '../utils'
 import ViewState from '../components/ViewState.vue'
 
 const { grupos, groupAffinityByLeg, loaded } = useData()
 
-const legFilter = ref('XV')
+// Legislatures with affinity data in the current scope, most recent first.
+const legOptions = computed(() =>
+  Object.keys(groupAffinityByLeg.value || {})
+    .filter(Boolean)
+    .sort((a, b) => romanToInt(b) - romanToInt(a))
+)
+// Defaults to the most recent legislature until the user picks one.
+const userLeg = ref(null)
+const legFilter = computed({
+  get: () => userLeg.value ?? (legOptions.value[0] || ''),
+  set: (value) => { userLeg.value = value },
+})
 const mobileGroup = ref('')
 
 const affinityData = computed(() => {
   const leg = legFilter.value
-  const aff = groupAffinityByLeg.value[leg] || groupAffinityByLeg.value[''] || {}
+  const aff = groupAffinityByLeg.value[leg] || {}
 
   const groupTotals = {}
   const allGroups = new Set()
@@ -92,7 +103,7 @@ function cellData(ga, gb) {
           <label for="grupos-leg-select">Legislatura</label>
           <select id="grupos-leg-select" v-model="legFilter" class="filter-select">
             <option value="">Todas las legislaturas</option>
-            <option v-for="l in LEGISLATURAS" :key="l.id" :value="l.id">{{ l.nombre }}</option>
+            <option v-for="l in legOptions" :key="l" :value="l">{{ l }} Legislatura</option>
           </select>
         </div>
       </div>

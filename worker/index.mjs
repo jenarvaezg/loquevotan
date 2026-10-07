@@ -5,7 +5,7 @@ const BRAND_TITLE = "LoQueVotan.es";
 const JSON_CACHE_TTL_MS = 5 * 60 * 1000;
 const API_CACHE_TTL_SECONDS = 120;
 const API_MAX_PAGE_SIZE = 100;
-const LEG_TO_NUM = { X: 10, XI: 11, XII: 12, XIII: 13, XIV: 14, XV: 15 };
+const LEG_TO_NUM = { X: 10, XI: 11, XII: 12, XIII: 13, XIV: 14, XV: 15, XVI: 16, XVII: 17 };
 const OG_CANVAS = { width: 1200, height: 630 };
 const OG_COLORS = {
   bgA: "#0b1220",
@@ -375,6 +375,15 @@ async function encodeRgbaToPng(width, height, rgbaBuffer) {
 
 function stripTrailingSlash(value) {
   return value.endsWith("/") ? value.slice(0, -1) : value;
+}
+
+// JS string literal safe to embed inside an inline <script>. HTML entities are
+// not decoded there, so escapeHtml() would leak "&amp;" into the value.
+function jsStringLiteral(value) {
+  return JSON.stringify(String(value ?? ""))
+    .replace(/</g, "\\u003c")
+    .replace(/\u2028/g, "\\u2028")
+    .replace(/\u2029/g, "\\u2029");
 }
 
 function escapeHtml(value) {
@@ -1292,7 +1301,6 @@ function renderOgPage({
   const escapedImageType = escapeHtml(imageType);
   const escapedImageAlt = escapeHtml(imageAlt);
   const escapedRedirect = escapeHtml(redirectUrl);
-  const escapedScope = escapeHtml(scopeId);
   const escapedSourceUrl = escapeHtml(sourceUrl);
   const escapedSourceLabel = escapeHtml(sourceLabel);
   const escapedSourceRef = escapeHtml(sourceRef);
@@ -1337,8 +1345,8 @@ function renderOgPage({
   <meta name="twitter:image" content="${escapedImage}">
   <meta name="twitter:image:alt" content="${escapedImageAlt}">
   <script>
-    try { localStorage.setItem("preferredScope", "${escapedScope}"); } catch (e) {}
-    window.location.replace("${escapedRedirect}");
+    try { localStorage.setItem("preferredScope", ${jsStringLiteral(scopeId)}); } catch (e) {}
+    window.location.replace(${jsStringLiteral(redirectUrl)});
   </script>
 </head>
 <body>

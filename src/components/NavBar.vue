@@ -23,12 +23,16 @@ const currentScopeWipLabel = computed(() => {
 const lastUpdate = computed(() => {
   if (!manifest.value?.updatedAt) return null
   try {
-    const date = new Date(manifest.value.updatedAt)
+    // Pipelines emit UTC; older manifests have no offset (same rule as Home).
+    const raw = manifest.value.updatedAt
+    const hasTimezone = /(?:[zZ]|[+-]\d{2}:?\d{2})$/.test(raw)
+    const date = new Date(hasTimezone ? raw : `${raw}Z`)
     return new Intl.DateTimeFormat('es-ES', {
       day: 'numeric',
       month: 'short',
       hour: '2-digit',
-      minute: '2-digit'
+      minute: '2-digit',
+      timeZone: 'Europe/Madrid',
     }).format(date)
   } catch (e) {
     return null
