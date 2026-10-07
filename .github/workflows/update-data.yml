@@ -357,8 +357,15 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: gh workflow run ci.yml --ref main
 
+      # asambleamadrid.es blocks GitHub-hosted runners (WAF), so Madrid fails on
+      # every run: report it without turning the whole job red. Its published
+      # data is kept (the scope is flagged as WIP on the site).
+      - name: Warn if Madrid could not be updated
+        if: always() && steps.madrid.outcome == 'failure'
+        run: echo "::warning title=Madrid::No se pudo actualizar Madrid (el WAF de asambleamadrid.es bloquea los runners de GitHub); se mantienen los datos publicados."
+
       - name: Fail if a regional update failed or was discarded
-        if: always() && (steps.andalucia.outcome == 'failure' || steps.cyl.outcome == 'failure' || steps.madrid.outcome == 'failure' || steps.shrink-guard.outputs.shrunk_scopes != '')
+        if: always() && (steps.andalucia.outcome == 'failure' || steps.cyl.outcome == 'failure' || steps.shrink-guard.outputs.shrunk_scopes != '')
         run: |
-          echo "::error::Actualizaciones regionales: andalucia=${{ steps.andalucia.outcome }} cyl=${{ steps.cyl.outcome }} madrid=${{ steps.madrid.outcome }}; descartadas por perder votos: '${{ steps.shrink-guard.outputs.shrunk_scopes }}'"
+          echo "::error::Actualizaciones regionales: andalucia=${{ steps.andalucia.outcome }} cyl=${{ steps.cyl.outcome }}; descartadas por perder votos: '${{ steps.shrink-guard.outputs.shrunk_scopes }}'"
           exit 1
