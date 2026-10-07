@@ -1,10 +1,9 @@
 <script setup>
 import { computed, ref } from 'vue'
 import { useData } from '../composables/useData'
-import { pct, dipPhotoUrl, avatarInitials, avatarStyle, getGroupInfo } from '../utils'
+import { pct, dipPhotoUrl, avatarInitials, avatarStyle, getGroupInfo, isNonPartisanGroup } from '../utils'
 
 const { diputados, grupos, dipStats, dipFotos, currentScopeId, loading } = useData()
-const NON_PARTISAN_GROUPS = new Set(['No Adscrito', 'Sin grupo', 'Desconocido', 'Unknown'])
 const isCyLScope = computed(() => currentScopeId.value === 'cyl')
 
 const rankings = computed(() => {
@@ -44,7 +43,7 @@ const rankings = computed(() => {
       grupo: gInfo.label,
       grupoColor: gInfo.color,
       loyalty: ds.loyalty,
-      desmarques: Math.max(0, Math.round((1 - ds.loyalty) * ds.total)),
+      desmarques: ds.loyalty == null ? 0 : Math.max(0, Math.round((1 - ds.loyalty) * ds.total)),
       absentismo: ds.no_vota / allPossibleVotes,
       photo: dipPhotoUrl(dipFotos.value[i]),
       total: ds.total,
@@ -53,7 +52,7 @@ const rankings = computed(() => {
   }
 
   const rebels = [...data]
-    .filter((d) => !NON_PARTISAN_GROUPS.has(d.grupoRaw))
+    .filter((d) => d.loyalty != null && !isNonPartisanGroup(d.grupoRaw))
     .filter((d) => !isCyLScope.value || d.desmarques > 0)
     .sort((a, b) => {
       if (isCyLScope.value) {

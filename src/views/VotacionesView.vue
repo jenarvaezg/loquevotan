@@ -1,8 +1,8 @@
 <script setup>
-import { ref, computed, watch, onMounted } from 'vue'
+import { ref, computed, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useData } from '../composables/useData'
-import { fmt, debounce, normalize, matchSearch, LEGISLATURAS, VOTES_PER_PAGE } from '../utils'
+import { fmt, debounce, normalize, matchSearch, LEGISLATURAS, VOTES_PER_PAGE, subTipoLabel } from '../utils'
 import VoteCard from '../components/VoteCard.vue'
 import Pagination from '../components/Pagination.vue'
 import FilterBar from '../components/FilterBar.vue'
@@ -47,8 +47,9 @@ const allTipos = computed(() => {
   return Array.from(set).sort()
 })
 
-// URL Sync
-onMounted(() => {
+// URL Sync. Runs synchronously during setup (not onMounted) so the immediate
+// watchers below already see the filters coming from the URL.
+function initFiltersFromQuery() {
   if (route.query.q) search.value = route.query.q
   if (route.query.cat) catFilter.value = route.query.cat
   if (route.query.res) resultFilter.value = route.query.res
@@ -63,7 +64,8 @@ onMounted(() => {
   if (!route.query.leg && currentScopeLegs.value.length > 0 && !selectedTags.value.length) {
     legFilter.value = currentScopeLegs.value[0]
   }
-})
+}
+initFiltersFromQuery()
 
 watch([search, catFilter, resultFilter, proponenteFilter, tipoFilter, legFilter, sortMode, page, selectedTags], () => {
   const query = {}
@@ -232,7 +234,7 @@ function goToPage(p) {
           <label for="vot-tipo-select">Tipo</label>
           <select id="vot-tipo-select" v-model="tipoFilter" class="filter-select" data-testid="vot-filter-tipo" @change="page = 1">
             <option value="">Todos</option>
-            <option v-for="t in allTipos" :key="t" :value="t">{{ fmt(t) }}</option>
+            <option v-for="t in allTipos" :key="t" :value="t">{{ subTipoLabel(t) }}</option>
           </select>
         </div>
         <div class="filter-group">

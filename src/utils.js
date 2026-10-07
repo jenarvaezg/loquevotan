@@ -68,6 +68,38 @@ export const DIPS_PER_PAGE = 30;
 
 export const HIDDEN_TAGS = new Set(["nacional", "cyl", "andalucia", "madrid", "catalunya"]);
 
+const VOTE_ID_SCOPE_PREFIXES = { AND: "andalucia", CYL: "cyl", MAD: "madrid", CAT: "catalunya" };
+
+/** Scope a vote ID belongs to: regional IDs are prefixed, national ones are "XV-164-1". */
+export function scopeFromVoteId(id) {
+  const value = String(id || "").trim();
+  const prefix = value.split("-")[0].toUpperCase();
+  if (VOTE_ID_SCOPE_PREFIXES[prefix]) return VOTE_ID_SCOPE_PREFIXES[prefix];
+  if (/^[IVXLC]+-\d+-\d+$/i.test(value)) return "nacional";
+  return null;
+}
+
+/** Copy text; resolves to false when the clipboard is unavailable or denied. */
+export async function copyText(text) {
+  try {
+    await navigator.clipboard.writeText(text);
+    return true;
+  } catch {
+    // Fallback for insecure contexts / denied permission.
+    try {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      const ok = document.execCommand("copy");
+      document.body.removeChild(ta);
+      return ok;
+    } catch {
+      return false;
+    }
+  }
+}
+
 export function displayTags(tags) {
   if (!Array.isArray(tags)) return [];
   return tags.filter(t => !HIDDEN_TAGS.has((t || '').toLowerCase()));
@@ -102,7 +134,29 @@ export function matchSearch(query, target) {
 }
 
 export function pct(n) {
+  if (n === null || n === undefined || Number.isNaN(n)) return "—";
   return (n * 100).toFixed(1) + "%";
+}
+
+// Groups that gather several parties (or none): there's no "group line", so
+// loyalty and rebellion aren't measured against them.
+const NON_PARTISAN_GROUP_RE = /mixto|^gmx$|plural|^gplu$|no adscrit|sin grupo|desconocido|unknown/i;
+
+export function isNonPartisanGroup(name) {
+  return NON_PARTISAN_GROUP_RE.test(String(name || ""));
+}
+
+/**
+ * Group position from vote counts {1: favor, 2: contra, 3: abstención}: the
+ * option with an absolute majority of the votes cast, or null if none.
+ * Same rule as group_majority in the data pipeline.
+ */
+export function majorityPosition(counts) {
+  const cast = (counts[1] || 0) + (counts[2] || 0) + (counts[3] || 0);
+  for (const code of [1, 2, 3]) {
+    if ((counts[code] || 0) * 2 > cast) return code;
+  }
+  return null;
 }
 
 export function debounce(fn, ms) {

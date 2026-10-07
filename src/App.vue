@@ -1,10 +1,21 @@
 <script setup>
 import { computed } from 'vue'
+import { useRoute } from 'vue-router'
 import NavBar from './components/NavBar.vue'
 import ErrorBanner from './components/ErrorBanner.vue'
 import { useData } from './composables/useData'
 
-const { error, loadData, retryLoad, ambitos, currentScopeId } = useData()
+const { error, loadData, retryLoad, ambitos, currentScopeId, votosFailed, retryFailedVotos } = useData()
+const route = useRoute()
+
+// Embedded widgets render only the card, without the site chrome.
+const isEmbed = computed(() => route.query.embed === 'true' && String(route.path).startsWith('/widget'))
+
+const votosErrorMessage = computed(() => {
+  const legs = [...votosFailed.value]
+  if (!legs.length) return ''
+  return `No se pudieron cargar las votaciones de la legislatura ${legs.join(', ')}. Comprueba tu conexión.`
+})
 
 const currentScope = computed(() => {
   return ambitos.value.find((a) => a.id === currentScopeId.value) || null
@@ -19,11 +30,12 @@ loadData()
 </script>
 
 <template>
-  <a href="#main-content" class="skip-link">Saltar al contenido</a>
-  <NavBar />
+  <a v-if="!isEmbed" href="#main-content" class="skip-link">Saltar al contenido</a>
+  <NavBar v-if="!isEmbed" />
 
   <ErrorBanner v-if="error" :message="error" @retry="retryLoad" />
-  <section v-if="scopeWipLabel" class="wip-banner" role="status" aria-live="polite">
+  <ErrorBanner v-else-if="votosErrorMessage" :message="votosErrorMessage" @retry="retryFailedVotos" />
+  <section v-if="scopeWipLabel && !isEmbed" class="wip-banner" role="status" aria-live="polite">
     <div class="container wip-banner__content">
       <strong>⚠ Datos provisionales:</strong>
       <span>{{ currentScope?.nombre }} está en proceso de actualización. {{ scopeWipLabel }}.</span>
@@ -34,7 +46,7 @@ loadData()
     <router-view />
   </main>
 
-  <footer class="site-footer">
+  <footer v-if="!isEmbed" class="site-footer">
     <div class="container footer-content">
       <p>
         Datos oficiales del

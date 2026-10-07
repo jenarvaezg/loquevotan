@@ -50,7 +50,12 @@ const visibleTopTags = computed(() =>
   )
 )
 
+// Home fetches the small manifest itself so it can render before the full
+// metadata arrives. Only the latest request (scope switches) may apply.
+let manifestRequest = 0
+
 async function loadManifest() {
+  const request = ++manifestRequest
   manifest.value = null
   manifestError.value = ''
   manifestLoading.value = true
@@ -59,12 +64,14 @@ async function loadManifest() {
     const manifestUrl = `${import.meta.env.BASE_URL}data/${scopePath}manifest_home.json`
     const manifestResp = await fetch(manifestUrl)
     if (!manifestResp.ok) throw new Error(`HTTP ${manifestResp.status}`)
-    manifest.value = await manifestResp.json()
+    const data = await manifestResp.json()
+    if (request === manifestRequest) manifest.value = data
   } catch (e) {
+    if (request !== manifestRequest) return
     console.error('Error loading manifest:', e)
     manifestError.value = 'No se pudo cargar el resumen inicial para este ámbito.'
   } finally {
-    manifestLoading.value = false
+    if (request === manifestRequest) manifestLoading.value = false
   }
 }
 

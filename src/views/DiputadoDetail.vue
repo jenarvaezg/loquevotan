@@ -2,7 +2,7 @@
 import { computed, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useData } from '../composables/useData'
-import { fmt, pct, debounce, normalize, matchSearch, dipPhotoUrl, avatarInitials, avatarStyle, VOTO_LABELS, VOTES_PER_PAGE, LEGISLATURAS, subTipoLabel, subTipoBadgeClass, votoPillClass, getGroupInfo, buildAbsoluteAppUrl, displayTags } from '../utils'
+import { fmt, pct, debounce, normalize, matchSearch, dipPhotoUrl, avatarInitials, avatarStyle, VOTO_LABELS, VOTES_PER_PAGE, LEGISLATURAS, isNonPartisanGroup, subTipoLabel, subTipoBadgeClass, votoPillClass, getGroupInfo, buildAbsoluteAppUrl, displayTags } from '../utils'
 import VoteBar from '../components/VoteBar.vue'
 import ResultBadge from '../components/ResultBadge.vue'
 import ShareBar from '../components/ShareBar.vue'
@@ -61,6 +61,20 @@ const showAccCard = ref(false)
 const accTag = ref('')
 const groupByExp = ref(true)
 const expandedExps = ref({})
+
+// The component is reused when navigating between deputies: start clean.
+// Registered before the ?tag= watcher so a tag in the new URL still applies.
+watch(() => route.params.name, (newName, oldName) => {
+  if (oldName === undefined || newName === oldName) return
+  histSearch.value = ''
+  histVoto.value = ''
+  histLeg.value = ''
+  histPage.value = 1
+  activeTag.value = ''
+  showAccCard.value = false
+  accTag.value = ''
+  expandedExps.value = {}
+})
 
 const baseUrl = import.meta.env.BASE_URL
 
@@ -288,6 +302,7 @@ function isRebel(votIdx, code, grpIdx) {
   const detail = votacionDetail.value[votIdx]
   if (!detail || !detail.group_majority) return false
   const groupName = grupos.value[grpIdx]
+  if (isNonPartisanGroup(groupName)) return false
   const maj = detail.group_majority[groupName]
   // maj is 1 (favor), 2 (contra), 3 (abstencion)
   return maj && maj !== code && code !== 4 // 4 is no_vota
@@ -321,7 +336,7 @@ watch(name, (n) => {
           <div class="detail-meta" style="margin-top:0.5rem">
             <router-link :to="{ path: '/diputados', query: { grupo: rawGroupName } }" class="badge" :style="{ backgroundColor: groupInfo.color, color: 'white' }">{{ groupInfo.label }}</router-link>
             <span class="detail-meta-item">{{ ds.total }} votaciones</span>
-            <span class="detail-meta-item">Lealtad al grupo: {{ pct(ds.loyalty) }}</span>
+            <span v-if="ds.loyalty != null" class="detail-meta-item">Lealtad al grupo: {{ pct(ds.loyalty) }}</span>
             <span v-for="l in ds.legislaturas" :key="l" class="badge badge--leg">{{ l }}</span>
           </div>
           

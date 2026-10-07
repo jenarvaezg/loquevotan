@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref, onMounted, onUnmounted } from 'vue'
+import { computed, ref, watch, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useData } from '../composables/useData'
 import { debounce, normalize, getGroupInfo, matchSearch } from '../utils'
@@ -9,7 +9,7 @@ const props = defineProps({
 })
 
 const router = useRouter()
-const { diputados, grupos, dipStats, votaciones, sortedVotIdxByDate } = useData()
+const { diputados, grupos, dipStats, votaciones, sortedVotIdxByDate, loaded } = useData()
 
 const query = ref('')
 const showDropdown = ref(false)
@@ -18,6 +18,7 @@ const dipMatches = ref([])
 const votMatches = ref([])
 const wrapRef = ref(null)
 const noResults = computed(() =>
+  loaded.value &&
   query.value.trim().length >= 2 &&
   dipMatches.value.length === 0 &&
   votMatches.value.length === 0
@@ -55,6 +56,11 @@ const doSearch = debounce((q) => {
 function onInput() {
   doSearch(query.value.trim())
 }
+
+// A query typed before the data arrived is searched again once it's loaded.
+watch(loaded, (isLoaded) => {
+  if (isLoaded && query.value.trim().length >= 2) doSearch(query.value.trim())
+})
 
 function onKeydown(e) {
   if (!showDropdown.value) return

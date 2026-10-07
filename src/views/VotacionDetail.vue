@@ -2,7 +2,7 @@
 import { computed, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useData } from '../composables/useData'
-import { fmt, normalize, matchSearch, VOTO_LABELS, resultMarginText, subTipoLabel, subTipoBadgeClass, votoPillClass, getGroupInfo, buildAbsoluteAppUrl } from '../utils'
+import { fmt, normalize, matchSearch, VOTO_LABELS, resultMarginText, scopeFromVoteId, copyText, subTipoLabel, subTipoBadgeClass, votoPillClass, getGroupInfo, buildAbsoluteAppUrl } from '../utils'
 import VoteBar from '../components/VoteBar.vue'
 import ResultBadge from '../components/ResultBadge.vue'
 import ShareBar from '../components/ShareBar.vue'
@@ -26,6 +26,14 @@ const highlightedGroup = ref('')
 const showEmbed = ref(false)
 const copiedEmbed = ref(false)
 
+// The component is reused when navigating between votes: start clean.
+// Registered before the ?dip= watcher so a deputy in the new URL still applies.
+watch(() => route.params.id, (newId, oldId) => {
+  if (oldId === undefined || newId === oldId) return
+  dipSearch.value = ''
+  showEmbed.value = false
+})
+
 const embedCode = computed(() => {
   if (!vot.value) return ''
   const scopeId = encodeURIComponent(currentScopeId.value || 'nacional')
@@ -39,8 +47,8 @@ function toggleEmbed() {
   showEmbed.value = !showEmbed.value
 }
 
-function copyEmbed() {
-  navigator.clipboard.writeText(embedCode.value)
+async function copyEmbed() {
+  if (!(await copyText(embedCode.value))) return
   copiedEmbed.value = true
   setTimeout(() => {
     copiedEmbed.value = false
@@ -87,8 +95,9 @@ function applyScopeFromQuery(scope) {
   setScope(target)
 }
 
-watch([() => route.query.scope, () => ambitos.value.length], ([scope]) => {
-  applyScopeFromQuery(scope)
+// Links without ?scope= still open in the right scope: IDs carry it.
+watch([() => route.query.scope, () => route.params.id, () => ambitos.value.length], ([scope, id]) => {
+  applyScopeFromQuery(typeof scope === 'string' && scope ? scope : scopeFromVoteId(id))
 }, { immediate: true })
 
 // Group breakdown
@@ -281,19 +290,19 @@ const shareText = computed(() => {
 })
 
 const copiedVi = ref(null)
-function copyVoteLink(vi) {
+async function copyVoteLink(vi) {
   const dipName = diputados.value[votos.value[vi][1]]
   const voteToken = voteTokenFromCode(votos.value[vi][3])
   const scope = encodeURIComponent(currentScopeId.value || 'nacional')
   const voteId = encodeURIComponent(vot.value.id)
   const url = buildAbsoluteAppUrl(`share/votacion/${scope}/${voteId}?dip=${encodeURIComponent(dipName)}&vote=${encodeURIComponent(voteToken)}`)
-  navigator.clipboard.writeText(url)
+  if (!(await copyText(url))) return
   copiedVi.value = vi
   setTimeout(() => { if (copiedVi.value === vi) copiedVi.value = null }, 2000)
 }
 
 const copiedGroup = ref(null)
-function copyGroupLink(gIdx) {
+async function copyGroupLink(gIdx) {
   const groupName = grupos.value[gIdx]
   const groupVoteCode = groupMajorityCode(gIdx)
   const groupVoteToken = groupVoteCode != null ? voteTokenFromCode(groupVoteCode) : ''
@@ -303,7 +312,7 @@ function copyGroupLink(gIdx) {
   if (groupVoteToken) {
     url += `&groupVote=${encodeURIComponent(groupVoteToken)}`
   }
-  navigator.clipboard.writeText(url)
+  if (!(await copyText(url))) return
   copiedGroup.value = gIdx
   setTimeout(() => { if (copiedGroup.value === gIdx) copiedGroup.value = null }, 2000)
 }
@@ -451,7 +460,7 @@ watch(vot, (v) => {
           <p>{{ vot.metadatos.nota }}</p>
         </div>
 
-        <p v-if="vot.subgrupo" class="detail-subgrupo">{{ vot.subgrupo }}</p>
+        <p v-if="vot.subgrupo_detalle" class="detail-subgrupo">{{ vot.subgrupo_detalle }}</p>
         <div class="detail-meta" style="margin-top:0.75rem">
           <ResultBadge :result="r.result" large />
           <span class="result-margin">{{ resultMarginText(r) }}</span>
@@ -677,7 +686,18 @@ watch(vot, (v) => {
       </div>
     </div>
   </section>
-  <ViewState v-else-if="notFound" type="404" />
+  <section v-else-if="notFound">
+    <div class="container" style="padding-top:3rem">
+      <ViewState
+        type="empty"
+        icon="&#128269;"
+        title="Votación no encontrada"
+        message="No hay ninguna votación con ese identificador en este ámbito."
+        action-label="Ver votaciones"
+        action-to="/votaciones"
+      />
+    </div>
+  </section>
   <ViewState v-else type="loading" />
 </template>
 

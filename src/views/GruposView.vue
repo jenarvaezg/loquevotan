@@ -135,10 +135,10 @@ function cellData(ga, gb) {
                   v-for="gb in affinityData.validGroups"
                   :key="gb"
                   class="affinity-cell"
-                  :class="{ 'affinity-cell--self': ga === gb, 'affinity-cell--link': ga !== gb }"
+                  :class="{ 'affinity-cell--self': ga === gb, 'affinity-cell--link': ga !== gb && legFilter }"
                   :style="{ background: cellData(ga, gb).bg, color: cellData(ga, gb).color }"
                   :title="cellData(ga, gb).title || cellData(ga, gb).pctStr"
-                  @click="ga !== gb && $router.push({ path: '/afinidad', query: { ga: grupos[ga], gb: grupos[gb], leg: legFilter } })"
+                  @click="ga !== gb && legFilter && $router.push({ path: '/afinidad', query: { ga: grupos[ga], gb: grupos[gb], leg: legFilter } })"
                 >
                   {{ cellData(ga, gb).pctStr }}
                 </td>
