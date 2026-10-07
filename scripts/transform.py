@@ -13,6 +13,7 @@ import argparse
 import glob
 import json
 import os
+import re
 import sys
 from datetime import datetime, timezone
 
@@ -38,6 +39,10 @@ VOTE_MAP = {
 }
 UNKNOWN_GROUP_TOKENS = {"", "unknown", "desconocido", "null", "none", "n/a", "na"}
 ASENTIMIENTO_VALUES = {"sí", "si"}
+# Groups that gather several parties (or none): a "group line" doesn't exist,
+# so loyalty/rebellion isn't measured against them. GPlu = Grupo Plural (XIV:
+# JxCat, Más País, Compromís, BNG).
+NON_PARTISAN_GROUP_RE = re.compile(r"mixto|^gmx$|plural|^gplu$|no adscrit", re.IGNORECASE)
 FALLBACK_TITLE = ai_utils._fallback_categorization()["titulo_ciudadano"]
 
 LEGISLATURAS = [
@@ -52,6 +57,13 @@ LEGISLATURAS = [
     {"id": "XVI", "desde": "2026-12-23", "hasta": "2099-12-31"},
 ]
 ROMAN_VALUES = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100}
+HERO_EXAMPLES = [
+    ["subir_pensiones", "¿Quién votó subir las pensiones?"],
+    ["facilitar_acceso_vivienda", "Acceso a la vivienda"],
+    ["combatir_cambio_climatico", "Cambio climático"],
+    ["reformar_codigo_penal", "Reforma penal"],
+    ["proteger_sanidad_publica", "Sanidad pública"],
+]
 
 
 def roman_to_int(roman):
@@ -72,17 +84,30 @@ def get_leg(fecha):
     return ""
 
 
+# (substring, type) checked in order; types match SUB_TIPO_LABELS in src/utils.js.
+SUBGRUPO_RULES = [
+    ("totalidad", "totalidad"),
+    ("transaccional", "transaccional"),
+    ("voto particular", "particular"),
+    ("votos particulares", "particular"),
+    ("propuesta", "propuesta"),
+    ("conjunto", "final"),
+    ("texto d", "final"),  # "Texto del dictamen", "Texto de la sección"
+    ("separada", "separada"),
+    ("enmienda", "enmienda"),
+]
+# Types worth a badge/filter in the vote lists ("otro" isn't).
+LISTED_SUBTIPOS = {t for _, t in SUBGRUPO_RULES}
+
+
 def classify_subgrupo(titulo_subgrupo):
     """Classify a tituloSubGrupo into a short type label."""
     if not titulo_subgrupo:
         return ""
     tl = titulo_subgrupo.lower()
-    if "texto d" in tl or "conjunto" in tl:
-        return "final"
-    if "enmienda" in tl:
-        return "enmienda"
-    if "sección" in tl or "presupuest" in tl:
-        return "presupuestos"
+    for needle, tipo in SUBGRUPO_RULES:
+        if needle in tl:
+            return tipo
     return "otro"
 
 
@@ -190,18 +215,21 @@ def vote_result(favor, contra, asentimiento=False):
 
 
 def group_majorities(by_group):
-    """Majority position per group, ignoring groups where nobody voted."""
+    """Position of each group: the option backed by an absolute majority of the
+    votes its members cast. Groups without one (split, or nobody voted) are left
+    out, so they count neither for affinity nor for loyalty."""
     gm = {}
     for g_name, c in by_group.items():
-        if c[1] + c[2] + c[3] == 0:
-            continue
-        if c[1] >= c[2] and c[1] >= c[3]:
-            gm[g_name] = 1
-        elif c[2] >= c[3]:
-            gm[g_name] = 2
-        else:
-            gm[g_name] = 3
+        cast = c[1] + c[2] + c[3]
+        for code in (1, 2, 3):
+            if c[code] * 2 > cast:
+                gm[g_name] = code
+                break
     return gm
+
+
+def is_non_partisan_group(group_name):
+    return bool(NON_PARTISAN_GROUP_RE.search(group_name or ""))
 
 
 def is_fallback_override(override):
@@ -262,7 +290,7 @@ def load_existing_overrides():
         detail = previous_detail_by_leg.get(leg, {}).get(str(idx))
         if isinstance(detail, dict) and not is_fallback_override(override):
             detail_override = {}
-            for field in ("resumen", "subgrupo", "subgrupo_detalle"):
+            for field in ("resumen",):
                 value = detail.get(field)
                 if isinstance(value, str) and value.strip():
                     detail_override[field] = value.strip()
@@ -479,8 +507,8 @@ def main():
             etiquetas.append("nacional")
         resumen = preserved_detail.get("resumen", cat_data.get("resumen_sencillo", ""))
         proponente = preserved_meta.get("proponente", cat_data.get("proponente", ""))
-        subgrupo = preserved_detail.get("subgrupo", classify_subgrupo(item["subgrupo_titulo"]))
-        subgrupo_detalle = preserved_detail.get("subgrupo_detalle", item["subgrupo_titulo"])
+        subgrupo = classify_subgrupo(item["subgrupo_titulo"])
+        subgrupo_detalle = item["subgrupo_titulo"]
 
         if leg not in votos_by_leg:
             votos_by_leg[leg] = []
@@ -488,6 +516,7 @@ def main():
 
         vot_idx = len(vot_meta_list)
         counts, entries, asentimiento = tally_votes(data)
+        vot_meta_extra = {"subTipo": subgrupo} if subgrupo in LISTED_SUBTIPOS else {}
         by_group = {}
 
         for dip_id, raw_group, code in entries:
@@ -529,6 +558,7 @@ def main():
             "categoria": cat_to_idx.get(categoria, cat_to_idx["Otros"]),
             "etiquetas": etiquetas,
             "proponente": proponente,
+            **vot_meta_extra,
         })
 
         vot_result = {
@@ -564,7 +594,7 @@ def main():
     grupo_to_idx = {g: i for i, g in enumerate(sorted_grupos)}
 
     # Per-deputy stats in a single pass over all votes.
-    blank_stats = {"favor": 0, "contra": 0, "abstencion": 0, "no_vota": 0, "total": 0, "loyal": 0}
+    blank_stats = {"favor": 0, "contra": 0, "abstencion": 0, "no_vota": 0, "total": 0, "loyal": 0, "loyal_total": 0}
     stats_by_dip = {d_id: dict(blank_stats, legs=set()) for d_id in sorted_dips}
     code_field = {1: "favor", 2: "contra", 3: "abstencion", 4: "no_vota"}
     for leg, v_list in votos_by_leg.items():
@@ -575,8 +605,11 @@ def main():
             if code in (1, 2, 3):
                 stats["total"] += 1
                 stats["legs"].add(leg)
-                if details[vot_idx]["group_majority"].get(grupo) == code:
-                    stats["loyal"] += 1
+                group_position = details[vot_idx]["group_majority"].get(grupo)
+                if group_position and not is_non_partisan_group(grupo):
+                    stats["loyal_total"] += 1
+                    if group_position == code:
+                        stats["loyal"] += 1
 
     dip_stats = []
     for d_id in sorted_dips:
@@ -588,7 +621,8 @@ def main():
             "no_vota": stats["no_vota"],
             "total": stats["total"],
             "mainGrupo": grupo_to_idx[unique_diputados[d_id]["grupo"]],
-            "loyalty": round(stats["loyal"] / stats["total"], 4) if stats["total"] > 0 else 0,
+            # None when there's no group line to measure against (Mixto, etc.).
+            "loyalty": round(stats["loyal"] / stats["loyal_total"], 4) if stats["loyal_total"] > 0 else None,
             # Most recent first: the frontend loads legislaturas[0] eagerly.
             "legislaturas": sorted(stats["legs"], key=roman_to_int, reverse=True),
         })
@@ -653,7 +687,7 @@ def main():
             "fecha": v_meta["fecha"],
             "categoria": VALID_CAT_LIST[v_meta["categoria"]],
             "etiquetas": v_meta["etiquetas"],
-            "subTipo": vot_detail_by_leg[v_meta["legislatura"]][idx].get("subgrupo", ""),
+            "subTipo": v_meta.get("subTipo", ""),
             "proponente": v_res.get("proponente", ""),
             "result": v_res["result"],
             "favor": v_res["favor"],
@@ -683,13 +717,8 @@ def main():
             "votos": sum(len(v) for v in votos_by_leg.values()),
         },
         "topTags": sorted(tag_counts.items(), key=lambda x: x[1], reverse=True)[:20],
-        "heroExamples": [
-            ["subir_pensiones", "Quien voto subir pensiones?"],
-            ["facilitar_acceso_vivienda", "Acceso a vivienda"],
-            ["combatir_cambio_climatico", "Cambio climatico"],
-            ["reformar_codigo_penal", "Reforma penal"],
-            ["proteger_sanidad_publica", "Sanidad publica"],
-        ],
+        # Only chips that lead to a non-empty list.
+        "heroExamples": [ex for ex in HERO_EXAMPLES if tag_counts.get(ex[0])],
         "latestVotes": [get_manifest_vote(i) for i in latest_indices],
         "tightVotes": [get_manifest_vote(i) for i in tight_indices],
         "featuredVotes": [get_manifest_vote(i) for i in featured_indices],

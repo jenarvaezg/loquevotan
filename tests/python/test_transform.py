@@ -52,6 +52,30 @@ class PureFunctionsTest(unittest.TestCase):
         gm = transform.group_majorities({"GP": {1: 3, 2: 0, 3: 0, 4: 1}, "GV": {1: 0, 2: 0, 3: 0, 4: 5}})
         self.assertEqual(gm, {"GP": 1})
 
+    def test_group_without_absolute_majority_has_no_position(self):
+        gm = transform.group_majorities({"GMx": {1: 4, 2: 4, 3: 0, 4: 0}, "GS": {1: 0, 2: 3, 3: 2, 4: 0}})
+        self.assertEqual(gm, {"GS": 2})
+
+    def test_non_partisan_groups(self):
+        for name in ("GMx", "Grupo Mixto", "GPlu", "No Adscrito", "no adscrita"):
+            self.assertTrue(transform.is_non_partisan_group(name), name)
+        self.assertFalse(transform.is_non_partisan_group("GP"))
+
+    def test_classify_subgrupo(self):
+        cases = {
+            "": "",
+            "Votación de conjunto": "final",
+            "Texto del dictamen de la Sección 12": "final",
+            "Enmiendas a la totalidad de texto alternativo": "totalidad",
+            "Enmiendas transaccionales.": "transaccional",
+            "Votación separada por puntos": "separada",
+            "Enmiendas del Grupo Parlamentario Vasco": "enmienda",
+            "Propuestas de resolución presentadas por el Grupo Parlamentario Popular": "propuesta",
+            "GP Mixto (ERC)": "otro",
+        }
+        for title, expected in cases.items():
+            self.assertEqual(transform.classify_subgrupo(title), expected, title)
+
     def test_find_shrinkage(self):
         self.assertEqual(transform.find_shrinkage({"XIV": 10, "XV": 5}, {"XV": 7}), {"XIV": (10, 0)})
         self.assertEqual(transform.find_shrinkage({"XV": 5}, {"XV": 5, "XVI": 1}), {})
@@ -126,6 +150,18 @@ class TransformMainTest(unittest.TestCase):
         self.assertEqual(meta["grupos"][meta["dipStats"][ana]["mainGrupo"]], "GP")
         self.assertEqual(meta["dipStats"][ana]["legislaturas"], ["XV", "XIV"])
         self.assertEqual(self.read("ambitos.json")["ambitos"][0]["legislaturas"], ["XV", "XIV"])
+
+    def test_loyalty_not_measured_for_mixto(self):
+        self.write_raw(
+            "LXV_20240210_S20_V1.json",
+            raw_vote("10/2/2024", 20, 1, [("Ana", "GMx", "Sí"), ("Bea", "GMx", "No"), ("Carla", "GP", "No"), ("Dani", "GP", "No"), ("Eva", "GP", "Sí")]),
+        )
+        self.run_main()
+        meta = self.read("votaciones_meta.json")
+        loyalty = {name: meta["dipStats"][i]["loyalty"] for i, name in enumerate(meta["diputados"])}
+        self.assertIsNone(loyalty["Ana"])
+        self.assertEqual(loyalty["Carla"], 1)
+        self.assertEqual(loyalty["Eva"], 0)
 
     def test_refuses_to_publish_when_raw_is_incomplete(self):
         self.seed_two_legislatures()
