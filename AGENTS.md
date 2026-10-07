@@ -51,6 +51,7 @@ Usa este checklist como runbook completo para integrar un nuevo ámbito autonóm
 - [ ] Añadir bandera `public/assets/flags/<scope_id>.svg`.
 - [ ] Actualizar `data/featured_votes.json` (opcional pero recomendado).
 - [ ] Regenerar índice global: `python3 scripts/build_global_index.py`.
+- [ ] Regenerar los datos de la portada (hemiciclo y «Pregúntale a un partido»): `python3 scripts/build_home_extras.py`.
 
 ## 6) Quiz de alineación política
 - [ ] Crear `public/data/<scope_id>/quiz.json` (básico).

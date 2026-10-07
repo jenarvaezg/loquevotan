@@ -118,6 +118,33 @@ export function fmt(s) {
   return (s || "").replace(/_/g, " ");
 }
 
+const MONTHS = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+
+// Dates come as ISO (national) or D/M/YYYY (regional scopes).
+export function parseFecha(fecha) {
+  const text = String(fecha || "").trim();
+  const m = text.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/) || text.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+  if (!m) return null;
+  const [y, mo, d] = text.includes("-") ? [m[1], m[2], m[3]] : [m[3], m[2], m[1]];
+  return { y: Number(y), m: Number(mo), d: Number(d) };
+}
+
+/** "26 de febrero de 2026" (long) or "26 feb 2026" (short). */
+export function formatFecha(fecha, style = "long") {
+  const p = parseFecha(fecha);
+  if (!p) return String(fecha || "");
+  const month = MONTHS[p.m - 1];
+  return style === "short" ? `${p.d} ${month.slice(0, 3)} ${p.y}` : `${p.d} de ${month} de ${p.y}`;
+}
+
+/** Vote titles are proposals ("Subir pensiones"), so they read as the question the vote answered. */
+export function voteQuestion(titulo) {
+  const t = String(titulo || "").trim().replace(/[.?]+$/, "").replace(/^¿/, "");
+  return t ? `¿${t}?` : "";
+}
+
+export const RESULT_ANSWER = { Aprobada: "Sí", Rechazada: "No", Empate: "Empate" };
+
 export function normalize(s) {
   if (!s) return "";
   return s

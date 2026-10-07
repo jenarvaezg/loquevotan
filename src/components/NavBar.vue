@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import HeroSearch from './HeroSearch.vue'
 import { useData, storageGet, storageSet } from '../composables/useData'
@@ -10,6 +10,20 @@ const menuOpen = ref(false)
 const isDark = ref(false)
 const scopeMenuOpen = ref(false)
 const baseUrl = import.meta.env.BASE_URL
+
+const LINKS = [
+  { to: '/votaciones', label: 'Votaciones' },
+  { to: '/diputados', label: 'Diputados' },
+  { to: '/grupos', label: 'Partidos' },
+  { to: '/rankings', label: 'Rankings' },
+  { to: '/quiz', label: 'Test de afinidad' },
+]
+
+// Brand mark: two rows of seats, a tiny hemicycle.
+const MARK = [
+  ...Array.from({ length: 9 }, (_, i) => ({ r: 1, a: Math.PI - (i * Math.PI) / 8 })),
+  ...Array.from({ length: 5 }, (_, i) => ({ r: 0.5, a: Math.PI - (i * Math.PI) / 4 })),
+].map(({ r, a }) => ({ x: r * Math.cos(a), y: -r * Math.sin(a) }))
 
 const currentScope = computed(() => {
   return ambitos.value.find(a => a.id === currentScopeId.value) || ambitos.value[0]
@@ -56,14 +70,8 @@ function toggleTheme() {
   isDark.value = next === 'dark'
 }
 
-const themeIcon = computed(() => isDark.value ? '\u2600\uFE0F' : '\uD83C\uDF19')
-
-function closeMenu() {
-  menuOpen.value = false
-}
-
-function toggleScopeMenu() {
-  scopeMenuOpen.value = !scopeMenuOpen.value
+function isActive(to) {
+  return route.path === to || route.path.startsWith(`${to}/`)
 }
 
 function selectScope(id) {
@@ -76,6 +84,8 @@ function closeScopeMenu(e) {
     scopeMenuOpen.value = false
   }
 }
+
+watch(() => route.fullPath, () => { menuOpen.value = false })
 
 onMounted(() => {
   document.addEventListener('click', closeScopeMenu)
@@ -91,101 +101,93 @@ initTheme()
 <template>
   <nav class="nav-bar" aria-label="Navegación principal">
     <div class="nav-inner">
-      <div class="nav-left">
-        <router-link to="/" class="nav-brand" @click="closeMenu">Lo Que Votan</router-link>
-        
-        <div class="scope-dropdown" v-if="ambitos.length > 1">
-          <button class="scope-btn" @click="toggleScopeMenu" :aria-expanded="scopeMenuOpen">
-            <img :src="`${baseUrl}assets/flags/${currentScope?.id || 'nacional'}.svg`" class="scope-flag" :alt="currentScope?.nombre" />
-            <div class="scope-info">
-              <div class="scope-label-row">
-                <span class="scope-label">{{ currentScope?.nombre || 'Cargando...' }}</span>
-                <span v-if="currentScope?.wip" class="scope-wip-badge">WIP</span>
-              </div>
-              <span v-if="currentScopeWipLabel" class="scope-wip-text">{{ currentScopeWipLabel }}</span>
-              <span v-if="lastUpdate" class="last-update">Act: {{ lastUpdate }}</span>
-            </div>
-            <span class="scope-chevron">&#9662;</span>
+      <router-link to="/" class="nav-brand">
+        <svg viewBox="-1.1 -1.1 2.2 1.2" aria-hidden="true">
+          <circle v-for="(p, i) in MARK" :key="i" :cx="p.x" :cy="p.y" r="0.17" />
+        </svg>
+        Lo Que Votan
+      </router-link>
+
+      <ul id="nav-links" class="nav-links" :class="{ open: menuOpen }">
+        <li v-for="link in LINKS" :key="link.to">
+          <router-link :to="link.to" :class="{ active: isActive(link.to) }" :aria-current="isActive(link.to) ? 'page' : undefined">
+            {{ link.label }}
+          </router-link>
+        </li>
+        <li class="nav-search">
+          <HeroSearch />
+        </li>
+      </ul>
+
+      <div class="nav-tools">
+        <div v-if="ambitos.length > 1" class="scope-dropdown">
+          <button
+            type="button"
+            class="scope-btn"
+            :aria-expanded="scopeMenuOpen"
+            aria-haspopup="true"
+            :aria-label="`Parlamento: ${currentScope?.nombre || 'cargando'}. Cambiar`"
+            @click="scopeMenuOpen = !scopeMenuOpen"
+          >
+            <img :src="`${baseUrl}assets/flags/${currentScope?.id || 'nacional'}.svg`" class="scope-flag" alt="" />
+            <span class="scope-info">
+              <span class="scope-label">
+                {{ currentScope?.nombre || 'Cargando…' }}
+                <span v-if="currentScope?.wip" class="scope-wip-badge">En revisión</span>
+              </span>
+              <span v-if="currentScopeWipLabel" class="scope-sub">{{ currentScopeWipLabel }}</span>
+              <span v-else-if="lastUpdate" class="scope-sub">Actualizado el {{ lastUpdate }}</span>
+            </span>
+            <svg class="scope-chevron" viewBox="0 0 10 6" aria-hidden="true"><path d="M0 0l5 6 5-6z" /></svg>
           </button>
-          
+
           <div class="scope-menu" :class="{ 'scope-menu--open': scopeMenuOpen }">
-            <button 
-              v-for="a in ambitos" 
-              :key="a.id" 
+            <button
+              v-for="a in ambitos"
+              :key="a.id"
+              type="button"
               class="scope-menu-item"
               :class="{ active: a.id === currentScopeId }"
+              :aria-current="a.id === currentScopeId ? 'true' : undefined"
               @click="selectScope(a.id)"
             >
-              <img :src="`${baseUrl}assets/flags/${a.id}.svg`" class="scope-flag" :alt="a.nombre" />
+              <img :src="`${baseUrl}assets/flags/${a.id}.svg`" class="scope-flag" alt="" />
               {{ a.nombre }}
-              <span class="scope-menu-wip-badge" v-if="a.wip">WIP</span>
-              <span class="scope-check" v-if="a.id === currentScopeId">&#10003;</span>
+              <span v-if="a.wip" class="scope-wip-badge">En revisión</span>
             </button>
           </div>
         </div>
+
+        <button
+          type="button"
+          class="icon-btn"
+          :aria-label="isDark ? 'Usar tema claro' : 'Usar tema oscuro'"
+          :title="isDark ? 'Usar tema claro' : 'Usar tema oscuro'"
+          @click="toggleTheme"
+        >
+          <svg v-if="isDark" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4.5" />
+            <path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" />
+          </svg>
+          <svg v-else viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" />
+          </svg>
+        </button>
+
+        <button
+          type="button"
+          class="icon-btn nav-hamburger"
+          :aria-expanded="menuOpen"
+          aria-controls="nav-links"
+          aria-label="Menú"
+          @click="menuOpen = !menuOpen"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path v-if="menuOpen" d="M6 6l12 12M18 6L6 18" />
+            <path v-else d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+        </button>
       </div>
-      <button class="nav-hamburger" aria-label="Menu" @click="menuOpen = !menuOpen">
-        &#9776;
-      </button>
-      <ul class="nav-links" :class="{ open: menuOpen }">
-        <li>
-          <router-link
-            to="/quiz"
-            :class="{ active: route.path === '/quiz' }"
-            @click="closeMenu"
-            class="quiz-nav-link"
-          >
-            🔥 Test Afinidad
-          </router-link>
-        </li>
-        <li>
-          <router-link
-            to="/votaciones"
-            :class="{ active: route.path === '/votaciones' }"
-            @click="closeMenu"
-          >
-            Votaciones
-          </router-link>
-        </li>
-        <li>
-          <router-link
-            to="/diputados"
-            :class="{ active: route.path === '/diputados' }"
-            @click="closeMenu"
-          >
-            Diputados
-          </router-link>
-        </li>
-        <li>
-          <router-link
-            to="/rankings"
-            :class="{ active: route.path === '/rankings' }"
-            @click="closeMenu"
-          >
-            Rankings
-          </router-link>
-        </li>
-        <li>
-          <router-link
-            to="/grupos"
-            :class="{ active: route.path === '/grupos' }"
-            @click="closeMenu"
-          >
-            Partidos
-          </router-link>
-        </li>
-      </ul>
-      <div v-if="route.path !== '/'" class="nav-search">
-        <HeroSearch />
-      </div>
-      <button
-        class="theme-toggle"
-        aria-label="Cambiar tema"
-        title="Cambiar tema"
-        @click="toggleTheme"
-      >
-        {{ themeIcon }}
-      </button>
     </div>
   </nav>
 </template>
@@ -198,325 +200,158 @@ initTheme()
   height: var(--nav-height);
   background: var(--color-surface);
   border-bottom: 1px solid var(--color-border);
-  backdrop-filter: blur(8px);
-  background: rgba(255,255,255,0.85);
-}
-
-[data-theme="dark"] .nav-bar {
-  background: rgba(30,41,59,0.85);
 }
 
 .nav-inner {
   max-width: var(--container-max);
+  height: 100%;
   margin: 0 auto;
   padding: 0 1.25rem;
-  height: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.nav-left {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.scope-dropdown {
-  position: relative;
-}
-
-.scope-btn {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  background: var(--color-surface-muted);
-  border: 1px solid var(--color-border);
-  border-radius: 20px;
-  padding: 0.25rem 0.6rem 0.25rem 0.4rem;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--color-text);
-  cursor: pointer;
-  outline: none;
-  transition: all 0.2s ease;
-}
-
-.scope-btn:hover {
-  border-color: var(--color-primary);
-  background: var(--color-primary-lighter);
-}
-
-.scope-icon {
-  font-size: 1.1em;
-  line-height: 1;
-}
-
-.scope-flag {
-  width: 18px;
-  height: 13px;
-  object-fit: cover;
-  border-radius: 2px;
-  box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
-  display: block;
-}
-
-.scope-label {
-  white-space: nowrap;
-  max-width: 160px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  line-height: 1.1;
-}
-
-.scope-label-row {
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-}
-
-.scope-info {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-left: 0.1rem;
-}
-
-.scope-wip-badge,
-.scope-menu-wip-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.08rem 0.38rem;
-  border-radius: 999px;
-  font-size: 0.58rem;
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  border: 1px solid rgba(194, 65, 12, 0.3);
-  background: rgba(254, 215, 170, 0.6);
-  color: #9a3412;
-}
-
-.scope-wip-text {
-  font-size: 0.62rem;
-  color: #9a3412;
-  font-weight: 600;
-  line-height: 1.1;
-}
-
-.last-update {
-  font-size: 0.65rem;
-  color: var(--color-muted);
-  font-weight: 400;
-  text-transform: none;
-  letter-spacing: 0;
-}
-
-.scope-chevron {
-  font-size: 0.7rem;
-  color: var(--color-muted);
-  margin-left: 0.2rem;
-}
-
-.scope-menu {
-  position: absolute;
-  top: calc(100% + 0.5rem);
-  left: 0;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-lg);
-  min-width: 220px;
-  padding: 0.4rem;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-5px);
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  z-index: 101;
-}
-
-.scope-menu--open {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.scope-menu-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  width: 100%;
-  padding: 0.6rem 0.8rem;
-  background: transparent;
-  border: none;
-  text-align: left;
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--color-text);
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  transition: background 0.15s;
-}
-
-.scope-menu-item:hover {
-  background: var(--color-surface-muted);
-}
-
-.scope-menu-item.active {
-  background: var(--color-primary-lighter);
-  color: var(--color-primary);
-}
-
-.scope-check {
-  margin-left: auto;
-  font-weight: 800;
-  color: var(--color-primary);
-}
-
-.scope-menu-wip-badge {
-  margin-left: auto;
-  margin-right: 0.35rem;
-}
-
-[data-theme="dark"] .scope-wip-badge,
-[data-theme="dark"] .scope-menu-wip-badge {
-  border-color: rgba(251, 146, 60, 0.4);
-  background: rgba(124, 45, 18, 0.5);
-  color: #fdba74;
-}
-
-[data-theme="dark"] .scope-wip-text {
-  color: #fdba74;
+  gap: 2rem;
 }
 
 .nav-brand {
-  font-size: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
   font-weight: 800;
+  font-stretch: 110%;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
   color: var(--color-text);
-  text-decoration: none;
-  letter-spacing: -0.02em;
   white-space: nowrap;
 }
-
-.nav-brand:hover { color: var(--color-primary); text-decoration: none; }
+.nav-brand:hover { color: var(--color-text); text-decoration: none; }
+.nav-brand svg { width: 30px; fill: currentColor; }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: 1.4rem;
+  flex: 1;
   list-style: none;
 }
-
 .nav-links a {
-  padding: 0.5rem 0.75rem;
-  border-radius: var(--radius-sm);
-  font-size: 0.9rem;
+  color: var(--color-muted);
+  font-size: 0.95rem;
   font-weight: 500;
-  color: var(--color-text-secondary);
-  text-decoration: none;
-  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
 }
-
-.nav-links a:hover,
+.nav-links a:hover { color: var(--color-text); text-decoration: underline; text-underline-offset: 6px; }
 .nav-links a.active {
-  background: var(--color-primary-light);
-  color: var(--color-primary);
-  text-decoration: none;
+  color: var(--color-text);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
 }
 
-.quiz-nav-link {
-  color: #ea580c !important; /* Orange 600 */
-  font-weight: 700 !important;
-  background: rgba(234, 88, 12, 0.08);
-}
+.nav-search { margin-left: auto; width: min(260px, 100%); }
 
-.quiz-nav-link:hover,
-.quiz-nav-link.active {
-  background: rgba(234, 88, 12, 0.15) !important;
-  color: #c2410c !important;
-}
+.nav-tools { display: flex; align-items: center; gap: 0.5rem; }
 
-[data-theme="dark"] .quiz-nav-link {
-  color: #fb923c !important;
-}
-
-.theme-toggle {
-  background: none;
+.scope-dropdown { position: relative; }
+.scope-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0.6rem;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
-  padding: 0.4rem 0.6rem;
+  background: var(--color-surface);
+  color: var(--color-text);
+  text-align: left;
   cursor: pointer;
-  font-size: 1.1rem;
-  line-height: 1;
-  color: var(--color-text);
-  transition: border-color 0.15s;
 }
-
-.theme-toggle:hover { border-color: var(--color-border-hover); }
-
-.nav-search {
-  flex: 1;
-  max-width: 300px;
-}
-
-.nav-search :deep(.hero-search-wrap) {
-  max-width: 100%;
-  margin: 0;
-}
-
-.nav-search :deep(.hero-search) {
-  background: var(--color-bg);
-  border: 1px solid var(--color-border);
-  color: var(--color-text);
-  padding: 0.45rem 0.75rem 0.45rem 2.25rem;
-  font-size: 0.85rem;
+.scope-btn:hover { border-color: var(--color-border-hover); }
+.scope-flag { width: 18px; height: 13px; object-fit: cover; border-radius: 1px; box-shadow: 0 0 0 1px var(--color-border); flex: none; }
+.scope-info { display: flex; flex-direction: column; line-height: 1.15; }
+.scope-label { font-size: 0.85rem; font-weight: 600; white-space: nowrap; }
+.scope-sub { font-size: 0.72rem; color: var(--color-muted); white-space: nowrap; }
+.scope-chevron { width: 9px; height: 6px; fill: currentColor; flex: none; }
+.scope-wip-badge {
+  margin-left: 0.3rem;
+  padding: 0 0.35em;
+  border: 1px solid currentColor;
   border-radius: var(--radius-sm);
-}
-
-.nav-search :deep(.hero-search::placeholder) {
+  font-size: 0.65rem;
+  font-weight: 600;
   color: var(--color-muted);
 }
 
-.nav-search :deep(.hero-search:focus) {
-  border-color: var(--color-primary);
-  background: var(--color-bg);
-}
-
-.nav-search :deep(.hero-search-icon) {
-  font-size: 0.9rem;
-  left: 0.7rem;
-}
-
-.nav-hamburger {
+.scope-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 260px;
   display: none;
+  flex-direction: column;
+  padding: 0.3rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+}
+.scope-menu--open { display: flex; }
+.scope-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 0.7rem;
+  border: 0;
+  border-radius: var(--radius-sm);
   background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.4rem;
   color: var(--color-text);
-  font-size: 1.5rem;
-  line-height: 1;
+  font-size: 0.9rem;
+  text-align: left;
+  cursor: pointer;
+}
+.scope-menu-item:hover { background: var(--color-bg); }
+.scope-menu-item.active { font-weight: 700; box-shadow: inset 3px 0 0 var(--color-text); }
+
+.icon-btn {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+}
+.icon-btn:hover { border-color: var(--color-border-hover); }
+.icon-btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
+.nav-hamburger { display: none; }
+
+@media (max-width: 1100px) {
+  .nav-inner { gap: 1.25rem; }
+  .nav-links { gap: 1rem; }
+  .scope-sub { display: none; }
 }
 
-@media (max-width: 768px) {
-  .nav-search { display: none; }
-  .nav-hamburger { display: block; }
+@media (max-width: 960px) {
+  .nav-inner { padding: 0 16px; }
+  .nav-hamburger { display: grid; }
+  .nav-tools { margin-left: auto; }
+  .scope-info { display: none; }
   .nav-links {
-    display: none;
     position: absolute;
     top: var(--nav-height);
     left: 0;
     right: 0;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0.5rem 16px 1rem;
     background: var(--color-surface);
     border-bottom: 1px solid var(--color-border);
-    box-shadow: var(--shadow-md);
-    flex-direction: column;
-    padding: 0.5rem 0;
-    z-index: 99;
+    box-shadow: var(--shadow-lg);
   }
   .nav-links.open { display: flex; }
-  .nav-links a { padding: 0.75rem 1.25rem; width: 100%; }
+  .nav-links a { display: block; padding: 0.7rem 0; font-size: 1.05rem; border-bottom: 1px solid var(--color-border); }
+  .nav-search { order: -1; width: 100%; margin: 0.25rem 0 0.5rem; }
 }
 </style>

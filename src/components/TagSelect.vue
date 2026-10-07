@@ -155,7 +155,7 @@ function onBlur() {
   font-size: 0.8rem;
   font-weight: 600;
   background: var(--color-primary);
-  color: #fff;
+  color: var(--color-on-primary);
 }
 
 .tag-remove {

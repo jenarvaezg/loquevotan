@@ -215,6 +215,9 @@ jobs:
             artifacts/data-quality.json
           if-no-files-found: error
 
+      - name: Build home extras
+        run: python scripts/build_home_extras.py
+
       - name: Build global index
         run: |
           if [ -f scripts/build_global_index.py ]; then

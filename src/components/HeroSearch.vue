@@ -2,7 +2,7 @@
 import { computed, ref, watch, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useData } from '../composables/useData'
-import { debounce, normalize, getGroupInfo, matchSearch } from '../utils'
+import { debounce, normalize, getGroupInfo, matchSearch, formatFecha } from '../utils'
 
 const props = defineProps({
   showNoResults: { type: Boolean, default: false },
@@ -126,12 +126,13 @@ onUnmounted(() => document.removeEventListener('click', handleClickOutside))
 
 <template>
   <div ref="wrapRef" class="hero-search-wrap">
-    <span class="hero-search-icon">&#128269;</span>
+    <svg class="hero-search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" /><path d="M15.5 15.5L21 21" /></svg>
     <input
       v-model="query"
       type="search"
       class="hero-search"
-      placeholder="Busca diputados y votaciones..."
+      placeholder="Diputado o votación"
+      aria-label="Buscar diputados y votaciones"
       autocomplete="off"
       @input="onInput"
       @keydown="onKeydown"
@@ -165,7 +166,7 @@ onUnmounted(() => document.removeEventListener('click', handleClickOutside))
           @click.prevent="goToVot(i)"
         >
           <span>{{ votaciones[i].titulo_ciudadano }}</span>
-          <span class="ac-grupo">{{ votaciones[i].fecha }}</span>
+          <span class="ac-grupo">{{ formatFecha(votaciones[i].fecha, 'short') }}</span>
         </a>
       </template>
     </div>
@@ -174,45 +175,48 @@ onUnmounted(() => document.removeEventListener('click', handleClickOutside))
 
 <style scoped>
 .hero-search-wrap {
-  max-width: 500px;
-  margin: 0 auto;
   position: relative;
 }
 
 .hero-search {
   width: 100%;
-  padding: 0.85rem 1.25rem;
-  padding-left: 2.75rem;
-  border: 2px solid rgba(255,255,255,0.25);
-  border-radius: 50px;
-  background: rgba(255,255,255,0.15);
-  color: #fff;
-  font-size: 1rem;
+  padding: 0.45rem 0.75rem 0.45rem 2.1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: 0.9rem;
   outline: none;
-  transition: border-color 0.2s, background 0.2s;
+  transition: border-color 0.15s, background 0.15s;
 }
 
-.hero-search::placeholder { color: rgba(255,255,255,0.6); }
+.hero-search::placeholder { color: var(--color-muted); }
 .hero-search:focus {
-  border-color: rgba(255,255,255,0.5);
-  background: rgba(255,255,255,0.2);
+  border-color: var(--color-text);
+  background: var(--color-surface);
 }
 
 .hero-search-icon {
   position: absolute;
-  left: 1rem;
+  left: 0.65rem;
   top: 50%;
+  width: 15px;
+  height: 15px;
   transform: translateY(-50%);
-  font-size: 1.1rem;
-  opacity: 0.6;
+  fill: none;
+  stroke: var(--color-muted);
+  stroke-width: 2;
+  stroke-linecap: round;
   pointer-events: none;
 }
 
 .autocomplete-dropdown {
   position: absolute;
   top: calc(100% + 4px);
-  left: 0;
   right: 0;
+  width: max(100%, 400px);
+  max-width: calc(100vw - 32px);
+  border: 1px solid var(--color-border);
   background: var(--color-surface);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-lg);

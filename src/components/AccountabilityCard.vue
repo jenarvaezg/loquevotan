@@ -330,7 +330,7 @@ onUnmounted(() => document.removeEventListener('keydown', onKey))
 
 .acc-share-btn--primary {
   background: var(--color-primary);
-  color: white;
+  color: var(--color-on-primary);
   border-color: var(--color-primary);
 }
 

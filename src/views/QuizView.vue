@@ -1257,7 +1257,7 @@ function axisToBoardPercent(axisValue) {
 
 .axis-btn--active {
   background: var(--color-primary);
-  color: white;
+  color: var(--color-on-primary);
   box-shadow: 0 2px 6px rgba(37, 99, 235, 0.2);
 }
 
