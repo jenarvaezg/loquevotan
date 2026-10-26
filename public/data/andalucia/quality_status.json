@@ -1,10 +1,10 @@
 {
   "scope": "andalucia",
-  "generatedAt": "2026-10-19T12:16:23.975Z",
+  "generatedAt": "2026-10-26T12:25:07.714Z",
   "status": "ok",
   "score": 100,
   "summary": "Calidad de datos estable",
-  "votes": 4651,
+  "votes": 4658,
   "metrics": {
     "genericTitlesPct": 0,
     "unknownGroupsPct": 0,
